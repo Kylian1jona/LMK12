@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Kite">
+  <rect width="256" height="256" rx="42" fill="#eff6ff"/>
+  <g transform="translate(50 28)">
+    <path d="M92 0 156 72 84 144 20 72Z" fill="#38bdf8" stroke="#0f172a" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M92 0 84 144M20 72h136" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+    <path d="M84 144c8 20 0 34-14 44-12 8-10 20 2 28" fill="none" stroke="#0f172a" stroke-width="6" stroke-linecap="round"/>
+    <path d="M52 188 36 176M68 206 50 218" stroke="#f97316" stroke-width="7" stroke-linecap="round"/>
+    <path d="M92 0 156 72 84 72Z" fill="#facc15" opacity=".9"/>
+    <path d="M20 72h64v72Z" fill="#ef4444" opacity=".9"/>
+  </g>
+</svg>

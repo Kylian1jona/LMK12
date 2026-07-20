@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>LearnMaster K-12</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Fonts + Bootstrap -->
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="k12.css" rel="stylesheet">
+</head>
+
+<body>
+<canvas id="confettiCanvas"></canvas>
+
+<k12-auth-shell></k12-auth-shell>
+<k12-main-nav></k12-main-nav>
+
+<div class="container">
+  <k12-core-sections></k12-core-sections>
+  <k12-early-sections></k12-early-sections>
+  <k12-grade2-4-sections></k12-grade2-4-sections>
+  <k12-grade5-6-sections></k12-grade5-6-sections>
+  <k12-grade7-10-sections></k12-grade7-10-sections>
+  <k12-history-runner></k12-history-runner>
+</div>
+
+<k12-audio-assets></k12-audio-assets>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="components/supabase-config.js"></script>
+<script src="components/supabase-client.js"></script>
+<script src="components/supabase-store.js"></script>
+<script src="components/auth-shell.js"></script>
+<script src="components/main-nav.js"></script>
+<script src="components/core-sections.js"></script>
+<script src="components/early-sections.js"></script>
+<script src="components/grade2-4-sections.js"></script>
+<script src="components/grade5-6-sections.js"></script>
+<script src="components/grade7-10-sections.js"></script>
+<script src="components/history-runner.js"></script>
+<script src="components/audio-assets.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="components/k12-helpers.js"></script>
+<script src="components/k12-account.js"></script>
+<script src="components/k12-progress-ui.js"></script>
+<script src="components/k12-playground.js"></script>
+<script src="components/k12-early-games.js"></script>
+<script src="components/k12-lesson-core.js"></script>
+<script src="components/k12-generators-g2-g3.js"></script>
+<script src="components/k12-generators-g4.js"></script>
+<script src="components/k12-generators-g5-g6.js"></script>
+<script src="components/k12-generators-g7-g10.js"></script>
+<script src="components/k12-curriculum.js"></script>
+<script src="components/k12-spelling-lessons.js"></script>
+<script src="components/k12-i18n.js"></script>
+<script src="k12.js"></script>
+</body>
+</html>

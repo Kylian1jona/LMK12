@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Story Book">
+  <rect width="256" height="256" rx="42" fill="#f0fdf4"/>
+  <g transform="translate(40 48)">
+    <path d="M16 0h70c14 0 28 8 34 20 6-12 20-20 34-20h6v150h-6c-14 0-28 8-34 20-6-12-20-20-34-20H16Z" fill="#ffffff" stroke="#166534" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M120 20v150" stroke="#166534" stroke-width="6" stroke-linecap="round"/>
+    <path d="M36 34h56M36 58h46M36 82h54M148 34h42M148 58h52M148 82h44" stroke="#4ade80" stroke-width="7" stroke-linecap="round"/>
+    <path d="M50 116c18-24 48-24 66 0 18-24 48-24 66 0" fill="none" stroke="#f97316" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Puzzle Cube">
+  <rect width="256" height="256" rx="42" fill="#fff7ed"/>
+  <g transform="translate(44 36)">
+    <path d="M84 0 168 42 84 84 0 42Z" fill="#fbbf24"/>
+    <path d="M0 42 84 84v100L0 142Z" fill="#ef4444"/>
+    <path d="M168 42 84 84v100l84-42Z" fill="#2563eb"/>
+    <path d="M84 0v84M42 21l84 42M126 21 42 63M28 57v99M56 70v99M112 70v99M140 57v99" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="84" cy="84" r="9" fill="#111827" opacity=".18"/>
+  </g>
+</svg>
