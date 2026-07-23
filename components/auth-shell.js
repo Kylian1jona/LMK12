@@ -14,8 +14,8 @@
 
     <div id="loginFormPanel">
       <div class="mt-2">
-        <label class="fw-bold">Email</label>
-        <input id="loginUser" type="email" class="form-control rounded-xl" autocomplete="email" placeholder="you@example.com">
+        <label class="fw-bold">Username or Gmail</label>
+        <input id="loginUser" type="text" class="form-control rounded-xl" autocomplete="username" placeholder="your_username or you@gmail.com">
       </div>
 
       <div class="mt-2">
@@ -32,13 +32,13 @@
 
     <div id="signupFormPanel" class="d-none">
       <div class="mt-2">
-        <label class="fw-bold">Email</label>
-        <input id="signupUser" type="email" class="form-control rounded-xl" autocomplete="email" placeholder="you@example.com">
+        <label class="fw-bold">Gmail / Email</label>
+        <input id="signupUser" type="email" class="form-control rounded-xl" autocomplete="email" placeholder="you@gmail.com">
       </div>
 
       <div class="mt-2">
-        <label class="fw-bold">Display name</label>
-        <input id="signupName" class="form-control rounded-xl" autocomplete="name" placeholder="name shown in the app">
+        <label class="fw-bold">Username</label>
+        <input id="signupName" class="form-control rounded-xl" autocomplete="username" placeholder="letters, numbers, or underscore">
       </div>
 
       <div class="mt-2">
@@ -55,6 +55,16 @@
     <div class="small-note mt-2">
       Accounts are securely authenticated by Supabase.
     </div>
+  </div>
+</div>
+
+<!-- PROFILE CHOOSER (shown after account login) -->
+<div id="profileChooser" role="dialog" aria-modal="true" aria-labelledby="profileChooserTitle">
+  <div class="profile-chooser-card">
+    <span class="profile-chooser-kicker">Your subscription</span>
+    <h2 id="profileChooserTitle">Who is learning today?</h2>
+    <p>Choose a learner, or enter the parent area.</p>
+    <div id="profileChooserGrid" class="profile-chooser-grid"></div>
   </div>
 </div>
 

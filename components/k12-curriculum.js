@@ -24,8 +24,8 @@ L10:{ name:"Speed Challenge", gen: gen_g2_eng_L10 }
     },
     math: {
       showName: "Grade 2 Math",
-      L1: { name:"2–3 Digit Add/Sub", gen: gen_g2_math_L1, image:{ src:"images/Addq1.png", alt:"Addition modeled with place value blocks" } },
-      L2: { name:"Place Value",       gen: gen_g2_math_L2, image:{ src:"images/PlaceValueq1.png", alt:"Place value blocks for hundreds, tens, and ones" } },
+      L1: { name:"2–3 Digit Add/Sub", gen: gen_g2_math_L1 },
+      L2: { name:"Place Value",       gen: gen_g2_math_L2 },
       L3: { name:"Time to 5 Minutes", gen: gen_g2_math_L3 },
       L4: { name:"Skip Count (5s/10s)", gen: gen_g2_math_L4 },
       L5: { name:"Word Problems",     gen: gen_g2_math_L5 },
@@ -34,10 +34,10 @@ L10:{ name:"Speed Challenge", gen: gen_g2_eng_L10 }
     },
     sci: {
       showName: "Grade 2 Science",
-      L1: { name:"States of Matter",  gen: gen_g2_sci_L1, image:{ src:"images/130921.png", alt:"States of matter diagram" } },
-      L2: { name:"Animal Groups",     gen: gen_g2_sci_L2, image:{ src:"images/image copy.png", alt:"Animal classification diagram" } },
-      L3: { name:"Life Cycles",       gen: gen_g2_sci_L3, image:{ src:"images/image.png", alt:"Butterfly life cycle diagram" } },
-      L4: { name:"Plant Parts",       gen: gen_g2_sci_L4, image:{ src:"images/124016.png", alt:"Plant parts diagram" } }
+      L1: { name:"States of Matter",  gen: gen_g2_sci_L1 },
+      L2: { name:"Animal Groups",     gen: gen_g2_sci_L2 },
+      L3: { name:"Life Cycles",       gen: gen_g2_sci_L3 },
+      L4: { name:"Plant Parts",       gen: gen_g2_sci_L4 }
     }
   },
 
@@ -46,7 +46,7 @@ g3: {
     eng: {
   showName: "Grade 3 English",
 
-  L1:{name:"Short Vowels", gen:gen_g3_eng_L1, image:{ src:"images/Sounds.png", alt:"Short a sound poster with cat, hat, and bat examples" }},
+  L1:{name:"Short Vowels", gen:gen_g3_eng_L1},
   L2:{name:"Long Vowels", gen:gen_g3_eng_L2},
   L3:{name:"Vowel Sounds", gen:gen_g3_eng_L3},
   L4:{name:"CVC Words", gen:gen_g3_eng_L4},
@@ -289,9 +289,9 @@ g3: {
 },
     sci: {
       showName: "Grade 3 Science",
-      L1: { name:"Habitats",          gen: gen_g3_sci_L1, image:{ src:"images/Habitats.png", alt:"Habitats diagram showing different places and living things" } },
-      L2: { name:"Weather Tools",     gen: gen_g3_sci_L2, image:{ src:"images/123114.png", alt:"Weather tools diagram" } },
-      L3: { name:"Forces & Motion",   gen: gen_g3_sci_L3, image:{ src:"images/Forces.png", alt:"Forces and motion diagram showing pushes, pulls, and friction" } }
+      L1: { name:"Habitats",          gen: gen_g3_sci_L1 },
+      L2: { name:"Weather Tools",     gen: gen_g3_sci_L2 },
+      L3: { name:"Forces & Motion",   gen: gen_g3_sci_L3 }
     }
   },
 
@@ -328,7 +328,7 @@ L17: { name:"Cause and Effect",     gen: gen_g4_eng_L17 },
 L18: { name:"Sequence of Events",   gen: gen_g4_eng_L18 },
 
 // NEW GRAMMAR AND WRITING
-L19: { name:"Homophones",           gen: gen_g4_eng_L19, image:{ src:"images/Homophones.png", alt:"Homophones poster showing see and sea" } },
+L19: { name:"Homophones",           gen: gen_g4_eng_L19 },
 L20: { name:"Complete Sentences",   gen: gen_g4_eng_L20 },
 L21: { name:"Punctuation",          gen: gen_g4_eng_L21 }
   },
@@ -373,14 +373,14 @@ L20: { name:"Area and Perimeter",      gen: gen_g4_math_L20 }
     showName: "Grade 4 Science",
 
     // LIVING THINGS AND ECOSYSTEMS
-    L1:  { name:"Plant and Animal Structures",    gen: gen_g4_sci_L1 , image:{ src:"images/g4-sci-l1-plant-animal-structures.png", alt:"Plant and animal structures diagram" } },
-    L2:  { name:"Producers and Consumers",        gen: gen_g4_sci_L2 ,image:{ src:"images/131929.png", alt:"Plant parts diagram" } },
-    L3:  { name:"Food Chains",                    gen: gen_g4_sci_L3, image:{ src:"images/152905.png", alt:"Food chains diagram" } },
-    L4:  { name:"Food Webs",                      gen: gen_g4_sci_L4, image:{ src:"images/153230.png", alt:"Food webs diagram" } },
+    L1:  { name:"Plant and Animal Structures",    gen: gen_g4_sci_L1 },
+    L2:  { name:"Producers and Consumers",        gen: gen_g4_sci_L2 },
+    L3:  { name:"Food Chains",                    gen: gen_g4_sci_L3 },
+    L4:  { name:"Food Webs",                      gen: gen_g4_sci_L4 },
 
     // EARTH'S SURFACE
-    L5:  { name:"Rocks and Minerals",              gen: gen_g4_sci_L5, image:{ src:"images/153830.png", alt:"Rocks and minerals diagram" } },
-    L6:  { name:"Weathering",                      gen: gen_g4_sci_L6, image:{ src:"images/154640.png", alt:"Weathering diagram" } },
+    L5:  { name:"Rocks and Minerals",              gen: gen_g4_sci_L5 },
+    L6:  { name:"Weathering",                      gen: gen_g4_sci_L6 },
     L7:  { name:"Erosion and Deposition",          gen: gen_g4_sci_L7},
     L8:  { name:"How Landforms Change",            gen: gen_g4_sci_L8 },
 
@@ -391,24 +391,24 @@ L20: { name:"Area and Perimeter",      gen: gen_g4_math_L20 }
     L12: { name:"Mixtures and Solutions",          gen: gen_g4_sci_L12 },
 
     // ENERGY AND MOTION
-    L13: { name:"Forms of Energy",                 gen: gen_g4_sci_L13, image:{ src:"images/93298.jpg", alt:"Different forms of energy diagram" } },
+    L13: { name:"Forms of Energy",                 gen: gen_g4_sci_L13 },
     L14: { name:"Light Energy",                    gen: gen_g4_sci_L14 },
     L15: { name:"Heat and Electrical Energy",      gen: gen_g4_sci_L15 },
     L16: { name:"Force and Motion",                gen: gen_g4_sci_L16 },
 
     // EARTH AND SPACE
     L17: { name:"The Water Cycle",                 gen: gen_g4_sci_L17 },
-    L18: { name:"Weather Patterns",                gen: gen_g4_sci_L18 },
-    L19: { name:"The Solar System",                gen: gen_g4_sci_L19 },
-L20: { name:"Moon Phases",             gen: gen_g4_sci_L20 },
+    L18: { name:"Weather and Climate",             gen: gen_g4_sci_L18 },
+    L19: { name:"Season and Daylight Patterns",    gen: gen_g4_sci_L19 },
+L20: { name:"Moon Appearance Patterns", gen: gen_g4_sci_L20 },
 
 // NEW LIVING THINGS
-L21: { name:"Animal Adaptations",      gen: gen_g4_sci_L21 },
-L22: { name:"Habitats",                gen: gen_g4_sci_L22 },
+L21: { name:"Inherited and Acquired Traits", gen: gen_g4_sci_L21 },
+L22: { name:"Food Webs",               gen: gen_g4_sci_L22 },
 
 // NEW EARTH SCIENCE
-L23: { name:"Fossils",                 gen: gen_g4_sci_L23 },
-L24: { name:"Earth's Layers",          gen: gen_g4_sci_L24 },
+L23: { name:"Fossil Evidence",         gen: gen_g4_sci_L23 },
+L24: { name:"Matter and Energy in Ecosystems", gen: gen_g4_sci_L24 },
 L25: { name:"Natural Resources",       gen: gen_g4_sci_L25 },
 
 // NEW FORCES AND INVESTIGATION
@@ -422,8 +422,8 @@ g5: {
   eng: {
     showName: "Grade 5 English",
 
-    L1:  { name:"Inference",              gen: gen_g5_eng_L1, image:{ src:"images/Inferences.png", alt:"Making inferences poster with text clues" } },
-    L2:  { name:"Figurative Language",    gen: gen_g5_eng_L2, image:{ src:"images/FigLang.png", alt:"Figurative language poster with examples" } },
+    L1:  { name:"Inference",              gen: gen_g5_eng_L1 },
+    L2:  { name:"Figurative Language",    gen: gen_g5_eng_L2 },
     L3:  { name:"Text Structure",         gen: gen_g5_eng_L3 },
 
     L4:  { name:"Main Idea",              gen: gen_g5_eng_L4 },
@@ -559,7 +559,7 @@ L17: { name:"Unit Rates",              gen: gen_g6_math_L17 },
 L18: { name:"Percent of a Number",     gen: gen_g6_math_L18 },
 L19: { name:"Divide Fractions",        gen: gen_g6_math_L19 },
 L20: { name:"Decimal Operations",      gen: gen_g6_math_L20 },
-L21: { name:"Surface Area",            gen: gen_g6_math_L21 },
+L21: { name:"Area and Volume",         gen: gen_g6_math_L21 },
 L22: { name:"Mean, Median & Range",    gen: gen_g6_math_L22 }
 
     },
@@ -599,11 +599,11 @@ L27: { name:"Real-World Energy",            gen: gen_g6_sci_L27 },
 L28: { name:"Body Systems",                 gen: gen_g6_sci_L28 },
 L29: { name:"Skeletal System",              gen: gen_g6_sci_L29 },
 L30: { name:"Muscular System",              gen: gen_g6_sci_L30 },
-L31: { name:"Circulatory System",           gen: gen_g6_sci_L31, image:{ src:"images/Circulatory.png", alt:"Circulatory system poster showing the heart, arteries, and blood" } },
-L32: { name:"Digestive System",             gen: gen_g6_sci_L32, image:{ src:"images/Digestive.png", alt:"Digestive system poster showing organs and nutrient absorption" } },
+L31: { name:"Circulatory System",           gen: gen_g6_sci_L31 },
+L32: { name:"Digestive System",             gen: gen_g6_sci_L32 },
 
 // 🧪 Biochemistry
-L33: { name:"Molecules of Life",            gen: gen_g6_sci_L33, image:{ src:"images/Nutrition.png", alt:"Molecules of life poster showing carbohydrates, proteins, lipids, and nucleic acids" } },
+L33: { name:"Molecules of Life",            gen: gen_g6_sci_L33 },
 L34: { name:"Proteins",                     gen: gen_g6_sci_L34 },
 L35: { name:"Carbohydrates",                gen: gen_g6_sci_L35 },
 L36: { name:"Lipids & Fats",                gen: gen_g6_sci_L36 },
@@ -675,7 +675,7 @@ g8: {
   math: {
     showName: "Grade 8 Math",
     L1: { name:"Linear Equations", gen: gen_g8_math_L1 },
-    L2: { name:"Slope", gen: gen_g8_math_L2, image:{ src:"images/slope.png", alt:"Slope quiz diagram" } },
+    L2: { name:"Slope", gen: gen_g8_math_L2 },
     L3: { name:"Functions", gen: gen_g8_math_L3 },
     L4: { name:"Square Numbers Match", gen: gen_g8_math_L4 },
     L5: { name:"Pythagorean Theorem", gen: gen_g8_math_L5 },

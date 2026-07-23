@@ -32,8 +32,43 @@ function make3Choices(ans, min, max){
   }
   return arr.slice(0,4).sort(()=>Math.random()-0.5);
 }
-function safePlay(audioEl){ try{ if(!audioEl) return; audioEl.currentTime = 0; audioEl.play(); }catch(e){} }
-function safeClick(){ safePlay($("clickSfx")); }
+let K12_AUDIO_CONTEXT = null;
+function safePlay(audioEl){
+  try{
+    if(!audioEl) return;
+    const frequencies=String(audioEl.dataset?.tone||"").split(",").map(Number).filter(Number.isFinite);
+    if(frequencies.length){
+      const AudioContextClass=window.AudioContext||window.webkitAudioContext;
+      if(!AudioContextClass) return;
+      K12_AUDIO_CONTEXT=K12_AUDIO_CONTEXT||new AudioContextClass();
+      if(K12_AUDIO_CONTEXT.state==="suspended") K12_AUDIO_CONTEXT.resume().catch(()=>{});
+      const duration=Math.max(.025,Number(audioEl.dataset.toneDuration)||.08);
+      const start=K12_AUDIO_CONTEXT.currentTime+.01;
+      frequencies.forEach((frequency,index)=>{
+        const noteStart=start+index*(duration*.72);
+        const oscillator=K12_AUDIO_CONTEXT.createOscillator();
+        const gain=K12_AUDIO_CONTEXT.createGain();
+        oscillator.type="sine";
+        oscillator.frequency.value=frequency;
+        gain.gain.setValueAtTime(.0001,noteStart);
+        gain.gain.exponentialRampToValueAtTime(.075,noteStart+.012);
+        gain.gain.exponentialRampToValueAtTime(.0001,noteStart+duration);
+        oscillator.connect(gain);
+        gain.connect(K12_AUDIO_CONTEXT.destination);
+        oscillator.start(noteStart);
+        oscillator.stop(noteStart+duration+.02);
+      });
+      return;
+    }
+    audioEl.currentTime=0;
+    const playback=audioEl.play();
+    if(playback?.catch) playback.catch(()=>{});
+  }catch(e){}
+}
+function safeClick(){
+  safePlay($("clickSfx"));
+  try{ if(musicOn && !MUSIC_TIMER && typeof startMusic === "function") startMusic(); }catch(e){}
+}
 function dragQuestion(question, pairs, audioText){
   return {
     type:"drag",

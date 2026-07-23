@@ -29,8 +29,7 @@ const LR = {
   subj:"",
   lesson:"",
   title:"",
-  image:null,
-  total:10,
+  total:25,
   round:1,
   score:0,
   current:null, // {type, q, choices, answer}
@@ -62,20 +61,36 @@ function lrWrongMoveOn(feedback = "Not quite. Moving on.", penalty = "", delayMs
 function shuffle(arr){ return [...arr].sort(()=>Math.random()-0.5); }
 function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
 
-function fallbackWrongChoice(answerText, used, index){
-  const num = Number(answerText);
-  if(Number.isFinite(num) && String(answerText).trim() !== ""){
-    const offsets = [1, -1, 2, -2, 5, -5, 10, -10];
-    for(const offset of offsets){
-      const candidate = String(num + offset);
-      if(!used.has(candidate)) return candidate;
-    }
-  }
-  const generic = ["Almost", "Not this one", "Review the clue", "Try another answer", "Keep thinking"];
-  for(const candidate of generic){
-    if(!used.has(candidate)) return candidate;
-  }
-  return `Choice ${index + 1}`;
+function lessonDifficultyForRound(round=LR.round){
+  const n=Math.max(1,Math.min(25,Number(round)||1));
+  if(n<=5) return {level:1,label:"Foundation"};
+  if(n<=10) return {level:2,label:"Apply"};
+  if(n<=15) return {level:3,label:"Reason"};
+  if(n<=20) return {level:4,label:"Challenge"};
+  return {level:5,label:"Mastery"};
+}
+
+function renderLessonStageTrack(){
+  const active=lessonDifficultyForRound();
+  document.querySelectorAll("#lrStageTrack [data-stage]").forEach(stage=>{
+    const level=Number(stage.dataset.stage);
+    stage.classList.toggle("is-complete",level<active.level);
+    stage.classList.toggle("is-active",level===active.level);
+    if(level===active.level) stage.setAttribute("aria-current","step");
+    else stage.removeAttribute("aria-current");
+  });
+  const meter=$("lrStageMeter");
+  if(meter) meter.style.width=`${Math.round((Math.min(LR.round,LR.total)/LR.total)*100)}%`;
+}
+
+function progressiveQuestion(items){
+  if(!Array.isArray(items)||items.length!==25) throw new Error("A progressive lesson must define exactly 25 questions.");
+  const index=Math.max(0,Math.min(24,(Number(LR.round)||1)-1));
+  const question=typeof structuredClone==="function"?structuredClone(items[index]):JSON.parse(JSON.stringify(items[index]));
+  const difficulty=lessonDifficultyForRound(index+1);
+  question.difficulty=difficulty.level;
+  question.difficultyLabel=difficulty.label;
+  return question;
 }
 
 function fourChoices(answer, wrongs){
@@ -89,11 +104,8 @@ function fourChoices(answer, wrongs){
       choices.push(text);
     }
   });
-  while(choices.length < 4){
-    const fallback = fallbackWrongChoice(answerText, used, choices.length);
-    used.add(fallback);
-    choices.push(fallback);
-  }
+  // Never invent a fourth answer from a shared fallback pool. Every distractor
+  // shown here must have been supplied by the active lesson generator.
   return shuffle(choices);
 }
 
@@ -104,13 +116,6 @@ function mcQuestion(q, answer, wrongs, audioText){
 function inputQuestion(q, answer, audioText){
   return { type:"input", q, answer:String(answer).trim().toLowerCase(), audio: audioText || q };
 }
-
-
-
-function imagePack(name, gen, src, alt){
-  return { name, gen, image:{ src, alt:alt || name } };
-}
-
 function makeSelectAllQuestion(q, choices, answers, audio){
   return { type:"selectall", q, choices, answers, audio:audio || q };
 }
@@ -210,7 +215,7 @@ function buildQuestionSpecificParagraphs(q, userAnswer=""){
   const correct = answerTextForFeedback(q) || "the corrected answer shown in green";
   const chosen = String(userAnswer || "No answer").trim();
   return [
-    `This question asked: “${question}” You answered “${chosen}.” That answer is red because it does not satisfy this prompt; “${correct}” is green because it does.`,
+    `This question asked: “${question}” Your selected response is shown in red: “${chosen}” because it does not satisfy this prompt; “${correct}” is green because it does.`,
     questionSpecificReason(q, question, correct, chosen),
     questionSpecificStrategy(q, question, correct)
   ];
@@ -229,10 +234,13 @@ function showAnswerExplanation(q, userAnswer=""){
   screen.setAttribute("aria-modal", "true");
   screen.setAttribute("aria-labelledby", "answerExplanationTitle");
   const paragraphs = buildQuestionSpecificParagraphs(q, userAnswer);
+  const questionNumber = Math.max(1, Number(LR.round) || 1);
+  const questionText = String(q?.q || "Review this question");
   screen.innerHTML = `
     <div class="answer-explanation-card">
       <div class="answer-explanation-kicker">Let’s learn from this one</div>
-      <h2 id="answerExplanationTitle">Question explanation</h2>
+      <h2 id="answerExplanationTitle">Question ${questionNumber}: why this answer was wrong</h2>
+      <div class="answer-explanation-question">${htmlSafe(questionText)}</div>
       <div class="answer-comparison" aria-label="Answer comparison">
         <div class="answer-comparison-wrong"><span>Your answer</span><strong>${htmlSafe(String(userAnswer || "No answer"))}</strong></div>
         <div class="answer-comparison-correct"><span>Correct answer</span><strong>${htmlSafe(answerTextForFeedback(q) || "See the corrected items")}</strong></div>
@@ -338,10 +346,6 @@ const SUBJECT_LABELS = {
   hist:"History"
 };
 
-function lessonImageSrc(image){
-  return typeof image === "string" ? image : image?.src;
-}
-
 function answerOptionLabel(value){
   const text = String(value ?? "").trim();
   if(!/[A-Za-z]/.test(text)) return text;
@@ -353,79 +357,20 @@ function answerOptionLabel(value){
 }
 
 function enforceUniqueLessonImages(){
-  const used = new Set();
-  Object.entries(CURR).forEach(([grade, subjects])=>{
-    Object.entries(subjects || {}).forEach(([subj, lessons])=>{
-      Object.entries(lessons || {}).forEach(([lessonId, pack])=>{
-        if(!pack || typeof pack !== "object" || !pack.image) return;
-        const src = lessonImageSrc(pack.image);
-        if(!src) return;
-        if(used.has(src)){
-          console.warn("Duplicate lesson image removed", grade, subj, lessonId, src);
-          delete pack.image;
-          return;
-        }
-        used.add(src);
+  Object.values(CURR).forEach(subjects=>{
+    Object.values(subjects||{}).forEach(lessons=>{
+      Object.values(lessons||{}).forEach(pack=>{
+        if(pack&&typeof pack==="object") delete pack.image;
       });
     });
   });
 }
 
-function genericLessonQuestion(grade, subj, lesson, lessonName){
-  const n = parseInt(String(lesson).replace(/\D/g, ""), 10) || 1;
-  const round = Number(LR?.round || 1);
-  const variant = (n + round) % 3;
-  if(subj === "math"){
-    if(variant === 0) return mcQuestion(`${lessonName}: what is ${n} + ${round}?`, String(n + round), [String(n + round + 1), String(Math.max(0, n + round - 1))], "Solve the math problem.");
-    if(variant === 1) return inputQuestion(`${lessonName}: type ${n} times 2.`, String(n * 2), "Multiply by two.");
-    return dragQuestion(`${lessonName}: match each math word.`, [
-      { left:"sum", right:"answer to addition" },
-      { left:"difference", right:"answer to subtraction" },
-      { left:"product", right:"answer to multiplication" }
-    ], "Match the math vocabulary.");
-  }
-  if(subj === "sci"){
-    if(variant === 0) return mcQuestion(`${lessonName}: which one is living?`, "plant", ["rock", "pencil"], "Choose the living thing.");
-    if(variant === 1) return inputQuestion(`${lessonName}: water can be solid, liquid, or ____.`, "gas", "Name the third state of water.");
-    return dragQuestion(`${lessonName}: match each science word.`, [
-      { left:"habitat", right:"where something lives" },
-      { left:"force", right:"push or pull" },
-      { left:"energy", right:"ability to do work" }
-    ], "Match the science vocabulary.");
-  }
-  if(subj === "hist"){
-    if(variant === 0) return mcQuestion(`${lessonName}: history studies people and events from the...`, "past", ["future", "weather"], "Choose the best history answer.");
-    if(variant === 1) return inputQuestion(`${lessonName}: a map helps show where places are: type map.`, "map", "Type map.");
-    return dragQuestion(`${lessonName}: match each social studies word.`, [
-      { left:"community", right:"people living or working together" },
-      { left:"timeline", right:"events in order" },
-      { left:"citizen", right:"member of a community" }
-    ], "Match the history vocabulary.");
-  }
-  if(variant === 0) return mcQuestion(`${lessonName}: which is a complete sentence?`, "The student reads.", ["reads student", "because the"], "Choose the complete sentence.");
-  if(variant === 1) return inputQuestion(`${lessonName}: type the missing word: A noun names a person, place, or ____.`, "thing", "Complete the sentence.");
-  return dragQuestion(`${lessonName}: match each reading word.`, [
-    { left:"theme", right:"big message" },
-    { left:"evidence", right:"proof from the text" },
-    { left:"summary", right:"short retelling" }
-  ], "Match the reading vocabulary.");
-}
-
-function makeFallbackLessonPack(grade, subj, lesson){
-  const gradeNo = String(grade).replace("g", "");
-  const subjectName = SUBJECT_LABELS[subj] || String(subj).toUpperCase();
-  const lessonName = `Grade ${gradeNo} ${subjectName} ${lesson}`;
-  return {
-    name: lessonName,
-    gen:()=>genericLessonQuestion(grade, subj, lesson, lessonName)
-  };
-}
-
 function getLessonPack(grade, subj, lesson){
   const group = CURR[grade]?.[subj];
   if(!group) return null;
-  if(!group[lesson]) group[lesson] = makeFallbackLessonPack(grade, subj, lesson);
-  return group[lesson];
+  const pack = group[lesson];
+  return pack && typeof pack.gen === "function" ? pack : null;
 }
 
 /* ---------- Start lesson ---------- */
@@ -438,8 +383,8 @@ function startLesson(grade, subj, lesson){
   LR.subj = subj;
   LR.lesson = lesson;
   LR.title = `${CURR[grade][subj].showName} — ${pack.name}`;
-  LR.image = pack.image || null;
-  LR.total = 10;
+  LR.teks = typeof getLessonTeksAlignment === "function" ? getLessonTeksAlignment(grade, subj, lesson) : null;
+  LR.total = 25;
   LR.round = 1;
   LR.score = 0;
 
@@ -449,7 +394,15 @@ function startLesson(grade, subj, lesson){
   LR.backSection = `${grade}-${subj}`; // grade is "g2", subj "eng" => "g2-eng"
 
   $("lrDone").classList.add("d-none");
+  $("lrQuestionPanel")?.classList.remove("d-none");
   $("lrTitle").textContent = LR.title;
+  const teksBadge = $("lrTeksBadge");
+  if(teksBadge){
+    teksBadge.innerHTML = LR.teks ? `<a href="${LR.teks.href}" target="_blank" rel="noopener"><span>${LR.teks.status}</span><strong>${LR.teks.framework}</strong></a>` : "";
+    teksBadge.classList.toggle("d-none", !LR.teks);
+  }
+  const learningGoal=$("lrLearningGoal");
+  if(learningGoal) learningGoal.textContent=LR.teks?.focus?`Learning goal: ${LR.teks.focus}`:`Learning goal: build mastery of ${pack.name}.`;
 
   show("lessonRunner");
   lrLoadQuestion();
@@ -463,7 +416,9 @@ function lrRender(){
   $("lrPoints").textContent = String(state.points);
   $("lrLearners").textContent = String(state.learners);
 
-  $("lrProg").textContent = `Question ${LR.round} of ${LR.total}`;
+  const difficulty=LR.current?.difficultyLabel||lessonDifficultyForRound().label;
+  $("lrProg").textContent = `Question ${LR.round} of ${LR.total} · ${difficulty}`;
+  renderLessonStageTrack();
   $("lrFb").textContent = "";
   $("lrNextBtn").disabled = true;
 
@@ -622,34 +577,68 @@ function lrCheck(){
 function lrLoadQuestion(){
   const pack = getLessonPack(LR.grade, LR.subj, LR.lesson);
   if(!pack) return;
-  try{
-    const q = typeof pack.gen === "function" ? pack.gen() : null;
-    LR.current = normalizeLessonQuestion(q, pack);
-  }catch(err){
-    console.error("Lesson generator failed", LR.grade, LR.subj, LR.lesson, err);
-    LR.current = fallbackLessonQuestion(pack);
+  let generated = null;
+  for(let attempt=0; attempt<3 && !generated; attempt++){
+    try{ generated = normalizeLessonQuestion(pack.gen(), pack); }
+    catch(err){ console.error("Lesson generator failed", LR.grade, LR.subj, LR.lesson, err); }
   }
+  if(!generated){
+    toast("This lesson needs a generator repair.");
+    show(LR.backSection);
+    return;
+  }
+  fillChoicesFromLessonGenerator(generated, pack);
+  generated.teks = LR.teks;
+  // Question types now belong to each lesson's authored 20-item sequence.
+  // Do not rewrite every fourth question globally; that hid whether a
+  // generator actually supplied its own true/false reasoning checks.
+  LR.current = generated;
   lrRender();
 }
 
-function fallbackLessonQuestion(pack){
-  return mcQuestion(
-    `${pack?.name || "This lesson"}: choose the best practice answer.`,
-    "Keep practicing",
-    ["Skip the lesson", "Guess without reading"],
-    "Keep practicing."
-  );
+function makeLessonTrueFalse(question){
+  if(LR.round % 4 !== 0 || question.type !== "mc" || !Array.isArray(question.choices)) return question;
+  const wrongs = question.choices.filter(choice=>String(choice) !== String(question.answer));
+  const useTrue = (LR.round / 4) % 2 === 1 || !wrongs.length;
+  const claimedAnswer = useTrue ? question.answer : wrongs[0];
+  return {
+    type:"mc",
+    q:`True or false: For “${question.q}” the answer is “${answerOptionLabel(claimedAnswer)}.”`,
+    choices:["True","False"],
+    answer:useTrue ? "True" : "False",
+    audio:`True or false. ${question.q}. The answer is ${answerOptionLabel(claimedAnswer)}.`,
+    explain:useTrue
+      ? `True. ${answerOptionLabel(question.answer)} is the correct answer for this lesson question.`
+      : `False. The correct answer is ${answerOptionLabel(question.answer)}, not ${answerOptionLabel(claimedAnswer)}.`,
+    teks:LR.teks
+  };
+}
+
+function fillChoicesFromLessonGenerator(question, pack){
+  if(question?.type !== "mc" || question.choices.length >= 4 || typeof pack?.gen !== "function") return;
+  const used = new Set(question.choices.map(String));
+  for(let attempt=0; attempt<8 && question.choices.length<4; attempt++){
+    const generated = pack.gen();
+    if(!generated || !Array.isArray(generated.choices)) continue;
+    const generatedAnswer = String(generated.answer ?? "");
+    generated.choices.forEach(choice=>{
+      const value = String(choice);
+      if(question.choices.length < 4 && value && value !== generatedAnswer && value !== String(question.answer) && !used.has(value)){
+        used.add(value);
+        question.choices.push(value);
+      }
+    });
+  }
+  question.choices = shuffle(question.choices);
 }
 
 function normalizeLessonQuestion(q, pack){
-  if(!q || typeof q !== "object") return fallbackLessonQuestion(pack);
+  if(!q || typeof q !== "object") return null;
+  delete q.image;
   if(!q.type) q.type = Array.isArray(q.choices) ? "mc" : "input";
   if(!q.q) q.q = `${pack?.name || "Lesson"} question`;
   if(q.type === "mc"){
-    if(!Array.isArray(q.choices) || !q.choices.length){
-      q.answer = q.answer || "Correct";
-      q.choices = fourChoices(q.answer, ["Try again", "Not this one"]);
-    }
+    if(!Array.isArray(q.choices) || !q.choices.length) return null;
     if(q.answer === undefined || q.answer === null) q.answer = q.choices[0];
     q.answer = String(q.answer);
     q.choices = fourChoices(q.answer, q.choices.filter(choice=>String(choice) !== q.answer));
@@ -658,12 +647,12 @@ function normalizeLessonQuestion(q, pack){
     q.answer = "";
   }
   if(q.type === "match"){
-    if(!Array.isArray(q.pairs)) return fallbackLessonQuestion(pack);
+    if(!Array.isArray(q.pairs)) return null;
     q.type = "drag";
   }
-  if(q.type === "drag" && !Array.isArray(q.pairs)) return fallbackLessonQuestion(pack);
+  if(q.type === "drag" && !Array.isArray(q.pairs)) return null;
   if(q.type === "speed"){
-    if(!Array.isArray(q.choices) || !q.choices.length) q.choices = fourChoices(q.answer || "Correct", ["Try again", "Not this one"]);
+    if(!Array.isArray(q.choices) || !q.choices.length) return null;
     if(q.answer === undefined || q.answer === null) q.answer = q.choices[0];
     q.answer = String(q.answer);
     q.choices = fourChoices(q.answer, q.choices.filter(choice=>String(choice) !== q.answer));
@@ -674,10 +663,10 @@ function normalizeLessonQuestion(q, pack){
     q.type = "mc";
   }
   if(q.type === "selectall"){
-    if(!Array.isArray(q.choices) || !Array.isArray(q.answers)) return fallbackLessonQuestion(pack);
+    if(!Array.isArray(q.choices) || !Array.isArray(q.answers)) return null;
   }
   if(q.type === "order"){
-    if(!Array.isArray(q.items) || q.items.length < 2) return fallbackLessonQuestion(pack);
+    if(!Array.isArray(q.items) || q.items.length < 2) return null;
   }
   return q;
 }
@@ -688,14 +677,19 @@ function lrNext(){
   lrAdvanceQuestion();
 }
 function lrFinish(){
+  $("lrQuestionPanel")?.classList.add("d-none");
   $("lrDone").classList.remove("d-none");
   $("lrDone").classList.remove("lesson-complete-celebrate");
   void $("lrDone").offsetWidth;
   $("lrDone").classList.add("lesson-complete-celebrate");
+  setTimeout(()=>$("lrDone")?.scrollIntoView({behavior:"smooth", block:"center"}), 50);
   const stars = clamp(Math.round((LR.score/LR.total)*5), 1, 5);
   $("lrStars").textContent = "⭐".repeat(stars);
   $("lrSummary").textContent = `Score: ${LR.score} / ${LR.total}. Keep practicing to earn more ⭐!`;
-  recordLearningStat("lesson", { title:LR.title });
+  recordLearningStat("lesson", {
+    title:LR.title,
+    lessonId:[LR.grade, LR.subj, LR.lesson].map(String).join(":")
+  });
   launchConfetti(200);
   speakQ("Great job! You finished the lesson!");
 }
@@ -704,6 +698,7 @@ function lrRestart(){
   clearTimeout(LR_WRONG_ADVANCE_TIMER);
   $("lrDone").classList.add("d-none");
   $("lrDone").classList.remove("lesson-complete-celebrate");
+  $("lrQuestionPanel")?.classList.remove("d-none");
   LR.round = 1;
   LR.score = 0;
   lrLoadQuestion();
@@ -767,27 +762,14 @@ let MATCH_PICK = null;
 let SPEED_TIMER = null;
 let SPEED_LEFT = 10;
 
-function renderLessonImage(image){
-  const img = $("lrImage");
-  if(!img) return;
-  const src = typeof image === "string" ? image : image?.src;
-  if(!src){
-    img.style.display = "none";
-    img.removeAttribute?.("src");
-    img.alt = "";
-    return;
-  }
-  img.src = src;
-  img.alt = image?.alt || "Lesson image";
-  img.style.display = "block";
-}
-
 function lrRender(){
   renderAllBadges();
 
   $("lrPoints").textContent = String(state.points);
   $("lrLearners").textContent = String(state.learners);
-  $("lrProg").textContent = `Question ${LR.round} of ${LR.total}`;
+  const difficulty = LR.current?.difficultyLabel || lessonDifficultyForRound().label;
+  $("lrProg").textContent = `Question ${LR.round} of ${LR.total} · ${difficulty}`;
+  renderLessonStageTrack();
   $("lrFb").textContent = "";
   $("lrNextBtn").disabled = true;
   LR.lastAnswer = "";
@@ -795,7 +777,6 @@ function lrRender(){
 
   const q = LR.current;
 
-  renderLessonImage(q.image || LR.image);
   $("lrQuestion").textContent = q.q || "";
   $("lrChoices").innerHTML = "";
   $("lessonExtra").innerHTML = "";
@@ -1126,7 +1107,10 @@ function bankQuestion(items, audioText){
   if(it.type === "selectall") return { type:"selectall", q:it.q, choices:it.choices, answers:it.answers, audio:audioText || it.q };
   if(it.type === "order") return { type:"order", q:it.q, items:it.items, audio:audioText || it.q };
   if(it.type === "truefalse") return { type:"truefalse", q:it.q, answer:!!it.answer, audio:audioText || it.q };
-  return mcQuestion(it.q, it.a, it.w || ["Try again","Not this one"], audioText || it.q);
+  if(!Array.isArray(it.w) || !it.w.length){
+    return {type:"truefalse",q:`${it.q} The answer is ${it.a}.`,answer:true,audio:audioText || it.q};
+  }
+  return mcQuestion(it.q, it.a, it.w, audioText || it.q);
 }
 
 function g4Question(items, audioText){ return bankQuestion(items, audioText); }

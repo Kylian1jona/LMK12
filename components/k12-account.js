@@ -3,10 +3,55 @@
 =========================== */
 let loggedIn = false;
 let currentPortalRole = "kid";
+const INACTIVITY_LIMIT_MS = 3 * 60 * 60 * 1000;
+const INACTIVITY_KEY = "learnmaster_last_activity_v1";
+let INACTIVITY_TIMER = null;
+let LAST_ACTIVITY_WRITE = 0;
+
+function stopInactivityTimer(clearSaved=false){
+  clearTimeout(INACTIVITY_TIMER);
+  INACTIVITY_TIMER = null;
+  if(clearSaved) localStorage.removeItem(INACTIVITY_KEY);
+}
+
+function scheduleInactivityLogout(){
+  if(!loggedIn) return;
+  clearTimeout(INACTIVITY_TIMER);
+  const last = Number(localStorage.getItem(INACTIVITY_KEY) || Date.now());
+  const remaining = Math.max(0, INACTIVITY_LIMIT_MS - (Date.now() - last));
+  INACTIVITY_TIMER = setTimeout(handleInactivityLogout, remaining);
+}
+
+function recordUserActivity(){
+  if(!loggedIn) return;
+  const now = Date.now();
+  const last = Number(localStorage.getItem(INACTIVITY_KEY) || now);
+  if(now - last >= INACTIVITY_LIMIT_MS){ handleInactivityLogout(); return; }
+  if(now - LAST_ACTIVITY_WRITE < 15000) return;
+  LAST_ACTIVITY_WRITE = now;
+  localStorage.setItem(INACTIVITY_KEY, String(now));
+  scheduleInactivityLogout();
+}
+
+async function handleInactivityLogout(){
+  if(!loggedIn) return;
+  await logout();
+  loginMsg("You were logged out after 3 hours without activity. Please log in again.", false);
+}
+
+["pointerdown","keydown","touchstart","scroll"].forEach(eventName=>{
+  window.addEventListener(eventName, recordUserActivity, {passive:true});
+});
+document.addEventListener("visibilitychange", ()=>{
+  if(document.visibilityState === "visible") recordUserActivity();
+});
+
 function showLogin(prefillUser=""){
   loggedIn = false;
+  stopInactivityTimer();
   currentPortalRole = "kid";
-  hidePaywall();
+  hidePaywall(true);
+  hideProfileChooser();
   const wall = $("loginWall");
   if(!wall) return;
   wall.style.display = "flex";
@@ -22,6 +67,8 @@ function showLogin(prefillUser=""){
 function hideLogin(){
   loggedIn = true;
   if($("loginWall")) $("loginWall").style.display = "none";
+  localStorage.setItem(INACTIVITY_KEY, String(Date.now()));
+  scheduleInactivityLogout();
 }
 function loginMsg(text, bad=false){
   const el = $("loginMsg");
@@ -67,7 +114,7 @@ function validateNewUserFields(username, pass, kids){
   return "";
 }
 
-async function finishLoginForKid(kidId, message="Logged in!"){
+async function finishLoginForKid(kidId, message="Logged in!", openChooser=true){
   setActiveKidId(kidId);
   hideLogin();
   loadState();
@@ -76,12 +123,14 @@ async function finishLoginForKid(kidId, message="Logged in!"){
   renderShop();
   applyAccessUI();
   updateUserUI();
-  show("home");
+  if(openChooser) showProfileChooser();
+  else show("home");
   toast(message);
 }
 
 function upsertLocalSupabaseKid(user, username, name){
-  const kids = loadKids();
+  let kids = loadKids();
+  if(!kids.some(k=>k.authUserId) && kids.every(k=>["kid1","kid2"].includes(String(k.username)))) kids = [];
   let kid = kids.find(k => k.authUserId === user.id);
   if(!kid) kid = kids.find(k => String(k.username || "").toLowerCase() === username);
   if(!kid){
@@ -90,6 +139,7 @@ function upsertLocalSupabaseKid(user, username, name){
   }
   kid.authUserId = user.id;
   kid.username = username;
+  kid.email = user.email || kid.email || "";
   kid.name = name || kid.name || username;
   delete kid.pass;
   saveKids(kids);
@@ -119,43 +169,57 @@ async function createSignupUser(){
   if(!client){ loginMsg("Supabase is unavailable. Check your connection and try again.", true); return; }
   const kids = loadKids();
   const email = ($("signupUser")?.value || "").trim().toLowerCase();
-  const username = email.split("@")[0];
-  const name = ($("signupName")?.value || "").trim() || username;
+  const username = ($("signupName")?.value || "").trim().toLowerCase();
+  const name = username;
   const pass = $("signupPass")?.value || "";
+  const usernameError = validateNewUserFields(username, pass, kids);
   const error = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
     ? "Enter a valid email address."
-    : (!pass || pass.length < 6 ? "Password must be 6 or more characters." : "");
+    : (usernameError || (!pass || pass.length < 6 ? "Password must be 6 or more characters." : ""));
   if(error){ loginMsg(error, true); return; }
   loginMsg("Creating account…");
   const { data, error: authError } = await client.auth.signUp({
     email,
     password: pass,
-    options: { data: { username, display_name: name, free_month_eligible: true } }
+    options: {
+      emailRedirectTo:"https://k12-learning.netlify.app",
+      data: { username, display_name: name, free_month_eligible: true }
+    }
   });
   if(authError){ loginMsg(authError.message, true); return; }
   if(!data.user){ loginMsg("Supabase did not create the account.", true); return; }
   await syncSupabaseProfile(data.user, username, name);
   if(!data.session){
     showLoginForm();
-    if($("loginUser")) $("loginUser").value = email;
-    loginMsg("Account created. Check your email to confirm it, then log in.");
+    if($("loginUser")) $("loginUser").value = username;
+    loginMsg("Account created. Check your email to confirm it, then log in with your username.");
     return;
   }
   await window.learnMasterStore.hydrate(data.user);
   const kid = upsertLocalSupabaseKid(data.user, username, name);
   setTrialEnds(Date.now() + 30*24*60*60*1000);
-  await finishLoginForKid(kid.id, "Account created — your free month has started!");
-  showPaywall();
+  learnMasterStore.setItem(REQUIRED_PLAN_KEY, "1");
+  await finishLoginForKid(kid.id, "Account created — choose a plan to continue.", false);
+  showPaywall(true);
 }
 
 async function doLogin(){
   safeClick();
-  const email = ($("loginUser").value || "").trim().toLowerCase();
+  const loginName = ($("loginUser").value || "").trim().toLowerCase();
   const p = $("loginPass").value || "";
-  if(!email || !p){ loginMsg("Enter email and password.", true); return; }
+  if(!loginName || !p){ loginMsg("Enter username and password.", true); return; }
 
   const client = window.learnMasterSupabase;
   if(!client){ loginMsg("Supabase is unavailable. Check your connection and try again.", true); return; }
+  loginMsg("Finding your account…");
+  let email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(loginName) ? loginName : "";
+  const localKid = loadKids().find(k=>String(k.username || "").toLowerCase() === loginName);
+  if(localKid?.email) email = String(localKid.email).toLowerCase();
+  if(!email){
+    const { data:linkedEmail, error:lookupError } = await client.rpc("learnmaster_login_email", { login_username:loginName });
+    if(lookupError || !linkedEmail){ loginMsg("Username not found. You can also sign in with your Gmail address.", true); return; }
+    email = String(linkedEmail).toLowerCase();
+  }
   loginMsg("Logging in…");
   const { data, error: authError } = await client.auth.signInWithPassword({
     email,
@@ -164,7 +228,7 @@ async function doLogin(){
   if(authError){
     const message = /confirm/i.test(authError.message)
       ? "Confirm your email first, then try logging in again."
-      : "Incorrect email or password.";
+      : "Incorrect username or password.";
     loginMsg(message, true);
     return;
   }
@@ -175,23 +239,29 @@ async function doLogin(){
   const kid = upsertLocalSupabaseKid(data.user, username, metadata.display_name || username);
   const startsFreeMonth = metadata.free_month_eligible && !getTrialEnds() && !getPlan();
   if(startsFreeMonth) setTrialEnds(Date.now() + 30*24*60*60*1000);
-  await finishLoginForKid(kid.id);
-  if(startsFreeMonth) showPaywall();
+  const needsPlan = !getPlan() && !trialActive();
+  if(needsPlan) learnMasterStore.setItem(REQUIRED_PLAN_KEY, "1");
+  await finishLoginForKid(kid.id, "Logged in!", !needsPlan);
+  if(needsPlan) showPaywall(true);
 }
 async function logout(){
   safeClick();
   try{ speechSynthesis.cancel(); }catch(e){}
   if(window.learnMasterSupabase) await window.learnMasterSupabase.auth.signOut();
   window.learnMasterStore?.clearUser();
+  stopInactivityTimer(true);
   currentPortalRole = "kid";
   showLogin("");
 }
 async function resetLoginPassword(){
-  const email = ($("loginUser")?.value || "").trim().toLowerCase();
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-    loginMsg("Enter your email above first.", true);
-    return;
+  const loginName = ($("loginUser")?.value || "").trim().toLowerCase();
+  const client = window.learnMasterSupabase;
+  let email = String(loadKids().find(k=>String(k.username || "").toLowerCase() === loginName)?.email || "").toLowerCase();
+  if(!email){
+    const { data } = await client.rpc("learnmaster_login_email", { login_username:loginName });
+    email = String(data || "").toLowerCase();
   }
+  if(!email){ loginMsg("Enter a valid username above first.", true); return; }
   const { error } = await window.learnMasterSupabase.auth.resetPasswordForEmail(email);
   loginMsg(error ? error.message : "Password reset email sent.", !!error);
 }
@@ -214,6 +284,7 @@ const TRIAL_KEY = "learnmaster_trial_ends_v1";
 const PIN_KEY  = "learnmaster_account_pin_v1";
 const KIDS_KEY = "learnmaster_kids_v2";
 const ACTIVE_KID_KEY = "learnmaster_active_kid_v1";
+const REQUIRED_PLAN_KEY = "learnmaster_required_plan_v1";
 const THEME_KEY = "learnmaster_theme_v1";
 const MAX_KIDS_PER_ACCOUNT = 3;
 const EXTRA_KID_PRICE = 5;
@@ -295,8 +366,10 @@ function startTrial(){
   safeClick();
   if(getPlan()){ toast("You already have a plan."); return; }
   setTrialEnds(nowMs() + 5*60*1000);
+  learnMasterStore.removeItem(REQUIRED_PLAN_KEY);
   hidePaywall();
   applyAccessUI();
+  showProfileChooser();
   toast("Trial started! 5 minutes.");
   speakGlobal("Trial started. Have fun learning!");
 }
@@ -502,9 +575,11 @@ function confirmPayment(){
   setPlan(planId);
   if(plan.subjects) addPurchasedSubjects(plan.subjects);
   clearTrial();
+  learnMasterStore.removeItem(REQUIRED_PLAN_KEY);
   hidePaywall();
   applyAccessUI();
   updateUserUI();
+  showProfileChooser();
   toast(`✅ Activated ${plan.name}!`);
   speakGlobal("Payment accepted. Plan activated!");
 }
@@ -520,18 +595,12 @@ function loadKids(){
       if(Array.isArray(parsed) && parsed.length) return parsed;
     }
   }catch(e){}
-  const kids = [
-    {id:"kid1", name:"Kid 1", username:"kid1", pass:"1234"},
-    {id:"kid2", name:"Kid 2", username:"kid2", pass:"1234"}
-  ];
-  learnMasterStore.setItem(KIDS_KEY, JSON.stringify(kids));
-  learnMasterStore.setItem(ACTIVE_KID_KEY, "kid1");
-  return kids;
+  return [];
 }
 function saveKids(kids){ learnMasterStore.setItem(KIDS_KEY, JSON.stringify(kids)); }
 function isLearnerKid(kid){ return !!kid; }
 function learnerCount(kids=loadKids()){ return kids.filter(isLearnerKid).length; }
-function getActiveKidId(){ return learnMasterStore.getItem(ACTIVE_KID_KEY) || "kid1"; }
+function getActiveKidId(){ return learnMasterStore.getItem(ACTIVE_KID_KEY) || loadKids()[0]?.id || ""; }
 function setActiveKidId(id){ learnMasterStore.setItem(ACTIVE_KID_KEY, id); }
 function getActiveKid(){
   const kids = loadKids();
@@ -739,11 +808,115 @@ function updateUserUI(){
   if($("analysisPanel")) renderAnalysis();
 }
 
+function hideProfileChooser(){
+  const chooser = $("profileChooser");
+  if(chooser) chooser.style.display = "none";
+}
+
+function showProfileChooser(){
+  if(!loggedIn || planChoiceRequired()){ if(loggedIn) showPaywall(true); return; }
+  const chooser = $("profileChooser");
+  const grid = $("profileChooserGrid");
+  if(!chooser || !grid) return;
+  grid.innerHTML = "";
+  loadKids().forEach(kid=>{
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "profile-choice";
+    const avatar = document.createElement("span");
+    avatar.className = "profile-choice-avatar";
+    applyAvatar(avatar, kid);
+    const label = document.createElement("strong");
+    label.textContent = kid.name || kid.username || "Learner";
+    button.append(avatar, label);
+    button.onclick = ()=>chooseSubscriptionProfile(kid.id);
+    grid.appendChild(button);
+  });
+  const parent = document.createElement("button");
+  parent.type = "button";
+  parent.className = "profile-choice profile-choice-parent";
+  parent.innerHTML = '<span class="profile-choice-avatar">P</span><strong>Parent</strong>';
+  parent.onclick = enterParentPortal;
+  grid.appendChild(parent);
+  chooser.style.display = "flex";
+}
+
+function chooseSubscriptionProfile(kidId){
+  setActiveKidId(kidId);
+  currentPortalRole = "kid";
+  loadState();
+  renderAllBadges();
+  renderConvertButtons();
+  renderShop();
+  updateUserUI();
+  hideProfileChooser();
+  show("home");
+}
+
+function enterParentPortal(){
+  const pin = ensurePin();
+  if(!pin) return;
+  const attempt = prompt("Enter the parent PIN:");
+  if(attempt !== pin){ alert("Wrong parent PIN."); return; }
+  currentPortalRole = "parent";
+  hideProfileChooser();
+  renderParentPortal();
+  show("parentPortal");
+}
+
+async function renderParentPortal(){
+  const wrap = $("parentPortalContent");
+  if(!wrap) return;
+  const plan = PLAN_CATALOG[getPlan()];
+  const kids = loadKids();
+  const client = window.learnMasterSupabase;
+  let accountEmail = "Account email unavailable";
+  let emailVerified = false;
+  if(client){
+    const {data}=await client.auth.getUser();
+    accountEmail=data?.user?.email || accountEmail;
+    emailVerified=!!data?.user?.email_confirmed_at;
+  }
+  if(typeof refreshAccountAuthority === "function") await refreshAccountAuthority();
+  const hasConsent = localStorage.getItem("learnmaster_parent_consent_v1") === "1";
+  wrap.innerHTML = `
+    <div class="parent-summary-grid">
+      <article><span>Current plan</span><strong>${htmlSafe(plan?.name || (trialActive() ? "Free trial" : "No plan"))}</strong></article>
+      <article><span>Learners</span><strong>${kids.length} / ${MAX_KIDS_PER_ACCOUNT}</strong></article>
+      <article><span>Subjects</span><strong>${htmlSafe(getPurchasedSubjects().includes("all") ? "All" : (getPurchasedSubjects().join(", ") || "Plan access"))}</strong></article>
+    </div>
+    <div class="parent-learner-list">
+      ${kids.map(kid=>{ const p=getProgressForKid(kid.id), s=p.stats||{}; const attempts=(Number(s.correct)||0)+(Number(s.wrong)||0); const accuracy=attempts?Math.round((Number(s.correct)||0)/attempts*100):0; return `<article class="parent-learner-report"><div><strong>${htmlSafe(kid.name || kid.username || "Learner")}</strong><span>@${htmlSafe(kid.username || "learner")}</span></div><div class="learner-metrics"><span><b>${Number(s.lessonsCompleted)||0}</b> lessons</span><span><b>${Number(s.medalsEarned)||0}</b> medals</span><span><b>${accuracy}%</b> accuracy</span><span><b>${p.points}</b> gems</span></div><button type="button" class="btn btn-main" onclick="chooseSubscriptionProfile('${htmlSafe(kid.id)}')">Open learner</button></article>`; }).join("")}
+    </div>
+    <div class="parent-account-grid">
+      <article><span>Account security</span><h2>${emailVerified ? "Email verified" : "Email needs verification"}</h2><p>${htmlSafe(accountEmail)} · automatic logout after 3 hours inactive.</p></article>
+      <article><span>Children's privacy</span><h2>${hasConsent ? "Parent consent recorded" : "Consent action needed"}</h2><p>Review the parent notice and control child learning profiles.</p><button type="button" class="btn btn-main" onclick="openPrivacyNotice()">Review privacy</button></article>
+    </div>
+    <div class="parent-actions">
+      <button type="button" class="btn btn-main" onclick="showAddUserPage()">Add learner</button>
+      <button type="button" class="btn btn-main" onclick="showPaywall(false)">View plans</button>
+      <button type="button" class="btn btn-main" onclick="showProfileChooser()">Back to profiles</button>
+      ${currentAccountIsAdmin ? '<button type="button" class="btn btn-main" onclick="openAdminPortal()">Administrator</button>' : ''}
+    </div>`;
+}
+
 /* ===========================
    Paywall + gating
 =========================== */
-function showPaywall(){ if(!loggedIn) return; $("paywall").style.display = "flex"; }
-function hidePaywall(){ const p=$("paywall"); if(p) p.style.display = "none"; }
+function planChoiceRequired(){ return learnMasterStore.getItem(REQUIRED_PLAN_KEY) === "1" && !getPlan() && !trialActive(); }
+function showPaywall(required=planChoiceRequired()){
+  if(!loggedIn) return;
+  if(required) learnMasterStore.setItem(REQUIRED_PLAN_KEY, "1");
+  const wall = $("paywall");
+  if(wall) wall.style.display = "flex";
+  document.body.classList.toggle("plan-choice-required", !!required);
+}
+function hidePaywall(force=false){
+  if(planChoiceRequired() && !force) return;
+  const p=$("paywall");
+  if(p) p.style.display = "none";
+  document.body.classList.remove("plan-choice-required");
+}
 function formatMs(ms){
   const s = Math.max(0, Math.floor(ms/1000));
   const m = Math.floor(s/60), r = s%60;
@@ -765,6 +938,9 @@ function updateTrialUI(){
 }
 function gateAllowedSection(sectionId){
   if(!loggedIn) return false;
+  if(sectionId === "parentPortal") return currentPortalRole === "parent";
+  if(sectionId === "adminPortal") return currentPortalRole === "parent" && currentAccountIsAdmin;
+  if(sectionId === "curriculumStandards") return true;
   if(["settings","analysis","addUserPage"].includes(sectionId)) return true;
   const plan = getPlan();
   const trial = trialActive();

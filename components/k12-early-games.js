@@ -24,6 +24,30 @@ function speakQuestionWithChoices(question, choices){
   speakGlobal(`${question} Choices: ${choices.join(", ")}.`);
 }
 
+function prepareSpecialLesson(sectionId){
+  const section = $(sectionId);
+  section?.querySelector(":scope > .cardish > .quiz-card")?.classList.remove("d-none");
+  section?.querySelector(".special-complete-card")?.remove();
+}
+
+function finishSpecialLesson(sectionId, title, lessonId){
+  const section = $(sectionId);
+  const shell = section?.querySelector(":scope > .cardish");
+  const question = shell?.querySelector(":scope > .quiz-card");
+  if(!shell || !question) return;
+  question.classList.add("d-none");
+  shell.querySelector(".special-complete-card")?.remove();
+  const done = document.createElement("div");
+  done.className = "quiz-card special-complete-card lesson-complete-celebrate";
+  done.innerHTML = `<img class="lesson-complete-medal" src="images/lesson-gold-medal.png" alt="Gold lesson medal"><div class="lesson-complete-kicker">Lesson complete</div><h2>${title}</h2><p>You finished every question and earned another lesson medal.</p>`;
+  shell.appendChild(done);
+  recordLearningStat("lesson", {title, lessonId:`special:${lessonId}`});
+  safePlay($("rewardSfx"));
+  launchConfetti(190);
+  speakGlobal(`${title}. Lesson complete!`);
+  setTimeout(()=>done.scrollIntoView({behavior:"smooth",block:"center"}),50);
+}
+
 function pkaGen(){
   $("pkaReport").classList.add("d-none");
   $("pkaNextBtn").disabled = true;
@@ -66,14 +90,16 @@ function pkaNext(){
   else pkaFinish();
 }
 function pkaFinish(){
+  $("prek-add")?.querySelector(":scope > .cardish > .quiz-card")?.classList.add("d-none");
   $("pkaReport").classList.remove("d-none");
   $("pkaScoreLine").textContent = `You got ${pkaScore} out of ${PKA_TOTAL}!`;
   const stars = clamp(Math.round((pkaScore/PKA_TOTAL)*5), 1, 5);
   $("pkaStars").textContent = "⭐".repeat(stars);
+  recordLearningStat("lesson", {title:"Emoji Addition", lessonId:"special:prek-add"});
   launchConfetti(220);
   speakGlobal("Great job!");
 }
-function pkaRestart(){ safeClick(); pkaQ = 1; pkaScore = 0; pkaGen(); }
+function pkaRestart(){ safeClick(); prepareSpecialLesson("prek-add"); pkaQ = 1; pkaScore = 0; pkaGen(); }
 
 /* ===========================
    Pre-K: Counting
@@ -118,14 +144,16 @@ function pkcNext(){
   else pkcFinish();
 }
 function pkcFinish(){
+  $("prek-count")?.querySelector(":scope > .cardish > .quiz-card")?.classList.add("d-none");
   safePlay($("rewardSfx"));
   $("pkcReward").classList.remove("d-none");
   $("pkcStars").textContent = "⭐".repeat(5);
   $("pkcSummary").textContent = `Nice counting! Keep earning ⭐ points and convert to 💎 Learners.`;
+  recordLearningStat("lesson", {title:"Count the Objects", lessonId:"special:prek-count"});
   launchConfetti(180);
   speakGlobal("Amazing counting!");
 }
-function pkcReset(){ safeClick(); pkcRound = 1; pkcGen(); }
+function pkcReset(){ safeClick(); prepareSpecialLesson("prek-count"); pkcRound = 1; pkcGen(); }
 
 /* ===========================
    Pre-K: Shapes
@@ -180,13 +208,15 @@ function pksNext(){
   if($("pksNextBtn").disabled) return;
   if(pksRound < PKS_TOTAL){ pksRound++; pksGen(); }
   else{
+    $("prek-shapes")?.querySelector(":scope > .cardish > .quiz-card")?.classList.add("d-none");
     $("pksDone").classList.remove("d-none");
     $("pksStars").textContent = "⭐".repeat(5);
+    recordLearningStat("lesson", {title:"Shapes Match", lessonId:"special:prek-shapes"});
     launchConfetti(170);
     speakGlobal("Great shapes!");
   }
 }
-function pksReset(){ safeClick(); pksRound = 1; pksGen(); }
+function pksReset(){ safeClick(); prepareSpecialLesson("prek-shapes"); pksRound = 1; pksGen(); }
 
 /* ===========================
    Kindergarten lessons (3)
@@ -236,9 +266,9 @@ function kscNext(){
   safeClick();
   if($("kscNextBtn").disabled) return;
   if(kscRound < KSC_TOTAL){ kscRound++; kscIdx = (kscIdx + 1) % SYLLABLE_WORDS.length; kscLoad(); }
-  else{ safePlay($("rewardSfx")); toast("Finished!"); launchConfetti(160); speakGlobal("Awesome syllables!"); kscRound = 1; kscIdx = 0; kscLoad(); }
+  else finishSpecialLesson("k-syll-count", "Awesome syllables!", "k-syll-count");
 }
-function kscReset(){ safeClick(); kscRound = 1; kscIdx = 0; kscLoad(); }
+function kscReset(){ safeClick(); prepareSpecialLesson("k-syll-count"); kscRound = 1; kscIdx = 0; kscLoad(); }
 
 /* Build the Word */
 let ksbIdx = 8, ksbRound = 1;
@@ -299,9 +329,9 @@ function ksbNext(){
   safeClick();
   if($("ksbNextBtn").disabled) return;
   if(ksbRound < KSB_TOTAL){ ksbRound++; ksbIdx = (ksbIdx + 1) % SYLLABLE_WORDS.length; ksbLoad(); }
-  else{ safePlay($("rewardSfx")); toast("Finished!"); launchConfetti(170); speakGlobal("Amazing building words!"); ksbRound = 1; ksbIdx = 8; ksbLoad(); }
+  else finishSpecialLesson("k-syll-build", "Amazing word building!", "k-syll-build");
 }
-function ksbReset(){ safeClick(); ksbRound = 1; ksbIdx = 8; ksbLoad(); }
+function ksbReset(){ safeClick(); prepareSpecialLesson("k-syll-build"); ksbRound = 1; ksbIdx = 8; ksbLoad(); }
 
 /* Rhymes */
 const RHYMES = [
@@ -358,9 +388,9 @@ function krNext(){
   safeClick();
   if($("krNextBtn").disabled) return;
   if(krRound < KR_TOTAL){ krRound++; krIdx++; krGen(); }
-  else{ safePlay($("rewardSfx")); toast("Finished!"); launchConfetti(180); speakGlobal("Great rhyming!"); krRound = 1; krIdx = 0; krGen(); }
+  else finishSpecialLesson("k-rhymes", "Great rhyming!", "k-rhymes");
 }
-function krReset(){ safeClick(); krRound = 1; krIdx = 0; krGen(); }
+function krReset(){ safeClick(); prepareSpecialLesson("k-rhymes"); krRound = 1; krIdx = 0; krGen(); }
 
 /* ===========================
    Grade 1 lessons (3)
@@ -436,9 +466,9 @@ function g1asNext(){
   safeClick();
   if($("g1asNextBtn").disabled) return;
   if(g1asRound < G1AS_TOTAL){ g1asRound++; g1asGen(); }
-  else{ safePlay($("rewardSfx")); toast("Finished!"); launchConfetti(210); speakGlobal("Amazing math!"); g1asRound = 1; g1asGen(); }
+  else finishSpecialLesson("g1-addsub", "Amazing math!", "g1-addsub");
 }
-function g1asReset(){ safeClick(); g1asRound = 1; g1asGen(); }
+function g1asReset(){ safeClick(); prepareSpecialLesson("g1-addsub"); g1asRound = 1; g1asGen(); }
 
 /* Graphs */
 const GRAPH_SETS = [
@@ -519,9 +549,9 @@ function g1gNext(){
   safeClick();
   if($("g1gNextBtn").disabled) return;
   if(g1gRound < G1G_TOTAL){ g1gRound++; g1gGen(); }
-  else{ safePlay($("rewardSfx")); toast("Finished!"); launchConfetti(200); speakGlobal("Great graphs!"); g1gRound = 1; g1gGen(); }
+  else finishSpecialLesson("g1-graphs", "Great graph work!", "g1-graphs");
 }
-function g1gReset(){ safeClick(); g1gRound = 1; g1gGen(); }
+function g1gReset(){ safeClick(); prepareSpecialLesson("g1-graphs"); g1gRound = 1; g1gGen(); }
 
 /* Money */
 let g1mRound = 1;
@@ -582,6 +612,6 @@ function g1mNext(){
   safeClick();
   if($("g1mNextBtn").disabled) return;
   if(g1mRound < G1M_TOTAL){ g1mRound++; g1mGen(); }
-  else{ safePlay($("rewardSfx")); toast("Finished!"); launchConfetti(200); speakGlobal("Great money counting!"); g1mRound = 1; g1mGen(); }
+  else finishSpecialLesson("g1-money", "Great money counting!", "g1-money");
 }
-function g1mReset(){ safeClick(); g1mRound = 1; g1mGen(); }
+function g1mReset(){ safeClick(); prepareSpecialLesson("g1-money"); g1mRound = 1; g1mGen(); }

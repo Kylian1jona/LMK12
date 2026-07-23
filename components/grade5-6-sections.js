@@ -457,7 +457,7 @@
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','math','L21')">
-          Surface Area
+          Area and Volume
         </button>
       </div>
 

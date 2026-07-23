@@ -16,6 +16,38 @@
     </div>
   </div>
 
+  <!-- PARENT PORTAL -->
+  <div id="parentPortal" class="section d-none">
+    <div class="parent-portal-shell">
+      <div class="parent-portal-head">
+        <span>Parent area</span>
+        <h1>Subscription & learners</h1>
+        <p>Manage the family learning space and review each learner.</p>
+      </div>
+      <div id="parentPortalContent"></div>
+    </div>
+  </div>
+
+  <!-- ADMIN PORTAL -->
+  <div id="adminPortal" class="section d-none">
+    <div class="parent-portal-shell admin-portal-shell">
+      <div class="parent-portal-head"><span>Authorized administrators only</span><h1>Administrator overview</h1><p>Account operations, privacy readiness, and curriculum review in one place.</p></div>
+      <div id="adminPortalContent"></div>
+    </div>
+  </div>
+
+  <!-- CURRICULUM STANDARDS -->
+  <div id="curriculumStandards" class="section d-none">
+    <div class="standards-shell">
+      <span class="standards-eyebrow">Texas curriculum framework</span>
+      <h1>TEKS-aligned learning</h1>
+      <p>LearnMaster maps its four core subject areas to the official Texas Essential Knowledge and Skills chapters published by the Texas Education Agency.</p>
+      <div id="teksStandardsGrid" class="standards-grid"></div>
+      <div class="standards-note"><strong>Alignment statement</strong><p>The official source framework is verified. Individual LearnMaster lessons are internally mapped and must complete educator review before being labeled lesson-level verified. LearnMaster is independent and is not endorsed or approved by TEA.</p></div>
+      <div class="parent-actions"><button type="button" class="btn btn-main" onclick="show('grades')">Browse lessons</button><button type="button" class="btn btn-main" onclick="show('home')">Back home</button></div>
+    </div>
+  </div>
+
   <!-- GRADES -->
   <div id="grades" class="section d-none grades-background">
     <div class="cardish grades-panel">
@@ -23,6 +55,17 @@
         <h3 style="font-weight:900;font-family:'Baloo 2',cursive;">Choose a Grade</h3>
         <div class="small-note">Each grade has multiple lessons.</div>
       </div>
+
+      <section class="suggested-lessons" aria-labelledby="suggestedLessonsTitle">
+        <div class="suggested-lessons-head">
+          <div>
+            <span>Picked for you</span>
+            <h2 id="suggestedLessonsTitle">Suggested lessons</h2>
+          </div>
+          <p>Based on lessons you have not completed yet.</p>
+        </div>
+        <div id="suggestedLessonsGrid" class="suggested-lessons-grid"></div>
+      </section>
 
       <div class="grade-grid">
         <div class="grade-card" id="cardPrek">

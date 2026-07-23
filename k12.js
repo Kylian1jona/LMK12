@@ -1,4 +1,3 @@
-addEnglishSpellingLessons();
 enforceUniqueLessonImages();
 
 function setupImageZoom(){
@@ -165,6 +164,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
   renderShop();
   renderHistorySections();
   updateUserUI();
+  renderVoiceControls();
   setupLessonSearch();
   setupImageZoom();
   showLogin("");     // ALWAYS require login first
@@ -175,6 +175,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
   loadKids();
   loadState();
   updateUserUI();
+  renderVoiceControls();
   renderAllBadges();
   renderConvertButtons();
   renderShop();

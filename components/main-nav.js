@@ -71,6 +71,7 @@
 
           <li><button type="button" class="dropdown-item" onclick="showPaywall()">💳 Subscription details</button></li>
           <li><button type="button" class="dropdown-item" onclick="toggleVoice()" id="voiceItem">🔊 Voice: On</button></li>
+          <li><button type="button" class="dropdown-item" onclick="toggleMusic()" id="musicItem">🎵 Music: Off</button></li>
 
           <li><button type="button" class="dropdown-item" onclick="show('settings')">Settings & avatar</button></li>
           <li><button type="button" class="dropdown-item" onclick="show('analysis')">Progress analysis</button></li>
