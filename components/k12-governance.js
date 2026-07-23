@@ -108,6 +108,7 @@ async function openAdminPortal(){
   await refreshAccountAuthority();
   if(currentPortalRole!=="parent" || !currentAccountIsAdmin){ toast("Administrator access required."); return; }
   show("adminPortal");
+  await renderAdminPortal();
 }
 async function renderAdminPortal(){
   const wrap=$("adminPortalContent"); if(!wrap) return;

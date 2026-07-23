@@ -155,22 +155,12 @@ document.addEventListener("click", event=>{
 /* ===========================
    Boot
 =========================== */
-window.addEventListener("DOMContentLoaded", ()=>{
-  applyTheme();
-  loadKids();        // ensures accounts exist
-  loadState();       // loads progress for active kid
-  renderAllBadges();
-  renderConvertButtons();
-  renderShop();
-  renderHistorySections();
-  updateUserUI();
-  renderVoiceControls();
-  setupLessonSearch();
-  setupImageZoom();
-  showLogin("");     // ALWAYS require login first
-});
+let initialAppUIRendered = false;
+let earlyLessonsPreloaded = false;
 
-(function init(){
+function renderInitialAppUI(){
+  if(initialAppUIRendered) return;
+  initialAppUIRendered = true;
   applyTheme();
   loadKids();
   loadState();
@@ -180,16 +170,89 @@ window.addEventListener("DOMContentLoaded", ()=>{
   renderConvertButtons();
   renderShop();
   renderGrade10LessonButtons();
-  setTimeout(()=>{ renderHistorySections(); }, 0);
+  renderHistorySections();
   setupLessonSearch();
   setupImageZoom();
-  showLogin("");
-  // preload first questions so menus feel instant
+}
+
+function preloadEarlyLessons(){
+  if(earlyLessonsPreloaded) return;
+  earlyLessonsPreloaded = true;
   pkaGen(); pkcGen(); pksGen();
   kscLoad(); ksbLoad(); krGen();
   g1asGen(); g1gGen(); g1mGen();
-})();
-/* ---------- INITIAL LOAD ---------- */
+}
+
+async function restoreActiveSession(){
+  const client = window.learnMasterSupabase;
+  if(!client || !window.learnMasterStore) return false;
+
+  let session = null;
+  try{
+    const { data, error } = await client.auth.getSession();
+    if(error) throw error;
+    session = data?.session || null;
+  }catch(error){
+    console.warn("Could not restore the LearnMaster session:", error?.message || error);
+    return false;
+  }
+  if(!session?.user) return false;
+
+  const lastActivity = Number(localStorage.getItem(INACTIVITY_KEY) || 0);
+  const elapsed = Date.now() - lastActivity;
+  const sessionExpired = !Number.isFinite(lastActivity)
+    || lastActivity <= 0
+    || elapsed < 0
+    || elapsed >= INACTIVITY_LIMIT_MS;
+
+  if(sessionExpired){
+    try{ await client.auth.signOut(); }
+    catch(error){ console.warn("Could not close the expired Supabase session:", error?.message || error); }
+    window.learnMasterStore.clearUser();
+    stopInactivityTimer(true);
+    return false;
+  }
+
+  try{
+    await window.learnMasterStore.hydrate(session.user);
+  }catch(error){
+    console.warn("Could not restore LearnMaster account data:", error?.message || error);
+    return false;
+  }
+
+  const metadata = session.user.user_metadata || {};
+  const emailName = String(session.user.email || "").split("@")[0] || "learner";
+  const username = String(metadata.username || emailName).trim().toLowerCase() || "learner";
+  const displayName = String(metadata.display_name || username).trim() || username;
+  const accountKid = upsertLocalSupabaseKid(session.user, username, displayName);
+  const kids = loadKids();
+  if(!kids.some(kid=>kid.id === getActiveKidId())) setActiveKidId(accountKid.id);
+
+  hideLogin();
+  return true;
+}
+
+async function bootLearnMaster(){
+  const sessionRestored = await restoreActiveSession();
+  renderInitialAppUI();
+  preloadEarlyLessons();
+
+  if(!sessionRestored){
+    showLogin("");
+    return;
+  }
+
+  if(!getPlan() && !trialActive()) learnMasterStore.setItem(REQUIRED_PLAN_KEY, "1");
+  applyAccessUI();
+  if(planChoiceRequired()) showPaywall(true);
+  else showProfileChooser();
+}
+
 document.addEventListener("DOMContentLoaded", ()=>{
-  showLogin();
-});
+  bootLearnMaster().catch(error=>{
+    console.error("LearnMaster could not finish starting:", error);
+    renderInitialAppUI();
+    preloadEarlyLessons();
+    showLogin("");
+  });
+}, { once:true });

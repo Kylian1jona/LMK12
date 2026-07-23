@@ -5,7 +5,7 @@
       this.dataset.rendered = "true";
       this.innerHTML = String.raw`
 <!-- LOGIN (always required on load) -->
-<div id="loginWall" role="dialog" aria-modal="true">
+<div id="loginWall" role="dialog" aria-modal="true" aria-hidden="false">
   <div class="logincard">
     <h1>LearnMaster K-12</h1>
     <p>Simple learning games for every grade.</p>
@@ -43,7 +43,7 @@
 
       <div class="mt-2">
         <label class="fw-bold">Password</label>
-        <input id="signupPass" type="password" class="form-control rounded-xl" autocomplete="new-password" placeholder="4 or more characters">
+        <input id="signupPass" type="password" class="form-control rounded-xl" autocomplete="new-password" placeholder="6 or more characters">
       </div>
 
       <div class="d-flex gap-2 flex-wrap mt-3">
@@ -59,7 +59,7 @@
 </div>
 
 <!-- PROFILE CHOOSER (shown after account login) -->
-<div id="profileChooser" role="dialog" aria-modal="true" aria-labelledby="profileChooserTitle">
+<div id="profileChooser" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="profileChooserTitle">
   <div class="profile-chooser-card">
     <span class="profile-chooser-kicker">Your subscription</span>
     <h2 id="profileChooserTitle">Who is learning today?</h2>
@@ -69,7 +69,7 @@
 </div>
 
 <!-- PAYWALL -->
-<div id="paywall" role="dialog" aria-modal="true" onclick="if(event.target===this)hidePaywall()">
+<div id="paywall" role="dialog" aria-modal="true" aria-hidden="true" onclick="if(event.target===this)hidePaywall()">
   <div class="paycard">
     <button type="button" class="payclose" onclick="hidePaywall()" aria-label="Close paywall">x</button>
     <div class="paygrid">

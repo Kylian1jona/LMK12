@@ -55,6 +55,8 @@ function showLogin(prefillUser=""){
   const wall = $("loginWall");
   if(!wall) return;
   wall.style.display = "flex";
+  wall.setAttribute("aria-hidden", "false");
+  document.body.classList.add("login-open");
   showLoginForm();
   if($("loginMsg")){
     $("loginMsg").textContent = "";
@@ -66,7 +68,11 @@ function showLogin(prefillUser=""){
 }
 function hideLogin(){
   loggedIn = true;
-  if($("loginWall")) $("loginWall").style.display = "none";
+  if($("loginWall")){
+    $("loginWall").style.display = "none";
+    $("loginWall").setAttribute("aria-hidden", "true");
+  }
+  document.body.classList.remove("login-open");
   localStorage.setItem(INACTIVITY_KEY, String(Date.now()));
   scheduleInactivityLogout();
 }
@@ -238,8 +244,11 @@ async function doLogin(){
   await syncSupabaseProfile(data.user, username, metadata.display_name || username);
   const kid = upsertLocalSupabaseKid(data.user, username, metadata.display_name || username);
   const startsFreeMonth = metadata.free_month_eligible && !getTrialEnds() && !getPlan();
-  if(startsFreeMonth) setTrialEnds(Date.now() + 30*24*60*60*1000);
-  const needsPlan = !getPlan() && !trialActive();
+  if(startsFreeMonth){
+    setTrialEnds(Date.now() + 30*24*60*60*1000);
+    learnMasterStore.setItem(REQUIRED_PLAN_KEY, "1");
+  }
+  const needsPlan = planChoiceRequired() || (!getPlan() && !trialActive());
   if(needsPlan) learnMasterStore.setItem(REQUIRED_PLAN_KEY, "1");
   await finishLoginForKid(kid.id, "Logged in!", !needsPlan);
   if(needsPlan) showPaywall(true);
@@ -256,14 +265,22 @@ async function logout(){
 async function resetLoginPassword(){
   const loginName = ($("loginUser")?.value || "").trim().toLowerCase();
   const client = window.learnMasterSupabase;
-  let email = String(loadKids().find(k=>String(k.username || "").toLowerCase() === loginName)?.email || "").toLowerCase();
+  if(!client){ loginMsg("Supabase is unavailable. Check your connection and try again.", true); return; }
+  if(!loginName){ loginMsg("Enter your username or email address above first.", true); return; }
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  let email = emailPattern.test(loginName)
+    ? loginName
+    : String(loadKids().find(k=>String(k.username || "").toLowerCase() === loginName)?.email || "").toLowerCase();
   if(!email){
-    const { data } = await client.rpc("learnmaster_login_email", { login_username:loginName });
+    const { data, error: lookupError } = await client.rpc("learnmaster_login_email", { login_username:loginName });
+    if(lookupError){ loginMsg("That username could not be found. You can enter your email address instead.", true); return; }
     email = String(data || "").toLowerCase();
   }
-  if(!email){ loginMsg("Enter a valid username above first.", true); return; }
-  const { error } = await window.learnMasterSupabase.auth.resetPasswordForEmail(email);
-  loginMsg(error ? error.message : "Password reset email sent.", !!error);
+  if(!emailPattern.test(email)){ loginMsg("Enter a valid username or email address above first.", true); return; }
+  const { error } = await client.auth.resetPasswordForEmail(email, {
+    redirectTo: `${window.location.origin}${window.location.pathname}`
+  });
+  loginMsg(error ? error.message : `Password reset email sent to ${email}. Check your spam folder too.`, !!error);
 }
 
 /* Enter-to-login */
@@ -365,13 +382,15 @@ function trialActive(){ return getTrialEnds() > nowMs(); }
 function startTrial(){
   safeClick();
   if(getPlan()){ toast("You already have a plan."); return; }
-  setTrialEnds(nowMs() + 5*60*1000);
+  const existingTrialEnd = getTrialEnds();
+  if(existingTrialEnd <= nowMs()) setTrialEnds(nowMs() + 5*60*1000);
   learnMasterStore.removeItem(REQUIRED_PLAN_KEY);
   hidePaywall();
   applyAccessUI();
   showProfileChooser();
-  toast("Trial started! 5 minutes.");
-  speakGlobal("Trial started. Have fun learning!");
+  const hasFreeMonth = existingTrialEnd > nowMs() + 5*60*1000;
+  toast(hasFreeMonth ? "Your free month is active!" : "Trial started! 5 minutes.");
+  speakGlobal(hasFreeMonth ? "Your free month is active. Have fun learning!" : "Trial started. Have fun learning!");
 }
 
 function ensurePin(){
@@ -388,13 +407,13 @@ function accountUnlock(action){
   if(!pin) return false;
   const attempt = prompt("Enter account PIN:");
   if(attempt !== pin){ alert("Wrong PIN."); return false; }
-  if(action === "addKid"){ addKidFlow(); return true; }
+  if(action === "addKid"){ addKidFlow(true); return true; }
   if(action === "managePlan"){ managePlanFlow(); return true; }
-  if(action === "accountMenu"){ accountMenuFlow(); return true; }
+  if(action === "accountMenu"){ accountMenuFlow(true); return true; }
   if(action === "resetCurrentKid"){ resetCurrentKidFlow(); return true; }
   return true;
 }
-function accountMenuFlow(){
+function accountMenuFlow(parentVerified=false){
   const choice = prompt(
 `Account Tools:
 1) Add user
@@ -404,7 +423,7 @@ function accountMenuFlow(){
 5) Reset current user progress
 Type 1-5`
   );
-  if(choice === "1") addKidFlow();
+  if(choice === "1") addKidFlow(parentVerified);
   if(choice === "2") renameKidFlow();
   if(choice === "3") deleteKidFlow();
   if(choice === "4") managePlanFlow();
@@ -662,8 +681,8 @@ function updateActiveKidProfile(patch){
   saveKids(kids);
   updateUserUI();
 }
-function addKidFlow(){
-  showAddUserPage();
+function addKidFlow(parentVerified=false){
+  showAddUserPage(parentVerified);
 }
 function setAddUserMessage(text, bad=false){
   const el = $("addUserMsg");
@@ -671,10 +690,15 @@ function setAddUserMessage(text, bad=false){
   el.textContent = text;
   el.className = "loginmsg " + (bad ? "bad" : "ok");
 }
-function showAddUserPage(){
+function showAddUserPage(parentVerified=false){
+  if(!loggedIn){ showLogin(""); return; }
+  if(currentPortalRole !== "parent" && !parentVerified){
+    toast("Open the parent area to add a learner.");
+    showProfileChooser();
+    return;
+  }
   const kids = loadKids();
   if(learnerCount(kids) >= MAX_KIDS_PER_ACCOUNT){
-    loggedIn = true;
     hideLogin();
     hidePaywall();
     show("addUserPage");
@@ -682,7 +706,6 @@ function showAddUserPage(){
     if($("addUserCount")) $("addUserCount").textContent = String(learnerCount(kids));
     return;
   }
-  loggedIn = true;
   hideLogin();
   hidePaywall();
   show("addUserPage");
@@ -810,7 +833,11 @@ function updateUserUI(){
 
 function hideProfileChooser(){
   const chooser = $("profileChooser");
-  if(chooser) chooser.style.display = "none";
+  if(chooser){
+    chooser.style.display = "none";
+    chooser.setAttribute("aria-hidden", "true");
+  }
+  document.body.classList.remove("profile-chooser-open");
 }
 
 function showProfileChooser(){
@@ -823,8 +850,10 @@ function showProfileChooser(){
     const button = document.createElement("button");
     button.type = "button";
     button.className = "profile-choice";
+    button.setAttribute("aria-label", `Continue as ${kid.name || kid.username || "learner"}`);
     const avatar = document.createElement("span");
     avatar.className = "profile-choice-avatar";
+    avatar.setAttribute("aria-hidden", "true");
     applyAvatar(avatar, kid);
     const label = document.createElement("strong");
     label.textContent = kid.name || kid.username || "Learner";
@@ -835,11 +864,31 @@ function showProfileChooser(){
   const parent = document.createElement("button");
   parent.type = "button";
   parent.className = "profile-choice profile-choice-parent";
+  parent.setAttribute("aria-label", "Enter the parent area");
   parent.innerHTML = '<span class="profile-choice-avatar">P</span><strong>Parent</strong>';
   parent.onclick = enterParentPortal;
   grid.appendChild(parent);
   chooser.style.display = "flex";
+  chooser.setAttribute("aria-hidden", "false");
+  document.body.classList.add("profile-chooser-open");
+  requestAnimationFrame(()=>grid.querySelector(".profile-choice")?.focus());
 }
+
+document.addEventListener("keydown", event=>{
+  const chooser = $("profileChooser");
+  if(event.key !== "Tab" || chooser?.style.display !== "flex") return;
+  const choices = [...chooser.querySelectorAll(".profile-choice:not([disabled])")];
+  if(!choices.length) return;
+  const first = choices[0];
+  const last = choices[choices.length - 1];
+  if(event.shiftKey && (document.activeElement === first || !chooser.contains(document.activeElement))){
+    event.preventDefault();
+    last.focus();
+  }else if(!event.shiftKey && (document.activeElement === last || !chooser.contains(document.activeElement))){
+    event.preventDefault();
+    first.focus();
+  }
+});
 
 function chooseSubscriptionProfile(kidId){
   setActiveKidId(kidId);
@@ -853,15 +902,18 @@ function chooseSubscriptionProfile(kidId){
   show("home");
 }
 
-function enterParentPortal(){
+async function enterParentPortal(){
+  const alreadyHasPin = /^\d{4,}$/.test(learnMasterStore.getItem(PIN_KEY) || "");
   const pin = ensurePin();
   if(!pin) return;
-  const attempt = prompt("Enter the parent PIN:");
-  if(attempt !== pin){ alert("Wrong parent PIN."); return; }
+  if(alreadyHasPin){
+    const attempt = prompt("Enter the parent PIN:");
+    if(attempt !== pin){ alert("Wrong parent PIN."); return; }
+  }
   currentPortalRole = "parent";
   hideProfileChooser();
-  renderParentPortal();
   show("parentPortal");
+  await renderParentPortal();
 }
 
 async function renderParentPortal(){
@@ -903,18 +955,28 @@ async function renderParentPortal(){
 /* ===========================
    Paywall + gating
 =========================== */
-function planChoiceRequired(){ return learnMasterStore.getItem(REQUIRED_PLAN_KEY) === "1" && !getPlan() && !trialActive(); }
+function planChoiceRequired(){ return learnMasterStore.getItem(REQUIRED_PLAN_KEY) === "1" && !getPlan(); }
 function showPaywall(required=planChoiceRequired()){
   if(!loggedIn) return;
-  if(required) learnMasterStore.setItem(REQUIRED_PLAN_KEY, "1");
+  const locked = required || planChoiceRequired();
+  if(locked) learnMasterStore.setItem(REQUIRED_PLAN_KEY, "1");
+  hideProfileChooser();
   const wall = $("paywall");
-  if(wall) wall.style.display = "flex";
-  document.body.classList.toggle("plan-choice-required", !!required);
+  if(wall){
+    wall.style.display = "flex";
+    wall.setAttribute("aria-hidden", "false");
+  }
+  document.body.classList.add("paywall-open");
+  document.body.classList.toggle("plan-choice-required", locked);
 }
 function hidePaywall(force=false){
   if(planChoiceRequired() && !force) return;
   const p=$("paywall");
-  if(p) p.style.display = "none";
+  if(p){
+    p.style.display = "none";
+    p.setAttribute("aria-hidden", "true");
+  }
+  document.body.classList.remove("paywall-open");
   document.body.classList.remove("plan-choice-required");
 }
 function formatMs(ms){
@@ -957,65 +1019,6 @@ function gateAllowedSection(sectionId){
   if(sectionId === "lessonRunner") return true;
   return subjectAllowed("all");
 }
-function applyAccessUI(){
-  if(!loggedIn){ hidePaywall(); return; }
-  const plan = getPlan();
-  const trial = trialActive();
-  const effective = plan || (trial ? "santa" : "");
-  if($("planChip")) $("planChip").textContent = effective ? effective.toUpperCase() : "NONE";
-  updateTrialUI();
-
-function lockCard(id, lock){
-  const card = $(id);
-  if(!card) return;
-  card.style.opacity = lock ? ".55" : "1";
-  card.style.filter = lock ? "grayscale(1)" : "none";
-  card.style.pointerEvents = lock ? "none" : "auto";
-}
-
-    if(effective === "elf"){
-    // ELF: only Pre-K (assuming you have it elsewhere); everything here is locked
-    lockCard("cardKinder", false);
-    lockCard("cardGrade1", false);
-    lockCard("cardGrade2", false);
-    lockCard("cardGrade3", false);
-    lockCard("cardGrade4", true);
-    lockCard("cardGrade5", true);
-    lockCard("cardGrade6", true);   // ✅ Grade 6 locked
-    lockCard("cardShop", true);
-  }
-  else if(effective === "santa"){
-    // SANTA: Kinder + Shop only (your current intent)
-    lockCard("cardKinder", false);
-    lockCard("cardGrade1", false);
-    lockCard("cardGrade2", false);
-    lockCard("cardGrade3", false);
-    lockCard("cardGrade4", false);
-    lockCard("cardGrade5", true);
-    lockCard("cardGrade6", true);   // ✅ Grade 6 locked
-    lockCard("cardShop", false);
-  }
-  else if(effective === "reindeer"){
-    // REINDEER (MAX): unlock everything
-    lockCard("cardKinder", false);
-    lockCard("cardGrade1", false);
-    lockCard("cardGrade2", false);
-    lockCard("cardGrade3", false);
-    lockCard("cardGrade4", false);
-    lockCard("cardGrade5", false);
-    lockCard("cardGrade6", false);
-    lockCard("cardGrade7", false);        // ✅ Grade 6 unlocked ONLY here
-    lockCard("cardGrade8", false);  
-    lockCard("cardGrade9", false);  
-    lockCard("cardGrade10", false);  
-    lockCard("cardShop", false);
-  }
-  
-
-  if(!plan && !trial) showPaywall();
-  else hidePaywall();
-}
-
 function applyAccessUI(){
   if(!loggedIn){ hidePaywall(); return; }
   const trial = trialActive();

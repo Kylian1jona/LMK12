@@ -253,6 +253,7 @@ function show(id){
   if(["settings","analysis","addUserPage"].includes(id)) hidePaywall();
   const sections = [
     "home","grades","reading","settings","addUserPage","analysis","shop","playground",
+    "parentPortal","adminPortal","curriculumStandards",
     "prek","prek-add","prek-count","prek-shapes",
     "kinder","k-syll-count","k-syll-build","k-rhymes",
     "grade1","g1-addsub","g1-graphs","g1-money",
