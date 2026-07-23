@@ -5,21 +5,15 @@
       this.dataset.rendered = "true";
       this.innerHTML = String.raw`
 <nav class="navbar navbar-expand-lg">
-  <div class="container-fluid nav-shell">
-    <button type="button" class="navbar-brand" onclick="show('home')" aria-label="LearnMaster home">
-      <span class="brand-full">LearnMaster K-12</span>
-      <span class="brand-compact" aria-hidden="true">LM K-12</span>
-    </button>
+  <div class="container-fluid">
+    <a class="navbar-brand" onclick="show('home')" style="font-family:'Baloo 2',cursive;">LearnMaster K-12</a>
 
-    <div class="nav-primary" aria-label="Primary navigation">
-      <button type="button" class="nav-link nav-action" onclick="show('home')">Home</button>
-      <button type="button" class="nav-link nav-action" onclick="show('grades')">Grades</button>
-      <button type="button" class="nav-link nav-action" onclick="showReading()">Reading</button>
-      <button type="button" class="nav-link nav-action" onclick="show('playground')">Playground</button>
-    </div>
-
-    <div class="nav-tools">
-      <div class="nav-tool language-picker-item">
+    <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
+      <li class="nav-item"><a class="nav-link" onclick="show('home')">Home</a></li>
+      <li class="nav-item"><a class="nav-link" onclick="show('grades')">Grades</a></li>
+      <li class="nav-item"><a class="nav-link" onclick="showReading()">Reading</a></li>
+      <li class="nav-item"><a class="nav-link" onclick="show('playground')">Playground</a></li>
+      <li class="nav-item language-picker-item">
         <label class="visually-hidden" for="languagePicker">Language</label>
         <select id="languagePicker" class="language-picker" aria-label="Language" onchange="setLanguage(this.value)">
           <option value="en">English</option>
@@ -28,8 +22,8 @@
           <option value="zh">中文</option>
           <option value="hi">हिन्दी</option>
         </select>
-      </div>
-      <div class="nav-tool nav-search-item">
+      </li>
+      <li class="nav-item nav-search-item">
         <div class="lesson-search-nav" id="lessonSearchNav">
           <button type="button" class="lesson-search-toggle" onclick="toggleLessonSearch(event)" aria-label="Search lessons">
             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -42,10 +36,10 @@
             <div id="lessonSearchResults" class="lesson-search-results" aria-live="polite"></div>
           </div>
         </div>
-      </div>
+      </li>
 
       <!-- USER DROPDOWN -->
-      <div class="nav-tool dropdown nav-user-tool">
+      <li class="nav-item dropdown ms-lg-2">
         <button type="button" class="userbtn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
           <span class="avatar" id="userAvatar">U</span>
           <span id="userNameNav">User</span>
@@ -87,8 +81,8 @@
           <li><hr class="dropdown-divider"></li>
           <li><button type="button" class="dropdown-item text-white" style="background:var(--red)!important;" onclick="logout()">Sign out</button></li>
         </ul>
-      </div>
-    </div>
+      </li>
+    </ul>
   </div>
 </nav>
 `;
