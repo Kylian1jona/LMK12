@@ -86,20 +86,35 @@ function loginMsg(text, bad=false){
 function showLoginForm(){
   const loginPanel = $("loginFormPanel");
   const signupPanel = $("signupFormPanel");
-  if(loginPanel) loginPanel.classList.remove("d-none");
-  if(signupPanel) signupPanel.classList.add("d-none");
+  if(loginPanel){
+    loginPanel.classList.remove("d-none");
+    loginPanel.setAttribute("aria-hidden", "false");
+  }
+  if(signupPanel){
+    signupPanel.classList.add("d-none");
+    signupPanel.setAttribute("aria-hidden", "true");
+  }
+  document.querySelector(".auth-card")?.setAttribute("data-auth-mode", "login");
   if($("loginMsg")){
     $("loginMsg").textContent = "";
     $("loginMsg").className = "loginmsg";
   }
+  setTimeout(()=>{ try{$("loginUser")?.focus();}catch(e){} }, 50);
 }
 
 function showSignup(){
   safeClick();
   const loginPanel = $("loginFormPanel");
   const signupPanel = $("signupFormPanel");
-  if(loginPanel) loginPanel.classList.add("d-none");
-  if(signupPanel) signupPanel.classList.remove("d-none");
+  if(loginPanel){
+    loginPanel.classList.add("d-none");
+    loginPanel.setAttribute("aria-hidden", "true");
+  }
+  if(signupPanel){
+    signupPanel.classList.remove("d-none");
+    signupPanel.setAttribute("aria-hidden", "false");
+  }
+  document.querySelector(".auth-card")?.setAttribute("data-auth-mode", "signup");
   if($("loginMsg")){
     $("loginMsg").textContent = "";
     $("loginMsg").className = "loginmsg";
@@ -283,13 +298,33 @@ async function resetLoginPassword(){
   loginMsg(error ? error.message : `Password reset email sent to ${email}. Check your spam folder too.`, !!error);
 }
 
-/* Enter-to-login */
+/* Keyboard access for the account dialog. */
 document.addEventListener("keydown", (e)=>{
   const wall = $("loginWall");
-  if(wall && wall.style.display === "flex" && e.key === "Enter"){
-    if(!$("signupFormPanel")?.classList.contains("d-none")) createSignupUser();
-    else doLogin();
+  if(!wall || getComputedStyle(wall).display !== "flex" || wall.getAttribute("aria-hidden") === "true") return;
+
+  if(e.key === "Tab"){
+    const focusable = [...wall.querySelectorAll("input, button, select, a[href], [tabindex]:not([tabindex='-1'])")]
+      .filter(el=>!el.disabled && el.getClientRects().length > 0);
+    if(!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if(e.shiftKey && (document.activeElement === first || !wall.contains(document.activeElement))){
+      e.preventDefault();
+      last.focus();
+    }else if(!e.shiftKey && (document.activeElement === last || !wall.contains(document.activeElement))){
+      e.preventDefault();
+      first.focus();
+    }
+    return;
   }
+
+  if(e.key !== "Enter" || e.repeat || e.isComposing) return;
+  if(e.target?.closest?.("button")) return;
+  if(!e.target?.matches?.("#loginFormPanel input, #signupFormPanel input")) return;
+  e.preventDefault();
+  if(!$("signupFormPanel")?.classList.contains("d-none")) createSignupUser();
+  else doLogin();
 });
 
 /* ===========================

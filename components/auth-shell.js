@@ -4,57 +4,101 @@
       if(this.dataset.rendered === "true") return;
       this.dataset.rendered = "true";
       this.innerHTML = String.raw`
-<!-- LOGIN (always required on load) -->
-<div id="loginWall" role="dialog" aria-modal="true" aria-hidden="false">
-  <div class="logincard">
-    <h1>LearnMaster K-12</h1>
-    <p>Simple learning games for every grade.</p>
-
-    <div id="loginMsg" class="loginmsg"></div>
-
-    <div id="loginFormPanel">
-      <div class="mt-2">
-        <label class="fw-bold">Username or Gmail</label>
-        <input id="loginUser" type="text" class="form-control rounded-xl" autocomplete="username" placeholder="your_username or you@gmail.com">
+<!-- ACCOUNT ACCESS -->
+<div id="loginWall" role="dialog" aria-modal="true" aria-hidden="false" aria-labelledby="authDialogTitle" aria-describedby="authDialogHelp">
+  <div class="logincard auth-card">
+    <span id="authDialogTitle" class="visually-hidden">LearnMaster K-12 account access</span>
+    <span id="authDialogHelp" class="visually-hidden">Sign in with an existing account or create a new family account.</span>
+    <aside class="auth-intro">
+      <div class="auth-brand-lockup">
+        <span class="auth-brand-mark" aria-hidden="true">LM</span>
+        <div>
+          <span>Learning platform</span>
+          <strong id="authBrandName">LearnMaster K-12</strong>
+        </div>
       </div>
 
-      <div class="mt-2">
-        <label class="fw-bold">Password</label>
-        <input id="loginPass" type="password" class="form-control rounded-xl" autocomplete="current-password" placeholder="••••••">
+      <div class="auth-intro-copy">
+        <span class="auth-eyebrow">Learn at your pace</span>
+        <h1>Build skills. See progress. Keep growing.</h1>
+        <p>Structured practice, clear feedback, and rewards for learners from Pre-K through Grade 10.</p>
       </div>
 
-      <div class="d-flex gap-2 flex-wrap mt-3">
-        <button type="button" class="btn btn-main px-4" onclick="doLogin()">Log in</button>
-        <button type="button" class="btn btn-main px-4" onclick="showSignup()">Sign up</button>
-      </div>
-      <button type="button" class="btn btn-link px-0 mt-2" onclick="resetLoginPassword()">Forgot password?</button>
-    </div>
-
-    <div id="signupFormPanel" class="d-none">
-      <div class="mt-2">
-        <label class="fw-bold">Gmail / Email</label>
-        <input id="signupUser" type="email" class="form-control rounded-xl" autocomplete="email" placeholder="you@gmail.com">
+      <div class="auth-highlights" aria-label="Platform highlights">
+        <div><strong>25</strong><span>questions per lesson</span></div>
+        <div><strong>TEKS</strong><span>curriculum alignment</span></div>
       </div>
 
-      <div class="mt-2">
-        <label class="fw-bold">Username</label>
-        <input id="signupName" class="form-control rounded-xl" autocomplete="username" placeholder="letters, numbers, or underscore">
+      <div class="auth-path" aria-hidden="true">
+        <span class="is-complete">1</span><i></i><span class="is-complete">2</span><i></i><span>3</span>
+      </div>
+    </aside>
+
+    <section class="auth-form-shell" aria-label="Account access">
+      <div class="auth-mobile-brand" aria-hidden="true">
+        <span class="auth-brand-mark">LM</span>
+        <strong>LearnMaster K-12</strong>
       </div>
 
-      <div class="mt-2">
-        <label class="fw-bold">Password</label>
-        <input id="signupPass" type="password" class="form-control rounded-xl" autocomplete="new-password" placeholder="6 or more characters">
+      <div id="loginMsg" class="loginmsg" role="status" aria-live="polite" aria-atomic="true"></div>
+
+      <div id="loginFormPanel" aria-hidden="false">
+        <header class="auth-form-header">
+          <span class="auth-eyebrow">Welcome back</span>
+          <h2>Sign in to learn</h2>
+          <p>Choose your learner profile after signing in.</p>
+        </header>
+
+        <div class="auth-field">
+          <label for="loginUser">Username or email</label>
+          <input id="loginUser" name="username" type="text" class="form-control rounded-xl" autocomplete="username" autocapitalize="none" spellcheck="false" required placeholder="your_username or you@email.com">
+        </div>
+
+        <div class="auth-field">
+          <label for="loginPass">Password</label>
+          <input id="loginPass" name="password" type="password" class="form-control rounded-xl" autocomplete="current-password" required placeholder="••••••">
+        </div>
+
+        <div class="auth-actions">
+          <button type="button" class="btn btn-main auth-primary" onclick="doLogin()">Log in</button>
+          <button type="button" class="btn btn-main auth-secondary" onclick="showSignup()">Sign up</button>
+        </div>
+        <button type="button" class="btn btn-link auth-forgot" onclick="resetLoginPassword()">Forgot password?</button>
       </div>
 
-      <div class="d-flex gap-2 flex-wrap mt-3">
-        <button type="button" class="btn btn-main px-4" onclick="createSignupUser()">Create account</button>
-        <button type="button" class="btn btn-main px-4" onclick="showLoginForm()">Back to login</button>
-      </div>
-    </div>
+      <div id="signupFormPanel" class="d-none" aria-hidden="true">
+        <header class="auth-form-header">
+          <span class="auth-eyebrow">New family account</span>
+          <h2>Create your account</h2>
+          <p>Use an email you can access, then choose a unique username.</p>
+        </header>
 
-    <div class="small-note mt-2">
-      Accounts are securely authenticated by Supabase.
-    </div>
+        <div class="auth-field">
+          <label for="signupUser">Email address</label>
+          <input id="signupUser" name="email" type="email" class="form-control rounded-xl" autocomplete="email" autocapitalize="none" spellcheck="false" required placeholder="you@email.com">
+        </div>
+
+        <div class="auth-field">
+          <label for="signupName">Username</label>
+          <input id="signupName" name="new-username" type="text" class="form-control rounded-xl" autocomplete="username" autocapitalize="none" spellcheck="false" required placeholder="letters, numbers, or underscore">
+        </div>
+
+        <div class="auth-field">
+          <label for="signupPass">Password</label>
+          <input id="signupPass" name="new-password" type="password" class="form-control rounded-xl" autocomplete="new-password" minlength="6" required placeholder="6 or more characters">
+        </div>
+
+        <div class="auth-actions">
+          <button type="button" class="btn btn-main auth-primary" onclick="createSignupUser()">Create account</button>
+          <button type="button" class="btn btn-main auth-secondary" onclick="showLoginForm()">Back to login</button>
+        </div>
+      </div>
+
+      <div class="auth-security-note">
+        <span aria-hidden="true">✓</span>
+        <p><strong>Secure account access</strong>Authentication is protected by Supabase.</p>
+      </div>
+    </section>
   </div>
 </div>
 
