@@ -3942,6 +3942,27 @@ body[data-theme] #lrChoices .choice-btn.answer-wrong,
   line-height:1.25;
 }
 
+/* Keep the compact footer at the bottom when Home has little content. */
+body:has(#home:not(.d-none)){
+  display:flex;
+  min-height:100dvh;
+  flex-direction:column;
+}
+
+body:has(#home:not(.d-none)) > .container{
+  width:100%;
+  flex:1 0 auto;
+}
+
+body:has(#home:not(.d-none)) > k12-site-footer{
+  flex:0 0 auto;
+  margin-top:auto;
+}
+
+body:has(#home:not(.d-none)) .site-footer{
+  margin-top:0;
+}
+
 .privacy-overlay{
   position:fixed;
   inset:0;
