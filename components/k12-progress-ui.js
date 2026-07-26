@@ -252,6 +252,88 @@ window.addEventListener("pagehide",cancelLessonVoice);
 /* ===========================
    Navigation
 =========================== */
+const TIMED_LESSON_SECTIONS=new Set([
+  "prek-add","prek-count","prek-shapes",
+  "k-syll-count","k-syll-build","k-rhymes",
+  "g1-addsub","g1-graphs","g1-money",
+  "early-bank","lessonRunner"
+]);
+let universalLessonTimerSection="", universalLessonElapsedMs=0;
+let universalLessonActiveSince=0, universalLessonTimerHandle=0;
+let visibleAppSection="home";
+
+function formatUniversalLessonTime(milliseconds){
+  const totalSeconds=Math.max(0,Math.floor(milliseconds/1000));
+  const minutes=Math.floor(totalSeconds/60);
+  const seconds=totalSeconds%60;
+  return `${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`;
+}
+
+function universalLessonTimerDisplay(){
+  if(universalLessonTimerSection==="early-bank") return $("earlyBankTimer");
+  return $("universalLessonTimer");
+}
+
+function ensureUniversalLessonTimer(sectionId){
+  if(sectionId==="early-bank") return $("earlyBankTimer");
+  const section=$(sectionId);
+  if(!section) return null;
+  document.querySelectorAll(".universal-lesson-timer").forEach(timer=>timer.remove());
+  const badge=document.createElement("div");
+  badge.className="badge-pill universal-lesson-timer";
+  badge.innerHTML='⏱ Time: <span id="universalLessonTimer">00:00</span>';
+  const heading=section.querySelector("h1");
+  if(heading) heading.insertAdjacentElement("afterend",badge);
+  else section.prepend(badge);
+  return $("universalLessonTimer");
+}
+
+function updateUniversalLessonTimer(){
+  const active=universalLessonActiveSince?Date.now()-universalLessonActiveSince:0;
+  const display=universalLessonTimerDisplay();
+  if(display) display.textContent=formatUniversalLessonTime(universalLessonElapsedMs+active);
+}
+
+function resumeUniversalLessonTimer(){
+  if(!universalLessonTimerSection||universalLessonActiveSince||document.hidden) return;
+  universalLessonActiveSince=Date.now();
+  updateUniversalLessonTimer();
+  clearInterval(universalLessonTimerHandle);
+  universalLessonTimerHandle=setInterval(updateUniversalLessonTimer,1000);
+}
+
+function pauseUniversalLessonTimer(){
+  if(universalLessonActiveSince){
+    universalLessonElapsedMs+=Date.now()-universalLessonActiveSince;
+    universalLessonActiveSince=0;
+  }
+  clearInterval(universalLessonTimerHandle);
+  universalLessonTimerHandle=0;
+  updateUniversalLessonTimer();
+}
+
+function startUniversalLessonTimer(sectionId){
+  pauseUniversalLessonTimer();
+  universalLessonTimerSection=sectionId;
+  universalLessonElapsedMs=0;
+  universalLessonActiveSince=0;
+  ensureUniversalLessonTimer(sectionId);
+  resumeUniversalLessonTimer();
+}
+
+function restartUniversalLessonTimer(){
+  if(!universalLessonTimerSection) return;
+  universalLessonElapsedMs=0;
+  universalLessonActiveSince=0;
+  resumeUniversalLessonTimer();
+}
+
+document.addEventListener("visibilitychange",()=>{
+  if(document.hidden) pauseUniversalLessonTimer();
+  else if(TIMED_LESSON_SECTIONS.has(universalLessonTimerSection)) resumeUniversalLessonTimer();
+});
+window.addEventListener("pagehide",pauseUniversalLessonTimer);
+
 function show(id){
   if(!loggedIn){ showLogin(""); return; }
   if(!gateAllowedSection(id)){
@@ -261,7 +343,13 @@ function show(id){
   }
   if(["settings","analysis","addUserPage"].includes(id)) hidePaywall();
   cancelLessonVoice();
-  if(id!=="early-bank"&&typeof earlyBankPauseTimer==="function") earlyBankPauseTimer();
+  if(TIMED_LESSON_SECTIONS.has(id)){
+    if(universalLessonTimerSection!==id||visibleAppSection!==id) startUniversalLessonTimer(id);
+    else resumeUniversalLessonTimer();
+  }else{
+    pauseUniversalLessonTimer();
+  }
+  visibleAppSection=id;
   const sections = [
     "home","grades","reading","settings","addUserPage","analysis","shop","playground",
     "parentPortal","adminPortal","curriculumStandards",

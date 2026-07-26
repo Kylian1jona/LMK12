@@ -48,6 +48,7 @@ function pkaNext(){
   else pkaFinish();
 }
 function pkaFinish(){
+  if(typeof pauseUniversalLessonTimer==="function") pauseUniversalLessonTimer();
   $("prek-add")?.querySelector(":scope > .cardish > .quiz-card")?.classList.add("d-none");
   $("pkaReport").classList.remove("d-none");
   $("pkaScoreLine").textContent = `You got ${pkaScore} out of ${PKA_TOTAL}!`;
@@ -102,6 +103,7 @@ function pkcNext(){
   else pkcFinish();
 }
 function pkcFinish(){
+  if(typeof pauseUniversalLessonTimer==="function") pauseUniversalLessonTimer();
   $("prek-count")?.querySelector(":scope > .cardish > .quiz-card")?.classList.add("d-none");
   safePlay($("rewardSfx"));
   $("pkcReward").classList.remove("d-none");
@@ -166,6 +168,7 @@ function pksNext(){
   if($("pksNextBtn").disabled) return;
   if(pksRound < PKS_TOTAL){ pksRound++; pksGen(); }
   else{
+    if(typeof pauseUniversalLessonTimer==="function") pauseUniversalLessonTimer();
     $("prek-shapes")?.querySelector(":scope > .cardish > .quiz-card")?.classList.add("d-none");
     $("pksDone").classList.remove("d-none");
     $("pksStars").textContent = "⭐".repeat(5);

@@ -696,6 +696,7 @@ function lrNext(){
   lrAdvanceQuestion();
 }
 function lrFinish(){
+  if(typeof pauseUniversalLessonTimer==="function") pauseUniversalLessonTimer();
   $("lrDone").classList.remove("d-none");
   $("lrDone").classList.remove("lesson-complete-celebrate");
   void $("lrDone").offsetWidth;
@@ -709,6 +710,7 @@ function lrFinish(){
 }
 function lrRestart(){
   safeClick();
+  if(typeof restartUniversalLessonTimer==="function") restartUniversalLessonTimer();
   clearTimeout(LR_WRONG_ADVANCE_TIMER);
   $("lrDone").classList.add("d-none");
   $("lrDone").classList.remove("lesson-complete-celebrate");

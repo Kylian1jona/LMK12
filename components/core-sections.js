@@ -6,13 +6,52 @@
       this.innerHTML = String.raw`
 <!-- HOME -->
   <div id="home" class="section">
-    <div class="home-hero">
-      <h1>LearnMaster K-12</h1>
-      <p>Simple learning games for every grade — earn rewards as you practice.</p>
-      <div class="d-flex gap-2 flex-wrap">
-        <button type="button" class="btn btn-main btn-lg" onclick="show('grades')">Start</button>
+    <div class="home-dashboard">
+      <section class="home-hero home-hero-revamp">
+        <div class="home-hero-copy">
+          <span class="home-eyebrow">LEARN • PRACTICE • GROW</span>
+          <h1>Big learning starts with one great lesson.</h1>
+          <p>Explore 15,000+ guided questions across English, Math, Science, and History—from Pre-K through Grade 10.</p>
+          <div class="home-actions">
+            <button type="button" class="btn btn-main btn-lg" onclick="show('grades')">Choose a grade</button>
+            <button type="button" class="btn btn-outline-primary btn-lg" onclick="openLessonSearch()">Find a lesson</button>
+          </div>
+          <div class="home-trust-row">
+            <span>✓ 25 questions per lesson</span>
+            <span>✓ Instant feedback</span>
+            <span>✓ Progress rewards</span>
+          </div>
+        </div>
+        <div class="home-hero-visual" aria-hidden="true">
+          <div class="home-orbit home-orbit-one">A+</div>
+          <div class="home-orbit home-orbit-two">123</div>
+          <div class="home-orbit home-orbit-three">★</div>
+          <div class="home-mascot-card">
+            <div class="home-mascot">🎓</div>
+            <strong>Ready to learn?</strong>
+            <span>Pick a path and begin.</span>
+          </div>
+        </div>
+      </section>
 
-      </div>
+      <section class="home-paths" aria-labelledby="homePathsTitle">
+        <div class="home-section-heading">
+          <div><span>START HERE</span><h2 id="homePathsTitle">Choose your learning path</h2></div>
+          <button type="button" class="home-text-button" onclick="show('grades')">View every grade →</button>
+        </div>
+        <div class="home-path-grid">
+          <button type="button" class="home-path-card home-path-early" onclick="show('prek')"><span class="home-path-icon">🧩</span><span><strong>Early Learners</strong><small>Pre-K–Grade 1 • English & Math</small></span></button>
+          <button type="button" class="home-path-card home-path-elementary" onclick="show('grade2')"><span class="home-path-icon">📚</span><span><strong>Elementary</strong><small>Grades 2–5 • Core subjects</small></span></button>
+          <button type="button" class="home-path-card home-path-middle" onclick="show('grade6')"><span class="home-path-icon">🔬</span><span><strong>Middle School</strong><small>Grades 6–8 • Skills & reasoning</small></span></button>
+          <button type="button" class="home-path-card home-path-high" onclick="show('grade9')"><span class="home-path-icon">🚀</span><span><strong>High School</strong><small>Grades 9–10 • Advanced practice</small></span></button>
+        </div>
+      </section>
+
+      <section class="home-value-grid">
+        <article><span>⏱</span><div><strong>Active lesson timer</strong><p>See exactly how long each focused practice session lasts.</p></div></article>
+        <article><span>✍️</span><div><strong>Show your thinking</strong><p>Work through ideas, receive feedback, and learn from every answer.</p></div></article>
+        <article><span>🏅</span><div><strong>Motivation built in</strong><p>Earn points, collect rewards, and celebrate completed lessons.</p></div></article>
+      </section>
     </div>
   </div>
 
