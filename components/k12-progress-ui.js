@@ -240,6 +240,15 @@ function speakGlobal(t){
   }catch(e){}
 }
 
+function cancelLessonVoice(){
+  try{ speechSynthesis.cancel(); }catch(e){}
+}
+
+document.addEventListener("visibilitychange",()=>{
+  if(document.hidden) cancelLessonVoice();
+});
+window.addEventListener("pagehide",cancelLessonVoice);
+
 /* ===========================
    Navigation
 =========================== */
@@ -251,12 +260,14 @@ function show(id){
     return;
   }
   if(["settings","analysis","addUserPage"].includes(id)) hidePaywall();
+  cancelLessonVoice();
+  if(id!=="early-bank"&&typeof earlyBankPauseTimer==="function") earlyBankPauseTimer();
   const sections = [
     "home","grades","reading","settings","addUserPage","analysis","shop","playground",
     "parentPortal","adminPortal","curriculumStandards",
     "prek","prek-add","prek-count","prek-shapes",
     "kinder","k-syll-count","k-syll-build","k-rhymes",
-    "grade1","g1-addsub","g1-graphs","g1-money",
+    "grade1","g1-addsub","g1-graphs","g1-money","early-bank",
     "grade2","g2-eng","g2-math","g2-sci","g2-hist",
 "grade3","g3-eng","g3-math","g3-sci","g3-hist",
 "grade4","g4-eng","g4-math","g4-sci","g4-hist",

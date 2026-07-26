@@ -44,6 +44,7 @@ function finishSpecialLesson(sectionId, title, lessonId){
 
 window.K12_EARLY_BANKS=window.K12_EARLY_BANKS||Object.create(null);
 let earlyBankKey="", earlyBankBackId="grades", earlyBankRound=0, earlyBankAnswered=false;
+let earlyBankElapsedMs=0, earlyBankActiveSince=0, earlyBankTimerHandle=0;
 
 function earlyBankRecord(){
   return window.K12_EARLY_BANKS[earlyBankKey];
@@ -55,6 +56,48 @@ function earlyBankChoices(question){
   return choices.slice(shift).concat(choices.slice(0,shift));
 }
 
+function formatEarlyBankTime(milliseconds){
+  const totalSeconds=Math.max(0,Math.floor(milliseconds/1000));
+  const minutes=Math.floor(totalSeconds/60);
+  const seconds=totalSeconds%60;
+  return `${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`;
+}
+
+function updateEarlyBankTimer(){
+  const active=earlyBankActiveSince?Date.now()-earlyBankActiveSince:0;
+  const display=$("earlyBankTimer");
+  if(display) display.textContent=formatEarlyBankTime(earlyBankElapsedMs+active);
+}
+
+function earlyBankResumeTimer(){
+  if(earlyBankActiveSince||document.hidden||!earlyBankKey) return;
+  earlyBankActiveSince=Date.now();
+  updateEarlyBankTimer();
+  clearInterval(earlyBankTimerHandle);
+  earlyBankTimerHandle=setInterval(updateEarlyBankTimer,1000);
+}
+
+function earlyBankPauseTimer(){
+  if(earlyBankActiveSince){
+    earlyBankElapsedMs+=Date.now()-earlyBankActiveSince;
+    earlyBankActiveSince=0;
+  }
+  clearInterval(earlyBankTimerHandle);
+  earlyBankTimerHandle=0;
+  updateEarlyBankTimer();
+}
+
+function earlyBankResetTimer(){
+  earlyBankElapsedMs=0;
+  earlyBankActiveSince=0;
+  earlyBankResumeTimer();
+}
+
+function earlyBankClearWork(){
+  const work=$("earlyBankWork");
+  if(work) work.value="";
+}
+
 function renderEarlyBankQuestion(){
   const record=earlyBankRecord();
   const question=record?.questions?.[earlyBankRound];
@@ -64,6 +107,7 @@ function renderEarlyBankQuestion(){
   $("earlyBankProgress").textContent=`Question ${earlyBankRound+1} of ${record.questions.length}`;
   $("earlyBankQuestion").textContent=question.q;
   $("earlyBankFeedback").textContent="";
+  earlyBankClearWork();
   $("earlyBankNext").disabled=true;
   const shell=$("earlyBankChoices");
   shell.innerHTML="";
@@ -86,6 +130,7 @@ function startEarlyBank(key,backId){
   earlyBankRound=0;
   prepareSpecialLesson("early-bank");
   show("early-bank");
+  earlyBankResetTimer();
   renderEarlyBankQuestion();
 }
 
@@ -113,15 +158,31 @@ function earlyBankNext(){
     return;
   }
   finishSpecialLesson("early-bank",record.name,earlyBankKey);
+  earlyBankPauseTimer();
 }
 
 function earlyBankRestart(){
   if(!earlyBankKey) return;
   earlyBankRound=0;
   prepareSpecialLesson("early-bank");
+  earlyBankResetTimer();
   renderEarlyBankQuestion();
 }
 
 function earlyBankBack(){
+  earlyBankPauseTimer();
   show(earlyBankBackId);
 }
+
+document.addEventListener("visibilitychange",()=>{
+  if(document.hidden){
+    earlyBankPauseTimer();
+    try{ speechSynthesis.cancel(); }catch(e){}
+  }else if(!$("early-bank")?.classList.contains("d-none")){
+    earlyBankResumeTimer();
+  }
+});
+window.addEventListener("pagehide",()=>{
+  earlyBankPauseTimer();
+  try{ speechSynthesis.cancel(); }catch(e){}
+});

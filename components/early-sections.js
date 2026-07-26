@@ -423,9 +423,18 @@
     <div class="cardish text-center kid-font">
       <h1 id="earlyBankTitle">Lesson</h1>
       <div class="quiz-card mt-2">
-        <div class="small-note fw-bold" id="earlyBankProgress">Question 1 of 25</div>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          <div class="badge-pill" id="earlyBankProgress">Question 1 of 25</div>
+          <div class="badge-pill">⏱ Time: <span id="earlyBankTimer">00:00</span></div>
+        </div>
         <h2 id="earlyBankQuestion" class="mt-3"></h2>
         <div class="d-flex justify-content-center flex-wrap mt-3" id="earlyBankChoices"></div>
+        <div class="mt-3 text-start" style="max-width:680px;margin-left:auto;margin-right:auto;">
+          <label for="earlyBankWork" class="fw-bold">Show Your Work</label>
+          <p class="small-note mb-1">Type, draw with words, count, or explain how you found your answer.</p>
+          <textarea id="earlyBankWork" class="form-control" rows="4" placeholder="Show your thinking here..."></textarea>
+          <button type="button" class="btn btn-sm btn-outline-secondary mt-2" onclick="earlyBankClearWork()">Clear work</button>
+        </div>
         <div class="feedback" id="earlyBankFeedback"></div>
         <button type="button" class="btn btn-main mt-2" id="earlyBankNext" onclick="earlyBankNext()" disabled>Next</button>
       </div>
