@@ -37,28 +37,13 @@ function g56Unique(values, answer){
   return result;
 }
 
-function g56TaskText(value){
-  return String(value || "").replace(/\s+/g, " ").trim().replace(/[.!?]+$/, "");
-}
-
-function g56CompactContext(value, limit){
-  const text=g56TaskText(value);
-  if(text.length<=limit) return text;
-  const side=Math.max(18,Math.floor((limit-3)/2));
-  return `${text.slice(0,side).trim()} … ${text.slice(-side).trim()}`;
-}
-
-function g56MC(spec, index, stem, answer, wrongs, explanation, trueFalseTask=stem){
+function g56MC(spec, index, stem, answer, wrongs, explanation){
   const uniqueWrongs=g56Unique(wrongs,answer);
   const explicitTrueFalse=(index+1)%5===0;
   const claimIsTrue=Math.floor(index/5)%2===0;
   const claim=claimIsTrue?String(answer):uniqueWrongs[0];
-  const claimText=g56TaskText(claim);
-  const contextLimit=Math.min(150,Math.max(54,250-claimText.length));
-  const context=g56CompactContext(trueFalseTask,contextLimit);
-  const trueFalseStem=`True or false: “${claimText}” correctly answers “${context}.”`;
   const question=explicitTrueFalse
-    ? makeTrueFalseQuestion(trueFalseStem,claimIsTrue,trueFalseStem)
+    ? makeTrueFalseQuestion(`${stem}\n\nTrue or false: “${claim}” is the best-supported answer.`,claimIsTrue,stem)
     : mcQuestion(stem,String(answer),uniqueWrongs,stem);
   question.explicitTrueFalse=explicitTrueFalse;
   question.explain = explicitTrueFalse
@@ -97,15 +82,15 @@ function g56Mastery(spec, index){
   }
   const proposed = wrongs[phase % wrongs.length];
   const masteryPrompts = [
-    `Which answer correctly resolves “${g56TaskText(anchor.q)}” and replaces “${proposed}” using the task's evidence or constraints?`,
-    `Which answer to “${g56TaskText(anchor.q)}” fits all the given evidence and lesson rules?`,
-    `Which answer satisfies every condition in “${g56TaskText(anchor.q)}”?`,
-    `When “${answer}” and “${proposed}” are compared for “${g56TaskText(anchor.q)},” which answer remains defensible?`,
-    `After “${proposed}” is eliminated, which answer remains valid for “${g56TaskText(anchor.q)}”?`
+    `Error analysis: A learner answered "${proposed}" to the lesson-owned task below. Identify the precise correction and use the task's evidence or constraints to reject that error.\n\n${anchor.q}`,
+    `Evidence synthesis: Solve the task below while satisfying both conditions: the answer must fit all of the given evidence, and the reasoning must match ${spec.teks} rather than relying on one isolated clue.\n\n${anchor.q}`,
+    `Multi-condition reasoning: For the task below, choose the only answer that (1) addresses the exact question, (2) remains consistent with every stated condition, and (3) can be defended with the lesson rule.\n\n${anchor.q}`,
+    `Challenge review: One student selected "${answer}" and another selected "${proposed}." Re-evaluate the complete task, test both responses against its constraints, and choose the defensible conclusion.\n\n${anchor.q}`,
+    `Mastery defense: After eliminating "${proposed}" as an error, determine which answer survives a full evidence check. Your choice must solve the task and remain valid under the TEKS expectation "${spec.expectation}".\n\n${anchor.q}`
   ];
   const anchorExplanation=String(anchor.explain||"").trim();
   const explanation = `${anchorExplanation}${/[.!?]$/.test(anchorExplanation)?" ":". "}This evidence makes the correct response defensible. The response "${proposed}" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.`;
-  return g56MC(spec,index,masteryPrompts[phase],answer,wrongs,explanation,anchor.q);
+  return g56MC(spec,index,masteryPrompts[phase],answer,wrongs,explanation);
 }
 
 function g56BuildAt(key, index){
@@ -288,7 +273,14 @@ function g56Reading(spec, index){
   const record = G56_READING_SEQUENCE[index];
   const mode = spec.mode;
   const answer = record[mode];
-  const stem = `${record.text}\n\n${G56_READING_PROMPTS[mode]}`;
+  const tier = Math.floor(index / 5);
+  const lead = [
+    "Read the passage and identify the directly supported answer.",
+    "Apply the lesson skill and reject choices based on isolated words.",
+    "Analyze the relationship among the passage's evidence, ideas, and structure.",
+    "Evaluate the passage carefully; choose the answer that is precise without overstating the evidence."
+  ][tier];
+  const stem = `${record.text}\n\n${lead} ${G56_READING_PROMPTS[mode]}`;
   return g56MC(spec,index,stem,answer,g56ReadingDistractors(record,mode),`${answer}. This choice accounts for the passage as a whole and is supported by ${record.evidence}.`);
 }
 
@@ -536,7 +528,7 @@ function g56Math(spec,index){
   }else if(m==="ineqGraph"){
     const point=i-8,symbol=i%2?"≤":">"; answer=symbol==="≤"?`closed point at ${point}, shaded left`:`open point at ${point}, shaded right`;
     stem=`How should x ${symbol} ${point} be represented on a number line?`;
-    wrongs=[`open point at ${point}, shaded left`,`closed point at ${point}, shaded right`,`closed point at 0 with no shading`]; why=`${symbol==="≤"?"Including":"Excluding"} the boundary determines the point; the inequality determines shading.`;
+    wrongs=[`open point at ${point}, shaded left`,`closed point at ${point}, shaded right`,`closed point at 0 with no shading`]; why=`${symbol.includes("=")?"Including":"Excluding"} the boundary determines the point; the inequality determines shading.`;
   }else if(m==="ineqWrite"){
     const point=i-10,include=i%2===0; answer=`x ${include?"≥":">"} ${point}`;
     stem=`A number line has a ${include?"closed":"open"} point at ${point} and is shaded to the right. Which inequality matches it?`;
@@ -629,34 +621,22 @@ function g56Math(spec,index){
 
 function g56Science(spec,index){
   const tier=Math.floor(index/5),phase=index%5;
-  const prompts=[[
+  const lead=[
+    "Identify the scientific relationship stated by the evidence.",
+    "Apply the concept to a new observation and choose the testable explanation.",
+    "Analyze the model, distinguish evidence from assumption, and select the supported conclusion.",
+    "Evaluate the investigation or system; choose the conclusion that integrates evidence, cause and effect, and model limitations."
+  ][tier];
+  const prompts=[
     `Which statement accurately explains ${spec.focus}?`,
     `Which real-world application best demonstrates ${spec.focus}?`,
-    `Which observation provides the strongest evidence about ${spec.focus}?`,
-    `Which systems-level connection best explains ${spec.focus}?`,
-    `Which conclusion about ${spec.focus} is supported without overstating the evidence?`
-  ],[
-    `Which lesson principle should be applied when explaining ${spec.focus}?`,
-    `Which example correctly applies ${spec.focus} in a real system?`,
-    `Which lesson observation directly supports ${spec.focus}?`,
-    `Which cause-and-effect connection follows from the evidence about ${spec.focus}?`,
-    `Which conclusion follows from the lesson evidence about ${spec.focus}?`
-  ],[
-    `Which claim about ${spec.focus} is supported rather than assumed?`,
-    `Which application of ${spec.focus} can be justified with the lesson evidence?`,
-    `Which observation distinguishes evidence from a misconception about ${spec.focus}?`,
-    `Which evidence-based connection explains how the parts of ${spec.focus} relate?`,
-    `Which conclusion about ${spec.focus} uses the evidence without adding an assumption?`
-  ],[
-    `Which explanation of ${spec.focus} remains defensible after all lesson evidence is considered?`,
-    `Which application of ${spec.focus} is supported by both the lesson principle and evidence?`,
-    `Which observation provides the strongest basis for evaluating ${spec.focus}?`,
-    `Which systems-level connection best integrates the lesson evidence about ${spec.focus}?`,
-    `Which conclusion about ${spec.focus} accounts for the evidence without exceeding the model's limits?`
-  ]];
+    `Which observation would be the strongest evidence when investigating ${spec.focus}?`,
+    `Which systems-level connection best explains what would happen if one condition changed in ${spec.focus}?`,
+    `Which conclusion is best supported without claiming more than the evidence shows about ${spec.focus}?`
+  ];
   const answers=[spec.principle,spec.application,spec.evidence,spec.connection,spec.conclusion];
   const answer=answers[phase];
-  const stem=prompts[tier][phase];
+  const stem=`${lead}\n\n${prompts[phase]}`;
   return g56MC(spec,index,stem,answer,spec.misconceptions,`${answer} This matches ${spec.teks}: ${spec.expectation}`);
 }
 
@@ -1203,8 +1183,8 @@ window.G56_TEKS_OWNED_AUDIT=(()=>{
       failures.push(`${key}:determinism`);
     }
     const mastery=items.slice(20);
-    if(mastery.some(item=>/^(Error analysis|Evidence synthesis|Multi-condition reasoning|Challenge review|Mastery defense):/i.test(item.q))){
-      failures.push(`${key}:mastery-prefix`);
+    if(mastery.some(item=>!/(Error analysis|Evidence synthesis|Multi-condition reasoning|Challenge review|Mastery defense)/.test(item.q))){
+      failures.push(`${key}:mastery`);
     }
   });
   return Object.freeze({

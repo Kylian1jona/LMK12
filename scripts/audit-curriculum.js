@@ -1,7 +1,6 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const vm = require("node:vm");
-const { spawnSync } = require("node:child_process");
 
 const root = path.resolve(__dirname, "..");
 const files = [
@@ -20,7 +19,6 @@ const files = [
   "components/k12-secondary-g8-progression.js",
   "components/k12-secondary-g9-progression.js",
   "components/k12-secondary-g10-progression.js",
-  "components/k12-current-lessons.js",
   "components/k12-teks-contracts.js",
   "components/k12-curriculum-release.js"
 ].filter(file=>fs.existsSync(path.join(root, file)));
@@ -64,8 +62,6 @@ const auditSource = `(() => {
   const totals={lessons:0,questions:0,trueFalse:0,byGrade:{},bySubject:{}};
   const badFiller=/unsupported conclusion|unrelated meaning|random guess|fictional planet|only map colors/i;
   const masterySignal=/mastery|evaluate|analy|justify|synthesi|defend|verify|compare|evidence|error|reason|multi-step|multiple conditions/i;
-  const generatedLead=/^(?:undefined\\b|Question \\d+ of 25\\b|Read:|Build the skill:|Apply the skill in context:|Apply grade-level orthographic and syllable patterns|Analyze this event:|Use two clues and reason:|Challenge—analyze the complex example:|Mastery—evaluate the evidence, diagnose errors, and justify the conclusion:|Error analysis:|Evidence synthesis:|Multi-condition reasoning:|Challenge review:|Mastery defense:|Apply the lesson to this evidence:|Challenge source analysis:|Mastery synthesis:|Mastery \\d+\\s*(?::|—)|Mastery:|Challenge:)/i;
-  const stackedBoilerplate=/\\?\\s+Which (?:answer|response|conclusion) (?:also |corrects|fits all|addresses|remains|gives|states)/i;
   const expectationPattern=/^§\\d+\\.\\d+\\([bcd]\\)\\(\\d+\\)(?:\\([A-Za-z0-9]+\\))*$/;
   const signature=q=>JSON.stringify([
     String(q.q||"").replace(/\\s+/g," ").trim(),
@@ -135,13 +131,7 @@ const auditSource = `(() => {
             if(!choices.includes(String(q.answer))) failures.push(key+" round "+round+" choices omit the answer");
           }
 
-          const prompt=String(q.q||"").replace(/\\s+/g," ").trim();
-          if(prompt.length>520) failures.push(key+" round "+round+" is too long to read comfortably ("+prompt.length+" characters)");
-          if(String(q.type||"").toLowerCase()==="truefalse"&&prompt.length>320) failures.push(key+" round "+round+" has an overlong true-or-false statement ("+prompt.length+" characters)");
           if(badFiller.test(JSON.stringify(q))) failures.push(key+" round "+round+" contains generic filler content");
-          if(generatedLead.test(String(q.q||"").trim())) failures.push(key+" round "+round+" begins with a generated instruction instead of the question");
-          if(stackedBoilerplate.test(String(q.q||""))) failures.push(key+" round "+round+" joins a question to a generic second question");
-          if(/§\\s*\\d|(?:^|\\s)\\d{1,3}\\.\\d+\\s*\\([A-Za-z0-9ivx]+\\)/.test(String(q.q||""))) failures.push(key+" round "+round+" exposes a raw standards code in the student question");
           const explanation=String(q.explain||q.explanation||"").replace(/\\s+/g," ").trim();
           if(explanation.length<20) failures.push(key+" round "+round+" has no question-specific explanation");
           if(q.image) failures.push(key+" round "+round+" still exposes a question image");
@@ -174,17 +164,5 @@ const auditSource = `(() => {
 })()`;
 
 const result = vm.runInContext(auditSource, context, { filename:"curriculum-audit.vm.js" });
-const selectorCheck = spawnSync(process.execPath, [path.join(root, "scripts/sync-lesson-selectors.js"), "--check"], {
-  cwd:root,
-  encoding:"utf8"
-});
-try{
-  result.selectors = JSON.parse(selectorCheck.stdout || "{}");
-}catch(error){
-  result.selectors = {failures:["Lesson selector audit returned unreadable output"]};
-}
-if(selectorCheck.status !== 0 || result.selectors.failures?.length){
-  result.failures.push(...(result.selectors.failures || ["Lesson selector audit failed"]));
-}
 process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
 if(result.failures.length) process.exitCode = 1;

@@ -416,7 +416,7 @@
     spec.ideas.forEach((entry,slot)=>{
       const base=questionBase(1,slot);
       questions.push({...historyMc(
-        `${entry.evidence} Which interpretation is best supported?`,
+        `Apply the lesson to this evidence: ${entry.evidence} Which interpretation is best supported?`,
         entry.fact,
         lessonWrongs(spec,slot+1),
         `${entry.fact} The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.`,
@@ -441,7 +441,7 @@
     spec.ideas.forEach((entry,slot)=>{
       const base=questionBase(3,slot);
       questions.push({...historyMc(
-        `${entry.evidence} Which inference remains most defensible after checking chronology and context?`,
+        `Challenge source analysis: ${entry.evidence} After checking chronology and context, which inference is most defensible?`,
         entry.inference,
         lessonWrongs(spec,slot+2),
         `${entry.inference} This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.`,
@@ -451,17 +451,15 @@
     spec.ideas.forEach((entry,slot)=>{
       const next=spec.ideas[(slot+1)%5];
       const base=questionBase(4,slot);
-      const thesis=`Evidence A supports “${entry.fact}” Evidence B supports “${next.fact}” Together, the sources show related developments while preserving each source's context.`;
-      const masteryWrongs=[
-        `Evidence A proves “${entry.myth},” so Evidence B can be ignored.`,
-        `Both sources prove that one event caused every later development, regardless of chronology or context.`,
-        `Because the sources discuss related topics, neither source needs corroboration.`
-      ];
+      const thesis=`${entry.fact} In combination, ${entry.inference}`;
+      const masteryWrongs=lessonWrongs(spec,slot+3).map((wrong,index)=>
+        `${wrong} Therefore ${spec.ideas[(slot+index+1)%5].myth}`
+      );
       questions.push({...historyMc(
-        `Evidence A: ${entry.evidence} Evidence B: ${next.evidence} Which thesis best evaluates both sources without overstating either one?`,
+        `Mastery synthesis: compare Evidence A—${entry.evidence}—with Evidence B—${next.evidence} Which thesis best evaluates both sources without overstating either one?`,
         thesis,
         masteryWrongs,
-        `${thesis} This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.`,
+        `${thesis} Evidence A directly supports the first relationship, while Evidence B supplies related context that must be corroborated rather than treated as proof of a single, universal cause.`,
         base.sequenceIndex
       ),...base});
     });

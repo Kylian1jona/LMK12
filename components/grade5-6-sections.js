@@ -66,7 +66,7 @@
         <button type="button" class="btn btn-main" onclick="startLesson('g5','eng','L11')">Verb Tense</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g5','eng','L12')">Punctuation</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g5','eng','L13')">Spelling: Suffixes</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g5','eng','L14')">Spelling Drag: Suffix Rules</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g5','eng','L14')">Spelling Drag</button>
       </div>
 
     </div>
@@ -330,7 +330,7 @@
   <button class="btn btn-main" onclick="startLesson('g6','eng','L52')">Clear Pronouns</button>
   <button class="btn btn-main" onclick="startLesson('g6','eng','L53')">Pronoun Review</button>
   <button class="btn btn-main" onclick="startLesson('g6','eng','L54')">Spelling: Homophones</button>
-  <button class="btn btn-main" onclick="startLesson('g6','eng','L55')">Spelling Drag: Homophones</button>
+  <button class="btn btn-main" onclick="startLesson('g6','eng','L55')">Spelling Drag</button>
 </div>
 
     </div>
@@ -395,23 +395,23 @@
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','math','L5')">
-          Graph Inequalities on Number Lines
+          Graph Inequalities
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','math','L6')">
-          Write Inequalities from Number Lines
+          Write Inequalities
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','math','L7')">
-          Write Multiplication Expressions Using Exponents
+          Exponent Expressions
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','math','L8')">
-          Evaluate Powers with Whole Number Bases
+          Evaluate Powers
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','math','L9')">
-          Write Powers of Ten with Exponents
+          Powers of Ten
         </button>
       </div>
 
@@ -453,7 +453,7 @@
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','math','L12')">
-          Graph Points on a Coordinate Plane
+          Graph Points
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','math','L21')">
@@ -482,32 +482,27 @@
     <div class="lesson-columns">
 
       <div class="lesson-column">
-        <h3>Science Foundations</h3>
-        <p>Begin with the organization of cells and the role of energy in systems.</p>
-
-        <button type="button" class="btn btn-main" onclick="startLesson('g6','sci','L1')">
-          Cells &amp; Organelles
-        </button>
-
-        <button type="button" class="btn btn-main" onclick="startLesson('g6','sci','L2')">
-          Energy
-        </button>
-      </div>
-
-      <div class="lesson-column">
         <h3>🪨 Earth Science</h3>
         <p>Study rocks, temperature, weather, and Earth systems.</p>
 
+        <button type="button" class="btn btn-main" onclick="startLesson('g6','sci','L1')">
+          How Rock Layers Form
+        </button>
+
+        <button type="button" class="btn btn-main" onclick="startLesson('g6','sci','L2')">
+          Rocks and Minerals
+        </button>
+
         <button type="button" class="btn btn-main" onclick="startLesson('g6','sci','L3')">
-          Introduction to the rock cycle
+          Rock Cycle
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','sci','L4')">
-          Classify rocks as igneous, sedimentary, or metamorphic
+          Classify Rocks
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','sci','L5')">
-          Estimate temperatures
+          Estimate Temperatures
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','sci','L21')">
@@ -524,11 +519,11 @@
         <p>Explore units, atoms, density, and energy transfer.</p>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','sci','L6')">
-          Choose customary units of distance
+          Customary Distance Units
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','sci','L7')">
-          Choose metric units of distance, mass, and volume
+          Metric Units
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','sci','L15')">
@@ -549,15 +544,15 @@
         <p>Understand cells and interactions in ecosystems.</p>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','sci','L8')">
-          Identify functions of plant cell parts
+          Plant Cell Parts
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','sci','L9')">
-          Identify functions of animal cell parts
+          Animal Cell Parts
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','sci','L10')">
-          Compare cells and cell parts
+          Compare Cells
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','sci','L19')">
@@ -574,19 +569,19 @@
         <p>Investigate speed, forces, and energy waves.</p>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','sci','L11')">
-          Calculate speed from time and distance
+          Calculate Speed
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','sci','L12')">
-          Calculate distance from speed and time
+          Calculate Distance
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','sci','L13')">
-          Predict forces using Newton's third law
+          Newton's Third Law
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','sci','L14')">
-          Balanced and unbalanced forces
+          Balanced and Unbalanced Forces
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g6','sci','L18')">

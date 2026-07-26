@@ -50,8 +50,8 @@
         <h3>🎨 Vocabulary</h3>
         <p>Build word meaning and language skills.</p>
 
-        <button type="button" class="btn btn-main" onclick="startLesson('g7','eng','L4')">Parts of Speech (Drag)</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g7','eng','L5')">Context Clues</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g7','eng','L4')">Parts of Speech Match</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g7','eng','L5')">Vocabulary in Context</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g7','eng','L7')">Fill in the Blank</button>
       </div>
 
@@ -64,7 +64,7 @@
         <button type="button" class="btn btn-main" onclick="startLesson('g7','eng','L9')">Memory Match</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g7','eng','L10')">Speed Challenge</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g7','eng','L11')">Spelling: Academic Words</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g7','eng','L12')">Spelling Drag: Word Parts</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g7','eng','L12')">Spelling Drag</button>
       </div>
 
     </div>
@@ -91,8 +91,8 @@
         <h3>🔢 Numbers</h3>
         <p>Practice integers, ratios, and rates.</p>
 
-        <button type="button" class="btn btn-main" onclick="startLesson('g7','math','L1')">Integers</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g7','math','L2')">Ratios &amp; Proportions</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g7','math','L1')">Integer Operations</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g7','math','L2')">Ratios & Rates</button>
       </div>
 
       <div class="lesson-column">
@@ -101,15 +101,15 @@
 
         <button type="button" class="btn btn-main" onclick="startLesson('g7','math','L3')">Expressions</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g7','math','L4')">One-Step Equations</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g7','math','L5')">Word Problems</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g7','math','L5')">Real-World Math</button>
       </div>
 
       <div class="lesson-column">
         <h3>⚡ Practice</h3>
         <p>Review with matching and speed.</p>
 
-        <button type="button" class="btn btn-main" onclick="startLesson('g7','math','L6')">Integer Memory Match</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g7','math','L7')">Equation Speed Problems</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g7','math','L6')">Memory Match</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g7','math','L7')">Speed Challenge</button>
       </div>
 
     </div>
@@ -151,7 +151,7 @@
         <h3>⚙️ Physical Science</h3>
         <p>Learn about forces and motion.</p>
 
-        <button type="button" class="btn btn-main" onclick="startLesson('g7','sci','L4')">Forces &amp; Motion</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g7','sci','L4')">Forces</button>
       </div>
 
     </div>
@@ -202,14 +202,14 @@
 
         <button type="button" class="btn btn-main" onclick="startLesson('g8','eng','L1')">Central Idea</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g8','eng','L2')">Text Structure</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g8','eng','L3')">Argument &amp; Claims</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g8','eng','L3')">Claims & Evidence</button>
       </div>
 
       <div class="lesson-column">
         <h3>🎨 Vocabulary & Language</h3>
         <p>Develop vocabulary and language skills.</p>
 
-        <button type="button" class="btn btn-main" onclick="startLesson('g8','eng','L4')">Parts of Speech (Drag)</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g8','eng','L4')">Parts of Speech Match</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g8','eng','L5')">Tone & Mood</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g8','eng','L6')">Vocabulary in Context</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g8','eng','L7')">Fill in the Blank</button>
@@ -223,7 +223,7 @@
         <button type="button" class="btn btn-main" onclick="startLesson('g8','eng','L9')">Memory Match</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g8','eng','L10')">Speed Challenge</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g8','eng','L11')">Spelling: Argument Words</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g8','eng','L12')">Spelling Drag: Argument Terms</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g8','eng','L12')">Spelling Drag</button>
       </div>
 
     </div>
@@ -300,7 +300,7 @@
 
         <button type="button" class="btn btn-main" onclick="startLesson('g8','sci','L1')">Atomic Structure</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g8','sci','L2')">Chemical Reactions</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g8','sci','L4')">Atomic Models</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g8','sci','L4')">Atomic Match</button>
       </div>
 
       <div class="lesson-column">
@@ -308,18 +308,18 @@
         <p>Learn about heredity and evolution.</p>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g8','sci','L3')">Genetics</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g8','sci','L5')">Natural Selection</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g8','sci','L5')">Evolution</button>
       </div>
 
       <div class="lesson-column">
         <h3>⚡ Practice</h3>
         <p>Review concepts through different activities.</p>
 
-        <button type="button" class="btn btn-main" onclick="startLesson('g8','sci','L6')">Genetics Vocabulary</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g8','sci','L7')">Reaction Evidence</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g8','sci','L8')">Particle Model Connections</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g8','sci','L9')">Evolution Evidence</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g8','sci','L10')">Heredity Connections</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g8','sci','L6')">Fill in the Blank</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g8','sci','L7')">Sentence Editing</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g8','sci','L8')">Memory Match</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g8','sci','L9')">Speed Challenge</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g8','sci','L10')">Matter & Heredity</button>
       </div>
 
     </div>
@@ -370,17 +370,17 @@
 
         <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L1')">Literary Analysis</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L2')">Claims & Evidence</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L3')">Rhetoric</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L3')">Rhetorical Appeals</button>
       </div>
 
       <div class="lesson-column">
         <h3>🎨 Language</h3>
         <p>Develop grammar and writing skills.</p>
 
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L4')">Parts of Speech in Context</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L4')">Parts of Speech Match</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L5')">Theme Development</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L6')">Grammar Review</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L7')">Vocabulary in Context</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L6')">Grammar & Usage</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L7')">Fill in the Blank</button>
       </div>
 
       <div class="lesson-column">
@@ -388,10 +388,10 @@
         <p>Review with editing, matching, and speed.</p>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L8')">Sentence Editing</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L9')">Synthesis</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L10')">Analysis Challenge</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L9')">Memory Match</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L10')">Speed Challenge</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L11')">Spelling: Literary Terms</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L12')">Spelling Drag: Literary Terms</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L12')">Spelling Drag</button>
       </div>
 
     </div>
@@ -418,27 +418,27 @@
         <h3>🧮 Algebra</h3>
         <p>Work with equations and quadratics.</p>
 
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','math','L1')">Linear Equations and Inequalities</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','math','L2')">Quadratic Functions</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','math','L3')">Systems of Linear Equations</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','math','L1')">Algebra Review</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','math','L2')">Quadratics</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','math','L3')">Systems of Equations</button>
       </div>
 
       <div class="lesson-column">
         <h3>📊 Data & Powers</h3>
         <p>Practice exponents and statistics.</p>
 
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','math','L4')">Laws of Exponents</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','math','L5')">Statistical Relationships</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','math','L6')">Writing Linear Equations</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','math','L4')">Exponent Match</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','math','L5')">Statistics</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','math','L6')">Fill in the Blank</button>
       </div>
 
       <div class="lesson-column">
         <h3>⚡ Practice</h3>
         <p>Strengthen skills through review.</p>
 
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','math','L7')">Algebra Error Analysis</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','math','L8')">Function Representations</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','math','L9')">Quadratic Problem Solving</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','math','L7')">Sentence Editing</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','math','L8')">Memory Match</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','math','L9')">Speed Challenge</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g9','math','L10')">Algebra Connections</button>
       </div>
 
@@ -467,27 +467,27 @@
         <p>Study cells, DNA, and genetics.</p>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g9','sci','L1')">Cell Biology</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','sci','L2')">DNA &amp; Gene Expression</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','sci','L4')">Biomolecules and Cells</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','sci','L2')">DNA & Genes</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','sci','L4')">Cell Match</button>
       </div>
 
       <div class="lesson-column">
         <h3>🌎 Ecology</h3>
         <p>Learn about ecosystems and energy.</p>
 
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','sci','L3')">Ecological Relationships</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','sci','L5')">Energy Flow and Matter Cycling</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','sci','L3')">Ecology</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','sci','L5')">Energy Flow</button>
       </div>
 
       <div class="lesson-column">
         <h3>⚡ Practice</h3>
         <p>Review science concepts.</p>
 
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','sci','L6')">Genetics Vocabulary in Models</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','sci','L7')">Mutation and Evidence Analysis</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','sci','L8')">Cell Cycle and Differentiation</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','sci','L9')">Natural Selection</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','sci','L10')">Photosynthesis, Respiration, and Enzymes</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','sci','L6')">Fill in the Blank</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','sci','L7')">Sentence Editing</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','sci','L8')">Memory Match</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','sci','L9')">Speed Challenge</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','sci','L10')">Biology Connections</button>
       </div>
 
     </div>
@@ -536,8 +536,8 @@
         <h3>📖 Literature & Analysis</h3>
         <p>Analyze texts and persuasive writing.</p>
 
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L1')">Theme Across Cultures</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L2')">Rhetorical Appeals and Fallacies</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L1')">Theme Development</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L2')">Rhetorical Appeals</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L3')">Research Writing</button>
       </div>
 
@@ -545,21 +545,21 @@
         <h3>🎨 Language</h3>
         <p>Strengthen grammar and writing.</p>
 
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L4')">Grammar in Complex Sentences</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L5')">Syntax and Meaning</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L6')">Poetry Analysis</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L7')">Advanced Vocabulary</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L4')">Parts of Speech Match</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L5')">Syntax</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L6')">Poetry</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L7')">Fill in the Blank</button>
       </div>
 
       <div class="lesson-column">
         <h3>📝 Practice</h3>
         <p>Review with editing, matching, and speed.</p>
 
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L8')">Editing for Style and Precision</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L9')">Cross-Text Synthesis</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L10')">Timed Rhetorical Analysis</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L8')">Sentence Editing</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L9')">Memory Match</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L10')">Speed Challenge</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L11')">Spelling: Rhetoric Words</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L12')">Spelling Drag: Rhetoric Words</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L12')">Spelling Drag</button>
       </div>
 
     </div>
@@ -586,28 +586,28 @@
         <h3>📐 Geometry</h3>
         <p>Explore geometry and trigonometry.</p>
 
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L1')">Coordinate Geometry</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L2')">Similarity</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L3')">Right-Triangle Trigonometry</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L1')">Geometry Basics</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L2')">Similar Figures</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L3')">Trigonometry</button>
       </div>
 
       <div class="lesson-column">
         <h3>🧭 Transformations & Statistics</h3>
         <p>Analyze coordinate transformations and data.</p>
 
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L4')">Proof and Congruence</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L4')">Geometry Match</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L5')">Coordinate Transformations</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L6')">Geometric Probability</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L7')">Logical Arguments</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L6')">Statistics</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L7')">Fill in the Blank</button>
       </div>
 
       <div class="lesson-column">
         <h3>⚡ Practice</h3>
         <p>Review and reinforce math skills.</p>
 
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L8')">Geometry Error Analysis</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L9')">Two- and Three-Dimensional Measures</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L10')">Circle Relationships</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L8')">Sentence Editing</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L9')">Memory Match</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L10')">Speed Challenge</button>
       </div>
 
     </div>
@@ -634,10 +634,10 @@
         <h3>⚛️ Chemistry</h3>
         <p>Study matter, atoms, and bonding.</p>
 
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','sci','L1')">Atomic Structure</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','sci','L2')">Periodic Trends</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','sci','L1')">Chemistry Basics</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','sci','L2')">Periodic Table</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g10','sci','L3')">Chemical Bonding</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','sci','L4')">Nomenclature and Molecular Geometry</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','sci','L4')">Chemistry Match</button>
       </div>
 
       <div class="lesson-column">
@@ -651,11 +651,11 @@
         <h3>⚡ Practice</h3>
         <p>Review science concepts in different ways.</p>
 
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','sci','L6')">Solutions and Molarity</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','sci','L7')">Reaction Equations and Types</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','sci','L8')">Moles and Chemical Composition</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','sci','L9')">Gas Laws</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','sci','L10')">Thermochemistry Connections</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','sci','L6')">Fill in the Blank</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','sci','L7')">Sentence Editing</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','sci','L8')">Memory Match</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','sci','L9')">Speed Challenge</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','sci','L10')">Chemistry Connections</button>
       </div>
 
     </div>

@@ -217,22 +217,18 @@
 <!-- =========================
    UNIVERSAL LESSON RUNNER
 ========================== -->
-<div id="lessonRunner" class="section d-none" role="region" aria-labelledby="lrTitle">
-  <div class="cardish text-center kid-font lesson-runner-shell">
-    <header class="lesson-runner-header">
-      <div class="lesson-runner-heading">
-        <h1 id="lrTitle">Lesson</h1>
-        <div id="lrTeksBadge" class="teks-lesson-badge" aria-live="polite"></div>
-        <p id="lrLearningGoal" class="lesson-learning-goal"></p>
-      </div>
+<div id="lessonRunner" class="section d-none">
+  <div class="cardish text-center kid-font">
+    <h1 id="lrTitle">Lesson</h1>
+    <div id="lrTeksBadge" class="teks-lesson-badge" aria-live="polite"></div>
+    <p id="lrLearningGoal" class="lesson-learning-goal"></p>
 
-      <div class="scorebar lesson-runner-score">
-        <div class="badge-pill">⭐ Points: <span id="lrPoints">0</span></div>
-        <div class="badge-pill"><span class="learner-icon" role="img" aria-label="Learner"></span> Learners: <span id="lrLearners">0</span></div>
-      </div>
-    </header>
+    <div class="scorebar">
+      <div class="badge-pill">⭐ Points: <span id="lrPoints">0</span></div>
+      <div class="badge-pill"><span class="learner-icon" role="img" aria-label="Learner"></span> Learners: <span id="lrLearners">0</span></div>
+    </div>
 
-    <div class="quiz-card mt-2 lesson-question-panel" id="lrQuestionPanel" role="region" aria-labelledby="lrQuestion">
+    <div class="quiz-card mt-2" id="lrQuestionPanel">
       <div class="lesson-stage-track" id="lrStageTrack" aria-label="Lesson difficulty stages">
         <span data-stage="1">Foundation</span>
         <span data-stage="2">Apply</span>
@@ -240,12 +236,12 @@
         <span data-stage="4">Challenge</span>
         <span data-stage="5">Mastery</span>
       </div>
-      <div class="lesson-stage-meter" role="progressbar" aria-label="Lesson progress" aria-valuemin="1" aria-valuemax="25" aria-valuenow="1"><i id="lrStageMeter"></i></div>
+      <div class="lesson-stage-meter" aria-hidden="true"><i id="lrStageMeter"></i></div>
       <div class="small-note fw-bold" id="lrProg">Question 1 of 25 · Foundation</div>
-      <div class="lesson-question-text" id="lrQuestion" role="heading" aria-level="2" aria-live="polite">Question text…</div>
+      <div style="font-size:26px;font-weight:900;margin-top:6px" id="lrQuestion">Question text…</div>
 
       <!-- NORMAL CHOICES -->
-<div id="lrChoices" role="group" aria-labelledby="lrQuestion"></div>
+<div id="lrChoices"></div>
 
 <div id="lessonExtra" class="lesson-type-box"></div>
 <!-- ✅ DRAG & DROP AREA -->
@@ -260,25 +256,26 @@
 </div>
 
       <div class="d-flex justify-content-center mt-2 d-none" id="lrInputWrap">
-        <input id="lrInput" type="text" class="form-control lesson-answer-input"
-          aria-labelledby="lrQuestion" placeholder="Type answer">
+        <input id="lrInput" type="text" class="form-control"
+          style="max-width:260px;font-size:22px;font-weight:900;text-align:center;border-radius:16px;border:2px solid rgba(239,68,68,.60)"
+          placeholder="Type answer">
       </div>
 
-      <div class="d-flex justify-content-center gap-2 flex-wrap mt-3 lesson-question-actions">
+      <div class="d-flex justify-content-center gap-2 flex-wrap mt-3">
         <button type="button" class="btn btn-main" onclick="lrReplay()">🔊 Replay</button>
         <button type="button" class="btn btn-main" onclick="lrCheck()" id="lrCheckBtn">Check</button>
         <button type="button" class="btn btn-main" onclick="lrNext()" id="lrNextBtn" disabled>Next</button>
       </div>
 
-      <div class="feedback" id="lrFb" role="status" aria-live="polite"></div>
+      <div class="feedback" id="lrFb"></div>
     </div>
 
-    <div class="d-flex justify-content-center gap-2 flex-wrap mt-3 lesson-footer-actions">
+    <div class="d-flex justify-content-center gap-2 flex-wrap mt-3">
       <button type="button" class="btn btn-main" onclick="lrRestart()">Restart</button>
       <button type="button" class="btn btn-main" onclick="lrBack()">Back</button>
     </div>
 
-    <div class="quiz-card mt-3 d-none lesson-completion-card" id="lrDone" role="status" aria-live="polite" tabindex="-1">
+    <div class="quiz-card mt-3 d-none" id="lrDone">
       <img class="lesson-complete-medal" src="images/lesson-gold-medal.png" alt="Gold star medal earned for completing the lesson">
       <div class="lesson-complete-kicker">Lesson complete</div>
       <h2 style="font-weight:900;">Great Job!</h2>

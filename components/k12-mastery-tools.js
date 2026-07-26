@@ -20,55 +20,14 @@
     return {type:"mc",q:item.q,choices:[String(item.a),...wrongs],answer:String(item.a),explain:item.e};
   }
 
-  function taskText(value){
-    return String(value || "").replace(/\s+/g, " ").trim().replace(/[.!?]+$/, "");
-  }
-
-  function sameAnswer(left,right){
-    return String(left||"").replace(/\s+/g," ").trim().toLocaleLowerCase()
-      ===String(right||"").replace(/\s+/g," ").trim().toLocaleLowerCase();
-  }
-
-  function stageContract(concept,stage){
-    const fact=String(concept.fact);
-    const label=String(concept.label);
-    const application=taskText(concept.application);
-    const challenge=taskText(concept.challenge);
-
-    if(stage==="apply"){
-      const answer=concept.aa||fact;
-      const question=concept.aq||(concept.aa
-        ?`Which conclusion correctly applies ${label} to “${application}”?`
-        :`Which principle about ${label} should guide the answer to “${application}”?`);
-      const explanation=concept.ae||(sameAnswer(answer,fact)
-        ?`The situation “${application}” is an application of ${label}. ${fact}`
-        :`${fact} Applying that principle to “${application}” supports “${answer}.”`);
-      return {question,answer,wrongs:concept.aw||concept.w,explanation};
-    }
-
-    if(stage==="challenge"){
-      const answer=concept.ca||fact;
-      const question=concept.cq||(concept.ca
-        ?`Which conclusion applies ${label} across every condition in “${challenge}”?`
-        :`Which principle about ${label} must guide a correct analysis of “${challenge}”?`);
-      const explanation=concept.ce||(sameAnswer(answer,fact)
-        ?`The challenge “${challenge}” requires the ${label} relationship. ${fact}`
-        :`${fact} Applying that principle across the challenge conditions supports “${answer}.”`);
-      return {question,answer,wrongs:concept.cw||concept.w,explanation};
-    }
-
-    const hasAuthoredMasteryQuestion=Boolean(concept.mq);
-    const answer=concept.ma||(hasAuthoredMasteryQuestion?(concept.ca||concept.aa||fact):fact);
-    const question=concept.mq||(concept.ma
-      ?`Which conclusion about ${label} remains defensible after “${challenge}” is checked against the lesson principle?`
-      :`Which governing principle about ${label} remains valid when “${application}” and “${challenge}” are evaluated together?`);
-    const explanation=concept.me||(sameAnswer(answer,fact)
-      ?`The application and challenge both test the same ${label} relationship. ${fact}`
-      :`${fact} Checking both contexts against that principle supports “${answer}.”`);
-    const wrongs=concept.mw||(hasAuthoredMasteryQuestion
-      ?concept.cw||concept.aw||concept.w
-      :concept.w);
-    return {question,answer,wrongs,explanation};
+  function masteryExplanation(concept){
+    const answer=String(concept.ma||concept.ca||concept.aa||concept.fact);
+    const support=String(concept.ce||concept.ae||concept.fe||concept.fact).trim();
+    const repeatsAnswer=support.toLocaleLowerCase().startsWith(answer.trim().toLocaleLowerCase());
+    const detail=repeatsAnswer
+      ?" It applies the lesson rule without contradicting any stated condition."
+      :` ${support}`;
+    return `After every condition is checked, “${answer}” remains defensible.${detail}`;
   }
 
   function conceptSequence(lessonName, concepts){
@@ -78,10 +37,11 @@
       a:c.fact,w:c.w,
       e:c.fe||`${c.fact} This is the defining relationship for ${c.label}.`
     }));
-    const apply=concepts.map(c=>{
-      const contract=stageContract(c,"apply");
-      return mc({q:contract.question,a:contract.answer,w:contract.wrongs,e:contract.explanation});
-    });
+    const apply=concepts.map(c=>mc({
+      q:c.aq||`Apply ${c.label} to this new situation: ${c.application}`,
+      a:c.aa||c.fact,w:c.aw||c.w,
+      e:c.ae||`${c.aa||c.fact} follows because ${c.fact}`
+    }));
     const reason=concepts.map((c,index)=>{
       const isTrue=index%2===0;
       const claim=isTrue?(c.rc||c.fact):(c.falseClaim||c.w[0]);
@@ -92,27 +52,29 @@
         explain:isTrue?`True. ${c.re||c.fact}`:`False. ${c.re||c.fact} The claim confuses this with "${c.w[0]}."`
       };
     });
-    const challenge=concepts.map(c=>{
-      const contract=stageContract(c,"challenge");
-      return mc({q:contract.question,a:contract.answer,w:contract.wrongs,e:contract.explanation});
-    });
-    const mastery=concepts.map(c=>{
-      const contract=stageContract(c,"mastery");
-      return mc({q:contract.question,a:contract.answer,w:contract.wrongs,e:contract.explanation});
-    });
+    const challenge=concepts.map(c=>mc({
+      q:c.cq||`Challenge: ${c.challenge}`,
+      a:c.ca||c.fact,w:c.cw||c.w,
+      e:c.ce||`${c.ca||c.fact} is the only conclusion that satisfies every condition in the challenge.`
+    }));
+    const mastery=concepts.map((c,index)=>mc({
+      q:c.mq||`Mastery ${index+1}: ${c.challenge} After checking the governing rule, the evidence, and the closest misconception, which conclusion remains defensible?`,
+      a:c.ma||c.ca||c.aa||c.fact,w:c.mw||c.cw||c.aw||c.w,
+      e:c.me||masteryExplanation(c)
+    }));
     return [...foundation,...apply,...reason,...challenge,...mastery];
   }
 
   function addMasteryBand(lessonName,subject,questions){
     if(questions.length!==20) return questions;
-    const masteryPrompt={
-      eng:base=>`Which answer is best supported by the complete text, language rule, and purpose in “${taskText(base.q)}”?`,
-      math:base=>`Which answer solves “${taskText(base.q)}” and remains correct after the result is verified?`,
-      sci:base=>`Which answer is supported by the evidence, scientific model, and controlled conditions in “${taskText(base.q)}”?`
-    }[subject]||((base)=>`Which answer remains valid after every condition in “${taskText(base.q)}” is checked?`);
-    return [...questions,...questions.slice(15,20).map(base=>{
+    const subjectDirections={
+      eng:"Evaluate every choice against the complete text, language rule, and requested purpose, then choose the answer that can be defended with explicit evidence.",
+      math:"Solve independently and verify the result with an inverse operation, equivalent representation, or reasonableness check before choosing.",
+      sci:"Use claim-evidence-reasoning: test every option against the stated evidence, the scientific model, and any controlled conditions before choosing."
+    };
+    return [...questions,...questions.slice(15,20).map((base,index)=>{
       const question=typeof structuredClone==="function"?structuredClone(base):JSON.parse(JSON.stringify(base));
-      question.q=masteryPrompt(base);
+      question.q=`Mastery ${index+1} — ${subjectDirections[subject]||"Check every condition and defend the strongest conclusion."} ${base.q}`;
       question.explain=`${base.explain} This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition.`;
       return question;
     })];

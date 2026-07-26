@@ -11,9 +11,9 @@ function spellingChoiceQuestion(words){
   const explain=`“${it.correct}” is the standard spelling for ${it.clue}; the other forms misuse the sound-spelling or affix pattern.`;
   if(tier===3){const trueClaim=round%2===1;const claim=trueClaim?it.correct:wrong[0];return {type:"truefalse",q:`True or false: “${claim}” is the correct spelling for ${it.clue}.`,answer:trueClaim,audio:"Decide whether the spelling is correct.",explain};}
   if(tier===4) return {...inputQuestion(`Without choices, type the correct spelling for: ${it.clue}.`,it.correct,"Spell the word independently."),explain};
-  if(tier===5) return {...inputQuestion(`A draft uses “${wrong[0]}” for ${it.clue}. What is the correct spelling?`,it.correct,"Correct the spelling and verify the meaning."),explain:`${explain} The mastery check requires correcting the authentic error and confirming that the corrected word fits the meaning.`};
-  const prompt=tier===1?`Which spelling correctly names ${it.clue}?`:`Which spelling follows the word pattern for ${it.clue}?`;
-  return {...mcQuestion(prompt, it.correct, wrong, "Choose the correctly spelled word."),explain};
+  if(tier===5) return {...inputQuestion(`Mastery: A draft incorrectly uses “${wrong[0]}” for ${it.clue}. Type the correct spelling, checking both the word pattern and meaning.`,it.correct,"Correct the spelling and verify the meaning."),explain:`${explain} The mastery check requires correcting the authentic error and confirming that the corrected word fits the meaning.`};
+  const lead=tier===1?"Choose":"Apply the spelling pattern and choose";
+  return {...mcQuestion(`${lead} the correct spelling for "${it.clue}" (item ${round}).`, it.correct, wrong, "Choose the correctly spelled word."),explain};
 }
 
 function spellingTypeQuestion(words){
@@ -23,9 +23,9 @@ function spellingTypeQuestion(words){
   const tier=Math.ceil(round/5);
   const explain=`“${it.answer}” follows the sound-spelling pattern in the spoken prompt; “${it.wrong}” does not.`;
   if(tier===3){const trueClaim=round%2===1;return {type:"truefalse",q:`True or false: “${trueClaim?it.answer:it.wrong}” correctly spells the word in this prompt: ${it.prompt}`,answer:trueClaim,audio:"Evaluate the proposed spelling.",explain};}
-  if(tier===5) return {...inputQuestion(`The draft uses “${it.wrong}” for this prompt: ${it.prompt} What correction does the sound-spelling evidence support?`,it.answer,"Correct and verify the spelling."),explain:`${explain} The corrected spelling must match both the spoken sequence and the conventional written form.`};
-  const prompt=tier===1?`${it.prompt} How is the word spelled?`:tier===2?`${it.prompt} Which spelling matches this sound pattern? Type it.`:`${it.prompt} What correction should replace “${it.wrong}”?`;
-  return {...inputQuestion(prompt, it.answer, "Type the correctly spelled word."),explain};
+  if(tier===5) return {...inputQuestion(`Mastery: Proofread the error “${it.wrong}.” Use the sound-spelling pattern in this prompt to type the correction: ${it.prompt}`,it.answer,"Correct and verify the spelling."),explain:`${explain} The corrected spelling must match both the spoken sequence and the conventional written form.`};
+  const demand=round<=5?"Type":round<=10?"Apply the sound pattern and type":round<=15?"Recall without a word bank and type":"Challenge: proofread mentally, then type";
+  return {...inputQuestion(`${demand} the correct spelling (${round}): ${it.prompt}`, it.answer, "Type the correctly spelled word."),explain};
 }
 
 function spellingDragLesson(title, pairs){
@@ -36,9 +36,9 @@ function spellingDragLesson(title, pairs){
   const tier=Math.ceil(round/5);
   const explain=`“${pair.left}” matches “${pair.right}” in this lesson's word-pattern relationship.`;
   if(tier===3){const trueClaim=round%2===1;const claim=trueClaim?pair.right:wrong[0];return {type:"truefalse",q:`True or false: “${pair.left}” matches “${claim}.”`,answer:trueClaim,audio:"Check the spelling relationship.",explain};}
-  if(tier===5) return {...mcQuestion(`A student matched “${pair.left}” with “${wrong[0]}.” Which relationship corrects the error?`,pair.right,wrong,"Correct the relationship and justify the rule."),explain:`${explain} The mastery item requires identifying why the proposed match fails and replacing it with the exact relationship.`};
-  const prompt=tier===1?`Which rule or meaning matches “${pair.left}”?`:tier===2?`Which rule or meaning correctly applies to “${pair.left}”?`:`Which match remains correct after analyzing the word parts in “${pair.left}”?`;
-  return {...mcQuestion(prompt,pair.right,wrong,"Choose the exact spelling relationship."),explain};
+  if(tier===5) return {...mcQuestion(`Mastery: A student matched “${pair.left}” with “${wrong[0]}.” Which relationship corrects the error and can be justified by the lesson's spelling or meaning rule?`,pair.right,wrong,"Correct the relationship and justify the rule."),explain:`${explain} The mastery item requires identifying why the proposed match fails and replacing it with the exact relationship.`};
+  const lead=tier===1?"Match":tier===2?"Apply the rule and match":"Challenge: analyze the word parts and match";
+  return {...mcQuestion(`${lead} “${pair.left}” to the correct rule or meaning (${round}).`,pair.right,wrong,"Choose the exact spelling relationship."),explain};
 }
 
 function addEnglishSpellingLessons(){

@@ -3559,28 +3559,22 @@ function g4Item(q, a, w1, w2, w3, explain){
   return {q:String(q), a:String(a), w:[String(w1), String(w2), String(w3)], explain:String(explain)};
 }
 
-function g4TaskText(value){
-  return String(value || "").replace(/\s+/g, " ").trim().replace(/[.!?]+$/, "");
-}
-
 function g4MasteryItems(subject, lesson, standard, expectation, items){
   const prompts=[
-    (item,wrong)=>`Which answer correctly resolves “${g4TaskText(item.q)}” and replaces the incorrect choice “${wrong}”?`,
-    (item,wrong)=>`Which answer to “${g4TaskText(item.q)}” is supported by all relevant evidence rather than “${wrong}”?`,
-    (item,wrong)=>`Which answer satisfies every condition in “${g4TaskText(item.q)}”?`,
-    (item,wrong)=>`When “${item.a}” and “${wrong}” are compared for “${g4TaskText(item.q)},” which answer remains defensible?`,
-    (item,wrong)=>`Which answer solves “${g4TaskText(item.q)}” without making the error shown by “${wrong}”?`
+    (item,wrong)=>`Error analysis: A learner chose "${wrong}" for the task below. Which answer corrects the error and satisfies every condition in the original task?\n\n${item.q}`,
+    (item,wrong)=>`Evidence synthesis: Solve the lesson-owned task below using both its evidence and the TEKS expectation "${expectation}" Reject the tempting response "${wrong}" if it relies on only one clue.\n\n${item.q}`,
+    (item,wrong)=>`Multi-condition reasoning: Choose the answer that (1) addresses the exact question, (2) is consistent with all stated information, and (3) can be defended with the ${standard} lesson rule.\n\n${item.q}`,
+    (item,wrong)=>`Challenge review: One student selected "${item.a}" and another selected "${wrong}." Test both responses against the complete task and choose the conclusion that remains defensible.\n\n${item.q}`,
+    (item,wrong)=>`Mastery defense: A response must solve the task, explain the relevant relationship, and avoid the error represented by "${wrong}." Which answer meets all three requirements?\n\n${item.q}`
   ];
   return items.slice(15,20).map((item,phase)=>{
     const wrong=item.w[phase%item.w.length];
-    const masteryItem = g4Item(
+    return g4Item(
       prompts[phase](item,wrong),
       item.a,
       ...item.w,
       `${item.a} is the defensible answer. ${item.explain} The response "${wrong}" fails at least one condition, so the correction uses the complete ${subject} lesson evidence.`
     );
-    masteryItem.trueFalseContext = item.q;
-    return masteryItem;
   });
 }
 
@@ -3604,10 +3598,9 @@ function g4Register(subject, lesson, standard, expectation, items){
     const trueFalseSlot = (index + 1) % 4 === 0;
     const claimIsTrue = ((index + 1) / 4) % 2 === 1;
     const claimedAnswer = claimIsTrue ? item.a : item.w[0];
-    const trueFalseContext = item.trueFalseContext || item.q;
     const delivered = trueFalseSlot ? {
       type:"truefalse",
-      q:`True or false: “${claimedAnswer}” correctly answers “${g4TaskText(trueFalseContext)}.”`,
+      q:`True or false: For the question "${item.q}", "${claimedAnswer}" is the correct answer.`,
       answer:claimIsTrue,
       explain:claimIsTrue
         ? `The statement is true. ${item.explain}`
@@ -5142,7 +5135,7 @@ window.G4_TEKS_OWNED_AUDIT=(()=>{
     if(new Set(bank.items.map(item=>item.q)).size!==25) failures.push(`${key}:duplicate`);
     if(bank.items.filter(item=>item.type==="truefalse").length!==6) failures.push(`${key}:truefalse`);
     if(bank.items.map(item=>item.difficulty).join("")!=="1111122222333334444455555") failures.push(`${key}:difficulty`);
-    if(bank.items.slice(20).some(item=>/^(Error analysis|Evidence synthesis|Multi-condition reasoning|Challenge review|Mastery defense):/i.test(item.q))) failures.push(`${key}:mastery-prefix`);
+    if(bank.items.slice(20).some(item=>!/(Error analysis|Evidence synthesis|Multi-condition reasoning|Challenge review|Mastery defense)/.test(item.q))) failures.push(`${key}:mastery`);
   });
   return Object.freeze({lessons:Object.keys(G4_TEKS_BANKS).length,questions:Object.keys(G4_TEKS_BANKS).length*25,bands:Object.freeze(["Foundation","Apply","Reason","Challenge","Mastery"]),failures:Object.freeze(failures)});
 })();
