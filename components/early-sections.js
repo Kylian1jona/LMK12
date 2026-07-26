@@ -7,16 +7,25 @@
 <div id="prek" class="section d-none">
     <div class="cardish text-center kid-font">
       <h1>Pre-K</h1>
-      <p class="small-note">Choose an activity</p>
+      <p class="small-note">Choose an English or Math lesson</p>
       <div class="scorebar">
         <div class="badge-pill">⭐ Points: <span id="prekPoints">0</span></div>
         <div class="badge-pill"><span class="learner-icon" role="img" aria-label="Learner"></span> Learners: <span id="prekLearners">0</span></div>
       </div>
 
-      <div class="d-flex justify-content-center gap-3 flex-wrap mt-3">
+      <h2 class="mt-3">English</h2>
+      <div class="d-flex justify-content-center gap-3 flex-wrap mt-2">
+        <button type="button" class="btn btn-main" onclick="startEarlyBank('prek:eng:letters','prek')">Letter Names</button>
+        <button type="button" class="btn btn-main" onclick="startEarlyBank('prek:eng:sounds','prek')">Beginning Sounds</button>
+        <button type="button" class="btn btn-main" onclick="startEarlyBank('prek:eng:rhymes','prek')">Rhyming Words</button>
+      </div>
+      <h2 class="mt-3">Math</h2>
+      <div class="d-flex justify-content-center gap-3 flex-wrap mt-2">
         <button type="button" class="btn btn-main" onclick="show('prek-add')">Emoji Addition</button>
         <button type="button" class="btn btn-main" onclick="show('prek-count')">Counting to 20</button>
         <button type="button" class="btn btn-main" onclick="show('prek-shapes')">Shapes Match</button>
+      </div>
+      <div class="d-flex justify-content-center mt-3">
         <button type="button" class="btn btn-main" onclick="show('grades')">Back</button>
       </div>
     </div>
@@ -138,17 +147,26 @@
   <!-- KINDER MENU (3 lessons) -->
   <div id="kinder" class="section d-none">
     <div class="cardish text-center kid-font">
-      <h1>Kindergarten English</h1>
-      <p class="small-note">Choose a lesson</p>
+      <h1>Kindergarten</h1>
+      <p class="small-note">Choose an English or Math lesson</p>
       <div class="scorebar">
         <div class="badge-pill">⭐ Points: <span id="kPoints">0</span></div>
         <div class="badge-pill"><span class="learner-icon" role="img" aria-label="Learner"></span> Learners: <span id="kLearners">0</span></div>
       </div>
 
-      <div class="d-flex justify-content-center gap-3 flex-wrap mt-3">
+      <h2 class="mt-3">English</h2>
+      <div class="d-flex justify-content-center gap-3 flex-wrap mt-2">
         <button type="button" class="btn btn-main" onclick="show('k-syll-count')">Syllable Count</button>
         <button type="button" class="btn btn-main" onclick="show('k-syll-build')">Build the Word</button>
         <button type="button" class="btn btn-main" onclick="show('k-rhymes')">Rhyming Words</button>
+      </div>
+      <h2 class="mt-3">Math</h2>
+      <div class="d-flex justify-content-center gap-3 flex-wrap mt-2">
+        <button type="button" class="btn btn-main" onclick="startEarlyBank('k:math:counting','kinder')">Counting to 30</button>
+        <button type="button" class="btn btn-main" onclick="startEarlyBank('k:math:addition','kinder')">Addition Within 10</button>
+        <button type="button" class="btn btn-main" onclick="startEarlyBank('k:math:patterns','kinder')">Shapes & Patterns</button>
+      </div>
+      <div class="d-flex justify-content-center mt-3">
         <button type="button" class="btn btn-main" onclick="show('grades')">Back</button>
       </div>
     </div>
@@ -260,17 +278,26 @@
   <!-- GRADE 1 MENU (3 lessons) -->
   <div id="grade1" class="section d-none">
     <div class="cardish text-center kid-font">
-      <h1>Grade 1 Math</h1>
-      <p class="small-note">Choose a lesson</p>
+      <h1>Grade 1</h1>
+      <p class="small-note">Choose an English or Math lesson</p>
       <div class="scorebar">
         <div class="badge-pill">⭐ Points: <span id="g1Points">0</span></div>
         <div class="badge-pill"><span class="learner-icon" role="img" aria-label="Learner"></span> Learners: <span id="g1Learners">0</span></div>
       </div>
 
-      <div class="d-flex justify-content-center gap-3 flex-wrap mt-3">
+      <h2 class="mt-3">English</h2>
+      <div class="d-flex justify-content-center gap-3 flex-wrap mt-2">
+        <button type="button" class="btn btn-main" onclick="startEarlyBank('g1:eng:vowels','grade1')">Vowel Sounds</button>
+        <button type="button" class="btn btn-main" onclick="startEarlyBank('g1:eng:sight','grade1')">Sight Words</button>
+        <button type="button" class="btn btn-main" onclick="startEarlyBank('g1:eng:sentences','grade1')">Sentence Basics</button>
+      </div>
+      <h2 class="mt-3">Math</h2>
+      <div class="d-flex justify-content-center gap-3 flex-wrap mt-2">
         <button type="button" class="btn btn-main" onclick="show('g1-addsub')">2–3 Digit Add/Sub</button>
         <button type="button" class="btn btn-main" onclick="show('g1-graphs')">Simple Data & Graphs</button>
         <button type="button" class="btn btn-main" onclick="show('g1-money')">Money Counting</button>
+      </div>
+      <div class="d-flex justify-content-center mt-3">
         <button type="button" class="btn btn-main" onclick="show('grades')">Back</button>
       </div>
     </div>
@@ -388,6 +415,23 @@
       <div class="d-flex justify-content-center gap-2 flex-wrap mt-3">
         <button type="button" class="btn btn-main" onclick="g1mReset()">Restart</button>
         <button type="button" class="btn btn-main" onclick="show('grade1')">Back</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="early-bank" class="section d-none">
+    <div class="cardish text-center kid-font">
+      <h1 id="earlyBankTitle">Lesson</h1>
+      <div class="quiz-card mt-2">
+        <div class="small-note fw-bold" id="earlyBankProgress">Question 1 of 25</div>
+        <h2 id="earlyBankQuestion" class="mt-3"></h2>
+        <div class="d-flex justify-content-center flex-wrap mt-3" id="earlyBankChoices"></div>
+        <div class="feedback" id="earlyBankFeedback"></div>
+        <button type="button" class="btn btn-main mt-2" id="earlyBankNext" onclick="earlyBankNext()" disabled>Next</button>
+      </div>
+      <div class="d-flex justify-content-center gap-2 flex-wrap mt-3">
+        <button type="button" class="btn btn-main" onclick="earlyBankRestart()">Restart</button>
+        <button type="button" class="btn btn-main" onclick="earlyBankBack()">Back</button>
       </div>
     </div>
   </div>
