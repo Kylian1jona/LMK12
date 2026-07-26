@@ -50,20 +50,17 @@ function lessonSearchSubjectName(subj, group){
 }
 
 function buildLessonSearchIndex(){
-  if(typeof CURR === "undefined") return [];
+  if(typeof CURR === "undefined" || !window.K12CurrentLessons?.entries) return [];
   const index = [];
-  Object.entries(CURR).forEach(([grade, subjects])=>{
-    Object.entries(subjects || {}).forEach(([subj, group])=>{
-      if(!group || typeof group !== "object") return;
-      const gradeName = lessonSearchGradeName(grade);
-      const subjectName = lessonSearchSubjectName(subj, group);
-      Object.entries(group).forEach(([lesson, pack])=>{
-        if(lesson === "showName" || !pack || typeof pack !== "object") return;
-        const name = pack.name || lesson;
-        const search = `${gradeName} ${grade} ${subjectName} ${subj} ${lesson} ${name}`.toLowerCase();
-        index.push({ grade, subj, lesson, name, gradeName, subjectName, search });
-      });
-    });
+  const currentEntries = window.K12CurrentLessons.entries();
+  if(!Array.isArray(currentEntries) || !currentEntries.length) return [];
+  currentEntries.forEach(({grade, subject:subj, lesson, pack})=>{
+    const group = CURR?.[grade]?.[subj];
+    const gradeName = lessonSearchGradeName(grade);
+    const subjectName = lessonSearchSubjectName(subj, group);
+    const name = pack?.name || lesson;
+    const search = `${gradeName} ${grade} ${subjectName} ${subj} ${lesson} ${name}`.toLowerCase();
+    index.push({grade, subj, lesson, name, gradeName, subjectName, search});
   });
   LESSON_SEARCH_INDEX = index;
   return index;

@@ -1,5 +1,13 @@
 {
+  "scripts": {
+    "lessons:sync": "node scripts/sync-lesson-selectors.js",
+    "lessons:audit": "node scripts/sync-lesson-selectors.js --check && node scripts/audit-curriculum.js",
+    "lessons:smoke": "node scripts/smoke-lesson-ui.js"
+  },
   "dependencies": {
     "@supabase/server": "^1.4.0"
+  },
+  "devDependencies": {
+    "ws": "^8.21.1"
   }
 }

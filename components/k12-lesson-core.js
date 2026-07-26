@@ -80,7 +80,11 @@ function renderLessonStageTrack(){
     else stage.removeAttribute("aria-current");
   });
   const meter=$("lrStageMeter");
-  if(meter) meter.style.width=`${Math.round((Math.min(LR.round,LR.total)/LR.total)*100)}%`;
+  if(meter){
+    meter.style.width=`${Math.round((Math.min(LR.round,LR.total)/LR.total)*100)}%`;
+    meter.parentElement?.setAttribute("aria-valuemax", String(LR.total));
+    meter.parentElement?.setAttribute("aria-valuenow", String(Math.min(LR.round, LR.total)));
+  }
 }
 
 function progressiveQuestion(items){
@@ -367,10 +371,11 @@ function enforceUniqueLessonImages(){
 }
 
 function getLessonPack(grade, subj, lesson){
-  const group = CURR[grade]?.[subj];
-  if(!group) return null;
-  const pack = group[lesson];
-  return pack && typeof pack.gen === "function" ? pack : null;
+  if(!window.K12CurrentLessons?.get){
+    console.error("The current lesson catalog did not load; legacy lesson fallback is disabled.");
+    return null;
+  }
+  return window.K12CurrentLessons.get(grade, subj, lesson);
 }
 
 /* ---------- Start lesson ---------- */
@@ -408,8 +413,9 @@ function startLesson(grade, subj, lesson){
   lrLoadQuestion();
 }
 
-/* ---------- Render runner ---------- */
-function lrRender(){
+/* Legacy renderer retained only for older question-type reference.
+   The active renderer is renderCurrentLessonQuestion below. */
+function legacyLessonRender(){
 
   renderAllBadges();
 
@@ -528,7 +534,7 @@ function lrPick(choice){
   }
 }
 
-function lrCheck(){
+function legacyLessonCheck(){
   safeClick();
 
   const q = LR.current;
@@ -587,49 +593,12 @@ function lrLoadQuestion(){
     show(LR.backSection);
     return;
   }
-  fillChoicesFromLessonGenerator(generated, pack);
   generated.teks = LR.teks;
   // Question types now belong to each lesson's authored 20-item sequence.
   // Do not rewrite every fourth question globally; that hid whether a
   // generator actually supplied its own true/false reasoning checks.
   LR.current = generated;
   lrRender();
-}
-
-function makeLessonTrueFalse(question){
-  if(LR.round % 4 !== 0 || question.type !== "mc" || !Array.isArray(question.choices)) return question;
-  const wrongs = question.choices.filter(choice=>String(choice) !== String(question.answer));
-  const useTrue = (LR.round / 4) % 2 === 1 || !wrongs.length;
-  const claimedAnswer = useTrue ? question.answer : wrongs[0];
-  return {
-    type:"mc",
-    q:`True or false: For “${question.q}” the answer is “${answerOptionLabel(claimedAnswer)}.”`,
-    choices:["True","False"],
-    answer:useTrue ? "True" : "False",
-    audio:`True or false. ${question.q}. The answer is ${answerOptionLabel(claimedAnswer)}.`,
-    explain:useTrue
-      ? `True. ${answerOptionLabel(question.answer)} is the correct answer for this lesson question.`
-      : `False. The correct answer is ${answerOptionLabel(question.answer)}, not ${answerOptionLabel(claimedAnswer)}.`,
-    teks:LR.teks
-  };
-}
-
-function fillChoicesFromLessonGenerator(question, pack){
-  if(question?.type !== "mc" || question.choices.length >= 4 || typeof pack?.gen !== "function") return;
-  const used = new Set(question.choices.map(String));
-  for(let attempt=0; attempt<8 && question.choices.length<4; attempt++){
-    const generated = pack.gen();
-    if(!generated || !Array.isArray(generated.choices)) continue;
-    const generatedAnswer = String(generated.answer ?? "");
-    generated.choices.forEach(choice=>{
-      const value = String(choice);
-      if(question.choices.length < 4 && value && value !== generatedAnswer && value !== String(question.answer) && !used.has(value)){
-        used.add(value);
-        question.choices.push(value);
-      }
-    });
-  }
-  question.choices = shuffle(question.choices);
 }
 
 function normalizeLessonQuestion(q, pack){
@@ -682,7 +651,11 @@ function lrFinish(){
   $("lrDone").classList.remove("lesson-complete-celebrate");
   void $("lrDone").offsetWidth;
   $("lrDone").classList.add("lesson-complete-celebrate");
-  setTimeout(()=>$("lrDone")?.scrollIntoView({behavior:"smooth", block:"center"}), 50);
+  setTimeout(()=>{
+    const done = $("lrDone");
+    done?.scrollIntoView({behavior:"smooth", block:"center"});
+    done?.focus({preventScroll:true});
+  }, 50);
   const stars = clamp(Math.round((LR.score/LR.total)*5), 1, 5);
   $("lrStars").textContent = "⭐".repeat(stars);
   $("lrSummary").textContent = `Score: ${LR.score} / ${LR.total}. Keep practicing to earn more ⭐!`;
@@ -762,7 +735,8 @@ let MATCH_PICK = null;
 let SPEED_TIMER = null;
 let SPEED_LEFT = 10;
 
-function lrRender(){
+/* Current question renderer. Edit this function for lesson-screen behavior. */
+function renderCurrentLessonQuestion(){
   renderAllBadges();
 
   $("lrPoints").textContent = String(state.points);
@@ -838,7 +812,12 @@ function lrRender(){
   }
 }
 
-function lrCheck(){
+function lrRender(){
+  return renderCurrentLessonQuestion();
+}
+
+/* Current answer checker. Edit this function for answer-validation behavior. */
+function checkCurrentLessonAnswer(){
   safeClick();
   if(!$("lrNextBtn").disabled) return;
 
@@ -911,6 +890,10 @@ function lrCheck(){
   }else{
     lrWrongMoveOn(wrongExplanation(q, user));
   }
+}
+
+function lrCheck(){
+  return checkCurrentLessonAnswer();
 }
 
 function renderMatch(q){

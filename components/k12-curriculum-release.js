@@ -3,8 +3,10 @@
 (function installCurriculumRelease(){
   "use strict";
 
-  const RELEASE="teks25-20260722.1";
+  const RELEASE="current-lessons-20260725.2";
   const STAGES=Object.freeze(["Foundation","Apply","Reason","Challenge","Mastery"]);
+  const GENERATED_LEAD=/^(?:undefined\b|Question \d+ of 25\b|Read:|Build the skill:|Apply the skill in context:|Apply grade-level orthographic and syllable patterns|Analyze this event:|Use two clues and reason:|Challenge—analyze the complex example:|Mastery—evaluate the evidence, diagnose errors, and justify the conclusion:|Error analysis:|Evidence synthesis:|Multi-condition reasoning:|Challenge review:|Mastery defense:|Apply the lesson to this evidence:|Challenge source analysis:|Mastery synthesis:|Mastery \d+\s*(?::|—)|Mastery:|Challenge:)/i;
+  const STACKED_BOILERPLATE=/\?\s+Which (?:answer|response|conclusion) (?:also |corrects|fits all|addresses|remains|gives|states)/i;
 
   function questionSignature(question){
     return JSON.stringify([
@@ -18,7 +20,15 @@
   }
 
   function verifyQuestion(question,key,round){
-    if(!question||!String(question.q||"").trim()) return `${key} round ${round} returned no question`;
+    const prompt=String(question?.q||"").replace(/\s+/g," ").trim();
+    if(!question||!prompt) return `${key} round ${round} returned no question`;
+    if(prompt.length<10) return `${key} round ${round} returned an incomplete question`;
+    if(prompt.length>520) return `${key} round ${round} is too long to read comfortably (${prompt.length} characters)`;
+    if(String(question.type||"").toLowerCase()==="truefalse"&&prompt.length>320) return `${key} round ${round} has an overlong true-or-false statement (${prompt.length} characters)`;
+    if(GENERATED_LEAD.test(prompt)) return `${key} round ${round} begins with a generated instruction instead of the question`;
+    if(STACKED_BOILERPLATE.test(prompt)) return `${key} round ${round} joins a question to a generic second question`;
+    if(/§\s*\d|(?:^|\s)\d{1,3}\.\d+\s*\([A-Za-z0-9ivx]+\)/.test(prompt)) return `${key} round ${round} exposes a raw standards code in the student question`;
+    if(/\b(?:undefined|null|NaN)\b|\[object Object\]/.test(prompt)) return `${key} round ${round} contains broken generated text`;
     const expectedDifficulty=Math.ceil(round/5);
     if(Number(question.difficulty)!==expectedDifficulty) return `${key} round ${round} has difficulty ${question.difficulty}; expected ${expectedDifficulty}`;
     if(question.difficultyLabel!==STAGES[expectedDifficulty-1]) return `${key} round ${round} has the wrong difficulty label`;
@@ -58,30 +68,6 @@
     }
   }
 
-  function syncLessonSelectorLabels(root=document){
-    if(!root?.querySelectorAll) return 0;
-    let updated=0;
-    root.querySelectorAll('button[onclick*="startLesson("]').forEach(button=>{
-      const call=button.getAttribute("onclick")||"";
-      const match=call.match(/startLesson\(\s*['"]([^'"]+)['"]\s*,\s*['"]([^'"]+)['"]\s*,\s*['"]([^'"]+)['"]\s*\)/);
-      if(!match) return;
-      const pack=CURR?.[match[1]]?.[match[2]]?.[match[3]];
-      const label=String(pack?.name||"").trim();
-      if(!label) return;
-      const current=String(button.textContent||"").replace(/\s+/g," ").trim();
-      if(current===label) return;
-      const preserved=[...button.children].filter(child=>child.matches?.(".lesson-selector-medal,.lesson-medal-count"));
-      button.replaceChildren();
-      const labelNode=document.createElement("span");
-      labelNode.className="lesson-selector-current-label";
-      labelNode.textContent=label;
-      button.append(labelNode,...preserved);
-      button.setAttribute("aria-label",label);
-      updated++;
-    });
-    return updated;
-  }
-
   const audit={release:RELEASE,lessons:0,questions:0,failures:[],stages:Object.fromEntries(STAGES.map(stage=>[stage,0]))};
   Object.entries(CURR).forEach(([grade,subjects])=>{
     Object.entries(subjects||{}).forEach(([subject,lessons])=>{
@@ -89,6 +75,11 @@
         if(lessonId==="showName"||!pack||typeof pack.gen!=="function") return;
         const key=`${grade}:${subject}:${lessonId}`;
         delete pack.image;
+        if(pack.generatorSource!=="current-25-question"){
+          audit.failures.push(`${key} is not bound to the current lesson catalog`);
+          pack.releaseVerified=false;
+          return;
+        }
         const failure=verifyQuestionBank(pack,key);
         if(failure){
           audit.failures.push(failure);
@@ -112,10 +103,14 @@
     });
   });
 
-  audit.selectorLabelsUpdated=syncLessonSelectorLabels();
+  audit.selectorLabelsUpdated=window.K12CurrentLessons?.syncSelectorButtons?.()||0;
+  const selectorAudit=window.K12_CURRENT_LESSONS_AUDIT;
+  if(window.K12CurrentLessons?.count?.()!==audit.lessons) audit.failures.push("The current lesson catalog and verified release contain different lesson counts");
+  if(selectorAudit?.invalidSelectors?.length) audit.failures.push(...selectorAudit.invalidSelectors);
+  if(selectorAudit?.duplicateLessonKeys?.length) audit.failures.push(...selectorAudit.duplicateLessonKeys.map(key=>`${key} is registered more than once`));
   window.LEARNMASTER_CURRICULUM_RELEASE=RELEASE;
   window.LEARNMASTER_CURRICULUM_RELEASE_AUDIT=Object.freeze(audit);
-  window.LEARNMASTER_CURRICULUM_TOOLS=Object.freeze({STAGES,questionSignature,syncLessonSelectorLabels});
+  window.LEARNMASTER_CURRICULUM_TOOLS=Object.freeze({STAGES,questionSignature,syncLessonSelectorLabels:window.K12CurrentLessons?.syncSelectorButtons});
   if(audit.failures.length) console.error("Updated curriculum release blocked",audit.failures);
   else console.info(`${RELEASE}: ${audit.lessons} verified lessons and ${audit.questions} lesson-owned questions ready.`);
 })();

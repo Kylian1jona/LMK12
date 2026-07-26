@@ -3790,16 +3790,6 @@ function g23DifficultyBand(round){
   return Math.min(5, Math.ceil(round / 5));
 }
 
-function g23DifficultyLead(round){
-  return [
-    "Build the skill:",
-    "Apply the skill in context:",
-    "Use two clues and reason:",
-    "Challenge—analyze the complex example:",
-    "Mastery—evaluate the evidence, diagnose errors, and justify the conclusion:"
-  ][g23DifficultyBand(round) - 1];
-}
-
 function g23UniqueWrongs(answer, wrongs){
   const answerKey = String(answer).trim();
   const clean = [];
@@ -3815,8 +3805,59 @@ function g23UniqueWrongs(answer, wrongs){
   return clean;
 }
 
+function g23TaskText(value){
+  return String(value || "").replace(/\s+/g, " ").trim().replace(/[.!?]+([”"']?)$/, "$1");
+}
+
+function g23Sentence(value){
+  const clean = g23TaskText(value);
+  if(!clean) return "";
+  return /[”"']$/.test(clean)
+    ? clean.replace(/([”"'])$/, ".$1")
+    : `${clean}.`;
+}
+
+function g23CompactTrueFalseContext(prompt){
+  const clean = g23TaskText(prompt);
+  const questionStart = clean.search(/[.!?]\s+(?:Which|What|How|Does|Is|Are|Who|Where|When|Why)\b/i);
+  const contextual = questionStart >= 0 ? clean.slice(0, questionStart + 1).trim() : clean;
+  const selected = contextual.length >= 20 ? contextual : clean;
+  if(selected.length <= 90) return selected;
+  const beginning = selected.slice(0,60).replace(/\s+\S*$/, "").trim();
+  const ending = selected.slice(-43).replace(/^\S*\s+/, "").trim();
+  return `${beginning}… ${ending}`;
+}
+
+function g23DirectTrueFalseStatement(spec, item, prompt, claim, trueClaim, explanation){
+  if(item.trueFalseClaim) return g23Sentence(item.trueFalseClaim);
+
+  const rawClaim = String(claim || "").trim();
+  const cleanClaim = g23TaskText(rawClaim);
+  const cleanAnswer = g23TaskText(item.a);
+  const cleanExplanation = g23TaskText(explanation);
+  const claimIsSentence = /[.!?]+[”"']?$/.test(rawClaim);
+  let statement;
+  if(claimIsSentence && cleanClaim.length <= 210){
+    statement = cleanClaim;
+  }else{
+    statement = cleanExplanation;
+    if(!trueClaim && cleanAnswer && statement.includes(cleanAnswer)){
+      statement = statement.split(cleanAnswer).join(cleanClaim);
+    }else if(!trueClaim){
+      statement = `“${cleanClaim}” is the correct response`;
+    }
+  }
+
+  if(!statement || statement.length > 140){
+    statement = `“${cleanClaim}” is the correct response`;
+  }
+
+  const context = g23CompactTrueFalseContext(prompt);
+  return g23Sentence(`${g23TaskText(statement)} Example: ${context}`);
+}
+
 function g23MasteryQuestion(spec, item, round){
-  const prompt = `${g23DifficultyLead(round)} Question ${round} of 25. ${item.q}`;
+  const prompt = String(item.q).trim();
   const wrongs = g23UniqueWrongs(item.a, item.w);
   const explanation = item.explain || `${item.a} is correct because it applies ${spec.code}: ${spec.expectation}`;
   const explicitTrueFalse = [3,7,11,15,19,23].includes(round);
@@ -3824,12 +3865,15 @@ function g23MasteryQuestion(spec, item, round){
   if(explicitTrueFalse){
     const trueClaim = round === 3 || round === 11 || round === 19 || round === 23;
     const claim = trueClaim ? String(item.a) : wrongs[0];
+    const statement = g23DirectTrueFalseStatement(spec, item, prompt, claim, trueClaim, explanation);
     question = {
       type:"truefalse",
-      q:`${prompt} True or false: the response “${claim}” correctly answers this item.`,
+      q:`True or false: ${statement}`,
       answer:trueClaim,
-      audio:`${prompt} True or false. The response is ${claim}.`,
-      explain:trueClaim ? `True. ${explanation}` : `False. The correct response is “${item.a}.” ${explanation}`,
+      audio:`True or false. ${statement}`,
+      explain:trueClaim
+        ? `True. ${g23Sentence(explanation)}`
+        : `False. The correct response is “${g23TaskText(item.a)}.” ${g23Sentence(explanation)}`,
       generatorOwnedTrueFalse:true
     };
   }else{
@@ -3859,11 +3903,11 @@ function g23MasteryQuestion(spec, item, round){
  * question pool.
  */
 function g23BuildLessonMasteryItem(spec, item, round){
-  const answer = String(item.a);
-  const wrongs = g23UniqueWrongs(answer, item.w);
+  const answer = g23TaskText(item.a);
+  const wrongs = g23UniqueWrongs(item.a, item.w).map(g23TaskText);
   const misconception = wrongs[(round - 21) % wrongs.length];
   const alternate = wrongs[(round - 20) % wrongs.length];
-  const reasoning = String(item.explain || `The response must apply ${spec.code}: ${spec.expectation}.`);
+  const reasoning = g23Sentence(item.explain || `The response must apply ${spec.code}: ${spec.expectation}.`);
   const original = String(item.q);
   const subject = spec.generatorName.includes("_math_")
     ? "mathematical"
@@ -3879,7 +3923,7 @@ function g23BuildLessonMasteryItem(spec, item, round){
 
   if(variant === 1){
     return {
-      q:`Solve this ${subject} task, then evaluate whether the conclusion and its evidence satisfy every condition: ${original}`,
+      q:`Which response correctly answers “${g23TaskText(original)}” and supports its conclusion with all relevant evidence?`,
       a:`Conclusion: ${answer}. Evidence and reasoning: ${reasoning}`,
       w:[
         `Conclusion: ${misconception}. Evidence is unnecessary once a choice has been made.`,
@@ -3892,7 +3936,7 @@ function g23BuildLessonMasteryItem(spec, item, round){
 
   if(variant === 2){
     return {
-      q:`A student answered “${misconception}” for this ${subject} task: ${original} Which feedback identifies the error and gives a supported correction?`,
+      q:`A student answered “${misconception}” to “${g23TaskText(original)}.” Which feedback identifies the error and gives a supported correction?`,
       a:`Replace “${misconception}” with “${answer}”; ${reasoning}`,
       w:[
         `Keep “${misconception}” because the task's conditions do not need to be checked.`,
@@ -3905,20 +3949,21 @@ function g23BuildLessonMasteryItem(spec, item, round){
 
   if(variant === 3){
     return {
-      q:`Two students disagree about this ${subject} task: ${original} Student A concludes “${answer}.” Student B concludes “${misconception}.” Which evaluation uses the task's conditions and relevant evidence?`,
+      q:`For “${g23TaskText(original)},” Student A concludes “${answer}” and Student B concludes “${misconception}.” Which evaluation uses the task's conditions and relevant evidence?`,
       a:`Student A is correct; ${reasoning}`,
       w:[
         `Student B is correct because “${misconception}” does not need support.`,
         `Both students must be correct because the original conditions cannot rule out a response.`,
         `Neither response can be evaluated using ${evidence}.`
       ],
+      trueFalseClaim:`The evidence supports “${answer}” rather than “${misconception}”`,
       explain:`Student A's conclusion is the one supported by the task. ${reasoning}`
     };
   }
 
   if(variant === 4){
     return {
-      q:`Full credit requires three things: an accurate conclusion, relevant support, and rejection of a competing misconception. Apply all three requirements to this task: ${original}`,
+      q:`Which response answers “${g23TaskText(original)},” gives relevant evidence, and rejects “${misconception}”?`,
       a:`Choose “${answer}”; support it with ${reasoning} Reject “${misconception}” because it does not satisfy the evidence or conditions.`,
       w:[
         `Choose “${misconception}”; a conclusion does not need evidence or error analysis.`,
@@ -3930,7 +3975,7 @@ function g23BuildLessonMasteryItem(spec, item, round){
   }
 
   return {
-    q:`Synthesize a final mastery response to this ${subject} task: ${original} Which option states the conclusion, justifies it, and corrects the identified error?`,
+    q:`Which response answers “${g23TaskText(original)},” justifies its conclusion, and corrects “${misconception}”?`,
     a:`Conclusion: ${answer}. Justification: ${reasoning} Error correction: “${misconception}” is not supported by the task.`,
     w:[
       `Conclusion: ${misconception}. Justification: evidence is optional. Error correction: preserve the original error.`,
@@ -4016,6 +4061,11 @@ const G23_G2_SENTENCE_ROWS = [
   ["The migrating geese","follow","the same route each autumn"], ["A skilled author","revises","sentences to make ideas clearer"]
 ];
 
+const G23_G2_PLURAL_NOUNS = [
+  "rabbits","puppies","partners","stars","readers","ants","classes","trees","musicians","whales",
+  "magnets","players","students","bakers","creeks","inventors","tortoises","guards","geese","authors"
+];
+
 const G23_G2_READING_ROWS = [
   ["Beavers build dams from branches and mud. The dam slows a stream and creates a pond where the beavers can live safely.","A beaver dam creates a safer pond","Beavers use branches and mud","The dam slows the stream"],
   ["A rain gauge stood in the school garden. After the storm, Nia measured two inches of water and recorded it on the class chart.","Nia measured rainfall after a storm","The gauge was in the garden","She recorded two inches"],
@@ -4070,46 +4120,71 @@ const G23_G2_ENGLISH_SPECS = [
   {lesson:"Spelling Challenge",code:"§110.4(b)(11)(D)(xi)",expectation:"edit for correct spelling of grade-appropriate patterns and high-frequency words"}
 ];
 
+function g23BaseVerb(verb){
+  const word = String(verb || "").toLowerCase();
+  if(/[^aeiou]ies$/.test(word)) return `${word.slice(0,-3)}y`;
+  if(/(?:sses|shes|ches|xes|zes|oes)$/.test(word)) return word.slice(0,-2);
+  if(/es$/.test(word)) return word.slice(0,-1);
+  if(/s$/.test(word)) return word.slice(0,-1);
+  return word;
+}
+
+function g23PastVerb(base){
+  if(base === "shine") return "shone";
+  if(/[^aeiou]y$/.test(base)) return `${base.slice(0,-1)}ied`;
+  if(/e$/.test(base)) return `${base}d`;
+  if(/^[^aeiou]*[aeiou][^aeiouwxy]$/.test(base)) return `${base}${base.slice(-1)}ed`;
+  return `${base}ed`;
+}
+
 function g23BuildG2English(spec, round, level, lessonNo){
   const row = G23_G2_SENTENCE_ROWS[round - 1];
   const [subject,verb,ending] = row;
   if(lessonNo === 1){
     const correct = `${subject} ${verb} ${ending}.`;
     const wrongVerb = verb.endsWith("s") ? verb.slice(0,-1) : `${verb}s`;
-    return {q:`Which sentence has a noun subject and a verb that agree?`,a:correct,w:[`${subject} ${wrongVerb} ${ending}.`,`${subject} ${ending} ${verb}.`,`${verb} ${subject.toLowerCase()} ${ending}.`],explain:`“${subject}” is the subject, and “${verb}” agrees with it.`};
+    const capitalVerb = verb.replace(/^[a-z]/, letter=>letter.toUpperCase());
+    return {q:`Which sentence has a noun subject and a verb that agree?`,a:correct,w:[`${subject} ${wrongVerb} ${ending}.`,`${subject} ${ending}.`,`${capitalVerb} ${ending}.`],explain:`“${subject}” is the complete noun subject, and “${verb}” is the verb that agrees with it.`};
   }
   if(lessonNo === 2){
     const correct = `${subject} ${verb} ${ending}.`;
-    return {q:`Revise this fragment into a complete sentence: “${subject.toLowerCase()} / ${verb} / ${ending}”`,a:correct,w:[`${subject} ${verb}.`,`${verb} ${ending}.`,`${subject}, ${verb} ${ending}`],explain:"The correct revision includes a complete subject, predicate, capitalization, and end punctuation."};
+    return {q:`Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “${subject.toLowerCase()} / ${verb} / ${ending}”`,a:correct,w:[`${subject.toLowerCase()} ${verb} ${ending}.`,`${subject} ${verb} ${ending}`,`${subject}, ${verb} ${ending}.`],explain:"The correct revision uses every supplied part, begins with a capital letter, keeps the subject and predicate together, and ends with a period."};
   }
   if(lessonNo === 3){
     const p = G23_G2_READING_ROWS[round - 1];
     const askMain = level >= 3;
-    return {q:`Read: ${p[0]} ${askMain ? "Which key idea is best supported by both details?" : "Which detail is stated in the text?"}`,a:askMain?p[1]:p[2],w:askMain?[p[2],p[3],"The passage gives no key idea"]:[p[3],p[1],"A detail not mentioned in the passage"],explain:askMain?`Both stated details support “${p[1]}.”`:`The text directly states: ${p[2]}.`};
+    return {q:`${p[0]} ${askMain ? "Which key idea is best supported by both details?" : "Which detail is stated in the text?"}`,a:askMain?p[1]:p[2],w:askMain?[p[2],p[3],"The passage gives no key idea"]:[p[3],p[1],"A detail not mentioned in the passage"],explain:askMain?`Both stated details support “${p[1]}.”`:`The text directly states: ${p[2]}.`};
   }
   if(lessonNo === 4 || lessonNo === 9){
     const proper = ["Texas","Monday","Ava","Houston","July"][round % 5];
-    const common = subject.replace(/^(The|A|An|My|Our|Those|Several) /i,"").split(" ")[0].replace(/[^A-Za-z]/g,"").toLowerCase();
-    const plural = `${common.replace(/s$/,"")}s`;
-    const target = lessonNo === 4 ? (round % 2 ? proper : common) : (round % 2 ? plural : proper);
+    const common = (subject.match(/[A-Za-z]+/g) || ["noun"]).at(-1).toLowerCase();
+    const plural = G23_G2_PLURAL_NOUNS[round - 1];
+    if(lessonNo === 9){
+      const target = round % 2 ? plural : proper;
+      const category = round % 2 ? "plural common noun" : "proper noun";
+      const comparisonCommon = common === plural ? "river" : common;
+      return {q:`Which word is a ${category}?`,a:target,w:[round % 2 ? proper : plural,comparisonCommon,verb],explain:`“${target}” is a ${category}.`};
+    }
+    const target = round % 2 ? proper : common;
     const answer = /^[A-Z]/.test(target) ? "proper noun" : (target.endsWith("s") ? "plural common noun" : "singular common noun");
-    return {q:`Classify the noun “${target}” as it is used by itself.`,a:answer,w:["verb",answer==="proper noun"?"singular common noun":"proper noun",answer==="plural common noun"?"singular common noun":"plural common noun"],explain:`“${target}” is a ${answer}.`};
+    return {q:`In the class note “${proper}: ${subject} ${verb} ${ending},” how should “${target}” be classified?`,a:answer,w:["verb",answer==="proper noun"?"singular common noun":"proper noun",answer==="plural common noun"?"singular common noun":"plural common noun"],explain:`“${target}” is a ${answer}.`};
   }
   if(lessonNo === 5){
-    const base = verb.replace(/ies$/, "y").replace(/ed$/,"").replace(/s$/,"");
-    const past = base.endsWith("e") ? `${base}d` : `${base}ed`;
+    const base = g23BaseVerb(verb);
+    const past = g23PastVerb(base);
     const future = `will ${base}`;
     const tense = level <= 2 ? "past" : level <= 4 ? "future" : (round % 2 ? "present" : "past");
     const answer = tense === "past" ? past : tense === "future" ? future : base;
-    return {q:`Complete the sentence with the ${tense.toUpperCase()}-tense form: “Tomorrow or yesterday, the students ___ carefully.” Base verb: ${base}`,a:answer,w:[base,past,future].filter(x=>x!==answer).concat([`${base}ing`]).slice(0,3),explain:`“${answer}” is the ${tense}-tense form of “${base}.”`};
+    const timeSignal = tense === "past" ? "Yesterday" : tense === "future" ? "Tomorrow" : "Every day";
+    return {q:`Complete the sentence with the ${tense}-tense form of “${base}”: “${timeSignal}, the students ___ carefully.”`,a:answer,w:[base,past,future].filter(x=>x!==answer).concat([`${base}ing`]).slice(0,3),explain:`“${answer}” is the ${tense}-tense form of “${base}.”`};
   }
   if(lessonNo === 6){
     const [word,count] = G23_G2_SYLLABLE_WORDS[round - 1];
-    return {q:`Decode “${word}.” How many spoken syllables does it contain?`,a:String(count),w:[String(Math.max(1,count-1)),String(count+1),String(count+2)],explain:`Clapping the spoken parts in “${word}” gives ${count} syllables.`};
+    return {q:`How many spoken syllables are in “${word}”?`,a:String(count),w:[String(Math.max(1,count-1)),String(count+1),String(count+2)],explain:`Clapping the spoken parts in “${word}” gives ${count} syllables.`};
   }
   if(lessonNo === 7){
     const [word,meaning,context] = G23_G2_WORD_ROWS[round - 1];
-    return {q:`Use the sentence and nearby clues. What does “${word}” mean? ${context}`,a:meaning,w:["the opposite of the context clue","a person or place named in the sentence","an action unrelated to the sentence"],explain:`The context supports the meaning “${meaning}.”`};
+    return {q:`${context} What does “${word}” mean in this sentence?`,a:meaning,w:["the opposite of the context clue","a person or place named in the sentence","an action unrelated to the sentence"],explain:`The context supports the meaning “${meaning}.”`};
   }
   if(lessonNo === 8){
     const series = ["pencils","notebooks","rulers"];
@@ -4143,7 +4218,7 @@ function g23BuildG2Math(spec, round, level, lessonNo){
     const answer = subtract ? start - change + second : start + change - second;
     const q = subtract
       ? `A reading program had ${start} books. Students borrowed ${change}, then returned ${second}. How many books are there now?`
-      : `A school collected ${start} cans on Monday and ${change} Tuesday, then used ${second} for an art project. How many remain?`;
+      : `A school collected ${start} cans on Monday and ${change} on Tuesday, then used ${second} for an art project. How many remain?`;
     return {q,a:String(answer),w:g23NumberWrongs(answer, level * 10),explain:`Write the two operations in story order. The result is ${answer}, which is within 1,000.`};
   }
   if(lessonNo === 2){
@@ -4158,7 +4233,8 @@ function g23BuildG2Math(spec, round, level, lessonNo){
     const minute = (round * 7 + level) % 60;
     const period = round % 2 ? "a.m." : "p.m.";
     const answer = `${hour}:${String(minute).padStart(2,"0")} ${period}`;
-    return {q:`A ${period==="a.m."?"morning":"evening"} clock shows ${minute} minutes after ${hour}. Write the exact digital time with a.m. or p.m.`,a:answer,w:[`${hour}:${String((minute+5)%60).padStart(2,"0")} ${period}`,`${hour}:${String(minute).padStart(2,"0")} ${period==="a.m."?"p.m.":"a.m."}`,`${(hour%12)+1}:${String(minute).padStart(2,"0")} ${period}`],explain:`${minute} minutes after ${hour} is ${answer}.`};
+    const dayPart = period === "a.m." ? "A morning" : "An evening";
+    return {q:`${dayPart} clock shows ${minute} minutes after ${hour}. What is the exact digital time with a.m. or p.m.?`,a:answer,w:[`${hour}:${String((minute+5)%60).padStart(2,"0")} ${period}`,`${hour}:${String(minute).padStart(2,"0")} ${period==="a.m."?"p.m.":"a.m."}`,`${(hour%12)+1}:${String(minute).padStart(2,"0")} ${period}`],explain:`${minute} minutes after ${hour} is ${answer}.`};
   }
   if(lessonNo === 4){
     const groups = 2 + ((round + level) % 9);
@@ -4190,7 +4266,7 @@ function g23BuildG2Math(spec, round, level, lessonNo){
   const subtract = round % 2 === 0;
   const answer = subtract ? a + b - c : a + b + c;
   const expression = subtract ? `${a} + ${b} − ${c}` : [a,b,c].filter(Boolean).join(" + ");
-  return {q:`Use place value or an efficient algorithm: ${expression} = ?`,a:String(answer),w:g23NumberWrongs(answer, level),explain:`Combining tens and ones carefully gives ${answer}.`};
+  return {q:`What is ${expression}?`,a:String(answer),w:g23NumberWrongs(answer, level),explain:`Combining tens and ones carefully gives ${answer}.`};
 }
 
 g23InstallSpecList("gen_g2_math_L", G23_G2_MATH_SPECS, g23BuildG2Math);
@@ -4205,11 +4281,11 @@ const G23_G2_SCIENCE_SPECS = [
 ];
 
 const G23_G2_MATTER_ROWS = [
-  ["wooden block","solid","rigid"], ["orange juice","liquid","takes the shape of its cup"], ["rubber band","solid","flexible"], ["cooking oil","liquid","flows"],
-  ["metal spoon","solid","smooth and rigid"], ["water","liquid","takes the shape of its bottle"], ["cotton cloth","solid","soft and flexible"], ["milk","liquid","can be poured"],
-  ["sandpaper","solid","rough"], ["honey","liquid","flows slowly"], ["aluminum foil","solid","flexible"], ["rainwater","liquid","takes the shape of a puddle"],
-  ["plastic ruler","solid","rigid"], ["dish soap","liquid","flows and takes a container's shape"], ["wax paper","solid","smooth and flexible"], ["melted ice","liquid","can be poured"],
-  ["ceramic tile","solid","hard and rigid"], ["warm soup","liquid","has a relative temperature and flows"], ["wool mitten","solid","soft and flexible"], ["cold syrup","liquid","flows and has a relative temperature"]
+  ["a wooden block","solid","is rigid"], ["some orange juice","liquid","takes the shape of its cup"], ["a rubber band","solid","is flexible"], ["some cooking oil","liquid","flows"],
+  ["a metal spoon","solid","is smooth and rigid"], ["some water","liquid","takes the shape of its bottle"], ["some cotton cloth","solid","is soft and flexible"], ["some milk","liquid","can be poured"],
+  ["a sheet of sandpaper","solid","is rough"], ["some honey","liquid","flows slowly"], ["some aluminum foil","solid","is flexible"], ["some rainwater","liquid","takes the shape of a puddle"],
+  ["a plastic ruler","solid","is rigid"], ["some dish soap","liquid","flows and takes a container's shape"], ["some wax paper","solid","is smooth and flexible"], ["some melted ice","liquid","can be poured"],
+  ["a ceramic tile","solid","is hard and rigid"], ["some warm soup","liquid","has a relative temperature and flows"], ["a wool mitten","solid","is soft and flexible"], ["some cold syrup","liquid","flows and has a relative temperature"]
 ];
 
 const G23_G2_ANIMAL_ROWS = [
@@ -4250,7 +4326,17 @@ function g23BuildG2Science(spec, round, level, lessonNo){
     return {q:`Which observation accurately describes a ${animal} life cycle in which the young differs from the parent?`,a:pattern,w:["The young is always a smaller copy of the adult.","The stages can occur in any random order.","The organism never changes its body structures as it grows."],explain:`The ${animal} undergoes an ordered life cycle: ${pattern}.`};
   }
   const [part,functionText] = G23_G2_PLANT_ROWS[round-1];
-  return {q:`A plant must survive in its environment. Which structure-function explanation is supported by science?`,a:`${g23Cap(part)} ${functionText}.`,w:[`${g23Cap(part)} makes the plant an animal.`,`${g23Cap(part)} removes every basic need of the plant.`,`${g23Cap(part)} has no connection to plant survival.`],explain:`The structure is ${part}; its function is that it ${functionText}.`};
+  const pluralPart = /(?:roots|leaves|flowers|seeds|petals)$/.test(part);
+  return {
+    q:`A plant must survive in its environment. Which structure-function explanation is supported by science?`,
+    a:`${g23Cap(part)} ${functionText}.`,
+    w:[
+      `${g23Cap(part)} ${pluralPart?"make":"makes"} the plant an animal.`,
+      `${g23Cap(part)} ${pluralPart?"remove":"removes"} every basic need of the plant.`,
+      `${g23Cap(part)} ${pluralPart?"have":"has"} no connection to plant survival.`
+    ],
+    explain:`“${g23Cap(part)} ${functionText}” explains how the structure supports plant survival.`
+  };
 }
 
 g23InstallSpecList("gen_g2_sci_L", G23_G2_SCIENCE_SPECS, g23BuildG2Science);
@@ -4435,6 +4521,29 @@ const G23_G3_TRANSITION_ROWS = [
   ["the plan cost more initially","it prevented greater future damage","Ultimately"], ["evaluate each option","select the solution best supported by evidence","Finally"]
 ];
 
+function g23TransitionDistractors(first, second, transition){
+  const transitionClass = ["Next","Afterward","Then","Subsequently"].includes(transition)
+    ? "sequence"
+    : ["As a result","Consequently","Therefore","For this reason"].includes(transition)
+      ? "cause"
+      : ["In contrast","However","Nevertheless","By comparison","Even so"].includes(transition)
+        ? "contrast"
+        : ["In addition","Furthermore"].includes(transition)
+          ? "addition"
+          : ["Meanwhile","At the same time"].includes(transition)
+            ? "simultaneous"
+            : "conclusion";
+  const incompatible = {
+    sequence:["In contrast","For example","In the same way"],
+    cause:["Meanwhile","For example","In contrast"],
+    contrast:["As a result","Next","In addition"],
+    addition:["Instead","As a result","Before that"],
+    simultaneous:["As a result","In contrast","Finally"],
+    conclusion:["Meanwhile","For example","Before that"]
+  }[transitionClass];
+  return incompatible.map(word=>`${g23Cap(first)}. ${word}, ${second}.`);
+}
+
 const G23_G3_AFFIX_ROWS = [
   ["preview","pre-","before","view beforehand"], ["disagree","dis-","not or opposite","not agree"], ["nonfiction","non-","not","writing that is not fiction"], ["incorrect","in-","not","not correct"],
   ["impossible","im-","not","not possible"], ["kindness","-ness","state or quality","the quality of being kind"], ["helpful","-ful","full of","full of help"], ["rainy","-y","having","having rain"],
@@ -4494,11 +4603,26 @@ const G23_G3_TENSE_ROWS = [
 ];
 
 const G23_G3_VERB_ROWS = [
-  ["The scientist","measures","is","has measured"], ["Two engineers","test","are","have tested"], ["Our class","records","seems","has recorded"], ["The migrating birds","follow","appear","have followed"],
-  ["A careful writer","revises","becomes","has revised"], ["The wetland plants","slow","remain","have slowed"], ["Each student","compares","is","has compared"], ["The bridge braces","support","look","have supported"],
-  ["A thermometer","measures","seems","has measured"], ["The readers","infer","are","have inferred"], ["One strong magnet","attracts","remains","has attracted"], ["The research teams","investigate","appear","have investigated"],
-  ["The city planner","explains","is","has explained"], ["Several sources","support","seem","have supported"], ["The new evidence","changes","becomes","has changed"], ["Those detailed maps","show","are","have shown"],
-  ["The revised design","protects","looks","has protected"], ["Every credible claim","includes","is","has included"], ["Long-term planning","reduces","remains","has reduced"], ["The final paragraph","synthesizes","becomes","has synthesized"]
+  ["The scientist","measures","is","has measured","the sample carefully","prepared for the next step"],
+  ["Two engineers","test","are","have tested","the bridge design","ready for the next test"],
+  ["Our class","records","seems","has recorded","daily temperatures","prepared to compare the data"],
+  ["The migrating birds","follow","appear","have followed","seasonal routes","ready to migrate"],
+  ["A careful writer","revises","becomes","has revised","the final paragraph","more precise"],
+  ["The wetland plants","slow","remain","have slowed","the moving water","rooted in the soil"],
+  ["Each student","compares","is","has compared","two credible sources","ready to explain the evidence"],
+  ["The bridge braces","support","look","have supported","the loaded deck","secure under the load"],
+  ["A thermometer","measures","seems","has measured","air temperature","accurate after calibration"],
+  ["The readers","infer","are","have inferred","the central idea","prepared to cite evidence"],
+  ["One strong magnet","attracts","remains","has attracted","the iron nail","near the sample"],
+  ["The research teams","investigate","appear","have investigated","water quality","ready to report results"],
+  ["The city planner","explains","is","has explained","the transit proposal","prepared to present"],
+  ["Several sources","support","seem","have supported","the conclusion","credible after review"],
+  ["The new evidence","changes","becomes","has changed","the initial conclusion","more convincing"],
+  ["Those detailed maps","show","are","have shown","regional patterns","useful for comparison"],
+  ["The revised design","protects","looks","has protected","the fragile structure","stable during testing"],
+  ["Every credible claim","includes","is","has included","relevant evidence","well supported"],
+  ["Long-term planning","reduces","remains","has reduced","future costs","important to the project"],
+  ["The final paragraph","synthesizes","becomes","has synthesized","the source evidence","more coherent"]
 ];
 
 const G23_G3_CONTRACTION_ROWS = [
@@ -4537,8 +4661,7 @@ function g23BuildG3English(spec, round, level, groupIndex, variant){
   if(groupIndex <= 2 || groupIndex === 4){
     const words = g23PhonicsSequence(groupIndex, variant);
     const word = words[round - 1];
-    const label = spec.lesson.toLowerCase();
-    return {q:`Decode the grade-level word for this ${label} lesson. Which spelling is correct in the sentence “The reader carefully decoded ___”?`,a:word,w:g23Misspellings(word),explain:`“${word}” is the correctly spelled word and demonstrates the sound-spelling focus for ${spec.lesson}.`};
+    return {q:`Which spelling correctly completes “The reader carefully decoded ___”?`,a:word,w:g23Misspellings(word),explain:`“${word}” is the correctly spelled word and demonstrates the sound-spelling focus for ${spec.lesson}.`};
   }
   if(groupIndex === 3){
     const [word,division] = G23_SYLLABLE_DIVISIONS[round - 1];
@@ -4547,13 +4670,13 @@ function g23BuildG3English(spec, round, level, groupIndex, variant){
   if(groupIndex === 5){
     const row = G23_G3_INFORMATION_ROWS[round - 1];
     const askDetail = variant === 2 || variant === 4;
-    return {q:`Read the informational paragraph: ${row[0]} ${askDetail?"Which supporting detail is stated and relevant?":"Which central or key idea is best supported by the whole paragraph?"}`,a:askDetail?row[2]:row[1],w:askDetail?[row[1],"A detail that contradicts the paragraph","A detail about an unrelated topic"]:[row[2],"The paragraph has no central idea","Every sentence is an unrelated fact"],explain:askDetail?`“${row[2]}” is explicit evidence in the paragraph.`:`The details work together to support “${row[1]}.”`};
+    return {q:`${row[0]} ${askDetail?"Which supporting detail is stated and relevant?":"Which central or key idea is best supported by the whole paragraph?"}`,a:askDetail?row[2]:row[1],w:askDetail?[row[1],"A detail that contradicts the paragraph","A detail about an unrelated topic"]:[row[2],"The paragraph has no central idea","Every sentence is an unrelated fact"],explain:askDetail?`“${row[2]}” is explicit evidence in the paragraph.`:`The details work together to support “${row[1]}.”`};
   }
   if(groupIndex === 6){
     const row = G23_G3_INFERENCE_ROWS[round - 1];
-    if(variant === 2) return {q:`Read: ${row[0]} Which detail is the strongest evidence for the inference “${row[1]}”?`,a:row[2],w:["The inference alone, without any text detail","A fact that is not in the passage","A reader's unrelated personal preference"],explain:`“${row[2]}” directly supports the inference.`};
-    if(variant === 3) return {q:`Read: ${row[0]} Which theme is supported by the character, event, and evidence?`,a:row[3],w:["Weather is the topic of every story","A theme must be one word","The passage contains no broader message"],explain:`The events support the theme “${row[3]}.”`};
-    return {q:`Read: ${row[0]} What inference is best supported by specific evidence?`,a:row[1],w:["The opposite conclusion is definitely true","No conclusion can be drawn from observable details","A conclusion about an unrelated person or event"],explain:`The inference “${row[1]}” is supported by: ${row[2]}.`};
+    if(variant === 2) return {q:`${row[0]} Which detail is the strongest evidence for the inference “${row[1]}”?`,a:row[2],w:["The inference alone, without any text detail","A fact that is not in the passage","A reader's unrelated personal preference"],explain:`“${row[2]}” directly supports the inference.`};
+    if(variant === 3) return {q:`${row[0]} Which theme is supported by the character, event, and evidence?`,a:row[3],w:["Weather is the topic of every story","A theme must be one word","The passage contains no broader message"],explain:`The events support the theme “${row[3]}.”`};
+    return {q:`${row[0]} What inference is best supported by specific evidence?`,a:row[1],w:["The opposite conclusion is definitely true","No conclusion can be drawn from observable details","A conclusion about an unrelated person or event"],explain:`The inference “${row[1]}” is supported by: ${row[2]}.`};
   }
   if(groupIndex === 7){
     const row = G23_G3_PURPOSE_ROWS[round - 1];
@@ -4561,9 +4684,9 @@ function g23BuildG3English(spec, round, level, groupIndex, variant){
       const target = ["persuade","inform","entertain"][variant-2];
       const yes = row[1] === target;
       const answer = yes ? `Yes; the author writes to ${row[2]}.` : `No; the author writes to ${row[1]}—to ${row[2]}.`;
-      return {q:`Read: ${row[0]} Is the author's main purpose to ${target}?`,a:answer,w:[`Yes, because every text is written to ${target}.`,`No; the passage has no message or purpose.`,`The purpose cannot be explained with text evidence.`],explain:`The language and message show that the author intends to ${row[1]}: ${row[2]}.`};
+      return {q:`${row[0]} Is the author's main purpose to ${target}?`,a:answer,w:[`Yes, because every text is written to ${target}.`,`No; the passage has no message or purpose.`,`The purpose cannot be explained with text evidence.`],explain:`The language and message show that the author intends to ${row[1]}: ${row[2]}.`};
     }
-    return {q:`Read: ${row[0]} What is the author's purpose and message?`,a:`To ${row[1]}—to ${row[2]}`,w:["To present unrelated details with no message","To hide all information from the reader","To use a purpose contradicted by the text"],explain:`The content and wording show a purpose to ${row[1]} and a message that aims to ${row[2]}.`};
+    return {q:`${row[0]} What is the author's purpose and message?`,a:`To ${row[1]}—to ${row[2]}`,w:["To present unrelated details with no message","To hide all information from the reader","To use a purpose contradicted by the text"],explain:`The content and wording show a purpose to ${row[1]} and a message that aims to ${row[2]}.`};
   }
   if(groupIndex === 8){
     const row = G23_G3_STRUCTURE_ROWS[round - 1];
@@ -4571,18 +4694,18 @@ function g23BuildG3English(spec, round, level, groupIndex, variant){
     const target = targets[variant - 1];
     if(target){
       const yes = row[1] === target;
-      return {q:`Read: ${row[0]} Does this paragraph use ${target} as its main organizational pattern?`,a:yes?`Yes; ${row[2]}.`:`No; it uses ${row[1]} because ${row[2]}.`,w:[`Yes, only because it contains more than one sentence.`,`No; informational texts never use organizational patterns.`,`The pattern cannot be identified from signal words and relationships.`],explain:`The relationship among ideas is ${row[1]}: ${row[2]}.`};
+      return {q:`${row[0]} Does this paragraph use ${target} as its main organizational pattern?`,a:yes?`Yes; ${row[2]}.`:`No; it uses ${row[1]} because ${row[2]}.`,w:[`Yes, only because it contains more than one sentence.`,`No; informational texts never use organizational patterns.`,`The pattern cannot be identified from signal words and relationships.`],explain:`The relationship among ideas is ${row[1]}: ${row[2]}.`};
     }
-    return {q:`Read: ${row[0]} Which structure organizes the ideas, and what evidence proves it?`,a:`${g23Cap(row[1])}; ${row[2]}`,w:["Description; the text only lists colors","Question and answer; the reader is directly interviewed","No structure; the sentences have no relationship"],explain:`The paragraph uses ${row[1]} because ${row[2]}.`};
+    return {q:`${row[0]} Which structure organizes the ideas, and what evidence proves it?`,a:`${g23Cap(row[1])}; ${row[2]}`,w:["Description; the text only lists colors","Question and answer; the reader is directly interviewed","No structure; the sentences have no relationship"],explain:`The paragraph uses ${row[1]} because ${row[2]}.`};
   }
   if(groupIndex === 9){
     const row = G23_G3_SENSORY_ROWS[round - 1];
     const target = [null,"sight","sound","smell or taste","touch",null][variant-1];
     if(target){
       const match = target === row[1] || (target === "smell or taste" && (row[1] === "smell" || row[1] === "taste"));
-      return {q:`Read: “${row[0]}” Does the key imagery primarily appeal to ${target}?`,a:match?`Yes; “${row[2]}” appeals to ${row[1]}.`:`No; “${row[2]}” primarily appeals to ${row[1]}.`,w:["Yes, because all descriptive words appeal to every sense equally.","No; imagery never creates a sensory impression.","The sense cannot be identified from the author's words."],explain:`The phrase “${row[2]}” creates ${row[1]} imagery.`};
+      return {q:`“${row[0]}” Does the key imagery primarily appeal to ${target}?`,a:match?`Yes; “${row[2]}” appeals to ${row[1]}.`:`No; “${row[2]}” primarily appeals to ${row[1]}.`,w:["Yes, because all descriptive words appeal to every sense equally.","No; imagery never creates a sensory impression.","The sense cannot be identified from the author's words."],explain:`The phrase “${row[2]}” creates ${row[1]} imagery.`};
     }
-    return {q:`Read: “${row[0]}” Which phrase creates imagery, and which sense does it address?`,a:`“${row[2]}” — ${row[1]}`,w:["No phrase creates an image","The sentence only gives an exact numerical measurement","Every word appeals only to sight"],explain:`“${row[2]}” appeals most directly to ${row[1]}.`};
+    return {q:`“${row[0]}” Which phrase creates imagery, and which sense does it address?`,a:`“${row[2]}” — ${row[1]}`,w:["No phrase creates an image","The sentence only gives an exact numerical measurement","Every word appeals only to sight"],explain:`“${row[2]}” appeals most directly to ${row[1]}.`};
   }
   if(groupIndex === 10){
     const [topic,detail] = G23_G3_WRITING_TOPICS[round - 1];
@@ -4592,7 +4715,7 @@ function g23BuildG3English(spec, round, level, groupIndex, variant){
   if(groupIndex === 11){
     const [first,second,transition] = G23_G3_TRANSITION_ROWS[round - 1];
     const answer = `${g23Cap(first)}. ${transition}, ${second}.`;
-    return {q:`Which revision links these ideas with a transition that makes their relationship clear? Idea 1: ${first}. Idea 2: ${second}.`,a:answer,w:[`${g23Cap(first)}. On the other hand, ${second}.`,`Things happened. Something else happened.`,`Because ${first}, although ${second}, meanwhile.`],explain:`“${transition}” accurately signals the relationship between the two ideas.`};
+    return {q:`Which revision links these ideas with a transition that accurately signals their relationship? Idea 1: ${first}. Idea 2: ${second}.`,a:answer,w:g23TransitionDistractors(first,second,transition),explain:`“${transition}” accurately signals the relationship between the two ideas.`};
   }
   if(groupIndex === 12){
     const [subject,verb,ending] = G23_G2_SENTENCE_ROWS[round - 1];
@@ -4607,17 +4730,18 @@ function g23BuildG3English(spec, round, level, groupIndex, variant){
   }
   if(groupIndex === 14){
     const [word,affix,meaning,whole] = G23_G3_AFFIX_ROWS[round - 1];
-    if(variant === 1 || variant === 4) return {q:`In the word “${word},” what is the prefix and what does it contribute?`,a:`${affix} means “${meaning}”`,w:["-ed means past tense","-s means more than one","The word contains no meaningful affix"],explain:`The prefix ${affix} contributes the meaning “${meaning},” so the word means ${whole}.`};
-    if(variant === 2 || variant === 5) return {q:`Use morphology to determine the meaning of “${word}.”`,a:whole,w:["the opposite of its base and affix meanings","a meaning unrelated to either word part","a proper noun naming a specific place"],explain:`Combining the affix meaning with the base yields “${whole}.”`};
+    const affixType = affix.startsWith("-") ? "suffix" : "prefix";
+    if(variant === 1 || variant === 4) return {q:`Which ${affixType} appears in “${word},” and what meaning does it contribute?`,a:`${affix} means “${meaning}”`,w:["-ed means past tense","-s means more than one","The word contains no meaningful affix"],explain:`The ${affixType} ${affix} contributes the meaning “${meaning},” so the word means ${whole}.`};
+    if(variant === 2 || variant === 5) return {q:`What does “${word}” mean when its affix and base are combined?`,a:whole,w:["the opposite of its base and affix meanings","a meaning unrelated to either word part","a proper noun naming a specific place"],explain:`Combining the affix meaning with the base yields “${whole}.”`};
     return {q:`Which analysis correctly divides “${word}” into a meaningful affix and base?`,a:`${affix} + base; ${whole}`,w:["Every letter is an unrelated word part","The final letter alone supplies the complete meaning","The word cannot be analyzed using morphology"],explain:`The affix ${affix} combines with a base to produce the meaning ${whole}.`};
   }
   if(groupIndex === 15){
     const [word,parts,meaning] = G23_G3_COMPOUND_ROWS[round - 1];
-    return {q:`Decode “${word}” in context. Which analysis gives its parts and meaning?`,a:`${parts}; ${meaning}`,w:["It has one unrelated word part and no meaning","Its meaning must be the opposite of both parts","It is an abbreviation rather than a complete word"],explain:`The compound ${word} combines ${parts} to mean ${meaning}.`};
+    return {q:`Which analysis correctly gives the parts and meaning of “${word}”?`,a:`${parts}; ${meaning}`,w:["It has one unrelated word part and no meaning","Its meaning must be the opposite of both parts","It is an abbreviation rather than a complete word"],explain:`The compound ${word} combines ${parts} to mean ${meaning}.`};
   }
   if(groupIndex === 16){
     const [sentence,answer,alternatives] = G23_G3_HOMOPHONE_ROWS[round - 1];
-    return {q:`Use meaning and grammar to choose the correctly spelled word: “${sentence}”`,a:answer,w:alternatives,explain:`“${answer}” has the spelling and meaning required by this sentence.`};
+    return {q:`Which correctly spelled word completes “${sentence}”?`,a:answer,w:alternatives,explain:`“${answer}” has the spelling and meaning required by this sentence.`};
   }
   if(groupIndex === 17){
     const [word,root,rootMeaning,whole] = G23_G3_ROOT_ROWS[round - 1];
@@ -4626,11 +4750,11 @@ function g23BuildG3English(spec, round, level, groupIndex, variant){
   if(groupIndex === 18){
     const sequences = [G23_PHONICS_WORDS.irregular,G23_PHONICS_WORDS.teams,G23_PHONICS_WORDS.rcontrol,G23_PHONICS_WORDS.closed,G23_PHONICS_WORDS.variant,G23_PHONICS_WORDS.vce];
     const word = sequences[variant-1][round-1];
-    return {q:`Apply grade-level orthographic and syllable patterns. Which spelling correctly completes “The student accurately wrote ___ in the final draft”?`,a:word,w:g23Misspellings(word),explain:`“${word}” is the correct spelling.`};
+    return {q:`Which spelling correctly completes “The student accurately wrote ___ in the final draft”?`,a:word,w:g23Misspellings(word),explain:`“${word}” is the correct spelling.`};
   }
   if(groupIndex === 19){
     const [sentence,phrase,relation] = G23_G3_PREPOSITION_ROWS[round - 1];
-    return {q:`Read: “${sentence}” Which prepositional phrase functions correctly, and what relationship does it show?`,a:`${phrase} — ${relation}`,w:["The subject — an action","The main verb — a person","No phrase in the sentence shows a relationship"],explain:`“${phrase}” is a prepositional phrase that shows ${relation}.`};
+    return {q:`“${sentence}” Which prepositional phrase functions correctly, and what relationship does it show?`,a:`${phrase} — ${relation}`,w:["The subject — an action","The main verb — a person","No phrase in the sentence shows a relationship"],explain:`“${phrase}” is a prepositional phrase that shows ${relation}.`};
   }
   if(groupIndex === 20){
     const [base,past,present,future] = G23_G3_TENSE_ROWS[round - 1];
@@ -4639,16 +4763,20 @@ function g23BuildG3English(spec, round, level, groupIndex, variant){
     return {q:`Choose the ${target}-tense form of “${base}” to complete: “The researcher ___ the evidence carefully.”`,a:answer,w:[base,past,present,future].filter(value=>value!==answer).slice(0,3),explain:`“${answer}” correctly expresses ${target} tense.`};
   }
   if(groupIndex === 21){
-    const [subject,action,linking,helping] = G23_G3_VERB_ROWS[round - 1];
+    const [subject,action,linking,helping,actionComplement,linkingComplement] = G23_G3_VERB_ROWS[round - 1];
     const type = variant === 3 ? "linking" : variant === 4 ? "helping" : "action";
     const verb = type === "linking" ? linking : type === "helping" ? helping : action;
-    const complement = type === "linking" ? "ready for the next step" : "the evidence carefully";
+    const complement = type === "linking" ? linkingComplement : actionComplement;
     const answer = `${subject} ${verb} ${complement}.`;
+    const article = type === "action" ? "an" : "a";
     let wrongVerb;
     if(type === "linking") wrongVerb = ({is:"are",are:"is",seems:"seem",remain:"remains",becomes:"become",appear:"appears",looks:"look"}[verb] || `${verb}s`);
     else if(type === "helping") wrongVerb = verb.startsWith("has ") ? verb.replace(/^has /,"have ") : verb.replace(/^have /,"has ");
     else wrongVerb = verb.endsWith("s") ? verb.slice(0,-1) : `${verb}s`;
-    return {q:`Which sentence uses a ${type} verb and maintains subject-verb agreement?`,a:answer,w:[`${subject} ${wrongVerb} ${complement}.`,`${verb} ${subject.toLowerCase()} ${complement}.`,`${subject} ${complement} ${verb}.`],explain:`“${verb}” functions as a ${type} verb and agrees with “${subject}.”`};
+    const explanation = type === "helping"
+      ? `“${verb}” contains the helping verb “${verb.split(" ")[0]}” and agrees with “${subject}.”`
+      : `“${verb}” functions as ${article} ${type} verb and agrees with “${subject}.”`;
+    return {q:`Which sentence uses ${article} ${type} verb and maintains subject-verb agreement?`,a:answer,w:[`${subject} ${wrongVerb} ${complement}.`,`${g23Cap(verb)} ${subject.toLowerCase()} ${complement}.`,`${subject} ${complement} ${verb}.`],explain:explanation};
   }
   if(groupIndex === 22){
     const [expanded,contraction] = G23_G3_CONTRACTION_ROWS[round - 1];
@@ -4837,15 +4965,15 @@ const G23_G3_HABITAT_ROWS = [
 ];
 
 const G23_G3_WEATHER_ROWS = [
-  ["air temperature","Celsius thermometer","degrees Celsius"], ["amount of rainfall","rain gauge","millimeters or centimeters of precipitation"],
-  ["wind direction","wind vane","a compass direction"], ["change in temperature over a day","Celsius thermometer and a time-labeled table","degrees Celsius at repeated times"],
-  ["rainfall during two storms","rain gauge and comparison table","precipitation totals for each storm"], ["direction of wind before a front","wind vane","direction observations over time"],
-  ["temperature in sun and shade","two Celsius thermometers","paired temperature measurements"], ["weekly precipitation pattern","rain gauge and bar graph","daily rainfall totals"],
-  ["weather at two Texas locations","thermometers, wind vanes, and rain gauges","temperature, wind direction, and precipitation"], ["whether a cup is warmer after heating","Celsius thermometer","before-and-after temperature"],
-  ["which location received more rain","rain gauges placed in open areas","comparable precipitation depths"], ["whether wind direction changed","wind-vane observations at regular times","a sequence of compass directions"],
-  ["a month of temperature changes","Celsius thermometer and line graph","daily temperatures plotted over time"], ["accuracy of two rainfall readings","rain gauges positioned away from roofs","measurements without roof runoff"],
-  ["a digital weather data set","computer or tablet","organized measurements for analysis"], ["morning versus afternoon conditions","thermometer, wind vane, and rain gauge","time-stamped weather measurements"],
-  ["evidence for a cold-front passage","digital temperature and wind records","a temperature drop with a wind shift"], ["precipitation across three weeks","rain gauge and scaled graph","totals that can be compared"],
+  ["air temperature","a Celsius thermometer","degrees Celsius"], ["amount of rainfall","a rain gauge","millimeters or centimeters of precipitation"],
+  ["wind direction","a wind vane","a compass direction"], ["change in temperature over a day","a Celsius thermometer and a time-labeled table","degrees Celsius at repeated times"],
+  ["rainfall during two storms","a rain gauge and a comparison table","precipitation totals for each storm"], ["direction of wind before a front","a wind vane","direction observations over time"],
+  ["temperature in sun and shade","two Celsius thermometers","paired temperature measurements"], ["weekly precipitation pattern","a rain gauge and a bar graph","daily rainfall totals"],
+  ["weather at two Texas locations","thermometers, wind vanes, and rain gauges","temperature, wind direction, and precipitation"], ["whether a cup is warmer after heating","a Celsius thermometer","before-and-after temperature"],
+  ["which location received more rain","rain gauges placed in open areas","comparable precipitation depths"], ["whether wind direction changed","a wind vane and a time-labeled table","a sequence of compass directions"],
+  ["a month of temperature changes","a Celsius thermometer and a line graph","daily temperatures plotted over time"], ["accuracy of two rainfall readings","rain gauges positioned away from roofs","measurements without roof runoff"],
+  ["a digital weather data set","a computer or tablet","organized measurements for analysis"], ["morning versus afternoon conditions","a thermometer, a wind vane, and a rain gauge","time-stamped weather measurements"],
+  ["evidence for a cold-front passage","digital temperature and wind sensors","a temperature drop with a wind shift"], ["precipitation across three weeks","a rain gauge and a scaled graph","totals that can be compared"],
   ["possible tool error","a second calibrated thermometer","measurements that can be checked against each other"], ["a complete local weather comparison","multiple tools plus a table and graph","organized evidence across variables and time"]
 ];
 
@@ -4869,10 +4997,10 @@ function g23BuildG3Science(spec, round, level, lessonNo){
   }
   if(lessonNo===2){
     const [variable,tool,evidence]=G23_G3_WEATHER_ROWS[round-1];
-    return {q:`A team needs to investigate ${variable}. Which tool-and-recording plan produces relevant evidence?`,a:`Use ${tool} and record ${evidence}.`,w:["Use a hand lens and record only opinions.","Use a ruler once and label the result as every weather variable.","Choose no measurement tool and infer the value from a photograph alone."],explain:`${g23Cap(tool)} directly measures or supports analysis of ${variable}; ${evidence} is the relevant evidence.`};
+    return {q:`A team needs to investigate ${variable}. Which tool-and-recording plan produces relevant evidence?`,a:`Use ${tool} to record ${evidence}.`,w:["Use a hand lens to record only opinions.","Use a ruler once and label the result as every weather variable.","Choose no measurement tool and infer the value from a photograph alone."],explain:`This tool-and-recording plan directly supports the investigation of ${variable}. The relevant evidence is ${evidence}.`};
   }
   const [event,force,classification]=G23_G3_FORCE_ROWS[round-1];
-  return {q:`Analyze this event: ${event}. Which force description is correct?`,a:`${g23Cap(force)} — ${classification}`,w:["Sound — it always causes every change in position","Temperature — it is the only possible force","No force acts because motion never changes"],explain:`The event demonstrates ${force}, classified as ${classification}.`};
+  return {q:`${g23Cap(event)}. Which force description is correct?`,a:`${g23Cap(force)} — ${classification}`,w:["Sound — it always causes every change in position","Temperature — it is the only possible force","No force acts because motion never changes"],explain:`The event demonstrates ${force}, classified as ${classification}.`};
 }
 
 g23InstallSpecList("gen_g3_sci_L", G23_G3_SCIENCE_SPECS, g23BuildG3Science);
