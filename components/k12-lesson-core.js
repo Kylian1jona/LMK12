@@ -30,7 +30,7 @@ const LR = {
   lesson:"",
   title:"",
   image:null,
-  total:10,
+  total:25,
   round:1,
   score:0,
   current:null, // {type, q, choices, answer}
@@ -429,8 +429,16 @@ function getLessonPack(grade, subj, lesson){
 }
 
 /* ---------- Start lesson ---------- */
-function startLesson(grade, subj, lesson){
+async function startLesson(grade, subj, lesson){
   safeClick();
+  try{
+    if(!window.K12Classic25?.ensureGrade) throw new Error("The classic question bank loader is unavailable.");
+    await window.K12Classic25.ensureGrade(grade);
+  }catch(error){
+    console.error("Could not load classic lesson questions",error);
+    toast("The lesson questions could not be loaded. Please try again.");
+    return;
+  }
   const pack = getLessonPack(grade, subj, lesson);
   if(!pack){ toast("Lesson missing"); return; }
 
@@ -439,7 +447,7 @@ function startLesson(grade, subj, lesson){
   LR.lesson = lesson;
   LR.title = `${CURR[grade][subj].showName} — ${pack.name}`;
   LR.image = pack.image || null;
-  LR.total = 10;
+  LR.total = 25;
   LR.round = 1;
   LR.score = 0;
 

@@ -1,0 +1,12990 @@
+/* Explicit classic 25-question banks for G5.
+   Every prompt is stored individually; no standards, mastery, stage, or shared-pool generator is used. */
+(function(){
+  window.K12_CLASSIC_25_DATA=window.K12_CLASSIC_25_DATA||Object.create(null);
+  Object.assign(window.K12_CLASSIC_25_DATA,{
+  "g5:eng:L1": {
+    "name": "Inference",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "The sky turned dark and the wind blew hard. People opened umbrellas. What can you infer?",
+        "choices": [
+          "It is snowing.",
+          "A guess without clues",
+          "It is midnight.",
+          "It may rain."
+        ],
+        "answer": "It may rain.",
+        "audio": "Make an inference."
+      },
+      {
+        "type": "mc",
+        "q": "Sam packed a swimsuit and sunscreen before leaving home. What can you infer?",
+        "choices": [
+          "Sam is going skiing.",
+          "A guess without clues",
+          "Sam is going to sleep.",
+          "Sam is going swimming."
+        ],
+        "answer": "Sam is going swimming.",
+        "audio": "Make an inference."
+      },
+      {
+        "type": "mc",
+        "q": "Nia saw the tomato leaves drooping, so she watered the soil before school. Which inference is best supported by the passage?",
+        "choices": [
+          "The plant needed water",
+          "The tomato leaves were drooping",
+          "The passage proves the opposite: the plant appeared thirsty",
+          "An unsupported certainty beyond the evidence: The plant needed water in every case"
+        ],
+        "answer": "The plant needed water",
+        "explain": "The plant needed water. This choice accounts for the passage as a whole and is supported by she watered the soil.",
+        "audio": "Nia saw the tomato leaves drooping, so she watered the soil before school. Which inference is best supported by the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "After Malik practiced the difficult measure slowly each day, he performed it smoothly at the concert. Which inference is best supported by the passage?",
+        "choices": [
+          "An unsupported certainty beyond the evidence: Malik persisted when the music was difficult in every case",
+          "The passage proves the opposite: a musical measure was difficult",
+          "He practiced the measure slowly each day",
+          "Malik persisted when the music was difficult"
+        ],
+        "answer": "Malik persisted when the music was difficult",
+        "explain": "Malik persisted when the music was difficult. This choice accounts for the passage as a whole and is supported by he performed it smoothly.",
+        "audio": "After Malik practiced the difficult measure slowly each day, he performed it smoothly at the concert. Which inference is best supported by the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "The library added signs in three languages. More neighbors then asked questions, found books, and joined programs. Which inference is best supported by the passage?",
+        "choices": [
+          "The signs used three languages",
+          "An unsupported certainty beyond the evidence: Some visitors previously faced a language barrier in every case",
+          "Some visitors previously faced a language barrier",
+          "The passage proves the opposite: some visitors could not easily navigate the library"
+        ],
+        "answer": "Some visitors previously faced a language barrier",
+        "explain": "Some visitors previously faced a language barrier. This choice accounts for the passage as a whole and is supported by More neighbors joined programs.",
+        "audio": "The library added signs in three languages. More neighbors then asked questions, found books, and joined programs. Which inference is best supported by the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "A sudden storm canceled the field study. Instead of giving up, the class compared live weather maps and recorded changes from the classroom. Which inference is best supported by the passage?",
+        "choices": [
+          "The passage proves the opposite: the class could not conduct outdoor fieldwork",
+          "Students compared live weather maps",
+          "An unsupported certainty beyond the evidence: The learning goal could be met in another way in every case",
+          "The learning goal could be met in another way"
+        ],
+        "answer": "The learning goal could be met in another way",
+        "explain": "The learning goal could be met in another way. This choice accounts for the passage as a whole and is supported by Instead of giving up.",
+        "audio": "A sudden storm canceled the field study. Instead of giving up, the class compared live weather maps and recorded changes from the classroom. Which inference is best supported by the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Jules valued doing what was right” correctly answers “Jules returned the wallet unopened and waited until its owner arrived. Th … cting everything inside. Which inference is best supported by the passage.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Jules valued doing what was right. This choice accounts for the passage as a whole and is supported by Jules waited until its owner arrived.",
+        "audio": "True or false: “Jules valued doing what was right” correctly answers “Jules returned the wallet unopened and waited until its owner arrived. Th … cting everything inside. Which inference is best supported by the passage.”"
+      },
+      {
+        "type": "mc",
+        "q": "City trees shade pavement and release water vapor. Measurements show that blocks with mature trees can be cooler than nearby blocks without them. Which inference is best supported by the passage?",
+        "choices": [
+          "An unsupported certainty beyond the evidence: Planting trees may help cities manage extreme heat in every case",
+          "Planting trees may help cities manage extreme heat",
+          "Trees shade pavement",
+          "The passage proves the opposite: paved city blocks absorb heat"
+        ],
+        "answer": "Planting trees may help cities manage extreme heat",
+        "explain": "Planting trees may help cities manage extreme heat. This choice accounts for the passage as a whole and is supported by tree-lined blocks measured cooler.",
+        "audio": "City trees shade pavement and release water vapor. Measurements show that blocks with mature trees can be cooler than nearby blocks without them. Which inference is best supported by the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "Rosa's first model bridge bent under two kilograms. She reinforced the joints, tested one variable at a time, and the third design held six kilograms. Which inference is best supported by the passage?",
+        "choices": [
+          "An unsupported certainty beyond the evidence: Test results guided each revision in every case",
+          "The passage proves the opposite: the bridge could not support enough mass",
+          "She changed one variable at a time",
+          "Test results guided each revision"
+        ],
+        "answer": "Test results guided each revision",
+        "explain": "Test results guided each revision. This choice accounts for the passage as a whole and is supported by the third design held six kilograms.",
+        "audio": "Rosa's first model bridge bent under two kilograms. She reinforced the joints, tested one variable at a time, and the third design held six kilograms. Which inference is best supported by the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "The article presents a farmer's support for a new reservoir and a biologist's concern about habitat loss. Both cite data, but they weigh the consequences differently. Which inference is best supported by the passage?",
+        "choices": [
+          "Evidence can support competing priorities",
+          "Both experts cite data",
+          "An unsupported certainty beyond the evidence: Evidence can support competing priorities in every case",
+          "The passage proves the opposite: the community must balance water and habitat needs"
+        ],
+        "answer": "Evidence can support competing priorities",
+        "explain": "Evidence can support competing priorities. This choice accounts for the passage as a whole and is supported by they weigh the consequences differently.",
+        "audio": "The article presents a farmer's support for a new reservoir and a biologist's concern about habitat loss. Both cite data, but they weigh the consequences differently. Which inference is best supported by the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "Although the trail looked shorter on the old map, contour lines revealed a steep climb. The hikers chose the longer route and arrived before dark with water remaining. Which inference is best supported by the passage?",
+        "choices": [
+          "An unsupported certainty beyond the evidence: Distance alone did not determine travel time in every case",
+          "The passage proves the opposite: the apparent shortcut was steep",
+          "Distance alone did not determine travel time",
+          "Contour lines showed a steep climb"
+        ],
+        "answer": "Distance alone did not determine travel time",
+        "explain": "Distance alone did not determine travel time. This choice accounts for the passage as a whole and is supported by they arrived before dark with water remaining.",
+        "audio": "Although the trail looked shorter on the old map, contour lines revealed a steep climb. The hikers chose the longer route and arrived before dark with water remaining. Which inference is best supported by the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Trash volume fell by nearly one-third” correctly answers “The school replaced disposable trays with washable ones. Water use rose s … ell by nearly one-third. Which inference is best supported by the passage.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Environmental choices can involve tradeoffs. This choice accounts for the passage as a whole and is supported by water use rose while trash decreased.",
+        "audio": "True or false: “Trash volume fell by nearly one-third” correctly answers “The school replaced disposable trays with washable ones. Water use rose s … ell by nearly one-third. Which inference is best supported by the passage.”"
+      },
+      {
+        "type": "mc",
+        "q": "Kai claimed the creek was healthier because the water looked clear. Amara noted that dissolved oxygen and insect diversity had also increased, providing stronger evidence. Which inference is best supported by the passage?",
+        "choices": [
+          "The passage proves the opposite: Kai relied only on water clarity",
+          "Appearance alone is weak evidence of ecosystem health",
+          "An unsupported certainty beyond the evidence: Appearance alone is weak evidence of ecosystem health in every case",
+          "Dissolved oxygen and insect diversity increased"
+        ],
+        "answer": "Appearance alone is weak evidence of ecosystem health",
+        "explain": "Appearance alone is weak evidence of ecosystem health. This choice accounts for the passage as a whole and is supported by two biological and chemical indicators improved.",
+        "audio": "Kai claimed the creek was healthier because the water looked clear. Amara noted that dissolved oxygen and insect diversity had also increased, providing stronger evidence. Which inference is best supported by the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "The narrator praises the mayor's 'brilliant' plan just after listing three obvious failures. The quotation marks and contrast signal that the praise is ironic. Which inference is best supported by the passage?",
+        "choices": [
+          "The narrator doubts the mayor's plan",
+          "An unsupported certainty beyond the evidence: The narrator doubts the mayor's plan in every case",
+          "The passage lists three failures",
+          "The passage proves the opposite: literal reading hides the criticism"
+        ],
+        "answer": "The narrator doubts the mayor's plan",
+        "explain": "The narrator doubts the mayor's plan. This choice accounts for the passage as a whole and is supported by praise appears immediately after failures.",
+        "audio": "The narrator praises the mayor's 'brilliant' plan just after listing three obvious failures. The quotation marks and contrast signal that the praise is ironic. Which inference is best supported by the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "Researchers counted pollinators at equal-sized plots before and after native flowers were planted. Visits increased at the planted plots but stayed nearly constant at control plots. Which inference is best supported by the passage?",
+        "choices": [
+          "An unsupported certainty beyond the evidence: The flowers, not a region-wide change, likely affected visits in every case",
+          "The flowers, not a region-wide change, likely affected visits",
+          "Control-plot visits stayed nearly constant",
+          "The passage proves the opposite: researchers needed to isolate the effect of planting"
+        ],
+        "answer": "The flowers, not a region-wide change, likely affected visits",
+        "explain": "The flowers, not a region-wide change, likely affected visits. This choice accounts for the passage as a whole and is supported by only planted plots showed a large increase.",
+        "audio": "Researchers counted pollinators at equal-sized plots before and after native flowers were planted. Visits increased at the planted plots but stayed nearly constant at control plots. Which inference is best supported by the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "An editorial urges readers to support later bus service, citing attendance data and interviews with workers. It acknowledges the cost, then argues that a pilot program would test demand. Which inference is best supported by the passage?",
+        "choices": [
+          "The writer anticipates a budget objection",
+          "It cites attendance data and worker interviews",
+          "An unsupported certainty beyond the evidence: The writer anticipates a budget objection in every case",
+          "The passage proves the opposite: workers and students lack late transportation"
+        ],
+        "answer": "The writer anticipates a budget objection",
+        "explain": "The writer anticipates a budget objection. This choice accounts for the passage as a whole and is supported by the editorial acknowledges cost before proposing a pilot.",
+        "audio": "An editorial urges readers to support later bus service, citing attendance data and interviews with workers. It acknowledges the cost, then argues that a pilot program would test demand. Which inference is best supported by the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “The first biography may understate collaboration” correctly answers “Two biographies describe the same inventor. One emphasizes solitary insig … corrected early designs. Which inference is best supported by the passage.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The first biography may understate collaboration. This choice accounts for the passage as a whole and is supported by the second documents other contributors.",
+        "audio": "True or false: “The first biography may understate collaboration” correctly answers “Two biographies describe the same inventor. One emphasizes solitary insig … corrected early designs. Which inference is best supported by the passage.”"
+      },
+      {
+        "type": "mc",
+        "q": "The council's report predicts savings but gives no baseline cost, and its chart begins above zero, making a small change look dramatic. A careful reader requests the full data scale. Which inference is best supported by the passage?",
+        "choices": [
+          "The passage proves the opposite: the chart may mislead readers",
+          "The chart's vertical axis begins above zero",
+          "An unsupported certainty beyond the evidence: The visual exaggerates the apparent savings in every case",
+          "The visual exaggerates the apparent savings"
+        ],
+        "answer": "The visual exaggerates the apparent savings",
+        "explain": "The visual exaggerates the apparent savings. This choice accounts for the passage as a whole and is supported by no baseline cost or full scale is provided.",
+        "audio": "The council's report predicts savings but gives no baseline cost, and its chart begins above zero, making a small change look dramatic. A careful reader requests the full data scale. Which inference is best supported by the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "At first, Elena opposes closing a road to protect nesting birds. After reviewing traffic counts and a detour map, she proposes a weekend closure during nesting season. Which inference is best supported by the passage?",
+        "choices": [
+          "An unsupported certainty beyond the evidence: Elena balances wildlife protection with transportation needs in every case",
+          "She reviews traffic counts and a detour map",
+          "Elena balances wildlife protection with transportation needs",
+          "The passage proves the opposite: road use conflicts with nesting habitat"
+        ],
+        "answer": "Elena balances wildlife protection with transportation needs",
+        "explain": "Elena balances wildlife protection with transportation needs. This choice accounts for the passage as a whole and is supported by her proposal limits closure by time and season.",
+        "audio": "At first, Elena opposes closing a road to protect nesting birds. After reviewing traffic counts and a detour map, she proposes a weekend closure during nesting season. Which inference is best supported by the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "A report says the tutoring program 'caused' higher scores, yet students volunteered for it and began with different study habits. The data show correlation, but not a controlled causal test. Which inference is best supported by the passage?",
+        "choices": [
+          "Preexisting motivation could influence the result",
+          "The passage proves the opposite: the report overstates correlation as causation",
+          "An unsupported certainty beyond the evidence: Preexisting motivation could influence the result in every case",
+          "Students volunteered for the program"
+        ],
+        "answer": "Preexisting motivation could influence the result",
+        "explain": "Preexisting motivation could influence the result. This choice accounts for the passage as a whole and is supported by groups differed before tutoring began.",
+        "audio": "A report says the tutoring program 'caused' higher scores, yet students volunteered for it and began with different study habits. The data show correlation, but not a controlled causal test. Which inference is best supported by the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "The memoir describes a noisy market as confusing in childhood but comforting years later. Repeated sounds remain the same while the narrator's experience changes their meaning. Which inference is best supported by the passage?",
+        "choices": [
+          "Memory and maturity influence interpretation",
+          "The passage proves the opposite: childhood confusion shaped the first impression",
+          "An unsupported certainty beyond the evidence: Memory and maturity influence interpretation in every case",
+          "The market sounds remain similar over time"
+        ],
+        "answer": "Memory and maturity influence interpretation",
+        "explain": "Memory and maturity influence interpretation. This choice accounts for the passage as a whole and is supported by the same noise shifts from confusing to comforting.",
+        "audio": "The memoir describes a noisy market as confusing in childhood but comforting years later. Repeated sounds remain the same while the narrator's experience changes their meaning. Which inference is best supported by the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “The team uses maps, interviews, and canopy data” correctly answers “The proposal combines heat maps, resident interviews, and tree-canopy dat … uarantee—its conclusion. Which inference is best supported by the passage.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. No single source fully represents neighborhood heat. This choice accounts for the passage as a whole and is supported by the team states both support and limitations.",
+        "audio": "True or false: “The team uses maps, interviews, and canopy data” correctly answers “The proposal combines heat maps, resident interviews, and tree-canopy dat … uarantee—its conclusion. Which inference is best supported by the passage.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “The council's report predicts savings but gives no baseline cost, and its chart begins above zero, making a small change look dramatic. A careful reader requests the full data scale. Which inference is best supported by the passage” and replaces “An unsupported certainty beyond the evidence: The visual exaggerates the apparent savings in every case” using the task's evidence or constraints?",
+        "choices": [
+          "The passage proves the opposite: the chart may mislead readers",
+          "An unsupported certainty beyond the evidence: The visual exaggerates the apparent savings in every case",
+          "The chart's vertical axis begins above zero",
+          "The visual exaggerates the apparent savings"
+        ],
+        "answer": "The visual exaggerates the apparent savings",
+        "explain": "The visual exaggerates the apparent savings. This choice accounts for the passage as a whole and is supported by no baseline cost or full scale is provided. This evidence makes the correct response defensible. The response \"An unsupported certainty beyond the evidence: The visual exaggerates the apparent savings in every case\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “The council's report predicts savings but gives no baseline cost, and its chart begins above zero, making a small change look dramatic. A careful reader requests the full data scale. Which inference is best supported by the passage” and replaces “An unsupported certainty beyond the evidence: The visual exaggerates the apparent savings in every case” using the task's evidence or constraints?"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer to “At first, Elena opposes closing a road to protect nesting birds. After reviewing traffic counts and a detour map, she proposes a weekend closure during nesting season. Which inference is best supported by the passage” fits all the given evidence and lesson rules?",
+        "choices": [
+          "The passage proves the opposite: road use conflicts with nesting habitat",
+          "An unsupported certainty beyond the evidence: Elena balances wildlife protection with transportation needs in every case",
+          "She reviews traffic counts and a detour map",
+          "Elena balances wildlife protection with transportation needs"
+        ],
+        "answer": "Elena balances wildlife protection with transportation needs",
+        "explain": "Elena balances wildlife protection with transportation needs. This choice accounts for the passage as a whole and is supported by her proposal limits closure by time and season. This evidence makes the correct response defensible. The response \"She reviews traffic counts and a detour map\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer to “At first, Elena opposes closing a road to protect nesting birds. After reviewing traffic counts and a detour map, she proposes a weekend closure during nesting season. Which inference is best supported by the passage” fits all the given evidence and lesson rules?"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer satisfies every condition in “A report says the tutoring program 'caused' higher scores, yet students volunteered for it and began with different study habits. The data show correlation, but not a controlled causal test. Which inference is best supported by the passage”?",
+        "choices": [
+          "The passage proves the opposite: the report overstates correlation as causation",
+          "Preexisting motivation could influence the result",
+          "An unsupported certainty beyond the evidence: Preexisting motivation could influence the result in every case",
+          "Students volunteered for the program"
+        ],
+        "answer": "Preexisting motivation could influence the result",
+        "explain": "Preexisting motivation could influence the result. This choice accounts for the passage as a whole and is supported by groups differed before tutoring began. This evidence makes the correct response defensible. The response \"The passage proves the opposite: the report overstates correlation as causation\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer satisfies every condition in “A report says the tutoring program 'caused' higher scores, yet students volunteered for it and began with different study habits. The data show correlation, but not a controlled causal test. Which inference is best supported by the passage”?"
+      }
+    ]
+  },
+  "g5:eng:L4": {
+    "name": "Main Idea",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Every Saturday, Maya visits the community garden. She waters tomatoes, pulls weeds, and helps collect vegetables for families. What is the main idea?",
+        "choices": [
+          "Maya dislikes vegetables",
+          "A different main idea",
+          "Families only grow flowers",
+          "Maya helps at a community garden"
+        ],
+        "answer": "Maya helps at a community garden",
+        "audio": "Choose the main idea."
+      },
+      {
+        "type": "mc",
+        "q": "Dolphins communicate using clicks and whistles. They also work together to find food and protect one another. What is the main idea?",
+        "choices": [
+          "Dolphins communicate and work together",
+          "A different main idea",
+          "Dolphins cannot hear",
+          "Dolphins live in trees"
+        ],
+        "answer": "Dolphins communicate and work together",
+        "audio": "Choose the main idea."
+      },
+      {
+        "type": "mc",
+        "q": "Recycling paper, plastic, and metal reduces trash. It also helps save natural resources. What is the main idea?",
+        "choices": [
+          "Metal cannot be recycled",
+          "Trash should be left outside",
+          "A different main idea",
+          "Recycling helps the environment"
+        ],
+        "answer": "Recycling helps the environment",
+        "audio": "Choose the main idea."
+      },
+      {
+        "type": "mc",
+        "q": "Nia saw the tomato leaves drooping, so she watered the soil before school. Which statement best expresses the central or main idea?",
+        "choices": [
+          "Careful observation helps solve problems",
+          "Nia cares for a thirsty plant",
+          "The passage proves the opposite: the plant appeared thirsty",
+          "The tomato leaves were drooping only, treated as the whole answer"
+        ],
+        "answer": "Nia cares for a thirsty plant",
+        "explain": "Nia cares for a thirsty plant. This choice accounts for the passage as a whole and is supported by she watered the soil.",
+        "audio": "Nia saw the tomato leaves drooping, so she watered the soil before school. Which statement best expresses the central or main idea?"
+      },
+      {
+        "type": "mc",
+        "q": "After Malik practiced the difficult measure slowly each day, he performed it smoothly at the concert. Which statement best expresses the central or main idea?",
+        "choices": [
+          "The passage proves the opposite: a musical measure was difficult",
+          "Practice improved Malik's performance",
+          "He practiced the measure slowly each day only, treated as the whole answer",
+          "Steady practice leads to growth"
+        ],
+        "answer": "Practice improved Malik's performance",
+        "explain": "Practice improved Malik's performance. This choice accounts for the passage as a whole and is supported by he performed it smoothly.",
+        "audio": "After Malik practiced the difficult measure slowly each day, he performed it smoothly at the concert. Which statement best expresses the central or main idea?"
+      },
+      {
+        "type": "mc",
+        "q": "The library added signs in three languages. More neighbors then asked questions, found books, and joined programs. Which statement best expresses the central or main idea?",
+        "choices": [
+          "Multilingual signs made the library more accessible",
+          "The passage proves the opposite: some visitors could not easily navigate the library",
+          "Welcoming communication strengthens a community",
+          "The signs used three languages only, treated as the whole answer"
+        ],
+        "answer": "Multilingual signs made the library more accessible",
+        "explain": "Multilingual signs made the library more accessible. This choice accounts for the passage as a whole and is supported by More neighbors joined programs.",
+        "audio": "The library added signs in three languages. More neighbors then asked questions, found books, and joined programs. Which statement best expresses the central or main idea?"
+      },
+      {
+        "type": "mc",
+        "q": "A sudden storm canceled the field study. Instead of giving up, the class compared live weather maps and recorded changes from the classroom. Which statement best expresses the central or main idea?",
+        "choices": [
+          "The class adapted its investigation after a storm",
+          "The passage proves the opposite: the class could not conduct outdoor fieldwork",
+          "Flexible thinking can overcome obstacles",
+          "Students compared live weather maps only, treated as the whole answer"
+        ],
+        "answer": "The class adapted its investigation after a storm",
+        "explain": "The class adapted its investigation after a storm. This choice accounts for the passage as a whole and is supported by Instead of giving up.",
+        "audio": "A sudden storm canceled the field study. Instead of giving up, the class compared live weather maps and recorded changes from the classroom. Which statement best expresses the central or main idea?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Jules acted honestly with a lost wallet” correctly answers “Jules returned the wallet unopened and waited until its owner arrived. Th … verything inside. Which statement best expresses the central or main idea.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Jules acted honestly with a lost wallet. This choice accounts for the passage as a whole and is supported by Jules waited until its owner arrived.",
+        "audio": "True or false: “Jules acted honestly with a lost wallet” correctly answers “Jules returned the wallet unopened and waited until its owner arrived. Th … verything inside. Which statement best expresses the central or main idea.”"
+      },
+      {
+        "type": "mc",
+        "q": "City trees shade pavement and release water vapor. Measurements show that blocks with mature trees can be cooler than nearby blocks without them. Which statement best expresses the central or main idea?",
+        "choices": [
+          "Trees shade pavement only, treated as the whole answer",
+          "Natural systems can support human communities",
+          "The passage proves the opposite: paved city blocks absorb heat",
+          "Mature trees can reduce neighborhood heat"
+        ],
+        "answer": "Mature trees can reduce neighborhood heat",
+        "explain": "Mature trees can reduce neighborhood heat. This choice accounts for the passage as a whole and is supported by tree-lined blocks measured cooler.",
+        "audio": "City trees shade pavement and release water vapor. Measurements show that blocks with mature trees can be cooler than nearby blocks without them. Which statement best expresses the central or main idea?"
+      },
+      {
+        "type": "mc",
+        "q": "Rosa's first model bridge bent under two kilograms. She reinforced the joints, tested one variable at a time, and the third design held six kilograms. Which statement best expresses the central or main idea?",
+        "choices": [
+          "Failure can provide evidence for improvement",
+          "Rosa improved a bridge through controlled redesign",
+          "She changed one variable at a time only, treated as the whole answer",
+          "The passage proves the opposite: the bridge could not support enough mass"
+        ],
+        "answer": "Rosa improved a bridge through controlled redesign",
+        "explain": "Rosa improved a bridge through controlled redesign. This choice accounts for the passage as a whole and is supported by the third design held six kilograms.",
+        "audio": "Rosa's first model bridge bent under two kilograms. She reinforced the joints, tested one variable at a time, and the third design held six kilograms. Which statement best expresses the central or main idea?"
+      },
+      {
+        "type": "mc",
+        "q": "The article presents a farmer's support for a new reservoir and a biologist's concern about habitat loss. Both cite data, but they weigh the consequences differently. Which statement best expresses the central or main idea?",
+        "choices": [
+          "Two experts interpret a reservoir proposal differently",
+          "Both experts cite data only, treated as the whole answer",
+          "Responsible decisions require considering multiple perspectives",
+          "The passage proves the opposite: the community must balance water and habitat needs"
+        ],
+        "answer": "Two experts interpret a reservoir proposal differently",
+        "explain": "Two experts interpret a reservoir proposal differently. This choice accounts for the passage as a whole and is supported by they weigh the consequences differently.",
+        "audio": "The article presents a farmer's support for a new reservoir and a biologist's concern about habitat loss. Both cite data, but they weigh the consequences differently. Which statement best expresses the central or main idea?"
+      },
+      {
+        "type": "mc",
+        "q": "Although the trail looked shorter on the old map, contour lines revealed a steep climb. The hikers chose the longer route and arrived before dark with water remaining. Which statement best expresses the central or main idea?",
+        "choices": [
+          "The hikers used map evidence to choose a safer route",
+          "The passage proves the opposite: the apparent shortcut was steep",
+          "Good decisions consider more than one kind of evidence",
+          "Contour lines showed a steep climb only, treated as the whole answer"
+        ],
+        "answer": "The hikers used map evidence to choose a safer route",
+        "explain": "The hikers used map evidence to choose a safer route. This choice accounts for the passage as a whole and is supported by they arrived before dark with water remaining.",
+        "audio": "Although the trail looked shorter on the old map, contour lines revealed a steep climb. The hikers chose the longer route and arrived before dark with water remaining. Which statement best expresses the central or main idea?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Trash volume fell by nearly one-third only, treated as the whole answer” correctly answers “The school replaced disposable trays with washable ones. Water use rose s … nearly one-third. Which statement best expresses the central or main idea.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. A tray change created both costs and benefits. This choice accounts for the passage as a whole and is supported by water use rose while trash decreased.",
+        "audio": "True or false: “Trash volume fell by nearly one-third only, treated as the whole answer” correctly answers “The school replaced disposable trays with washable ones. Water use rose s … nearly one-third. Which statement best expresses the central or main idea.”"
+      },
+      {
+        "type": "mc",
+        "q": "Kai claimed the creek was healthier because the water looked clear. Amara noted that dissolved oxygen and insect diversity had also increased, providing stronger evidence. Which statement best expresses the central or main idea?",
+        "choices": [
+          "Multiple measurements better support a creek-health claim",
+          "Dissolved oxygen and insect diversity increased only, treated as the whole answer",
+          "The passage proves the opposite: Kai relied only on water clarity",
+          "Reliable conclusions depend on relevant evidence"
+        ],
+        "answer": "Multiple measurements better support a creek-health claim",
+        "explain": "Multiple measurements better support a creek-health claim. This choice accounts for the passage as a whole and is supported by two biological and chemical indicators improved.",
+        "audio": "Kai claimed the creek was healthier because the water looked clear. Amara noted that dissolved oxygen and insect diversity had also increased, providing stronger evidence. Which statement best expresses the central or main idea?"
+      },
+      {
+        "type": "mc",
+        "q": "The narrator praises the mayor's 'brilliant' plan just after listing three obvious failures. The quotation marks and contrast signal that the praise is ironic. Which statement best expresses the central or main idea?",
+        "choices": [
+          "Context reveals that the narrator's praise is ironic",
+          "A speaker's literal words may hide a different judgment",
+          "The passage lists three failures only, treated as the whole answer",
+          "The passage proves the opposite: literal reading hides the criticism"
+        ],
+        "answer": "Context reveals that the narrator's praise is ironic",
+        "explain": "Context reveals that the narrator's praise is ironic. This choice accounts for the passage as a whole and is supported by praise appears immediately after failures.",
+        "audio": "The narrator praises the mayor's 'brilliant' plan just after listing three obvious failures. The quotation marks and contrast signal that the praise is ironic. Which statement best expresses the central or main idea?"
+      },
+      {
+        "type": "mc",
+        "q": "Researchers counted pollinators at equal-sized plots before and after native flowers were planted. Visits increased at the planted plots but stayed nearly constant at control plots. Which statement best expresses the central or main idea?",
+        "choices": [
+          "Controlled data link native flowers with more pollinator visits",
+          "Comparisons strengthen scientific explanations",
+          "Control-plot visits stayed nearly constant only, treated as the whole answer",
+          "The passage proves the opposite: researchers needed to isolate the effect of planting"
+        ],
+        "answer": "Controlled data link native flowers with more pollinator visits",
+        "explain": "Controlled data link native flowers with more pollinator visits. This choice accounts for the passage as a whole and is supported by only planted plots showed a large increase.",
+        "audio": "Researchers counted pollinators at equal-sized plots before and after native flowers were planted. Visits increased at the planted plots but stayed nearly constant at control plots. Which statement best expresses the central or main idea?"
+      },
+      {
+        "type": "mc",
+        "q": "An editorial urges readers to support later bus service, citing attendance data and interviews with workers. It acknowledges the cost, then argues that a pilot program would test demand. Which statement best expresses the central or main idea?",
+        "choices": [
+          "It cites attendance data and worker interviews only, treated as the whole answer",
+          "Persuasive arguments address evidence and counterarguments",
+          "The passage proves the opposite: workers and students lack late transportation",
+          "The editorial argues for testing later bus service"
+        ],
+        "answer": "The editorial argues for testing later bus service",
+        "explain": "The editorial argues for testing later bus service. This choice accounts for the passage as a whole and is supported by the editorial acknowledges cost before proposing a pilot.",
+        "audio": "An editorial urges readers to support later bus service, citing attendance data and interviews with workers. It acknowledges the cost, then argues that a pilot program would test demand. Which statement best expresses the central or main idea?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Biographies can frame the same achievement differently” correctly answers “Two biographies describe the same inventor. One emphasizes solitary insig … ed early designs. Which statement best expresses the central or main idea.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Biographies can frame the same achievement differently. This choice accounts for the passage as a whole and is supported by the second documents other contributors.",
+        "audio": "True or false: “Biographies can frame the same achievement differently” correctly answers “Two biographies describe the same inventor. One emphasizes solitary insig … ed early designs. Which statement best expresses the central or main idea.”"
+      },
+      {
+        "type": "mc",
+        "q": "The council's report predicts savings but gives no baseline cost, and its chart begins above zero, making a small change look dramatic. A careful reader requests the full data scale. Which statement best expresses the central or main idea?",
+        "choices": [
+          "Missing context can make a data claim misleading",
+          "The chart's vertical axis begins above zero only, treated as the whole answer",
+          "Critical readers inspect how evidence is presented",
+          "The passage proves the opposite: the chart may mislead readers"
+        ],
+        "answer": "Missing context can make a data claim misleading",
+        "explain": "Missing context can make a data claim misleading. This choice accounts for the passage as a whole and is supported by no baseline cost or full scale is provided.",
+        "audio": "The council's report predicts savings but gives no baseline cost, and its chart begins above zero, making a small change look dramatic. A careful reader requests the full data scale. Which statement best expresses the central or main idea?"
+      },
+      {
+        "type": "mc",
+        "q": "At first, Elena opposes closing a road to protect nesting birds. After reviewing traffic counts and a detour map, she proposes a weekend closure during nesting season. Which statement best expresses the central or main idea?",
+        "choices": [
+          "She reviews traffic counts and a detour map only, treated as the whole answer",
+          "Evidence leads Elena to revise her position and propose a compromise",
+          "The passage proves the opposite: road use conflicts with nesting habitat",
+          "New evidence can refine a responsible position"
+        ],
+        "answer": "Evidence leads Elena to revise her position and propose a compromise",
+        "explain": "Evidence leads Elena to revise her position and propose a compromise. This choice accounts for the passage as a whole and is supported by her proposal limits closure by time and season.",
+        "audio": "At first, Elena opposes closing a road to protect nesting birds. After reviewing traffic counts and a detour map, she proposes a weekend closure during nesting season. Which statement best expresses the central or main idea?"
+      },
+      {
+        "type": "mc",
+        "q": "A report says the tutoring program 'caused' higher scores, yet students volunteered for it and began with different study habits. The data show correlation, but not a controlled causal test. Which statement best expresses the central or main idea?",
+        "choices": [
+          "The passage proves the opposite: the report overstates correlation as causation",
+          "Claims should not exceed what evidence can support",
+          "Students volunteered for the program only, treated as the whole answer",
+          "The tutoring data do not by themselves prove causation"
+        ],
+        "answer": "The tutoring data do not by themselves prove causation",
+        "explain": "The tutoring data do not by themselves prove causation. This choice accounts for the passage as a whole and is supported by groups differed before tutoring began.",
+        "audio": "A report says the tutoring program 'caused' higher scores, yet students volunteered for it and began with different study habits. The data show correlation, but not a controlled causal test. Which statement best expresses the central or main idea?"
+      },
+      {
+        "type": "mc",
+        "q": "The memoir describes a noisy market as confusing in childhood but comforting years later. Repeated sounds remain the same while the narrator's experience changes their meaning. Which statement best expresses the central or main idea?",
+        "choices": [
+          "The passage proves the opposite: childhood confusion shaped the first impression",
+          "The market sounds remain similar over time only, treated as the whole answer",
+          "The narrator's changing perspective transforms the meaning of the market",
+          "Experience can change how a familiar place feels"
+        ],
+        "answer": "The narrator's changing perspective transforms the meaning of the market",
+        "explain": "The narrator's changing perspective transforms the meaning of the market. This choice accounts for the passage as a whole and is supported by the same noise shifts from confusing to comforting.",
+        "audio": "The memoir describes a noisy market as confusing in childhood but comforting years later. Repeated sounds remain the same while the narrator's experience changes their meaning. Which statement best expresses the central or main idea?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “The team uses maps, interviews, and canopy data only, treated as the whole answer” correctly answers “The proposal combines heat maps, resident interviews, and tree-canopy dat … e—its conclusion. Which statement best expresses the central or main idea.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Combining imperfect sources can create a stronger, qualified conclusion. This choice accounts for the passage as a whole and is supported by the team states both support and limitations.",
+        "audio": "True or false: “The team uses maps, interviews, and canopy data only, treated as the whole answer” correctly answers “The proposal combines heat maps, resident interviews, and tree-canopy dat … e—its conclusion. Which statement best expresses the central or main idea.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “The council's report predicts savings but gives no baseline cost, and its chart begins above zero, making a small change look dramatic. A careful reader requests the full data scale. Which statement best expresses the central or main idea” and replaces “Critical readers inspect how evidence is presented” using the task's evidence or constraints?",
+        "choices": [
+          "Critical readers inspect how evidence is presented",
+          "The chart's vertical axis begins above zero only, treated as the whole answer",
+          "Missing context can make a data claim misleading",
+          "The passage proves the opposite: the chart may mislead readers"
+        ],
+        "answer": "Missing context can make a data claim misleading",
+        "explain": "Missing context can make a data claim misleading. This choice accounts for the passage as a whole and is supported by no baseline cost or full scale is provided. This evidence makes the correct response defensible. The response \"Critical readers inspect how evidence is presented\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “The council's report predicts savings but gives no baseline cost, and its chart begins above zero, making a small change look dramatic. A careful reader requests the full data scale. Which statement best expresses the central or main idea” and replaces “Critical readers inspect how evidence is presented” using the task's evidence or constraints?"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer to “At first, Elena opposes closing a road to protect nesting birds. After reviewing traffic counts and a detour map, she proposes a weekend closure during nesting season. Which statement best expresses the central or main idea” fits all the given evidence and lesson rules?",
+        "choices": [
+          "New evidence can refine a responsible position",
+          "The passage proves the opposite: road use conflicts with nesting habitat",
+          "Evidence leads Elena to revise her position and propose a compromise",
+          "She reviews traffic counts and a detour map only, treated as the whole answer"
+        ],
+        "answer": "Evidence leads Elena to revise her position and propose a compromise",
+        "explain": "Evidence leads Elena to revise her position and propose a compromise. This choice accounts for the passage as a whole and is supported by her proposal limits closure by time and season. This evidence makes the correct response defensible. The response \"She reviews traffic counts and a detour map only, treated as the whole answer\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer to “At first, Elena opposes closing a road to protect nesting birds. After reviewing traffic counts and a detour map, she proposes a weekend closure during nesting season. Which statement best expresses the central or main idea” fits all the given evidence and lesson rules?"
+      }
+    ]
+  },
+  "g5:eng:L5": {
+    "name": "Supporting Details",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Main idea: Bees are important pollinators. Which detail supports the main idea?",
+        "choices": [
+          "A different main idea",
+          "Bees are yellow and black",
+          "Bees move pollen between flowers",
+          "Some people wear hats"
+        ],
+        "answer": "Bees move pollen between flowers",
+        "audio": "Select the supporting detail."
+      },
+      {
+        "type": "mc",
+        "q": "Main idea: Reading every day improves skills. Which detail supports the main idea?",
+        "choices": [
+          "Daily reading builds vocabulary",
+          "Unrelated meaning",
+          "Libraries have chairs",
+          "Books can have colorful covers"
+        ],
+        "answer": "Daily reading builds vocabulary",
+        "audio": "Select the supporting detail."
+      },
+      {
+        "type": "mc",
+        "q": "Main idea: Exercise benefits the body. Which detail supports the main idea?",
+        "choices": [
+          "A different main idea",
+          "Sneakers come in many colors",
+          "Sports teams have names",
+          "Exercise helps strengthen muscles"
+        ],
+        "answer": "Exercise helps strengthen muscles",
+        "audio": "Select the supporting detail."
+      },
+      {
+        "type": "mc",
+        "q": "Nia saw the tomato leaves drooping, so she watered the soil before school. Which detail most directly supports the passage's central idea?",
+        "choices": [
+          "The tomato leaves were drooping",
+          "An unsupported certainty beyond the evidence: The plant needed water in every case",
+          "Nia cares for a thirsty plant",
+          "The Thirsty Tomato"
+        ],
+        "answer": "The tomato leaves were drooping",
+        "explain": "The tomato leaves were drooping. This choice accounts for the passage as a whole and is supported by she watered the soil.",
+        "audio": "Nia saw the tomato leaves drooping, so she watered the soil before school. Which detail most directly supports the passage's central idea?"
+      },
+      {
+        "type": "mc",
+        "q": "After Malik practiced the difficult measure slowly each day, he performed it smoothly at the concert. Which detail most directly supports the passage's central idea?",
+        "choices": [
+          "An unsupported certainty beyond the evidence: Malik persisted when the music was difficult in every case",
+          "Measure by Measure",
+          "Practice improved Malik's performance",
+          "He practiced the measure slowly each day"
+        ],
+        "answer": "He practiced the measure slowly each day",
+        "explain": "He practiced the measure slowly each day. This choice accounts for the passage as a whole and is supported by he performed it smoothly.",
+        "audio": "After Malik practiced the difficult measure slowly each day, he performed it smoothly at the concert. Which detail most directly supports the passage's central idea?"
+      },
+      {
+        "type": "mc",
+        "q": "The library added signs in three languages. More neighbors then asked questions, found books, and joined programs. Which detail most directly supports the passage's central idea?",
+        "choices": [
+          "An unsupported certainty beyond the evidence: Some visitors previously faced a language barrier in every case",
+          "Signs That Welcome",
+          "Multilingual signs made the library more accessible",
+          "The signs used three languages"
+        ],
+        "answer": "The signs used three languages",
+        "explain": "The signs used three languages. This choice accounts for the passage as a whole and is supported by More neighbors joined programs.",
+        "audio": "The library added signs in three languages. More neighbors then asked questions, found books, and joined programs. Which detail most directly supports the passage's central idea?"
+      },
+      {
+        "type": "mc",
+        "q": "A sudden storm canceled the field study. Instead of giving up, the class compared live weather maps and recorded changes from the classroom. Which detail most directly supports the passage's central idea?",
+        "choices": [
+          "An unsupported certainty beyond the evidence: The learning goal could be met in another way in every case",
+          "The class adapted its investigation after a storm",
+          "A New Plan for the Storm",
+          "Students compared live weather maps"
+        ],
+        "answer": "Students compared live weather maps",
+        "explain": "Students compared live weather maps. This choice accounts for the passage as a whole and is supported by Instead of giving up.",
+        "audio": "A sudden storm canceled the field study. Instead of giving up, the class compared live weather maps and recorded changes from the classroom. Which detail most directly supports the passage's central idea?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “The wallet remained unopened” correctly answers “Jules returned the wallet unopened and waited until its owner arrived. Th … ng inside. Which detail most directly supports the passage's central idea.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The wallet remained unopened. This choice accounts for the passage as a whole and is supported by Jules waited until its owner arrived.",
+        "audio": "True or false: “The wallet remained unopened” correctly answers “Jules returned the wallet unopened and waited until its owner arrived. Th … ng inside. Which detail most directly supports the passage's central idea.”"
+      },
+      {
+        "type": "mc",
+        "q": "City trees shade pavement and release water vapor. Measurements show that blocks with mature trees can be cooler than nearby blocks without them. Which detail most directly supports the passage's central idea?",
+        "choices": [
+          "Mature trees can reduce neighborhood heat",
+          "An unsupported certainty beyond the evidence: Planting trees may help cities manage extreme heat in every case",
+          "How Trees Cool a City",
+          "Trees shade pavement"
+        ],
+        "answer": "Trees shade pavement",
+        "explain": "Trees shade pavement. This choice accounts for the passage as a whole and is supported by tree-lined blocks measured cooler.",
+        "audio": "City trees shade pavement and release water vapor. Measurements show that blocks with mature trees can be cooler than nearby blocks without them. Which detail most directly supports the passage's central idea?"
+      },
+      {
+        "type": "mc",
+        "q": "Rosa's first model bridge bent under two kilograms. She reinforced the joints, tested one variable at a time, and the third design held six kilograms. Which detail most directly supports the passage's central idea?",
+        "choices": [
+          "She changed one variable at a time",
+          "An unsupported certainty beyond the evidence: Test results guided each revision in every case",
+          "Stronger by Design",
+          "Rosa improved a bridge through controlled redesign"
+        ],
+        "answer": "She changed one variable at a time",
+        "explain": "She changed one variable at a time. This choice accounts for the passage as a whole and is supported by the third design held six kilograms.",
+        "audio": "Rosa's first model bridge bent under two kilograms. She reinforced the joints, tested one variable at a time, and the third design held six kilograms. Which detail most directly supports the passage's central idea?"
+      },
+      {
+        "type": "mc",
+        "q": "The article presents a farmer's support for a new reservoir and a biologist's concern about habitat loss. Both cite data, but they weigh the consequences differently. Which detail most directly supports the passage's central idea?",
+        "choices": [
+          "Both experts cite data",
+          "Two experts interpret a reservoir proposal differently",
+          "One Reservoir, Two Views",
+          "An unsupported certainty beyond the evidence: Evidence can support competing priorities in every case"
+        ],
+        "answer": "Both experts cite data",
+        "explain": "Both experts cite data. This choice accounts for the passage as a whole and is supported by they weigh the consequences differently.",
+        "audio": "The article presents a farmer's support for a new reservoir and a biologist's concern about habitat loss. Both cite data, but they weigh the consequences differently. Which detail most directly supports the passage's central idea?"
+      },
+      {
+        "type": "mc",
+        "q": "Although the trail looked shorter on the old map, contour lines revealed a steep climb. The hikers chose the longer route and arrived before dark with water remaining. Which detail most directly supports the passage's central idea?",
+        "choices": [
+          "Contour lines showed a steep climb",
+          "An unsupported certainty beyond the evidence: Distance alone did not determine travel time in every case",
+          "The hikers used map evidence to choose a safer route",
+          "The Longer, Safer Route"
+        ],
+        "answer": "Contour lines showed a steep climb",
+        "explain": "Contour lines showed a steep climb. This choice accounts for the passage as a whole and is supported by they arrived before dark with water remaining.",
+        "audio": "Although the trail looked shorter on the old map, contour lines revealed a steep climb. The hikers chose the longer route and arrived before dark with water remaining. Which detail most directly supports the passage's central idea?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “A tray change created both costs and benefits” correctly answers “The school replaced disposable trays with washable ones. Water use rose s … one-third. Which detail most directly supports the passage's central idea.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Trash volume fell by nearly one-third. This choice accounts for the passage as a whole and is supported by water use rose while trash decreased.",
+        "audio": "True or false: “A tray change created both costs and benefits” correctly answers “The school replaced disposable trays with washable ones. Water use rose s … one-third. Which detail most directly supports the passage's central idea.”"
+      },
+      {
+        "type": "mc",
+        "q": "Kai claimed the creek was healthier because the water looked clear. Amara noted that dissolved oxygen and insect diversity had also increased, providing stronger evidence. Which detail most directly supports the passage's central idea?",
+        "choices": [
+          "Dissolved oxygen and insect diversity increased",
+          "An unsupported certainty beyond the evidence: Appearance alone is weak evidence of ecosystem health in every case",
+          "Multiple measurements better support a creek-health claim",
+          "Beyond Clear Water"
+        ],
+        "answer": "Dissolved oxygen and insect diversity increased",
+        "explain": "Dissolved oxygen and insect diversity increased. This choice accounts for the passage as a whole and is supported by two biological and chemical indicators improved.",
+        "audio": "Kai claimed the creek was healthier because the water looked clear. Amara noted that dissolved oxygen and insect diversity had also increased, providing stronger evidence. Which detail most directly supports the passage's central idea?"
+      },
+      {
+        "type": "mc",
+        "q": "The narrator praises the mayor's 'brilliant' plan just after listing three obvious failures. The quotation marks and contrast signal that the praise is ironic. Which detail most directly supports the passage's central idea?",
+        "choices": [
+          "Context reveals that the narrator's praise is ironic",
+          "Brilliant in Quotation Marks",
+          "An unsupported certainty beyond the evidence: The narrator doubts the mayor's plan in every case",
+          "The passage lists three failures"
+        ],
+        "answer": "The passage lists three failures",
+        "explain": "The passage lists three failures. This choice accounts for the passage as a whole and is supported by praise appears immediately after failures.",
+        "audio": "The narrator praises the mayor's 'brilliant' plan just after listing three obvious failures. The quotation marks and contrast signal that the praise is ironic. Which detail most directly supports the passage's central idea?"
+      },
+      {
+        "type": "mc",
+        "q": "Researchers counted pollinators at equal-sized plots before and after native flowers were planted. Visits increased at the planted plots but stayed nearly constant at control plots. Which detail most directly supports the passage's central idea?",
+        "choices": [
+          "An unsupported certainty beyond the evidence: The flowers, not a region-wide change, likely affected visits in every case",
+          "Control-plot visits stayed nearly constant",
+          "Controlled data link native flowers with more pollinator visits",
+          "Flowers and a Fair Test"
+        ],
+        "answer": "Control-plot visits stayed nearly constant",
+        "explain": "Control-plot visits stayed nearly constant. This choice accounts for the passage as a whole and is supported by only planted plots showed a large increase.",
+        "audio": "Researchers counted pollinators at equal-sized plots before and after native flowers were planted. Visits increased at the planted plots but stayed nearly constant at control plots. Which detail most directly supports the passage's central idea?"
+      },
+      {
+        "type": "mc",
+        "q": "An editorial urges readers to support later bus service, citing attendance data and interviews with workers. It acknowledges the cost, then argues that a pilot program would test demand. Which detail most directly supports the passage's central idea?",
+        "choices": [
+          "It cites attendance data and worker interviews",
+          "The editorial argues for testing later bus service",
+          "A Later Ride Home",
+          "An unsupported certainty beyond the evidence: The writer anticipates a budget objection in every case"
+        ],
+        "answer": "It cites attendance data and worker interviews",
+        "explain": "It cites attendance data and worker interviews. This choice accounts for the passage as a whole and is supported by the editorial acknowledges cost before proposing a pilot.",
+        "audio": "An editorial urges readers to support later bus service, citing attendance data and interviews with workers. It acknowledges the cost, then argues that a pilot program would test demand. Which detail most directly supports the passage's central idea?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Technicians corrected early designs” correctly answers “Two biographies describe the same inventor. One emphasizes solitary insig … y designs. Which detail most directly supports the passage's central idea.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Technicians corrected early designs. This choice accounts for the passage as a whole and is supported by the second documents other contributors.",
+        "audio": "True or false: “Technicians corrected early designs” correctly answers “Two biographies describe the same inventor. One emphasizes solitary insig … y designs. Which detail most directly supports the passage's central idea.”"
+      },
+      {
+        "type": "mc",
+        "q": "The council's report predicts savings but gives no baseline cost, and its chart begins above zero, making a small change look dramatic. A careful reader requests the full data scale. Which detail most directly supports the passage's central idea?",
+        "choices": [
+          "The chart's vertical axis begins above zero",
+          "An unsupported certainty beyond the evidence: The visual exaggerates the apparent savings in every case",
+          "Missing context can make a data claim misleading",
+          "What the Chart Leaves Out"
+        ],
+        "answer": "The chart's vertical axis begins above zero",
+        "explain": "The chart's vertical axis begins above zero. This choice accounts for the passage as a whole and is supported by no baseline cost or full scale is provided.",
+        "audio": "The council's report predicts savings but gives no baseline cost, and its chart begins above zero, making a small change look dramatic. A careful reader requests the full data scale. Which detail most directly supports the passage's central idea?"
+      },
+      {
+        "type": "mc",
+        "q": "At first, Elena opposes closing a road to protect nesting birds. After reviewing traffic counts and a detour map, she proposes a weekend closure during nesting season. Which detail most directly supports the passage's central idea?",
+        "choices": [
+          "An unsupported certainty beyond the evidence: Elena balances wildlife protection with transportation needs in every case",
+          "She reviews traffic counts and a detour map",
+          "A Road to Compromise",
+          "Evidence leads Elena to revise her position and propose a compromise"
+        ],
+        "answer": "She reviews traffic counts and a detour map",
+        "explain": "She reviews traffic counts and a detour map. This choice accounts for the passage as a whole and is supported by her proposal limits closure by time and season.",
+        "audio": "At first, Elena opposes closing a road to protect nesting birds. After reviewing traffic counts and a detour map, she proposes a weekend closure during nesting season. Which detail most directly supports the passage's central idea?"
+      },
+      {
+        "type": "mc",
+        "q": "A report says the tutoring program 'caused' higher scores, yet students volunteered for it and began with different study habits. The data show correlation, but not a controlled causal test. Which detail most directly supports the passage's central idea?",
+        "choices": [
+          "Students volunteered for the program",
+          "The tutoring data do not by themselves prove causation",
+          "An unsupported certainty beyond the evidence: Preexisting motivation could influence the result in every case",
+          "Correlation Is Not Proof"
+        ],
+        "answer": "Students volunteered for the program",
+        "explain": "Students volunteered for the program. This choice accounts for the passage as a whole and is supported by groups differed before tutoring began.",
+        "audio": "A report says the tutoring program 'caused' higher scores, yet students volunteered for it and began with different study habits. The data show correlation, but not a controlled causal test. Which detail most directly supports the passage's central idea?"
+      },
+      {
+        "type": "mc",
+        "q": "The memoir describes a noisy market as confusing in childhood but comforting years later. Repeated sounds remain the same while the narrator's experience changes their meaning. Which detail most directly supports the passage's central idea?",
+        "choices": [
+          "The Sound of Returning",
+          "The narrator's changing perspective transforms the meaning of the market",
+          "An unsupported certainty beyond the evidence: Memory and maturity influence interpretation in every case",
+          "The market sounds remain similar over time"
+        ],
+        "answer": "The market sounds remain similar over time",
+        "explain": "The market sounds remain similar over time. This choice accounts for the passage as a whole and is supported by the same noise shifts from confusing to comforting.",
+        "audio": "The memoir describes a noisy market as confusing in childhood but comforting years later. Repeated sounds remain the same while the narrator's experience changes their meaning. Which detail most directly supports the passage's central idea?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Combining imperfect sources can create a stronger, qualified conclusion” correctly answers “The proposal combines heat maps, resident interviews, and tree-canopy dat … onclusion. Which detail most directly supports the passage's central idea.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The team uses maps, interviews, and canopy data. This choice accounts for the passage as a whole and is supported by the team states both support and limitations.",
+        "audio": "True or false: “Combining imperfect sources can create a stronger, qualified conclusion” correctly answers “The proposal combines heat maps, resident interviews, and tree-canopy dat … onclusion. Which detail most directly supports the passage's central idea.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “The council's report predicts savings but gives no baseline cost, and its chart begins above zero, making a small change look dramatic. A careful reader requests the full data scale. Which detail most directly supports the passage's central idea” and replaces “An unsupported certainty beyond the evidence: The visual exaggerates the apparent savings in every case” using the task's evidence or constraints?",
+        "choices": [
+          "An unsupported certainty beyond the evidence: The visual exaggerates the apparent savings in every case",
+          "What the Chart Leaves Out",
+          "Missing context can make a data claim misleading",
+          "The chart's vertical axis begins above zero"
+        ],
+        "answer": "The chart's vertical axis begins above zero",
+        "explain": "The chart's vertical axis begins above zero. This choice accounts for the passage as a whole and is supported by no baseline cost or full scale is provided. This evidence makes the correct response defensible. The response \"An unsupported certainty beyond the evidence: The visual exaggerates the apparent savings in every case\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “The council's report predicts savings but gives no baseline cost, and its chart begins above zero, making a small change look dramatic. A careful reader requests the full data scale. Which detail most directly supports the passage's central idea” and replaces “An unsupported certainty beyond the evidence: The visual exaggerates the apparent savings in every case” using the task's evidence or constraints?"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer to “At first, Elena opposes closing a road to protect nesting birds. After reviewing traffic counts and a detour map, she proposes a weekend closure during nesting season. Which detail most directly supports the passage's central idea” fits all the given evidence and lesson rules?",
+        "choices": [
+          "An unsupported certainty beyond the evidence: Elena balances wildlife protection with transportation needs in every case",
+          "A Road to Compromise",
+          "Evidence leads Elena to revise her position and propose a compromise",
+          "She reviews traffic counts and a detour map"
+        ],
+        "answer": "She reviews traffic counts and a detour map",
+        "explain": "She reviews traffic counts and a detour map. This choice accounts for the passage as a whole and is supported by her proposal limits closure by time and season. This evidence makes the correct response defensible. The response \"An unsupported certainty beyond the evidence: Elena balances wildlife protection with transportation needs in every case\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer to “At first, Elena opposes closing a road to protect nesting birds. After reviewing traffic counts and a detour map, she proposes a weekend closure during nesting season. Which detail most directly supports the passage's central idea” fits all the given evidence and lesson rules?"
+      }
+    ]
+  },
+  "g5:eng:L6": {
+    "name": "Author's Purpose",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "A passage explains how tornadoes form and how to stay safe. The author's purpose is to…",
+        "choices": [
+          "Inform",
+          "Entertain with a fairy tale",
+          "Persuade you to buy shoes",
+          "A different main idea"
+        ],
+        "answer": "Inform",
+        "audio": "Determine the author's purpose."
+      },
+      {
+        "type": "mc",
+        "q": "An advertisement says, 'Choose Bright Bike Helmets for the safest ride!' The author's purpose is to…",
+        "choices": [
+          "Entertain with a mystery",
+          "A different main idea",
+          "Inform about dinosaurs",
+          "Persuade"
+        ],
+        "answer": "Persuade",
+        "audio": "Determine the author's purpose."
+      },
+      {
+        "type": "mc",
+        "q": "A funny story describes a dog that learns to skateboard. The author's purpose is to…",
+        "choices": [
+          "Entertain",
+          "Inform about weather",
+          "A different main idea",
+          "Persuade you to recycle"
+        ],
+        "answer": "Entertain",
+        "audio": "Determine the author's purpose."
+      },
+      {
+        "type": "mc",
+        "q": "Nia saw the tomato leaves drooping, so she watered the soil before school. What is the author's most likely purpose?",
+        "choices": [
+          "to list only this detail: The tomato leaves were drooping",
+          "to tell how Nia responded to a plant's need",
+          "to conceal the issue of the plant appeared thirsty",
+          "to argue the opposite of Nia cares for a thirsty plant"
+        ],
+        "answer": "to tell how Nia responded to a plant's need",
+        "explain": "to tell how Nia responded to a plant's need. This choice accounts for the passage as a whole and is supported by she watered the soil.",
+        "audio": "Nia saw the tomato leaves drooping, so she watered the soil before school. What is the author's most likely purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "After Malik practiced the difficult measure slowly each day, he performed it smoothly at the concert. What is the author's most likely purpose?",
+        "choices": [
+          "to show how practice produced improvement",
+          "to conceal the issue of a musical measure was difficult",
+          "to list only this detail: He practiced the measure slowly each day",
+          "to argue the opposite of Practice improved Malik's performance"
+        ],
+        "answer": "to show how practice produced improvement",
+        "explain": "to show how practice produced improvement. This choice accounts for the passage as a whole and is supported by he performed it smoothly.",
+        "audio": "After Malik practiced the difficult measure slowly each day, he performed it smoothly at the concert. What is the author's most likely purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "The library added signs in three languages. More neighbors then asked questions, found books, and joined programs. What is the author's most likely purpose?",
+        "choices": [
+          "to list only this detail: The signs used three languages",
+          "to explain the effect of accessible signs",
+          "to conceal the issue of some visitors could not easily navigate the library",
+          "to argue the opposite of Multilingual signs made the library more accessible"
+        ],
+        "answer": "to explain the effect of accessible signs",
+        "explain": "to explain the effect of accessible signs. This choice accounts for the passage as a whole and is supported by More neighbors joined programs.",
+        "audio": "The library added signs in three languages. More neighbors then asked questions, found books, and joined programs. What is the author's most likely purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "A sudden storm canceled the field study. Instead of giving up, the class compared live weather maps and recorded changes from the classroom. What is the author's most likely purpose?",
+        "choices": [
+          "to argue the opposite of The class adapted its investigation after a storm",
+          "to conceal the issue of the class could not conduct outdoor fieldwork",
+          "to show students adapting to an obstacle",
+          "to list only this detail: Students compared live weather maps"
+        ],
+        "answer": "to show students adapting to an obstacle",
+        "explain": "to show students adapting to an obstacle. This choice accounts for the passage as a whole and is supported by Instead of giving up.",
+        "audio": "A sudden storm canceled the field study. Instead of giving up, the class compared live weather maps and recorded changes from the classroom. What is the author's most likely purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “to illustrate an honest choice” correctly answers “Jules returned the wallet unopened and waited until its owner arrived. Th … or protecting everything inside. What is the author's most likely purpose.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. to illustrate an honest choice. This choice accounts for the passage as a whole and is supported by Jules waited until its owner arrived.",
+        "audio": "True or false: “to illustrate an honest choice” correctly answers “Jules returned the wallet unopened and waited until its owner arrived. Th … or protecting everything inside. What is the author's most likely purpose.”"
+      },
+      {
+        "type": "mc",
+        "q": "City trees shade pavement and release water vapor. Measurements show that blocks with mature trees can be cooler than nearby blocks without them. What is the author's most likely purpose?",
+        "choices": [
+          "to explain why tree-lined blocks may be cooler",
+          "to conceal the issue of paved city blocks absorb heat",
+          "to argue the opposite of Mature trees can reduce neighborhood heat",
+          "to list only this detail: Trees shade pavement"
+        ],
+        "answer": "to explain why tree-lined blocks may be cooler",
+        "explain": "to explain why tree-lined blocks may be cooler. This choice accounts for the passage as a whole and is supported by tree-lined blocks measured cooler.",
+        "audio": "City trees shade pavement and release water vapor. Measurements show that blocks with mature trees can be cooler than nearby blocks without them. What is the author's most likely purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "Rosa's first model bridge bent under two kilograms. She reinforced the joints, tested one variable at a time, and the third design held six kilograms. What is the author's most likely purpose?",
+        "choices": [
+          "to list only this detail: She changed one variable at a time",
+          "to argue the opposite of Rosa improved a bridge through controlled redesign",
+          "to demonstrate evidence-based engineering",
+          "to conceal the issue of the bridge could not support enough mass"
+        ],
+        "answer": "to demonstrate evidence-based engineering",
+        "explain": "to demonstrate evidence-based engineering. This choice accounts for the passage as a whole and is supported by the third design held six kilograms.",
+        "audio": "Rosa's first model bridge bent under two kilograms. She reinforced the joints, tested one variable at a time, and the third design held six kilograms. What is the author's most likely purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "The article presents a farmer's support for a new reservoir and a biologist's concern about habitat loss. Both cite data, but they weigh the consequences differently. What is the author's most likely purpose?",
+        "choices": [
+          "to argue the opposite of Two experts interpret a reservoir proposal differently",
+          "to conceal the issue of the community must balance water and habitat needs",
+          "to list only this detail: Both experts cite data",
+          "to compare evidence-based viewpoints"
+        ],
+        "answer": "to compare evidence-based viewpoints",
+        "explain": "to compare evidence-based viewpoints. This choice accounts for the passage as a whole and is supported by they weigh the consequences differently.",
+        "audio": "The article presents a farmer's support for a new reservoir and a biologist's concern about habitat loss. Both cite data, but they weigh the consequences differently. What is the author's most likely purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "Although the trail looked shorter on the old map, contour lines revealed a steep climb. The hikers chose the longer route and arrived before dark with water remaining. What is the author's most likely purpose?",
+        "choices": [
+          "to show how map analysis informed a decision",
+          "to argue the opposite of The hikers used map evidence to choose a safer route",
+          "to list only this detail: Contour lines showed a steep climb",
+          "to conceal the issue of the apparent shortcut was steep"
+        ],
+        "answer": "to show how map analysis informed a decision",
+        "explain": "to show how map analysis informed a decision. This choice accounts for the passage as a whole and is supported by they arrived before dark with water remaining.",
+        "audio": "Although the trail looked shorter on the old map, contour lines revealed a steep climb. The hikers chose the longer route and arrived before dark with water remaining. What is the author's most likely purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “to list only this detail: Trash volume fell by nearly one-third” correctly answers “The school replaced disposable trays with washable ones. Water use rose s … volume fell by nearly one-third. What is the author's most likely purpose.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. to explain two effects of a sustainability decision. This choice accounts for the passage as a whole and is supported by water use rose while trash decreased.",
+        "audio": "True or false: “to list only this detail: Trash volume fell by nearly one-third” correctly answers “The school replaced disposable trays with washable ones. Water use rose s … volume fell by nearly one-third. What is the author's most likely purpose.”"
+      },
+      {
+        "type": "mc",
+        "q": "Kai claimed the creek was healthier because the water looked clear. Amara noted that dissolved oxygen and insect diversity had also increased, providing stronger evidence. What is the author's most likely purpose?",
+        "choices": [
+          "to argue the opposite of Multiple measurements better support a creek-health claim",
+          "to list only this detail: Dissolved oxygen and insect diversity increased",
+          "to conceal the issue of Kai relied only on water clarity",
+          "to distinguish weak observation from stronger evidence"
+        ],
+        "answer": "to distinguish weak observation from stronger evidence",
+        "explain": "to distinguish weak observation from stronger evidence. This choice accounts for the passage as a whole and is supported by two biological and chemical indicators improved.",
+        "audio": "Kai claimed the creek was healthier because the water looked clear. Amara noted that dissolved oxygen and insect diversity had also increased, providing stronger evidence. What is the author's most likely purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "The narrator praises the mayor's 'brilliant' plan just after listing three obvious failures. The quotation marks and contrast signal that the praise is ironic. What is the author's most likely purpose?",
+        "choices": [
+          "to list only this detail: The passage lists three failures",
+          "to criticize a failed plan through irony",
+          "to conceal the issue of literal reading hides the criticism",
+          "to argue the opposite of Context reveals that the narrator's praise is ironic"
+        ],
+        "answer": "to criticize a failed plan through irony",
+        "explain": "to criticize a failed plan through irony. This choice accounts for the passage as a whole and is supported by praise appears immediately after failures.",
+        "audio": "The narrator praises the mayor's 'brilliant' plan just after listing three obvious failures. The quotation marks and contrast signal that the praise is ironic. What is the author's most likely purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "Researchers counted pollinators at equal-sized plots before and after native flowers were planted. Visits increased at the planted plots but stayed nearly constant at control plots. What is the author's most likely purpose?",
+        "choices": [
+          "to report evidence from a comparative investigation",
+          "to list only this detail: Control-plot visits stayed nearly constant",
+          "to conceal the issue of researchers needed to isolate the effect of planting",
+          "to argue the opposite of Controlled data link native flowers with more pollinator visits"
+        ],
+        "answer": "to report evidence from a comparative investigation",
+        "explain": "to report evidence from a comparative investigation. This choice accounts for the passage as a whole and is supported by only planted plots showed a large increase.",
+        "audio": "Researchers counted pollinators at equal-sized plots before and after native flowers were planted. Visits increased at the planted plots but stayed nearly constant at control plots. What is the author's most likely purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "An editorial urges readers to support later bus service, citing attendance data and interviews with workers. It acknowledges the cost, then argues that a pilot program would test demand. What is the author's most likely purpose?",
+        "choices": [
+          "to conceal the issue of workers and students lack late transportation",
+          "to list only this detail: It cites attendance data and worker interviews",
+          "to argue the opposite of The editorial argues for testing later bus service",
+          "to persuade readers to support a bus-service pilot"
+        ],
+        "answer": "to persuade readers to support a bus-service pilot",
+        "explain": "to persuade readers to support a bus-service pilot. This choice accounts for the passage as a whole and is supported by the editorial acknowledges cost before proposing a pilot.",
+        "audio": "An editorial urges readers to support later bus service, citing attendance data and interviews with workers. It acknowledges the cost, then argues that a pilot program would test demand. What is the author's most likely purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “to compare how sources frame one achievement” correctly answers “Two biographies describe the same inventor. One emphasizes solitary insig … riments corrected early designs. What is the author's most likely purpose.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. to compare how sources frame one achievement. This choice accounts for the passage as a whole and is supported by the second documents other contributors.",
+        "audio": "True or false: “to compare how sources frame one achievement” correctly answers “Two biographies describe the same inventor. One emphasizes solitary insig … riments corrected early designs. What is the author's most likely purpose.”"
+      },
+      {
+        "type": "mc",
+        "q": "The council's report predicts savings but gives no baseline cost, and its chart begins above zero, making a small change look dramatic. A careful reader requests the full data scale. What is the author's most likely purpose?",
+        "choices": [
+          "to warn readers to evaluate data displays",
+          "to list only this detail: The chart's vertical axis begins above zero",
+          "to conceal the issue of the chart may mislead readers",
+          "to argue the opposite of Missing context can make a data claim misleading"
+        ],
+        "answer": "to warn readers to evaluate data displays",
+        "explain": "to warn readers to evaluate data displays. This choice accounts for the passage as a whole and is supported by no baseline cost or full scale is provided.",
+        "audio": "The council's report predicts savings but gives no baseline cost, and its chart begins above zero, making a small change look dramatic. A careful reader requests the full data scale. What is the author's most likely purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "At first, Elena opposes closing a road to protect nesting birds. After reviewing traffic counts and a detour map, she proposes a weekend closure during nesting season. What is the author's most likely purpose?",
+        "choices": [
+          "to argue the opposite of Evidence leads Elena to revise her position and propose a compromise",
+          "to conceal the issue of road use conflicts with nesting habitat",
+          "to show evidence changing a viewpoint",
+          "to list only this detail: She reviews traffic counts and a detour map"
+        ],
+        "answer": "to show evidence changing a viewpoint",
+        "explain": "to show evidence changing a viewpoint. This choice accounts for the passage as a whole and is supported by her proposal limits closure by time and season.",
+        "audio": "At first, Elena opposes closing a road to protect nesting birds. After reviewing traffic counts and a detour map, she proposes a weekend closure during nesting season. What is the author's most likely purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "A report says the tutoring program 'caused' higher scores, yet students volunteered for it and began with different study habits. The data show correlation, but not a controlled causal test. What is the author's most likely purpose?",
+        "choices": [
+          "to conceal the issue of the report overstates correlation as causation",
+          "to evaluate the limits of a causal claim",
+          "to argue the opposite of The tutoring data do not by themselves prove causation",
+          "to list only this detail: Students volunteered for the program"
+        ],
+        "answer": "to evaluate the limits of a causal claim",
+        "explain": "to evaluate the limits of a causal claim. This choice accounts for the passage as a whole and is supported by groups differed before tutoring began.",
+        "audio": "A report says the tutoring program 'caused' higher scores, yet students volunteered for it and began with different study habits. The data show correlation, but not a controlled causal test. What is the author's most likely purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "The memoir describes a noisy market as confusing in childhood but comforting years later. Repeated sounds remain the same while the narrator's experience changes their meaning. What is the author's most likely purpose?",
+        "choices": [
+          "to list only this detail: The market sounds remain similar over time",
+          "to reflect on how perspective changes over time",
+          "to conceal the issue of childhood confusion shaped the first impression",
+          "to argue the opposite of The narrator's changing perspective transforms the meaning of the market"
+        ],
+        "answer": "to reflect on how perspective changes over time",
+        "explain": "to reflect on how perspective changes over time. This choice accounts for the passage as a whole and is supported by the same noise shifts from confusing to comforting.",
+        "audio": "The memoir describes a noisy market as confusing in childhood but comforting years later. Repeated sounds remain the same while the narrator's experience changes their meaning. What is the author's most likely purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “to list only this detail: The team uses maps, interviews, and canopy data” correctly answers “The proposal combines heat maps, resident interviews, and tree-canopy dat … es not guarantee—its conclusion. What is the author's most likely purpose.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. to model evidence synthesis with appropriate caution. This choice accounts for the passage as a whole and is supported by the team states both support and limitations.",
+        "audio": "True or false: “to list only this detail: The team uses maps, interviews, and canopy data” correctly answers “The proposal combines heat maps, resident interviews, and tree-canopy dat … es not guarantee—its conclusion. What is the author's most likely purpose.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “The council's report predicts savings but gives no baseline cost, and its chart begins above zero, making a small change look dramatic. A careful reader requests the full data scale. What is the author's most likely purpose” and replaces “to argue the opposite of Missing context can make a data claim misleading” using the task's evidence or constraints?",
+        "choices": [
+          "to list only this detail: The chart's vertical axis begins above zero",
+          "to conceal the issue of the chart may mislead readers",
+          "to argue the opposite of Missing context can make a data claim misleading",
+          "to warn readers to evaluate data displays"
+        ],
+        "answer": "to warn readers to evaluate data displays",
+        "explain": "to warn readers to evaluate data displays. This choice accounts for the passage as a whole and is supported by no baseline cost or full scale is provided. This evidence makes the correct response defensible. The response \"to argue the opposite of Missing context can make a data claim misleading\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “The council's report predicts savings but gives no baseline cost, and its chart begins above zero, making a small change look dramatic. A careful reader requests the full data scale. What is the author's most likely purpose” and replaces “to argue the opposite of Missing context can make a data claim misleading” using the task's evidence or constraints?"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer to “At first, Elena opposes closing a road to protect nesting birds. After reviewing traffic counts and a detour map, she proposes a weekend closure during nesting season. What is the author's most likely purpose” fits all the given evidence and lesson rules?",
+        "choices": [
+          "to list only this detail: She reviews traffic counts and a detour map",
+          "to show evidence changing a viewpoint",
+          "to argue the opposite of Evidence leads Elena to revise her position and propose a compromise",
+          "to conceal the issue of road use conflicts with nesting habitat"
+        ],
+        "answer": "to show evidence changing a viewpoint",
+        "explain": "to show evidence changing a viewpoint. This choice accounts for the passage as a whole and is supported by her proposal limits closure by time and season. This evidence makes the correct response defensible. The response \"to conceal the issue of road use conflicts with nesting habitat\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer to “At first, Elena opposes closing a road to protect nesting birds. After reviewing traffic counts and a detour map, she proposes a weekend closure during nesting season. What is the author's most likely purpose” fits all the given evidence and lesson rules?"
+      }
+    ]
+  },
+  "g5:eng:L2": {
+    "name": "Figurative Language",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "\"The classroom was a zoo.\" This is…",
+        "choices": [
+          "Metaphor",
+          "Fact",
+          "Personification",
+          "Question"
+        ],
+        "answer": "Metaphor",
+        "audio": "Figurative language."
+      },
+      {
+        "type": "mc",
+        "q": "\"I was so hungry I could eat a horse.\" This is…",
+        "choices": [
+          "Hyperbole",
+          "Simile",
+          "Title",
+          "Personification"
+        ],
+        "answer": "Hyperbole",
+        "audio": "Figurative language."
+      },
+      {
+        "type": "mc",
+        "q": "The moon was a silver coin above the field. How does the figurative language achieve a specific purpose?",
+        "choices": [
+          "It directly compares the moon to a coin to emphasize shape and shine.",
+          "It states only a literal measurement.",
+          "It removes all imagery and emotional effect.",
+          "It introduces an unrelated fact with no purpose."
+        ],
+        "answer": "It directly compares the moon to a coin to emphasize shape and shine.",
+        "explain": "metaphor: It directly compares the moon to a coin to emphasize shape and shine.",
+        "audio": "The moon was a silver coin above the field. How does the figurative language achieve a specific purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "The leaves whispered along the path. How does the figurative language achieve a specific purpose?",
+        "choices": [
+          "It gives leaves the human action of whispering to create a quiet mood.",
+          "It removes all imagery and emotional effect.",
+          "It introduces an unrelated fact with no purpose.",
+          "It states only a literal measurement."
+        ],
+        "answer": "It gives leaves the human action of whispering to create a quiet mood.",
+        "explain": "personification: It gives leaves the human action of whispering to create a quiet mood.",
+        "audio": "The leaves whispered along the path. How does the figurative language achieve a specific purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "Her explanation was as clear as glass. How does the figurative language achieve a specific purpose?",
+        "choices": [
+          "It states only a literal measurement.",
+          "It uses as to compare clarity with transparent glass.",
+          "It introduces an unrelated fact with no purpose.",
+          "It removes all imagery and emotional effect."
+        ],
+        "answer": "It uses as to compare clarity with transparent glass.",
+        "explain": "simile: It uses as to compare clarity with transparent glass.",
+        "audio": "Her explanation was as clear as glass. How does the figurative language achieve a specific purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "I waited forever for the page to load. How does the figurative language achieve a specific purpose?",
+        "choices": [
+          "It introduces an unrelated fact with no purpose.",
+          "It states only a literal measurement.",
+          "The exaggeration emphasizes that the wait felt very long.",
+          "It removes all imagery and emotional effect."
+        ],
+        "answer": "The exaggeration emphasizes that the wait felt very long.",
+        "explain": "hyperbole: The exaggeration emphasizes that the wait felt very long.",
+        "audio": "I waited forever for the page to load. How does the figurative language achieve a specific purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “The human-like action makes the rain sound deliberate and musical” correctly answers “The rain tapped a steady rhythm on the roof. How does the figurative language achieve a specific purpose.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. personification: The human-like action makes the rain sound deliberate and musical.",
+        "audio": "True or false: “The human-like action makes the rain sound deliberate and musical” correctly answers “The rain tapped a steady rhythm on the roof. How does the figurative language achieve a specific purpose.”"
+      },
+      {
+        "type": "mc",
+        "q": "Ideas sparked across the room. How does the figurative language achieve a specific purpose?",
+        "choices": [
+          "It states only a literal measurement.",
+          "Sparks represent the sudden spread of creative thought.",
+          "It introduces an unrelated fact with no purpose.",
+          "It removes all imagery and emotional effect."
+        ],
+        "answer": "Sparks represent the sudden spread of creative thought.",
+        "explain": "metaphor: Sparks represent the sudden spread of creative thought.",
+        "audio": "Ideas sparked across the room. How does the figurative language achieve a specific purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "The engine coughed before becoming silent. How does the figurative language achieve a specific purpose?",
+        "choices": [
+          "It states only a literal measurement.",
+          "The human action suggests an irregular mechanical sound.",
+          "It removes all imagery and emotional effect.",
+          "It introduces an unrelated fact with no purpose."
+        ],
+        "answer": "The human action suggests an irregular mechanical sound.",
+        "explain": "personification: The human action suggests an irregular mechanical sound.",
+        "audio": "The engine coughed before becoming silent. How does the figurative language achieve a specific purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "The river curled like a ribbon through the valley. How does the figurative language achieve a specific purpose?",
+        "choices": [
+          "The comparison emphasizes the river's long, winding shape.",
+          "It states only a literal measurement.",
+          "It removes all imagery and emotional effect.",
+          "It introduces an unrelated fact with no purpose."
+        ],
+        "answer": "The comparison emphasizes the river's long, winding shape.",
+        "explain": "simile: The comparison emphasizes the river's long, winding shape.",
+        "audio": "The river curled like a ribbon through the valley. How does the figurative language achieve a specific purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "The deadline raced toward us. How does the figurative language achieve a specific purpose?",
+        "choices": [
+          "Giving the deadline motion creates urgency.",
+          "It states only a literal measurement.",
+          "It removes all imagery and emotional effect.",
+          "It introduces an unrelated fact with no purpose."
+        ],
+        "answer": "Giving the deadline motion creates urgency.",
+        "explain": "personification: Giving the deadline motion creates urgency.",
+        "audio": "The deadline raced toward us. How does the figurative language achieve a specific purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “It states only a literal measurement” correctly answers “His promise was a fragile bridge. How does the figurative language achieve a specific purpose.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. metaphor: The bridge comparison suggests trust that could easily fail.",
+        "audio": "True or false: “It states only a literal measurement” correctly answers “His promise was a fragile bridge. How does the figurative language achieve a specific purpose.”"
+      },
+      {
+        "type": "mc",
+        "q": "A blanket of fog swallowed the harbor. How does the figurative language achieve a specific purpose?",
+        "choices": [
+          "The images emphasize dense fog covering and hiding the harbor.",
+          "It states only a literal measurement.",
+          "It removes all imagery and emotional effect.",
+          "It introduces an unrelated fact with no purpose."
+        ],
+        "answer": "The images emphasize dense fog covering and hiding the harbor.",
+        "explain": "metaphor and personification: The images emphasize dense fog covering and hiding the harbor.",
+        "audio": "A blanket of fog swallowed the harbor. How does the figurative language achieve a specific purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "Questions buzzed like bees after the announcement. How does the figurative language achieve a specific purpose?",
+        "choices": [
+          "The sound comparison conveys many rapid, energetic questions.",
+          "It states only a literal measurement.",
+          "It removes all imagery and emotional effect.",
+          "It introduces an unrelated fact with no purpose."
+        ],
+        "answer": "The sound comparison conveys many rapid, energetic questions.",
+        "explain": "simile: The sound comparison conveys many rapid, energetic questions.",
+        "audio": "Questions buzzed like bees after the announcement. How does the figurative language achieve a specific purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "The empty stadium held its breath. How does the figurative language achieve a specific purpose?",
+        "choices": [
+          "It states only a literal measurement.",
+          "It introduces an unrelated fact with no purpose.",
+          "The human action creates tense silence.",
+          "It removes all imagery and emotional effect."
+        ],
+        "answer": "The human action creates tense silence.",
+        "explain": "personification: The human action creates tense silence.",
+        "audio": "The empty stadium held its breath. How does the figurative language achieve a specific purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "Her argument had a mountain of evidence. How does the figurative language achieve a specific purpose?",
+        "choices": [
+          "It removes all imagery and emotional effect.",
+          "The exaggeration emphasizes an unusually large amount of support.",
+          "It states only a literal measurement.",
+          "It introduces an unrelated fact with no purpose."
+        ],
+        "answer": "The exaggeration emphasizes an unusually large amount of support.",
+        "explain": "hyperbole: The exaggeration emphasizes an unusually large amount of support.",
+        "audio": "Her argument had a mountain of evidence. How does the figurative language achieve a specific purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “The comparison presents passing time as quietly taking experiences away” correctly answers “Time is a thief that steals ordinary moments. How does the figurative language achieve a specific purpose.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. metaphor and personification: The comparison presents passing time as quietly taking experiences away.",
+        "audio": "True or false: “The comparison presents passing time as quietly taking experiences away” correctly answers “Time is a thief that steals ordinary moments. How does the figurative language achieve a specific purpose.”"
+      },
+      {
+        "type": "mc",
+        "q": "The cheerful poster shouted above the gray wall. How does the figurative language achieve a specific purpose?",
+        "choices": [
+          "The verb shouted emphasizes the poster's striking visual contrast.",
+          "It introduces an unrelated fact with no purpose.",
+          "It states only a literal measurement.",
+          "It removes all imagery and emotional effect."
+        ],
+        "answer": "The verb shouted emphasizes the poster's striking visual contrast.",
+        "explain": "personification: The verb shouted emphasizes the poster's striking visual contrast.",
+        "audio": "The cheerful poster shouted above the gray wall. How does the figurative language achieve a specific purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "Rumors spread like ink through water. How does the figurative language achieve a specific purpose?",
+        "choices": [
+          "The comparison shows information moving quickly and becoming hard to contain.",
+          "It removes all imagery and emotional effect.",
+          "It states only a literal measurement.",
+          "It introduces an unrelated fact with no purpose."
+        ],
+        "answer": "The comparison shows information moving quickly and becoming hard to contain.",
+        "explain": "simile: The comparison shows information moving quickly and becoming hard to contain.",
+        "audio": "Rumors spread like ink through water. How does the figurative language achieve a specific purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "The policy planted seeds of distrust. How does the figurative language achieve a specific purpose?",
+        "choices": [
+          "Seeds represent small actions that later develop into larger mistrust.",
+          "It introduces an unrelated fact with no purpose.",
+          "It removes all imagery and emotional effect.",
+          "It states only a literal measurement."
+        ],
+        "answer": "Seeds represent small actions that later develop into larger mistrust.",
+        "explain": "metaphor: Seeds represent small actions that later develop into larger mistrust.",
+        "audio": "The policy planted seeds of distrust. How does the figurative language achieve a specific purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "The final paragraph echoes the opening question. How does the figurative language achieve a specific purpose?",
+        "choices": [
+          "Echoes describes a repeated idea that unifies the text.",
+          "It introduces an unrelated fact with no purpose.",
+          "It removes all imagery and emotional effect.",
+          "It states only a literal measurement."
+        ],
+        "answer": "Echoes describes a repeated idea that unifies the text.",
+        "explain": "metaphor: Echoes describes a repeated idea that unifies the text.",
+        "audio": "The final paragraph echoes the opening question. How does the figurative language achieve a specific purpose?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “It states only a literal measurement” correctly answers “Hope was the compass that kept the team moving. How does the figurative language achieve a specific purpose.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. metaphor: The compass comparison shows hope guiding decisions during uncertainty.",
+        "audio": "True or false: “It states only a literal measurement” correctly answers “Hope was the compass that kept the team moving. How does the figurative language achieve a specific purpose.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “The cheerful poster shouted above the gray wall. How does the figurative language achieve a specific purpose” and replaces “It introduces an unrelated fact with no purpose.” using the task's evidence or constraints?",
+        "choices": [
+          "It removes all imagery and emotional effect.",
+          "It states only a literal measurement.",
+          "It introduces an unrelated fact with no purpose.",
+          "The verb shouted emphasizes the poster's striking visual contrast."
+        ],
+        "answer": "The verb shouted emphasizes the poster's striking visual contrast.",
+        "explain": "personification: The verb shouted emphasizes the poster's striking visual contrast. This evidence makes the correct response defensible. The response \"It introduces an unrelated fact with no purpose.\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “The cheerful poster shouted above the gray wall. How does the figurative language achieve a specific purpose” and replaces “It introduces an unrelated fact with no purpose.” using the task's evidence or constraints?"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer to “Rumors spread like ink through water. How does the figurative language achieve a specific purpose” fits all the given evidence and lesson rules?",
+        "choices": [
+          "It introduces an unrelated fact with no purpose.",
+          "The comparison shows information moving quickly and becoming hard to contain.",
+          "It removes all imagery and emotional effect.",
+          "It states only a literal measurement."
+        ],
+        "answer": "The comparison shows information moving quickly and becoming hard to contain.",
+        "explain": "simile: The comparison shows information moving quickly and becoming hard to contain. This evidence makes the correct response defensible. The response \"It removes all imagery and emotional effect.\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer to “Rumors spread like ink through water. How does the figurative language achieve a specific purpose” fits all the given evidence and lesson rules?"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer satisfies every condition in “The policy planted seeds of distrust. How does the figurative language achieve a specific purpose”?",
+        "choices": [
+          "It introduces an unrelated fact with no purpose.",
+          "It removes all imagery and emotional effect.",
+          "It states only a literal measurement.",
+          "Seeds represent small actions that later develop into larger mistrust."
+        ],
+        "answer": "Seeds represent small actions that later develop into larger mistrust.",
+        "explain": "metaphor: Seeds represent small actions that later develop into larger mistrust. This evidence makes the correct response defensible. The response \"It states only a literal measurement.\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer satisfies every condition in “The policy planted seeds of distrust. How does the figurative language achieve a specific purpose”?"
+      }
+    ]
+  },
+  "g5:eng:L7": {
+    "name": "Context Clues",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "The desert was ARID, with almost no rain and very few plants. What does \"arid\" mean?",
+        "choices": [
+          "Very crowded",
+          "Very cold",
+          "Very dry",
+          "Roots"
+        ],
+        "answer": "Very dry",
+        "audio": "Use context clues."
+      },
+      {
+        "type": "mc",
+        "q": "Lena was RELUCTANT to jump into the pool because the water looked cold. What does \"reluctant\" mean?",
+        "choices": [
+          "Ready immediately",
+          "Very excited",
+          "Not willing at first",
+          "None of these"
+        ],
+        "answer": "Not willing at first",
+        "audio": "Use context clues."
+      },
+      {
+        "type": "mc",
+        "q": "The glass vase was FRAGILE, so we carried it carefully. What does \"fragile\" mean?",
+        "choices": [
+          "Very heavy",
+          "Easily broken",
+          "Full of water",
+          "None of these"
+        ],
+        "answer": "Easily broken",
+        "audio": "Use context clues."
+      },
+      {
+        "type": "mc",
+        "q": "The audience was SILENT during the speech; no one made a sound. What does \"silent\" mean?",
+        "choices": [
+          "None of these",
+          "Quiet",
+          "Confused",
+          "Angry"
+        ],
+        "answer": "Quiet",
+        "audio": "Use context clues."
+      },
+      {
+        "type": "mc",
+        "q": "She was reluctant to cross until the bridge inspection ended. Use context to determine the meaning of “reluctant.”",
+        "choices": [
+          "hesitant",
+          "eager",
+          "a meaning that ignores the context clue",
+          "a location named in the sentence"
+        ],
+        "answer": "hesitant",
+        "explain": "reluctant means hesitant in the provided context.",
+        "audio": "She was reluctant to cross until the bridge inspection ended. Use context to determine the meaning of “reluctant.”"
+      },
+      {
+        "type": "mc",
+        "q": "Rain made wildflowers abundant across the field. Use context to determine the meaning of “abundant.”",
+        "choices": [
+          "plentiful",
+          "a meaning that ignores the context clue",
+          "scarce",
+          "a location named in the sentence"
+        ],
+        "answer": "plentiful",
+        "explain": "abundant means plentiful in the provided context.",
+        "audio": "Rain made wildflowers abundant across the field. Use context to determine the meaning of “abundant.”"
+      },
+      {
+        "type": "mc",
+        "q": "The vigilant lifeguard noticed the weak swimmer. Use context to determine the meaning of “vigilant.”",
+        "choices": [
+          "watchful",
+          "careless",
+          "a location named in the sentence",
+          "a meaning that ignores the context clue"
+        ],
+        "answer": "watchful",
+        "explain": "vigilant means watchful in the provided context.",
+        "audio": "The vigilant lifeguard noticed the weak swimmer. Use context to determine the meaning of “vigilant.”"
+      },
+      {
+        "type": "mc",
+        "q": "Without repairs, the wooden steps will deteriorate. Use context to determine the meaning of “deteriorate.”",
+        "choices": [
+          "a meaning that ignores the context clue",
+          "a location named in the sentence",
+          "improve",
+          "worsen"
+        ],
+        "answer": "worsen",
+        "explain": "deteriorate means worsen in the provided context.",
+        "audio": "Without repairs, the wooden steps will deteriorate. Use context to determine the meaning of “deteriorate.”"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “brief and clear” correctly answers “His concise summary included every essential point. Use context to determine the meaning of “concise.”.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. concise means brief and clear in the provided context.",
+        "audio": "True or false: “brief and clear” correctly answers “His concise summary included every essential point. Use context to determine the meaning of “concise.”.”"
+      },
+      {
+        "type": "mc",
+        "q": "The ambiguous direction could be interpreted two ways. Use context to determine the meaning of “ambiguous.”",
+        "choices": [
+          "a location named in the sentence",
+          "a meaning that ignores the context clue",
+          "open to more than one meaning",
+          "certain"
+        ],
+        "answer": "open to more than one meaning",
+        "explain": "ambiguous means open to more than one meaning in the provided context.",
+        "audio": "The ambiguous direction could be interpreted two ways. Use context to determine the meaning of “ambiguous.”"
+      },
+      {
+        "type": "mc",
+        "q": "A second record may corroborate the witness's timeline. Use context to determine the meaning of “corroborate.”",
+        "choices": [
+          "a location named in the sentence",
+          "contradict",
+          "confirm with added evidence",
+          "a meaning that ignores the context clue"
+        ],
+        "answer": "confirm with added evidence",
+        "explain": "corroborate means confirm with added evidence in the provided context.",
+        "audio": "A second record may corroborate the witness's timeline. Use context to determine the meaning of “corroborate.”"
+      },
+      {
+        "type": "mc",
+        "q": "The meticulous researcher labeled every sample. Use context to determine the meaning of “meticulous.”",
+        "choices": [
+          "sloppy",
+          "a location named in the sentence",
+          "a meaning that ignores the context clue",
+          "extremely careful"
+        ],
+        "answer": "extremely careful",
+        "explain": "meticulous means extremely careful in the provided context.",
+        "audio": "The meticulous researcher labeled every sample. Use context to determine the meaning of “meticulous.”"
+      },
+      {
+        "type": "mc",
+        "q": "Shade trees can mitigate heat on sidewalks. Use context to determine the meaning of “mitigate.”",
+        "choices": [
+          "make less severe",
+          "a meaning that ignores the context clue",
+          "a location named in the sentence",
+          "intensify"
+        ],
+        "answer": "make less severe",
+        "explain": "mitigate means make less severe in the provided context.",
+        "audio": "Shade trees can mitigate heat on sidewalks. Use context to determine the meaning of “mitigate.”"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “impossible” correctly answers “The explanation is plausible because it fits the measurements. Use context to determine the meaning of “plausible.”.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. plausible means reasonable or believable in the provided context.",
+        "audio": "True or false: “impossible” correctly answers “The explanation is plausible because it fits the measurements. Use context to determine the meaning of “plausible.”.”"
+      },
+      {
+        "type": "mc",
+        "q": "The writer must substantiate the claim with reliable evidence. Use the sentence's logic and connotation to determine the meaning of “substantiate.”",
+        "choices": [
+          "support with proof",
+          "a meaning that ignores the context clue",
+          "a location named in the sentence",
+          "dismiss"
+        ],
+        "answer": "support with proof",
+        "explain": "substantiate means support with proof in the provided context.",
+        "audio": "The writer must substantiate the claim with reliable evidence. Use the sentence's logic and connotation to determine the meaning of “substantiate.”"
+      },
+      {
+        "type": "mc",
+        "q": "The duplicate entry was an inadvertent error. Use the sentence's logic and connotation to determine the meaning of “inadvertent.”",
+        "choices": [
+          "unintentional",
+          "deliberate",
+          "a location named in the sentence",
+          "a meaning that ignores the context clue"
+        ],
+        "answer": "unintentional",
+        "explain": "inadvertent means unintentional in the provided context.",
+        "audio": "The duplicate entry was an inadvertent error. Use the sentence's logic and connotation to determine the meaning of “inadvertent.”"
+      },
+      {
+        "type": "mc",
+        "q": "An equitable plan provides extra support where barriers are greater. Use the sentence's logic and connotation to determine the meaning of “equitable.”",
+        "choices": [
+          "a meaning that ignores the context clue",
+          "a location named in the sentence",
+          "biased",
+          "fair according to need"
+        ],
+        "answer": "fair according to need",
+        "explain": "equitable means fair according to need in the provided context.",
+        "audio": "An equitable plan provides extra support where barriers are greater. Use the sentence's logic and connotation to determine the meaning of “equitable.”"
+      },
+      {
+        "type": "mc",
+        "q": "Readers synthesize details from both sources. Use the sentence's logic and connotation to determine the meaning of “synthesize.”",
+        "choices": [
+          "a meaning that ignores the context clue",
+          "separate without connecting",
+          "a location named in the sentence",
+          "combine ideas into a new understanding"
+        ],
+        "answer": "combine ideas into a new understanding",
+        "explain": "synthesize means combine ideas into a new understanding in the provided context.",
+        "audio": "Readers synthesize details from both sources. Use the sentence's logic and connotation to determine the meaning of “synthesize.”"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “examine closely” correctly answers “Scientists scrutinize surprising results before publishing. Use the sentence's logic and connotation to determine the meaning of “scrutinize.”.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. scrutinize means examine closely in the provided context.",
+        "audio": "True or false: “examine closely” correctly answers “Scientists scrutinize surprising results before publishing. Use the sentence's logic and connotation to determine the meaning of “scrutinize.”.”"
+      },
+      {
+        "type": "mc",
+        "q": "Her nuanced argument recognized benefits and risks. Use the sentence's logic and connotation to determine the meaning of “nuanced.”",
+        "choices": [
+          "showing subtle distinctions",
+          "a location named in the sentence",
+          "a meaning that ignores the context clue",
+          "oversimplified"
+        ],
+        "answer": "showing subtle distinctions",
+        "explain": "nuanced means showing subtle distinctions in the provided context.",
+        "audio": "Her nuanced argument recognized benefits and risks. Use the sentence's logic and connotation to determine the meaning of “nuanced.”"
+      },
+      {
+        "type": "mc",
+        "q": "The team requested empirical evidence from repeated trials. Use the sentence's logic and connotation to determine the meaning of “empirical.”",
+        "choices": [
+          "based on observation or experiment",
+          "imaginary",
+          "a location named in the sentence",
+          "a meaning that ignores the context clue"
+        ],
+        "answer": "based on observation or experiment",
+        "explain": "empirical means based on observation or experiment in the provided context.",
+        "audio": "The team requested empirical evidence from repeated trials. Use the sentence's logic and connotation to determine the meaning of “empirical.”"
+      },
+      {
+        "type": "mc",
+        "q": "The committee reached a tentative conclusion pending new data. Use the sentence's logic and connotation to determine the meaning of “tentative.”",
+        "choices": [
+          "not yet final",
+          "a meaning that ignores the context clue",
+          "a location named in the sentence",
+          "certain"
+        ],
+        "answer": "not yet final",
+        "explain": "tentative means not yet final in the provided context.",
+        "audio": "The committee reached a tentative conclusion pending new data. Use the sentence's logic and connotation to determine the meaning of “tentative.”"
+      },
+      {
+        "type": "mc",
+        "q": "Readers infer motive from actions and dialogue. Use the sentence's logic and connotation to determine the meaning of “infer.”",
+        "choices": [
+          "guess without evidence",
+          "a location named in the sentence",
+          "conclude from evidence",
+          "a meaning that ignores the context clue"
+        ],
+        "answer": "conclude from evidence",
+        "explain": "infer means conclude from evidence in the provided context.",
+        "audio": "Readers infer motive from actions and dialogue. Use the sentence's logic and connotation to determine the meaning of “infer.”"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “ignore errors in” correctly answers “Independent tests validate the instrument's measurements. Use the sentence's logic and connotation to determine the meaning of “validate.”.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. validate means check or confirm accuracy in the provided context.",
+        "audio": "True or false: “ignore errors in” correctly answers “Independent tests validate the instrument's measurements. Use the sentence's logic and connotation to determine the meaning of “validate.”.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “Her nuanced argument recognized benefits and risks. Use the sentence's logic and connotation to determine the meaning of “nuanced.”” and replaces “a location named in the sentence” using the task's evidence or constraints?",
+        "choices": [
+          "oversimplified",
+          "a meaning that ignores the context clue",
+          "a location named in the sentence",
+          "showing subtle distinctions"
+        ],
+        "answer": "showing subtle distinctions",
+        "explain": "nuanced means showing subtle distinctions in the provided context. This evidence makes the correct response defensible. The response \"a location named in the sentence\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “Her nuanced argument recognized benefits and risks. Use the sentence's logic and connotation to determine the meaning of “nuanced.”” and replaces “a location named in the sentence” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:eng:L8": {
+    "name": "Synonyms & Antonyms",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Choose the synonym for RAPID.",
+        "choices": [
+          "Quiet",
+          "Quick",
+          "Unrelated meaning",
+          "Slow"
+        ],
+        "answer": "Quick",
+        "audio": "Choose the matching word meaning."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the antonym for GENEROUS.",
+        "choices": [
+          "None of these",
+          "Giving",
+          "Kind",
+          "Selfish"
+        ],
+        "answer": "Selfish",
+        "audio": "Choose the matching word meaning."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the synonym for ANCIENT.",
+        "choices": [
+          "Unrelated meaning",
+          "Brand new",
+          "Very old",
+          "Very loud"
+        ],
+        "answer": "Very old",
+        "audio": "Choose the matching word meaning."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the antonym for SCARCE.",
+        "choices": [
+          "Rare",
+          "Unrelated meaning",
+          "Limited",
+          "Abundant"
+        ],
+        "answer": "Abundant",
+        "audio": "Choose the matching word meaning."
+      },
+      {
+        "type": "mc",
+        "q": "She was reluctant to cross until the bridge inspection ended. Which relationship accurately connects “reluctant,” its meaning, and its opposite?",
+        "choices": [
+          "reluctant means hesitant; eager expresses a contrast",
+          "hesitant is an example of eager",
+          "reluctant and eager are exact synonyms",
+          "reluctant means eager; hesitant is unrelated"
+        ],
+        "answer": "reluctant means hesitant; eager expresses a contrast",
+        "explain": "reluctant means hesitant in the provided context.",
+        "audio": "She was reluctant to cross until the bridge inspection ended. Which relationship accurately connects “reluctant,” its meaning, and its opposite?"
+      },
+      {
+        "type": "mc",
+        "q": "Rain made wildflowers abundant across the field. Which relationship accurately connects “abundant,” its meaning, and its opposite?",
+        "choices": [
+          "abundant means plentiful; scarce expresses a contrast",
+          "abundant means scarce; plentiful is unrelated",
+          "plentiful is an example of scarce",
+          "abundant and scarce are exact synonyms"
+        ],
+        "answer": "abundant means plentiful; scarce expresses a contrast",
+        "explain": "abundant means plentiful in the provided context.",
+        "audio": "Rain made wildflowers abundant across the field. Which relationship accurately connects “abundant,” its meaning, and its opposite?"
+      },
+      {
+        "type": "mc",
+        "q": "The vigilant lifeguard noticed the weak swimmer. Which relationship accurately connects “vigilant,” its meaning, and its opposite?",
+        "choices": [
+          "vigilant means watchful; careless expresses a contrast",
+          "watchful is an example of careless",
+          "vigilant means careless; watchful is unrelated",
+          "vigilant and careless are exact synonyms"
+        ],
+        "answer": "vigilant means watchful; careless expresses a contrast",
+        "explain": "vigilant means watchful in the provided context.",
+        "audio": "The vigilant lifeguard noticed the weak swimmer. Which relationship accurately connects “vigilant,” its meaning, and its opposite?"
+      },
+      {
+        "type": "mc",
+        "q": "Without repairs, the wooden steps will deteriorate. Which relationship accurately connects “deteriorate,” its meaning, and its opposite?",
+        "choices": [
+          "worsen is an example of improve",
+          "deteriorate means worsen; improve expresses a contrast",
+          "deteriorate means improve; worsen is unrelated",
+          "deteriorate and improve are exact synonyms"
+        ],
+        "answer": "deteriorate means worsen; improve expresses a contrast",
+        "explain": "deteriorate means worsen in the provided context.",
+        "audio": "Without repairs, the wooden steps will deteriorate. Which relationship accurately connects “deteriorate,” its meaning, and its opposite?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “concise means brief and clear; wordy expresses a contrast” correctly answers “His concise summary included every essential point. Which relationship accurately connects “concise,” its meaning, and its opposite.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. concise means brief and clear in the provided context.",
+        "audio": "True or false: “concise means brief and clear; wordy expresses a contrast” correctly answers “His concise summary included every essential point. Which relationship accurately connects “concise,” its meaning, and its opposite.”"
+      },
+      {
+        "type": "mc",
+        "q": "The ambiguous direction could be interpreted two ways. Which relationship accurately connects “ambiguous,” its meaning, and its opposite?",
+        "choices": [
+          "ambiguous and certain are exact synonyms",
+          "ambiguous means open to more than one meaning; certain expresses a contrast",
+          "open to more than one meaning is an example of certain",
+          "ambiguous means certain; open to more than one meaning is unrelated"
+        ],
+        "answer": "ambiguous means open to more than one meaning; certain expresses a contrast",
+        "explain": "ambiguous means open to more than one meaning in the provided context.",
+        "audio": "The ambiguous direction could be interpreted two ways. Which relationship accurately connects “ambiguous,” its meaning, and its opposite?"
+      },
+      {
+        "type": "mc",
+        "q": "A second record may corroborate the witness's timeline. Which relationship accurately connects “corroborate,” its meaning, and its opposite?",
+        "choices": [
+          "corroborate means contradict; confirm with added evidence is unrelated",
+          "corroborate and contradict are exact synonyms",
+          "confirm with added evidence is an example of contradict",
+          "corroborate means confirm with added evidence; contradict expresses a contrast"
+        ],
+        "answer": "corroborate means confirm with added evidence; contradict expresses a contrast",
+        "explain": "corroborate means confirm with added evidence in the provided context.",
+        "audio": "A second record may corroborate the witness's timeline. Which relationship accurately connects “corroborate,” its meaning, and its opposite?"
+      },
+      {
+        "type": "mc",
+        "q": "The meticulous researcher labeled every sample. Which relationship accurately connects “meticulous,” its meaning, and its opposite?",
+        "choices": [
+          "meticulous means extremely careful; sloppy expresses a contrast",
+          "meticulous means sloppy; extremely careful is unrelated",
+          "extremely careful is an example of sloppy",
+          "meticulous and sloppy are exact synonyms"
+        ],
+        "answer": "meticulous means extremely careful; sloppy expresses a contrast",
+        "explain": "meticulous means extremely careful in the provided context.",
+        "audio": "The meticulous researcher labeled every sample. Which relationship accurately connects “meticulous,” its meaning, and its opposite?"
+      },
+      {
+        "type": "mc",
+        "q": "Shade trees can mitigate heat on sidewalks. Which relationship accurately connects “mitigate,” its meaning, and its opposite?",
+        "choices": [
+          "mitigate means make less severe; intensify expresses a contrast",
+          "make less severe is an example of intensify",
+          "mitigate and intensify are exact synonyms",
+          "mitigate means intensify; make less severe is unrelated"
+        ],
+        "answer": "mitigate means make less severe; intensify expresses a contrast",
+        "explain": "mitigate means make less severe in the provided context.",
+        "audio": "Shade trees can mitigate heat on sidewalks. Which relationship accurately connects “mitigate,” its meaning, and its opposite?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “plausible means impossible; reasonable or believable is unrelated” correctly answers “The explanation is plausible because it fits the measurements. Which relationship accurately connects “plausible,” its meaning, and its opposite.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. plausible means reasonable or believable in the provided context.",
+        "audio": "True or false: “plausible means impossible; reasonable or believable is unrelated” correctly answers “The explanation is plausible because it fits the measurements. Which relationship accurately connects “plausible,” its meaning, and its opposite.”"
+      },
+      {
+        "type": "mc",
+        "q": "The writer must substantiate the claim with reliable evidence. Which relationship accurately connects “substantiate,” its meaning, and its opposite?",
+        "choices": [
+          "support with proof is an example of dismiss",
+          "substantiate and dismiss are exact synonyms",
+          "substantiate means dismiss; support with proof is unrelated",
+          "substantiate means support with proof; dismiss expresses a contrast"
+        ],
+        "answer": "substantiate means support with proof; dismiss expresses a contrast",
+        "explain": "substantiate means support with proof in the provided context.",
+        "audio": "The writer must substantiate the claim with reliable evidence. Which relationship accurately connects “substantiate,” its meaning, and its opposite?"
+      },
+      {
+        "type": "mc",
+        "q": "The duplicate entry was an inadvertent error. Which relationship accurately connects “inadvertent,” its meaning, and its opposite?",
+        "choices": [
+          "inadvertent means unintentional; deliberate expresses a contrast",
+          "inadvertent means deliberate; unintentional is unrelated",
+          "inadvertent and deliberate are exact synonyms",
+          "unintentional is an example of deliberate"
+        ],
+        "answer": "inadvertent means unintentional; deliberate expresses a contrast",
+        "explain": "inadvertent means unintentional in the provided context.",
+        "audio": "The duplicate entry was an inadvertent error. Which relationship accurately connects “inadvertent,” its meaning, and its opposite?"
+      },
+      {
+        "type": "mc",
+        "q": "An equitable plan provides extra support where barriers are greater. Which relationship accurately connects “equitable,” its meaning, and its opposite?",
+        "choices": [
+          "equitable means biased; fair according to need is unrelated",
+          "equitable and biased are exact synonyms",
+          "equitable means fair according to need; biased expresses a contrast",
+          "fair according to need is an example of biased"
+        ],
+        "answer": "equitable means fair according to need; biased expresses a contrast",
+        "explain": "equitable means fair according to need in the provided context.",
+        "audio": "An equitable plan provides extra support where barriers are greater. Which relationship accurately connects “equitable,” its meaning, and its opposite?"
+      },
+      {
+        "type": "mc",
+        "q": "Readers synthesize details from both sources. Which relationship accurately connects “synthesize,” its meaning, and its opposite?",
+        "choices": [
+          "combine ideas into a new understanding is an example of separate without connecting",
+          "synthesize and separate without connecting are exact synonyms",
+          "synthesize means combine ideas into a new understanding; separate without connecting expresses a contrast",
+          "synthesize means separate without connecting; combine ideas into a new understanding is unrelated"
+        ],
+        "answer": "synthesize means combine ideas into a new understanding; separate without connecting expresses a contrast",
+        "explain": "synthesize means combine ideas into a new understanding in the provided context.",
+        "audio": "Readers synthesize details from both sources. Which relationship accurately connects “synthesize,” its meaning, and its opposite?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “scrutinize means examine closely; glance at expresses a contrast” correctly answers “Scientists scrutinize surprising results before publishing. Which relationship accurately connects “scrutinize,” its meaning, and its opposite.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. scrutinize means examine closely in the provided context.",
+        "audio": "True or false: “scrutinize means examine closely; glance at expresses a contrast” correctly answers “Scientists scrutinize surprising results before publishing. Which relationship accurately connects “scrutinize,” its meaning, and its opposite.”"
+      },
+      {
+        "type": "mc",
+        "q": "Her nuanced argument recognized benefits and risks. Which relationship accurately connects “nuanced,” its meaning, and its opposite?",
+        "choices": [
+          "nuanced means oversimplified; showing subtle distinctions is unrelated",
+          "showing subtle distinctions is an example of oversimplified",
+          "nuanced and oversimplified are exact synonyms",
+          "nuanced means showing subtle distinctions; oversimplified expresses a contrast"
+        ],
+        "answer": "nuanced means showing subtle distinctions; oversimplified expresses a contrast",
+        "explain": "nuanced means showing subtle distinctions in the provided context.",
+        "audio": "Her nuanced argument recognized benefits and risks. Which relationship accurately connects “nuanced,” its meaning, and its opposite?"
+      },
+      {
+        "type": "mc",
+        "q": "The team requested empirical evidence from repeated trials. Which relationship accurately connects “empirical,” its meaning, and its opposite?",
+        "choices": [
+          "empirical and imaginary are exact synonyms",
+          "empirical means imaginary; based on observation or experiment is unrelated",
+          "empirical means based on observation or experiment; imaginary expresses a contrast",
+          "based on observation or experiment is an example of imaginary"
+        ],
+        "answer": "empirical means based on observation or experiment; imaginary expresses a contrast",
+        "explain": "empirical means based on observation or experiment in the provided context.",
+        "audio": "The team requested empirical evidence from repeated trials. Which relationship accurately connects “empirical,” its meaning, and its opposite?"
+      },
+      {
+        "type": "mc",
+        "q": "The committee reached a tentative conclusion pending new data. Which relationship accurately connects “tentative,” its meaning, and its opposite?",
+        "choices": [
+          "tentative and certain are exact synonyms",
+          "not yet final is an example of certain",
+          "tentative means certain; not yet final is unrelated",
+          "tentative means not yet final; certain expresses a contrast"
+        ],
+        "answer": "tentative means not yet final; certain expresses a contrast",
+        "explain": "tentative means not yet final in the provided context.",
+        "audio": "The committee reached a tentative conclusion pending new data. Which relationship accurately connects “tentative,” its meaning, and its opposite?"
+      },
+      {
+        "type": "mc",
+        "q": "Readers infer motive from actions and dialogue. Which relationship accurately connects “infer,” its meaning, and its opposite?",
+        "choices": [
+          "infer means conclude from evidence; guess without evidence expresses a contrast",
+          "infer means guess without evidence; conclude from evidence is unrelated",
+          "infer and guess without evidence are exact synonyms",
+          "conclude from evidence is an example of guess without evidence"
+        ],
+        "answer": "infer means conclude from evidence; guess without evidence expresses a contrast",
+        "explain": "infer means conclude from evidence in the provided context.",
+        "audio": "Readers infer motive from actions and dialogue. Which relationship accurately connects “infer,” its meaning, and its opposite?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “validate means ignore errors in; check or confirm accuracy is unrelated” correctly answers “Independent tests validate the instrument's measurements. Which relationship accurately connects “validate,” its meaning, and its opposite.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. validate means check or confirm accuracy in the provided context.",
+        "audio": "True or false: “validate means ignore errors in; check or confirm accuracy is unrelated” correctly answers “Independent tests validate the instrument's measurements. Which relationship accurately connects “validate,” its meaning, and its opposite.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “Her nuanced argument recognized benefits and risks. Which relationship accurately connects “nuanced,” its meaning, and its opposite” and replaces “nuanced and oversimplified are exact synonyms” using the task's evidence or constraints?",
+        "choices": [
+          "nuanced means showing subtle distinctions; oversimplified expresses a contrast",
+          "nuanced means oversimplified; showing subtle distinctions is unrelated",
+          "nuanced and oversimplified are exact synonyms",
+          "showing subtle distinctions is an example of oversimplified"
+        ],
+        "answer": "nuanced means showing subtle distinctions; oversimplified expresses a contrast",
+        "explain": "nuanced means showing subtle distinctions in the provided context. This evidence makes the correct response defensible. The response \"nuanced and oversimplified are exact synonyms\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “Her nuanced argument recognized benefits and risks. Which relationship accurately connects “nuanced,” its meaning, and its opposite” and replaces “nuanced and oversimplified are exact synonyms” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:eng:L9": {
+    "name": "Prefixes & Suffixes",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "What does the prefix \"re-\" mean in REBUILD?",
+        "choices": [
+          "Again",
+          "Before",
+          "None of these",
+          "Not"
+        ],
+        "answer": "Again",
+        "audio": "Find the meaning of the word part."
+      },
+      {
+        "type": "mc",
+        "q": "What does the prefix \"un-\" mean in UNFAIR?",
+        "choices": [
+          "Not",
+          "Full of",
+          "None of these",
+          "After"
+        ],
+        "answer": "Not",
+        "audio": "Find the meaning of the word part."
+      },
+      {
+        "type": "mc",
+        "q": "What does the suffix \"-less\" mean in CARELESS?",
+        "choices": [
+          "Full of",
+          "None of these",
+          "One who",
+          "Without"
+        ],
+        "answer": "Without",
+        "audio": "Find the meaning of the word part."
+      },
+      {
+        "type": "mc",
+        "q": "What does the suffix \"-ful\" mean in HELPFUL?",
+        "choices": [
+          "Full of",
+          "Without",
+          "None of these",
+          "Before"
+        ],
+        "answer": "Full of",
+        "audio": "Find the meaning of the word part."
+      },
+      {
+        "type": "mc",
+        "q": "A reader separates “beneficial” into meaningful word parts. Which conclusion about “bene” is supported?",
+        "choices": [
+          "A meaning connected to harmful",
+          "The root has no effect on meaning",
+          "The root changes only the punctuation",
+          "The word part bene signals “good or well.”"
+        ],
+        "answer": "The word part bene signals “good or well.”",
+        "explain": "The root bene carries the meaning good or well, which helps explain beneficial.",
+        "audio": "A reader separates “beneficial” into meaningful word parts. Which conclusion about “bene” is supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A reader separates “malfunction” into meaningful word parts. Which conclusion about “mal” is supported?",
+        "choices": [
+          "The root has no effect on meaning",
+          "A meaning connected to perfect operation",
+          "The word part mal signals “bad.”",
+          "The root changes only the punctuation"
+        ],
+        "answer": "The word part mal signals “bad.”",
+        "explain": "The root mal carries the meaning bad, which helps explain malfunction.",
+        "audio": "A reader separates “malfunction” into meaningful word parts. Which conclusion about “mal” is supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A reader separates “manuscript” into meaningful word parts. Which conclusion about “scrib/script” is supported?",
+        "choices": [
+          "The word part scrib/script signals “write.”",
+          "A meaning connected to spoken-only message",
+          "The root has no effect on meaning",
+          "The root changes only the punctuation"
+        ],
+        "answer": "The word part scrib/script signals “write.”",
+        "explain": "The root scrib/script carries the meaning write, which helps explain manuscript.",
+        "audio": "A reader separates “manuscript” into meaningful word parts. Which conclusion about “scrib/script” is supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A reader separates “justice” into meaningful word parts. Which conclusion about “jur/jus” is supported?",
+        "choices": [
+          "The word part jur/jus signals “law or right.”",
+          "The root has no effect on meaning",
+          "The root changes only the punctuation",
+          "A meaning connected to geology"
+        ],
+        "answer": "The word part jur/jus signals “law or right.”",
+        "explain": "The root jur/jus carries the meaning law or right, which helps explain justice.",
+        "audio": "A reader separates “justice” into meaningful word parts. Which conclusion about “jur/jus” is supported?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “The word part geo signals “earth.”” correctly answers “A reader separates “geography” into meaningful word parts. Which conclusion about “geo” is supported.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The root geo carries the meaning earth, which helps explain geography.",
+        "audio": "True or false: “The word part geo signals “earth.”” correctly answers “A reader separates “geography” into meaningful word parts. Which conclusion about “geo” is supported.”"
+      },
+      {
+        "type": "mc",
+        "q": "A reader separates “photosynthesis” into meaningful word parts. Which conclusion about “photo” is supported?",
+        "choices": [
+          "The word part photo signals “light.”",
+          "A meaning connected to thermometer",
+          "The root changes only the punctuation",
+          "The root has no effect on meaning"
+        ],
+        "answer": "The word part photo signals “light.”",
+        "explain": "The root photo carries the meaning light, which helps explain photosynthesis.",
+        "audio": "A reader separates “photosynthesis” into meaningful word parts. Which conclusion about “photo” is supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A reader separates “audience” into meaningful word parts. Which conclusion about “aud” is supported?",
+        "choices": [
+          "The root changes only the punctuation",
+          "A meaning connected to visible",
+          "The root has no effect on meaning",
+          "The word part aud signals “hear.”"
+        ],
+        "answer": "The word part aud signals “hear.”",
+        "explain": "The root aud carries the meaning hear, which helps explain audience.",
+        "audio": "A reader separates “audience” into meaningful word parts. Which conclusion about “aud” is supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A reader separates “evidence” into meaningful word parts. Which conclusion about “vis/vid” is supported?",
+        "choices": [
+          "The root changes only the punctuation",
+          "The root has no effect on meaning",
+          "The word part vis/vid signals “see.”",
+          "A meaning connected to inaudible"
+        ],
+        "answer": "The word part vis/vid signals “see.”",
+        "explain": "The root vis/vid carries the meaning see, which helps explain evidence.",
+        "audio": "A reader separates “evidence” into meaningful word parts. Which conclusion about “vis/vid” is supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A reader separates “transport” into meaningful word parts. Which conclusion about “port” is supported?",
+        "choices": [
+          "A meaning connected to stationary",
+          "The root has no effect on meaning",
+          "The root changes only the punctuation",
+          "The word part port signals “carry.”"
+        ],
+        "answer": "The word part port signals “carry.”",
+        "explain": "The root port carries the meaning carry, which helps explain transport.",
+        "audio": "A reader separates “transport” into meaningful word parts. Which conclusion about “port” is supported?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “A meaning connected to destruction without building” correctly answers “A reader separates “construction” into meaningful word parts. Which conclusion about “struct” is supported.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The root struct carries the meaning build, which helps explain construction.",
+        "audio": "True or false: “A meaning connected to destruction without building” correctly answers “A reader separates “construction” into meaningful word parts. Which conclusion about “struct” is supported.”"
+      },
+      {
+        "type": "mc",
+        "q": "A reader separates “attract” into meaningful word parts. Which conclusion about “tract” is supported?",
+        "choices": [
+          "The word part tract signals “pull or draw.”",
+          "The root has no effect on meaning",
+          "The root changes only the punctuation",
+          "A meaning connected to repel"
+        ],
+        "answer": "The word part tract signals “pull or draw.”",
+        "explain": "The root tract carries the meaning pull or draw, which helps explain attract.",
+        "audio": "A reader separates “attract” into meaningful word parts. Which conclusion about “tract” is supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A reader separates “transmit” into meaningful word parts. Which conclusion about “mit/miss” is supported?",
+        "choices": [
+          "The word part mit/miss signals “send.”",
+          "A meaning connected to retain",
+          "The root changes only the punctuation",
+          "The root has no effect on meaning"
+        ],
+        "answer": "The word part mit/miss signals “send.”",
+        "explain": "The root mit/miss carries the meaning send, which helps explain transmit.",
+        "audio": "A reader separates “transmit” into meaningful word parts. Which conclusion about “mit/miss” is supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A reader separates “vacant” into meaningful word parts. Which conclusion about “vac” is supported?",
+        "choices": [
+          "The word part vac signals “empty.”",
+          "The root has no effect on meaning",
+          "A meaning connected to occupied",
+          "The root changes only the punctuation"
+        ],
+        "answer": "The word part vac signals “empty.”",
+        "explain": "The root vac carries the meaning empty, which helps explain vacant.",
+        "audio": "A reader separates “vacant” into meaningful word parts. Which conclusion about “vac” is supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A reader separates “manual” into meaningful word parts. Which conclusion about “man” is supported?",
+        "choices": [
+          "The root has no effect on meaning",
+          "The root changes only the punctuation",
+          "A meaning connected to automatic",
+          "The word part man signals “hand.”"
+        ],
+        "answer": "The word part man signals “hand.”",
+        "explain": "The root man carries the meaning hand, which helps explain manual.",
+        "audio": "A reader separates “manual” into meaningful word parts. Which conclusion about “man” is supported?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “The word part bio signals “life.”” correctly answers “A reader separates “biology” into meaningful word parts. Which conclusion about “bio” is supported.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The root bio carries the meaning life, which helps explain biology.",
+        "audio": "True or false: “The word part bio signals “life.”” correctly answers “A reader separates “biology” into meaningful word parts. Which conclusion about “bio” is supported.”"
+      },
+      {
+        "type": "mc",
+        "q": "A reader separates “chronology” into meaningful word parts. Which conclusion about “chron” is supported?",
+        "choices": [
+          "The word part chron signals “time.”",
+          "The root has no effect on meaning",
+          "A meaning connected to location",
+          "The root changes only the punctuation"
+        ],
+        "answer": "The word part chron signals “time.”",
+        "explain": "The root chron carries the meaning time, which helps explain chronology.",
+        "audio": "A reader separates “chronology” into meaningful word parts. Which conclusion about “chron” is supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A reader separates “thermal” into meaningful word parts. Which conclusion about “therm” is supported?",
+        "choices": [
+          "The word part therm signals “heat.”",
+          "A meaning connected to acoustic",
+          "The root changes only the punctuation",
+          "The root has no effect on meaning"
+        ],
+        "answer": "The word part therm signals “heat.”",
+        "explain": "The root therm carries the meaning heat, which helps explain thermal.",
+        "audio": "A reader separates “thermal” into meaningful word parts. Which conclusion about “therm” is supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A reader separates “microscope” into meaningful word parts. Which conclusion about “micro” is supported?",
+        "choices": [
+          "A meaning connected to telescope",
+          "The root changes only the punctuation",
+          "The root has no effect on meaning",
+          "The word part micro signals “small.”"
+        ],
+        "answer": "The word part micro signals “small.”",
+        "explain": "The root micro carries the meaning small, which helps explain microscope.",
+        "audio": "A reader separates “microscope” into meaningful word parts. Which conclusion about “micro” is supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A reader separates “transport” into meaningful word parts. Which conclusion about “trans” is supported?",
+        "choices": [
+          "The root has no effect on meaning",
+          "The root changes only the punctuation",
+          "A meaning connected to remain",
+          "The word part trans signals “across or through.”"
+        ],
+        "answer": "The word part trans signals “across or through.”",
+        "explain": "The root trans carries the meaning across or through, which helps explain transport.",
+        "audio": "A reader separates “transport” into meaningful word parts. Which conclusion about “trans” is supported?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “A meaning connected to subsurface” correctly answers “A reader separates “superstructure” into meaningful word parts. Which conclusion about “super” is supported.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The root super carries the meaning above or beyond, which helps explain superstructure.",
+        "audio": "True or false: “A meaning connected to subsurface” correctly answers “A reader separates “superstructure” into meaningful word parts. Which conclusion about “super” is supported.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “A reader separates “chronology” into meaningful word parts. Which conclusion about “chron” is supported” and replaces “A meaning connected to location” using the task's evidence or constraints?",
+        "choices": [
+          "The root changes only the punctuation",
+          "The root has no effect on meaning",
+          "A meaning connected to location",
+          "The word part chron signals “time.”"
+        ],
+        "answer": "The word part chron signals “time.”",
+        "explain": "The root chron carries the meaning time, which helps explain chronology. This evidence makes the correct response defensible. The response \"A meaning connected to location\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “A reader separates “chronology” into meaningful word parts. Which conclusion about “chron” is supported” and replaces “A meaning connected to location” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:eng:L3": {
+    "name": "Text Structure",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Problem/solution text tells…",
+        "choices": [
+          "A problem and how it is fixed",
+          "Only poems",
+          "Compare and contrast",
+          "Only jokes"
+        ],
+        "answer": "A problem and how it is fixed",
+        "audio": "Text structure question."
+      },
+      {
+        "type": "mc",
+        "q": "Cause/effect shows…",
+        "choices": [
+          "A map",
+          "Why something happens",
+          "A menu",
+          "Compare and contrast"
+        ],
+        "answer": "Why something happens",
+        "audio": "Text structure question."
+      },
+      {
+        "type": "mc",
+        "q": "Nia saw the tomato leaves drooping, so she watered the soil before school. Which organizational pattern best describes the passage?",
+        "choices": [
+          "cause and effect",
+          "question and answer about the plant appeared thirsty",
+          "spatial description of The Thirsty Tomato",
+          "a disconnected list about The tomato leaves were drooping"
+        ],
+        "answer": "cause and effect",
+        "explain": "cause and effect. This choice accounts for the passage as a whole and is supported by she watered the soil.",
+        "audio": "Nia saw the tomato leaves drooping, so she watered the soil before school. Which organizational pattern best describes the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "After Malik practiced the difficult measure slowly each day, he performed it smoothly at the concert. Which organizational pattern best describes the passage?",
+        "choices": [
+          "problem and solution",
+          "question and answer about a musical measure was difficult",
+          "a disconnected list about He practiced the measure slowly each day",
+          "spatial description of Measure by Measure"
+        ],
+        "answer": "problem and solution",
+        "explain": "problem and solution. This choice accounts for the passage as a whole and is supported by he performed it smoothly.",
+        "audio": "After Malik practiced the difficult measure slowly each day, he performed it smoothly at the concert. Which organizational pattern best describes the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "The library added signs in three languages. More neighbors then asked questions, found books, and joined programs. Which organizational pattern best describes the passage?",
+        "choices": [
+          "a disconnected list about The signs used three languages",
+          "spatial description of Signs That Welcome",
+          "question and answer about some visitors could not easily navigate the library",
+          "cause and effect"
+        ],
+        "answer": "cause and effect",
+        "explain": "cause and effect. This choice accounts for the passage as a whole and is supported by More neighbors joined programs.",
+        "audio": "The library added signs in three languages. More neighbors then asked questions, found books, and joined programs. Which organizational pattern best describes the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "A sudden storm canceled the field study. Instead of giving up, the class compared live weather maps and recorded changes from the classroom. Which organizational pattern best describes the passage?",
+        "choices": [
+          "spatial description of A New Plan for the Storm",
+          "a disconnected list about Students compared live weather maps",
+          "problem and solution",
+          "question and answer about the class could not conduct outdoor fieldwork"
+        ],
+        "answer": "problem and solution",
+        "explain": "problem and solution. This choice accounts for the passage as a whole and is supported by Instead of giving up.",
+        "audio": "A sudden storm canceled the field study. Instead of giving up, the class compared live weather maps and recorded changes from the classroom. Which organizational pattern best describes the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “chronological order” correctly answers “Jules returned the wallet unopened and waited until its owner arrived. Th … verything inside. Which organizational pattern best describes the passage.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. chronological order. This choice accounts for the passage as a whole and is supported by Jules waited until its owner arrived.",
+        "audio": "True or false: “chronological order” correctly answers “Jules returned the wallet unopened and waited until its owner arrived. Th … verything inside. Which organizational pattern best describes the passage.”"
+      },
+      {
+        "type": "mc",
+        "q": "City trees shade pavement and release water vapor. Measurements show that blocks with mature trees can be cooler than nearby blocks without them. Which organizational pattern best describes the passage?",
+        "choices": [
+          "a disconnected list about Trees shade pavement",
+          "spatial description of How Trees Cool a City",
+          "cause and effect",
+          "question and answer about paved city blocks absorb heat"
+        ],
+        "answer": "cause and effect",
+        "explain": "cause and effect. This choice accounts for the passage as a whole and is supported by tree-lined blocks measured cooler.",
+        "audio": "City trees shade pavement and release water vapor. Measurements show that blocks with mature trees can be cooler than nearby blocks without them. Which organizational pattern best describes the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "Rosa's first model bridge bent under two kilograms. She reinforced the joints, tested one variable at a time, and the third design held six kilograms. Which organizational pattern best describes the passage?",
+        "choices": [
+          "spatial description of Stronger by Design",
+          "problem and solution",
+          "a disconnected list about She changed one variable at a time",
+          "question and answer about the bridge could not support enough mass"
+        ],
+        "answer": "problem and solution",
+        "explain": "problem and solution. This choice accounts for the passage as a whole and is supported by the third design held six kilograms.",
+        "audio": "Rosa's first model bridge bent under two kilograms. She reinforced the joints, tested one variable at a time, and the third design held six kilograms. Which organizational pattern best describes the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "The article presents a farmer's support for a new reservoir and a biologist's concern about habitat loss. Both cite data, but they weigh the consequences differently. Which organizational pattern best describes the passage?",
+        "choices": [
+          "compare and contrast",
+          "spatial description of One Reservoir, Two Views",
+          "question and answer about the community must balance water and habitat needs",
+          "a disconnected list about Both experts cite data"
+        ],
+        "answer": "compare and contrast",
+        "explain": "compare and contrast. This choice accounts for the passage as a whole and is supported by they weigh the consequences differently.",
+        "audio": "The article presents a farmer's support for a new reservoir and a biologist's concern about habitat loss. Both cite data, but they weigh the consequences differently. Which organizational pattern best describes the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "Although the trail looked shorter on the old map, contour lines revealed a steep climb. The hikers chose the longer route and arrived before dark with water remaining. Which organizational pattern best describes the passage?",
+        "choices": [
+          "question and answer about the apparent shortcut was steep",
+          "spatial description of The Longer, Safer Route",
+          "a disconnected list about Contour lines showed a steep climb",
+          "cause and effect"
+        ],
+        "answer": "cause and effect",
+        "explain": "cause and effect. This choice accounts for the passage as a whole and is supported by they arrived before dark with water remaining.",
+        "audio": "Although the trail looked shorter on the old map, contour lines revealed a steep climb. The hikers chose the longer route and arrived before dark with water remaining. Which organizational pattern best describes the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “spatial description of Measuring the Tray Tradeoff” correctly answers “The school replaced disposable trays with washable ones. Water use rose s … nearly one-third. Which organizational pattern best describes the passage.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. advantages and disadvantages. This choice accounts for the passage as a whole and is supported by water use rose while trash decreased.",
+        "audio": "True or false: “spatial description of Measuring the Tray Tradeoff” correctly answers “The school replaced disposable trays with washable ones. Water use rose s … nearly one-third. Which organizational pattern best describes the passage.”"
+      },
+      {
+        "type": "mc",
+        "q": "Kai claimed the creek was healthier because the water looked clear. Amara noted that dissolved oxygen and insect diversity had also increased, providing stronger evidence. Which organizational pattern best describes the passage?",
+        "choices": [
+          "spatial description of Beyond Clear Water",
+          "a disconnected list about Dissolved oxygen and insect diversity increased",
+          "problem and solution",
+          "question and answer about Kai relied only on water clarity"
+        ],
+        "answer": "problem and solution",
+        "explain": "problem and solution. This choice accounts for the passage as a whole and is supported by two biological and chemical indicators improved.",
+        "audio": "Kai claimed the creek was healthier because the water looked clear. Amara noted that dissolved oxygen and insect diversity had also increased, providing stronger evidence. Which organizational pattern best describes the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "The narrator praises the mayor's 'brilliant' plan just after listing three obvious failures. The quotation marks and contrast signal that the praise is ironic. Which organizational pattern best describes the passage?",
+        "choices": [
+          "question and answer about literal reading hides the criticism",
+          "spatial description of Brilliant in Quotation Marks",
+          "a disconnected list about The passage lists three failures",
+          "contrast"
+        ],
+        "answer": "contrast",
+        "explain": "contrast. This choice accounts for the passage as a whole and is supported by praise appears immediately after failures.",
+        "audio": "The narrator praises the mayor's 'brilliant' plan just after listing three obvious failures. The quotation marks and contrast signal that the praise is ironic. Which organizational pattern best describes the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "Researchers counted pollinators at equal-sized plots before and after native flowers were planted. Visits increased at the planted plots but stayed nearly constant at control plots. Which organizational pattern best describes the passage?",
+        "choices": [
+          "a disconnected list about Control-plot visits stayed nearly constant",
+          "question and answer about researchers needed to isolate the effect of planting",
+          "experimental sequence",
+          "spatial description of Flowers and a Fair Test"
+        ],
+        "answer": "experimental sequence",
+        "explain": "experimental sequence. This choice accounts for the passage as a whole and is supported by only planted plots showed a large increase.",
+        "audio": "Researchers counted pollinators at equal-sized plots before and after native flowers were planted. Visits increased at the planted plots but stayed nearly constant at control plots. Which organizational pattern best describes the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "An editorial urges readers to support later bus service, citing attendance data and interviews with workers. It acknowledges the cost, then argues that a pilot program would test demand. Which organizational pattern best describes the passage?",
+        "choices": [
+          "spatial description of A Later Ride Home",
+          "question and answer about workers and students lack late transportation",
+          "claim and evidence",
+          "a disconnected list about It cites attendance data and worker interviews"
+        ],
+        "answer": "claim and evidence",
+        "explain": "claim and evidence. This choice accounts for the passage as a whole and is supported by the editorial acknowledges cost before proposing a pilot.",
+        "audio": "An editorial urges readers to support later bus service, citing attendance data and interviews with workers. It acknowledges the cost, then argues that a pilot program would test demand. Which organizational pattern best describes the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “compare and contrast” correctly answers “Two biographies describe the same inventor. One emphasizes solitary insig … ed early designs. Which organizational pattern best describes the passage.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. compare and contrast. This choice accounts for the passage as a whole and is supported by the second documents other contributors.",
+        "audio": "True or false: “compare and contrast” correctly answers “Two biographies describe the same inventor. One emphasizes solitary insig … ed early designs. Which organizational pattern best describes the passage.”"
+      },
+      {
+        "type": "mc",
+        "q": "The council's report predicts savings but gives no baseline cost, and its chart begins above zero, making a small change look dramatic. A careful reader requests the full data scale. Which organizational pattern best describes the passage?",
+        "choices": [
+          "question and answer about the chart may mislead readers",
+          "a disconnected list about The chart's vertical axis begins above zero",
+          "spatial description of What the Chart Leaves Out",
+          "problem and solution"
+        ],
+        "answer": "problem and solution",
+        "explain": "problem and solution. This choice accounts for the passage as a whole and is supported by no baseline cost or full scale is provided.",
+        "audio": "The council's report predicts savings but gives no baseline cost, and its chart begins above zero, making a small change look dramatic. A careful reader requests the full data scale. Which organizational pattern best describes the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "At first, Elena opposes closing a road to protect nesting birds. After reviewing traffic counts and a detour map, she proposes a weekend closure during nesting season. Which organizational pattern best describes the passage?",
+        "choices": [
+          "a disconnected list about She reviews traffic counts and a detour map",
+          "question and answer about road use conflicts with nesting habitat",
+          "chronological order",
+          "spatial description of A Road to Compromise"
+        ],
+        "answer": "chronological order",
+        "explain": "chronological order. This choice accounts for the passage as a whole and is supported by her proposal limits closure by time and season.",
+        "audio": "At first, Elena opposes closing a road to protect nesting birds. After reviewing traffic counts and a detour map, she proposes a weekend closure during nesting season. Which organizational pattern best describes the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "A report says the tutoring program 'caused' higher scores, yet students volunteered for it and began with different study habits. The data show correlation, but not a controlled causal test. Which organizational pattern best describes the passage?",
+        "choices": [
+          "spatial description of Correlation Is Not Proof",
+          "claim and rebuttal",
+          "question and answer about the report overstates correlation as causation",
+          "a disconnected list about Students volunteered for the program"
+        ],
+        "answer": "claim and rebuttal",
+        "explain": "claim and rebuttal. This choice accounts for the passage as a whole and is supported by groups differed before tutoring began.",
+        "audio": "A report says the tutoring program 'caused' higher scores, yet students volunteered for it and began with different study habits. The data show correlation, but not a controlled causal test. Which organizational pattern best describes the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "The memoir describes a noisy market as confusing in childhood but comforting years later. Repeated sounds remain the same while the narrator's experience changes their meaning. Which organizational pattern best describes the passage?",
+        "choices": [
+          "a disconnected list about The market sounds remain similar over time",
+          "spatial description of The Sound of Returning",
+          "question and answer about childhood confusion shaped the first impression",
+          "then and now comparison"
+        ],
+        "answer": "then and now comparison",
+        "explain": "then and now comparison. This choice accounts for the passage as a whole and is supported by the same noise shifts from confusing to comforting.",
+        "audio": "The memoir describes a noisy market as confusing in childhood but comforting years later. Repeated sounds remain the same while the narrator's experience changes their meaning. Which organizational pattern best describes the passage?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “spatial description of Three Views of the Heat” correctly answers “The proposal combines heat maps, resident interviews, and tree-canopy dat … e—its conclusion. Which organizational pattern best describes the passage.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. synthesis. This choice accounts for the passage as a whole and is supported by the team states both support and limitations.",
+        "audio": "True or false: “spatial description of Three Views of the Heat” correctly answers “The proposal combines heat maps, resident interviews, and tree-canopy dat … e—its conclusion. Which organizational pattern best describes the passage.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “The council's report predicts savings but gives no baseline cost, and its chart begins above zero, making a small change look dramatic. A careful reader requests the full data scale. Which organizational pattern best describes the passage” and replaces “a disconnected list about The chart's vertical axis begins above zero” using the task's evidence or constraints?",
+        "choices": [
+          "a disconnected list about The chart's vertical axis begins above zero",
+          "question and answer about the chart may mislead readers",
+          "spatial description of What the Chart Leaves Out",
+          "problem and solution"
+        ],
+        "answer": "problem and solution",
+        "explain": "problem and solution. This choice accounts for the passage as a whole and is supported by no baseline cost or full scale is provided. This evidence makes the correct response defensible. The response \"a disconnected list about The chart's vertical axis begins above zero\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “The council's report predicts savings but gives no baseline cost, and its chart begins above zero, making a small change look dramatic. A careful reader requests the full data scale. Which organizational pattern best describes the passage” and replaces “a disconnected list about The chart's vertical axis begins above zero” using the task's evidence or constraints?"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer to “At first, Elena opposes closing a road to protect nesting birds. After reviewing traffic counts and a detour map, she proposes a weekend closure during nesting season. Which organizational pattern best describes the passage” fits all the given evidence and lesson rules?",
+        "choices": [
+          "a disconnected list about She reviews traffic counts and a detour map",
+          "question and answer about road use conflicts with nesting habitat",
+          "spatial description of A Road to Compromise",
+          "chronological order"
+        ],
+        "answer": "chronological order",
+        "explain": "chronological order. This choice accounts for the passage as a whole and is supported by her proposal limits closure by time and season. This evidence makes the correct response defensible. The response \"question and answer about road use conflicts with nesting habitat\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer to “At first, Elena opposes closing a road to protect nesting birds. After reviewing traffic counts and a detour map, she proposes a weekend closure during nesting season. Which organizational pattern best describes the passage” fits all the given evidence and lesson rules?"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer satisfies every condition in “A report says the tutoring program 'caused' higher scores, yet students volunteered for it and began with different study habits. The data show correlation, but not a controlled causal test. Which organizational pattern best describes the passage”?",
+        "choices": [
+          "claim and rebuttal",
+          "a disconnected list about Students volunteered for the program",
+          "question and answer about the report overstates correlation as causation",
+          "spatial description of Correlation Is Not Proof"
+        ],
+        "answer": "claim and rebuttal",
+        "explain": "claim and rebuttal. This choice accounts for the passage as a whole and is supported by groups differed before tutoring began. This evidence makes the correct response defensible. The response \"spatial description of Correlation Is Not Proof\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer satisfies every condition in “A report says the tutoring program 'caused' higher scores, yet students volunteered for it and began with different study habits. The data show correlation, but not a controlled causal test. Which organizational pattern best describes the passage”?"
+      }
+    ]
+  },
+  "g5:eng:L10": {
+    "name": "Subject & Predicate",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "In the sentence \"The spotted puppy chased the ball,\" what is the complete subject?",
+        "choices": [
+          "The ball",
+          "Chased the ball",
+          "None of these",
+          "The spotted puppy"
+        ],
+        "answer": "The spotted puppy",
+        "audio": "Identify the requested sentence part."
+      },
+      {
+        "type": "mc",
+        "q": "In the sentence \"Our science class built a model volcano,\" what is the complete predicate?",
+        "choices": [
+          "Our science class",
+          "None of these",
+          "Built a model volcano",
+          "Model volcano"
+        ],
+        "answer": "Built a model volcano",
+        "audio": "Identify the requested sentence part."
+      },
+      {
+        "type": "mc",
+        "q": "In the sentence \"The tall oak tree shaded the picnic table,\" what is the complete subject?",
+        "choices": [
+          "The tall oak tree",
+          "None of these",
+          "The picnic table",
+          "Shaded the picnic table"
+        ],
+        "answer": "The tall oak tree",
+        "audio": "Identify the requested sentence part."
+      },
+      {
+        "type": "mc",
+        "q": "In the sentence \"My little brother cleaned his room,\" what is the complete predicate?",
+        "choices": [
+          "Cleaned his room",
+          "My little brother",
+          "His room",
+          "None of these"
+        ],
+        "answer": "Cleaned his room",
+        "audio": "Identify the requested sentence part."
+      },
+      {
+        "type": "mc",
+        "q": "In “The careful student near the library examines the map.” identify the complete subject.",
+        "choices": [
+          "careful",
+          "The careful student near the library",
+          "examines the map",
+          "the library"
+        ],
+        "answer": "The careful student near the library",
+        "explain": "The complete subject includes the main noun student and all words that modify it.",
+        "audio": "In “The careful student near the library examines the map.” identify the complete subject."
+      },
+      {
+        "type": "mc",
+        "q": "In “The careful student near the garden records the data.” identify the complete subject.",
+        "choices": [
+          "The careful student near the garden",
+          "careful",
+          "records the data",
+          "the garden"
+        ],
+        "answer": "The careful student near the garden",
+        "explain": "The complete subject includes the main noun student and all words that modify it.",
+        "audio": "In “The careful student near the garden records the data.” identify the complete subject."
+      },
+      {
+        "type": "mc",
+        "q": "In “The careful student near the laboratory repairs the model.” identify the complete subject.",
+        "choices": [
+          "careful",
+          "The careful student near the laboratory",
+          "repairs the model",
+          "the laboratory"
+        ],
+        "answer": "The careful student near the laboratory",
+        "explain": "The complete subject includes the main noun student and all words that modify it.",
+        "audio": "In “The careful student near the laboratory repairs the model.” identify the complete subject."
+      },
+      {
+        "type": "mc",
+        "q": "In “The careful student near the museum organizes the notes.” identify the complete subject.",
+        "choices": [
+          "The careful student near the museum",
+          "careful",
+          "the museum",
+          "organizes the notes"
+        ],
+        "answer": "The careful student near the museum",
+        "explain": "The complete subject includes the main noun student and all words that modify it.",
+        "audio": "In “The careful student near the museum organizes the notes.” identify the complete subject."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “The careful student near the studio” correctly answers “In “The careful student near the studio tests the bridge.” identify the complete subject.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The complete subject includes the main noun student and all words that modify it.",
+        "audio": "True or false: “The careful student near the studio” correctly answers “In “The careful student near the studio tests the bridge.” identify the complete subject.”"
+      },
+      {
+        "type": "mc",
+        "q": "In “The careful student near the gym summarizes the article.” identify the complete subject.",
+        "choices": [
+          "the gym",
+          "summarizes the article",
+          "careful",
+          "The careful student near the gym"
+        ],
+        "answer": "The careful student near the gym",
+        "explain": "The complete subject includes the main noun student and all words that modify it.",
+        "audio": "In “The careful student near the gym summarizes the article.” identify the complete subject."
+      },
+      {
+        "type": "mc",
+        "q": "In “The careful student near the cafeteria measures the sample.” identify the complete subject.",
+        "choices": [
+          "The careful student near the cafeteria",
+          "measures the sample",
+          "careful",
+          "the cafeteria"
+        ],
+        "answer": "The careful student near the cafeteria",
+        "explain": "The complete subject includes the main noun student and all words that modify it.",
+        "audio": "In “The careful student near the cafeteria measures the sample.” identify the complete subject."
+      },
+      {
+        "type": "mc",
+        "q": "In “The careful student near the auditorium revises the paragraph.” identify the complete subject.",
+        "choices": [
+          "the auditorium",
+          "revises the paragraph",
+          "careful",
+          "The careful student near the auditorium"
+        ],
+        "answer": "The careful student near the auditorium",
+        "explain": "The complete subject includes the main noun student and all words that modify it.",
+        "audio": "In “The careful student near the auditorium revises the paragraph.” identify the complete subject."
+      },
+      {
+        "type": "mc",
+        "q": "In “The careful student near the workshop compares the sources.” identify the complete subject.",
+        "choices": [
+          "the workshop",
+          "The careful student near the workshop",
+          "careful",
+          "compares the sources"
+        ],
+        "answer": "The careful student near the workshop",
+        "explain": "The complete subject includes the main noun student and all words that modify it.",
+        "audio": "In “The careful student near the workshop compares the sources.” identify the complete subject."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “labels the diagram” correctly answers “In “The careful student near the courtyard labels the diagram.” identify the complete subject.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The complete subject includes the main noun student and all words that modify it.",
+        "audio": "True or false: “labels the diagram” correctly answers “In “The careful student near the courtyard labels the diagram.” identify the complete subject.”"
+      },
+      {
+        "type": "mc",
+        "q": "In “The careful student near the greenhouse calculates the rate.” identify the complete subject. Do not mistake a noun inside a prepositional phrase for the subject.",
+        "choices": [
+          "The careful student near the greenhouse",
+          "careful",
+          "the greenhouse",
+          "calculates the rate"
+        ],
+        "answer": "The careful student near the greenhouse",
+        "explain": "The complete subject includes the main noun student and all words that modify it.",
+        "audio": "In “The careful student near the greenhouse calculates the rate.” identify the complete subject. Do not mistake a noun inside a prepositional phrase for the subject."
+      },
+      {
+        "type": "mc",
+        "q": "In “The careful student near the archive questions the claim.” identify the complete subject. Do not mistake a noun inside a prepositional phrase for the subject.",
+        "choices": [
+          "careful",
+          "the archive",
+          "questions the claim",
+          "The careful student near the archive"
+        ],
+        "answer": "The careful student near the archive",
+        "explain": "The complete subject includes the main noun student and all words that modify it.",
+        "audio": "In “The careful student near the archive questions the claim.” identify the complete subject. Do not mistake a noun inside a prepositional phrase for the subject."
+      },
+      {
+        "type": "mc",
+        "q": "In “The careful student near the theater observes the pattern.” identify the complete subject. Do not mistake a noun inside a prepositional phrase for the subject.",
+        "choices": [
+          "the theater",
+          "careful",
+          "The careful student near the theater",
+          "observes the pattern"
+        ],
+        "answer": "The careful student near the theater",
+        "explain": "The complete subject includes the main noun student and all words that modify it.",
+        "audio": "In “The careful student near the theater observes the pattern.” identify the complete subject. Do not mistake a noun inside a prepositional phrase for the subject."
+      },
+      {
+        "type": "mc",
+        "q": "In “The careful student near the clinic explains the result.” identify the complete subject. Do not mistake a noun inside a prepositional phrase for the subject.",
+        "choices": [
+          "The careful student near the clinic",
+          "the clinic",
+          "careful",
+          "explains the result"
+        ],
+        "answer": "The careful student near the clinic",
+        "explain": "The complete subject includes the main noun student and all words that modify it.",
+        "audio": "In “The careful student near the clinic explains the result.” identify the complete subject. Do not mistake a noun inside a prepositional phrase for the subject."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “The careful student near the observatory” correctly answers “In “The careful student near the observatory checks the scale.” identify … ject. Do not mistake a noun inside a prepositional phrase for the subject.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The complete subject includes the main noun student and all words that modify it.",
+        "audio": "True or false: “The careful student near the observatory” correctly answers “In “The careful student near the observatory checks the scale.” identify … ject. Do not mistake a noun inside a prepositional phrase for the subject.”"
+      },
+      {
+        "type": "mc",
+        "q": "In “The careful student near the market photographs the evidence.” identify the complete subject. Do not mistake a noun inside a prepositional phrase for the subject.",
+        "choices": [
+          "photographs the evidence",
+          "the market",
+          "The careful student near the market",
+          "careful"
+        ],
+        "answer": "The careful student near the market",
+        "explain": "The complete subject includes the main noun student and all words that modify it.",
+        "audio": "In “The careful student near the market photographs the evidence.” identify the complete subject. Do not mistake a noun inside a prepositional phrase for the subject."
+      },
+      {
+        "type": "mc",
+        "q": "In “The careful student near the harbor interviews the witness.” identify the complete subject. Do not mistake a noun inside a prepositional phrase for the subject.",
+        "choices": [
+          "The careful student near the harbor",
+          "interviews the witness",
+          "the harbor",
+          "careful"
+        ],
+        "answer": "The careful student near the harbor",
+        "explain": "The complete subject includes the main noun student and all words that modify it.",
+        "audio": "In “The careful student near the harbor interviews the witness.” identify the complete subject. Do not mistake a noun inside a prepositional phrase for the subject."
+      },
+      {
+        "type": "mc",
+        "q": "In “The careful student near the trail plots the points.” identify the complete subject. Do not mistake a noun inside a prepositional phrase for the subject.",
+        "choices": [
+          "The careful student near the trail",
+          "the trail",
+          "plots the points",
+          "careful"
+        ],
+        "answer": "The careful student near the trail",
+        "explain": "The complete subject includes the main noun student and all words that modify it.",
+        "audio": "In “The careful student near the trail plots the points.” identify the complete subject. Do not mistake a noun inside a prepositional phrase for the subject."
+      },
+      {
+        "type": "mc",
+        "q": "In “The careful student near the station evaluates the design.” identify the complete subject. Do not mistake a noun inside a prepositional phrase for the subject.",
+        "choices": [
+          "evaluates the design",
+          "The careful student near the station",
+          "careful",
+          "the station"
+        ],
+        "answer": "The careful student near the station",
+        "explain": "The complete subject includes the main noun student and all words that modify it.",
+        "audio": "In “The careful student near the station evaluates the design.” identify the complete subject. Do not mistake a noun inside a prepositional phrase for the subject."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “defends the conclusion” correctly answers “In “The careful student near the gallery defends the conclusion.” identif … ject. Do not mistake a noun inside a prepositional phrase for the subject.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The complete subject includes the main noun student and all words that modify it.",
+        "audio": "True or false: “defends the conclusion” correctly answers “In “The careful student near the gallery defends the conclusion.” identif … ject. Do not mistake a noun inside a prepositional phrase for the subject.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “In “The careful student near the market photographs the evidence.” identify the complete subject. Do not mistake a noun inside a prepositional phrase for the subject” and replaces “careful” using the task's evidence or constraints?",
+        "choices": [
+          "careful",
+          "photographs the evidence",
+          "the market",
+          "The careful student near the market"
+        ],
+        "answer": "The careful student near the market",
+        "explain": "The complete subject includes the main noun student and all words that modify it. This evidence makes the correct response defensible. The response \"careful\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “In “The careful student near the market photographs the evidence.” identify the complete subject. Do not mistake a noun inside a prepositional phrase for the subject” and replaces “careful” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:eng:L11": {
+    "name": "Verb Tense",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Choose the sentence written in PAST tense.",
+        "choices": [
+          "The team won the game yesterday.",
+          "The team wins often.",
+          "The team will win tomorrow.",
+          "None of these"
+        ],
+        "answer": "The team won the game yesterday.",
+        "audio": "Choose the correct verb tense."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the sentence written in FUTURE tense.",
+        "choices": [
+          "None of these",
+          "We will visit the museum.",
+          "We visit the museum.",
+          "We visited the museum."
+        ],
+        "answer": "We will visit the museum.",
+        "audio": "Choose the correct verb tense."
+      },
+      {
+        "type": "mc",
+        "q": "Which word correctly completes the sentence? Yesterday, Mia ___ her bicycle.",
+        "choices": [
+          "Rode",
+          "Map",
+          "Rides",
+          "Will ride"
+        ],
+        "answer": "Rode",
+        "audio": "Choose the correct verb tense."
+      },
+      {
+        "type": "mc",
+        "q": "Which word correctly completes the sentence? Tomorrow, I ___ my project.",
+        "choices": [
+          "Will finish",
+          "Finished",
+          "Finishing yesterday",
+          "Map"
+        ],
+        "answer": "Will finish",
+        "audio": "Choose the correct verb tense."
+      },
+      {
+        "type": "mc",
+        "q": "Yesterday Amina ___ to the library before the team completed its review. Choose the consistent, correct past-tense verb.",
+        "choices": [
+          "will go",
+          "went",
+          "goed",
+          "go"
+        ],
+        "answer": "went",
+        "explain": "Yesterday requires the past tense went.",
+        "audio": "Yesterday Amina ___ to the library before the team completed its review. Choose the consistent, correct past-tense verb."
+      },
+      {
+        "type": "mc",
+        "q": "Yesterday Ben ___ to the garden before the team completed its review. Choose the consistent, correct past-tense verb.",
+        "choices": [
+          "saw",
+          "will see",
+          "see",
+          "seeed"
+        ],
+        "answer": "saw",
+        "explain": "Yesterday requires the past tense saw.",
+        "audio": "Yesterday Ben ___ to the garden before the team completed its review. Choose the consistent, correct past-tense verb."
+      },
+      {
+        "type": "mc",
+        "q": "Yesterday Carla ___ to the laboratory before the team completed its review. Choose the consistent, correct past-tense verb.",
+        "choices": [
+          "write",
+          "will write",
+          "wrote",
+          "writeed"
+        ],
+        "answer": "wrote",
+        "explain": "Yesterday requires the past tense wrote.",
+        "audio": "Yesterday Carla ___ to the laboratory before the team completed its review. Choose the consistent, correct past-tense verb."
+      },
+      {
+        "type": "mc",
+        "q": "Yesterday Dev ___ to the museum before the team completed its review. Choose the consistent, correct past-tense verb.",
+        "choices": [
+          "will choose",
+          "chooseed",
+          "choose",
+          "chose"
+        ],
+        "answer": "chose",
+        "explain": "Yesterday requires the past tense chose.",
+        "audio": "Yesterday Dev ___ to the museum before the team completed its review. Choose the consistent, correct past-tense verb."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “brought” correctly answers “Yesterday Elena ___ to the studio before the team completed its review. Choose the consistent, correct past-tense verb.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Yesterday requires the past tense brought.",
+        "audio": "True or false: “brought” correctly answers “Yesterday Elena ___ to the studio before the team completed its review. Choose the consistent, correct past-tense verb.”"
+      },
+      {
+        "type": "mc",
+        "q": "Yesterday Finn ___ to the gym before the team completed its review. Choose the consistent, correct past-tense verb.",
+        "choices": [
+          "will go",
+          "goed",
+          "go",
+          "went"
+        ],
+        "answer": "went",
+        "explain": "Yesterday requires the past tense went.",
+        "audio": "Yesterday Finn ___ to the gym before the team completed its review. Choose the consistent, correct past-tense verb."
+      },
+      {
+        "type": "mc",
+        "q": "Yesterday Gia ___ to the cafeteria before the team completed its review. Choose the consistent, correct past-tense verb.",
+        "choices": [
+          "saw",
+          "will see",
+          "see",
+          "seeed"
+        ],
+        "answer": "saw",
+        "explain": "Yesterday requires the past tense saw.",
+        "audio": "Yesterday Gia ___ to the cafeteria before the team completed its review. Choose the consistent, correct past-tense verb."
+      },
+      {
+        "type": "mc",
+        "q": "Yesterday Hugo ___ to the auditorium before the team completed its review. Choose the consistent, correct past-tense verb.",
+        "choices": [
+          "wrote",
+          "write",
+          "writeed",
+          "will write"
+        ],
+        "answer": "wrote",
+        "explain": "Yesterday requires the past tense wrote.",
+        "audio": "Yesterday Hugo ___ to the auditorium before the team completed its review. Choose the consistent, correct past-tense verb."
+      },
+      {
+        "type": "mc",
+        "q": "Yesterday Imani ___ to the workshop before the team completed its review. Choose the consistent, correct past-tense verb.",
+        "choices": [
+          "choose",
+          "chose",
+          "chooseed",
+          "will choose"
+        ],
+        "answer": "chose",
+        "explain": "Yesterday requires the past tense chose.",
+        "audio": "Yesterday Imani ___ to the workshop before the team completed its review. Choose the consistent, correct past-tense verb."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “bring” correctly answers “Yesterday Jae ___ to the courtyard before the team completed its review. Choose the consistent, correct past-tense verb.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Yesterday requires the past tense brought.",
+        "audio": "True or false: “bring” correctly answers “Yesterday Jae ___ to the courtyard before the team completed its review. Choose the consistent, correct past-tense verb.”"
+      },
+      {
+        "type": "mc",
+        "q": "Yesterday Kira ___ to the greenhouse before the team completed its review. Choose the consistent, correct past-tense verb.",
+        "choices": [
+          "went",
+          "goed",
+          "will go",
+          "go"
+        ],
+        "answer": "went",
+        "explain": "Yesterday requires the past tense went.",
+        "audio": "Yesterday Kira ___ to the greenhouse before the team completed its review. Choose the consistent, correct past-tense verb."
+      },
+      {
+        "type": "mc",
+        "q": "Yesterday Luis ___ to the archive before the team completed its review. Choose the consistent, correct past-tense verb.",
+        "choices": [
+          "saw",
+          "seeed",
+          "see",
+          "will see"
+        ],
+        "answer": "saw",
+        "explain": "Yesterday requires the past tense saw.",
+        "audio": "Yesterday Luis ___ to the archive before the team completed its review. Choose the consistent, correct past-tense verb."
+      },
+      {
+        "type": "mc",
+        "q": "Yesterday Mina ___ to the theater before the team completed its review. Choose the consistent, correct past-tense verb.",
+        "choices": [
+          "wrote",
+          "write",
+          "writeed",
+          "will write"
+        ],
+        "answer": "wrote",
+        "explain": "Yesterday requires the past tense wrote.",
+        "audio": "Yesterday Mina ___ to the theater before the team completed its review. Choose the consistent, correct past-tense verb."
+      },
+      {
+        "type": "mc",
+        "q": "Yesterday Noah ___ to the clinic before the team completed its review. Choose the consistent, correct past-tense verb.",
+        "choices": [
+          "will choose",
+          "chose",
+          "choose",
+          "chooseed"
+        ],
+        "answer": "chose",
+        "explain": "Yesterday requires the past tense chose.",
+        "audio": "Yesterday Noah ___ to the clinic before the team completed its review. Choose the consistent, correct past-tense verb."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “brought” correctly answers “Yesterday Omar ___ to the observatory before the team completed its review. Choose the consistent, correct past-tense verb.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Yesterday requires the past tense brought.",
+        "audio": "True or false: “brought” correctly answers “Yesterday Omar ___ to the observatory before the team completed its review. Choose the consistent, correct past-tense verb.”"
+      },
+      {
+        "type": "mc",
+        "q": "Yesterday Priya ___ to the market before the team completed its review. Choose the consistent, correct past-tense verb.",
+        "choices": [
+          "went",
+          "will go",
+          "go",
+          "goed"
+        ],
+        "answer": "went",
+        "explain": "Yesterday requires the past tense went.",
+        "audio": "Yesterday Priya ___ to the market before the team completed its review. Choose the consistent, correct past-tense verb."
+      },
+      {
+        "type": "mc",
+        "q": "Yesterday Quinn ___ to the harbor before the team completed its review. Choose the consistent, correct past-tense verb.",
+        "choices": [
+          "will see",
+          "see",
+          "seeed",
+          "saw"
+        ],
+        "answer": "saw",
+        "explain": "Yesterday requires the past tense saw.",
+        "audio": "Yesterday Quinn ___ to the harbor before the team completed its review. Choose the consistent, correct past-tense verb."
+      },
+      {
+        "type": "mc",
+        "q": "Yesterday Rosa ___ to the trail before the team completed its review. Choose the consistent, correct past-tense verb.",
+        "choices": [
+          "write",
+          "writeed",
+          "will write",
+          "wrote"
+        ],
+        "answer": "wrote",
+        "explain": "Yesterday requires the past tense wrote.",
+        "audio": "Yesterday Rosa ___ to the trail before the team completed its review. Choose the consistent, correct past-tense verb."
+      },
+      {
+        "type": "mc",
+        "q": "Yesterday Sam ___ to the station before the team completed its review. Choose the consistent, correct past-tense verb.",
+        "choices": [
+          "will choose",
+          "chooseed",
+          "choose",
+          "chose"
+        ],
+        "answer": "chose",
+        "explain": "Yesterday requires the past tense chose.",
+        "audio": "Yesterday Sam ___ to the station before the team completed its review. Choose the consistent, correct past-tense verb."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “bring” correctly answers “Yesterday Tariq ___ to the gallery before the team completed its review. Choose the consistent, correct past-tense verb.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Yesterday requires the past tense brought.",
+        "audio": "True or false: “bring” correctly answers “Yesterday Tariq ___ to the gallery before the team completed its review. Choose the consistent, correct past-tense verb.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “Yesterday Priya ___ to the market before the team completed its review. Choose the consistent, correct past-tense verb” and replaces “go” using the task's evidence or constraints?",
+        "choices": [
+          "goed",
+          "go",
+          "will go",
+          "went"
+        ],
+        "answer": "went",
+        "explain": "Yesterday requires the past tense went. This evidence makes the correct response defensible. The response \"go\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “Yesterday Priya ___ to the market before the team completed its review. Choose the consistent, correct past-tense verb” and replaces “go” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:eng:L12": {
+    "name": "Punctuation",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Which sentence uses a comma correctly?",
+        "choices": [
+          "After lunch, we went outside.",
+          "After, lunch we went outside.",
+          "After lunch we, went outside.",
+          "After lunch we went outside,"
+        ],
+        "answer": "After lunch, we went outside.",
+        "audio": "Choose the sentence with correct punctuation."
+      },
+      {
+        "type": "mc",
+        "q": "Which sentence is punctuated correctly?",
+        "choices": [
+          "MIA SAID, \"I FOUND MY BOOK!\"",
+          "MIA SAID, \"I FOUND MY BOOK\"!",
+          "MIA SAID, I FOUND MY BOOK!\"",
+          "MIA SAID \"I FOUND MY BOOK!"
+        ],
+        "answer": "MIA SAID, \"I FOUND MY BOOK!\"",
+        "audio": "Choose the sentence with correct punctuation."
+      },
+      {
+        "type": "mc",
+        "q": "Which sentence uses an apostrophe correctly?",
+        "choices": [
+          "The dogs leash is blue.",
+          "The dogs' leash is blue for one dog.",
+          "The dog's leash is blue.",
+          "The dog leash's is blue."
+        ],
+        "answer": "The dog's leash is blue.",
+        "audio": "Choose the sentence with correct punctuation."
+      },
+      {
+        "type": "mc",
+        "q": "Which sentence uses a colon correctly?",
+        "choices": [
+          "I need three items: paper, glue, and scissors.",
+          "I: need three items paper and glue.",
+          "I need three items paper: glue and scissors.",
+          "I need: three items paper, glue, and scissors."
+        ],
+        "answer": "I need three items: paper, glue, and scissors.",
+        "audio": "Choose the sentence with correct punctuation."
+      },
+      {
+        "type": "mc",
+        "q": "Which revision correctly punctuates this complex sentence?\nAfter Amina reviewed the evidence amina revised the claim and cited the source",
+        "choices": [
+          "After Amina reviewed the evidence; amina, revised the claim and cited the source.",
+          "After Amina reviewed the evidence, amina revised the claim and cited the source.",
+          "After Amina reviewed the evidence amina revised the claim and cited the source.",
+          "After Amina, reviewed the evidence amina revised the claim and cited the source."
+        ],
+        "answer": "After Amina reviewed the evidence, amina revised the claim and cited the source.",
+        "explain": "A comma follows the introductory dependent clause, and the sentence ends with a period.",
+        "audio": "Which revision correctly punctuates this complex sentence?\nAfter Amina reviewed the evidence amina revised the claim and cited the source"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision correctly punctuates this complex sentence?\nAfter Ben reviewed the evidence ben revised the claim and cited the source",
+        "choices": [
+          "After Ben reviewed the evidence ben revised the claim and cited the source.",
+          "After Ben reviewed the evidence, ben revised the claim and cited the source.",
+          "After Ben reviewed the evidence; ben, revised the claim and cited the source.",
+          "After Ben, reviewed the evidence ben revised the claim and cited the source."
+        ],
+        "answer": "After Ben reviewed the evidence, ben revised the claim and cited the source.",
+        "explain": "A comma follows the introductory dependent clause, and the sentence ends with a period.",
+        "audio": "Which revision correctly punctuates this complex sentence?\nAfter Ben reviewed the evidence ben revised the claim and cited the source"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision correctly punctuates this complex sentence?\nAfter Carla reviewed the evidence carla revised the claim and cited the source",
+        "choices": [
+          "After Carla reviewed the evidence carla revised the claim and cited the source.",
+          "After Carla reviewed the evidence, carla revised the claim and cited the source.",
+          "After Carla reviewed the evidence; carla, revised the claim and cited the source.",
+          "After Carla, reviewed the evidence carla revised the claim and cited the source."
+        ],
+        "answer": "After Carla reviewed the evidence, carla revised the claim and cited the source.",
+        "explain": "A comma follows the introductory dependent clause, and the sentence ends with a period.",
+        "audio": "Which revision correctly punctuates this complex sentence?\nAfter Carla reviewed the evidence carla revised the claim and cited the source"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision correctly punctuates this complex sentence?\nAfter Dev reviewed the evidence dev revised the claim and cited the source",
+        "choices": [
+          "After Dev reviewed the evidence, dev revised the claim and cited the source.",
+          "After Dev reviewed the evidence; dev, revised the claim and cited the source.",
+          "After Dev, reviewed the evidence dev revised the claim and cited the source.",
+          "After Dev reviewed the evidence dev revised the claim and cited the source."
+        ],
+        "answer": "After Dev reviewed the evidence, dev revised the claim and cited the source.",
+        "explain": "A comma follows the introductory dependent clause, and the sentence ends with a period.",
+        "audio": "Which revision correctly punctuates this complex sentence?\nAfter Dev reviewed the evidence dev revised the claim and cited the source"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “After Elena reviewed the evidence, elena revised the claim and cited the source” correctly answers “Which revision correctly punctuates this complex sentence? After Elena reviewed the evidence elena revised the claim and cited the source.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A comma follows the introductory dependent clause, and the sentence ends with a period.",
+        "audio": "True or false: “After Elena reviewed the evidence, elena revised the claim and cited the source” correctly answers “Which revision correctly punctuates this complex sentence? After Elena reviewed the evidence elena revised the claim and cited the source.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision correctly punctuates this complex sentence?\nAfter Finn reviewed the evidence finn revised the claim and cited the source",
+        "choices": [
+          "After Finn reviewed the evidence; finn, revised the claim and cited the source.",
+          "After Finn reviewed the evidence, finn revised the claim and cited the source.",
+          "After Finn, reviewed the evidence finn revised the claim and cited the source.",
+          "After Finn reviewed the evidence finn revised the claim and cited the source."
+        ],
+        "answer": "After Finn reviewed the evidence, finn revised the claim and cited the source.",
+        "explain": "A comma follows the introductory dependent clause, and the sentence ends with a period.",
+        "audio": "Which revision correctly punctuates this complex sentence?\nAfter Finn reviewed the evidence finn revised the claim and cited the source"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision correctly punctuates this complex sentence?\nAfter Gia reviewed the evidence gia revised the claim and cited the source",
+        "choices": [
+          "After Gia reviewed the evidence, gia revised the claim and cited the source.",
+          "After Gia reviewed the evidence; gia, revised the claim and cited the source.",
+          "After Gia, reviewed the evidence gia revised the claim and cited the source.",
+          "After Gia reviewed the evidence gia revised the claim and cited the source."
+        ],
+        "answer": "After Gia reviewed the evidence, gia revised the claim and cited the source.",
+        "explain": "A comma follows the introductory dependent clause, and the sentence ends with a period.",
+        "audio": "Which revision correctly punctuates this complex sentence?\nAfter Gia reviewed the evidence gia revised the claim and cited the source"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision correctly punctuates this complex sentence?\nAfter Hugo reviewed the evidence hugo revised the claim and cited the source",
+        "choices": [
+          "After Hugo, reviewed the evidence hugo revised the claim and cited the source.",
+          "After Hugo reviewed the evidence hugo revised the claim and cited the source.",
+          "After Hugo reviewed the evidence; hugo, revised the claim and cited the source.",
+          "After Hugo reviewed the evidence, hugo revised the claim and cited the source."
+        ],
+        "answer": "After Hugo reviewed the evidence, hugo revised the claim and cited the source.",
+        "explain": "A comma follows the introductory dependent clause, and the sentence ends with a period.",
+        "audio": "Which revision correctly punctuates this complex sentence?\nAfter Hugo reviewed the evidence hugo revised the claim and cited the source"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision correctly punctuates this complex sentence?\nAfter Imani reviewed the evidence imani revised the claim and cited the source",
+        "choices": [
+          "After Imani, reviewed the evidence imani revised the claim and cited the source.",
+          "After Imani reviewed the evidence; imani, revised the claim and cited the source.",
+          "After Imani reviewed the evidence, imani revised the claim and cited the source.",
+          "After Imani reviewed the evidence imani revised the claim and cited the source."
+        ],
+        "answer": "After Imani reviewed the evidence, imani revised the claim and cited the source.",
+        "explain": "A comma follows the introductory dependent clause, and the sentence ends with a period.",
+        "audio": "Which revision correctly punctuates this complex sentence?\nAfter Imani reviewed the evidence imani revised the claim and cited the source"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “After Jae reviewed the evidence jae revised the claim and cited the source” correctly answers “Which revision correctly punctuates this complex sentence? After Jae reviewed the evidence jae revised the claim and cited the source.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. A comma follows the introductory dependent clause, and the sentence ends with a period.",
+        "audio": "True or false: “After Jae reviewed the evidence jae revised the claim and cited the source” correctly answers “Which revision correctly punctuates this complex sentence? After Jae reviewed the evidence jae revised the claim and cited the source.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision correctly punctuates this complex sentence?\nAfter Kira reviewed the evidence kira revised the claim and cited the source",
+        "choices": [
+          "After Kira reviewed the evidence; kira, revised the claim and cited the source.",
+          "After Kira reviewed the evidence, kira revised the claim and cited the source.",
+          "After Kira reviewed the evidence kira revised the claim and cited the source.",
+          "After Kira, reviewed the evidence kira revised the claim and cited the source."
+        ],
+        "answer": "After Kira reviewed the evidence, kira revised the claim and cited the source.",
+        "explain": "A comma follows the introductory dependent clause, and the sentence ends with a period.",
+        "audio": "Which revision correctly punctuates this complex sentence?\nAfter Kira reviewed the evidence kira revised the claim and cited the source"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision correctly punctuates this complex sentence?\nAfter Luis reviewed the evidence luis revised the claim and cited the source",
+        "choices": [
+          "After Luis reviewed the evidence; luis, revised the claim and cited the source.",
+          "After Luis, reviewed the evidence luis revised the claim and cited the source.",
+          "After Luis reviewed the evidence luis revised the claim and cited the source.",
+          "After Luis reviewed the evidence, luis revised the claim and cited the source."
+        ],
+        "answer": "After Luis reviewed the evidence, luis revised the claim and cited the source.",
+        "explain": "A comma follows the introductory dependent clause, and the sentence ends with a period.",
+        "audio": "Which revision correctly punctuates this complex sentence?\nAfter Luis reviewed the evidence luis revised the claim and cited the source"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision correctly punctuates this complex sentence?\nAfter Mina reviewed the evidence mina revised the claim and cited the source",
+        "choices": [
+          "After Mina reviewed the evidence; mina, revised the claim and cited the source.",
+          "After Mina, reviewed the evidence mina revised the claim and cited the source.",
+          "After Mina reviewed the evidence mina revised the claim and cited the source.",
+          "After Mina reviewed the evidence, mina revised the claim and cited the source."
+        ],
+        "answer": "After Mina reviewed the evidence, mina revised the claim and cited the source.",
+        "explain": "A comma follows the introductory dependent clause, and the sentence ends with a period.",
+        "audio": "Which revision correctly punctuates this complex sentence?\nAfter Mina reviewed the evidence mina revised the claim and cited the source"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision correctly punctuates this complex sentence?\nAfter Noah reviewed the evidence noah revised the claim and cited the source",
+        "choices": [
+          "After Noah reviewed the evidence noah revised the claim and cited the source.",
+          "After Noah, reviewed the evidence noah revised the claim and cited the source.",
+          "After Noah reviewed the evidence; noah, revised the claim and cited the source.",
+          "After Noah reviewed the evidence, noah revised the claim and cited the source."
+        ],
+        "answer": "After Noah reviewed the evidence, noah revised the claim and cited the source.",
+        "explain": "A comma follows the introductory dependent clause, and the sentence ends with a period.",
+        "audio": "Which revision correctly punctuates this complex sentence?\nAfter Noah reviewed the evidence noah revised the claim and cited the source"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “After Omar reviewed the evidence, omar revised the claim and cited the source” correctly answers “Which revision correctly punctuates this complex sentence? After Omar reviewed the evidence omar revised the claim and cited the source.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A comma follows the introductory dependent clause, and the sentence ends with a period.",
+        "audio": "True or false: “After Omar reviewed the evidence, omar revised the claim and cited the source” correctly answers “Which revision correctly punctuates this complex sentence? After Omar reviewed the evidence omar revised the claim and cited the source.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision correctly punctuates this complex sentence?\nAfter Priya reviewed the evidence priya revised the claim and cited the source",
+        "choices": [
+          "After Priya, reviewed the evidence priya revised the claim and cited the source.",
+          "After Priya reviewed the evidence priya revised the claim and cited the source.",
+          "After Priya reviewed the evidence, priya revised the claim and cited the source.",
+          "After Priya reviewed the evidence; priya, revised the claim and cited the source."
+        ],
+        "answer": "After Priya reviewed the evidence, priya revised the claim and cited the source.",
+        "explain": "A comma follows the introductory dependent clause, and the sentence ends with a period.",
+        "audio": "Which revision correctly punctuates this complex sentence?\nAfter Priya reviewed the evidence priya revised the claim and cited the source"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision correctly punctuates this complex sentence?\nAfter Quinn reviewed the evidence quinn revised the claim and cited the source",
+        "choices": [
+          "After Quinn, reviewed the evidence quinn revised the claim and cited the source.",
+          "After Quinn reviewed the evidence, quinn revised the claim and cited the source.",
+          "After Quinn reviewed the evidence quinn revised the claim and cited the source.",
+          "After Quinn reviewed the evidence; quinn, revised the claim and cited the source."
+        ],
+        "answer": "After Quinn reviewed the evidence, quinn revised the claim and cited the source.",
+        "explain": "A comma follows the introductory dependent clause, and the sentence ends with a period.",
+        "audio": "Which revision correctly punctuates this complex sentence?\nAfter Quinn reviewed the evidence quinn revised the claim and cited the source"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision correctly punctuates this complex sentence?\nAfter Rosa reviewed the evidence rosa revised the claim and cited the source",
+        "choices": [
+          "After Rosa reviewed the evidence; rosa, revised the claim and cited the source.",
+          "After Rosa reviewed the evidence rosa revised the claim and cited the source.",
+          "After Rosa reviewed the evidence, rosa revised the claim and cited the source.",
+          "After Rosa, reviewed the evidence rosa revised the claim and cited the source."
+        ],
+        "answer": "After Rosa reviewed the evidence, rosa revised the claim and cited the source.",
+        "explain": "A comma follows the introductory dependent clause, and the sentence ends with a period.",
+        "audio": "Which revision correctly punctuates this complex sentence?\nAfter Rosa reviewed the evidence rosa revised the claim and cited the source"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision correctly punctuates this complex sentence?\nAfter Sam reviewed the evidence sam revised the claim and cited the source",
+        "choices": [
+          "After Sam, reviewed the evidence sam revised the claim and cited the source.",
+          "After Sam reviewed the evidence, sam revised the claim and cited the source.",
+          "After Sam reviewed the evidence; sam, revised the claim and cited the source.",
+          "After Sam reviewed the evidence sam revised the claim and cited the source."
+        ],
+        "answer": "After Sam reviewed the evidence, sam revised the claim and cited the source.",
+        "explain": "A comma follows the introductory dependent clause, and the sentence ends with a period.",
+        "audio": "Which revision correctly punctuates this complex sentence?\nAfter Sam reviewed the evidence sam revised the claim and cited the source"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “After Tariq reviewed the evidence tariq revised the claim and cited the source” correctly answers “Which revision correctly punctuates this complex sentence? After Tariq reviewed the evidence tariq revised the claim and cited the source.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. A comma follows the introductory dependent clause, and the sentence ends with a period.",
+        "audio": "True or false: “After Tariq reviewed the evidence tariq revised the claim and cited the source” correctly answers “Which revision correctly punctuates this complex sentence? After Tariq reviewed the evidence tariq revised the claim and cited the source.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “Which revision correctly punctuates this complex sentence? After Priya reviewed the evidence priya revised the claim and cited the source” and replaces “After Priya reviewed the evidence priya revised the claim and cited the source.” using the task's evidence or constraints?",
+        "choices": [
+          "After Priya reviewed the evidence; priya, revised the claim and cited the source.",
+          "After Priya reviewed the evidence priya revised the claim and cited the source.",
+          "After Priya, reviewed the evidence priya revised the claim and cited the source.",
+          "After Priya reviewed the evidence, priya revised the claim and cited the source."
+        ],
+        "answer": "After Priya reviewed the evidence, priya revised the claim and cited the source.",
+        "explain": "A comma follows the introductory dependent clause, and the sentence ends with a period. This evidence makes the correct response defensible. The response \"After Priya reviewed the evidence priya revised the claim and cited the source.\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “Which revision correctly punctuates this complex sentence? After Priya reviewed the evidence priya revised the claim and cited the source” and replaces “After Priya reviewed the evidence priya revised the claim and cited the source.” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:eng:L13": {
+    "name": "Grade 5 English L13",
+    "questions": [
+      {
+        "type": "drag",
+        "q": "Grade 5 English L13: match each reading word.",
+        "pairs": [
+          {
+            "left": "theme",
+            "right": "big message"
+          },
+          {
+            "left": "evidence",
+            "right": "proof from the text"
+          },
+          {
+            "left": "summary",
+            "right": "short retelling"
+          }
+        ],
+        "audio": "Match the reading vocabulary."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 5 English L13: which is a complete sentence?",
+        "choices": [
+          "reads student",
+          "because the",
+          "0",
+          "The student reads."
+        ],
+        "answer": "The student reads.",
+        "audio": "Choose the complete sentence."
+      },
+      {
+        "type": "input",
+        "q": "Grade 5 English L13: type the missing word: A noun names a person, place, or ____.",
+        "answer": "thing",
+        "audio": "Complete the sentence."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling correctly names full of hope?",
+        "choices": [
+          "HOPEFUL",
+          "HOPEFULE",
+          "HOPFUL",
+          "HOPEFULL"
+        ],
+        "answer": "HOPEFUL",
+        "explain": "“HOPEFUL” is the standard spelling for full of hope; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling correctly names without care?",
+        "choices": [
+          "CARELESS",
+          "CARELES",
+          "CARELISS",
+          "CAIRLESS"
+        ],
+        "answer": "CARELESS",
+        "explain": "“CARELESS” is the standard spelling for without care; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling correctly names in a quick way?",
+        "choices": [
+          "QUICKILY",
+          "QUICKALLY",
+          "QUICKLY",
+          "QUICKLEY"
+        ],
+        "answer": "QUICKLY",
+        "explain": "“QUICKLY” is the standard spelling for in a quick way; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling correctly names the state of being happy?",
+        "choices": [
+          "HAPINESS",
+          "HAPPYNESS",
+          "HAPPINES",
+          "HAPPINESS"
+        ],
+        "answer": "HAPPINESS",
+        "explain": "“HAPPINESS” is the standard spelling for the state of being happy; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling correctly names able to be enjoyed?",
+        "choices": [
+          "ENJOYIBLE",
+          "ENJOYEBLE",
+          "ENJOYABEL",
+          "ENJOYABLE"
+        ],
+        "answer": "ENJOYABLE",
+        "explain": "“ENJOYABLE” is the standard spelling for able to be enjoyed; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling follows the word pattern for full of hope?",
+        "choices": [
+          "HOPEFUL",
+          "HOPFUL",
+          "HOPEFULL",
+          "HOPEFULE"
+        ],
+        "answer": "HOPEFUL",
+        "explain": "“HOPEFUL” is the standard spelling for full of hope; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling follows the word pattern for without care?",
+        "choices": [
+          "CAIRLESS",
+          "CARELISS",
+          "CARELES",
+          "CARELESS"
+        ],
+        "answer": "CARELESS",
+        "explain": "“CARELESS” is the standard spelling for without care; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling follows the word pattern for in a quick way?",
+        "choices": [
+          "QUICKLY",
+          "QUICKILY",
+          "QUICKLEY",
+          "QUICKALLY"
+        ],
+        "answer": "QUICKLY",
+        "explain": "“QUICKLY” is the standard spelling for in a quick way; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling follows the word pattern for the state of being happy?",
+        "choices": [
+          "HAPPINESS",
+          "HAPPYNESS",
+          "HAPINESS",
+          "HAPPINES"
+        ],
+        "answer": "HAPPINESS",
+        "explain": "“HAPPINESS” is the standard spelling for the state of being happy; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling follows the word pattern for able to be enjoyed?",
+        "choices": [
+          "ENJOYABEL",
+          "ENJOYIBLE",
+          "ENJOYABLE",
+          "ENJOYEBLE"
+        ],
+        "answer": "ENJOYABLE",
+        "explain": "“ENJOYABLE” is the standard spelling for able to be enjoyed; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “HOPEFUL” is the correct spelling for full of hope.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "“HOPEFUL” is the standard spelling for full of hope; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Decide whether the spelling is correct."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “CARELES” is the correct spelling for without care.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "“CARELESS” is the standard spelling for without care; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Decide whether the spelling is correct."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “QUICKLY” is the correct spelling for in a quick way.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "“QUICKLY” is the standard spelling for in a quick way; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Decide whether the spelling is correct."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “HAPPYNESS” is the correct spelling for the state of being happy.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "“HAPPINESS” is the standard spelling for the state of being happy; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Decide whether the spelling is correct."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “ENJOYABLE” is the correct spelling for able to be enjoyed.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "“ENJOYABLE” is the standard spelling for able to be enjoyed; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Decide whether the spelling is correct."
+      },
+      {
+        "type": "input",
+        "q": "Without choices, type the correct spelling for: full of hope.",
+        "answer": "hopeful",
+        "explain": "“HOPEFUL” is the standard spelling for full of hope; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Spell the word independently."
+      },
+      {
+        "type": "input",
+        "q": "Without choices, type the correct spelling for: without care.",
+        "answer": "careless",
+        "explain": "“CARELESS” is the standard spelling for without care; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Spell the word independently."
+      },
+      {
+        "type": "input",
+        "q": "Without choices, type the correct spelling for: in a quick way.",
+        "answer": "quickly",
+        "explain": "“QUICKLY” is the standard spelling for in a quick way; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Spell the word independently."
+      },
+      {
+        "type": "input",
+        "q": "Without choices, type the correct spelling for: the state of being happy.",
+        "answer": "happiness",
+        "explain": "“HAPPINESS” is the standard spelling for the state of being happy; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Spell the word independently."
+      },
+      {
+        "type": "input",
+        "q": "Without choices, type the correct spelling for: able to be enjoyed.",
+        "answer": "enjoyable",
+        "explain": "“ENJOYABLE” is the standard spelling for able to be enjoyed; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Spell the word independently."
+      },
+      {
+        "type": "input",
+        "q": "A draft uses “HOPEFULL” for full of hope. What is the correct spelling?",
+        "answer": "hopeful",
+        "explain": "“HOPEFUL” is the standard spelling for full of hope; the other forms misuse the sound-spelling or affix pattern. The mastery check requires correcting the authentic error and confirming that the corrected word fits the meaning.",
+        "audio": "Correct the spelling and verify the meaning."
+      },
+      {
+        "type": "input",
+        "q": "A draft uses “CARELES” for without care. What is the correct spelling?",
+        "answer": "careless",
+        "explain": "“CARELESS” is the standard spelling for without care; the other forms misuse the sound-spelling or affix pattern. The mastery check requires correcting the authentic error and confirming that the corrected word fits the meaning.",
+        "audio": "Correct the spelling and verify the meaning."
+      }
+    ]
+  },
+  "g5:eng:L14": {
+    "name": "Grade 5 English L14",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Grade 5 English L14: which is a complete sentence?",
+        "choices": [
+          "reads student",
+          "0",
+          "because the",
+          "The student reads."
+        ],
+        "answer": "The student reads.",
+        "audio": "Choose the complete sentence."
+      },
+      {
+        "type": "input",
+        "q": "Grade 5 English L14: type the missing word: A noun names a person, place, or ____.",
+        "answer": "thing",
+        "audio": "Complete the sentence."
+      },
+      {
+        "type": "drag",
+        "q": "Grade 5 English L14: match each reading word.",
+        "pairs": [
+          {
+            "left": "theme",
+            "right": "big message"
+          },
+          {
+            "left": "evidence",
+            "right": "proof from the text"
+          },
+          {
+            "left": "summary",
+            "right": "short retelling"
+          }
+        ],
+        "audio": "Match the reading vocabulary."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning matches “happier”?",
+        "choices": [
+          "drop silent e",
+          "add suffix",
+          "change y to i",
+          "double final consonant"
+        ],
+        "answer": "change y to i",
+        "explain": "“happier” matches “change y to i” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning matches “running”?",
+        "choices": [
+          "drop silent e",
+          "add suffix",
+          "change y to i",
+          "double final consonant"
+        ],
+        "answer": "double final consonant",
+        "explain": "“running” matches “double final consonant” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning matches “hopeful”?",
+        "choices": [
+          "add suffix",
+          "change y to i",
+          "drop silent e",
+          "double final consonant"
+        ],
+        "answer": "drop silent e",
+        "explain": "“hopeful” matches “drop silent e” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning matches “careless”?",
+        "choices": [
+          "add suffix",
+          "change y to i",
+          "drop silent e",
+          "double final consonant"
+        ],
+        "answer": "add suffix",
+        "explain": "“careless” matches “add suffix” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning matches “happiness”?",
+        "choices": [
+          "double final consonant",
+          "change y to i",
+          "drop silent e",
+          "change y to i before -ness"
+        ],
+        "answer": "change y to i before -ness",
+        "explain": "“happiness” matches “change y to i before -ness” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning correctly applies to “happier”?",
+        "choices": [
+          "drop silent e",
+          "add suffix",
+          "double final consonant",
+          "change y to i"
+        ],
+        "answer": "change y to i",
+        "explain": "“happier” matches “change y to i” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning correctly applies to “running”?",
+        "choices": [
+          "double final consonant",
+          "add suffix",
+          "change y to i",
+          "drop silent e"
+        ],
+        "answer": "double final consonant",
+        "explain": "“running” matches “double final consonant” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning correctly applies to “hopeful”?",
+        "choices": [
+          "drop silent e",
+          "double final consonant",
+          "change y to i",
+          "add suffix"
+        ],
+        "answer": "drop silent e",
+        "explain": "“hopeful” matches “drop silent e” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning correctly applies to “careless”?",
+        "choices": [
+          "double final consonant",
+          "change y to i",
+          "add suffix",
+          "drop silent e"
+        ],
+        "answer": "add suffix",
+        "explain": "“careless” matches “add suffix” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning correctly applies to “happiness”?",
+        "choices": [
+          "change y to i before -ness",
+          "double final consonant",
+          "drop silent e",
+          "change y to i"
+        ],
+        "answer": "change y to i before -ness",
+        "explain": "“happiness” matches “change y to i before -ness” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “happier” matches “change y to i.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "“happier” matches “change y to i” in this lesson's word-pattern relationship.",
+        "audio": "Check the spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “running” matches “change y to i.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "“running” matches “double final consonant” in this lesson's word-pattern relationship.",
+        "audio": "Check the spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “hopeful” matches “drop silent e.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "“hopeful” matches “drop silent e” in this lesson's word-pattern relationship.",
+        "audio": "Check the spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “careless” matches “change y to i.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "“careless” matches “add suffix” in this lesson's word-pattern relationship.",
+        "audio": "Check the spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “happiness” matches “change y to i before -ness.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "“happiness” matches “change y to i before -ness” in this lesson's word-pattern relationship.",
+        "audio": "Check the spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which match remains correct after analyzing the word parts in “happier”?",
+        "choices": [
+          "double final consonant",
+          "add suffix",
+          "drop silent e",
+          "change y to i"
+        ],
+        "answer": "change y to i",
+        "explain": "“happier” matches “change y to i” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which match remains correct after analyzing the word parts in “running”?",
+        "choices": [
+          "drop silent e",
+          "change y to i",
+          "add suffix",
+          "double final consonant"
+        ],
+        "answer": "double final consonant",
+        "explain": "“running” matches “double final consonant” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which match remains correct after analyzing the word parts in “hopeful”?",
+        "choices": [
+          "change y to i",
+          "drop silent e",
+          "add suffix",
+          "double final consonant"
+        ],
+        "answer": "drop silent e",
+        "explain": "“hopeful” matches “drop silent e” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which match remains correct after analyzing the word parts in “careless”?",
+        "choices": [
+          "add suffix",
+          "double final consonant",
+          "drop silent e",
+          "change y to i"
+        ],
+        "answer": "add suffix",
+        "explain": "“careless” matches “add suffix” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which match remains correct after analyzing the word parts in “happiness”?",
+        "choices": [
+          "change y to i before -ness",
+          "change y to i",
+          "double final consonant",
+          "drop silent e"
+        ],
+        "answer": "change y to i before -ness",
+        "explain": "“happiness” matches “change y to i before -ness” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "A student matched “happier” with “double final consonant.” Which relationship corrects the error?",
+        "choices": [
+          "double final consonant",
+          "drop silent e",
+          "add suffix",
+          "change y to i"
+        ],
+        "answer": "change y to i",
+        "explain": "“happier” matches “change y to i” in this lesson's word-pattern relationship. The mastery item requires identifying why the proposed match fails and replacing it with the exact relationship.",
+        "audio": "Correct the relationship and justify the rule."
+      },
+      {
+        "type": "mc",
+        "q": "A student matched “running” with “change y to i.” Which relationship corrects the error?",
+        "choices": [
+          "change y to i",
+          "drop silent e",
+          "add suffix",
+          "double final consonant"
+        ],
+        "answer": "double final consonant",
+        "explain": "“running” matches “double final consonant” in this lesson's word-pattern relationship. The mastery item requires identifying why the proposed match fails and replacing it with the exact relationship.",
+        "audio": "Correct the relationship and justify the rule."
+      }
+    ]
+  },
+  "g5:math:L1": {
+    "name": "Decimals",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "What is 9.2 + 0.9 ?",
+        "choices": [
+          "10.1",
+          "10.0",
+          "0",
+          "10.2"
+        ],
+        "answer": "10.1",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "What is 3.4 + 0.3 ?",
+        "choices": [
+          "3.6",
+          "0",
+          "3.7",
+          "3.8"
+        ],
+        "answer": "3.7",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "What is 5.8 + 0.5 ?",
+        "choices": [
+          "0",
+          "6.3",
+          "6.2",
+          "6.4"
+        ],
+        "answer": "6.3",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "What is 2.3 + 0.2 ?",
+        "choices": [
+          "2.5",
+          "0",
+          "2.6",
+          "2.4"
+        ],
+        "answer": "2.5",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "What is 1.7 + 0.1 ?",
+        "choices": [
+          "1.9",
+          "1.7",
+          "0",
+          "1.8"
+        ],
+        "answer": "1.8",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "What is 5.6 + 0.5 ?",
+        "choices": [
+          "0",
+          "6.2",
+          "6.0",
+          "6.1"
+        ],
+        "answer": "6.1",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "What is 5.1 + 0.5 ?",
+        "choices": [
+          "0",
+          "5.5",
+          "5.7",
+          "5.6"
+        ],
+        "answer": "5.6",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "What is 8.6 + 0.8 ?",
+        "choices": [
+          "9.5",
+          "0",
+          "9.3",
+          "9.4"
+        ],
+        "answer": "9.4",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "What is 8.3 + 0.8 ?",
+        "choices": [
+          "0",
+          "9.0",
+          "9.2",
+          "9.1"
+        ],
+        "answer": "9.1",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "What is 6.9 + 0.6 ?",
+        "choices": [
+          "7.5",
+          "7.4",
+          "0",
+          "7.6"
+        ],
+        "answer": "7.5",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "What is 3.7 + 0.3 ?",
+        "choices": [
+          "4.0",
+          "4.1",
+          "3.9",
+          "0"
+        ],
+        "answer": "4.0",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "What is 6.3 + 0.6 ?",
+        "choices": [
+          "7.0",
+          "6.8",
+          "0",
+          "6.9"
+        ],
+        "answer": "6.9",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "What is 1.5 + 0.1 ?",
+        "choices": [
+          "1.7",
+          "1.5",
+          "1.6",
+          "0"
+        ],
+        "answer": "1.6",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "What is 2.7 + 0.2 ?",
+        "choices": [
+          "3.0",
+          "2.9",
+          "0",
+          "2.8"
+        ],
+        "answer": "2.9",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "What is 5.4 + 0.5 ?",
+        "choices": [
+          "6.0",
+          "0",
+          "5.8",
+          "5.9"
+        ],
+        "answer": "5.9",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "What is 1.6 + 0.1 ?",
+        "choices": [
+          "1.8",
+          "1.6",
+          "0",
+          "1.7"
+        ],
+        "answer": "1.7",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "What is 7.3 + 0.7 ?",
+        "choices": [
+          "8.0",
+          "7.9",
+          "8.1",
+          "0"
+        ],
+        "answer": "8.0",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "What is 6.5 + 0.6 ?",
+        "choices": [
+          "0",
+          "7.2",
+          "7.1",
+          "7.0"
+        ],
+        "answer": "7.1",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "What is 8.1 + 0.8 ?",
+        "choices": [
+          "8.8",
+          "9.0",
+          "0",
+          "8.9"
+        ],
+        "answer": "8.9",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "What is 7.2 + 0.7 ?",
+        "choices": [
+          "7.9",
+          "8.0",
+          "7.8",
+          "0"
+        ],
+        "answer": "7.9",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "What is 2.9 + 0.2 ?",
+        "choices": [
+          "3.2",
+          "3.0",
+          "0",
+          "3.1"
+        ],
+        "answer": "3.1",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "What is 3.8 + 0.3 ?",
+        "choices": [
+          "4.2",
+          "0",
+          "4.0",
+          "4.1"
+        ],
+        "answer": "4.1",
+        "audio": "Add decimals."
+      },
+      {
+        "type": "mc",
+        "q": "Compute 1.3 + 0.04. Align place values and check with an estimate.",
+        "choices": [
+          "3.34",
+          "0.34",
+          "2.34",
+          "1.34"
+        ],
+        "answer": "1.34",
+        "explain": "Place-value reasoning gives 1.34.",
+        "audio": "Compute 1.3 + 0.04. Align place values and check with an estimate."
+      },
+      {
+        "type": "mc",
+        "q": "Compute 1.4 + 0.05. Align place values and check with an estimate.",
+        "choices": [
+          "1.45",
+          "0.45",
+          "2.45",
+          "3.45"
+        ],
+        "answer": "1.45",
+        "explain": "Place-value reasoning gives 1.45.",
+        "audio": "Compute 1.4 + 0.05. Align place values and check with an estimate."
+      },
+      {
+        "type": "mc",
+        "q": "Compute 1.5 + 0.06. Align place values and check with an estimate.",
+        "choices": [
+          "0.56",
+          "2.56",
+          "1.56",
+          "3.56"
+        ],
+        "answer": "1.56",
+        "explain": "Place-value reasoning gives 1.56.",
+        "audio": "Compute 1.5 + 0.06. Align place values and check with an estimate."
+      }
+    ]
+  },
+  "g5:math:L4": {
+    "name": "Decimal Place Value",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "In the number 4.672, what digit is in the HUNDREDTHS place?",
+        "choices": [
+          "8",
+          "6",
+          "7",
+          "2"
+        ],
+        "answer": "7",
+        "audio": "Find the digit in the named place."
+      },
+      {
+        "type": "mc",
+        "q": "In the number 18.305, what digit is in the TENTHS place?",
+        "choices": [
+          "0",
+          "3",
+          "5",
+          "4"
+        ],
+        "answer": "3",
+        "audio": "Find the digit in the named place."
+      },
+      {
+        "type": "mc",
+        "q": "In the number 9.481, what digit is in the THOUSANDTHS place?",
+        "choices": [
+          "4",
+          "8",
+          "2",
+          "1"
+        ],
+        "answer": "1",
+        "audio": "Find the digit in the named place."
+      },
+      {
+        "type": "mc",
+        "q": "In the number 62.94, what digit is in the ONES place?",
+        "choices": [
+          "2",
+          "6",
+          "3",
+          "9"
+        ],
+        "answer": "2",
+        "audio": "Find the digit in the named place."
+      },
+      {
+        "type": "mc",
+        "q": "In 11.246, what value is represented by the digit 6 in the thousandths place?",
+        "choices": [
+          "6",
+          "0.6",
+          "0.006",
+          "0.06"
+        ],
+        "answer": "0.006",
+        "explain": "The thousandths place gives the value 0.006.",
+        "audio": "In 11.246, what value is represented by the digit 6 in the thousandths place?"
+      },
+      {
+        "type": "mc",
+        "q": "In 12.357, what value is represented by the digit 3 in the tenths place?",
+        "choices": [
+          "0.003",
+          "0.03",
+          "0.3",
+          "3"
+        ],
+        "answer": "0.3",
+        "explain": "The tenths place gives the value 0.3.",
+        "audio": "In 12.357, what value is represented by the digit 3 in the tenths place?"
+      },
+      {
+        "type": "mc",
+        "q": "In 13.468, what value is represented by the digit 6 in the hundredths place?",
+        "choices": [
+          "0.006",
+          "0.6",
+          "0.06",
+          "6"
+        ],
+        "answer": "0.06",
+        "explain": "The hundredths place gives the value 0.06.",
+        "audio": "In 13.468, what value is represented by the digit 6 in the hundredths place?"
+      },
+      {
+        "type": "mc",
+        "q": "In 14.571, what value is represented by the digit 1 in the thousandths place?",
+        "choices": [
+          "0.01",
+          "0.001",
+          "1",
+          "0.1"
+        ],
+        "answer": "0.001",
+        "explain": "The thousandths place gives the value 0.001.",
+        "audio": "In 14.571, what value is represented by the digit 1 in the thousandths place?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “0.6” correctly answers “In 15.682, what value is represented by the digit 6 in the tenths place.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The tenths place gives the value 0.6.",
+        "audio": "True or false: “0.6” correctly answers “In 15.682, what value is represented by the digit 6 in the tenths place.”"
+      },
+      {
+        "type": "mc",
+        "q": "In 16.713, what value is represented by the digit 1 in the hundredths place?",
+        "choices": [
+          "0.001",
+          "0.1",
+          "0.01",
+          "1"
+        ],
+        "answer": "0.01",
+        "explain": "The hundredths place gives the value 0.01.",
+        "audio": "In 16.713, what value is represented by the digit 1 in the hundredths place?"
+      },
+      {
+        "type": "mc",
+        "q": "In 17.824, what value is represented by the digit 4 in the thousandths place?",
+        "choices": [
+          "4",
+          "0.4",
+          "0.04",
+          "0.004"
+        ],
+        "answer": "0.004",
+        "explain": "The thousandths place gives the value 0.004.",
+        "audio": "In 17.824, what value is represented by the digit 4 in the thousandths place?"
+      },
+      {
+        "type": "mc",
+        "q": "In 18.135, what value is represented by the digit 1 in the tenths place?",
+        "choices": [
+          "1",
+          "0.01",
+          "0.001",
+          "0.1"
+        ],
+        "answer": "0.1",
+        "explain": "The tenths place gives the value 0.1.",
+        "audio": "In 18.135, what value is represented by the digit 1 in the tenths place?"
+      },
+      {
+        "type": "mc",
+        "q": "In 19.246, what value is represented by the digit 4 in the hundredths place?",
+        "choices": [
+          "0.4",
+          "0.004",
+          "4",
+          "0.04"
+        ],
+        "answer": "0.04",
+        "explain": "The hundredths place gives the value 0.04.",
+        "audio": "In 19.246, what value is represented by the digit 4 in the hundredths place?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “7” correctly answers “In 20.357, what value is represented by the digit 7 in the thousandths place.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The thousandths place gives the value 0.007.",
+        "audio": "True or false: “7” correctly answers “In 20.357, what value is represented by the digit 7 in the thousandths place.”"
+      },
+      {
+        "type": "mc",
+        "q": "In 21.468, what value is represented by the digit 4 in the tenths place?",
+        "choices": [
+          "0.4",
+          "0.004",
+          "0.04",
+          "4"
+        ],
+        "answer": "0.4",
+        "explain": "The tenths place gives the value 0.4.",
+        "audio": "In 21.468, what value is represented by the digit 4 in the tenths place?"
+      },
+      {
+        "type": "mc",
+        "q": "In 22.571, what value is represented by the digit 7 in the hundredths place?",
+        "choices": [
+          "7",
+          "0.07",
+          "0.007",
+          "0.7"
+        ],
+        "answer": "0.07",
+        "explain": "The hundredths place gives the value 0.07.",
+        "audio": "In 22.571, what value is represented by the digit 7 in the hundredths place?"
+      },
+      {
+        "type": "mc",
+        "q": "In 23.682, what value is represented by the digit 2 in the thousandths place?",
+        "choices": [
+          "0.002",
+          "2",
+          "0.02",
+          "0.2"
+        ],
+        "answer": "0.002",
+        "explain": "The thousandths place gives the value 0.002.",
+        "audio": "In 23.682, what value is represented by the digit 2 in the thousandths place?"
+      },
+      {
+        "type": "mc",
+        "q": "In 24.713, what value is represented by the digit 7 in the tenths place?",
+        "choices": [
+          "0.007",
+          "0.07",
+          "7",
+          "0.7"
+        ],
+        "answer": "0.7",
+        "explain": "The tenths place gives the value 0.7.",
+        "audio": "In 24.713, what value is represented by the digit 7 in the tenths place?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “0.02” correctly answers “In 25.824, what value is represented by the digit 2 in the hundredths place.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The hundredths place gives the value 0.02.",
+        "audio": "True or false: “0.02” correctly answers “In 25.824, what value is represented by the digit 2 in the hundredths place.”"
+      },
+      {
+        "type": "mc",
+        "q": "In 26.135, what value is represented by the digit 5 in the thousandths place?",
+        "choices": [
+          "5",
+          "0.05",
+          "0.5",
+          "0.005"
+        ],
+        "answer": "0.005",
+        "explain": "The thousandths place gives the value 0.005.",
+        "audio": "In 26.135, what value is represented by the digit 5 in the thousandths place?"
+      },
+      {
+        "type": "mc",
+        "q": "In 27.246, what value is represented by the digit 2 in the tenths place?",
+        "choices": [
+          "0.002",
+          "0.02",
+          "0.2",
+          "2"
+        ],
+        "answer": "0.2",
+        "explain": "The tenths place gives the value 0.2.",
+        "audio": "In 27.246, what value is represented by the digit 2 in the tenths place?"
+      },
+      {
+        "type": "mc",
+        "q": "In 28.357, what value is represented by the digit 5 in the hundredths place?",
+        "choices": [
+          "0.5",
+          "0.005",
+          "0.05",
+          "5"
+        ],
+        "answer": "0.05",
+        "explain": "The hundredths place gives the value 0.05.",
+        "audio": "In 28.357, what value is represented by the digit 5 in the hundredths place?"
+      },
+      {
+        "type": "mc",
+        "q": "In 29.468, what value is represented by the digit 8 in the thousandths place?",
+        "choices": [
+          "0.08",
+          "8",
+          "0.008",
+          "0.8"
+        ],
+        "answer": "0.008",
+        "explain": "The thousandths place gives the value 0.008.",
+        "audio": "In 29.468, what value is represented by the digit 8 in the thousandths place?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “5” correctly answers “In 30.571, what value is represented by the digit 5 in the tenths place.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The tenths place gives the value 0.5.",
+        "audio": "True or false: “5” correctly answers “In 30.571, what value is represented by the digit 5 in the tenths place.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “In 26.135, what value is represented by the digit 5 in the thousandths place” and replaces “0.05” using the task's evidence or constraints?",
+        "choices": [
+          "0.005",
+          "0.05",
+          "5",
+          "0.5"
+        ],
+        "answer": "0.005",
+        "explain": "The thousandths place gives the value 0.005. This evidence makes the correct response defensible. The response \"0.05\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “In 26.135, what value is represented by the digit 5 in the thousandths place” and replaces “0.05” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:math:L5": {
+    "name": "Compare Decimals",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Which number is greater?",
+        "choices": [
+          "5.75",
+          "4.57",
+          "4.75",
+          "4.07"
+        ],
+        "answer": "4.75",
+        "audio": "Compare the decimal numbers."
+      },
+      {
+        "type": "mc",
+        "q": "Which number is smallest?",
+        "choices": [
+          "0.38",
+          "0.68",
+          "0.83",
+          "1.38"
+        ],
+        "answer": "0.38",
+        "audio": "Compare the decimal numbers."
+      },
+      {
+        "type": "mc",
+        "q": "Which symbol makes this true? 6.41 ___ 6.14",
+        "choices": [
+          "<",
+          "=",
+          "True",
+          ">"
+        ],
+        "answer": ">",
+        "audio": "Compare the decimal numbers."
+      },
+      {
+        "type": "mc",
+        "q": "Which symbol makes this true? 2.500 ___ 2.5",
+        "choices": [
+          "True",
+          "=",
+          "<",
+          ">"
+        ],
+        "answer": "=",
+        "audio": "Compare the decimal numbers."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the correct symbol: 0.237 ___ 0.238.",
+        "choices": [
+          ">",
+          "cannot be compared",
+          "<",
+          "="
+        ],
+        "answer": "<",
+        "explain": "Compare tenths, then hundredths, then thousandths.",
+        "audio": "Choose the correct symbol: 0.237 ___ 0.238."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the correct symbol: 0.364 ___ 0.365.",
+        "choices": [
+          ">",
+          "=",
+          "cannot be compared",
+          "<"
+        ],
+        "answer": "<",
+        "explain": "Compare tenths, then hundredths, then thousandths.",
+        "audio": "Choose the correct symbol: 0.364 ___ 0.365."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the correct symbol: 0.491 ___ 0.492.",
+        "choices": [
+          "=",
+          "cannot be compared",
+          ">",
+          "<"
+        ],
+        "answer": "<",
+        "explain": "Compare tenths, then hundredths, then thousandths.",
+        "audio": "Choose the correct symbol: 0.491 ___ 0.492."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the correct symbol: 0.528 ___ 0.529.",
+        "choices": [
+          ">",
+          "<",
+          "=",
+          "cannot be compared"
+        ],
+        "answer": "<",
+        "explain": "Compare tenths, then hundredths, then thousandths.",
+        "audio": "Choose the correct symbol: 0.528 ___ 0.529."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “<” correctly answers “Choose the correct symbol: 0.655 ___ 0.656.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Compare tenths, then hundredths, then thousandths.",
+        "audio": "True or false: “<” correctly answers “Choose the correct symbol: 0.655 ___ 0.656.”"
+      },
+      {
+        "type": "mc",
+        "q": "Choose the correct symbol: 0.782 ___ 0.783.",
+        "choices": [
+          "=",
+          "cannot be compared",
+          ">",
+          "<"
+        ],
+        "answer": "<",
+        "explain": "Compare tenths, then hundredths, then thousandths.",
+        "audio": "Choose the correct symbol: 0.782 ___ 0.783."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the correct symbol: 0.819 ___ 0.810.",
+        "choices": [
+          ">",
+          "<",
+          "=",
+          "cannot be compared"
+        ],
+        "answer": ">",
+        "explain": "Compare tenths, then hundredths, then thousandths.",
+        "audio": "Choose the correct symbol: 0.819 ___ 0.810."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the correct symbol: 0.146 ___ 0.147.",
+        "choices": [
+          ">",
+          "cannot be compared",
+          "=",
+          "<"
+        ],
+        "answer": "<",
+        "explain": "Compare tenths, then hundredths, then thousandths.",
+        "audio": "Choose the correct symbol: 0.146 ___ 0.147."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the correct symbol: 0.273 ___ 0.274.",
+        "choices": [
+          ">",
+          "cannot be compared",
+          "<",
+          "="
+        ],
+        "answer": "<",
+        "explain": "Compare tenths, then hundredths, then thousandths.",
+        "audio": "Choose the correct symbol: 0.273 ___ 0.274."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “>” correctly answers “Choose the correct symbol: 0.300 ___ 0.301.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Compare tenths, then hundredths, then thousandths.",
+        "audio": "True or false: “>” correctly answers “Choose the correct symbol: 0.300 ___ 0.301.”"
+      },
+      {
+        "type": "mc",
+        "q": "Choose the correct symbol: 0.437 ___ 0.438.",
+        "choices": [
+          "<",
+          "=",
+          "cannot be compared",
+          ">"
+        ],
+        "answer": "<",
+        "explain": "Compare tenths, then hundredths, then thousandths.",
+        "audio": "Choose the correct symbol: 0.437 ___ 0.438."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the correct symbol: 0.564 ___ 0.565.",
+        "choices": [
+          "=",
+          ">",
+          "cannot be compared",
+          "<"
+        ],
+        "answer": "<",
+        "explain": "Compare tenths, then hundredths, then thousandths.",
+        "audio": "Choose the correct symbol: 0.564 ___ 0.565."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the correct symbol: 0.691 ___ 0.692.",
+        "choices": [
+          "<",
+          "=",
+          ">",
+          "cannot be compared"
+        ],
+        "answer": "<",
+        "explain": "Compare tenths, then hundredths, then thousandths.",
+        "audio": "Choose the correct symbol: 0.691 ___ 0.692."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the correct symbol: 0.728 ___ 0.729.",
+        "choices": [
+          "<",
+          ">",
+          "cannot be compared",
+          "="
+        ],
+        "answer": "<",
+        "explain": "Compare tenths, then hundredths, then thousandths.",
+        "audio": "Choose the correct symbol: 0.728 ___ 0.729."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “<” correctly answers “Choose the correct symbol: 0.855 ___ 0.856.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Compare tenths, then hundredths, then thousandths.",
+        "audio": "True or false: “<” correctly answers “Choose the correct symbol: 0.855 ___ 0.856.”"
+      },
+      {
+        "type": "mc",
+        "q": "Choose the correct symbol: 0.182 ___ 0.183.",
+        "choices": [
+          "<",
+          "cannot be compared",
+          "=",
+          ">"
+        ],
+        "answer": "<",
+        "explain": "Compare tenths, then hundredths, then thousandths.",
+        "audio": "Choose the correct symbol: 0.182 ___ 0.183."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the correct symbol: 0.219 ___ 0.210.",
+        "choices": [
+          "cannot be compared",
+          "=",
+          "<",
+          ">"
+        ],
+        "answer": ">",
+        "explain": "Compare tenths, then hundredths, then thousandths.",
+        "audio": "Choose the correct symbol: 0.219 ___ 0.210."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the correct symbol: 0.346 ___ 0.347.",
+        "choices": [
+          "<",
+          ">",
+          "cannot be compared",
+          "="
+        ],
+        "answer": "<",
+        "explain": "Compare tenths, then hundredths, then thousandths.",
+        "audio": "Choose the correct symbol: 0.346 ___ 0.347."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the correct symbol: 0.473 ___ 0.474.",
+        "choices": [
+          "cannot be compared",
+          "=",
+          ">",
+          "<"
+        ],
+        "answer": "<",
+        "explain": "Compare tenths, then hundredths, then thousandths.",
+        "audio": "Choose the correct symbol: 0.473 ___ 0.474."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “>” correctly answers “Choose the correct symbol: 0.500 ___ 0.501.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Compare tenths, then hundredths, then thousandths.",
+        "audio": "True or false: “>” correctly answers “Choose the correct symbol: 0.500 ___ 0.501.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “Choose the correct symbol: 0.182 ___ 0.183” and replaces “=” using the task's evidence or constraints?",
+        "choices": [
+          ">",
+          "=",
+          "<",
+          "cannot be compared"
+        ],
+        "answer": "<",
+        "explain": "Compare tenths, then hundredths, then thousandths. This evidence makes the correct response defensible. The response \"=\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “Choose the correct symbol: 0.182 ___ 0.183” and replaces “=” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:math:L2": {
+    "name": "Fraction Operations",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "1/2 + 1/4 = ?",
+        "choices": [
+          "3/4",
+          "2/6",
+          "1/6",
+          "0"
+        ],
+        "answer": "3/4",
+        "audio": "Fraction operation."
+      },
+      {
+        "type": "mc",
+        "q": "3/4 − 1/4 = ?",
+        "choices": [
+          "3/8",
+          "0",
+          "1/4",
+          "2/4"
+        ],
+        "answer": "2/4",
+        "audio": "Fraction operation."
+      },
+      {
+        "type": "mc",
+        "q": "1/3 + 1/3 = ?",
+        "choices": [
+          "3/3",
+          "0",
+          "2/3",
+          "1/6"
+        ],
+        "answer": "2/3",
+        "audio": "Fraction operation."
+      },
+      {
+        "type": "mc",
+        "q": "Add 2/3 + 4/5. Use a common denominator and simplify.",
+        "choices": [
+          "22/15",
+          "7/5",
+          "23/15",
+          "3/4"
+        ],
+        "answer": "22/15",
+        "explain": "A common denominator of 15 produces 22/15.",
+        "audio": "Add 2/3 + 4/5. Use a common denominator and simplify."
+      },
+      {
+        "type": "mc",
+        "q": "Add 3/4 + 5/6. Use a common denominator and simplify.",
+        "choices": [
+          "3/2",
+          "4/5",
+          "5/3",
+          "19/12"
+        ],
+        "answer": "19/12",
+        "explain": "A common denominator of 12 produces 19/12.",
+        "audio": "Add 3/4 + 5/6. Use a common denominator and simplify."
+      },
+      {
+        "type": "mc",
+        "q": "Add 4/5 + 6/7. Use a common denominator and simplify.",
+        "choices": [
+          "58/35",
+          "57/35",
+          "5/6",
+          "59/35"
+        ],
+        "answer": "58/35",
+        "explain": "A common denominator of 35 produces 58/35.",
+        "audio": "Add 4/5 + 6/7. Use a common denominator and simplify."
+      },
+      {
+        "type": "mc",
+        "q": "Add 5/6 + 1/3. Use a common denominator and simplify.",
+        "choices": [
+          "2/3",
+          "1",
+          "4/3",
+          "7/6"
+        ],
+        "answer": "7/6",
+        "explain": "A common denominator of 6 produces 7/6.",
+        "audio": "Add 5/6 + 1/3. Use a common denominator and simplify."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “2” correctly answers “Add 2/2 + 4/4. Use a common denominator and simplify.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A common denominator of 4 produces 2.",
+        "audio": "True or false: “2” correctly answers “Add 2/2 + 4/4. Use a common denominator and simplify.”"
+      },
+      {
+        "type": "mc",
+        "q": "Add 1/3 + 4/5. Use a common denominator and simplify.",
+        "choices": [
+          "16/15",
+          "6/5",
+          "17/15",
+          "5/8"
+        ],
+        "answer": "17/15",
+        "explain": "A common denominator of 15 produces 17/15.",
+        "audio": "Add 1/3 + 4/5. Use a common denominator and simplify."
+      },
+      {
+        "type": "mc",
+        "q": "Add 4/4 + 4/6. Use a common denominator and simplify.",
+        "choices": [
+          "5/3",
+          "7/4",
+          "4/5",
+          "19/12"
+        ],
+        "answer": "5/3",
+        "explain": "A common denominator of 12 produces 5/3.",
+        "audio": "Add 4/4 + 4/6. Use a common denominator and simplify."
+      },
+      {
+        "type": "mc",
+        "q": "Add 4/5 + 4/7. Use a common denominator and simplify.",
+        "choices": [
+          "47/35",
+          "7/5",
+          "48/35",
+          "2/3"
+        ],
+        "answer": "48/35",
+        "explain": "A common denominator of 35 produces 48/35.",
+        "audio": "Add 4/5 + 4/7. Use a common denominator and simplify."
+      },
+      {
+        "type": "mc",
+        "q": "Add 4/6 + 3/3. Use a common denominator and simplify.",
+        "choices": [
+          "3/2",
+          "7/9",
+          "5/3",
+          "11/6"
+        ],
+        "answer": "5/3",
+        "explain": "A common denominator of 6 produces 5/3.",
+        "audio": "Add 4/6 + 3/3. Use a common denominator and simplify."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “1/3” correctly answers “Add 1/2 + 1/4. Use a common denominator and simplify.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. A common denominator of 4 produces 3/4.",
+        "audio": "True or false: “1/3” correctly answers “Add 1/2 + 1/4. Use a common denominator and simplify.”"
+      },
+      {
+        "type": "mc",
+        "q": "Add 3/3 + 4/5. Use a common denominator and simplify.",
+        "choices": [
+          "9/5",
+          "26/15",
+          "28/15",
+          "7/8"
+        ],
+        "answer": "9/5",
+        "explain": "A common denominator of 15 produces 9/5.",
+        "audio": "Add 3/3 + 4/5. Use a common denominator and simplify."
+      },
+      {
+        "type": "mc",
+        "q": "Find the positive difference 1/4 and 3/6. Use a common denominator and simplify.",
+        "choices": [
+          "1/3",
+          "2/5",
+          "1/4",
+          "1/6"
+        ],
+        "answer": "1/4",
+        "explain": "A common denominator of 12 produces 1/4.",
+        "audio": "Find the positive difference 1/4 and 3/6. Use a common denominator and simplify."
+      },
+      {
+        "type": "mc",
+        "q": "Add 4/5 + 2/7. Use a common denominator and simplify.",
+        "choices": [
+          "38/35",
+          "39/35",
+          "1/2",
+          "37/35"
+        ],
+        "answer": "38/35",
+        "explain": "A common denominator of 35 produces 38/35.",
+        "audio": "Add 4/5 + 2/7. Use a common denominator and simplify."
+      },
+      {
+        "type": "mc",
+        "q": "Find the positive difference 3/6 and 2/3. Use a common denominator and simplify.",
+        "choices": [
+          "1/6",
+          "7/6",
+          "5/9",
+          "1/3"
+        ],
+        "answer": "1/6",
+        "explain": "A common denominator of 6 produces 1/6.",
+        "audio": "Find the positive difference 3/6 and 2/3. Use a common denominator and simplify."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “3/2” correctly answers “Add 2/2 + 2/4. Use a common denominator and simplify.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A common denominator of 4 produces 3/2.",
+        "audio": "True or false: “3/2” correctly answers “Add 2/2 + 2/4. Use a common denominator and simplify.”"
+      },
+      {
+        "type": "mc",
+        "q": "Find the positive difference 2/3 and 4/5. Use a common denominator and simplify.",
+        "choices": [
+          "2/15",
+          "1/15",
+          "1/5",
+          "3/4"
+        ],
+        "answer": "2/15",
+        "explain": "A common denominator of 15 produces 2/15.",
+        "audio": "Find the positive difference 2/3 and 4/5. Use a common denominator and simplify."
+      },
+      {
+        "type": "mc",
+        "q": "Add 2/4 + 2/6. Use a common denominator and simplify.",
+        "choices": [
+          "5/6",
+          "2/5",
+          "11/12",
+          "3/4"
+        ],
+        "answer": "5/6",
+        "explain": "A common denominator of 12 produces 5/6.",
+        "audio": "Add 2/4 + 2/6. Use a common denominator and simplify."
+      },
+      {
+        "type": "mc",
+        "q": "Find the positive difference 4/5 and 7/7. Use a common denominator and simplify.",
+        "choices": [
+          "1/5",
+          "6/35",
+          "11/12",
+          "8/35"
+        ],
+        "answer": "1/5",
+        "explain": "A common denominator of 35 produces 1/5.",
+        "audio": "Find the positive difference 4/5 and 7/7. Use a common denominator and simplify."
+      },
+      {
+        "type": "mc",
+        "q": "Add 2/6 + 1/3. Use a common denominator and simplify.",
+        "choices": [
+          "1/3",
+          "2/3",
+          "1/2",
+          "5/6"
+        ],
+        "answer": "2/3",
+        "explain": "A common denominator of 6 produces 2/3.",
+        "audio": "Add 2/6 + 1/3. Use a common denominator and simplify."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “2/3” correctly answers “Find the positive difference 1/2 and 3/4. Use a common denominator and simplify.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. A common denominator of 4 produces 1/4.",
+        "audio": "True or false: “2/3” correctly answers “Find the positive difference 1/2 and 3/4. Use a common denominator and simplify.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “Find the positive difference 2/3 and 4/5. Use a common denominator and simplify” and replaces “1/15” using the task's evidence or constraints?",
+        "choices": [
+          "1/15",
+          "3/4",
+          "1/5",
+          "2/15"
+        ],
+        "answer": "2/15",
+        "explain": "A common denominator of 15 produces 2/15. This evidence makes the correct response defensible. The response \"1/15\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “Find the positive difference 2/3 and 4/5. Use a common denominator and simplify” and replaces “1/15” using the task's evidence or constraints?"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer to “Add 2/4 + 2/6. Use a common denominator and simplify” fits all the given evidence and lesson rules?",
+        "choices": [
+          "11/12",
+          "3/4",
+          "2/5",
+          "5/6"
+        ],
+        "answer": "5/6",
+        "explain": "A common denominator of 12 produces 5/6. This evidence makes the correct response defensible. The response \"2/5\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer to “Add 2/4 + 2/6. Use a common denominator and simplify” fits all the given evidence and lesson rules?"
+      }
+    ]
+  },
+  "g5:math:L6": {
+    "name": "Equivalent Fractions",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Which fraction is equivalent to 1/2?",
+        "choices": [
+          "3/8",
+          "0",
+          "5/8",
+          "4/8"
+        ],
+        "answer": "4/8",
+        "audio": "Find the equivalent fraction."
+      },
+      {
+        "type": "mc",
+        "q": "Which fraction is equivalent to 3/4?",
+        "choices": [
+          "6/8",
+          "0",
+          "7/8",
+          "4/8"
+        ],
+        "answer": "6/8",
+        "audio": "Find the equivalent fraction."
+      },
+      {
+        "type": "mc",
+        "q": "Which fraction is equivalent to 2/3?",
+        "choices": [
+          "5/6",
+          "0",
+          "4/6",
+          "3/6"
+        ],
+        "answer": "4/6",
+        "audio": "Find the equivalent fraction."
+      },
+      {
+        "type": "mc",
+        "q": "Which fraction is equivalent to 1/5?",
+        "choices": [
+          "5/10",
+          "3/10",
+          "0",
+          "2/10"
+        ],
+        "answer": "2/10",
+        "audio": "Find the equivalent fraction."
+      },
+      {
+        "type": "mc",
+        "q": "Before adding 2/4 + 4/6, which equivalent pair correctly uses the least common denominator?",
+        "choices": [
+          "6/12 and 8/12",
+          "2/12 and 4/12",
+          "24/4 and 48/6",
+          "6/12 and 6/12"
+        ],
+        "answer": "6/12 and 8/12",
+        "explain": "The least common denominator is 12; multiply each numerator and denominator by its matching factor.",
+        "audio": "Before adding 2/4 + 4/6, which equivalent pair correctly uses the least common denominator?"
+      },
+      {
+        "type": "mc",
+        "q": "Before adding 3/5 + 1/7, which equivalent pair correctly uses the least common denominator?",
+        "choices": [
+          "105/5 and 35/7",
+          "21/35 and 5/35",
+          "3/35 and 1/35",
+          "4/35 and 4/35"
+        ],
+        "answer": "21/35 and 5/35",
+        "explain": "The least common denominator is 35; multiply each numerator and denominator by its matching factor.",
+        "audio": "Before adding 3/5 + 1/7, which equivalent pair correctly uses the least common denominator?"
+      },
+      {
+        "type": "mc",
+        "q": "Before adding 4/6 + 2/8, which equivalent pair correctly uses the least common denominator?",
+        "choices": [
+          "6/24 and 6/24",
+          "4/24 and 2/24",
+          "16/24 and 6/24",
+          "96/6 and 48/8"
+        ],
+        "answer": "16/24 and 6/24",
+        "explain": "The least common denominator is 24; multiply each numerator and denominator by its matching factor.",
+        "audio": "Before adding 4/6 + 2/8, which equivalent pair correctly uses the least common denominator?"
+      },
+      {
+        "type": "mc",
+        "q": "Before adding 1/7 + 3/4, which equivalent pair correctly uses the least common denominator?",
+        "choices": [
+          "4/28 and 21/28",
+          "4/28 and 4/28",
+          "28/7 and 84/4",
+          "1/28 and 3/28"
+        ],
+        "answer": "4/28 and 21/28",
+        "explain": "The least common denominator is 28; multiply each numerator and denominator by its matching factor.",
+        "audio": "Before adding 1/7 + 3/4, which equivalent pair correctly uses the least common denominator?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “10/15 and 12/15” correctly answers “Before adding 2/3 + 4/5, which equivalent pair correctly uses the least common denominator.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The least common denominator is 15; multiply each numerator and denominator by its matching factor.",
+        "audio": "True or false: “10/15 and 12/15” correctly answers “Before adding 2/3 + 4/5, which equivalent pair correctly uses the least common denominator.”"
+      },
+      {
+        "type": "mc",
+        "q": "Before adding 3/4 + 1/6, which equivalent pair correctly uses the least common denominator?",
+        "choices": [
+          "36/4 and 12/6",
+          "3/12 and 1/12",
+          "9/12 and 2/12",
+          "4/12 and 4/12"
+        ],
+        "answer": "9/12 and 2/12",
+        "explain": "The least common denominator is 12; multiply each numerator and denominator by its matching factor.",
+        "audio": "Before adding 3/4 + 1/6, which equivalent pair correctly uses the least common denominator?"
+      },
+      {
+        "type": "mc",
+        "q": "Before adding 4/5 + 2/7, which equivalent pair correctly uses the least common denominator?",
+        "choices": [
+          "140/5 and 70/7",
+          "4/35 and 2/35",
+          "6/35 and 6/35",
+          "28/35 and 10/35"
+        ],
+        "answer": "28/35 and 10/35",
+        "explain": "The least common denominator is 35; multiply each numerator and denominator by its matching factor.",
+        "audio": "Before adding 4/5 + 2/7, which equivalent pair correctly uses the least common denominator?"
+      },
+      {
+        "type": "mc",
+        "q": "Before adding 1/6 + 3/8, which equivalent pair correctly uses the least common denominator?",
+        "choices": [
+          "4/24 and 9/24",
+          "24/6 and 72/8",
+          "4/24 and 4/24",
+          "1/24 and 3/24"
+        ],
+        "answer": "4/24 and 9/24",
+        "explain": "The least common denominator is 24; multiply each numerator and denominator by its matching factor.",
+        "audio": "Before adding 1/6 + 3/8, which equivalent pair correctly uses the least common denominator?"
+      },
+      {
+        "type": "mc",
+        "q": "Before adding 2/7 + 4/4, which equivalent pair correctly uses the least common denominator?",
+        "choices": [
+          "8/28 and 28/28",
+          "2/28 and 4/28",
+          "56/7 and 112/4",
+          "6/28 and 6/28"
+        ],
+        "answer": "8/28 and 28/28",
+        "explain": "The least common denominator is 28; multiply each numerator and denominator by its matching factor.",
+        "audio": "Before adding 2/7 + 4/4, which equivalent pair correctly uses the least common denominator?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “4/15 and 4/15” correctly answers “Before adding 3/3 + 1/5, which equivalent pair correctly uses the least common denominator.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The least common denominator is 15; multiply each numerator and denominator by its matching factor.",
+        "audio": "True or false: “4/15 and 4/15” correctly answers “Before adding 3/3 + 1/5, which equivalent pair correctly uses the least common denominator.”"
+      },
+      {
+        "type": "mc",
+        "q": "Before adding 4/4 + 2/6, which equivalent pair correctly uses the least common denominator?",
+        "choices": [
+          "4/12 and 2/12",
+          "48/4 and 24/6",
+          "6/12 and 6/12",
+          "12/12 and 4/12"
+        ],
+        "answer": "12/12 and 4/12",
+        "explain": "The least common denominator is 12; multiply each numerator and denominator by its matching factor.",
+        "audio": "Before adding 4/4 + 2/6, which equivalent pair correctly uses the least common denominator?"
+      },
+      {
+        "type": "mc",
+        "q": "Before adding 1/5 + 3/7, which equivalent pair correctly uses the least common denominator?",
+        "choices": [
+          "1/35 and 3/35",
+          "4/35 and 4/35",
+          "7/35 and 15/35",
+          "35/5 and 105/7"
+        ],
+        "answer": "7/35 and 15/35",
+        "explain": "The least common denominator is 35; multiply each numerator and denominator by its matching factor.",
+        "audio": "Before adding 1/5 + 3/7, which equivalent pair correctly uses the least common denominator?"
+      },
+      {
+        "type": "mc",
+        "q": "Before adding 2/6 + 4/8, which equivalent pair correctly uses the least common denominator?",
+        "choices": [
+          "2/24 and 4/24",
+          "6/24 and 6/24",
+          "48/6 and 96/8",
+          "8/24 and 12/24"
+        ],
+        "answer": "8/24 and 12/24",
+        "explain": "The least common denominator is 24; multiply each numerator and denominator by its matching factor.",
+        "audio": "Before adding 2/6 + 4/8, which equivalent pair correctly uses the least common denominator?"
+      },
+      {
+        "type": "mc",
+        "q": "Before adding 3/7 + 1/4, which equivalent pair correctly uses the least common denominator?",
+        "choices": [
+          "84/7 and 28/4",
+          "3/28 and 1/28",
+          "4/28 and 4/28",
+          "12/28 and 7/28"
+        ],
+        "answer": "12/28 and 7/28",
+        "explain": "The least common denominator is 28; multiply each numerator and denominator by its matching factor.",
+        "audio": "Before adding 3/7 + 1/4, which equivalent pair correctly uses the least common denominator?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “20/15 and 6/15” correctly answers “Before adding 4/3 + 2/5, which equivalent pair correctly uses the least common denominator.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The least common denominator is 15; multiply each numerator and denominator by its matching factor.",
+        "audio": "True or false: “20/15 and 6/15” correctly answers “Before adding 4/3 + 2/5, which equivalent pair correctly uses the least common denominator.”"
+      },
+      {
+        "type": "mc",
+        "q": "Before adding 1/4 + 3/6, which equivalent pair correctly uses the least common denominator?",
+        "choices": [
+          "3/12 and 6/12",
+          "4/12 and 4/12",
+          "1/12 and 3/12",
+          "12/4 and 36/6"
+        ],
+        "answer": "3/12 and 6/12",
+        "explain": "The least common denominator is 12; multiply each numerator and denominator by its matching factor.",
+        "audio": "Before adding 1/4 + 3/6, which equivalent pair correctly uses the least common denominator?"
+      },
+      {
+        "type": "mc",
+        "q": "Before adding 2/5 + 4/7, which equivalent pair correctly uses the least common denominator?",
+        "choices": [
+          "14/35 and 20/35",
+          "70/5 and 140/7",
+          "2/35 and 4/35",
+          "6/35 and 6/35"
+        ],
+        "answer": "14/35 and 20/35",
+        "explain": "The least common denominator is 35; multiply each numerator and denominator by its matching factor.",
+        "audio": "Before adding 2/5 + 4/7, which equivalent pair correctly uses the least common denominator?"
+      },
+      {
+        "type": "mc",
+        "q": "Before adding 3/6 + 1/8, which equivalent pair correctly uses the least common denominator?",
+        "choices": [
+          "12/24 and 3/24",
+          "72/6 and 24/8",
+          "3/24 and 1/24",
+          "4/24 and 4/24"
+        ],
+        "answer": "12/24 and 3/24",
+        "explain": "The least common denominator is 24; multiply each numerator and denominator by its matching factor.",
+        "audio": "Before adding 3/6 + 1/8, which equivalent pair correctly uses the least common denominator?"
+      },
+      {
+        "type": "mc",
+        "q": "Before adding 4/7 + 2/4, which equivalent pair correctly uses the least common denominator?",
+        "choices": [
+          "6/28 and 6/28",
+          "16/28 and 14/28",
+          "112/7 and 56/4",
+          "4/28 and 2/28"
+        ],
+        "answer": "16/28 and 14/28",
+        "explain": "The least common denominator is 28; multiply each numerator and denominator by its matching factor.",
+        "audio": "Before adding 4/7 + 2/4, which equivalent pair correctly uses the least common denominator?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “4/15 and 4/15” correctly answers “Before adding 1/3 + 3/5, which equivalent pair correctly uses the least common denominator.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The least common denominator is 15; multiply each numerator and denominator by its matching factor.",
+        "audio": "True or false: “4/15 and 4/15” correctly answers “Before adding 1/3 + 3/5, which equivalent pair correctly uses the least common denominator.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “Before adding 1/4 + 3/6, which equivalent pair correctly uses the least common denominator” and replaces “1/12 and 3/12” using the task's evidence or constraints?",
+        "choices": [
+          "3/12 and 6/12",
+          "1/12 and 3/12",
+          "12/4 and 36/6",
+          "4/12 and 4/12"
+        ],
+        "answer": "3/12 and 6/12",
+        "explain": "The least common denominator is 12; multiply each numerator and denominator by its matching factor. This evidence makes the correct response defensible. The response \"1/12 and 3/12\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “Before adding 1/4 + 3/6, which equivalent pair correctly uses the least common denominator” and replaces “1/12 and 3/12” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:math:L7": {
+    "name": "Mixed Numbers",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Convert 7/4 to a mixed number.",
+        "choices": [
+          "2 1/4",
+          "Number",
+          "1 1/4",
+          "1 3/4"
+        ],
+        "answer": "1 3/4",
+        "audio": "Work with mixed numbers."
+      },
+      {
+        "type": "mc",
+        "q": "Convert 11/3 to a mixed number.",
+        "choices": [
+          "4 1/3",
+          "Number",
+          "2 3/3",
+          "3 2/3"
+        ],
+        "answer": "3 2/3",
+        "audio": "Work with mixed numbers."
+      },
+      {
+        "type": "mc",
+        "q": "Convert 2 1/2 to an improper fraction.",
+        "choices": [
+          "0",
+          "3/2",
+          "5/2",
+          "4/2"
+        ],
+        "answer": "5/2",
+        "audio": "Work with mixed numbers."
+      },
+      {
+        "type": "mc",
+        "q": "Convert 3 3/4 to an improper fraction.",
+        "choices": [
+          "15/4",
+          "12/4",
+          "0",
+          "14/4"
+        ],
+        "answer": "15/4",
+        "audio": "Work with mixed numbers."
+      },
+      {
+        "type": "mc",
+        "q": "Add the mixed numbers 1 2/4 + 2 3/4. Regroup and simplify when needed.",
+        "choices": [
+          "5 1/4",
+          "17/5",
+          "3 1/4",
+          "4 1/4"
+        ],
+        "answer": "4 1/4",
+        "explain": "Combine whole and fractional parts, regroup 4/4 when needed, and simplify to 4 1/4.",
+        "audio": "Add the mixed numbers 1 2/4 + 2 3/4. Regroup and simplify when needed."
+      },
+      {
+        "type": "mc",
+        "q": "Add the mixed numbers 1 3/5 + 3 4/5. Regroup and simplify when needed.",
+        "choices": [
+          "4 2/5",
+          "5 2/5",
+          "6 2/5",
+          "9/2"
+        ],
+        "answer": "5 2/5",
+        "explain": "Combine whole and fractional parts, regroup 5/5 when needed, and simplify to 5 2/5.",
+        "audio": "Add the mixed numbers 1 3/5 + 3 4/5. Regroup and simplify when needed."
+      },
+      {
+        "type": "mc",
+        "q": "Add the mixed numbers 1 4/6 + 1 5/6. Regroup and simplify when needed.",
+        "choices": [
+          "3 1/2",
+          "4 1/2",
+          "3",
+          "2 1/2"
+        ],
+        "answer": "3 1/2",
+        "explain": "Combine whole and fractional parts, regroup 6/6 when needed, and simplify to 3 1/2.",
+        "audio": "Add the mixed numbers 1 4/6 + 1 5/6. Regroup and simplify when needed."
+      },
+      {
+        "type": "mc",
+        "q": "Add the mixed numbers 1 5/7 + 2 6/7. Regroup and simplify when needed.",
+        "choices": [
+          "4 4/7",
+          "4",
+          "3 4/7",
+          "5 4/7"
+        ],
+        "answer": "4 4/7",
+        "explain": "Combine whole and fractional parts, regroup 7/7 when needed, and simplify to 4 4/7.",
+        "audio": "Add the mixed numbers 1 5/7 + 2 6/7. Regroup and simplify when needed."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “5” correctly answers “Add the mixed numbers 1 2/3 + 3 1/3. Regroup and simplify when needed.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Combine whole and fractional parts, regroup 3/3 when needed, and simplify to 5.",
+        "audio": "True or false: “5” correctly answers “Add the mixed numbers 1 2/3 + 3 1/3. Regroup and simplify when needed.”"
+      },
+      {
+        "type": "mc",
+        "q": "Add the mixed numbers 2 1/4 + 1 2/4. Regroup and simplify when needed.",
+        "choices": [
+          "4 3/4",
+          "3",
+          "4",
+          "3 3/4"
+        ],
+        "answer": "3 3/4",
+        "explain": "Combine whole and fractional parts, regroup 4/4 when needed, and simplify to 3 3/4.",
+        "audio": "Add the mixed numbers 2 1/4 + 1 2/4. Regroup and simplify when needed."
+      },
+      {
+        "type": "mc",
+        "q": "Add the mixed numbers 2 4/5 + 2 1/5. Regroup and simplify when needed.",
+        "choices": [
+          "5",
+          "25/6",
+          "6 1/5",
+          "4 1/5"
+        ],
+        "answer": "5",
+        "explain": "Combine whole and fractional parts, regroup 5/5 when needed, and simplify to 5.",
+        "audio": "Add the mixed numbers 2 4/5 + 2 1/5. Regroup and simplify when needed."
+      },
+      {
+        "type": "mc",
+        "q": "Add the mixed numbers 2 4/6 + 3 5/6. Regroup and simplify when needed.",
+        "choices": [
+          "39/7",
+          "6 1/2",
+          "5 1/2",
+          "7 1/2"
+        ],
+        "answer": "6 1/2",
+        "explain": "Combine whole and fractional parts, regroup 6/6 when needed, and simplify to 6 1/2.",
+        "audio": "Add the mixed numbers 2 4/6 + 3 5/6. Regroup and simplify when needed."
+      },
+      {
+        "type": "mc",
+        "q": "Add the mixed numbers 2 4/7 + 1 5/7. Regroup and simplify when needed.",
+        "choices": [
+          "4 2/7",
+          "15/4",
+          "5 2/7",
+          "3 2/7"
+        ],
+        "answer": "4 2/7",
+        "explain": "Combine whole and fractional parts, regroup 7/7 when needed, and simplify to 4 2/7.",
+        "audio": "Add the mixed numbers 2 4/7 + 1 5/7. Regroup and simplify when needed."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “4 1/3” correctly answers “Add the mixed numbers 2 1/3 + 2 2/3. Regroup and simplify when needed.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Combine whole and fractional parts, regroup 3/3 when needed, and simplify to 5.",
+        "audio": "True or false: “4 1/3” correctly answers “Add the mixed numbers 2 1/3 + 2 2/3. Regroup and simplify when needed.”"
+      },
+      {
+        "type": "mc",
+        "q": "Add the mixed numbers 3 3/4 + 3 1/4. Regroup and simplify when needed.",
+        "choices": [
+          "7",
+          "28/5",
+          "6 1/4",
+          "8 1/4"
+        ],
+        "answer": "7",
+        "explain": "Combine whole and fractional parts, regroup 4/4 when needed, and simplify to 7.",
+        "audio": "Add the mixed numbers 3 3/4 + 3 1/4. Regroup and simplify when needed."
+      },
+      {
+        "type": "mc",
+        "q": "Add the mixed numbers 3 1/5 + 1 2/5. Regroup and simplify when needed.",
+        "choices": [
+          "4 3/5",
+          "4",
+          "5 3/5",
+          "23/6"
+        ],
+        "answer": "4 3/5",
+        "explain": "Combine whole and fractional parts, regroup 5/5 when needed, and simplify to 4 3/5.",
+        "audio": "Add the mixed numbers 3 1/5 + 1 2/5. Regroup and simplify when needed."
+      },
+      {
+        "type": "mc",
+        "q": "Add the mixed numbers 3 4/6 + 2 5/6. Regroup and simplify when needed.",
+        "choices": [
+          "6 1/2",
+          "7 1/2",
+          "39/7",
+          "5 1/2"
+        ],
+        "answer": "6 1/2",
+        "explain": "Combine whole and fractional parts, regroup 6/6 when needed, and simplify to 6 1/2.",
+        "audio": "Add the mixed numbers 3 4/6 + 2 5/6. Regroup and simplify when needed."
+      },
+      {
+        "type": "mc",
+        "q": "Add the mixed numbers 3 3/7 + 3 4/7. Regroup and simplify when needed.",
+        "choices": [
+          "8 1/7",
+          "49/8",
+          "7",
+          "6 1/7"
+        ],
+        "answer": "7",
+        "explain": "Combine whole and fractional parts, regroup 7/7 when needed, and simplify to 7.",
+        "audio": "Add the mixed numbers 3 3/7 + 3 4/7. Regroup and simplify when needed."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “5” correctly answers “Add the mixed numbers 3 2/3 + 1 1/3. Regroup and simplify when needed.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Combine whole and fractional parts, regroup 3/3 when needed, and simplify to 5.",
+        "audio": "True or false: “5” correctly answers “Add the mixed numbers 3 2/3 + 1 1/3. Regroup and simplify when needed.”"
+      },
+      {
+        "type": "mc",
+        "q": "Add the mixed numbers 4 2/4 + 2 3/4. Regroup and simplify when needed.",
+        "choices": [
+          "7 1/4",
+          "29/5",
+          "6 1/4",
+          "8 1/4"
+        ],
+        "answer": "7 1/4",
+        "explain": "Combine whole and fractional parts, regroup 4/4 when needed, and simplify to 7 1/4.",
+        "audio": "Add the mixed numbers 4 2/4 + 2 3/4. Regroup and simplify when needed."
+      },
+      {
+        "type": "mc",
+        "q": "Add the mixed numbers 4 2/5 + 3 3/5. Regroup and simplify when needed.",
+        "choices": [
+          "8",
+          "9 1/5",
+          "7 1/5",
+          "20/3"
+        ],
+        "answer": "8",
+        "explain": "Combine whole and fractional parts, regroup 5/5 when needed, and simplify to 8.",
+        "audio": "Add the mixed numbers 4 2/5 + 3 3/5. Regroup and simplify when needed."
+      },
+      {
+        "type": "mc",
+        "q": "Add the mixed numbers 4 4/6 + 1 5/6. Regroup and simplify when needed.",
+        "choices": [
+          "5 1/2",
+          "6 1/2",
+          "7 1/2",
+          "39/7"
+        ],
+        "answer": "6 1/2",
+        "explain": "Combine whole and fractional parts, regroup 6/6 when needed, and simplify to 6 1/2.",
+        "audio": "Add the mixed numbers 4 4/6 + 1 5/6. Regroup and simplify when needed."
+      },
+      {
+        "type": "mc",
+        "q": "Add the mixed numbers 4 2/7 + 2 3/7. Regroup and simplify when needed.",
+        "choices": [
+          "7 5/7",
+          "47/8",
+          "6",
+          "6 5/7"
+        ],
+        "answer": "6 5/7",
+        "explain": "Combine whole and fractional parts, regroup 7/7 when needed, and simplify to 6 5/7.",
+        "audio": "Add the mixed numbers 4 2/7 + 2 3/7. Regroup and simplify when needed."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “7 1/3” correctly answers “Add the mixed numbers 4 1/3 + 3 2/3. Regroup and simplify when needed.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Combine whole and fractional parts, regroup 3/3 when needed, and simplify to 8.",
+        "audio": "True or false: “7 1/3” correctly answers “Add the mixed numbers 4 1/3 + 3 2/3. Regroup and simplify when needed.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “Add the mixed numbers 4 2/4 + 2 3/4. Regroup and simplify when needed” and replaces “29/5” using the task's evidence or constraints?",
+        "choices": [
+          "8 1/4",
+          "29/5",
+          "6 1/4",
+          "7 1/4"
+        ],
+        "answer": "7 1/4",
+        "explain": "Combine whole and fractional parts, regroup 4/4 when needed, and simplify to 7 1/4. This evidence makes the correct response defensible. The response \"29/5\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “Add the mixed numbers 4 2/4 + 2 3/4. Regroup and simplify when needed” and replaces “29/5” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:math:L3": {
+    "name": "Order of Operations",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "9 + 3 × 3 = ?",
+        "choices": [
+          "23",
+          "0",
+          "18",
+          "17"
+        ],
+        "answer": "18",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "5 + 4 × 9 = ?",
+        "choices": [
+          "44",
+          "41",
+          "43",
+          "0"
+        ],
+        "answer": "41",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "9 + 7 × 3 = ?",
+        "choices": [
+          "24",
+          "0",
+          "31",
+          "30"
+        ],
+        "answer": "30",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "8 + 3 × 8 = ?",
+        "choices": [
+          "27",
+          "26",
+          "0",
+          "32"
+        ],
+        "answer": "32",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "5 + 3 × 6 = ?",
+        "choices": [
+          "0",
+          "25",
+          "27",
+          "23"
+        ],
+        "answer": "23",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "4 + 3 × 3 = ?",
+        "choices": [
+          "0",
+          "19",
+          "15",
+          "13"
+        ],
+        "answer": "13",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "4 + 4 × 4 = ?",
+        "choices": [
+          "20",
+          "0",
+          "19",
+          "21"
+        ],
+        "answer": "20",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "7 + 6 × 6 = ?",
+        "choices": [
+          "43",
+          "0",
+          "42",
+          "47"
+        ],
+        "answer": "43",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "5 + 7 × 2 = ?",
+        "choices": [
+          "19",
+          "17",
+          "0",
+          "13"
+        ],
+        "answer": "19",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "5 + 7 × 9 = ?",
+        "choices": [
+          "68",
+          "67",
+          "0",
+          "64"
+        ],
+        "answer": "68",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "5 + 4 × 4 = ?",
+        "choices": [
+          "21",
+          "0",
+          "17",
+          "25"
+        ],
+        "answer": "21",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "7 + 7 × 4 = ?",
+        "choices": [
+          "32",
+          "0",
+          "38",
+          "35"
+        ],
+        "answer": "35",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "6 + 2 × 4 = ?",
+        "choices": [
+          "0",
+          "10",
+          "16",
+          "14"
+        ],
+        "answer": "14",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "4 + 6 × 7 = ?",
+        "choices": [
+          "0",
+          "49",
+          "51",
+          "46"
+        ],
+        "answer": "46",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "5 + 3 × 4 = ?",
+        "choices": [
+          "19",
+          "0",
+          "21",
+          "17"
+        ],
+        "answer": "17",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "7 + 3 × 4 = ?",
+        "choices": [
+          "23",
+          "0",
+          "24",
+          "19"
+        ],
+        "answer": "19",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "2 + 8 × 5 = ?",
+        "choices": [
+          "42",
+          "44",
+          "0",
+          "48"
+        ],
+        "answer": "42",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "7 + 7 × 3 = ?",
+        "choices": [
+          "28",
+          "0",
+          "27",
+          "31"
+        ],
+        "answer": "28",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "9 + 6 × 6 = ?",
+        "choices": [
+          "0",
+          "45",
+          "50",
+          "46"
+        ],
+        "answer": "45",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "5 + 6 × 2 = ?",
+        "choices": [
+          "12",
+          "0",
+          "17",
+          "13"
+        ],
+        "answer": "17",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "5 + 9 × 4 = ?",
+        "choices": [
+          "43",
+          "39",
+          "41",
+          "0"
+        ],
+        "answer": "41",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "2 + 7 × 5 = ?",
+        "choices": [
+          "0",
+          "38",
+          "35",
+          "37"
+        ],
+        "answer": "37",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "3 + 8 × 3 = ?",
+        "choices": [
+          "27",
+          "28",
+          "0",
+          "22"
+        ],
+        "answer": "27",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "5 + 9 × 5 = ?",
+        "choices": [
+          "55",
+          "0",
+          "51",
+          "50"
+        ],
+        "answer": "50",
+        "audio": "Use order of operations."
+      },
+      {
+        "type": "mc",
+        "q": "9 + 3 × 7 = ?",
+        "choices": [
+          "30",
+          "26",
+          "0",
+          "32"
+        ],
+        "answer": "30",
+        "audio": "Use order of operations."
+      }
+    ]
+  },
+  "g5:math:L8": {
+    "name": "Volume",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "A rectangular prism has length 4, width 3, and height 2. What is its volume?",
+        "choices": [
+          "12 Cubic units",
+          "18 Cubic units",
+          "Area",
+          "24 Cubic units"
+        ],
+        "answer": "24 Cubic units",
+        "audio": "Find the volume."
+      },
+      {
+        "type": "mc",
+        "q": "A box measures 5 × 2 × 3 units. What is its volume?",
+        "choices": [
+          "10 Cubic units",
+          "25 Cubic units",
+          "Area",
+          "30 Cubic units"
+        ],
+        "answer": "30 Cubic units",
+        "audio": "Find the volume."
+      },
+      {
+        "type": "mc",
+        "q": "A cube has side length 4 units. What is its volume?",
+        "choices": [
+          "64 Cubic units",
+          "Area",
+          "48 Cubic units",
+          "16 Cubic units"
+        ],
+        "answer": "64 Cubic units",
+        "audio": "Find the volume."
+      },
+      {
+        "type": "mc",
+        "q": "Which formula finds the volume of a rectangular prism?",
+        "choices": [
+          "Length × width",
+          "Area",
+          "Length + width + height",
+          "Length × width × height"
+        ],
+        "answer": "Length × width × height",
+        "audio": "Find the volume."
+      },
+      {
+        "type": "mc",
+        "q": "A rectangular prism is 3 units long, 2 units wide, and 4 units high. Determine its volume and connect the product to layers of unit cubes.",
+        "choices": [
+          "52",
+          "6",
+          "9",
+          "24"
+        ],
+        "answer": "24",
+        "explain": "Volume is base area × height: 3 × 2 × 4 = 24 cubic units.",
+        "audio": "A rectangular prism is 3 units long, 2 units wide, and 4 units high. Determine its volume and connect the product to layers of unit cubes."
+      },
+      {
+        "type": "mc",
+        "q": "A rectangular prism is 4 units long, 2 units wide, and 5 units high. Determine its volume and connect the product to layers of unit cubes.",
+        "choices": [
+          "8",
+          "11",
+          "40",
+          "76"
+        ],
+        "answer": "40",
+        "explain": "Volume is base area × height: 4 × 2 × 5 = 40 cubic units.",
+        "audio": "A rectangular prism is 4 units long, 2 units wide, and 5 units high. Determine its volume and connect the product to layers of unit cubes."
+      },
+      {
+        "type": "mc",
+        "q": "A rectangular prism is 5 units long, 2 units wide, and 6 units high. Determine its volume and connect the product to layers of unit cubes.",
+        "choices": [
+          "60",
+          "10",
+          "104",
+          "13"
+        ],
+        "answer": "60",
+        "explain": "Volume is base area × height: 5 × 2 × 6 = 60 cubic units.",
+        "audio": "A rectangular prism is 5 units long, 2 units wide, and 6 units high. Determine its volume and connect the product to layers of unit cubes."
+      },
+      {
+        "type": "mc",
+        "q": "A rectangular prism is 6 units long, 2 units wide, and 3 units high. Determine its volume and connect the product to layers of unit cubes.",
+        "choices": [
+          "36",
+          "12",
+          "72",
+          "11"
+        ],
+        "answer": "36",
+        "explain": "Volume is base area × height: 6 × 2 × 3 = 36 cubic units.",
+        "audio": "A rectangular prism is 6 units long, 2 units wide, and 3 units high. Determine its volume and connect the product to layers of unit cubes."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “56” correctly answers “A rectangular prism is 7 units long, 2 units wide, and 4 units high. Determine its volume and connect the product to layers of unit cubes.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Volume is base area × height: 7 × 2 × 4 = 56 cubic units.",
+        "audio": "True or false: “56” correctly answers “A rectangular prism is 7 units long, 2 units wide, and 4 units high. Determine its volume and connect the product to layers of unit cubes.”"
+      },
+      {
+        "type": "mc",
+        "q": "A rectangular prism is 8 units long, 3 units wide, and 5 units high. Determine its volume and connect the product to layers of unit cubes.",
+        "choices": [
+          "158",
+          "16",
+          "24",
+          "120"
+        ],
+        "answer": "120",
+        "explain": "Volume is base area × height: 8 × 3 × 5 = 120 cubic units.",
+        "audio": "A rectangular prism is 8 units long, 3 units wide, and 5 units high. Determine its volume and connect the product to layers of unit cubes."
+      },
+      {
+        "type": "mc",
+        "q": "A rectangular prism is 9 units long, 3 units wide, and 6 units high. Determine its volume and connect the product to layers of unit cubes.",
+        "choices": [
+          "162",
+          "18",
+          "27",
+          "198"
+        ],
+        "answer": "162",
+        "explain": "Volume is base area × height: 9 × 3 × 6 = 162 cubic units.",
+        "audio": "A rectangular prism is 9 units long, 3 units wide, and 6 units high. Determine its volume and connect the product to layers of unit cubes."
+      },
+      {
+        "type": "mc",
+        "q": "A rectangular prism is 10 units long, 3 units wide, and 3 units high. Determine its volume and connect the product to layers of unit cubes.",
+        "choices": [
+          "138",
+          "16",
+          "30",
+          "90"
+        ],
+        "answer": "90",
+        "explain": "Volume is base area × height: 10 × 3 × 3 = 90 cubic units.",
+        "audio": "A rectangular prism is 10 units long, 3 units wide, and 3 units high. Determine its volume and connect the product to layers of unit cubes."
+      },
+      {
+        "type": "mc",
+        "q": "A rectangular prism is 11 units long, 3 units wide, and 4 units high. Determine its volume and connect the product to layers of unit cubes.",
+        "choices": [
+          "178",
+          "33",
+          "18",
+          "132"
+        ],
+        "answer": "132",
+        "explain": "Volume is base area × height: 11 × 3 × 4 = 132 cubic units.",
+        "audio": "A rectangular prism is 11 units long, 3 units wide, and 4 units high. Determine its volume and connect the product to layers of unit cubes."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “222” correctly answers “A rectangular prism is 12 units long, 3 units wide, and 5 units high. Determine its volume and connect the product to layers of unit cubes.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Volume is base area × height: 12 × 3 × 5 = 180 cubic units.",
+        "audio": "True or false: “222” correctly answers “A rectangular prism is 12 units long, 3 units wide, and 5 units high. Determine its volume and connect the product to layers of unit cubes.”"
+      },
+      {
+        "type": "mc",
+        "q": "A rectangular prism is 13 units long, 4 units wide, and 6 units high. Determine its volume and connect the product to layers of unit cubes.",
+        "choices": [
+          "23",
+          "308",
+          "312",
+          "52"
+        ],
+        "answer": "312",
+        "explain": "Volume is base area × height: 13 × 4 × 6 = 312 cubic units.",
+        "audio": "A rectangular prism is 13 units long, 4 units wide, and 6 units high. Determine its volume and connect the product to layers of unit cubes."
+      },
+      {
+        "type": "mc",
+        "q": "A rectangular prism is 14 units long, 4 units wide, and 3 units high. Determine its volume and connect the product to layers of unit cubes.",
+        "choices": [
+          "168",
+          "56",
+          "220",
+          "21"
+        ],
+        "answer": "168",
+        "explain": "Volume is base area × height: 14 × 4 × 3 = 168 cubic units.",
+        "audio": "A rectangular prism is 14 units long, 4 units wide, and 3 units high. Determine its volume and connect the product to layers of unit cubes."
+      },
+      {
+        "type": "mc",
+        "q": "A rectangular prism is 15 units long, 4 units wide, and 4 units high. Determine its volume and connect the product to layers of unit cubes.",
+        "choices": [
+          "272",
+          "23",
+          "60",
+          "240"
+        ],
+        "answer": "240",
+        "explain": "Volume is base area × height: 15 × 4 × 4 = 240 cubic units.",
+        "audio": "A rectangular prism is 15 units long, 4 units wide, and 4 units high. Determine its volume and connect the product to layers of unit cubes."
+      },
+      {
+        "type": "mc",
+        "q": "A rectangular prism is 16 units long, 4 units wide, and 5 units high. Determine its volume and connect the product to layers of unit cubes.",
+        "choices": [
+          "328",
+          "25",
+          "320",
+          "64"
+        ],
+        "answer": "320",
+        "explain": "Volume is base area × height: 16 × 4 × 5 = 320 cubic units.",
+        "audio": "A rectangular prism is 16 units long, 4 units wide, and 5 units high. Determine its volume and connect the product to layers of unit cubes."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “408” correctly answers “A rectangular prism is 17 units long, 4 units wide, and 6 units high. Determine its volume and connect the product to layers of unit cubes.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Volume is base area × height: 17 × 4 × 6 = 408 cubic units.",
+        "audio": "True or false: “408” correctly answers “A rectangular prism is 17 units long, 4 units wide, and 6 units high. Determine its volume and connect the product to layers of unit cubes.”"
+      },
+      {
+        "type": "mc",
+        "q": "A rectangular prism is 18 units long, 5 units wide, and 3 units high. Determine its volume and connect the product to layers of unit cubes.",
+        "choices": [
+          "270",
+          "90",
+          "26",
+          "318"
+        ],
+        "answer": "270",
+        "explain": "Volume is base area × height: 18 × 5 × 3 = 270 cubic units.",
+        "audio": "A rectangular prism is 18 units long, 5 units wide, and 3 units high. Determine its volume and connect the product to layers of unit cubes."
+      },
+      {
+        "type": "mc",
+        "q": "A rectangular prism is 19 units long, 5 units wide, and 4 units high. Determine its volume and connect the product to layers of unit cubes.",
+        "choices": [
+          "382",
+          "28",
+          "95",
+          "380"
+        ],
+        "answer": "380",
+        "explain": "Volume is base area × height: 19 × 5 × 4 = 380 cubic units.",
+        "audio": "A rectangular prism is 19 units long, 5 units wide, and 4 units high. Determine its volume and connect the product to layers of unit cubes."
+      },
+      {
+        "type": "mc",
+        "q": "A rectangular prism is 20 units long, 5 units wide, and 5 units high. Determine its volume and connect the product to layers of unit cubes.",
+        "choices": [
+          "500",
+          "450",
+          "30",
+          "100"
+        ],
+        "answer": "500",
+        "explain": "Volume is base area × height: 20 × 5 × 5 = 500 cubic units.",
+        "audio": "A rectangular prism is 20 units long, 5 units wide, and 5 units high. Determine its volume and connect the product to layers of unit cubes."
+      },
+      {
+        "type": "mc",
+        "q": "A rectangular prism is 21 units long, 5 units wide, and 6 units high. Determine its volume and connect the product to layers of unit cubes.",
+        "choices": [
+          "105",
+          "32",
+          "522",
+          "630"
+        ],
+        "answer": "630",
+        "explain": "Volume is base area × height: 21 × 5 × 6 = 630 cubic units.",
+        "audio": "A rectangular prism is 21 units long, 5 units wide, and 6 units high. Determine its volume and connect the product to layers of unit cubes."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “382” correctly answers “A rectangular prism is 22 units long, 5 units wide, and 3 units high. Determine its volume and connect the product to layers of unit cubes.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Volume is base area × height: 22 × 5 × 3 = 330 cubic units.",
+        "audio": "True or false: “382” correctly answers “A rectangular prism is 22 units long, 5 units wide, and 3 units high. Determine its volume and connect the product to layers of unit cubes.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “A rectangular prism is 18 units long, 5 units wide, and 3 units high. Determine its volume and connect the product to layers of unit cubes” and replaces “26” using the task's evidence or constraints?",
+        "choices": [
+          "270",
+          "318",
+          "26",
+          "90"
+        ],
+        "answer": "270",
+        "explain": "Volume is base area × height: 18 × 5 × 3 = 270 cubic units. This evidence makes the correct response defensible. The response \"26\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “A rectangular prism is 18 units long, 5 units wide, and 3 units high. Determine its volume and connect the product to layers of unit cubes” and replaces “26” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:math:L9": {
+    "name": "Coordinate Plane",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Which ordered pair names a point 3 units right and 5 units up from the origin?",
+        "choices": [
+          "(5, 3)",
+          "(3, 5)",
+          "Area",
+          "(-3, 5)"
+        ],
+        "answer": "(3, 5)",
+        "audio": "Use the coordinate plane."
+      },
+      {
+        "type": "mc",
+        "q": "In the ordered pair (7, 2), what is the x-coordinate?",
+        "choices": [
+          "8",
+          "9",
+          "2",
+          "7"
+        ],
+        "answer": "7",
+        "audio": "Use the coordinate plane."
+      },
+      {
+        "type": "mc",
+        "q": "In the ordered pair (4, 9), what is the y-coordinate?",
+        "choices": [
+          "4",
+          "13",
+          "9",
+          "10"
+        ],
+        "answer": "9",
+        "audio": "Use the coordinate plane."
+      },
+      {
+        "type": "mc",
+        "q": "A point lies on the y-axis. Which could be its ordered pair?",
+        "choices": [
+          "(0, 6)",
+          "Area",
+          "(6, 0)",
+          "(4, 6)"
+        ],
+        "answer": "(0, 6)",
+        "audio": "Use the coordinate plane."
+      },
+      {
+        "type": "mc",
+        "q": "Starting at (0, 0), move 2 units parallel to the x-axis and 4 units parallel to the y-axis. Which ordered pair is reached?",
+        "choices": [
+          "(2, 4)",
+          "(4, 2)",
+          "(0, 6)",
+          "(6, 0)"
+        ],
+        "answer": "(2, 4)",
+        "explain": "The x-coordinate is the horizontal movement first; the y-coordinate is second.",
+        "audio": "Starting at (0, 0), move 2 units parallel to the x-axis and 4 units parallel to the y-axis. Which ordered pair is reached?"
+      },
+      {
+        "type": "mc",
+        "q": "Starting at (0, 0), move 3 units parallel to the x-axis and 6 units parallel to the y-axis. Which ordered pair is reached?",
+        "choices": [
+          "(9, 0)",
+          "(0, 9)",
+          "(6, 3)",
+          "(3, 6)"
+        ],
+        "answer": "(3, 6)",
+        "explain": "The x-coordinate is the horizontal movement first; the y-coordinate is second.",
+        "audio": "Starting at (0, 0), move 3 units parallel to the x-axis and 6 units parallel to the y-axis. Which ordered pair is reached?"
+      },
+      {
+        "type": "mc",
+        "q": "Starting at (0, 0), move 4 units parallel to the x-axis and 8 units parallel to the y-axis. Which ordered pair is reached?",
+        "choices": [
+          "(4, 8)",
+          "(12, 0)",
+          "(8, 4)",
+          "(0, 12)"
+        ],
+        "answer": "(4, 8)",
+        "explain": "The x-coordinate is the horizontal movement first; the y-coordinate is second.",
+        "audio": "Starting at (0, 0), move 4 units parallel to the x-axis and 8 units parallel to the y-axis. Which ordered pair is reached?"
+      },
+      {
+        "type": "mc",
+        "q": "Starting at (0, 0), move 5 units parallel to the x-axis and 2 units parallel to the y-axis. Which ordered pair is reached?",
+        "choices": [
+          "(5, 2)",
+          "(0, 7)",
+          "(7, 0)",
+          "(2, 5)"
+        ],
+        "answer": "(5, 2)",
+        "explain": "The x-coordinate is the horizontal movement first; the y-coordinate is second.",
+        "audio": "Starting at (0, 0), move 5 units parallel to the x-axis and 2 units parallel to the y-axis. Which ordered pair is reached?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “(6, 4)” correctly answers “Starting at (0, 0), move 6 units parallel to the x-axis and 4 units parallel to the y-axis. Which ordered pair is reached.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The x-coordinate is the horizontal movement first; the y-coordinate is second.",
+        "audio": "True or false: “(6, 4)” correctly answers “Starting at (0, 0), move 6 units parallel to the x-axis and 4 units parallel to the y-axis. Which ordered pair is reached.”"
+      },
+      {
+        "type": "mc",
+        "q": "Starting at (0, 0), move 7 units parallel to the x-axis and 6 units parallel to the y-axis. Which ordered pair is reached?",
+        "choices": [
+          "(6, 7)",
+          "(7, 6)",
+          "(13, 0)",
+          "(0, 13)"
+        ],
+        "answer": "(7, 6)",
+        "explain": "The x-coordinate is the horizontal movement first; the y-coordinate is second.",
+        "audio": "Starting at (0, 0), move 7 units parallel to the x-axis and 6 units parallel to the y-axis. Which ordered pair is reached?"
+      },
+      {
+        "type": "mc",
+        "q": "Starting at (0, 0), move 8 units parallel to the x-axis and 8 units parallel to the y-axis. Which ordered pair is reached?",
+        "choices": [
+          "(16, 0)",
+          "(8, 8)",
+          "(-8, 8)",
+          "(0, 16)"
+        ],
+        "answer": "(8, 8)",
+        "explain": "The x-coordinate is the horizontal movement first; the y-coordinate is second.",
+        "audio": "Starting at (0, 0), move 8 units parallel to the x-axis and 8 units parallel to the y-axis. Which ordered pair is reached?"
+      },
+      {
+        "type": "mc",
+        "q": "Starting at (0, 0), move 9 units parallel to the x-axis and 2 units parallel to the y-axis. Which ordered pair is reached?",
+        "choices": [
+          "(9, 2)",
+          "(0, 11)",
+          "(11, 0)",
+          "(2, 9)"
+        ],
+        "answer": "(9, 2)",
+        "explain": "The x-coordinate is the horizontal movement first; the y-coordinate is second.",
+        "audio": "Starting at (0, 0), move 9 units parallel to the x-axis and 2 units parallel to the y-axis. Which ordered pair is reached?"
+      },
+      {
+        "type": "mc",
+        "q": "Starting at (0, 0), move 1 units parallel to the x-axis and 4 units parallel to the y-axis. Which ordered pair is reached?",
+        "choices": [
+          "(0, 5)",
+          "(5, 0)",
+          "(1, 4)",
+          "(4, 1)"
+        ],
+        "answer": "(1, 4)",
+        "explain": "The x-coordinate is the horizontal movement first; the y-coordinate is second.",
+        "audio": "Starting at (0, 0), move 1 units parallel to the x-axis and 4 units parallel to the y-axis. Which ordered pair is reached?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “(6, 2)” correctly answers “Starting at (0, 0), move 2 units parallel to the x-axis and 6 units parallel to the y-axis. Which ordered pair is reached.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The x-coordinate is the horizontal movement first; the y-coordinate is second.",
+        "audio": "True or false: “(6, 2)” correctly answers “Starting at (0, 0), move 2 units parallel to the x-axis and 6 units parallel to the y-axis. Which ordered pair is reached.”"
+      },
+      {
+        "type": "mc",
+        "q": "Starting at (0, 0), move 3 units parallel to the x-axis and 8 units parallel to the y-axis. Which ordered pair is reached?",
+        "choices": [
+          "(3, 8)",
+          "(8, 3)",
+          "(11, 0)",
+          "(0, 11)"
+        ],
+        "answer": "(3, 8)",
+        "explain": "The x-coordinate is the horizontal movement first; the y-coordinate is second.",
+        "audio": "Starting at (0, 0), move 3 units parallel to the x-axis and 8 units parallel to the y-axis. Which ordered pair is reached?"
+      },
+      {
+        "type": "mc",
+        "q": "Starting at (0, 0), move 4 units parallel to the x-axis and 2 units parallel to the y-axis. Which ordered pair is reached?",
+        "choices": [
+          "(0, 6)",
+          "(2, 4)",
+          "(6, 0)",
+          "(4, 2)"
+        ],
+        "answer": "(4, 2)",
+        "explain": "The x-coordinate is the horizontal movement first; the y-coordinate is second.",
+        "audio": "Starting at (0, 0), move 4 units parallel to the x-axis and 2 units parallel to the y-axis. Which ordered pair is reached?"
+      },
+      {
+        "type": "mc",
+        "q": "Starting at (0, 0), move 5 units parallel to the x-axis and 4 units parallel to the y-axis. Which ordered pair is reached?",
+        "choices": [
+          "(5, 4)",
+          "(0, 9)",
+          "(9, 0)",
+          "(4, 5)"
+        ],
+        "answer": "(5, 4)",
+        "explain": "The x-coordinate is the horizontal movement first; the y-coordinate is second.",
+        "audio": "Starting at (0, 0), move 5 units parallel to the x-axis and 4 units parallel to the y-axis. Which ordered pair is reached?"
+      },
+      {
+        "type": "mc",
+        "q": "Starting at (0, 0), move 6 units parallel to the x-axis and 6 units parallel to the y-axis. Which ordered pair is reached?",
+        "choices": [
+          "(12, 0)",
+          "(-6, 6)",
+          "(6, 6)",
+          "(0, 12)"
+        ],
+        "answer": "(6, 6)",
+        "explain": "The x-coordinate is the horizontal movement first; the y-coordinate is second.",
+        "audio": "Starting at (0, 0), move 6 units parallel to the x-axis and 6 units parallel to the y-axis. Which ordered pair is reached?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “(7, 8)” correctly answers “Starting at (0, 0), move 7 units parallel to the x-axis and 8 units parallel to the y-axis. Which ordered pair is reached.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The x-coordinate is the horizontal movement first; the y-coordinate is second.",
+        "audio": "True or false: “(7, 8)” correctly answers “Starting at (0, 0), move 7 units parallel to the x-axis and 8 units parallel to the y-axis. Which ordered pair is reached.”"
+      },
+      {
+        "type": "mc",
+        "q": "Starting at (0, 0), move 8 units parallel to the x-axis and 2 units parallel to the y-axis. Which ordered pair is reached?",
+        "choices": [
+          "(0, 10)",
+          "(8, 2)",
+          "(10, 0)",
+          "(2, 8)"
+        ],
+        "answer": "(8, 2)",
+        "explain": "The x-coordinate is the horizontal movement first; the y-coordinate is second.",
+        "audio": "Starting at (0, 0), move 8 units parallel to the x-axis and 2 units parallel to the y-axis. Which ordered pair is reached?"
+      },
+      {
+        "type": "mc",
+        "q": "Starting at (0, 0), move 9 units parallel to the x-axis and 4 units parallel to the y-axis. Which ordered pair is reached?",
+        "choices": [
+          "(0, 13)",
+          "(13, 0)",
+          "(4, 9)",
+          "(9, 4)"
+        ],
+        "answer": "(9, 4)",
+        "explain": "The x-coordinate is the horizontal movement first; the y-coordinate is second.",
+        "audio": "Starting at (0, 0), move 9 units parallel to the x-axis and 4 units parallel to the y-axis. Which ordered pair is reached?"
+      },
+      {
+        "type": "mc",
+        "q": "Starting at (0, 0), move 1 units parallel to the x-axis and 6 units parallel to the y-axis. Which ordered pair is reached?",
+        "choices": [
+          "(1, 6)",
+          "(0, 7)",
+          "(7, 0)",
+          "(6, 1)"
+        ],
+        "answer": "(1, 6)",
+        "explain": "The x-coordinate is the horizontal movement first; the y-coordinate is second.",
+        "audio": "Starting at (0, 0), move 1 units parallel to the x-axis and 6 units parallel to the y-axis. Which ordered pair is reached?"
+      },
+      {
+        "type": "mc",
+        "q": "Starting at (0, 0), move 2 units parallel to the x-axis and 8 units parallel to the y-axis. Which ordered pair is reached?",
+        "choices": [
+          "(0, 10)",
+          "(2, 8)",
+          "(8, 2)",
+          "(10, 0)"
+        ],
+        "answer": "(2, 8)",
+        "explain": "The x-coordinate is the horizontal movement first; the y-coordinate is second.",
+        "audio": "Starting at (0, 0), move 2 units parallel to the x-axis and 8 units parallel to the y-axis. Which ordered pair is reached?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “(2, 3)” correctly answers “Starting at (0, 0), move 3 units parallel to the x-axis and 2 units parallel to the y-axis. Which ordered pair is reached.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The x-coordinate is the horizontal movement first; the y-coordinate is second.",
+        "audio": "True or false: “(2, 3)” correctly answers “Starting at (0, 0), move 3 units parallel to the x-axis and 2 units parallel to the y-axis. Which ordered pair is reached.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “Starting at (0, 0), move 8 units parallel to the x-axis and 2 units parallel to the y-axis. Which ordered pair is reached” and replaces “(0, 10)” using the task's evidence or constraints?",
+        "choices": [
+          "(2, 8)",
+          "(10, 0)",
+          "(8, 2)",
+          "(0, 10)"
+        ],
+        "answer": "(8, 2)",
+        "explain": "The x-coordinate is the horizontal movement first; the y-coordinate is second. This evidence makes the correct response defensible. The response \"(0, 10)\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “Starting at (0, 0), move 8 units parallel to the x-axis and 2 units parallel to the y-axis. Which ordered pair is reached” and replaces “(0, 10)” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:math:L10": {
+    "name": "Patterns",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "What is the next number? 6, 12, 18, 24, ___",
+        "choices": [
+          "30",
+          "36",
+          "31",
+          "28"
+        ],
+        "answer": "30",
+        "audio": "Find the number pattern."
+      },
+      {
+        "type": "mc",
+        "q": "What is the next number? 100, 90, 80, 70, ___",
+        "choices": [
+          "50",
+          "60",
+          "61",
+          "75"
+        ],
+        "answer": "60",
+        "audio": "Find the number pattern."
+      },
+      {
+        "type": "mc",
+        "q": "The rule is multiply by 3. What comes after 4, 12, 36?",
+        "choices": [
+          "109",
+          "39",
+          "108",
+          "72"
+        ],
+        "answer": "108",
+        "audio": "Find the number pattern."
+      },
+      {
+        "type": "mc",
+        "q": "What rule describes this pattern? 5, 10, 15, 20",
+        "choices": [
+          "Sum",
+          "Add 5",
+          "Multiply by 5",
+          "Subtract 5"
+        ],
+        "answer": "Add 5",
+        "audio": "Find the number pattern."
+      },
+      {
+        "type": "mc",
+        "q": "The rule is y = 2x + 1. What is y when x = 4, and which operation explains the pattern?",
+        "choices": [
+          "11",
+          "12",
+          "7",
+          "9"
+        ],
+        "answer": "9",
+        "explain": "Substitute 4: 2 × 4 + 1 = 9.",
+        "audio": "The rule is y = 2x + 1. What is y when x = 4, and which operation explains the pattern?"
+      },
+      {
+        "type": "mc",
+        "q": "The rule is y = 2x + 2. What is y when x = 4, and which operation explains the pattern?",
+        "choices": [
+          "12",
+          "16",
+          "8",
+          "10"
+        ],
+        "answer": "10",
+        "explain": "Substitute 4: 2 × 4 + 2 = 10.",
+        "audio": "The rule is y = 2x + 2. What is y when x = 4, and which operation explains the pattern?"
+      },
+      {
+        "type": "mc",
+        "q": "The rule is y = 2x + 3. What is y when x = 4, and which operation explains the pattern?",
+        "choices": [
+          "13",
+          "11",
+          "9",
+          "20"
+        ],
+        "answer": "11",
+        "explain": "Substitute 4: 2 × 4 + 3 = 11.",
+        "audio": "The rule is y = 2x + 3. What is y when x = 4, and which operation explains the pattern?"
+      },
+      {
+        "type": "mc",
+        "q": "The rule is y = 2x + 0. What is y when x = 4, and which operation explains the pattern?",
+        "choices": [
+          "8",
+          "9",
+          "6",
+          "10"
+        ],
+        "answer": "8",
+        "explain": "Substitute 4: 2 × 4 + 0 = 8.",
+        "audio": "The rule is y = 2x + 0. What is y when x = 4, and which operation explains the pattern?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “9” correctly answers “The rule is y = 2x + 1. What is y when x = 4, and which operation explains the pattern.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Substitute 4: 2 × 4 + 1 = 9.",
+        "audio": "True or false: “9” correctly answers “The rule is y = 2x + 1. What is y when x = 4, and which operation explains the pattern.”"
+      },
+      {
+        "type": "mc",
+        "q": "The rule is y = 3x + 2. What is y when x = 4, and which operation explains the pattern?",
+        "choices": [
+          "20",
+          "9",
+          "17",
+          "14"
+        ],
+        "answer": "14",
+        "explain": "Substitute 4: 3 × 4 + 2 = 14.",
+        "audio": "The rule is y = 3x + 2. What is y when x = 4, and which operation explains the pattern?"
+      },
+      {
+        "type": "mc",
+        "q": "The rule is y = 3x + 3. What is y when x = 4, and which operation explains the pattern?",
+        "choices": [
+          "15",
+          "24",
+          "10",
+          "18"
+        ],
+        "answer": "15",
+        "explain": "Substitute 4: 3 × 4 + 3 = 15.",
+        "audio": "The rule is y = 3x + 3. What is y when x = 4, and which operation explains the pattern?"
+      },
+      {
+        "type": "mc",
+        "q": "The rule is y = 3x + 0. What is y when x = 4, and which operation explains the pattern?",
+        "choices": [
+          "9",
+          "15",
+          "12",
+          "7"
+        ],
+        "answer": "12",
+        "explain": "Substitute 4: 3 × 4 + 0 = 12.",
+        "audio": "The rule is y = 3x + 0. What is y when x = 4, and which operation explains the pattern?"
+      },
+      {
+        "type": "mc",
+        "q": "The rule is y = 3x + 1. What is y when x = 4, and which operation explains the pattern?",
+        "choices": [
+          "10",
+          "8",
+          "16",
+          "13"
+        ],
+        "answer": "13",
+        "explain": "Substitute 4: 3 × 4 + 1 = 13.",
+        "audio": "The rule is y = 3x + 1. What is y when x = 4, and which operation explains the pattern?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “20” correctly answers “The rule is y = 3x + 2. What is y when x = 4, and which operation explains the pattern.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Substitute 4: 3 × 4 + 2 = 14.",
+        "audio": "True or false: “20” correctly answers “The rule is y = 3x + 2. What is y when x = 4, and which operation explains the pattern.”"
+      },
+      {
+        "type": "mc",
+        "q": "The rule is y = 4x + 3. What is y when x = 4, and which operation explains the pattern?",
+        "choices": [
+          "28",
+          "23",
+          "11",
+          "19"
+        ],
+        "answer": "19",
+        "explain": "Substitute 4: 4 × 4 + 3 = 19.",
+        "audio": "The rule is y = 4x + 3. What is y when x = 4, and which operation explains the pattern?"
+      },
+      {
+        "type": "mc",
+        "q": "The rule is y = 4x + 0. What is y when x = 4, and which operation explains the pattern?",
+        "choices": [
+          "16",
+          "20",
+          "8",
+          "12"
+        ],
+        "answer": "16",
+        "explain": "Substitute 4: 4 × 4 + 0 = 16.",
+        "audio": "The rule is y = 4x + 0. What is y when x = 4, and which operation explains the pattern?"
+      },
+      {
+        "type": "mc",
+        "q": "The rule is y = 4x + 1. What is y when x = 4, and which operation explains the pattern?",
+        "choices": [
+          "17",
+          "21",
+          "9",
+          "20"
+        ],
+        "answer": "17",
+        "explain": "Substitute 4: 4 × 4 + 1 = 17.",
+        "audio": "The rule is y = 4x + 1. What is y when x = 4, and which operation explains the pattern?"
+      },
+      {
+        "type": "mc",
+        "q": "The rule is y = 4x + 2. What is y when x = 4, and which operation explains the pattern?",
+        "choices": [
+          "10",
+          "18",
+          "24",
+          "22"
+        ],
+        "answer": "18",
+        "explain": "Substitute 4: 4 × 4 + 2 = 18.",
+        "audio": "The rule is y = 4x + 2. What is y when x = 4, and which operation explains the pattern?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “19” correctly answers “The rule is y = 4x + 3. What is y when x = 4, and which operation explains the pattern.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Substitute 4: 4 × 4 + 3 = 19.",
+        "audio": "True or false: “19” correctly answers “The rule is y = 4x + 3. What is y when x = 4, and which operation explains the pattern.”"
+      },
+      {
+        "type": "mc",
+        "q": "The rule is y = 5x + 0. What is y when x = 4, and which operation explains the pattern?",
+        "choices": [
+          "20",
+          "9",
+          "25",
+          "15"
+        ],
+        "answer": "20",
+        "explain": "Substitute 4: 5 × 4 + 0 = 20.",
+        "audio": "The rule is y = 5x + 0. What is y when x = 4, and which operation explains the pattern?"
+      },
+      {
+        "type": "mc",
+        "q": "The rule is y = 5x + 1. What is y when x = 4, and which operation explains the pattern?",
+        "choices": [
+          "21",
+          "26",
+          "10",
+          "24"
+        ],
+        "answer": "21",
+        "explain": "Substitute 4: 5 × 4 + 1 = 21.",
+        "audio": "The rule is y = 5x + 1. What is y when x = 4, and which operation explains the pattern?"
+      },
+      {
+        "type": "mc",
+        "q": "The rule is y = 5x + 2. What is y when x = 4, and which operation explains the pattern?",
+        "choices": [
+          "22",
+          "27",
+          "11",
+          "28"
+        ],
+        "answer": "22",
+        "explain": "Substitute 4: 5 × 4 + 2 = 22.",
+        "audio": "The rule is y = 5x + 2. What is y when x = 4, and which operation explains the pattern?"
+      },
+      {
+        "type": "mc",
+        "q": "The rule is y = 5x + 3. What is y when x = 4, and which operation explains the pattern?",
+        "choices": [
+          "28",
+          "32",
+          "12",
+          "23"
+        ],
+        "answer": "23",
+        "explain": "Substitute 4: 5 × 4 + 3 = 23.",
+        "audio": "The rule is y = 5x + 3. What is y when x = 4, and which operation explains the pattern?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “9” correctly answers “The rule is y = 5x + 0. What is y when x = 4, and which operation explains the pattern.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Substitute 4: 5 × 4 + 0 = 20.",
+        "audio": "True or false: “9” correctly answers “The rule is y = 5x + 0. What is y when x = 4, and which operation explains the pattern.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “The rule is y = 5x + 0. What is y when x = 4, and which operation explains the pattern” and replaces “15” using the task's evidence or constraints?",
+        "choices": [
+          "20",
+          "15",
+          "9",
+          "25"
+        ],
+        "answer": "20",
+        "explain": "Substitute 4: 5 × 4 + 0 = 20. This evidence makes the correct response defensible. The response \"15\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “The rule is y = 5x + 0. What is y when x = 4, and which operation explains the pattern” and replaces “15” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:math:L11": {
+    "name": "Word Problems",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "A school bought 24 boxes of pencils. Each box has 12 pencils. How many pencils did the school buy?",
+        "choices": [
+          "248",
+          "289",
+          "288",
+          "212"
+        ],
+        "answer": "288",
+        "audio": "Solve the word problem."
+      },
+      {
+        "type": "mc",
+        "q": "A runner completed 3.5 miles on Monday and 2.4 miles on Tuesday. How many miles altogether?",
+        "choices": [
+          "Miles",
+          "5.9 Miles",
+          "5.1 Miles",
+          "6.9 Miles"
+        ],
+        "answer": "5.9 Miles",
+        "audio": "Solve the word problem."
+      },
+      {
+        "type": "mc",
+        "q": "Four friends equally share 36 cookies. How many cookies does each friend get?",
+        "choices": [
+          "9",
+          "8",
+          "12",
+          "10"
+        ],
+        "answer": "9",
+        "audio": "Solve the word problem."
+      },
+      {
+        "type": "mc",
+        "q": "A tank holds 60 liters of water. 18 liters are used. How many liters remain?",
+        "choices": [
+          "42 Liters",
+          "Liters",
+          "32 Liters",
+          "48 Liters"
+        ],
+        "answer": "42 Liters",
+        "audio": "Solve the word problem."
+      },
+      {
+        "type": "mc",
+        "q": "A school orders 3 boxes with 13 notebooks each. Every notebook costs $3. What is the total cost? Represent the multi-step problem with an equation before solving.",
+        "choices": [
+          "42",
+          "117",
+          "39",
+          "19"
+        ],
+        "answer": "117",
+        "explain": "(3 × 13) × 3 = 117. The correct response is “117” because it satisfies the evidence and conditions in this Word Problems question.",
+        "audio": "A school orders 3 boxes with 13 notebooks each. Every notebook costs $3. What is the total cost? Represent the multi-step problem with an equation before solving."
+      },
+      {
+        "type": "mc",
+        "q": "A school orders 3 boxes with 14 notebooks each. Every notebook costs $4. What is the total cost? Represent the multi-step problem with an equation before solving.",
+        "choices": [
+          "21",
+          "46",
+          "168",
+          "56"
+        ],
+        "answer": "168",
+        "explain": "(3 × 14) × 4 = 168. The correct response is “168” because it satisfies the evidence and conditions in this Word Problems question.",
+        "audio": "A school orders 3 boxes with 14 notebooks each. Every notebook costs $4. What is the total cost? Represent the multi-step problem with an equation before solving."
+      },
+      {
+        "type": "mc",
+        "q": "A school orders 3 boxes with 15 notebooks each. Every notebook costs $5. What is the total cost? Represent the multi-step problem with an equation before solving.",
+        "choices": [
+          "23",
+          "50",
+          "75",
+          "225"
+        ],
+        "answer": "225",
+        "explain": "(3 × 15) × 5 = 225. The correct response is “225” because it satisfies the evidence and conditions in this Word Problems question.",
+        "audio": "A school orders 3 boxes with 15 notebooks each. Every notebook costs $5. What is the total cost? Represent the multi-step problem with an equation before solving."
+      },
+      {
+        "type": "mc",
+        "q": "A school orders 3 boxes with 16 notebooks each. Every notebook costs $2. What is the total cost? Represent the multi-step problem with an equation before solving.",
+        "choices": [
+          "96",
+          "50",
+          "32",
+          "21"
+        ],
+        "answer": "96",
+        "explain": "(3 × 16) × 2 = 96. The correct response is “96” because it satisfies the evidence and conditions in this Word Problems question.",
+        "audio": "A school orders 3 boxes with 16 notebooks each. Every notebook costs $2. What is the total cost? Represent the multi-step problem with an equation before solving."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “153” correctly answers “A school orders 3 boxes with 17 notebooks each. Every notebook costs $3. … al cost? Represent the multi-step problem with an equation before solving.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. (3 × 17) × 3 = 153.",
+        "audio": "True or false: “153” correctly answers “A school orders 3 boxes with 17 notebooks each. Every notebook costs $3. … al cost? Represent the multi-step problem with an equation before solving.”"
+      },
+      {
+        "type": "mc",
+        "q": "A school orders 4 boxes with 18 notebooks each. Every notebook costs $4. What is the total cost? Represent the multi-step problem with an equation before solving.",
+        "choices": [
+          "76",
+          "288",
+          "26",
+          "72"
+        ],
+        "answer": "288",
+        "explain": "(4 × 18) × 4 = 288. The correct response is “288” because it satisfies the evidence and conditions in this Word Problems question.",
+        "audio": "A school orders 4 boxes with 18 notebooks each. Every notebook costs $4. What is the total cost? Represent the multi-step problem with an equation before solving."
+      },
+      {
+        "type": "mc",
+        "q": "A school orders 4 boxes with 19 notebooks each. Every notebook costs $5. What is the total cost? Represent the multi-step problem with an equation before solving.",
+        "choices": [
+          "95",
+          "81",
+          "28",
+          "380"
+        ],
+        "answer": "380",
+        "explain": "(4 × 19) × 5 = 380. The correct response is “380” because it satisfies the evidence and conditions in this Word Problems question.",
+        "audio": "A school orders 4 boxes with 19 notebooks each. Every notebook costs $5. What is the total cost? Represent the multi-step problem with an equation before solving."
+      },
+      {
+        "type": "mc",
+        "q": "A school orders 4 boxes with 20 notebooks each. Every notebook costs $2. What is the total cost? Represent the multi-step problem with an equation before solving.",
+        "choices": [
+          "40",
+          "82",
+          "26",
+          "160"
+        ],
+        "answer": "160",
+        "explain": "(4 × 20) × 2 = 160. The correct response is “160” because it satisfies the evidence and conditions in this Word Problems question.",
+        "audio": "A school orders 4 boxes with 20 notebooks each. Every notebook costs $2. What is the total cost? Represent the multi-step problem with an equation before solving."
+      },
+      {
+        "type": "mc",
+        "q": "A school orders 4 boxes with 21 notebooks each. Every notebook costs $3. What is the total cost? Represent the multi-step problem with an equation before solving.",
+        "choices": [
+          "87",
+          "63",
+          "28",
+          "252"
+        ],
+        "answer": "252",
+        "explain": "(4 × 21) × 3 = 252. The correct response is “252” because it satisfies the evidence and conditions in this Word Problems question.",
+        "audio": "A school orders 4 boxes with 21 notebooks each. Every notebook costs $3. What is the total cost? Represent the multi-step problem with an equation before solving."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “30” correctly answers “A school orders 4 boxes with 22 notebooks each. Every notebook costs $4. … al cost? Represent the multi-step problem with an equation before solving.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. (4 × 22) × 4 = 352.",
+        "audio": "True or false: “30” correctly answers “A school orders 4 boxes with 22 notebooks each. Every notebook costs $4. … al cost? Represent the multi-step problem with an equation before solving.”"
+      },
+      {
+        "type": "mc",
+        "q": "A school orders 5 boxes with 23 notebooks each. Every notebook costs $5. What is the total cost? Represent the multi-step problem with an equation before solving.",
+        "choices": [
+          "115",
+          "120",
+          "33",
+          "575"
+        ],
+        "answer": "575",
+        "explain": "(5 × 23) × 5 = 575. The correct response is “575” because it satisfies the evidence and conditions in this Word Problems question.",
+        "audio": "A school orders 5 boxes with 23 notebooks each. Every notebook costs $5. What is the total cost? Represent the multi-step problem with an equation before solving."
+      },
+      {
+        "type": "mc",
+        "q": "A school orders 5 boxes with 24 notebooks each. Every notebook costs $2. What is the total cost? Represent the multi-step problem with an equation before solving.",
+        "choices": [
+          "48",
+          "31",
+          "240",
+          "122"
+        ],
+        "answer": "240",
+        "explain": "(5 × 24) × 2 = 240. The correct response is “240” because it satisfies the evidence and conditions in this Word Problems question.",
+        "audio": "A school orders 5 boxes with 24 notebooks each. Every notebook costs $2. What is the total cost? Represent the multi-step problem with an equation before solving."
+      },
+      {
+        "type": "mc",
+        "q": "A school orders 5 boxes with 25 notebooks each. Every notebook costs $3. What is the total cost? Represent the multi-step problem with an equation before solving.",
+        "choices": [
+          "128",
+          "33",
+          "75",
+          "375"
+        ],
+        "answer": "375",
+        "explain": "(5 × 25) × 3 = 375. The correct response is “375” because it satisfies the evidence and conditions in this Word Problems question.",
+        "audio": "A school orders 5 boxes with 25 notebooks each. Every notebook costs $3. What is the total cost? Represent the multi-step problem with an equation before solving."
+      },
+      {
+        "type": "mc",
+        "q": "A school orders 5 boxes with 26 notebooks each. Every notebook costs $4. What is the total cost? Represent the multi-step problem with an equation before solving.",
+        "choices": [
+          "35",
+          "104",
+          "134",
+          "520"
+        ],
+        "answer": "520",
+        "explain": "(5 × 26) × 4 = 520. The correct response is “520” because it satisfies the evidence and conditions in this Word Problems question.",
+        "audio": "A school orders 5 boxes with 26 notebooks each. Every notebook costs $4. What is the total cost? Represent the multi-step problem with an equation before solving."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “675” correctly answers “A school orders 5 boxes with 27 notebooks each. Every notebook costs $5. … al cost? Represent the multi-step problem with an equation before solving.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. (5 × 27) × 5 = 675.",
+        "audio": "True or false: “675” correctly answers “A school orders 5 boxes with 27 notebooks each. Every notebook costs $5. … al cost? Represent the multi-step problem with an equation before solving.”"
+      },
+      {
+        "type": "mc",
+        "q": "A school orders 6 boxes with 28 notebooks each. Every notebook costs $2. What is the total cost? Represent the multi-step problem with an equation before solving.",
+        "choices": [
+          "56",
+          "170",
+          "336",
+          "36"
+        ],
+        "answer": "336",
+        "explain": "(6 × 28) × 2 = 336. The correct response is “336” because it satisfies the evidence and conditions in this Word Problems question.",
+        "audio": "A school orders 6 boxes with 28 notebooks each. Every notebook costs $2. What is the total cost? Represent the multi-step problem with an equation before solving."
+      },
+      {
+        "type": "mc",
+        "q": "A school orders 6 boxes with 29 notebooks each. Every notebook costs $3. What is the total cost? Represent the multi-step problem with an equation before solving.",
+        "choices": [
+          "38",
+          "87",
+          "522",
+          "177"
+        ],
+        "answer": "522",
+        "explain": "(6 × 29) × 3 = 522. The correct response is “522” because it satisfies the evidence and conditions in this Word Problems question.",
+        "audio": "A school orders 6 boxes with 29 notebooks each. Every notebook costs $3. What is the total cost? Represent the multi-step problem with an equation before solving."
+      },
+      {
+        "type": "mc",
+        "q": "A school orders 6 boxes with 30 notebooks each. Every notebook costs $4. What is the total cost? Represent the multi-step problem with an equation before solving.",
+        "choices": [
+          "40",
+          "184",
+          "120",
+          "720"
+        ],
+        "answer": "720",
+        "explain": "(6 × 30) × 4 = 720. The correct response is “720” because it satisfies the evidence and conditions in this Word Problems question.",
+        "audio": "A school orders 6 boxes with 30 notebooks each. Every notebook costs $4. What is the total cost? Represent the multi-step problem with an equation before solving."
+      },
+      {
+        "type": "mc",
+        "q": "A school orders 6 boxes with 31 notebooks each. Every notebook costs $5. What is the total cost? Represent the multi-step problem with an equation before solving.",
+        "choices": [
+          "42",
+          "930",
+          "155",
+          "191"
+        ],
+        "answer": "930",
+        "explain": "(6 × 31) × 5 = 930. The correct response is “930” because it satisfies the evidence and conditions in this Word Problems question.",
+        "audio": "A school orders 6 boxes with 31 notebooks each. Every notebook costs $5. What is the total cost? Represent the multi-step problem with an equation before solving."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “40” correctly answers “A school orders 6 boxes with 32 notebooks each. Every notebook costs $2. … al cost? Represent the multi-step problem with an equation before solving.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. (6 × 32) × 2 = 384.",
+        "audio": "True or false: “40” correctly answers “A school orders 6 boxes with 32 notebooks each. Every notebook costs $2. … al cost? Represent the multi-step problem with an equation before solving.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “A school orders 6 boxes with 28 notebooks each. Every notebook costs $2. What is the total cost? Represent the multi-step problem with an equation before solving” and replaces “170” using the task's evidence or constraints?",
+        "choices": [
+          "36",
+          "56",
+          "170",
+          "336"
+        ],
+        "answer": "336",
+        "explain": "(6 × 28) × 2 = 336. This evidence makes the correct response defensible. The response \"170\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “A school orders 6 boxes with 28 notebooks each. Every notebook costs $2. What is the total cost? Represent the multi-step problem with an equation before solving” and replaces “170” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:sci:L1": {
+    "name": "Solar System",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "The planet closest to the Sun is…",
+        "choices": [
+          "Mercury",
+          "Saturn",
+          "None of these",
+          "Mars"
+        ],
+        "answer": "Mercury",
+        "audio": "Solar system question."
+      },
+      {
+        "type": "mc",
+        "q": "Earth is the ___ planet from the Sun.",
+        "choices": [
+          "Second",
+          "Third",
+          "Fifth",
+          "None of these"
+        ],
+        "answer": "Third",
+        "audio": "Solar system question."
+      },
+      {
+        "type": "mc",
+        "q": "The Sun is a…",
+        "choices": [
+          "Star",
+          "Planet",
+          "None of these",
+          "Comet"
+        ],
+        "answer": "Star",
+        "audio": "Solar system question."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains Earth's rotation in the Sun-Earth system?",
+        "choices": [
+          "Earth completes one solar orbit every 24 hours.",
+          "Earth rotates once on its axis in about 24 hours.",
+          "Night occurs because clouds block all sunlight.",
+          "The Sun circles Earth once each day."
+        ],
+        "answer": "Earth rotates once on its axis in about 24 hours.",
+        "explain": "Earth rotates once on its axis in about 24 hours. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions",
+        "audio": "Which statement accurately explains Earth's rotation in the Sun-Earth system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which real-world application best demonstrates Earth's rotation in the Sun-Earth system?",
+        "choices": [
+          "Earth completes one solar orbit every 24 hours.",
+          "The Sun circles Earth once each day.",
+          "Night occurs because clouds block all sunlight.",
+          "Use a globe and fixed lamp to model daylight on one side and darkness on the other."
+        ],
+        "answer": "Use a globe and fixed lamp to model daylight on one side and darkness on the other.",
+        "explain": "Use a globe and fixed lamp to model daylight on one side and darkness on the other. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions",
+        "audio": "Which real-world application best demonstrates Earth's rotation in the Sun-Earth system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest evidence about Earth's rotation in the Sun-Earth system?",
+        "choices": [
+          "Night occurs because clouds block all sunlight.",
+          "Repeated shadow measurements change predictably across one day.",
+          "The Sun circles Earth once each day.",
+          "Earth completes one solar orbit every 24 hours."
+        ],
+        "answer": "Repeated shadow measurements change predictably across one day.",
+        "explain": "Repeated shadow measurements change predictably across one day. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions",
+        "audio": "Which observation provides the strongest evidence about Earth's rotation in the Sun-Earth system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best explains Earth's rotation in the Sun-Earth system?",
+        "choices": [
+          "As Earth rotates, a location faces toward and then away from the Sun, producing day and night.",
+          "The Sun circles Earth once each day.",
+          "Earth completes one solar orbit every 24 hours.",
+          "Night occurs because clouds block all sunlight."
+        ],
+        "answer": "As Earth rotates, a location faces toward and then away from the Sun, producing day and night.",
+        "explain": "As Earth rotates, a location faces toward and then away from the Sun, producing day and night. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions",
+        "audio": "Which systems-level connection best explains Earth's rotation in the Sun-Earth system?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “The repeating light and shadow pattern supports a rotational, not a daily orbit, explanation” correctly answers “Which conclusion about Earth's rotation in the Sun-Earth system is supported without overstating the evidence.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The repeating light and shadow pattern supports a rotational, not a daily orbit, explanation. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions",
+        "audio": "True or false: “The repeating light and shadow pattern supports a rotational, not a daily orbit, explanation” correctly answers “Which conclusion about Earth's rotation in the Sun-Earth system is supported without overstating the evidence.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson principle should be applied when explaining Earth's rotation in the Sun-Earth system?",
+        "choices": [
+          "Earth rotates once on its axis in about 24 hours.",
+          "The Sun circles Earth once each day.",
+          "Night occurs because clouds block all sunlight.",
+          "Earth completes one solar orbit every 24 hours."
+        ],
+        "answer": "Earth rotates once on its axis in about 24 hours.",
+        "explain": "Earth rotates once on its axis in about 24 hours. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions",
+        "audio": "Which lesson principle should be applied when explaining Earth's rotation in the Sun-Earth system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which example correctly applies Earth's rotation in the Sun-Earth system in a real system?",
+        "choices": [
+          "The Sun circles Earth once each day.",
+          "Use a globe and fixed lamp to model daylight on one side and darkness on the other.",
+          "Earth completes one solar orbit every 24 hours.",
+          "Night occurs because clouds block all sunlight."
+        ],
+        "answer": "Use a globe and fixed lamp to model daylight on one side and darkness on the other.",
+        "explain": "Use a globe and fixed lamp to model daylight on one side and darkness on the other. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions",
+        "audio": "Which example correctly applies Earth's rotation in the Sun-Earth system in a real system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson observation directly supports Earth's rotation in the Sun-Earth system?",
+        "choices": [
+          "Night occurs because clouds block all sunlight.",
+          "Earth completes one solar orbit every 24 hours.",
+          "The Sun circles Earth once each day.",
+          "Repeated shadow measurements change predictably across one day."
+        ],
+        "answer": "Repeated shadow measurements change predictably across one day.",
+        "explain": "Repeated shadow measurements change predictably across one day. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions",
+        "audio": "Which lesson observation directly supports Earth's rotation in the Sun-Earth system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which cause-and-effect connection follows from the evidence about Earth's rotation in the Sun-Earth system?",
+        "choices": [
+          "The Sun circles Earth once each day.",
+          "Night occurs because clouds block all sunlight.",
+          "As Earth rotates, a location faces toward and then away from the Sun, producing day and night.",
+          "Earth completes one solar orbit every 24 hours."
+        ],
+        "answer": "As Earth rotates, a location faces toward and then away from the Sun, producing day and night.",
+        "explain": "As Earth rotates, a location faces toward and then away from the Sun, producing day and night. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions",
+        "audio": "Which cause-and-effect connection follows from the evidence about Earth's rotation in the Sun-Earth system?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “The Sun circles Earth once each day” correctly answers “Which conclusion follows from the lesson evidence about Earth's rotation in the Sun-Earth system.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The repeating light and shadow pattern supports a rotational, not a daily orbit, explanation. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions",
+        "audio": "True or false: “The Sun circles Earth once each day” correctly answers “Which conclusion follows from the lesson evidence about Earth's rotation in the Sun-Earth system.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which claim about Earth's rotation in the Sun-Earth system is supported rather than assumed?",
+        "choices": [
+          "Earth rotates once on its axis in about 24 hours.",
+          "Night occurs because clouds block all sunlight.",
+          "Earth completes one solar orbit every 24 hours.",
+          "The Sun circles Earth once each day."
+        ],
+        "answer": "Earth rotates once on its axis in about 24 hours.",
+        "explain": "Earth rotates once on its axis in about 24 hours. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions",
+        "audio": "Which claim about Earth's rotation in the Sun-Earth system is supported rather than assumed?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of Earth's rotation in the Sun-Earth system can be justified with the lesson evidence?",
+        "choices": [
+          "Night occurs because clouds block all sunlight.",
+          "Use a globe and fixed lamp to model daylight on one side and darkness on the other.",
+          "The Sun circles Earth once each day.",
+          "Earth completes one solar orbit every 24 hours."
+        ],
+        "answer": "Use a globe and fixed lamp to model daylight on one side and darkness on the other.",
+        "explain": "Use a globe and fixed lamp to model daylight on one side and darkness on the other. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions",
+        "audio": "Which application of Earth's rotation in the Sun-Earth system can be justified with the lesson evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation distinguishes evidence from a misconception about Earth's rotation in the Sun-Earth system?",
+        "choices": [
+          "The Sun circles Earth once each day.",
+          "Repeated shadow measurements change predictably across one day.",
+          "Earth completes one solar orbit every 24 hours.",
+          "Night occurs because clouds block all sunlight."
+        ],
+        "answer": "Repeated shadow measurements change predictably across one day.",
+        "explain": "Repeated shadow measurements change predictably across one day. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions",
+        "audio": "Which observation distinguishes evidence from a misconception about Earth's rotation in the Sun-Earth system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which evidence-based connection explains how the parts of Earth's rotation in the Sun-Earth system relate?",
+        "choices": [
+          "The Sun circles Earth once each day.",
+          "Earth completes one solar orbit every 24 hours.",
+          "As Earth rotates, a location faces toward and then away from the Sun, producing day and night.",
+          "Night occurs because clouds block all sunlight."
+        ],
+        "answer": "As Earth rotates, a location faces toward and then away from the Sun, producing day and night.",
+        "explain": "As Earth rotates, a location faces toward and then away from the Sun, producing day and night. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions",
+        "audio": "Which evidence-based connection explains how the parts of Earth's rotation in the Sun-Earth system relate?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “The repeating light and shadow pattern supports a rotational, not a daily orbit, explanation” correctly answers “Which conclusion about Earth's rotation in the Sun-Earth system uses the evidence without adding an assumption.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The repeating light and shadow pattern supports a rotational, not a daily orbit, explanation. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions",
+        "audio": "True or false: “The repeating light and shadow pattern supports a rotational, not a daily orbit, explanation” correctly answers “Which conclusion about Earth's rotation in the Sun-Earth system uses the evidence without adding an assumption.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which explanation of Earth's rotation in the Sun-Earth system remains defensible after all lesson evidence is considered?",
+        "choices": [
+          "The Sun circles Earth once each day.",
+          "Earth rotates once on its axis in about 24 hours.",
+          "Night occurs because clouds block all sunlight.",
+          "Earth completes one solar orbit every 24 hours."
+        ],
+        "answer": "Earth rotates once on its axis in about 24 hours.",
+        "explain": "Earth rotates once on its axis in about 24 hours. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions",
+        "audio": "Which explanation of Earth's rotation in the Sun-Earth system remains defensible after all lesson evidence is considered?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of Earth's rotation in the Sun-Earth system is supported by both the lesson principle and evidence?",
+        "choices": [
+          "Night occurs because clouds block all sunlight.",
+          "Earth completes one solar orbit every 24 hours.",
+          "The Sun circles Earth once each day.",
+          "Use a globe and fixed lamp to model daylight on one side and darkness on the other."
+        ],
+        "answer": "Use a globe and fixed lamp to model daylight on one side and darkness on the other.",
+        "explain": "Use a globe and fixed lamp to model daylight on one side and darkness on the other. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions",
+        "audio": "Which application of Earth's rotation in the Sun-Earth system is supported by both the lesson principle and evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest basis for evaluating Earth's rotation in the Sun-Earth system?",
+        "choices": [
+          "Earth completes one solar orbit every 24 hours.",
+          "The Sun circles Earth once each day.",
+          "Night occurs because clouds block all sunlight.",
+          "Repeated shadow measurements change predictably across one day."
+        ],
+        "answer": "Repeated shadow measurements change predictably across one day.",
+        "explain": "Repeated shadow measurements change predictably across one day. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions",
+        "audio": "Which observation provides the strongest basis for evaluating Earth's rotation in the Sun-Earth system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best integrates the lesson evidence about Earth's rotation in the Sun-Earth system?",
+        "choices": [
+          "As Earth rotates, a location faces toward and then away from the Sun, producing day and night.",
+          "Night occurs because clouds block all sunlight.",
+          "Earth completes one solar orbit every 24 hours.",
+          "The Sun circles Earth once each day."
+        ],
+        "answer": "As Earth rotates, a location faces toward and then away from the Sun, producing day and night.",
+        "explain": "As Earth rotates, a location faces toward and then away from the Sun, producing day and night. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions",
+        "audio": "Which systems-level connection best integrates the lesson evidence about Earth's rotation in the Sun-Earth system?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “The Sun circles Earth once each day” correctly answers “Which conclusion about Earth's rotation in the Sun-Earth system accounts for the evidence without exceeding the model's limits.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The repeating light and shadow pattern supports a rotational, not a daily orbit, explanation. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions",
+        "audio": "True or false: “The Sun circles Earth once each day” correctly answers “Which conclusion about Earth's rotation in the Sun-Earth system accounts for the evidence without exceeding the model's limits.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “Which explanation of Earth's rotation in the Sun-Earth system remains defensible after all lesson evidence is considered” and replaces “Earth completes one solar orbit every 24 hours.” using the task's evidence or constraints?",
+        "choices": [
+          "Earth completes one solar orbit every 24 hours.",
+          "Night occurs because clouds block all sunlight.",
+          "The Sun circles Earth once each day.",
+          "Earth rotates once on its axis in about 24 hours."
+        ],
+        "answer": "Earth rotates once on its axis in about 24 hours.",
+        "explain": "Earth rotates once on its axis in about 24 hours. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions. This evidence makes the correct response defensible. The response \"Earth completes one solar orbit every 24 hours.\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “Which explanation of Earth's rotation in the Sun-Earth system remains defensible after all lesson evidence is considered” and replaces “Earth completes one solar orbit every 24 hours.” using the task's evidence or constraints?"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer to “Which application of Earth's rotation in the Sun-Earth system is supported by both the lesson principle and evidence” fits all the given evidence and lesson rules?",
+        "choices": [
+          "Use a globe and fixed lamp to model daylight on one side and darkness on the other.",
+          "Night occurs because clouds block all sunlight.",
+          "Earth completes one solar orbit every 24 hours.",
+          "The Sun circles Earth once each day."
+        ],
+        "answer": "Use a globe and fixed lamp to model daylight on one side and darkness on the other.",
+        "explain": "Use a globe and fixed lamp to model daylight on one side and darkness on the other. This matches : demonstrate Earth's approximately 24-hour rotation and explain the day/night cycle and changing shadow positions. This evidence makes the correct response defensible. The response \"Night occurs because clouds block all sunlight.\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer to “Which application of Earth's rotation in the Sun-Earth system is supported by both the lesson principle and evidence” fits all the given evidence and lesson rules?"
+      }
+    ]
+  },
+  "g5:sci:L4": {
+    "name": "Earth's Rotation",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "What causes day and night on Earth?",
+        "choices": [
+          "None of these",
+          "Earth changing size",
+          "The moon disappearing",
+          "Earth rotating on its axis"
+        ],
+        "answer": "Earth rotating on its axis",
+        "audio": "Answer the Earth and space question."
+      },
+      {
+        "type": "mc",
+        "q": "About how long does one full Earth rotation take?",
+        "choices": [
+          "24 Hours",
+          "0",
+          "7 Days",
+          "365 Days"
+        ],
+        "answer": "24 Hours",
+        "audio": "Answer the Earth and space question."
+      },
+      {
+        "type": "mc",
+        "q": "Earth's revolution around the Sun takes about…",
+        "choices": [
+          "365 Days",
+          "30 Minutes",
+          "24 Hours",
+          "0"
+        ],
+        "answer": "365 Days",
+        "audio": "Answer the Earth and space question."
+      },
+      {
+        "type": "mc",
+        "q": "The imaginary line Earth spins around is called its…",
+        "choices": [
+          "Axis",
+          "Shadow",
+          "Crater",
+          "Area"
+        ],
+        "answer": "Axis",
+        "audio": "Answer the Earth and space question."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains rotation, day/night, and shadow position?",
+        "choices": [
+          "Earth's axial rotation causes predictable daily patterns of light and shadow.",
+          "Earth remains still while the Sun orbits it daily.",
+          "Earth rotates once each year.",
+          "Shadows change only because objects grow."
+        ],
+        "answer": "Earth's axial rotation causes predictable daily patterns of light and shadow.",
+        "explain": "Earth's axial rotation causes predictable daily patterns of light and shadow. This matches : demonstrate Earth's approximately 24-hour rotation and explain day/night and changing shadows",
+        "audio": "Which statement accurately explains rotation, day/night, and shadow position?"
+      },
+      {
+        "type": "mc",
+        "q": "Which real-world application best demonstrates rotation, day/night, and shadow position?",
+        "choices": [
+          "Mark a globe location and rotate it past a fixed lamp to model sunrise, noon, sunset, and night.",
+          "Earth remains still while the Sun orbits it daily.",
+          "Shadows change only because objects grow.",
+          "Earth rotates once each year."
+        ],
+        "answer": "Mark a globe location and rotate it past a fixed lamp to model sunrise, noon, sunset, and night.",
+        "explain": "Mark a globe location and rotate it past a fixed lamp to model sunrise, noon, sunset, and night. This matches : demonstrate Earth's approximately 24-hour rotation and explain day/night and changing shadows",
+        "audio": "Which real-world application best demonstrates rotation, day/night, and shadow position?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest evidence about rotation, day/night, and shadow position?",
+        "choices": [
+          "Shadows change only because objects grow.",
+          "Earth remains still while the Sun orbits it daily.",
+          "Earth rotates once each year.",
+          "A shadow's direction and length change in a repeating sequence during daylight."
+        ],
+        "answer": "A shadow's direction and length change in a repeating sequence during daylight.",
+        "explain": "A shadow's direction and length change in a repeating sequence during daylight. This matches : demonstrate Earth's approximately 24-hour rotation and explain day/night and changing shadows",
+        "audio": "Which observation provides the strongest evidence about rotation, day/night, and shadow position?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best explains rotation, day/night, and shadow position?",
+        "choices": [
+          "Earth remains still while the Sun orbits it daily.",
+          "Earth rotates once each year.",
+          "Shadows change only because objects grow.",
+          "The apparent motion of the Sun is explained by Earth's rotation, not by the Sun traveling around Earth daily."
+        ],
+        "answer": "The apparent motion of the Sun is explained by Earth's rotation, not by the Sun traveling around Earth daily.",
+        "explain": "The apparent motion of the Sun is explained by Earth's rotation, not by the Sun traveling around Earth daily. This matches : demonstrate Earth's approximately 24-hour rotation and explain day/night and changing shadows",
+        "audio": "Which systems-level connection best explains rotation, day/night, and shadow position?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “A rotating-Earth model explains both the day/night cycle and systematic shadow changes” correctly answers “Which conclusion about rotation, day/night, and shadow position is supported without overstating the evidence.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A rotating-Earth model explains both the day/night cycle and systematic shadow changes. This matches : demonstrate Earth's approximately 24-hour rotation and explain day/night and changing shadows",
+        "audio": "True or false: “A rotating-Earth model explains both the day/night cycle and systematic shadow changes” correctly answers “Which conclusion about rotation, day/night, and shadow position is supported without overstating the evidence.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson principle should be applied when explaining rotation, day/night, and shadow position?",
+        "choices": [
+          "Earth remains still while the Sun orbits it daily.",
+          "Earth rotates once each year.",
+          "Shadows change only because objects grow.",
+          "Earth's axial rotation causes predictable daily patterns of light and shadow."
+        ],
+        "answer": "Earth's axial rotation causes predictable daily patterns of light and shadow.",
+        "explain": "Earth's axial rotation causes predictable daily patterns of light and shadow. This matches : demonstrate Earth's approximately 24-hour rotation and explain day/night and changing shadows",
+        "audio": "Which lesson principle should be applied when explaining rotation, day/night, and shadow position?"
+      },
+      {
+        "type": "mc",
+        "q": "Which example correctly applies rotation, day/night, and shadow position in a real system?",
+        "choices": [
+          "Earth rotates once each year.",
+          "Earth remains still while the Sun orbits it daily.",
+          "Mark a globe location and rotate it past a fixed lamp to model sunrise, noon, sunset, and night.",
+          "Shadows change only because objects grow."
+        ],
+        "answer": "Mark a globe location and rotate it past a fixed lamp to model sunrise, noon, sunset, and night.",
+        "explain": "Mark a globe location and rotate it past a fixed lamp to model sunrise, noon, sunset, and night. This matches : demonstrate Earth's approximately 24-hour rotation and explain day/night and changing shadows",
+        "audio": "Which example correctly applies rotation, day/night, and shadow position in a real system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson observation directly supports rotation, day/night, and shadow position?",
+        "choices": [
+          "Shadows change only because objects grow.",
+          "Earth remains still while the Sun orbits it daily.",
+          "Earth rotates once each year.",
+          "A shadow's direction and length change in a repeating sequence during daylight."
+        ],
+        "answer": "A shadow's direction and length change in a repeating sequence during daylight.",
+        "explain": "A shadow's direction and length change in a repeating sequence during daylight. This matches : demonstrate Earth's approximately 24-hour rotation and explain day/night and changing shadows",
+        "audio": "Which lesson observation directly supports rotation, day/night, and shadow position?"
+      },
+      {
+        "type": "mc",
+        "q": "Which cause-and-effect connection follows from the evidence about rotation, day/night, and shadow position?",
+        "choices": [
+          "Shadows change only because objects grow.",
+          "The apparent motion of the Sun is explained by Earth's rotation, not by the Sun traveling around Earth daily.",
+          "Earth rotates once each year.",
+          "Earth remains still while the Sun orbits it daily."
+        ],
+        "answer": "The apparent motion of the Sun is explained by Earth's rotation, not by the Sun traveling around Earth daily.",
+        "explain": "The apparent motion of the Sun is explained by Earth's rotation, not by the Sun traveling around Earth daily. This matches : demonstrate Earth's approximately 24-hour rotation and explain day/night and changing shadows",
+        "audio": "Which cause-and-effect connection follows from the evidence about rotation, day/night, and shadow position?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Earth remains still while the Sun orbits it daily” correctly answers “Which conclusion follows from the lesson evidence about rotation, day/night, and shadow position.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. A rotating-Earth model explains both the day/night cycle and systematic shadow changes. This matches : demonstrate Earth's approximately 24-hour rotation and explain day/night and changing shadows",
+        "audio": "True or false: “Earth remains still while the Sun orbits it daily” correctly answers “Which conclusion follows from the lesson evidence about rotation, day/night, and shadow position.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which claim about rotation, day/night, and shadow position is supported rather than assumed?",
+        "choices": [
+          "Shadows change only because objects grow.",
+          "Earth rotates once each year.",
+          "Earth remains still while the Sun orbits it daily.",
+          "Earth's axial rotation causes predictable daily patterns of light and shadow."
+        ],
+        "answer": "Earth's axial rotation causes predictable daily patterns of light and shadow.",
+        "explain": "Earth's axial rotation causes predictable daily patterns of light and shadow. This matches : demonstrate Earth's approximately 24-hour rotation and explain day/night and changing shadows",
+        "audio": "Which claim about rotation, day/night, and shadow position is supported rather than assumed?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of rotation, day/night, and shadow position can be justified with the lesson evidence?",
+        "choices": [
+          "Mark a globe location and rotate it past a fixed lamp to model sunrise, noon, sunset, and night.",
+          "Earth remains still while the Sun orbits it daily.",
+          "Shadows change only because objects grow.",
+          "Earth rotates once each year."
+        ],
+        "answer": "Mark a globe location and rotate it past a fixed lamp to model sunrise, noon, sunset, and night.",
+        "explain": "Mark a globe location and rotate it past a fixed lamp to model sunrise, noon, sunset, and night. This matches : demonstrate Earth's approximately 24-hour rotation and explain day/night and changing shadows",
+        "audio": "Which application of rotation, day/night, and shadow position can be justified with the lesson evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation distinguishes evidence from a misconception about rotation, day/night, and shadow position?",
+        "choices": [
+          "A shadow's direction and length change in a repeating sequence during daylight.",
+          "Shadows change only because objects grow.",
+          "Earth rotates once each year.",
+          "Earth remains still while the Sun orbits it daily."
+        ],
+        "answer": "A shadow's direction and length change in a repeating sequence during daylight.",
+        "explain": "A shadow's direction and length change in a repeating sequence during daylight. This matches : demonstrate Earth's approximately 24-hour rotation and explain day/night and changing shadows",
+        "audio": "Which observation distinguishes evidence from a misconception about rotation, day/night, and shadow position?"
+      },
+      {
+        "type": "mc",
+        "q": "Which evidence-based connection explains how the parts of rotation, day/night, and shadow position relate?",
+        "choices": [
+          "Earth rotates once each year.",
+          "Shadows change only because objects grow.",
+          "The apparent motion of the Sun is explained by Earth's rotation, not by the Sun traveling around Earth daily.",
+          "Earth remains still while the Sun orbits it daily."
+        ],
+        "answer": "The apparent motion of the Sun is explained by Earth's rotation, not by the Sun traveling around Earth daily.",
+        "explain": "The apparent motion of the Sun is explained by Earth's rotation, not by the Sun traveling around Earth daily. This matches : demonstrate Earth's approximately 24-hour rotation and explain day/night and changing shadows",
+        "audio": "Which evidence-based connection explains how the parts of rotation, day/night, and shadow position relate?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “A rotating-Earth model explains both the day/night cycle and systematic shadow changes” correctly answers “Which conclusion about rotation, day/night, and shadow position uses the evidence without adding an assumption.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A rotating-Earth model explains both the day/night cycle and systematic shadow changes. This matches : demonstrate Earth's approximately 24-hour rotation and explain day/night and changing shadows",
+        "audio": "True or false: “A rotating-Earth model explains both the day/night cycle and systematic shadow changes” correctly answers “Which conclusion about rotation, day/night, and shadow position uses the evidence without adding an assumption.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which explanation of rotation, day/night, and shadow position remains defensible after all lesson evidence is considered?",
+        "choices": [
+          "Earth's axial rotation causes predictable daily patterns of light and shadow.",
+          "Earth remains still while the Sun orbits it daily.",
+          "Shadows change only because objects grow.",
+          "Earth rotates once each year."
+        ],
+        "answer": "Earth's axial rotation causes predictable daily patterns of light and shadow.",
+        "explain": "Earth's axial rotation causes predictable daily patterns of light and shadow. This matches : demonstrate Earth's approximately 24-hour rotation and explain day/night and changing shadows",
+        "audio": "Which explanation of rotation, day/night, and shadow position remains defensible after all lesson evidence is considered?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of rotation, day/night, and shadow position is supported by both the lesson principle and evidence?",
+        "choices": [
+          "Mark a globe location and rotate it past a fixed lamp to model sunrise, noon, sunset, and night.",
+          "Earth remains still while the Sun orbits it daily.",
+          "Shadows change only because objects grow.",
+          "Earth rotates once each year."
+        ],
+        "answer": "Mark a globe location and rotate it past a fixed lamp to model sunrise, noon, sunset, and night.",
+        "explain": "Mark a globe location and rotate it past a fixed lamp to model sunrise, noon, sunset, and night. This matches : demonstrate Earth's approximately 24-hour rotation and explain day/night and changing shadows",
+        "audio": "Which application of rotation, day/night, and shadow position is supported by both the lesson principle and evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest basis for evaluating rotation, day/night, and shadow position?",
+        "choices": [
+          "Earth rotates once each year.",
+          "Earth remains still while the Sun orbits it daily.",
+          "Shadows change only because objects grow.",
+          "A shadow's direction and length change in a repeating sequence during daylight."
+        ],
+        "answer": "A shadow's direction and length change in a repeating sequence during daylight.",
+        "explain": "A shadow's direction and length change in a repeating sequence during daylight. This matches : demonstrate Earth's approximately 24-hour rotation and explain day/night and changing shadows",
+        "audio": "Which observation provides the strongest basis for evaluating rotation, day/night, and shadow position?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best integrates the lesson evidence about rotation, day/night, and shadow position?",
+        "choices": [
+          "Earth remains still while the Sun orbits it daily.",
+          "Shadows change only because objects grow.",
+          "Earth rotates once each year.",
+          "The apparent motion of the Sun is explained by Earth's rotation, not by the Sun traveling around Earth daily."
+        ],
+        "answer": "The apparent motion of the Sun is explained by Earth's rotation, not by the Sun traveling around Earth daily.",
+        "explain": "The apparent motion of the Sun is explained by Earth's rotation, not by the Sun traveling around Earth daily. This matches : demonstrate Earth's approximately 24-hour rotation and explain day/night and changing shadows",
+        "audio": "Which systems-level connection best integrates the lesson evidence about rotation, day/night, and shadow position?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Earth remains still while the Sun orbits it daily” correctly answers “Which conclusion about rotation, day/night, and shadow position accounts for the evidence without exceeding the model's limits.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. A rotating-Earth model explains both the day/night cycle and systematic shadow changes. This matches : demonstrate Earth's approximately 24-hour rotation and explain day/night and changing shadows",
+        "audio": "True or false: “Earth remains still while the Sun orbits it daily” correctly answers “Which conclusion about rotation, day/night, and shadow position accounts for the evidence without exceeding the model's limits.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “Which explanation of rotation, day/night, and shadow position remains defensible after all lesson evidence is considered” and replaces “Earth remains still while the Sun orbits it daily.” using the task's evidence or constraints?",
+        "choices": [
+          "Shadows change only because objects grow.",
+          "Earth remains still while the Sun orbits it daily.",
+          "Earth rotates once each year.",
+          "Earth's axial rotation causes predictable daily patterns of light and shadow."
+        ],
+        "answer": "Earth's axial rotation causes predictable daily patterns of light and shadow.",
+        "explain": "Earth's axial rotation causes predictable daily patterns of light and shadow. This matches : demonstrate Earth's approximately 24-hour rotation and explain day/night and changing shadows. This evidence makes the correct response defensible. The response \"Earth remains still while the Sun orbits it daily.\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “Which explanation of rotation, day/night, and shadow position remains defensible after all lesson evidence is considered” and replaces “Earth remains still while the Sun orbits it daily.” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:sci:L5": {
+    "name": "Weather & Climate",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Weather describes conditions over a…",
+        "choices": [
+          "Distance in space",
+          "Climate",
+          "Very long period only",
+          "Short period of time"
+        ],
+        "answer": "Short period of time",
+        "audio": "Choose the correct weather or climate answer."
+      },
+      {
+        "type": "mc",
+        "q": "Climate describes the usual weather patterns of a place over…",
+        "choices": [
+          "Many years",
+          "A few minutes",
+          "One afternoon only",
+          "Climate"
+        ],
+        "answer": "Many years",
+        "audio": "Choose the correct weather or climate answer."
+      },
+      {
+        "type": "mc",
+        "q": "Which tool measures temperature?",
+        "choices": [
+          "Thermometer",
+          "Temperature",
+          "Compass",
+          "Ruler"
+        ],
+        "answer": "Thermometer",
+        "audio": "Choose the correct weather or climate answer."
+      },
+      {
+        "type": "mc",
+        "q": "Dark clouds, wind, and falling rain describe…",
+        "choices": [
+          "Weather",
+          "Climate",
+          "A rock type",
+          "A food chain"
+        ],
+        "answer": "Weather",
+        "audio": "Choose the correct weather or climate answer."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains Sun-ocean interactions that affect weather?",
+        "choices": [
+          "The ocean creates weather without energy input.",
+          "Evaporation occurs only when water boils.",
+          "Weather and climate mean exactly the same thing.",
+          "Solar energy warms ocean water and drives evaporation, supplying water vapor to the atmosphere."
+        ],
+        "answer": "Solar energy warms ocean water and drives evaporation, supplying water vapor to the atmosphere.",
+        "explain": "Solar energy warms ocean water and drives evaporation, supplying water vapor to the atmosphere. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which statement accurately explains Sun-ocean interactions that affect weather?"
+      },
+      {
+        "type": "mc",
+        "q": "Which real-world application best demonstrates Sun-ocean interactions that affect weather?",
+        "choices": [
+          "Compare coastal air conditions after periods of strong and weak solar heating.",
+          "The ocean creates weather without energy input.",
+          "Evaporation occurs only when water boils.",
+          "Weather and climate mean exactly the same thing."
+        ],
+        "answer": "Compare coastal air conditions after periods of strong and weak solar heating.",
+        "explain": "Compare coastal air conditions after periods of strong and weak solar heating. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which real-world application best demonstrates Sun-ocean interactions that affect weather?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest evidence about Sun-ocean interactions that affect weather?",
+        "choices": [
+          "Rising water vapor followed by condensation and precipitation links ocean heating to weather.",
+          "Weather and climate mean exactly the same thing.",
+          "The ocean creates weather without energy input.",
+          "Evaporation occurs only when water boils."
+        ],
+        "answer": "Rising water vapor followed by condensation and precipitation links ocean heating to weather.",
+        "explain": "Rising water vapor followed by condensation and precipitation links ocean heating to weather. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which observation provides the strongest evidence about Sun-ocean interactions that affect weather?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best explains Sun-ocean interactions that affect weather?",
+        "choices": [
+          "Weather and climate mean exactly the same thing.",
+          "Evaporation occurs only when water boils.",
+          "The ocean creates weather without energy input.",
+          "Changing solar input affects evaporation, cloud formation, and short-term weather patterns."
+        ],
+        "answer": "Changing solar input affects evaporation, cloud formation, and short-term weather patterns.",
+        "explain": "Changing solar input affects evaporation, cloud formation, and short-term weather patterns. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which systems-level connection best explains Sun-ocean interactions that affect weather?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Weather evidence is best explained through energy from the Sun and water cycling between ocean and atmosphere” correctly answers “Which conclusion about Sun-ocean interactions that affect weather is supported without overstating the evidence.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Weather evidence is best explained through energy from the Sun and water cycling between ocean and atmosphere. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "True or false: “Weather evidence is best explained through energy from the Sun and water cycling between ocean and atmosphere” correctly answers “Which conclusion about Sun-ocean interactions that affect weather is supported without overstating the evidence.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson principle should be applied when explaining Sun-ocean interactions that affect weather?",
+        "choices": [
+          "Solar energy warms ocean water and drives evaporation, supplying water vapor to the atmosphere.",
+          "Weather and climate mean exactly the same thing.",
+          "Evaporation occurs only when water boils.",
+          "The ocean creates weather without energy input."
+        ],
+        "answer": "Solar energy warms ocean water and drives evaporation, supplying water vapor to the atmosphere.",
+        "explain": "Solar energy warms ocean water and drives evaporation, supplying water vapor to the atmosphere. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which lesson principle should be applied when explaining Sun-ocean interactions that affect weather?"
+      },
+      {
+        "type": "mc",
+        "q": "Which example correctly applies Sun-ocean interactions that affect weather in a real system?",
+        "choices": [
+          "The ocean creates weather without energy input.",
+          "Evaporation occurs only when water boils.",
+          "Weather and climate mean exactly the same thing.",
+          "Compare coastal air conditions after periods of strong and weak solar heating."
+        ],
+        "answer": "Compare coastal air conditions after periods of strong and weak solar heating.",
+        "explain": "Compare coastal air conditions after periods of strong and weak solar heating. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which example correctly applies Sun-ocean interactions that affect weather in a real system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson observation directly supports Sun-ocean interactions that affect weather?",
+        "choices": [
+          "Weather and climate mean exactly the same thing.",
+          "Rising water vapor followed by condensation and precipitation links ocean heating to weather.",
+          "Evaporation occurs only when water boils.",
+          "The ocean creates weather without energy input."
+        ],
+        "answer": "Rising water vapor followed by condensation and precipitation links ocean heating to weather.",
+        "explain": "Rising water vapor followed by condensation and precipitation links ocean heating to weather. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which lesson observation directly supports Sun-ocean interactions that affect weather?"
+      },
+      {
+        "type": "mc",
+        "q": "Which cause-and-effect connection follows from the evidence about Sun-ocean interactions that affect weather?",
+        "choices": [
+          "Changing solar input affects evaporation, cloud formation, and short-term weather patterns.",
+          "The ocean creates weather without energy input.",
+          "Evaporation occurs only when water boils.",
+          "Weather and climate mean exactly the same thing."
+        ],
+        "answer": "Changing solar input affects evaporation, cloud formation, and short-term weather patterns.",
+        "explain": "Changing solar input affects evaporation, cloud formation, and short-term weather patterns. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which cause-and-effect connection follows from the evidence about Sun-ocean interactions that affect weather?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “The ocean creates weather without energy input” correctly answers “Which conclusion follows from the lesson evidence about Sun-ocean interactions that affect weather.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Weather evidence is best explained through energy from the Sun and water cycling between ocean and atmosphere. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "True or false: “The ocean creates weather without energy input” correctly answers “Which conclusion follows from the lesson evidence about Sun-ocean interactions that affect weather.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which claim about Sun-ocean interactions that affect weather is supported rather than assumed?",
+        "choices": [
+          "Weather and climate mean exactly the same thing.",
+          "Solar energy warms ocean water and drives evaporation, supplying water vapor to the atmosphere.",
+          "The ocean creates weather without energy input.",
+          "Evaporation occurs only when water boils."
+        ],
+        "answer": "Solar energy warms ocean water and drives evaporation, supplying water vapor to the atmosphere.",
+        "explain": "Solar energy warms ocean water and drives evaporation, supplying water vapor to the atmosphere. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which claim about Sun-ocean interactions that affect weather is supported rather than assumed?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of Sun-ocean interactions that affect weather can be justified with the lesson evidence?",
+        "choices": [
+          "Evaporation occurs only when water boils.",
+          "Compare coastal air conditions after periods of strong and weak solar heating.",
+          "The ocean creates weather without energy input.",
+          "Weather and climate mean exactly the same thing."
+        ],
+        "answer": "Compare coastal air conditions after periods of strong and weak solar heating.",
+        "explain": "Compare coastal air conditions after periods of strong and weak solar heating. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which application of Sun-ocean interactions that affect weather can be justified with the lesson evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation distinguishes evidence from a misconception about Sun-ocean interactions that affect weather?",
+        "choices": [
+          "Evaporation occurs only when water boils.",
+          "The ocean creates weather without energy input.",
+          "Rising water vapor followed by condensation and precipitation links ocean heating to weather.",
+          "Weather and climate mean exactly the same thing."
+        ],
+        "answer": "Rising water vapor followed by condensation and precipitation links ocean heating to weather.",
+        "explain": "Rising water vapor followed by condensation and precipitation links ocean heating to weather. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which observation distinguishes evidence from a misconception about Sun-ocean interactions that affect weather?"
+      },
+      {
+        "type": "mc",
+        "q": "Which evidence-based connection explains how the parts of Sun-ocean interactions that affect weather relate?",
+        "choices": [
+          "Changing solar input affects evaporation, cloud formation, and short-term weather patterns.",
+          "Weather and climate mean exactly the same thing.",
+          "The ocean creates weather without energy input.",
+          "Evaporation occurs only when water boils."
+        ],
+        "answer": "Changing solar input affects evaporation, cloud formation, and short-term weather patterns.",
+        "explain": "Changing solar input affects evaporation, cloud formation, and short-term weather patterns. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which evidence-based connection explains how the parts of Sun-ocean interactions that affect weather relate?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Weather evidence is best explained through energy from the Sun and water cycling between ocean and atmosphere” correctly answers “Which conclusion about Sun-ocean interactions that affect weather uses the evidence without adding an assumption.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Weather evidence is best explained through energy from the Sun and water cycling between ocean and atmosphere. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "True or false: “Weather evidence is best explained through energy from the Sun and water cycling between ocean and atmosphere” correctly answers “Which conclusion about Sun-ocean interactions that affect weather uses the evidence without adding an assumption.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which explanation of Sun-ocean interactions that affect weather remains defensible after all lesson evidence is considered?",
+        "choices": [
+          "Solar energy warms ocean water and drives evaporation, supplying water vapor to the atmosphere.",
+          "The ocean creates weather without energy input.",
+          "Evaporation occurs only when water boils.",
+          "Weather and climate mean exactly the same thing."
+        ],
+        "answer": "Solar energy warms ocean water and drives evaporation, supplying water vapor to the atmosphere.",
+        "explain": "Solar energy warms ocean water and drives evaporation, supplying water vapor to the atmosphere. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which explanation of Sun-ocean interactions that affect weather remains defensible after all lesson evidence is considered?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of Sun-ocean interactions that affect weather is supported by both the lesson principle and evidence?",
+        "choices": [
+          "Compare coastal air conditions after periods of strong and weak solar heating.",
+          "Weather and climate mean exactly the same thing.",
+          "Evaporation occurs only when water boils.",
+          "The ocean creates weather without energy input."
+        ],
+        "answer": "Compare coastal air conditions after periods of strong and weak solar heating.",
+        "explain": "Compare coastal air conditions after periods of strong and weak solar heating. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which application of Sun-ocean interactions that affect weather is supported by both the lesson principle and evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest basis for evaluating Sun-ocean interactions that affect weather?",
+        "choices": [
+          "Weather and climate mean exactly the same thing.",
+          "Evaporation occurs only when water boils.",
+          "The ocean creates weather without energy input.",
+          "Rising water vapor followed by condensation and precipitation links ocean heating to weather."
+        ],
+        "answer": "Rising water vapor followed by condensation and precipitation links ocean heating to weather.",
+        "explain": "Rising water vapor followed by condensation and precipitation links ocean heating to weather. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which observation provides the strongest basis for evaluating Sun-ocean interactions that affect weather?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best integrates the lesson evidence about Sun-ocean interactions that affect weather?",
+        "choices": [
+          "Changing solar input affects evaporation, cloud formation, and short-term weather patterns.",
+          "The ocean creates weather without energy input.",
+          "Weather and climate mean exactly the same thing.",
+          "Evaporation occurs only when water boils."
+        ],
+        "answer": "Changing solar input affects evaporation, cloud formation, and short-term weather patterns.",
+        "explain": "Changing solar input affects evaporation, cloud formation, and short-term weather patterns. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which systems-level connection best integrates the lesson evidence about Sun-ocean interactions that affect weather?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “The ocean creates weather without energy input” correctly answers “Which conclusion about Sun-ocean interactions that affect weather accounts for the evidence without exceeding the model's limits.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Weather evidence is best explained through energy from the Sun and water cycling between ocean and atmosphere. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "True or false: “The ocean creates weather without energy input” correctly answers “Which conclusion about Sun-ocean interactions that affect weather accounts for the evidence without exceeding the model's limits.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “Which explanation of Sun-ocean interactions that affect weather remains defensible after all lesson evidence is considered” and replaces “Evaporation occurs only when water boils.” using the task's evidence or constraints?",
+        "choices": [
+          "Evaporation occurs only when water boils.",
+          "Weather and climate mean exactly the same thing.",
+          "The ocean creates weather without energy input.",
+          "Solar energy warms ocean water and drives evaporation, supplying water vapor to the atmosphere."
+        ],
+        "answer": "Solar energy warms ocean water and drives evaporation, supplying water vapor to the atmosphere.",
+        "explain": "Solar energy warms ocean water and drives evaporation, supplying water vapor to the atmosphere. This matches : explain how the Sun and ocean interact in the water cycle and affect weather. This evidence makes the correct response defensible. The response \"Evaporation occurs only when water boils.\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “Which explanation of Sun-ocean interactions that affect weather remains defensible after all lesson evidence is considered” and replaces “Evaporation occurs only when water boils.” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:sci:L6": {
+    "name": "Water Cycle",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "When liquid water changes into water vapor, it is called…",
+        "choices": [
+          "Evaporation",
+          "Friction",
+          "Collection",
+          "Precipitation"
+        ],
+        "answer": "Evaporation",
+        "audio": "Identify the water cycle stage."
+      },
+      {
+        "type": "mc",
+        "q": "When water vapor cools and forms clouds, it is called…",
+        "choices": [
+          "Condensation",
+          "None of these",
+          "Erosion",
+          "Germination"
+        ],
+        "answer": "Condensation",
+        "audio": "Identify the water cycle stage."
+      },
+      {
+        "type": "mc",
+        "q": "Rain, snow, sleet, and hail are forms of…",
+        "choices": [
+          "Friction",
+          "Precipitation",
+          "Evaporation",
+          "Photosynthesis"
+        ],
+        "answer": "Precipitation",
+        "audio": "Identify the water cycle stage."
+      },
+      {
+        "type": "mc",
+        "q": "Water gathering in lakes and oceans is called…",
+        "choices": [
+          "Topic detail",
+          "Rotation",
+          "Condensation",
+          "Collection"
+        ],
+        "answer": "Collection",
+        "audio": "Identify the water cycle stage."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains energy and matter in the water cycle?",
+        "choices": [
+          "The water cycle operates without solar energy.",
+          "Condensation changes liquid directly into vapor.",
+          "Water is destroyed during evaporation.",
+          "The Sun supplies energy for evaporation while water matter cycles through evaporation, condensation, precipitation, and collection."
+        ],
+        "answer": "The Sun supplies energy for evaporation while water matter cycles through evaporation, condensation, precipitation, and collection.",
+        "explain": "The Sun supplies energy for evaporation while water matter cycles through evaporation, condensation, precipitation, and collection. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which statement accurately explains energy and matter in the water cycle?"
+      },
+      {
+        "type": "mc",
+        "q": "Which real-world application best demonstrates energy and matter in the water cycle?",
+        "choices": [
+          "Water is destroyed during evaporation.",
+          "Model ocean water warming, vapor cooling into droplets, and water returning to a collection area.",
+          "Condensation changes liquid directly into vapor.",
+          "The water cycle operates without solar energy."
+        ],
+        "answer": "Model ocean water warming, vapor cooling into droplets, and water returning to a collection area.",
+        "explain": "Model ocean water warming, vapor cooling into droplets, and water returning to a collection area. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which real-world application best demonstrates energy and matter in the water cycle?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest evidence about energy and matter in the water cycle?",
+        "choices": [
+          "The amount of water remains in the model while its state and location change.",
+          "The water cycle operates without solar energy.",
+          "Condensation changes liquid directly into vapor.",
+          "Water is destroyed during evaporation."
+        ],
+        "answer": "The amount of water remains in the model while its state and location change.",
+        "explain": "The amount of water remains in the model while its state and location change. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which observation provides the strongest evidence about energy and matter in the water cycle?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best explains energy and matter in the water cycle?",
+        "choices": [
+          "Condensation changes liquid directly into vapor.",
+          "Greater solar heating can increase evaporation and influence cloud and precipitation patterns.",
+          "Water is destroyed during evaporation.",
+          "The water cycle operates without solar energy."
+        ],
+        "answer": "Greater solar heating can increase evaporation and influence cloud and precipitation patterns.",
+        "explain": "Greater solar heating can increase evaporation and influence cloud and precipitation patterns. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which systems-level connection best explains energy and matter in the water cycle?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “A complete explanation tracks both energy input and conserved water through the cycle” correctly answers “Which conclusion about energy and matter in the water cycle is supported without overstating the evidence.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A complete explanation tracks both energy input and conserved water through the cycle. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "True or false: “A complete explanation tracks both energy input and conserved water through the cycle” correctly answers “Which conclusion about energy and matter in the water cycle is supported without overstating the evidence.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson principle should be applied when explaining energy and matter in the water cycle?",
+        "choices": [
+          "The Sun supplies energy for evaporation while water matter cycles through evaporation, condensation, precipitation, and collection.",
+          "The water cycle operates without solar energy.",
+          "Water is destroyed during evaporation.",
+          "Condensation changes liquid directly into vapor."
+        ],
+        "answer": "The Sun supplies energy for evaporation while water matter cycles through evaporation, condensation, precipitation, and collection.",
+        "explain": "The Sun supplies energy for evaporation while water matter cycles through evaporation, condensation, precipitation, and collection. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which lesson principle should be applied when explaining energy and matter in the water cycle?"
+      },
+      {
+        "type": "mc",
+        "q": "Which example correctly applies energy and matter in the water cycle in a real system?",
+        "choices": [
+          "The water cycle operates without solar energy.",
+          "Condensation changes liquid directly into vapor.",
+          "Water is destroyed during evaporation.",
+          "Model ocean water warming, vapor cooling into droplets, and water returning to a collection area."
+        ],
+        "answer": "Model ocean water warming, vapor cooling into droplets, and water returning to a collection area.",
+        "explain": "Model ocean water warming, vapor cooling into droplets, and water returning to a collection area. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which example correctly applies energy and matter in the water cycle in a real system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson observation directly supports energy and matter in the water cycle?",
+        "choices": [
+          "The amount of water remains in the model while its state and location change.",
+          "The water cycle operates without solar energy.",
+          "Water is destroyed during evaporation.",
+          "Condensation changes liquid directly into vapor."
+        ],
+        "answer": "The amount of water remains in the model while its state and location change.",
+        "explain": "The amount of water remains in the model while its state and location change. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which lesson observation directly supports energy and matter in the water cycle?"
+      },
+      {
+        "type": "mc",
+        "q": "Which cause-and-effect connection follows from the evidence about energy and matter in the water cycle?",
+        "choices": [
+          "The water cycle operates without solar energy.",
+          "Greater solar heating can increase evaporation and influence cloud and precipitation patterns.",
+          "Water is destroyed during evaporation.",
+          "Condensation changes liquid directly into vapor."
+        ],
+        "answer": "Greater solar heating can increase evaporation and influence cloud and precipitation patterns.",
+        "explain": "Greater solar heating can increase evaporation and influence cloud and precipitation patterns. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which cause-and-effect connection follows from the evidence about energy and matter in the water cycle?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Water is destroyed during evaporation” correctly answers “Which conclusion follows from the lesson evidence about energy and matter in the water cycle.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. A complete explanation tracks both energy input and conserved water through the cycle. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "True or false: “Water is destroyed during evaporation” correctly answers “Which conclusion follows from the lesson evidence about energy and matter in the water cycle.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which claim about energy and matter in the water cycle is supported rather than assumed?",
+        "choices": [
+          "The water cycle operates without solar energy.",
+          "The Sun supplies energy for evaporation while water matter cycles through evaporation, condensation, precipitation, and collection.",
+          "Condensation changes liquid directly into vapor.",
+          "Water is destroyed during evaporation."
+        ],
+        "answer": "The Sun supplies energy for evaporation while water matter cycles through evaporation, condensation, precipitation, and collection.",
+        "explain": "The Sun supplies energy for evaporation while water matter cycles through evaporation, condensation, precipitation, and collection. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which claim about energy and matter in the water cycle is supported rather than assumed?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of energy and matter in the water cycle can be justified with the lesson evidence?",
+        "choices": [
+          "Water is destroyed during evaporation.",
+          "Model ocean water warming, vapor cooling into droplets, and water returning to a collection area.",
+          "The water cycle operates without solar energy.",
+          "Condensation changes liquid directly into vapor."
+        ],
+        "answer": "Model ocean water warming, vapor cooling into droplets, and water returning to a collection area.",
+        "explain": "Model ocean water warming, vapor cooling into droplets, and water returning to a collection area. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which application of energy and matter in the water cycle can be justified with the lesson evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation distinguishes evidence from a misconception about energy and matter in the water cycle?",
+        "choices": [
+          "Water is destroyed during evaporation.",
+          "The amount of water remains in the model while its state and location change.",
+          "Condensation changes liquid directly into vapor.",
+          "The water cycle operates without solar energy."
+        ],
+        "answer": "The amount of water remains in the model while its state and location change.",
+        "explain": "The amount of water remains in the model while its state and location change. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which observation distinguishes evidence from a misconception about energy and matter in the water cycle?"
+      },
+      {
+        "type": "mc",
+        "q": "Which evidence-based connection explains how the parts of energy and matter in the water cycle relate?",
+        "choices": [
+          "The water cycle operates without solar energy.",
+          "Water is destroyed during evaporation.",
+          "Condensation changes liquid directly into vapor.",
+          "Greater solar heating can increase evaporation and influence cloud and precipitation patterns."
+        ],
+        "answer": "Greater solar heating can increase evaporation and influence cloud and precipitation patterns.",
+        "explain": "Greater solar heating can increase evaporation and influence cloud and precipitation patterns. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which evidence-based connection explains how the parts of energy and matter in the water cycle relate?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “A complete explanation tracks both energy input and conserved water through the cycle” correctly answers “Which conclusion about energy and matter in the water cycle uses the evidence without adding an assumption.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A complete explanation tracks both energy input and conserved water through the cycle. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "True or false: “A complete explanation tracks both energy input and conserved water through the cycle” correctly answers “Which conclusion about energy and matter in the water cycle uses the evidence without adding an assumption.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which explanation of energy and matter in the water cycle remains defensible after all lesson evidence is considered?",
+        "choices": [
+          "Condensation changes liquid directly into vapor.",
+          "Water is destroyed during evaporation.",
+          "The water cycle operates without solar energy.",
+          "The Sun supplies energy for evaporation while water matter cycles through evaporation, condensation, precipitation, and collection."
+        ],
+        "answer": "The Sun supplies energy for evaporation while water matter cycles through evaporation, condensation, precipitation, and collection.",
+        "explain": "The Sun supplies energy for evaporation while water matter cycles through evaporation, condensation, precipitation, and collection. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which explanation of energy and matter in the water cycle remains defensible after all lesson evidence is considered?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of energy and matter in the water cycle is supported by both the lesson principle and evidence?",
+        "choices": [
+          "Model ocean water warming, vapor cooling into droplets, and water returning to a collection area.",
+          "Water is destroyed during evaporation.",
+          "The water cycle operates without solar energy.",
+          "Condensation changes liquid directly into vapor."
+        ],
+        "answer": "Model ocean water warming, vapor cooling into droplets, and water returning to a collection area.",
+        "explain": "Model ocean water warming, vapor cooling into droplets, and water returning to a collection area. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which application of energy and matter in the water cycle is supported by both the lesson principle and evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest basis for evaluating energy and matter in the water cycle?",
+        "choices": [
+          "The amount of water remains in the model while its state and location change.",
+          "Condensation changes liquid directly into vapor.",
+          "The water cycle operates without solar energy.",
+          "Water is destroyed during evaporation."
+        ],
+        "answer": "The amount of water remains in the model while its state and location change.",
+        "explain": "The amount of water remains in the model while its state and location change. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which observation provides the strongest basis for evaluating energy and matter in the water cycle?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best integrates the lesson evidence about energy and matter in the water cycle?",
+        "choices": [
+          "Greater solar heating can increase evaporation and influence cloud and precipitation patterns.",
+          "Water is destroyed during evaporation.",
+          "Condensation changes liquid directly into vapor.",
+          "The water cycle operates without solar energy."
+        ],
+        "answer": "Greater solar heating can increase evaporation and influence cloud and precipitation patterns.",
+        "explain": "Greater solar heating can increase evaporation and influence cloud and precipitation patterns. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "Which systems-level connection best integrates the lesson evidence about energy and matter in the water cycle?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Water is destroyed during evaporation” correctly answers “Which conclusion about energy and matter in the water cycle accounts for the evidence without exceeding the model's limits.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. A complete explanation tracks both energy input and conserved water through the cycle. This matches : explain how the Sun and ocean interact in the water cycle and affect weather",
+        "audio": "True or false: “Water is destroyed during evaporation” correctly answers “Which conclusion about energy and matter in the water cycle accounts for the evidence without exceeding the model's limits.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “Which explanation of energy and matter in the water cycle remains defensible after all lesson evidence is considered” and replaces “Condensation changes liquid directly into vapor.” using the task's evidence or constraints?",
+        "choices": [
+          "The water cycle operates without solar energy.",
+          "Condensation changes liquid directly into vapor.",
+          "Water is destroyed during evaporation.",
+          "The Sun supplies energy for evaporation while water matter cycles through evaporation, condensation, precipitation, and collection."
+        ],
+        "answer": "The Sun supplies energy for evaporation while water matter cycles through evaporation, condensation, precipitation, and collection.",
+        "explain": "The Sun supplies energy for evaporation while water matter cycles through evaporation, condensation, precipitation, and collection. This matches : explain how the Sun and ocean interact in the water cycle and affect weather. This evidence makes the correct response defensible. The response \"Condensation changes liquid directly into vapor.\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “Which explanation of energy and matter in the water cycle remains defensible after all lesson evidence is considered” and replaces “Condensation changes liquid directly into vapor.” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:sci:L2": {
+    "name": "Cells",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "The cell part that controls the cell is the…",
+        "choices": [
+          "Organ system",
+          "Wall",
+          "Nucleus",
+          "Tail"
+        ],
+        "answer": "Nucleus",
+        "audio": "Cells question."
+      },
+      {
+        "type": "mc",
+        "q": "Plant cells have a…",
+        "choices": [
+          "Roots",
+          "Wheels",
+          "Cell wall",
+          "Bones"
+        ],
+        "answer": "Cell wall",
+        "audio": "Cells question."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains a cell represented as an interdependent system?",
+        "choices": [
+          "Removing any component can never affect system function.",
+          "A model is identical to the real cell at every scale.",
+          "A system's function depends on interactions among its parts, not merely a list of parts.",
+          "Every part works independently of all others."
+        ],
+        "answer": "A system's function depends on interactions among its parts, not merely a list of parts.",
+        "explain": "A system's function depends on interactions among its parts, not merely a list of parts. This matches : examine and model system parts and their interdependence in system function",
+        "audio": "Which statement accurately explains a cell represented as an interdependent system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which real-world application best demonstrates a cell represented as an interdependent system?",
+        "choices": [
+          "Use a labeled cell model to trace how boundary, internal material, and energy-releasing structures interact.",
+          "Removing any component can never affect system function.",
+          "A model is identical to the real cell at every scale.",
+          "Every part works independently of all others."
+        ],
+        "answer": "Use a labeled cell model to trace how boundary, internal material, and energy-releasing structures interact.",
+        "explain": "Use a labeled cell model to trace how boundary, internal material, and energy-releasing structures interact. This matches : examine and model system parts and their interdependence in system function",
+        "audio": "Which real-world application best demonstrates a cell represented as an interdependent system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest evidence about a cell represented as an interdependent system?",
+        "choices": [
+          "Removing any component can never affect system function.",
+          "Every part works independently of all others.",
+          "A model is identical to the real cell at every scale.",
+          "Disrupting one modeled component changes the behavior of the whole model."
+        ],
+        "answer": "Disrupting one modeled component changes the behavior of the whole model.",
+        "explain": "Disrupting one modeled component changes the behavior of the whole model. This matches : examine and model system parts and their interdependence in system function",
+        "audio": "Which observation provides the strongest evidence about a cell represented as an interdependent system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best explains a cell represented as an interdependent system?",
+        "choices": [
+          "Removing any component can never affect system function.",
+          "A cell model is useful when it shows relationships, but its scale and materials limit what it can represent.",
+          "Every part works independently of all others.",
+          "A model is identical to the real cell at every scale."
+        ],
+        "answer": "A cell model is useful when it shows relationships, but its scale and materials limit what it can represent.",
+        "explain": "A cell model is useful when it shows relationships, but its scale and materials limit what it can represent. This matches : examine and model system parts and their interdependence in system function",
+        "audio": "Which systems-level connection best explains a cell represented as an interdependent system?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Evidence about interacting parts supports describing a cell as a system while recognizing model limitations” correctly answers “Which conclusion about a cell represented as an interdependent system is supported without overstating the evidence.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Evidence about interacting parts supports describing a cell as a system while recognizing model limitations. This matches : examine and model system parts and their interdependence in system function",
+        "audio": "True or false: “Evidence about interacting parts supports describing a cell as a system while recognizing model limitations” correctly answers “Which conclusion about a cell represented as an interdependent system is supported without overstating the evidence.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson principle should be applied when explaining a cell represented as an interdependent system?",
+        "choices": [
+          "Every part works independently of all others.",
+          "A model is identical to the real cell at every scale.",
+          "Removing any component can never affect system function.",
+          "A system's function depends on interactions among its parts, not merely a list of parts."
+        ],
+        "answer": "A system's function depends on interactions among its parts, not merely a list of parts.",
+        "explain": "A system's function depends on interactions among its parts, not merely a list of parts. This matches : examine and model system parts and their interdependence in system function",
+        "audio": "Which lesson principle should be applied when explaining a cell represented as an interdependent system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which example correctly applies a cell represented as an interdependent system in a real system?",
+        "choices": [
+          "A model is identical to the real cell at every scale.",
+          "Every part works independently of all others.",
+          "Use a labeled cell model to trace how boundary, internal material, and energy-releasing structures interact.",
+          "Removing any component can never affect system function."
+        ],
+        "answer": "Use a labeled cell model to trace how boundary, internal material, and energy-releasing structures interact.",
+        "explain": "Use a labeled cell model to trace how boundary, internal material, and energy-releasing structures interact. This matches : examine and model system parts and their interdependence in system function",
+        "audio": "Which example correctly applies a cell represented as an interdependent system in a real system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson observation directly supports a cell represented as an interdependent system?",
+        "choices": [
+          "Disrupting one modeled component changes the behavior of the whole model.",
+          "Every part works independently of all others.",
+          "A model is identical to the real cell at every scale.",
+          "Removing any component can never affect system function."
+        ],
+        "answer": "Disrupting one modeled component changes the behavior of the whole model.",
+        "explain": "Disrupting one modeled component changes the behavior of the whole model. This matches : examine and model system parts and their interdependence in system function",
+        "audio": "Which lesson observation directly supports a cell represented as an interdependent system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which cause-and-effect connection follows from the evidence about a cell represented as an interdependent system?",
+        "choices": [
+          "Removing any component can never affect system function.",
+          "A cell model is useful when it shows relationships, but its scale and materials limit what it can represent.",
+          "Every part works independently of all others.",
+          "A model is identical to the real cell at every scale."
+        ],
+        "answer": "A cell model is useful when it shows relationships, but its scale and materials limit what it can represent.",
+        "explain": "A cell model is useful when it shows relationships, but its scale and materials limit what it can represent. This matches : examine and model system parts and their interdependence in system function",
+        "audio": "Which cause-and-effect connection follows from the evidence about a cell represented as an interdependent system?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Every part works independently of all others” correctly answers “Which conclusion follows from the lesson evidence about a cell represented as an interdependent system.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Evidence about interacting parts supports describing a cell as a system while recognizing model limitations. This matches : examine and model system parts and their interdependence in system function",
+        "audio": "True or false: “Every part works independently of all others” correctly answers “Which conclusion follows from the lesson evidence about a cell represented as an interdependent system.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which claim about a cell represented as an interdependent system is supported rather than assumed?",
+        "choices": [
+          "Every part works independently of all others.",
+          "A model is identical to the real cell at every scale.",
+          "Removing any component can never affect system function.",
+          "A system's function depends on interactions among its parts, not merely a list of parts."
+        ],
+        "answer": "A system's function depends on interactions among its parts, not merely a list of parts.",
+        "explain": "A system's function depends on interactions among its parts, not merely a list of parts. This matches : examine and model system parts and their interdependence in system function",
+        "audio": "Which claim about a cell represented as an interdependent system is supported rather than assumed?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of a cell represented as an interdependent system can be justified with the lesson evidence?",
+        "choices": [
+          "Every part works independently of all others.",
+          "Removing any component can never affect system function.",
+          "A model is identical to the real cell at every scale.",
+          "Use a labeled cell model to trace how boundary, internal material, and energy-releasing structures interact."
+        ],
+        "answer": "Use a labeled cell model to trace how boundary, internal material, and energy-releasing structures interact.",
+        "explain": "Use a labeled cell model to trace how boundary, internal material, and energy-releasing structures interact. This matches : examine and model system parts and their interdependence in system function",
+        "audio": "Which application of a cell represented as an interdependent system can be justified with the lesson evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation distinguishes evidence from a misconception about a cell represented as an interdependent system?",
+        "choices": [
+          "A model is identical to the real cell at every scale.",
+          "Every part works independently of all others.",
+          "Removing any component can never affect system function.",
+          "Disrupting one modeled component changes the behavior of the whole model."
+        ],
+        "answer": "Disrupting one modeled component changes the behavior of the whole model.",
+        "explain": "Disrupting one modeled component changes the behavior of the whole model. This matches : examine and model system parts and their interdependence in system function",
+        "audio": "Which observation distinguishes evidence from a misconception about a cell represented as an interdependent system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which evidence-based connection explains how the parts of a cell represented as an interdependent system relate?",
+        "choices": [
+          "Removing any component can never affect system function.",
+          "A model is identical to the real cell at every scale.",
+          "Every part works independently of all others.",
+          "A cell model is useful when it shows relationships, but its scale and materials limit what it can represent."
+        ],
+        "answer": "A cell model is useful when it shows relationships, but its scale and materials limit what it can represent.",
+        "explain": "A cell model is useful when it shows relationships, but its scale and materials limit what it can represent. This matches : examine and model system parts and their interdependence in system function",
+        "audio": "Which evidence-based connection explains how the parts of a cell represented as an interdependent system relate?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Evidence about interacting parts supports describing a cell as a system while recognizing model limitations” correctly answers “Which conclusion about a cell represented as an interdependent system uses the evidence without adding an assumption.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Evidence about interacting parts supports describing a cell as a system while recognizing model limitations. This matches : examine and model system parts and their interdependence in system function",
+        "audio": "True or false: “Evidence about interacting parts supports describing a cell as a system while recognizing model limitations” correctly answers “Which conclusion about a cell represented as an interdependent system uses the evidence without adding an assumption.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which explanation of a cell represented as an interdependent system remains defensible after all lesson evidence is considered?",
+        "choices": [
+          "A model is identical to the real cell at every scale.",
+          "Removing any component can never affect system function.",
+          "Every part works independently of all others.",
+          "A system's function depends on interactions among its parts, not merely a list of parts."
+        ],
+        "answer": "A system's function depends on interactions among its parts, not merely a list of parts.",
+        "explain": "A system's function depends on interactions among its parts, not merely a list of parts. This matches : examine and model system parts and their interdependence in system function",
+        "audio": "Which explanation of a cell represented as an interdependent system remains defensible after all lesson evidence is considered?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of a cell represented as an interdependent system is supported by both the lesson principle and evidence?",
+        "choices": [
+          "Use a labeled cell model to trace how boundary, internal material, and energy-releasing structures interact.",
+          "A model is identical to the real cell at every scale.",
+          "Every part works independently of all others.",
+          "Removing any component can never affect system function."
+        ],
+        "answer": "Use a labeled cell model to trace how boundary, internal material, and energy-releasing structures interact.",
+        "explain": "Use a labeled cell model to trace how boundary, internal material, and energy-releasing structures interact. This matches : examine and model system parts and their interdependence in system function",
+        "audio": "Which application of a cell represented as an interdependent system is supported by both the lesson principle and evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest basis for evaluating a cell represented as an interdependent system?",
+        "choices": [
+          "Disrupting one modeled component changes the behavior of the whole model.",
+          "Removing any component can never affect system function.",
+          "A model is identical to the real cell at every scale.",
+          "Every part works independently of all others."
+        ],
+        "answer": "Disrupting one modeled component changes the behavior of the whole model.",
+        "explain": "Disrupting one modeled component changes the behavior of the whole model. This matches : examine and model system parts and their interdependence in system function",
+        "audio": "Which observation provides the strongest basis for evaluating a cell represented as an interdependent system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best integrates the lesson evidence about a cell represented as an interdependent system?",
+        "choices": [
+          "Removing any component can never affect system function.",
+          "A cell model is useful when it shows relationships, but its scale and materials limit what it can represent.",
+          "Every part works independently of all others.",
+          "A model is identical to the real cell at every scale."
+        ],
+        "answer": "A cell model is useful when it shows relationships, but its scale and materials limit what it can represent.",
+        "explain": "A cell model is useful when it shows relationships, but its scale and materials limit what it can represent. This matches : examine and model system parts and their interdependence in system function",
+        "audio": "Which systems-level connection best integrates the lesson evidence about a cell represented as an interdependent system?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Every part works independently of all others” correctly answers “Which conclusion about a cell represented as an interdependent system accounts for the evidence without exceeding the model's limits.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Evidence about interacting parts supports describing a cell as a system while recognizing model limitations. This matches : examine and model system parts and their interdependence in system function",
+        "audio": "True or false: “Every part works independently of all others” correctly answers “Which conclusion about a cell represented as an interdependent system accounts for the evidence without exceeding the model's limits.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “Which explanation of a cell represented as an interdependent system remains defensible after all lesson evidence is considered” and replaces “A model is identical to the real cell at every scale.” using the task's evidence or constraints?",
+        "choices": [
+          "A system's function depends on interactions among its parts, not merely a list of parts.",
+          "Removing any component can never affect system function.",
+          "A model is identical to the real cell at every scale.",
+          "Every part works independently of all others."
+        ],
+        "answer": "A system's function depends on interactions among its parts, not merely a list of parts.",
+        "explain": "A system's function depends on interactions among its parts, not merely a list of parts. This matches : examine and model system parts and their interdependence in system function. This evidence makes the correct response defensible. The response \"A model is identical to the real cell at every scale.\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “Which explanation of a cell represented as an interdependent system remains defensible after all lesson evidence is considered” and replaces “A model is identical to the real cell at every scale.” using the task's evidence or constraints?"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer to “Which application of a cell represented as an interdependent system is supported by both the lesson principle and evidence” fits all the given evidence and lesson rules?",
+        "choices": [
+          "Removing any component can never affect system function.",
+          "A model is identical to the real cell at every scale.",
+          "Every part works independently of all others.",
+          "Use a labeled cell model to trace how boundary, internal material, and energy-releasing structures interact."
+        ],
+        "answer": "Use a labeled cell model to trace how boundary, internal material, and energy-releasing structures interact.",
+        "explain": "Use a labeled cell model to trace how boundary, internal material, and energy-releasing structures interact. This matches : examine and model system parts and their interdependence in system function. This evidence makes the correct response defensible. The response \"Every part works independently of all others.\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer to “Which application of a cell represented as an interdependent system is supported by both the lesson principle and evidence” fits all the given evidence and lesson rules?"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer satisfies every condition in “Which observation provides the strongest basis for evaluating a cell represented as an interdependent system”?",
+        "choices": [
+          "A model is identical to the real cell at every scale.",
+          "Every part works independently of all others.",
+          "Disrupting one modeled component changes the behavior of the whole model.",
+          "Removing any component can never affect system function."
+        ],
+        "answer": "Disrupting one modeled component changes the behavior of the whole model.",
+        "explain": "Disrupting one modeled component changes the behavior of the whole model. This matches : examine and model system parts and their interdependence in system function. This evidence makes the correct response defensible. The response \"Removing any component can never affect system function.\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer satisfies every condition in “Which observation provides the strongest basis for evaluating a cell represented as an interdependent system”?"
+      }
+    ]
+  },
+  "g5:sci:L7": {
+    "name": "Plant Systems",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Which plant part absorbs water from the soil?",
+        "choices": [
+          "Flowers",
+          "Fruit",
+          "Stem",
+          "Roots"
+        ],
+        "answer": "Roots",
+        "audio": "Choose the correct plant system answer."
+      },
+      {
+        "type": "mc",
+        "q": "Which plant part carries water from the roots upward?",
+        "choices": [
+          "Roots",
+          "Seed",
+          "Petal",
+          "Stem"
+        ],
+        "answer": "Stem",
+        "audio": "Choose the correct plant system answer."
+      },
+      {
+        "type": "mc",
+        "q": "Plants use sunlight to make food through…",
+        "choices": [
+          "Photosynthesis",
+          "Hibernation",
+          "Erosion",
+          "Roots"
+        ],
+        "answer": "Photosynthesis",
+        "audio": "Choose the correct plant system answer."
+      },
+      {
+        "type": "mc",
+        "q": "Which gas do plants take in to make food?",
+        "choices": [
+          "Friction",
+          "Steam",
+          "Helium",
+          "Carbon dioxide"
+        ],
+        "answer": "Carbon dioxide",
+        "audio": "Choose the correct plant system answer."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains plant structures and survival functions?",
+        "choices": [
+          "Every plant structure serves the same function.",
+          "A plant structure contributes to survival through a specific function within its environment.",
+          "A structure's color alone proves its function.",
+          "Plant survival never depends on environmental conditions."
+        ],
+        "answer": "A plant structure contributes to survival through a specific function within its environment.",
+        "explain": "A plant structure contributes to survival through a specific function within its environment. This matches : analyze structures and functions of species to identify how organisms survive in the same environment",
+        "audio": "Which statement accurately explains plant structures and survival functions?"
+      },
+      {
+        "type": "mc",
+        "q": "Which real-world application best demonstrates plant structures and survival functions?",
+        "choices": [
+          "Plant survival never depends on environmental conditions.",
+          "Every plant structure serves the same function.",
+          "Compare waxy leaves that limit water loss with broad leaves that capture light in shaded habitats.",
+          "A structure's color alone proves its function."
+        ],
+        "answer": "Compare waxy leaves that limit water loss with broad leaves that capture light in shaded habitats.",
+        "explain": "Compare waxy leaves that limit water loss with broad leaves that capture light in shaded habitats. This matches : analyze structures and functions of species to identify how organisms survive in the same environment",
+        "audio": "Which real-world application best demonstrates plant structures and survival functions?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest evidence about plant structures and survival functions?",
+        "choices": [
+          "A structure's color alone proves its function.",
+          "Plants with structure-function matches survive and reproduce more successfully under those conditions.",
+          "Every plant structure serves the same function.",
+          "Plant survival never depends on environmental conditions."
+        ],
+        "answer": "Plants with structure-function matches survive and reproduce more successfully under those conditions.",
+        "explain": "Plants with structure-function matches survive and reproduce more successfully under those conditions. This matches : analyze structures and functions of species to identify how organisms survive in the same environment",
+        "audio": "Which observation provides the strongest evidence about plant structures and survival functions?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best explains plant structures and survival functions?",
+        "choices": [
+          "A structure's color alone proves its function.",
+          "Plant survival never depends on environmental conditions.",
+          "Every plant structure serves the same function.",
+          "Changing water or light availability changes which structures provide the strongest advantage."
+        ],
+        "answer": "Changing water or light availability changes which structures provide the strongest advantage.",
+        "explain": "Changing water or light availability changes which structures provide the strongest advantage. This matches : analyze structures and functions of species to identify how organisms survive in the same environment",
+        "audio": "Which systems-level connection best explains plant structures and survival functions?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Structure, function, and environmental evidence together explain survival better than appearance alone” correctly answers “Which conclusion about plant structures and survival functions is supported without overstating the evidence.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Structure, function, and environmental evidence together explain survival better than appearance alone. This matches : analyze structures and functions of species to identify how organisms survive in the same environment",
+        "audio": "True or false: “Structure, function, and environmental evidence together explain survival better than appearance alone” correctly answers “Which conclusion about plant structures and survival functions is supported without overstating the evidence.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson principle should be applied when explaining plant structures and survival functions?",
+        "choices": [
+          "A plant structure contributes to survival through a specific function within its environment.",
+          "A structure's color alone proves its function.",
+          "Plant survival never depends on environmental conditions.",
+          "Every plant structure serves the same function."
+        ],
+        "answer": "A plant structure contributes to survival through a specific function within its environment.",
+        "explain": "A plant structure contributes to survival through a specific function within its environment. This matches : analyze structures and functions of species to identify how organisms survive in the same environment",
+        "audio": "Which lesson principle should be applied when explaining plant structures and survival functions?"
+      },
+      {
+        "type": "mc",
+        "q": "Which example correctly applies plant structures and survival functions in a real system?",
+        "choices": [
+          "Every plant structure serves the same function.",
+          "Plant survival never depends on environmental conditions.",
+          "A structure's color alone proves its function.",
+          "Compare waxy leaves that limit water loss with broad leaves that capture light in shaded habitats."
+        ],
+        "answer": "Compare waxy leaves that limit water loss with broad leaves that capture light in shaded habitats.",
+        "explain": "Compare waxy leaves that limit water loss with broad leaves that capture light in shaded habitats. This matches : analyze structures and functions of species to identify how organisms survive in the same environment",
+        "audio": "Which example correctly applies plant structures and survival functions in a real system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson observation directly supports plant structures and survival functions?",
+        "choices": [
+          "Plant survival never depends on environmental conditions.",
+          "A structure's color alone proves its function.",
+          "Plants with structure-function matches survive and reproduce more successfully under those conditions.",
+          "Every plant structure serves the same function."
+        ],
+        "answer": "Plants with structure-function matches survive and reproduce more successfully under those conditions.",
+        "explain": "Plants with structure-function matches survive and reproduce more successfully under those conditions. This matches : analyze structures and functions of species to identify how organisms survive in the same environment",
+        "audio": "Which lesson observation directly supports plant structures and survival functions?"
+      },
+      {
+        "type": "mc",
+        "q": "Which cause-and-effect connection follows from the evidence about plant structures and survival functions?",
+        "choices": [
+          "Plant survival never depends on environmental conditions.",
+          "Every plant structure serves the same function.",
+          "Changing water or light availability changes which structures provide the strongest advantage.",
+          "A structure's color alone proves its function."
+        ],
+        "answer": "Changing water or light availability changes which structures provide the strongest advantage.",
+        "explain": "Changing water or light availability changes which structures provide the strongest advantage. This matches : analyze structures and functions of species to identify how organisms survive in the same environment",
+        "audio": "Which cause-and-effect connection follows from the evidence about plant structures and survival functions?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Every plant structure serves the same function” correctly answers “Which conclusion follows from the lesson evidence about plant structures and survival functions.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Structure, function, and environmental evidence together explain survival better than appearance alone. This matches : analyze structures and functions of species to identify how organisms survive in the same environment",
+        "audio": "True or false: “Every plant structure serves the same function” correctly answers “Which conclusion follows from the lesson evidence about plant structures and survival functions.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which claim about plant structures and survival functions is supported rather than assumed?",
+        "choices": [
+          "A plant structure contributes to survival through a specific function within its environment.",
+          "A structure's color alone proves its function.",
+          "Every plant structure serves the same function.",
+          "Plant survival never depends on environmental conditions."
+        ],
+        "answer": "A plant structure contributes to survival through a specific function within its environment.",
+        "explain": "A plant structure contributes to survival through a specific function within its environment. This matches : analyze structures and functions of species to identify how organisms survive in the same environment",
+        "audio": "Which claim about plant structures and survival functions is supported rather than assumed?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of plant structures and survival functions can be justified with the lesson evidence?",
+        "choices": [
+          "Plant survival never depends on environmental conditions.",
+          "A structure's color alone proves its function.",
+          "Compare waxy leaves that limit water loss with broad leaves that capture light in shaded habitats.",
+          "Every plant structure serves the same function."
+        ],
+        "answer": "Compare waxy leaves that limit water loss with broad leaves that capture light in shaded habitats.",
+        "explain": "Compare waxy leaves that limit water loss with broad leaves that capture light in shaded habitats. This matches : analyze structures and functions of species to identify how organisms survive in the same environment",
+        "audio": "Which application of plant structures and survival functions can be justified with the lesson evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation distinguishes evidence from a misconception about plant structures and survival functions?",
+        "choices": [
+          "Plant survival never depends on environmental conditions.",
+          "Every plant structure serves the same function.",
+          "Plants with structure-function matches survive and reproduce more successfully under those conditions.",
+          "A structure's color alone proves its function."
+        ],
+        "answer": "Plants with structure-function matches survive and reproduce more successfully under those conditions.",
+        "explain": "Plants with structure-function matches survive and reproduce more successfully under those conditions. This matches : analyze structures and functions of species to identify how organisms survive in the same environment",
+        "audio": "Which observation distinguishes evidence from a misconception about plant structures and survival functions?"
+      },
+      {
+        "type": "mc",
+        "q": "Which evidence-based connection explains how the parts of plant structures and survival functions relate?",
+        "choices": [
+          "Changing water or light availability changes which structures provide the strongest advantage.",
+          "A structure's color alone proves its function.",
+          "Every plant structure serves the same function.",
+          "Plant survival never depends on environmental conditions."
+        ],
+        "answer": "Changing water or light availability changes which structures provide the strongest advantage.",
+        "explain": "Changing water or light availability changes which structures provide the strongest advantage. This matches : analyze structures and functions of species to identify how organisms survive in the same environment",
+        "audio": "Which evidence-based connection explains how the parts of plant structures and survival functions relate?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Structure, function, and environmental evidence together explain survival better than appearance alone” correctly answers “Which conclusion about plant structures and survival functions uses the evidence without adding an assumption.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Structure, function, and environmental evidence together explain survival better than appearance alone. This matches : analyze structures and functions of species to identify how organisms survive in the same environment",
+        "audio": "True or false: “Structure, function, and environmental evidence together explain survival better than appearance alone” correctly answers “Which conclusion about plant structures and survival functions uses the evidence without adding an assumption.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which explanation of plant structures and survival functions remains defensible after all lesson evidence is considered?",
+        "choices": [
+          "Every plant structure serves the same function.",
+          "A plant structure contributes to survival through a specific function within its environment.",
+          "A structure's color alone proves its function.",
+          "Plant survival never depends on environmental conditions."
+        ],
+        "answer": "A plant structure contributes to survival through a specific function within its environment.",
+        "explain": "A plant structure contributes to survival through a specific function within its environment. This matches : analyze structures and functions of species to identify how organisms survive in the same environment",
+        "audio": "Which explanation of plant structures and survival functions remains defensible after all lesson evidence is considered?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of plant structures and survival functions is supported by both the lesson principle and evidence?",
+        "choices": [
+          "Compare waxy leaves that limit water loss with broad leaves that capture light in shaded habitats.",
+          "Plant survival never depends on environmental conditions.",
+          "Every plant structure serves the same function.",
+          "A structure's color alone proves its function."
+        ],
+        "answer": "Compare waxy leaves that limit water loss with broad leaves that capture light in shaded habitats.",
+        "explain": "Compare waxy leaves that limit water loss with broad leaves that capture light in shaded habitats. This matches : analyze structures and functions of species to identify how organisms survive in the same environment",
+        "audio": "Which application of plant structures and survival functions is supported by both the lesson principle and evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest basis for evaluating plant structures and survival functions?",
+        "choices": [
+          "A structure's color alone proves its function.",
+          "Plant survival never depends on environmental conditions.",
+          "Plants with structure-function matches survive and reproduce more successfully under those conditions.",
+          "Every plant structure serves the same function."
+        ],
+        "answer": "Plants with structure-function matches survive and reproduce more successfully under those conditions.",
+        "explain": "Plants with structure-function matches survive and reproduce more successfully under those conditions. This matches : analyze structures and functions of species to identify how organisms survive in the same environment",
+        "audio": "Which observation provides the strongest basis for evaluating plant structures and survival functions?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best integrates the lesson evidence about plant structures and survival functions?",
+        "choices": [
+          "A structure's color alone proves its function.",
+          "Every plant structure serves the same function.",
+          "Plant survival never depends on environmental conditions.",
+          "Changing water or light availability changes which structures provide the strongest advantage."
+        ],
+        "answer": "Changing water or light availability changes which structures provide the strongest advantage.",
+        "explain": "Changing water or light availability changes which structures provide the strongest advantage. This matches : analyze structures and functions of species to identify how organisms survive in the same environment",
+        "audio": "Which systems-level connection best integrates the lesson evidence about plant structures and survival functions?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Every plant structure serves the same function” correctly answers “Which conclusion about plant structures and survival functions accounts for the evidence without exceeding the model's limits.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Structure, function, and environmental evidence together explain survival better than appearance alone. This matches : analyze structures and functions of species to identify how organisms survive in the same environment",
+        "audio": "True or false: “Every plant structure serves the same function” correctly answers “Which conclusion about plant structures and survival functions accounts for the evidence without exceeding the model's limits.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “Which explanation of plant structures and survival functions remains defensible after all lesson evidence is considered” and replaces “A structure's color alone proves its function.” using the task's evidence or constraints?",
+        "choices": [
+          "A structure's color alone proves its function.",
+          "Every plant structure serves the same function.",
+          "Plant survival never depends on environmental conditions.",
+          "A plant structure contributes to survival through a specific function within its environment."
+        ],
+        "answer": "A plant structure contributes to survival through a specific function within its environment.",
+        "explain": "A plant structure contributes to survival through a specific function within its environment. This matches : analyze structures and functions of species to identify how organisms survive in the same environment. This evidence makes the correct response defensible. The response \"A structure's color alone proves its function.\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “Which explanation of plant structures and survival functions remains defensible after all lesson evidence is considered” and replaces “A structure's color alone proves its function.” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:sci:L8": {
+    "name": "Food Chains",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "In a food chain, plants are called…",
+        "choices": [
+          "Roots",
+          "Decomposers only",
+          "Predators only",
+          "Producers"
+        ],
+        "answer": "Producers",
+        "audio": "Answer the food chain question."
+      },
+      {
+        "type": "mc",
+        "q": "Which organism is a consumer?",
+        "choices": [
+          "Grass",
+          "Rabbit",
+          "Sunlight",
+          "None of these"
+        ],
+        "answer": "Rabbit",
+        "audio": "Answer the food chain question."
+      },
+      {
+        "type": "mc",
+        "q": "In the chain grass → rabbit → fox, what eats the rabbit?",
+        "choices": [
+          "Grass",
+          "Rabbit",
+          "Fox",
+          "Sun"
+        ],
+        "answer": "Fox",
+        "audio": "Answer the food chain question."
+      },
+      {
+        "type": "mc",
+        "q": "Mushrooms that break down dead material are…",
+        "choices": [
+          "Minerals",
+          "Decomposers",
+          "None of these",
+          "Planets"
+        ],
+        "answer": "Decomposers",
+        "audio": "Answer the food chain question."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains matter cycling and energy flow in food webs?",
+        "choices": [
+          "Decomposers remove matter permanently from the ecosystem.",
+          "Changing one population can affect only that species.",
+          "Energy cycles endlessly back to the Sun.",
+          "Energy enters through producers and moves to consumers, while matter is recycled through organisms and decomposers."
+        ],
+        "answer": "Energy enters through producers and moves to consumers, while matter is recycled through organisms and decomposers.",
+        "explain": "Energy enters through producers and moves to consumers, while matter is recycled through organisms and decomposers. This matches : predict how ecosystem changes affect cycling of matter and flow of energy in a food web",
+        "audio": "Which statement accurately explains matter cycling and energy flow in food webs?"
+      },
+      {
+        "type": "mc",
+        "q": "Which real-world application best demonstrates matter cycling and energy flow in food webs?",
+        "choices": [
+          "Predict effects on hawks and plants after a major decrease in a shared prey population.",
+          "Energy cycles endlessly back to the Sun.",
+          "Decomposers remove matter permanently from the ecosystem.",
+          "Changing one population can affect only that species."
+        ],
+        "answer": "Predict effects on hawks and plants after a major decrease in a shared prey population.",
+        "explain": "Predict effects on hawks and plants after a major decrease in a shared prey population. This matches : predict how ecosystem changes affect cycling of matter and flow of energy in a food web",
+        "audio": "Which real-world application best demonstrates matter cycling and energy flow in food webs?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest evidence about matter cycling and energy flow in food webs?",
+        "choices": [
+          "Decomposers remove matter permanently from the ecosystem.",
+          "Changing one population can affect only that species.",
+          "Energy cycles endlessly back to the Sun.",
+          "Population data before and after a food-web change show linked effects across trophic relationships."
+        ],
+        "answer": "Population data before and after a food-web change show linked effects across trophic relationships.",
+        "explain": "Population data before and after a food-web change show linked effects across trophic relationships. This matches : predict how ecosystem changes affect cycling of matter and flow of energy in a food web",
+        "audio": "Which observation provides the strongest evidence about matter cycling and energy flow in food webs?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best explains matter cycling and energy flow in food webs?",
+        "choices": [
+          "Changing one population can affect only that species.",
+          "Decomposers remove matter permanently from the ecosystem.",
+          "Removing one population can alter several pathways because organisms have interconnected feeding relationships.",
+          "Energy cycles endlessly back to the Sun."
+        ],
+        "answer": "Removing one population can alter several pathways because organisms have interconnected feeding relationships.",
+        "explain": "Removing one population can alter several pathways because organisms have interconnected feeding relationships. This matches : predict how ecosystem changes affect cycling of matter and flow of energy in a food web",
+        "audio": "Which systems-level connection best explains matter cycling and energy flow in food webs?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “A supported prediction traces a change through multiple food-web links and distinguishes energy flow from matter cycling” correctly answers “Which conclusion about matter cycling and energy flow in food webs is supported without overstating the evidence.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A supported prediction traces a change through multiple food-web links and distinguishes energy flow from matter cycling. This matches : predict how ecosystem changes affect cycling of matter and flow of energy in a food web",
+        "audio": "True or false: “A supported prediction traces a change through multiple food-web links and distinguishes energy flow from matter cycling” correctly answers “Which conclusion about matter cycling and energy flow in food webs is supported without overstating the evidence.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson principle should be applied when explaining matter cycling and energy flow in food webs?",
+        "choices": [
+          "Energy enters through producers and moves to consumers, while matter is recycled through organisms and decomposers.",
+          "Energy cycles endlessly back to the Sun.",
+          "Decomposers remove matter permanently from the ecosystem.",
+          "Changing one population can affect only that species."
+        ],
+        "answer": "Energy enters through producers and moves to consumers, while matter is recycled through organisms and decomposers.",
+        "explain": "Energy enters through producers and moves to consumers, while matter is recycled through organisms and decomposers. This matches : predict how ecosystem changes affect cycling of matter and flow of energy in a food web",
+        "audio": "Which lesson principle should be applied when explaining matter cycling and energy flow in food webs?"
+      },
+      {
+        "type": "mc",
+        "q": "Which example correctly applies matter cycling and energy flow in food webs in a real system?",
+        "choices": [
+          "Decomposers remove matter permanently from the ecosystem.",
+          "Energy cycles endlessly back to the Sun.",
+          "Predict effects on hawks and plants after a major decrease in a shared prey population.",
+          "Changing one population can affect only that species."
+        ],
+        "answer": "Predict effects on hawks and plants after a major decrease in a shared prey population.",
+        "explain": "Predict effects on hawks and plants after a major decrease in a shared prey population. This matches : predict how ecosystem changes affect cycling of matter and flow of energy in a food web",
+        "audio": "Which example correctly applies matter cycling and energy flow in food webs in a real system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson observation directly supports matter cycling and energy flow in food webs?",
+        "choices": [
+          "Changing one population can affect only that species.",
+          "Decomposers remove matter permanently from the ecosystem.",
+          "Energy cycles endlessly back to the Sun.",
+          "Population data before and after a food-web change show linked effects across trophic relationships."
+        ],
+        "answer": "Population data before and after a food-web change show linked effects across trophic relationships.",
+        "explain": "Population data before and after a food-web change show linked effects across trophic relationships. This matches : predict how ecosystem changes affect cycling of matter and flow of energy in a food web",
+        "audio": "Which lesson observation directly supports matter cycling and energy flow in food webs?"
+      },
+      {
+        "type": "mc",
+        "q": "Which cause-and-effect connection follows from the evidence about matter cycling and energy flow in food webs?",
+        "choices": [
+          "Decomposers remove matter permanently from the ecosystem.",
+          "Changing one population can affect only that species.",
+          "Energy cycles endlessly back to the Sun.",
+          "Removing one population can alter several pathways because organisms have interconnected feeding relationships."
+        ],
+        "answer": "Removing one population can alter several pathways because organisms have interconnected feeding relationships.",
+        "explain": "Removing one population can alter several pathways because organisms have interconnected feeding relationships. This matches : predict how ecosystem changes affect cycling of matter and flow of energy in a food web",
+        "audio": "Which cause-and-effect connection follows from the evidence about matter cycling and energy flow in food webs?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Energy cycles endlessly back to the Sun” correctly answers “Which conclusion follows from the lesson evidence about matter cycling and energy flow in food webs.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. A supported prediction traces a change through multiple food-web links and distinguishes energy flow from matter cycling. This matches : predict how ecosystem changes affect cycling of matter and flow of energy in a food web",
+        "audio": "True or false: “Energy cycles endlessly back to the Sun” correctly answers “Which conclusion follows from the lesson evidence about matter cycling and energy flow in food webs.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which claim about matter cycling and energy flow in food webs is supported rather than assumed?",
+        "choices": [
+          "Energy enters through producers and moves to consumers, while matter is recycled through organisms and decomposers.",
+          "Changing one population can affect only that species.",
+          "Energy cycles endlessly back to the Sun.",
+          "Decomposers remove matter permanently from the ecosystem."
+        ],
+        "answer": "Energy enters through producers and moves to consumers, while matter is recycled through organisms and decomposers.",
+        "explain": "Energy enters through producers and moves to consumers, while matter is recycled through organisms and decomposers. This matches : predict how ecosystem changes affect cycling of matter and flow of energy in a food web",
+        "audio": "Which claim about matter cycling and energy flow in food webs is supported rather than assumed?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of matter cycling and energy flow in food webs can be justified with the lesson evidence?",
+        "choices": [
+          "Changing one population can affect only that species.",
+          "Decomposers remove matter permanently from the ecosystem.",
+          "Energy cycles endlessly back to the Sun.",
+          "Predict effects on hawks and plants after a major decrease in a shared prey population."
+        ],
+        "answer": "Predict effects on hawks and plants after a major decrease in a shared prey population.",
+        "explain": "Predict effects on hawks and plants after a major decrease in a shared prey population. This matches : predict how ecosystem changes affect cycling of matter and flow of energy in a food web",
+        "audio": "Which application of matter cycling and energy flow in food webs can be justified with the lesson evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation distinguishes evidence from a misconception about matter cycling and energy flow in food webs?",
+        "choices": [
+          "Decomposers remove matter permanently from the ecosystem.",
+          "Changing one population can affect only that species.",
+          "Energy cycles endlessly back to the Sun.",
+          "Population data before and after a food-web change show linked effects across trophic relationships."
+        ],
+        "answer": "Population data before and after a food-web change show linked effects across trophic relationships.",
+        "explain": "Population data before and after a food-web change show linked effects across trophic relationships. This matches : predict how ecosystem changes affect cycling of matter and flow of energy in a food web",
+        "audio": "Which observation distinguishes evidence from a misconception about matter cycling and energy flow in food webs?"
+      },
+      {
+        "type": "mc",
+        "q": "Which evidence-based connection explains how the parts of matter cycling and energy flow in food webs relate?",
+        "choices": [
+          "Removing one population can alter several pathways because organisms have interconnected feeding relationships.",
+          "Energy cycles endlessly back to the Sun.",
+          "Decomposers remove matter permanently from the ecosystem.",
+          "Changing one population can affect only that species."
+        ],
+        "answer": "Removing one population can alter several pathways because organisms have interconnected feeding relationships.",
+        "explain": "Removing one population can alter several pathways because organisms have interconnected feeding relationships. This matches : predict how ecosystem changes affect cycling of matter and flow of energy in a food web",
+        "audio": "Which evidence-based connection explains how the parts of matter cycling and energy flow in food webs relate?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “A supported prediction traces a change through multiple food-web links and distinguishes energy flow from matter cycling” correctly answers “Which conclusion about matter cycling and energy flow in food webs uses the evidence without adding an assumption.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A supported prediction traces a change through multiple food-web links and distinguishes energy flow from matter cycling. This matches : predict how ecosystem changes affect cycling of matter and flow of energy in a food web",
+        "audio": "True or false: “A supported prediction traces a change through multiple food-web links and distinguishes energy flow from matter cycling” correctly answers “Which conclusion about matter cycling and energy flow in food webs uses the evidence without adding an assumption.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which explanation of matter cycling and energy flow in food webs remains defensible after all lesson evidence is considered?",
+        "choices": [
+          "Decomposers remove matter permanently from the ecosystem.",
+          "Energy cycles endlessly back to the Sun.",
+          "Changing one population can affect only that species.",
+          "Energy enters through producers and moves to consumers, while matter is recycled through organisms and decomposers."
+        ],
+        "answer": "Energy enters through producers and moves to consumers, while matter is recycled through organisms and decomposers.",
+        "explain": "Energy enters through producers and moves to consumers, while matter is recycled through organisms and decomposers. This matches : predict how ecosystem changes affect cycling of matter and flow of energy in a food web",
+        "audio": "Which explanation of matter cycling and energy flow in food webs remains defensible after all lesson evidence is considered?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of matter cycling and energy flow in food webs is supported by both the lesson principle and evidence?",
+        "choices": [
+          "Predict effects on hawks and plants after a major decrease in a shared prey population.",
+          "Energy cycles endlessly back to the Sun.",
+          "Changing one population can affect only that species.",
+          "Decomposers remove matter permanently from the ecosystem."
+        ],
+        "answer": "Predict effects on hawks and plants after a major decrease in a shared prey population.",
+        "explain": "Predict effects on hawks and plants after a major decrease in a shared prey population. This matches : predict how ecosystem changes affect cycling of matter and flow of energy in a food web",
+        "audio": "Which application of matter cycling and energy flow in food webs is supported by both the lesson principle and evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest basis for evaluating matter cycling and energy flow in food webs?",
+        "choices": [
+          "Population data before and after a food-web change show linked effects across trophic relationships.",
+          "Decomposers remove matter permanently from the ecosystem.",
+          "Energy cycles endlessly back to the Sun.",
+          "Changing one population can affect only that species."
+        ],
+        "answer": "Population data before and after a food-web change show linked effects across trophic relationships.",
+        "explain": "Population data before and after a food-web change show linked effects across trophic relationships. This matches : predict how ecosystem changes affect cycling of matter and flow of energy in a food web",
+        "audio": "Which observation provides the strongest basis for evaluating matter cycling and energy flow in food webs?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best integrates the lesson evidence about matter cycling and energy flow in food webs?",
+        "choices": [
+          "Decomposers remove matter permanently from the ecosystem.",
+          "Energy cycles endlessly back to the Sun.",
+          "Removing one population can alter several pathways because organisms have interconnected feeding relationships.",
+          "Changing one population can affect only that species."
+        ],
+        "answer": "Removing one population can alter several pathways because organisms have interconnected feeding relationships.",
+        "explain": "Removing one population can alter several pathways because organisms have interconnected feeding relationships. This matches : predict how ecosystem changes affect cycling of matter and flow of energy in a food web",
+        "audio": "Which systems-level connection best integrates the lesson evidence about matter cycling and energy flow in food webs?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Energy cycles endlessly back to the Sun” correctly answers “Which conclusion about matter cycling and energy flow in food webs accounts for the evidence without exceeding the model's limits.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. A supported prediction traces a change through multiple food-web links and distinguishes energy flow from matter cycling. This matches : predict how ecosystem changes affect cycling of matter and flow of energy in a food web",
+        "audio": "True or false: “Energy cycles endlessly back to the Sun” correctly answers “Which conclusion about matter cycling and energy flow in food webs accounts for the evidence without exceeding the model's limits.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “Which explanation of matter cycling and energy flow in food webs remains defensible after all lesson evidence is considered” and replaces “Changing one population can affect only that species.” using the task's evidence or constraints?",
+        "choices": [
+          "Decomposers remove matter permanently from the ecosystem.",
+          "Energy cycles endlessly back to the Sun.",
+          "Changing one population can affect only that species.",
+          "Energy enters through producers and moves to consumers, while matter is recycled through organisms and decomposers."
+        ],
+        "answer": "Energy enters through producers and moves to consumers, while matter is recycled through organisms and decomposers.",
+        "explain": "Energy enters through producers and moves to consumers, while matter is recycled through organisms and decomposers. This matches : predict how ecosystem changes affect cycling of matter and flow of energy in a food web. This evidence makes the correct response defensible. The response \"Changing one population can affect only that species.\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “Which explanation of matter cycling and energy flow in food webs remains defensible after all lesson evidence is considered” and replaces “Changing one population can affect only that species.” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:sci:L3": {
+    "name": "Mixtures & Solutions",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Sand and water is a…",
+        "choices": [
+          "Pure element",
+          "Element",
+          "Star",
+          "Mixture"
+        ],
+        "answer": "Mixture",
+        "audio": "Mixtures and solutions."
+      },
+      {
+        "type": "mc",
+        "q": "Dissolving sugar in water makes a…",
+        "choices": [
+          "Rock",
+          "Shadow",
+          "None of these",
+          "Solution"
+        ],
+        "answer": "Solution",
+        "audio": "Mixtures and solutions."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains solutions and conservation of matter?",
+        "choices": [
+          "Only color can determine whether matter is conserved.",
+          "A solution always has less matter than its ingredients.",
+          "Dissolving changes how particles are distributed but does not make the dissolved matter disappear.",
+          "Dissolved matter stops existing."
+        ],
+        "answer": "Dissolving changes how particles are distributed but does not make the dissolved matter disappear.",
+        "explain": "Dissolving changes how particles are distributed but does not make the dissolved matter disappear. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter",
+        "audio": "Which statement accurately explains solutions and conservation of matter?"
+      },
+      {
+        "type": "mc",
+        "q": "Which real-world application best demonstrates solutions and conservation of matter?",
+        "choices": [
+          "Measure solute and water before combining them, then account for the total matter in the solution.",
+          "Only color can determine whether matter is conserved.",
+          "Dissolved matter stops existing.",
+          "A solution always has less matter than its ingredients."
+        ],
+        "answer": "Measure solute and water before combining them, then account for the total matter in the solution.",
+        "explain": "Measure solute and water before combining them, then account for the total matter in the solution. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter",
+        "audio": "Which real-world application best demonstrates solutions and conservation of matter?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest evidence about solutions and conservation of matter?",
+        "choices": [
+          "A solution always has less matter than its ingredients.",
+          "Recovering dissolved salt after water evaporates shows that the salt remained present.",
+          "Only color can determine whether matter is conserved.",
+          "Dissolved matter stops existing."
+        ],
+        "answer": "Recovering dissolved salt after water evaporates shows that the salt remained present.",
+        "explain": "Recovering dissolved salt after water evaporates shows that the salt remained present. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter",
+        "audio": "Which observation provides the strongest evidence about solutions and conservation of matter?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best explains solutions and conservation of matter?",
+        "choices": [
+          "A solution always has less matter than its ingredients.",
+          "Only color can determine whether matter is conserved.",
+          "Dissolved matter stops existing.",
+          "A solution can have properties different from its ingredients while conserving the matter added."
+        ],
+        "answer": "A solution can have properties different from its ingredients while conserving the matter added.",
+        "explain": "A solution can have properties different from its ingredients while conserving the matter added. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter",
+        "audio": "Which systems-level connection best explains solutions and conservation of matter?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Mass and recovery evidence support conservation in a solution even when a component is no longer visible” correctly answers “Which conclusion about solutions and conservation of matter is supported without overstating the evidence.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Mass and recovery evidence support conservation in a solution even when a component is no longer visible. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter",
+        "audio": "True or false: “Mass and recovery evidence support conservation in a solution even when a component is no longer visible” correctly answers “Which conclusion about solutions and conservation of matter is supported without overstating the evidence.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson principle should be applied when explaining solutions and conservation of matter?",
+        "choices": [
+          "Dissolving changes how particles are distributed but does not make the dissolved matter disappear.",
+          "Dissolved matter stops existing.",
+          "A solution always has less matter than its ingredients.",
+          "Only color can determine whether matter is conserved."
+        ],
+        "answer": "Dissolving changes how particles are distributed but does not make the dissolved matter disappear.",
+        "explain": "Dissolving changes how particles are distributed but does not make the dissolved matter disappear. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter",
+        "audio": "Which lesson principle should be applied when explaining solutions and conservation of matter?"
+      },
+      {
+        "type": "mc",
+        "q": "Which example correctly applies solutions and conservation of matter in a real system?",
+        "choices": [
+          "Dissolved matter stops existing.",
+          "Measure solute and water before combining them, then account for the total matter in the solution.",
+          "Only color can determine whether matter is conserved.",
+          "A solution always has less matter than its ingredients."
+        ],
+        "answer": "Measure solute and water before combining them, then account for the total matter in the solution.",
+        "explain": "Measure solute and water before combining them, then account for the total matter in the solution. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter",
+        "audio": "Which example correctly applies solutions and conservation of matter in a real system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson observation directly supports solutions and conservation of matter?",
+        "choices": [
+          "Recovering dissolved salt after water evaporates shows that the salt remained present.",
+          "Only color can determine whether matter is conserved.",
+          "Dissolved matter stops existing.",
+          "A solution always has less matter than its ingredients."
+        ],
+        "answer": "Recovering dissolved salt after water evaporates shows that the salt remained present.",
+        "explain": "Recovering dissolved salt after water evaporates shows that the salt remained present. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter",
+        "audio": "Which lesson observation directly supports solutions and conservation of matter?"
+      },
+      {
+        "type": "mc",
+        "q": "Which cause-and-effect connection follows from the evidence about solutions and conservation of matter?",
+        "choices": [
+          "A solution can have properties different from its ingredients while conserving the matter added.",
+          "A solution always has less matter than its ingredients.",
+          "Only color can determine whether matter is conserved.",
+          "Dissolved matter stops existing."
+        ],
+        "answer": "A solution can have properties different from its ingredients while conserving the matter added.",
+        "explain": "A solution can have properties different from its ingredients while conserving the matter added. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter",
+        "audio": "Which cause-and-effect connection follows from the evidence about solutions and conservation of matter?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Dissolved matter stops existing” correctly answers “Which conclusion follows from the lesson evidence about solutions and conservation of matter.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Mass and recovery evidence support conservation in a solution even when a component is no longer visible. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter",
+        "audio": "True or false: “Dissolved matter stops existing” correctly answers “Which conclusion follows from the lesson evidence about solutions and conservation of matter.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which claim about solutions and conservation of matter is supported rather than assumed?",
+        "choices": [
+          "Dissolving changes how particles are distributed but does not make the dissolved matter disappear.",
+          "A solution always has less matter than its ingredients.",
+          "Only color can determine whether matter is conserved.",
+          "Dissolved matter stops existing."
+        ],
+        "answer": "Dissolving changes how particles are distributed but does not make the dissolved matter disappear.",
+        "explain": "Dissolving changes how particles are distributed but does not make the dissolved matter disappear. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter",
+        "audio": "Which claim about solutions and conservation of matter is supported rather than assumed?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of solutions and conservation of matter can be justified with the lesson evidence?",
+        "choices": [
+          "Dissolved matter stops existing.",
+          "A solution always has less matter than its ingredients.",
+          "Only color can determine whether matter is conserved.",
+          "Measure solute and water before combining them, then account for the total matter in the solution."
+        ],
+        "answer": "Measure solute and water before combining them, then account for the total matter in the solution.",
+        "explain": "Measure solute and water before combining them, then account for the total matter in the solution. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter",
+        "audio": "Which application of solutions and conservation of matter can be justified with the lesson evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation distinguishes evidence from a misconception about solutions and conservation of matter?",
+        "choices": [
+          "Dissolved matter stops existing.",
+          "A solution always has less matter than its ingredients.",
+          "Recovering dissolved salt after water evaporates shows that the salt remained present.",
+          "Only color can determine whether matter is conserved."
+        ],
+        "answer": "Recovering dissolved salt after water evaporates shows that the salt remained present.",
+        "explain": "Recovering dissolved salt after water evaporates shows that the salt remained present. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter",
+        "audio": "Which observation distinguishes evidence from a misconception about solutions and conservation of matter?"
+      },
+      {
+        "type": "mc",
+        "q": "Which evidence-based connection explains how the parts of solutions and conservation of matter relate?",
+        "choices": [
+          "Dissolved matter stops existing.",
+          "Only color can determine whether matter is conserved.",
+          "A solution always has less matter than its ingredients.",
+          "A solution can have properties different from its ingredients while conserving the matter added."
+        ],
+        "answer": "A solution can have properties different from its ingredients while conserving the matter added.",
+        "explain": "A solution can have properties different from its ingredients while conserving the matter added. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter",
+        "audio": "Which evidence-based connection explains how the parts of solutions and conservation of matter relate?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Mass and recovery evidence support conservation in a solution even when a component is no longer visible” correctly answers “Which conclusion about solutions and conservation of matter uses the evidence without adding an assumption.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Mass and recovery evidence support conservation in a solution even when a component is no longer visible. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter",
+        "audio": "True or false: “Mass and recovery evidence support conservation in a solution even when a component is no longer visible” correctly answers “Which conclusion about solutions and conservation of matter uses the evidence without adding an assumption.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which explanation of solutions and conservation of matter remains defensible after all lesson evidence is considered?",
+        "choices": [
+          "Dissolved matter stops existing.",
+          "Only color can determine whether matter is conserved.",
+          "A solution always has less matter than its ingredients.",
+          "Dissolving changes how particles are distributed but does not make the dissolved matter disappear."
+        ],
+        "answer": "Dissolving changes how particles are distributed but does not make the dissolved matter disappear.",
+        "explain": "Dissolving changes how particles are distributed but does not make the dissolved matter disappear. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter",
+        "audio": "Which explanation of solutions and conservation of matter remains defensible after all lesson evidence is considered?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of solutions and conservation of matter is supported by both the lesson principle and evidence?",
+        "choices": [
+          "Measure solute and water before combining them, then account for the total matter in the solution.",
+          "Dissolved matter stops existing.",
+          "Only color can determine whether matter is conserved.",
+          "A solution always has less matter than its ingredients."
+        ],
+        "answer": "Measure solute and water before combining them, then account for the total matter in the solution.",
+        "explain": "Measure solute and water before combining them, then account for the total matter in the solution. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter",
+        "audio": "Which application of solutions and conservation of matter is supported by both the lesson principle and evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest basis for evaluating solutions and conservation of matter?",
+        "choices": [
+          "Only color can determine whether matter is conserved.",
+          "Recovering dissolved salt after water evaporates shows that the salt remained present.",
+          "A solution always has less matter than its ingredients.",
+          "Dissolved matter stops existing."
+        ],
+        "answer": "Recovering dissolved salt after water evaporates shows that the salt remained present.",
+        "explain": "Recovering dissolved salt after water evaporates shows that the salt remained present. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter",
+        "audio": "Which observation provides the strongest basis for evaluating solutions and conservation of matter?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best integrates the lesson evidence about solutions and conservation of matter?",
+        "choices": [
+          "A solution can have properties different from its ingredients while conserving the matter added.",
+          "Dissolved matter stops existing.",
+          "A solution always has less matter than its ingredients.",
+          "Only color can determine whether matter is conserved."
+        ],
+        "answer": "A solution can have properties different from its ingredients while conserving the matter added.",
+        "explain": "A solution can have properties different from its ingredients while conserving the matter added. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter",
+        "audio": "Which systems-level connection best integrates the lesson evidence about solutions and conservation of matter?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Dissolved matter stops existing” correctly answers “Which conclusion about solutions and conservation of matter accounts for the evidence without exceeding the model's limits.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Mass and recovery evidence support conservation in a solution even when a component is no longer visible. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter",
+        "audio": "True or false: “Dissolved matter stops existing” correctly answers “Which conclusion about solutions and conservation of matter accounts for the evidence without exceeding the model's limits.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “Which explanation of solutions and conservation of matter remains defensible after all lesson evidence is considered” and replaces “A solution always has less matter than its ingredients.” using the task's evidence or constraints?",
+        "choices": [
+          "Dissolved matter stops existing.",
+          "Dissolving changes how particles are distributed but does not make the dissolved matter disappear.",
+          "Only color can determine whether matter is conserved.",
+          "A solution always has less matter than its ingredients."
+        ],
+        "answer": "Dissolving changes how particles are distributed but does not make the dissolved matter disappear.",
+        "explain": "Dissolving changes how particles are distributed but does not make the dissolved matter disappear. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter. This evidence makes the correct response defensible. The response \"A solution always has less matter than its ingredients.\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “Which explanation of solutions and conservation of matter remains defensible after all lesson evidence is considered” and replaces “A solution always has less matter than its ingredients.” using the task's evidence or constraints?"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer to “Which application of solutions and conservation of matter is supported by both the lesson principle and evidence” fits all the given evidence and lesson rules?",
+        "choices": [
+          "Only color can determine whether matter is conserved.",
+          "Measure solute and water before combining them, then account for the total matter in the solution.",
+          "A solution always has less matter than its ingredients.",
+          "Dissolved matter stops existing."
+        ],
+        "answer": "Measure solute and water before combining them, then account for the total matter in the solution.",
+        "explain": "Measure solute and water before combining them, then account for the total matter in the solution. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter. This evidence makes the correct response defensible. The response \"Dissolved matter stops existing.\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer to “Which application of solutions and conservation of matter is supported by both the lesson principle and evidence” fits all the given evidence and lesson rules?"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer satisfies every condition in “Which observation provides the strongest basis for evaluating solutions and conservation of matter”?",
+        "choices": [
+          "Only color can determine whether matter is conserved.",
+          "A solution always has less matter than its ingredients.",
+          "Recovering dissolved salt after water evaporates shows that the salt remained present.",
+          "Dissolved matter stops existing."
+        ],
+        "answer": "Recovering dissolved salt after water evaporates shows that the salt remained present.",
+        "explain": "Recovering dissolved salt after water evaporates shows that the salt remained present. This matches : compare substance properties before and after forming a solution and demonstrate conservation of matter. This evidence makes the correct response defensible. The response \"Only color can determine whether matter is conserved.\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer satisfies every condition in “Which observation provides the strongest basis for evaluating solutions and conservation of matter”?"
+      }
+    ]
+  },
+  "g5:sci:L9": {
+    "name": "Physical Changes",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Which is a physical change?",
+        "choices": [
+          "Ice melting",
+          "Friction",
+          "Metal rusting",
+          "Wood burning"
+        ],
+        "answer": "Ice melting",
+        "audio": "Identify the type of change."
+      },
+      {
+        "type": "mc",
+        "q": "Cutting paper into smaller pieces is a…",
+        "choices": [
+          "Physical change",
+          "Chemical change",
+          "Weather pattern",
+          "None of these"
+        ],
+        "answer": "Physical change",
+        "audio": "Identify the type of change."
+      },
+      {
+        "type": "mc",
+        "q": "Which change forms a new substance?",
+        "choices": [
+          "None of these",
+          "Size change only",
+          "Physical change",
+          "Chemical change"
+        ],
+        "answer": "Chemical change",
+        "audio": "Identify the type of change."
+      },
+      {
+        "type": "mc",
+        "q": "Dissolving sugar in water is usually considered a…",
+        "choices": [
+          "Physical change",
+          "Larva",
+          "Planetary change",
+          "Life cycle"
+        ],
+        "answer": "Physical change",
+        "audio": "Identify the type of change."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains physical changes and conservation of matter?",
+        "choices": [
+          "Matter is lost whenever a solid melts.",
+          "A physical change can alter state, size, or distribution without creating a new substance.",
+          "Color is the only property relevant to classifying change.",
+          "Every visible change creates a new substance."
+        ],
+        "answer": "A physical change can alter state, size, or distribution without creating a new substance.",
+        "explain": "A physical change can alter state, size, or distribution without creating a new substance. This matches : compare properties before and after substances combine in a solution and demonstrate conservation of matter",
+        "audio": "Which statement accurately explains physical changes and conservation of matter?"
+      },
+      {
+        "type": "mc",
+        "q": "Which real-world application best demonstrates physical changes and conservation of matter?",
+        "choices": [
+          "Dissolve, freeze, melt, or separate a substance and compare measurable properties before and after.",
+          "Matter is lost whenever a solid melts.",
+          "Color is the only property relevant to classifying change.",
+          "Every visible change creates a new substance."
+        ],
+        "answer": "Dissolve, freeze, melt, or separate a substance and compare measurable properties before and after.",
+        "explain": "Dissolve, freeze, melt, or separate a substance and compare measurable properties before and after. This matches : compare properties before and after substances combine in a solution and demonstrate conservation of matter",
+        "audio": "Which real-world application best demonstrates physical changes and conservation of matter?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest evidence about physical changes and conservation of matter?",
+        "choices": [
+          "Color is the only property relevant to classifying change.",
+          "Matter is lost whenever a solid melts.",
+          "Every visible change creates a new substance.",
+          "Recovering the original substance or conserving measured matter supports classification as a physical change."
+        ],
+        "answer": "Recovering the original substance or conserving measured matter supports classification as a physical change.",
+        "explain": "Recovering the original substance or conserving measured matter supports classification as a physical change. This matches : compare properties before and after substances combine in a solution and demonstrate conservation of matter",
+        "audio": "Which observation provides the strongest evidence about physical changes and conservation of matter?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best explains physical changes and conservation of matter?",
+        "choices": [
+          "Color is the only property relevant to classifying change.",
+          "Every visible change creates a new substance.",
+          "Matter is lost whenever a solid melts.",
+          "Changing state can change visible form while particle identity and total matter remain conserved."
+        ],
+        "answer": "Changing state can change visible form while particle identity and total matter remain conserved.",
+        "explain": "Changing state can change visible form while particle identity and total matter remain conserved. This matches : compare properties before and after substances combine in a solution and demonstrate conservation of matter",
+        "audio": "Which systems-level connection best explains physical changes and conservation of matter?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Multiple property measurements provide stronger evidence of physical change than appearance alone” correctly answers “Which conclusion about physical changes and conservation of matter is supported without overstating the evidence.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Multiple property measurements provide stronger evidence of physical change than appearance alone. This matches : compare properties before and after substances combine in a solution and demonstrate conservation of matter",
+        "audio": "True or false: “Multiple property measurements provide stronger evidence of physical change than appearance alone” correctly answers “Which conclusion about physical changes and conservation of matter is supported without overstating the evidence.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson principle should be applied when explaining physical changes and conservation of matter?",
+        "choices": [
+          "A physical change can alter state, size, or distribution without creating a new substance.",
+          "Color is the only property relevant to classifying change.",
+          "Every visible change creates a new substance.",
+          "Matter is lost whenever a solid melts."
+        ],
+        "answer": "A physical change can alter state, size, or distribution without creating a new substance.",
+        "explain": "A physical change can alter state, size, or distribution without creating a new substance. This matches : compare properties before and after substances combine in a solution and demonstrate conservation of matter",
+        "audio": "Which lesson principle should be applied when explaining physical changes and conservation of matter?"
+      },
+      {
+        "type": "mc",
+        "q": "Which example correctly applies physical changes and conservation of matter in a real system?",
+        "choices": [
+          "Dissolve, freeze, melt, or separate a substance and compare measurable properties before and after.",
+          "Matter is lost whenever a solid melts.",
+          "Every visible change creates a new substance.",
+          "Color is the only property relevant to classifying change."
+        ],
+        "answer": "Dissolve, freeze, melt, or separate a substance and compare measurable properties before and after.",
+        "explain": "Dissolve, freeze, melt, or separate a substance and compare measurable properties before and after. This matches : compare properties before and after substances combine in a solution and demonstrate conservation of matter",
+        "audio": "Which example correctly applies physical changes and conservation of matter in a real system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson observation directly supports physical changes and conservation of matter?",
+        "choices": [
+          "Recovering the original substance or conserving measured matter supports classification as a physical change.",
+          "Every visible change creates a new substance.",
+          "Matter is lost whenever a solid melts.",
+          "Color is the only property relevant to classifying change."
+        ],
+        "answer": "Recovering the original substance or conserving measured matter supports classification as a physical change.",
+        "explain": "Recovering the original substance or conserving measured matter supports classification as a physical change. This matches : compare properties before and after substances combine in a solution and demonstrate conservation of matter",
+        "audio": "Which lesson observation directly supports physical changes and conservation of matter?"
+      },
+      {
+        "type": "mc",
+        "q": "Which cause-and-effect connection follows from the evidence about physical changes and conservation of matter?",
+        "choices": [
+          "Changing state can change visible form while particle identity and total matter remain conserved.",
+          "Every visible change creates a new substance.",
+          "Matter is lost whenever a solid melts.",
+          "Color is the only property relevant to classifying change."
+        ],
+        "answer": "Changing state can change visible form while particle identity and total matter remain conserved.",
+        "explain": "Changing state can change visible form while particle identity and total matter remain conserved. This matches : compare properties before and after substances combine in a solution and demonstrate conservation of matter",
+        "audio": "Which cause-and-effect connection follows from the evidence about physical changes and conservation of matter?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Every visible change creates a new substance” correctly answers “Which conclusion follows from the lesson evidence about physical changes and conservation of matter.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Multiple property measurements provide stronger evidence of physical change than appearance alone. This matches : compare properties before and after substances combine in a solution and demonstrate conservation of matter",
+        "audio": "True or false: “Every visible change creates a new substance” correctly answers “Which conclusion follows from the lesson evidence about physical changes and conservation of matter.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which claim about physical changes and conservation of matter is supported rather than assumed?",
+        "choices": [
+          "Every visible change creates a new substance.",
+          "Matter is lost whenever a solid melts.",
+          "Color is the only property relevant to classifying change.",
+          "A physical change can alter state, size, or distribution without creating a new substance."
+        ],
+        "answer": "A physical change can alter state, size, or distribution without creating a new substance.",
+        "explain": "A physical change can alter state, size, or distribution without creating a new substance. This matches : compare properties before and after substances combine in a solution and demonstrate conservation of matter",
+        "audio": "Which claim about physical changes and conservation of matter is supported rather than assumed?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of physical changes and conservation of matter can be justified with the lesson evidence?",
+        "choices": [
+          "Every visible change creates a new substance.",
+          "Matter is lost whenever a solid melts.",
+          "Color is the only property relevant to classifying change.",
+          "Dissolve, freeze, melt, or separate a substance and compare measurable properties before and after."
+        ],
+        "answer": "Dissolve, freeze, melt, or separate a substance and compare measurable properties before and after.",
+        "explain": "Dissolve, freeze, melt, or separate a substance and compare measurable properties before and after. This matches : compare properties before and after substances combine in a solution and demonstrate conservation of matter",
+        "audio": "Which application of physical changes and conservation of matter can be justified with the lesson evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation distinguishes evidence from a misconception about physical changes and conservation of matter?",
+        "choices": [
+          "Recovering the original substance or conserving measured matter supports classification as a physical change.",
+          "Every visible change creates a new substance.",
+          "Color is the only property relevant to classifying change.",
+          "Matter is lost whenever a solid melts."
+        ],
+        "answer": "Recovering the original substance or conserving measured matter supports classification as a physical change.",
+        "explain": "Recovering the original substance or conserving measured matter supports classification as a physical change. This matches : compare properties before and after substances combine in a solution and demonstrate conservation of matter",
+        "audio": "Which observation distinguishes evidence from a misconception about physical changes and conservation of matter?"
+      },
+      {
+        "type": "mc",
+        "q": "Which evidence-based connection explains how the parts of physical changes and conservation of matter relate?",
+        "choices": [
+          "Color is the only property relevant to classifying change.",
+          "Matter is lost whenever a solid melts.",
+          "Changing state can change visible form while particle identity and total matter remain conserved.",
+          "Every visible change creates a new substance."
+        ],
+        "answer": "Changing state can change visible form while particle identity and total matter remain conserved.",
+        "explain": "Changing state can change visible form while particle identity and total matter remain conserved. This matches : compare properties before and after substances combine in a solution and demonstrate conservation of matter",
+        "audio": "Which evidence-based connection explains how the parts of physical changes and conservation of matter relate?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Multiple property measurements provide stronger evidence of physical change than appearance alone” correctly answers “Which conclusion about physical changes and conservation of matter uses the evidence without adding an assumption.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Multiple property measurements provide stronger evidence of physical change than appearance alone. This matches : compare properties before and after substances combine in a solution and demonstrate conservation of matter",
+        "audio": "True or false: “Multiple property measurements provide stronger evidence of physical change than appearance alone” correctly answers “Which conclusion about physical changes and conservation of matter uses the evidence without adding an assumption.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which explanation of physical changes and conservation of matter remains defensible after all lesson evidence is considered?",
+        "choices": [
+          "Matter is lost whenever a solid melts.",
+          "A physical change can alter state, size, or distribution without creating a new substance.",
+          "Color is the only property relevant to classifying change.",
+          "Every visible change creates a new substance."
+        ],
+        "answer": "A physical change can alter state, size, or distribution without creating a new substance.",
+        "explain": "A physical change can alter state, size, or distribution without creating a new substance. This matches : compare properties before and after substances combine in a solution and demonstrate conservation of matter",
+        "audio": "Which explanation of physical changes and conservation of matter remains defensible after all lesson evidence is considered?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of physical changes and conservation of matter is supported by both the lesson principle and evidence?",
+        "choices": [
+          "Color is the only property relevant to classifying change.",
+          "Dissolve, freeze, melt, or separate a substance and compare measurable properties before and after.",
+          "Every visible change creates a new substance.",
+          "Matter is lost whenever a solid melts."
+        ],
+        "answer": "Dissolve, freeze, melt, or separate a substance and compare measurable properties before and after.",
+        "explain": "Dissolve, freeze, melt, or separate a substance and compare measurable properties before and after. This matches : compare properties before and after substances combine in a solution and demonstrate conservation of matter",
+        "audio": "Which application of physical changes and conservation of matter is supported by both the lesson principle and evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest basis for evaluating physical changes and conservation of matter?",
+        "choices": [
+          "Color is the only property relevant to classifying change.",
+          "Every visible change creates a new substance.",
+          "Recovering the original substance or conserving measured matter supports classification as a physical change.",
+          "Matter is lost whenever a solid melts."
+        ],
+        "answer": "Recovering the original substance or conserving measured matter supports classification as a physical change.",
+        "explain": "Recovering the original substance or conserving measured matter supports classification as a physical change. This matches : compare properties before and after substances combine in a solution and demonstrate conservation of matter",
+        "audio": "Which observation provides the strongest basis for evaluating physical changes and conservation of matter?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best integrates the lesson evidence about physical changes and conservation of matter?",
+        "choices": [
+          "Color is the only property relevant to classifying change.",
+          "Matter is lost whenever a solid melts.",
+          "Every visible change creates a new substance.",
+          "Changing state can change visible form while particle identity and total matter remain conserved."
+        ],
+        "answer": "Changing state can change visible form while particle identity and total matter remain conserved.",
+        "explain": "Changing state can change visible form while particle identity and total matter remain conserved. This matches : compare properties before and after substances combine in a solution and demonstrate conservation of matter",
+        "audio": "Which systems-level connection best integrates the lesson evidence about physical changes and conservation of matter?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Every visible change creates a new substance” correctly answers “Which conclusion about physical changes and conservation of matter accounts for the evidence without exceeding the model's limits.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Multiple property measurements provide stronger evidence of physical change than appearance alone. This matches : compare properties before and after substances combine in a solution and demonstrate conservation of matter",
+        "audio": "True or false: “Every visible change creates a new substance” correctly answers “Which conclusion about physical changes and conservation of matter accounts for the evidence without exceeding the model's limits.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “Which explanation of physical changes and conservation of matter remains defensible after all lesson evidence is considered” and replaces “Color is the only property relevant to classifying change.” using the task's evidence or constraints?",
+        "choices": [
+          "Matter is lost whenever a solid melts.",
+          "Every visible change creates a new substance.",
+          "A physical change can alter state, size, or distribution without creating a new substance.",
+          "Color is the only property relevant to classifying change."
+        ],
+        "answer": "A physical change can alter state, size, or distribution without creating a new substance.",
+        "explain": "A physical change can alter state, size, or distribution without creating a new substance. This matches : compare properties before and after substances combine in a solution and demonstrate conservation of matter. This evidence makes the correct response defensible. The response \"Color is the only property relevant to classifying change.\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “Which explanation of physical changes and conservation of matter remains defensible after all lesson evidence is considered” and replaces “Color is the only property relevant to classifying change.” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:sci:L10": {
+    "name": "Force & Motion",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "A push or a pull is called a…",
+        "choices": [
+          "Cell",
+          "Gravity",
+          "Force",
+          "Motion"
+        ],
+        "answer": "Force",
+        "audio": "Answer the force and motion question."
+      },
+      {
+        "type": "mc",
+        "q": "What force pulls objects toward Earth?",
+        "choices": [
+          "Evaporation",
+          "Gravity",
+          "Friction",
+          "Magnetism only in clouds"
+        ],
+        "answer": "Gravity",
+        "audio": "Answer the force and motion question."
+      },
+      {
+        "type": "mc",
+        "q": "Friction usually causes a moving object to…",
+        "choices": [
+          "Grow larger",
+          "Slow down",
+          "Gravity",
+          "Turn into water"
+        ],
+        "answer": "Slow down",
+        "audio": "Answer the force and motion question."
+      },
+      {
+        "type": "mc",
+        "q": "A stronger push on a ball usually makes it move…",
+        "choices": [
+          "Faster",
+          "Into a plant",
+          "Without direction",
+          "Force"
+        ],
+        "answer": "Faster",
+        "audio": "Answer the force and motion question."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains equal and unequal forces acting on objects?",
+        "choices": [
+          "Equal opposing forces produce zero net force; unequal forces can change an object's motion.",
+          "Balanced forces always make an object speed up.",
+          "Any force guarantees motion in the force's direction.",
+          "Force has no relationship to energy transfer."
+        ],
+        "answer": "Equal opposing forces produce zero net force; unequal forces can change an object's motion.",
+        "explain": "Equal opposing forces produce zero net force; unequal forces can change an object's motion. This matches : investigate and explain how equal and unequal forces cause patterns of motion and energy transfer",
+        "audio": "Which statement accurately explains equal and unequal forces acting on objects?"
+      },
+      {
+        "type": "mc",
+        "q": "Which real-world application best demonstrates equal and unequal forces acting on objects?",
+        "choices": [
+          "Compare a cart pulled equally in opposite directions with a cart experiencing a larger force on one side.",
+          "Balanced forces always make an object speed up.",
+          "Any force guarantees motion in the force's direction.",
+          "Force has no relationship to energy transfer."
+        ],
+        "answer": "Compare a cart pulled equally in opposite directions with a cart experiencing a larger force on one side.",
+        "explain": "Compare a cart pulled equally in opposite directions with a cart experiencing a larger force on one side. This matches : investigate and explain how equal and unequal forces cause patterns of motion and energy transfer",
+        "audio": "Which real-world application best demonstrates equal and unequal forces acting on objects?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest evidence about equal and unequal forces acting on objects?",
+        "choices": [
+          "Any force guarantees motion in the force's direction.",
+          "Force has no relationship to energy transfer.",
+          "Measured motion changes when the forces become unequal but remains stable when net force is zero.",
+          "Balanced forces always make an object speed up."
+        ],
+        "answer": "Measured motion changes when the forces become unequal but remains stable when net force is zero.",
+        "explain": "Measured motion changes when the forces become unequal but remains stable when net force is zero. This matches : investigate and explain how equal and unequal forces cause patterns of motion and energy transfer",
+        "audio": "Which observation provides the strongest evidence about equal and unequal forces acting on objects?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best explains equal and unequal forces acting on objects?",
+        "choices": [
+          "Any force guarantees motion in the force's direction.",
+          "Balanced forces always make an object speed up.",
+          "Force has no relationship to energy transfer.",
+          "Changing one force changes net force, which changes the motion pattern and energy transfer."
+        ],
+        "answer": "Changing one force changes net force, which changes the motion pattern and energy transfer.",
+        "explain": "Changing one force changes net force, which changes the motion pattern and energy transfer. This matches : investigate and explain how equal and unequal forces cause patterns of motion and energy transfer",
+        "audio": "Which systems-level connection best explains equal and unequal forces acting on objects?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Force diagrams and motion data together support conclusions about balanced and unbalanced interactions” correctly answers “Which conclusion about equal and unequal forces acting on objects is supported without overstating the evidence.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Force diagrams and motion data together support conclusions about balanced and unbalanced interactions. This matches : investigate and explain how equal and unequal forces cause patterns of motion and energy transfer",
+        "audio": "True or false: “Force diagrams and motion data together support conclusions about balanced and unbalanced interactions” correctly answers “Which conclusion about equal and unequal forces acting on objects is supported without overstating the evidence.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson principle should be applied when explaining equal and unequal forces acting on objects?",
+        "choices": [
+          "Equal opposing forces produce zero net force; unequal forces can change an object's motion.",
+          "Any force guarantees motion in the force's direction.",
+          "Balanced forces always make an object speed up.",
+          "Force has no relationship to energy transfer."
+        ],
+        "answer": "Equal opposing forces produce zero net force; unequal forces can change an object's motion.",
+        "explain": "Equal opposing forces produce zero net force; unequal forces can change an object's motion. This matches : investigate and explain how equal and unequal forces cause patterns of motion and energy transfer",
+        "audio": "Which lesson principle should be applied when explaining equal and unequal forces acting on objects?"
+      },
+      {
+        "type": "mc",
+        "q": "Which example correctly applies equal and unequal forces acting on objects in a real system?",
+        "choices": [
+          "Balanced forces always make an object speed up.",
+          "Force has no relationship to energy transfer.",
+          "Compare a cart pulled equally in opposite directions with a cart experiencing a larger force on one side.",
+          "Any force guarantees motion in the force's direction."
+        ],
+        "answer": "Compare a cart pulled equally in opposite directions with a cart experiencing a larger force on one side.",
+        "explain": "Compare a cart pulled equally in opposite directions with a cart experiencing a larger force on one side. This matches : investigate and explain how equal and unequal forces cause patterns of motion and energy transfer",
+        "audio": "Which example correctly applies equal and unequal forces acting on objects in a real system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson observation directly supports equal and unequal forces acting on objects?",
+        "choices": [
+          "Force has no relationship to energy transfer.",
+          "Measured motion changes when the forces become unequal but remains stable when net force is zero.",
+          "Any force guarantees motion in the force's direction.",
+          "Balanced forces always make an object speed up."
+        ],
+        "answer": "Measured motion changes when the forces become unequal but remains stable when net force is zero.",
+        "explain": "Measured motion changes when the forces become unequal but remains stable when net force is zero. This matches : investigate and explain how equal and unequal forces cause patterns of motion and energy transfer",
+        "audio": "Which lesson observation directly supports equal and unequal forces acting on objects?"
+      },
+      {
+        "type": "mc",
+        "q": "Which cause-and-effect connection follows from the evidence about equal and unequal forces acting on objects?",
+        "choices": [
+          "Any force guarantees motion in the force's direction.",
+          "Force has no relationship to energy transfer.",
+          "Changing one force changes net force, which changes the motion pattern and energy transfer.",
+          "Balanced forces always make an object speed up."
+        ],
+        "answer": "Changing one force changes net force, which changes the motion pattern and energy transfer.",
+        "explain": "Changing one force changes net force, which changes the motion pattern and energy transfer. This matches : investigate and explain how equal and unequal forces cause patterns of motion and energy transfer",
+        "audio": "Which cause-and-effect connection follows from the evidence about equal and unequal forces acting on objects?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Any force guarantees motion in the force's direction” correctly answers “Which conclusion follows from the lesson evidence about equal and unequal forces acting on objects.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Force diagrams and motion data together support conclusions about balanced and unbalanced interactions. This matches : investigate and explain how equal and unequal forces cause patterns of motion and energy transfer",
+        "audio": "True or false: “Any force guarantees motion in the force's direction” correctly answers “Which conclusion follows from the lesson evidence about equal and unequal forces acting on objects.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which claim about equal and unequal forces acting on objects is supported rather than assumed?",
+        "choices": [
+          "Force has no relationship to energy transfer.",
+          "Balanced forces always make an object speed up.",
+          "Equal opposing forces produce zero net force; unequal forces can change an object's motion.",
+          "Any force guarantees motion in the force's direction."
+        ],
+        "answer": "Equal opposing forces produce zero net force; unequal forces can change an object's motion.",
+        "explain": "Equal opposing forces produce zero net force; unequal forces can change an object's motion. This matches : investigate and explain how equal and unequal forces cause patterns of motion and energy transfer",
+        "audio": "Which claim about equal and unequal forces acting on objects is supported rather than assumed?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of equal and unequal forces acting on objects can be justified with the lesson evidence?",
+        "choices": [
+          "Any force guarantees motion in the force's direction.",
+          "Compare a cart pulled equally in opposite directions with a cart experiencing a larger force on one side.",
+          "Force has no relationship to energy transfer.",
+          "Balanced forces always make an object speed up."
+        ],
+        "answer": "Compare a cart pulled equally in opposite directions with a cart experiencing a larger force on one side.",
+        "explain": "Compare a cart pulled equally in opposite directions with a cart experiencing a larger force on one side. This matches : investigate and explain how equal and unequal forces cause patterns of motion and energy transfer",
+        "audio": "Which application of equal and unequal forces acting on objects can be justified with the lesson evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation distinguishes evidence from a misconception about equal and unequal forces acting on objects?",
+        "choices": [
+          "Any force guarantees motion in the force's direction.",
+          "Force has no relationship to energy transfer.",
+          "Balanced forces always make an object speed up.",
+          "Measured motion changes when the forces become unequal but remains stable when net force is zero."
+        ],
+        "answer": "Measured motion changes when the forces become unequal but remains stable when net force is zero.",
+        "explain": "Measured motion changes when the forces become unequal but remains stable when net force is zero. This matches : investigate and explain how equal and unequal forces cause patterns of motion and energy transfer",
+        "audio": "Which observation distinguishes evidence from a misconception about equal and unequal forces acting on objects?"
+      },
+      {
+        "type": "mc",
+        "q": "Which evidence-based connection explains how the parts of equal and unequal forces acting on objects relate?",
+        "choices": [
+          "Any force guarantees motion in the force's direction.",
+          "Balanced forces always make an object speed up.",
+          "Force has no relationship to energy transfer.",
+          "Changing one force changes net force, which changes the motion pattern and energy transfer."
+        ],
+        "answer": "Changing one force changes net force, which changes the motion pattern and energy transfer.",
+        "explain": "Changing one force changes net force, which changes the motion pattern and energy transfer. This matches : investigate and explain how equal and unequal forces cause patterns of motion and energy transfer",
+        "audio": "Which evidence-based connection explains how the parts of equal and unequal forces acting on objects relate?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Force diagrams and motion data together support conclusions about balanced and unbalanced interactions” correctly answers “Which conclusion about equal and unequal forces acting on objects uses the evidence without adding an assumption.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Force diagrams and motion data together support conclusions about balanced and unbalanced interactions. This matches : investigate and explain how equal and unequal forces cause patterns of motion and energy transfer",
+        "audio": "True or false: “Force diagrams and motion data together support conclusions about balanced and unbalanced interactions” correctly answers “Which conclusion about equal and unequal forces acting on objects uses the evidence without adding an assumption.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which explanation of equal and unequal forces acting on objects remains defensible after all lesson evidence is considered?",
+        "choices": [
+          "Equal opposing forces produce zero net force; unequal forces can change an object's motion.",
+          "Force has no relationship to energy transfer.",
+          "Any force guarantees motion in the force's direction.",
+          "Balanced forces always make an object speed up."
+        ],
+        "answer": "Equal opposing forces produce zero net force; unequal forces can change an object's motion.",
+        "explain": "Equal opposing forces produce zero net force; unequal forces can change an object's motion. This matches : investigate and explain how equal and unequal forces cause patterns of motion and energy transfer",
+        "audio": "Which explanation of equal and unequal forces acting on objects remains defensible after all lesson evidence is considered?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of equal and unequal forces acting on objects is supported by both the lesson principle and evidence?",
+        "choices": [
+          "Force has no relationship to energy transfer.",
+          "Balanced forces always make an object speed up.",
+          "Any force guarantees motion in the force's direction.",
+          "Compare a cart pulled equally in opposite directions with a cart experiencing a larger force on one side."
+        ],
+        "answer": "Compare a cart pulled equally in opposite directions with a cart experiencing a larger force on one side.",
+        "explain": "Compare a cart pulled equally in opposite directions with a cart experiencing a larger force on one side. This matches : investigate and explain how equal and unequal forces cause patterns of motion and energy transfer",
+        "audio": "Which application of equal and unequal forces acting on objects is supported by both the lesson principle and evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest basis for evaluating equal and unequal forces acting on objects?",
+        "choices": [
+          "Balanced forces always make an object speed up.",
+          "Measured motion changes when the forces become unequal but remains stable when net force is zero.",
+          "Any force guarantees motion in the force's direction.",
+          "Force has no relationship to energy transfer."
+        ],
+        "answer": "Measured motion changes when the forces become unequal but remains stable when net force is zero.",
+        "explain": "Measured motion changes when the forces become unequal but remains stable when net force is zero. This matches : investigate and explain how equal and unequal forces cause patterns of motion and energy transfer",
+        "audio": "Which observation provides the strongest basis for evaluating equal and unequal forces acting on objects?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best integrates the lesson evidence about equal and unequal forces acting on objects?",
+        "choices": [
+          "Changing one force changes net force, which changes the motion pattern and energy transfer.",
+          "Any force guarantees motion in the force's direction.",
+          "Balanced forces always make an object speed up.",
+          "Force has no relationship to energy transfer."
+        ],
+        "answer": "Changing one force changes net force, which changes the motion pattern and energy transfer.",
+        "explain": "Changing one force changes net force, which changes the motion pattern and energy transfer. This matches : investigate and explain how equal and unequal forces cause patterns of motion and energy transfer",
+        "audio": "Which systems-level connection best integrates the lesson evidence about equal and unequal forces acting on objects?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Any force guarantees motion in the force's direction” correctly answers “Which conclusion about equal and unequal forces acting on objects accounts for the evidence without exceeding the model's limits.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Force diagrams and motion data together support conclusions about balanced and unbalanced interactions. This matches : investigate and explain how equal and unequal forces cause patterns of motion and energy transfer",
+        "audio": "True or false: “Any force guarantees motion in the force's direction” correctly answers “Which conclusion about equal and unequal forces acting on objects accounts for the evidence without exceeding the model's limits.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “Which explanation of equal and unequal forces acting on objects remains defensible after all lesson evidence is considered” and replaces “Any force guarantees motion in the force's direction.” using the task's evidence or constraints?",
+        "choices": [
+          "Any force guarantees motion in the force's direction.",
+          "Balanced forces always make an object speed up.",
+          "Force has no relationship to energy transfer.",
+          "Equal opposing forces produce zero net force; unequal forces can change an object's motion."
+        ],
+        "answer": "Equal opposing forces produce zero net force; unequal forces can change an object's motion.",
+        "explain": "Equal opposing forces produce zero net force; unequal forces can change an object's motion. This matches : investigate and explain how equal and unequal forces cause patterns of motion and energy transfer. This evidence makes the correct response defensible. The response \"Any force guarantees motion in the force's direction.\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “Which explanation of equal and unequal forces acting on objects remains defensible after all lesson evidence is considered” and replaces “Any force guarantees motion in the force's direction.” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:sci:L11": {
+    "name": "Forms of Energy",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Energy from the Sun that we can see is called…",
+        "choices": [
+          "Light energy",
+          "Soil energy",
+          "Root energy",
+          "None of these"
+        ],
+        "answer": "Light energy",
+        "audio": "Identify the form of energy."
+      },
+      {
+        "type": "mc",
+        "q": "A ringing bell produces mostly…",
+        "choices": [
+          "Weather energy",
+          "None of these",
+          "Plant energy",
+          "Sound energy"
+        ],
+        "answer": "Sound energy",
+        "audio": "Identify the form of energy."
+      },
+      {
+        "type": "mc",
+        "q": "A toaster changes electrical energy mainly into…",
+        "choices": [
+          "Heat energy",
+          "Wind only",
+          "None of these",
+          "Moon energy"
+        ],
+        "answer": "Heat energy",
+        "audio": "Identify the form of energy."
+      },
+      {
+        "type": "mc",
+        "q": "A moving bicycle has…",
+        "choices": [
+          "Mechanical energy",
+          "Cell wall energy",
+          "Precipitation energy",
+          "None of these"
+        ],
+        "answer": "Mechanical energy",
+        "audio": "Identify the form of energy."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains energy transformations within systems?",
+        "choices": [
+          "Energy changes form as it moves through a system rather than appearing from nothing.",
+          "A device creates energy from nothing.",
+          "Thermal energy is unrelated to system outputs.",
+          "Energy can have only one form in a system."
+        ],
+        "answer": "Energy changes form as it moves through a system rather than appearing from nothing.",
+        "explain": "Energy changes form as it moves through a system rather than appearing from nothing. This matches : investigate and describe energy transformations in systems",
+        "audio": "Which statement accurately explains energy transformations within systems?"
+      },
+      {
+        "type": "mc",
+        "q": "Which real-world application best demonstrates energy transformations within systems?",
+        "choices": [
+          "Trace chemical energy in a battery to electrical energy and then to light and thermal energy in a flashlight.",
+          "A device creates energy from nothing.",
+          "Energy can have only one form in a system.",
+          "Thermal energy is unrelated to system outputs."
+        ],
+        "answer": "Trace chemical energy in a battery to electrical energy and then to light and thermal energy in a flashlight.",
+        "explain": "Trace chemical energy in a battery to electrical energy and then to light and thermal energy in a flashlight. This matches : investigate and describe energy transformations in systems",
+        "audio": "Which real-world application best demonstrates energy transformations within systems?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest evidence about energy transformations within systems?",
+        "choices": [
+          "Light output, warming, and battery changes provide evidence of transformation and transfer.",
+          "Energy can have only one form in a system.",
+          "Thermal energy is unrelated to system outputs.",
+          "A device creates energy from nothing."
+        ],
+        "answer": "Light output, warming, and battery changes provide evidence of transformation and transfer.",
+        "explain": "Light output, warming, and battery changes provide evidence of transformation and transfer. This matches : investigate and describe energy transformations in systems",
+        "audio": "Which observation provides the strongest evidence about energy transformations within systems?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best explains energy transformations within systems?",
+        "choices": [
+          "Energy can have only one form in a system.",
+          "A device creates energy from nothing.",
+          "Thermal energy is unrelated to system outputs.",
+          "Changing a system component can redirect how much energy becomes light, motion, sound, or thermal energy."
+        ],
+        "answer": "Changing a system component can redirect how much energy becomes light, motion, sound, or thermal energy.",
+        "explain": "Changing a system component can redirect how much energy becomes light, motion, sound, or thermal energy. This matches : investigate and describe energy transformations in systems",
+        "audio": "Which systems-level connection best explains energy transformations within systems?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “A valid energy model identifies input, transformations, outputs, and energy that spreads to the surroundings” correctly answers “Which conclusion about energy transformations within systems is supported without overstating the evidence.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A valid energy model identifies input, transformations, outputs, and energy that spreads to the surroundings. This matches : investigate and describe energy transformations in systems",
+        "audio": "True or false: “A valid energy model identifies input, transformations, outputs, and energy that spreads to the surroundings” correctly answers “Which conclusion about energy transformations within systems is supported without overstating the evidence.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson principle should be applied when explaining energy transformations within systems?",
+        "choices": [
+          "A device creates energy from nothing.",
+          "Energy changes form as it moves through a system rather than appearing from nothing.",
+          "Thermal energy is unrelated to system outputs.",
+          "Energy can have only one form in a system."
+        ],
+        "answer": "Energy changes form as it moves through a system rather than appearing from nothing.",
+        "explain": "Energy changes form as it moves through a system rather than appearing from nothing. This matches : investigate and describe energy transformations in systems",
+        "audio": "Which lesson principle should be applied when explaining energy transformations within systems?"
+      },
+      {
+        "type": "mc",
+        "q": "Which example correctly applies energy transformations within systems in a real system?",
+        "choices": [
+          "A device creates energy from nothing.",
+          "Thermal energy is unrelated to system outputs.",
+          "Energy can have only one form in a system.",
+          "Trace chemical energy in a battery to electrical energy and then to light and thermal energy in a flashlight."
+        ],
+        "answer": "Trace chemical energy in a battery to electrical energy and then to light and thermal energy in a flashlight.",
+        "explain": "Trace chemical energy in a battery to electrical energy and then to light and thermal energy in a flashlight. This matches : investigate and describe energy transformations in systems",
+        "audio": "Which example correctly applies energy transformations within systems in a real system?"
+      },
+      {
+        "type": "mc",
+        "q": "Which lesson observation directly supports energy transformations within systems?",
+        "choices": [
+          "Energy can have only one form in a system.",
+          "Thermal energy is unrelated to system outputs.",
+          "A device creates energy from nothing.",
+          "Light output, warming, and battery changes provide evidence of transformation and transfer."
+        ],
+        "answer": "Light output, warming, and battery changes provide evidence of transformation and transfer.",
+        "explain": "Light output, warming, and battery changes provide evidence of transformation and transfer. This matches : investigate and describe energy transformations in systems",
+        "audio": "Which lesson observation directly supports energy transformations within systems?"
+      },
+      {
+        "type": "mc",
+        "q": "Which cause-and-effect connection follows from the evidence about energy transformations within systems?",
+        "choices": [
+          "Changing a system component can redirect how much energy becomes light, motion, sound, or thermal energy.",
+          "Energy can have only one form in a system.",
+          "A device creates energy from nothing.",
+          "Thermal energy is unrelated to system outputs."
+        ],
+        "answer": "Changing a system component can redirect how much energy becomes light, motion, sound, or thermal energy.",
+        "explain": "Changing a system component can redirect how much energy becomes light, motion, sound, or thermal energy. This matches : investigate and describe energy transformations in systems",
+        "audio": "Which cause-and-effect connection follows from the evidence about energy transformations within systems?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “A device creates energy from nothing” correctly answers “Which conclusion follows from the lesson evidence about energy transformations within systems.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. A valid energy model identifies input, transformations, outputs, and energy that spreads to the surroundings. This matches : investigate and describe energy transformations in systems",
+        "audio": "True or false: “A device creates energy from nothing” correctly answers “Which conclusion follows from the lesson evidence about energy transformations within systems.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which claim about energy transformations within systems is supported rather than assumed?",
+        "choices": [
+          "Energy can have only one form in a system.",
+          "A device creates energy from nothing.",
+          "Thermal energy is unrelated to system outputs.",
+          "Energy changes form as it moves through a system rather than appearing from nothing."
+        ],
+        "answer": "Energy changes form as it moves through a system rather than appearing from nothing.",
+        "explain": "Energy changes form as it moves through a system rather than appearing from nothing. This matches : investigate and describe energy transformations in systems",
+        "audio": "Which claim about energy transformations within systems is supported rather than assumed?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of energy transformations within systems can be justified with the lesson evidence?",
+        "choices": [
+          "Energy can have only one form in a system.",
+          "A device creates energy from nothing.",
+          "Trace chemical energy in a battery to electrical energy and then to light and thermal energy in a flashlight.",
+          "Thermal energy is unrelated to system outputs."
+        ],
+        "answer": "Trace chemical energy in a battery to electrical energy and then to light and thermal energy in a flashlight.",
+        "explain": "Trace chemical energy in a battery to electrical energy and then to light and thermal energy in a flashlight. This matches : investigate and describe energy transformations in systems",
+        "audio": "Which application of energy transformations within systems can be justified with the lesson evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation distinguishes evidence from a misconception about energy transformations within systems?",
+        "choices": [
+          "Light output, warming, and battery changes provide evidence of transformation and transfer.",
+          "Thermal energy is unrelated to system outputs.",
+          "Energy can have only one form in a system.",
+          "A device creates energy from nothing."
+        ],
+        "answer": "Light output, warming, and battery changes provide evidence of transformation and transfer.",
+        "explain": "Light output, warming, and battery changes provide evidence of transformation and transfer. This matches : investigate and describe energy transformations in systems",
+        "audio": "Which observation distinguishes evidence from a misconception about energy transformations within systems?"
+      },
+      {
+        "type": "mc",
+        "q": "Which evidence-based connection explains how the parts of energy transformations within systems relate?",
+        "choices": [
+          "Thermal energy is unrelated to system outputs.",
+          "Energy can have only one form in a system.",
+          "A device creates energy from nothing.",
+          "Changing a system component can redirect how much energy becomes light, motion, sound, or thermal energy."
+        ],
+        "answer": "Changing a system component can redirect how much energy becomes light, motion, sound, or thermal energy.",
+        "explain": "Changing a system component can redirect how much energy becomes light, motion, sound, or thermal energy. This matches : investigate and describe energy transformations in systems",
+        "audio": "Which evidence-based connection explains how the parts of energy transformations within systems relate?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “A valid energy model identifies input, transformations, outputs, and energy that spreads to the surroundings” correctly answers “Which conclusion about energy transformations within systems uses the evidence without adding an assumption.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A valid energy model identifies input, transformations, outputs, and energy that spreads to the surroundings. This matches : investigate and describe energy transformations in systems",
+        "audio": "True or false: “A valid energy model identifies input, transformations, outputs, and energy that spreads to the surroundings” correctly answers “Which conclusion about energy transformations within systems uses the evidence without adding an assumption.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which explanation of energy transformations within systems remains defensible after all lesson evidence is considered?",
+        "choices": [
+          "Energy changes form as it moves through a system rather than appearing from nothing.",
+          "A device creates energy from nothing.",
+          "Thermal energy is unrelated to system outputs.",
+          "Energy can have only one form in a system."
+        ],
+        "answer": "Energy changes form as it moves through a system rather than appearing from nothing.",
+        "explain": "Energy changes form as it moves through a system rather than appearing from nothing. This matches : investigate and describe energy transformations in systems",
+        "audio": "Which explanation of energy transformations within systems remains defensible after all lesson evidence is considered?"
+      },
+      {
+        "type": "mc",
+        "q": "Which application of energy transformations within systems is supported by both the lesson principle and evidence?",
+        "choices": [
+          "Thermal energy is unrelated to system outputs.",
+          "Energy can have only one form in a system.",
+          "A device creates energy from nothing.",
+          "Trace chemical energy in a battery to electrical energy and then to light and thermal energy in a flashlight."
+        ],
+        "answer": "Trace chemical energy in a battery to electrical energy and then to light and thermal energy in a flashlight.",
+        "explain": "Trace chemical energy in a battery to electrical energy and then to light and thermal energy in a flashlight. This matches : investigate and describe energy transformations in systems",
+        "audio": "Which application of energy transformations within systems is supported by both the lesson principle and evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation provides the strongest basis for evaluating energy transformations within systems?",
+        "choices": [
+          "A device creates energy from nothing.",
+          "Energy can have only one form in a system.",
+          "Thermal energy is unrelated to system outputs.",
+          "Light output, warming, and battery changes provide evidence of transformation and transfer."
+        ],
+        "answer": "Light output, warming, and battery changes provide evidence of transformation and transfer.",
+        "explain": "Light output, warming, and battery changes provide evidence of transformation and transfer. This matches : investigate and describe energy transformations in systems",
+        "audio": "Which observation provides the strongest basis for evaluating energy transformations within systems?"
+      },
+      {
+        "type": "mc",
+        "q": "Which systems-level connection best integrates the lesson evidence about energy transformations within systems?",
+        "choices": [
+          "Changing a system component can redirect how much energy becomes light, motion, sound, or thermal energy.",
+          "Thermal energy is unrelated to system outputs.",
+          "Energy can have only one form in a system.",
+          "A device creates energy from nothing."
+        ],
+        "answer": "Changing a system component can redirect how much energy becomes light, motion, sound, or thermal energy.",
+        "explain": "Changing a system component can redirect how much energy becomes light, motion, sound, or thermal energy. This matches : investigate and describe energy transformations in systems",
+        "audio": "Which systems-level connection best integrates the lesson evidence about energy transformations within systems?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “A device creates energy from nothing” correctly answers “Which conclusion about energy transformations within systems accounts for the evidence without exceeding the model's limits.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. A valid energy model identifies input, transformations, outputs, and energy that spreads to the surroundings. This matches : investigate and describe energy transformations in systems",
+        "audio": "True or false: “A device creates energy from nothing” correctly answers “Which conclusion about energy transformations within systems accounts for the evidence without exceeding the model's limits.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which answer correctly resolves “Which explanation of energy transformations within systems remains defensible after all lesson evidence is considered” and replaces “A device creates energy from nothing.” using the task's evidence or constraints?",
+        "choices": [
+          "A device creates energy from nothing.",
+          "Energy changes form as it moves through a system rather than appearing from nothing.",
+          "Energy can have only one form in a system.",
+          "Thermal energy is unrelated to system outputs."
+        ],
+        "answer": "Energy changes form as it moves through a system rather than appearing from nothing.",
+        "explain": "Energy changes form as it moves through a system rather than appearing from nothing. This matches : investigate and describe energy transformations in systems. This evidence makes the correct response defensible. The response \"A device creates energy from nothing.\" fails at least one stated condition, so the correction uses the complete lesson evidence rather than a single clue.",
+        "audio": "Which answer correctly resolves “Which explanation of energy transformations within systems remains defensible after all lesson evidence is considered” and replaces “A device creates energy from nothing.” using the task's evidence or constraints?"
+      }
+    ]
+  },
+  "g5:hist:L1": {
+    "name": "Early America",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "In Early America, historians use evidence to understand...",
+        "choices": [
+          "ONLY FUTURE WEATHER",
+          "None of these",
+          "THE PAST",
+          "ONLY MULTIPLICATION"
+        ],
+        "answer": "THE PAST",
+        "audio": "Early America history question."
+      },
+      {
+        "type": "mc",
+        "q": "A primary source for Early America comes from...",
+        "choices": [
+          "A RANDOM GUESS",
+          "THE TIME BEING STUDIED",
+          "A FICTIONAL PLANET",
+          "None of these"
+        ],
+        "answer": "THE TIME BEING STUDIED",
+        "audio": "Early America history question."
+      },
+      {
+        "type": "mc",
+        "q": "Cause and effect in Early America helps explain...",
+        "choices": [
+          "ONLY MAP COLORS",
+          "WHY EVENTS HAPPENED AND WHAT CHANGED",
+          "HOW TO SPELL EVERY WORD",
+          "None of these"
+        ],
+        "answer": "WHY EVENTS HAPPENED AND WHAT CHANGED",
+        "audio": "Early America history question."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes regional development in the lesson \"Colonial America\"?",
+        "choices": [
+          "All thirteen colonies had identical economies and settlement patterns.",
+          "Indigenous nations had no political or economic influence.",
+          "Colonial labor was entirely free and equally rewarded.",
+          "Geography, settlement goals, labor systems, and markets contributed to different colonial regions."
+        ],
+        "answer": "Geography, settlement goals, labor systems, and markets contributed to different colonial regions.",
+        "explain": "Geography, settlement goals, labor systems, and markets contributed to different colonial regions. This is the accurate foundation for regional development; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes regional development in the lesson \"Colonial America\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes Indigenous diplomacy in the lesson \"Colonial America\"?",
+        "choices": [
+          "Colonial labor was entirely free and equally rewarded.",
+          "Colonists possessed complete democracy and independence from the beginning.",
+          "Indigenous nations shaped colonial survival, trade, alliance, and war.",
+          "Indigenous nations had no political or economic influence."
+        ],
+        "answer": "Indigenous nations shaped colonial survival, trade, alliance, and war.",
+        "explain": "Indigenous nations shaped colonial survival, trade, alliance, and war. This is the accurate foundation for Indigenous diplomacy; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes Indigenous diplomacy in the lesson \"Colonial America\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes labor systems in the lesson \"Colonial America\"?",
+        "choices": [
+          "A promotional source represents every person's colonial experience.",
+          "Colonial economies relied on varied forms of labor, including family labor, indenture, and racial slavery.",
+          "Colonial labor was entirely free and equally rewarded.",
+          "Colonists possessed complete democracy and independence from the beginning."
+        ],
+        "answer": "Colonial economies relied on varied forms of labor, including family labor, indenture, and racial slavery.",
+        "explain": "Colonial economies relied on varied forms of labor, including family labor, indenture, and racial slavery. This is the accurate foundation for labor systems; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes labor systems in the lesson \"Colonial America\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes self-government and empire in the lesson \"Colonial America\"?",
+        "choices": [
+          "Colonial assemblies developed local practices while remaining under British imperial authority.",
+          "Colonists possessed complete democracy and independence from the beginning.",
+          "A promotional source represents every person's colonial experience.",
+          "All thirteen colonies had identical economies and settlement patterns."
+        ],
+        "answer": "Colonial assemblies developed local practices while remaining under British imperial authority.",
+        "explain": "Colonial assemblies developed local practices while remaining under British imperial authority. This is the accurate foundation for self-government and empire; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes self-government and empire in the lesson \"Colonial America\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes source perspectives in the lesson \"Colonial America\"?",
+        "choices": [
+          "A promotional source represents every person's colonial experience.",
+          "All thirteen colonies had identical economies and settlement patterns.",
+          "Indigenous nations had no political or economic influence.",
+          "Colonial promoters, settlers, enslaved people, and Indigenous observers described colonization differently."
+        ],
+        "answer": "Colonial promoters, settlers, enslaved people, and Indigenous observers described colonization differently.",
+        "explain": "Colonial promoters, settlers, enslaved people, and Indigenous observers described colonization differently. This is the accurate foundation for source perspectives; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes source perspectives in the lesson \"Colonial America\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Port records, crop data, and maps show contrasts among New England, Middle, and Southern colonies. Which interpretation is best supported?",
+        "choices": [
+          "Colonial labor was entirely free and equally rewarded.",
+          "Colonists possessed complete democracy and independence from the beginning.",
+          "Geography, settlement goals, labor systems, and markets contributed to different colonial regions.",
+          "Indigenous nations had no political or economic influence."
+        ],
+        "answer": "Geography, settlement goals, labor systems, and markets contributed to different colonial regions.",
+        "explain": "Geography, settlement goals, labor systems, and markets contributed to different colonial regions. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Port records, crop data, and maps show contrasts among New England, Middle, and Southern colonies. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Treaty records show European colonies negotiating with powerful Native confederacies. Which interpretation is best supported?",
+        "choices": [
+          "A promotional source represents every person's colonial experience.",
+          "Indigenous nations shaped colonial survival, trade, alliance, and war.",
+          "Colonial labor was entirely free and equally rewarded.",
+          "Colonists possessed complete democracy and independence from the beginning."
+        ],
+        "answer": "Indigenous nations shaped colonial survival, trade, alliance, and war.",
+        "explain": "Indigenous nations shaped colonial survival, trade, alliance, and war. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Treaty records show European colonies negotiating with powerful Native confederacies. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Shipping records and laws document the expansion of enslaved labor in plantation regions. Which interpretation is best supported?",
+        "choices": [
+          "Colonial economies relied on varied forms of labor, including family labor, indenture, and racial slavery.",
+          "Colonists possessed complete democracy and independence from the beginning.",
+          "A promotional source represents every person's colonial experience.",
+          "All thirteen colonies had identical economies and settlement patterns."
+        ],
+        "answer": "Colonial economies relied on varied forms of labor, including family labor, indenture, and racial slavery.",
+        "explain": "Colonial economies relied on varied forms of labor, including family labor, indenture, and racial slavery. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Shipping records and laws document the expansion of enslaved labor in plantation regions. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "An assembly passes a tax, but a royal governor can veto it. Which interpretation is best supported?",
+        "choices": [
+          "A promotional source represents every person's colonial experience.",
+          "All thirteen colonies had identical economies and settlement patterns.",
+          "Indigenous nations had no political or economic influence.",
+          "Colonial assemblies developed local practices while remaining under British imperial authority."
+        ],
+        "answer": "Colonial assemblies developed local practices while remaining under British imperial authority.",
+        "explain": "Colonial assemblies developed local practices while remaining under British imperial authority. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "An assembly passes a tax, but a royal governor can veto it. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A promotional pamphlet praises opportunity while a laborer's letter reports hunger and debt. Which interpretation is best supported?",
+        "choices": [
+          "Indigenous nations had no political or economic influence.",
+          "Colonial labor was entirely free and equally rewarded.",
+          "Colonial promoters, settlers, enslaved people, and Indigenous observers described colonization differently.",
+          "All thirteen colonies had identical economies and settlement patterns."
+        ],
+        "answer": "Colonial promoters, settlers, enslaved people, and Indigenous observers described colonization differently.",
+        "explain": "Colonial promoters, settlers, enslaved people, and Indigenous observers described colonization differently. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A promotional pamphlet praises opportunity while a laborer's letter reports hunger and debt. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Geography, settlement goals, labor systems, and markets contributed to different colonial regions.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Geography, settlement goals, labor systems, and markets contributed to different colonial regions. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Colonial America."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Indigenous nations had no political or economic influence.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. Indigenous nations shaped colonial survival, trade, alliance, and war.",
+        "audio": "Evaluate this claim using the evidence from Colonial America."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Colonial economies relied on varied forms of labor, including family labor, indenture, and racial slavery.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Colonial economies relied on varied forms of labor, including family labor, indenture, and racial slavery. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Colonial America."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Colonists possessed complete democracy and independence from the beginning.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. Colonial assemblies developed local practices while remaining under British imperial authority.",
+        "audio": "Evaluate this claim using the evidence from Colonial America."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Colonial promoters, settlers, enslaved people, and Indigenous observers described colonization differently.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Colonial promoters, settlers, enslaved people, and Indigenous observers described colonization differently. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Colonial America."
+      },
+      {
+        "type": "mc",
+        "q": "Port records, crop data, and maps show contrasts among New England, Middle, and Southern colonies. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Regional patterns developed from interacting environmental and human choices.",
+          "Colonial labor was entirely free and equally rewarded.",
+          "Colonists possessed complete democracy and independence from the beginning.",
+          "A promotional source represents every person's colonial experience."
+        ],
+        "answer": "Regional patterns developed from interacting environmental and human choices.",
+        "explain": "Regional patterns developed from interacting environmental and human choices. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Port records, crop data, and maps show contrasts among New England, Middle, and Southern colonies. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Treaty records show European colonies negotiating with powerful Native confederacies. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Colonists possessed complete democracy and independence from the beginning.",
+          "A promotional source represents every person's colonial experience.",
+          "All thirteen colonies had identical economies and settlement patterns.",
+          "The records demonstrate Indigenous political agency, not an empty continent awaiting settlement."
+        ],
+        "answer": "The records demonstrate Indigenous political agency, not an empty continent awaiting settlement.",
+        "explain": "The records demonstrate Indigenous political agency, not an empty continent awaiting settlement. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Treaty records show European colonies negotiating with powerful Native confederacies. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Shipping records and laws document the expansion of enslaved labor in plantation regions. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "All thirteen colonies had identical economies and settlement patterns.",
+          "Indigenous nations had no political or economic influence.",
+          "Economic growth was connected to unequal labor systems and coercion.",
+          "A promotional source represents every person's colonial experience."
+        ],
+        "answer": "Economic growth was connected to unequal labor systems and coercion.",
+        "explain": "Economic growth was connected to unequal labor systems and coercion. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Shipping records and laws document the expansion of enslaved labor in plantation regions. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "An assembly passes a tax, but a royal governor can veto it. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Colonial labor was entirely free and equally rewarded.",
+          "The example shows local participation coexisting with imperial limits.",
+          "All thirteen colonies had identical economies and settlement patterns.",
+          "Indigenous nations had no political or economic influence."
+        ],
+        "answer": "The example shows local participation coexisting with imperial limits.",
+        "explain": "The example shows local participation coexisting with imperial limits. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "An assembly passes a tax, but a royal governor can veto it. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "A promotional pamphlet praises opportunity while a laborer's letter reports hunger and debt. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Comparing purpose and experience reveals both aspiration and hardship.",
+          "Indigenous nations had no political or economic influence.",
+          "Colonial labor was entirely free and equally rewarded.",
+          "Colonists possessed complete democracy and independence from the beginning."
+        ],
+        "answer": "Comparing purpose and experience reveals both aspiration and hardship.",
+        "explain": "Comparing purpose and experience reveals both aspiration and hardship. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A promotional pamphlet praises opportunity while a laborer's letter reports hunger and debt. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: Port records, crop data, and maps show contrasts among New England, Middle, and Southern colonies. Evidence B: Treaty records show European colonies negotiating with powerful Native confederacies. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Evidence A proves “All thirteen colonies had identical economies and settlement patterns.,” so Evidence B can be ignored.",
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “Geography, settlement goals, labor systems, and markets contributed to different colonial regions.” Evidence B supports “Indigenous nations shaped colonial survival, trade, alliance, and war.” Together, the sources show related developments while preserving each source's context."
+        ],
+        "answer": "Evidence A supports “Geography, settlement goals, labor systems, and markets contributed to different colonial regions.” Evidence B supports “Indigenous nations shaped colonial survival, trade, alliance, and war.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “Geography, settlement goals, labor systems, and markets contributed to different colonial regions.” Evidence B supports “Indigenous nations shaped colonial survival, trade, alliance, and war.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: Port records, crop data, and maps show contrasts among New England, Middle, and Southern colonies. Evidence B: Treaty records show European colonies negotiating with powerful Native confederacies. Which thesis best evaluates both sources without overstating either one?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: Treaty records show European colonies negotiating with powerful Native confederacies. Evidence B: Shipping records and laws document the expansion of enslaved labor in plantation regions. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “Indigenous nations shaped colonial survival, trade, alliance, and war.” Evidence B supports “Colonial economies relied on varied forms of labor, including family labor, indenture, and racial slavery.” Together, the sources show related developments while preserving each source's context.",
+          "Evidence A proves “Indigenous nations had no political or economic influence.,” so Evidence B can be ignored."
+        ],
+        "answer": "Evidence A supports “Indigenous nations shaped colonial survival, trade, alliance, and war.” Evidence B supports “Colonial economies relied on varied forms of labor, including family labor, indenture, and racial slavery.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “Indigenous nations shaped colonial survival, trade, alliance, and war.” Evidence B supports “Colonial economies relied on varied forms of labor, including family labor, indenture, and racial slavery.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: Treaty records show European colonies negotiating with powerful Native confederacies. Evidence B: Shipping records and laws document the expansion of enslaved labor in plantation regions. Which thesis best evaluates both sources without overstating either one?"
+      }
+    ]
+  },
+  "g5:hist:L2": {
+    "name": "American Revolution",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "In American Revolution, historians use evidence to understand...",
+        "choices": [
+          "THE PAST",
+          "ONLY MULTIPLICATION",
+          "ONLY FUTURE WEATHER",
+          "None of these"
+        ],
+        "answer": "THE PAST",
+        "audio": "American Revolution history question."
+      },
+      {
+        "type": "mc",
+        "q": "A primary source for American Revolution comes from...",
+        "choices": [
+          "A FICTIONAL PLANET",
+          "None of these",
+          "A RANDOM GUESS",
+          "THE TIME BEING STUDIED"
+        ],
+        "answer": "THE TIME BEING STUDIED",
+        "audio": "American Revolution history question."
+      },
+      {
+        "type": "mc",
+        "q": "Cause and effect in American Revolution helps explain...",
+        "choices": [
+          "WHY EVENTS HAPPENED AND WHAT CHANGED",
+          "ONLY MAP COLORS",
+          "HOW TO SPELL EVERY WORD",
+          "None of these"
+        ],
+        "answer": "WHY EVENTS HAPPENED AND WHAT CHANGED",
+        "audio": "American Revolution history question."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes imperial crisis in the lesson \"American Revolution\"?",
+        "choices": [
+          "One battle alone caused the colonies to seek independence.",
+          "The Declaration created the later structure of the U.S. Constitution.",
+          "All colonists supported independence for identical reasons.",
+          "Postwar debt, British taxation, enforcement, and colonial arguments about representation intensified conflict."
+        ],
+        "answer": "Postwar debt, British taxation, enforcement, and colonial arguments about representation intensified conflict.",
+        "explain": "Postwar debt, British taxation, enforcement, and colonial arguments about representation intensified conflict. This is the accurate foundation for imperial crisis; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes imperial crisis in the lesson \"American Revolution\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes natural-rights argument in the lesson \"American Revolution\"?",
+        "choices": [
+          "All colonists supported independence for identical reasons.",
+          "Foreign alliances had no effect on the Revolutionary War.",
+          "The Declaration justified independence through equality, natural rights, consent, and grievances.",
+          "The Declaration created the later structure of the U.S. Constitution."
+        ],
+        "answer": "The Declaration justified independence through equality, natural rights, consent, and grievances.",
+        "explain": "The Declaration justified independence through equality, natural rights, consent, and grievances. This is the accurate foundation for natural-rights argument; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes natural-rights argument in the lesson \"American Revolution\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes divided loyalties in the lesson \"American Revolution\"?",
+        "choices": [
+          "Independence instantly produced equal political rights for every resident.",
+          "Patriots, Loyalists, neutral colonists, enslaved people, and Indigenous nations made different choices.",
+          "All colonists supported independence for identical reasons.",
+          "Foreign alliances had no effect on the Revolutionary War."
+        ],
+        "answer": "Patriots, Loyalists, neutral colonists, enslaved people, and Indigenous nations made different choices.",
+        "explain": "Patriots, Loyalists, neutral colonists, enslaved people, and Indigenous nations made different choices. This is the accurate foundation for divided loyalties; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes divided loyalties in the lesson \"American Revolution\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes war and diplomacy in the lesson \"American Revolution\"?",
+        "choices": [
+          "American victory depended on military endurance, resources, leadership, and foreign assistance.",
+          "Foreign alliances had no effect on the Revolutionary War.",
+          "Independence instantly produced equal political rights for every resident.",
+          "One battle alone caused the colonies to seek independence."
+        ],
+        "answer": "American victory depended on military endurance, resources, leadership, and foreign assistance.",
+        "explain": "American victory depended on military endurance, resources, leadership, and foreign assistance. This is the accurate foundation for war and diplomacy; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes war and diplomacy in the lesson \"American Revolution\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes limits and consequences in the lesson \"American Revolution\"?",
+        "choices": [
+          "Independence instantly produced equal political rights for every resident.",
+          "One battle alone caused the colonies to seek independence.",
+          "The Declaration created the later structure of the U.S. Constitution.",
+          "Independence created a republic but did not immediately extend equal rights to everyone."
+        ],
+        "answer": "Independence created a republic but did not immediately extend equal rights to everyone.",
+        "explain": "Independence created a republic but did not immediately extend equal rights to everyone. This is the accurate foundation for limits and consequences; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes limits and consequences in the lesson \"American Revolution\"?"
+      },
+      {
+        "type": "mc",
+        "q": "A timeline links new revenue laws, protests, punishments, and organized resistance. Which interpretation is best supported?",
+        "choices": [
+          "All colonists supported independence for identical reasons.",
+          "Foreign alliances had no effect on the Revolutionary War.",
+          "Postwar debt, British taxation, enforcement, and colonial arguments about representation intensified conflict.",
+          "The Declaration created the later structure of the U.S. Constitution."
+        ],
+        "answer": "Postwar debt, British taxation, enforcement, and colonial arguments about representation intensified conflict.",
+        "explain": "Postwar debt, British taxation, enforcement, and colonial arguments about representation intensified conflict. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A timeline links new revenue laws, protests, punishments, and organized resistance. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A passage states that governments derive just powers from the consent of the governed. Which interpretation is best supported?",
+        "choices": [
+          "Independence instantly produced equal political rights for every resident.",
+          "The Declaration justified independence through equality, natural rights, consent, and grievances.",
+          "All colonists supported independence for identical reasons.",
+          "Foreign alliances had no effect on the Revolutionary War."
+        ],
+        "answer": "The Declaration justified independence through equality, natural rights, consent, and grievances.",
+        "explain": "The Declaration justified independence through equality, natural rights, consent, and grievances. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A passage states that governments derive just powers from the consent of the governed. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Petitions and military records show people supporting opposing sides for varied reasons. Which interpretation is best supported?",
+        "choices": [
+          "Patriots, Loyalists, neutral colonists, enslaved people, and Indigenous nations made different choices.",
+          "Foreign alliances had no effect on the Revolutionary War.",
+          "Independence instantly produced equal political rights for every resident.",
+          "One battle alone caused the colonies to seek independence."
+        ],
+        "answer": "Patriots, Loyalists, neutral colonists, enslaved people, and Indigenous nations made different choices.",
+        "explain": "Patriots, Loyalists, neutral colonists, enslaved people, and Indigenous nations made different choices. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Petitions and military records show people supporting opposing sides for varied reasons. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "French naval action and the American siege combine at Yorktown. Which interpretation is best supported?",
+        "choices": [
+          "Independence instantly produced equal political rights for every resident.",
+          "One battle alone caused the colonies to seek independence.",
+          "The Declaration created the later structure of the U.S. Constitution.",
+          "American victory depended on military endurance, resources, leadership, and foreign assistance."
+        ],
+        "answer": "American victory depended on military endurance, resources, leadership, and foreign assistance.",
+        "explain": "American victory depended on military endurance, resources, leadership, and foreign assistance. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "French naval action and the American siege combine at Yorktown. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "State constitutions expanded some political participation while slavery and legal inequality continued. Which interpretation is best supported?",
+        "choices": [
+          "The Declaration created the later structure of the U.S. Constitution.",
+          "All colonists supported independence for identical reasons.",
+          "Independence created a republic but did not immediately extend equal rights to everyone.",
+          "One battle alone caused the colonies to seek independence."
+        ],
+        "answer": "Independence created a republic but did not immediately extend equal rights to everyone.",
+        "explain": "Independence created a republic but did not immediately extend equal rights to everyone. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "State constitutions expanded some political participation while slavery and legal inequality continued. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Postwar debt, British taxation, enforcement, and colonial arguments about representation intensified conflict.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Postwar debt, British taxation, enforcement, and colonial arguments about representation intensified conflict. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from American Revolution."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The Declaration created the later structure of the U.S. Constitution.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. The Declaration justified independence through equality, natural rights, consent, and grievances.",
+        "audio": "Evaluate this claim using the evidence from American Revolution."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Patriots, Loyalists, neutral colonists, enslaved people, and Indigenous nations made different choices.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Patriots, Loyalists, neutral colonists, enslaved people, and Indigenous nations made different choices. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from American Revolution."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Foreign alliances had no effect on the Revolutionary War.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. American victory depended on military endurance, resources, leadership, and foreign assistance.",
+        "audio": "Evaluate this claim using the evidence from American Revolution."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Independence created a republic but did not immediately extend equal rights to everyone.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Independence created a republic but did not immediately extend equal rights to everyone. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from American Revolution."
+      },
+      {
+        "type": "mc",
+        "q": "A timeline links new revenue laws, protests, punishments, and organized resistance. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "The conflict escalated through connected policies and responses rather than one isolated tax.",
+          "All colonists supported independence for identical reasons.",
+          "Foreign alliances had no effect on the Revolutionary War.",
+          "Independence instantly produced equal political rights for every resident."
+        ],
+        "answer": "The conflict escalated through connected policies and responses rather than one isolated tax.",
+        "explain": "The conflict escalated through connected policies and responses rather than one isolated tax. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A timeline links new revenue laws, protests, punishments, and organized resistance. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "A passage states that governments derive just powers from the consent of the governed. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Foreign alliances had no effect on the Revolutionary War.",
+          "Independence instantly produced equal political rights for every resident.",
+          "One battle alone caused the colonies to seek independence.",
+          "The argument challenges authority that violates rights and lacks consent."
+        ],
+        "answer": "The argument challenges authority that violates rights and lacks consent.",
+        "explain": "The argument challenges authority that violates rights and lacks consent. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A passage states that governments derive just powers from the consent of the governed. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Petitions and military records show people supporting opposing sides for varied reasons. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "One battle alone caused the colonies to seek independence.",
+          "The Declaration created the later structure of the U.S. Constitution.",
+          "The Revolution was a civil and imperial conflict as well as a war for independence.",
+          "Independence instantly produced equal political rights for every resident."
+        ],
+        "answer": "The Revolution was a civil and imperial conflict as well as a war for independence.",
+        "explain": "The Revolution was a civil and imperial conflict as well as a war for independence. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Petitions and military records show people supporting opposing sides for varied reasons. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "French naval action and the American siege combine at Yorktown. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "All colonists supported independence for identical reasons.",
+          "The evidence shows diplomacy and alliance contributing directly to military success.",
+          "One battle alone caused the colonies to seek independence.",
+          "The Declaration created the later structure of the U.S. Constitution."
+        ],
+        "answer": "The evidence shows diplomacy and alliance contributing directly to military success.",
+        "explain": "The evidence shows diplomacy and alliance contributing directly to military success. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "French naval action and the American siege combine at Yorktown. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "State constitutions expanded some political participation while slavery and legal inequality continued. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "The Revolution changed government while leaving major contradictions for later generations.",
+          "The Declaration created the later structure of the U.S. Constitution.",
+          "All colonists supported independence for identical reasons.",
+          "Foreign alliances had no effect on the Revolutionary War."
+        ],
+        "answer": "The Revolution changed government while leaving major contradictions for later generations.",
+        "explain": "The Revolution changed government while leaving major contradictions for later generations. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "State constitutions expanded some political participation while slavery and legal inequality continued. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: A timeline links new revenue laws, protests, punishments, and organized resistance. Evidence B: A passage states that governments derive just powers from the consent of the governed. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Evidence A proves “One battle alone caused the colonies to seek independence.,” so Evidence B can be ignored.",
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “Postwar debt, British taxation, enforcement, and colonial arguments about representation intensified conflict.” Evidence B supports “The Declaration justified independence through equality, natural rights, consent, and grievances.” Together, the sources show related developments while preserving each source's context."
+        ],
+        "answer": "Evidence A supports “Postwar debt, British taxation, enforcement, and colonial arguments about representation intensified conflict.” Evidence B supports “The Declaration justified independence through equality, natural rights, consent, and grievances.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “Postwar debt, British taxation, enforcement, and colonial arguments about representation intensified conflict.” Evidence B supports “The Declaration justified independence through equality, natural rights, consent, and grievances.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: A timeline links new revenue laws, protests, punishments, and organized resistance. Evidence B: A passage states that governments derive just powers from the consent of the governed. Which thesis best evaluates both sources without overstating either one?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: A passage states that governments derive just powers from the consent of the governed. Evidence B: Petitions and military records show people supporting opposing sides for varied reasons. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “The Declaration justified independence through equality, natural rights, consent, and grievances.” Evidence B supports “Patriots, Loyalists, neutral colonists, enslaved people, and Indigenous nations made different choices.” Together, the sources show related developments while preserving each source's context.",
+          "Evidence A proves “The Declaration created the later structure of the U.S. Constitution.,” so Evidence B can be ignored."
+        ],
+        "answer": "Evidence A supports “The Declaration justified independence through equality, natural rights, consent, and grievances.” Evidence B supports “Patriots, Loyalists, neutral colonists, enslaved people, and Indigenous nations made different choices.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “The Declaration justified independence through equality, natural rights, consent, and grievances.” Evidence B supports “Patriots, Loyalists, neutral colonists, enslaved people, and Indigenous nations made different choices.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: A passage states that governments derive just powers from the consent of the governed. Evidence B: Petitions and military records show people supporting opposing sides for varied reasons. Which thesis best evaluates both sources without overstating either one?"
+      }
+    ]
+  },
+  "g5:hist:L3": {
+    "name": "Constitution",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "In Constitution, historians use evidence to understand...",
+        "choices": [
+          "ONLY MULTIPLICATION",
+          "ONLY FUTURE WEATHER",
+          "None of these",
+          "THE PAST"
+        ],
+        "answer": "THE PAST",
+        "audio": "Constitution history question."
+      },
+      {
+        "type": "mc",
+        "q": "A primary source for Constitution comes from...",
+        "choices": [
+          "THE TIME BEING STUDIED",
+          "A RANDOM GUESS",
+          "None of these",
+          "A FICTIONAL PLANET"
+        ],
+        "answer": "THE TIME BEING STUDIED",
+        "audio": "Constitution history question."
+      },
+      {
+        "type": "mc",
+        "q": "Cause and effect in Constitution helps explain...",
+        "choices": [
+          "WHY EVENTS HAPPENED AND WHAT CHANGED",
+          "None of these",
+          "HOW TO SPELL EVERY WORD",
+          "ONLY MAP COLORS"
+        ],
+        "answer": "WHY EVENTS HAPPENED AND WHAT CHANGED",
+        "audio": "Constitution history question."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes federalism in the lesson \"Constitutional Government\"?",
+        "choices": [
+          "Federalism gives every governing power to cities.",
+          "One branch constitutionally controls all functions of the other two.",
+          "Checks and balances create one supreme branch.",
+          "The Constitution divides authority between national and state governments."
+        ],
+        "answer": "The Constitution divides authority between national and state governments.",
+        "explain": "The Constitution divides authority between national and state governments. This is the accurate foundation for federalism; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes federalism in the lesson \"Constitutional Government\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes separation of powers in the lesson \"Constitutional Government\"?",
+        "choices": [
+          "Checks and balances create one supreme branch.",
+          "The Bill of Rights grants government unlimited authority.",
+          "Legislative, executive, and judicial functions are assigned to different branches.",
+          "One branch constitutionally controls all functions of the other two."
+        ],
+        "answer": "Legislative, executive, and judicial functions are assigned to different branches.",
+        "explain": "Legislative, executive, and judicial functions are assigned to different branches. This is the accurate foundation for separation of powers; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes separation of powers in the lesson \"Constitutional Government\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes checks and balances in the lesson \"Constitutional Government\"?",
+        "choices": [
+          "Any claimed public benefit automatically overrides a protected right.",
+          "Each branch has powers that can limit actions of another branch.",
+          "Checks and balances create one supreme branch.",
+          "The Bill of Rights grants government unlimited authority."
+        ],
+        "answer": "Each branch has powers that can limit actions of another branch.",
+        "explain": "Each branch has powers that can limit actions of another branch. This is the accurate foundation for checks and balances; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes checks and balances in the lesson \"Constitutional Government\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes Bill of Rights in the lesson \"Constitutional Government\"?",
+        "choices": [
+          "The first ten amendments protect specified liberties and legal safeguards.",
+          "The Bill of Rights grants government unlimited authority.",
+          "Any claimed public benefit automatically overrides a protected right.",
+          "Federalism gives every governing power to cities."
+        ],
+        "answer": "The first ten amendments protect specified liberties and legal safeguards.",
+        "explain": "The first ten amendments protect specified liberties and legal safeguards. This is the accurate foundation for Bill of Rights; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes Bill of Rights in the lesson \"Constitutional Government\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes constitutional evaluation in the lesson \"Constitutional Government\"?",
+        "choices": [
+          "Any claimed public benefit automatically overrides a protected right.",
+          "Federalism gives every governing power to cities.",
+          "One branch constitutionally controls all functions of the other two.",
+          "Constitutional conflicts often require balancing power, rights, representation, and effective government."
+        ],
+        "answer": "Constitutional conflicts often require balancing power, rights, representation, and effective government.",
+        "explain": "Constitutional conflicts often require balancing power, rights, representation, and effective government. This is the accurate foundation for constitutional evaluation; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes constitutional evaluation in the lesson \"Constitutional Government\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Both national and state governments collect taxes while exercising other distinct powers. Which interpretation is best supported?",
+        "choices": [
+          "Checks and balances create one supreme branch.",
+          "The Bill of Rights grants government unlimited authority.",
+          "The Constitution divides authority between national and state governments.",
+          "One branch constitutionally controls all functions of the other two."
+        ],
+        "answer": "The Constitution divides authority between national and state governments.",
+        "explain": "The Constitution divides authority between national and state governments. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Both national and state governments collect taxes while exercising other distinct powers. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Congress passes a bill, the president may veto it, and courts may review a resulting law. Which interpretation is best supported?",
+        "choices": [
+          "Any claimed public benefit automatically overrides a protected right.",
+          "Legislative, executive, and judicial functions are assigned to different branches.",
+          "Checks and balances create one supreme branch.",
+          "The Bill of Rights grants government unlimited authority."
+        ],
+        "answer": "Legislative, executive, and judicial functions are assigned to different branches.",
+        "explain": "Legislative, executive, and judicial functions are assigned to different branches. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Congress passes a bill, the president may veto it, and courts may review a resulting law. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "The Senate confirms executive appointments, while the president may veto legislation. Which interpretation is best supported?",
+        "choices": [
+          "Each branch has powers that can limit actions of another branch.",
+          "The Bill of Rights grants government unlimited authority.",
+          "Any claimed public benefit automatically overrides a protected right.",
+          "Federalism gives every governing power to cities."
+        ],
+        "answer": "Each branch has powers that can limit actions of another branch.",
+        "explain": "Each branch has powers that can limit actions of another branch. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "The Senate confirms executive appointments, while the president may veto legislation. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A defendant invokes protections involving counsel and due process. Which interpretation is best supported?",
+        "choices": [
+          "Any claimed public benefit automatically overrides a protected right.",
+          "Federalism gives every governing power to cities.",
+          "One branch constitutionally controls all functions of the other two.",
+          "The first ten amendments protect specified liberties and legal safeguards."
+        ],
+        "answer": "The first ten amendments protect specified liberties and legal safeguards.",
+        "explain": "The first ten amendments protect specified liberties and legal safeguards. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A defendant invokes protections involving counsel and due process. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A security policy is challenged for burdening protected speech without clear evidence of necessity. Which interpretation is best supported?",
+        "choices": [
+          "One branch constitutionally controls all functions of the other two.",
+          "Checks and balances create one supreme branch.",
+          "Constitutional conflicts often require balancing power, rights, representation, and effective government.",
+          "Federalism gives every governing power to cities."
+        ],
+        "answer": "Constitutional conflicts often require balancing power, rights, representation, and effective government.",
+        "explain": "Constitutional conflicts often require balancing power, rights, representation, and effective government. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A security policy is challenged for burdening protected speech without clear evidence of necessity. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The Constitution divides authority between national and state governments.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The Constitution divides authority between national and state governments. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Constitutional Government."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: One branch constitutionally controls all functions of the other two.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. Legislative, executive, and judicial functions are assigned to different branches.",
+        "audio": "Evaluate this claim using the evidence from Constitutional Government."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Each branch has powers that can limit actions of another branch.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Each branch has powers that can limit actions of another branch. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Constitutional Government."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The Bill of Rights grants government unlimited authority.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. The first ten amendments protect specified liberties and legal safeguards.",
+        "audio": "Evaluate this claim using the evidence from Constitutional Government."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Constitutional conflicts often require balancing power, rights, representation, and effective government.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Constitutional conflicts often require balancing power, rights, representation, and effective government. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Constitutional Government."
+      },
+      {
+        "type": "mc",
+        "q": "Both national and state governments collect taxes while exercising other distinct powers. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Federalism combines shared and divided responsibilities rather than placing all power in one government.",
+          "Checks and balances create one supreme branch.",
+          "The Bill of Rights grants government unlimited authority.",
+          "Any claimed public benefit automatically overrides a protected right."
+        ],
+        "answer": "Federalism combines shared and divided responsibilities rather than placing all power in one government.",
+        "explain": "Federalism combines shared and divided responsibilities rather than placing all power in one government. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Both national and state governments collect taxes while exercising other distinct powers. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Congress passes a bill, the president may veto it, and courts may review a resulting law. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "The Bill of Rights grants government unlimited authority.",
+          "Any claimed public benefit automatically overrides a protected right.",
+          "Federalism gives every governing power to cities.",
+          "The structure makes multiple institutions participate in governing."
+        ],
+        "answer": "The structure makes multiple institutions participate in governing.",
+        "explain": "The structure makes multiple institutions participate in governing. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Congress passes a bill, the president may veto it, and courts may review a resulting law. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "The Senate confirms executive appointments, while the president may veto legislation. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Federalism gives every governing power to cities.",
+          "One branch constitutionally controls all functions of the other two.",
+          "Checks make concentrated power more difficult without preventing all government action.",
+          "Any claimed public benefit automatically overrides a protected right."
+        ],
+        "answer": "Checks make concentrated power more difficult without preventing all government action.",
+        "explain": "Checks make concentrated power more difficult without preventing all government action. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "The Senate confirms executive appointments, while the president may veto legislation. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "A defendant invokes protections involving counsel and due process. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Checks and balances create one supreme branch.",
+          "The amendments limit government action in defined areas.",
+          "Federalism gives every governing power to cities.",
+          "One branch constitutionally controls all functions of the other two."
+        ],
+        "answer": "The amendments limit government action in defined areas.",
+        "explain": "The amendments limit government action in defined areas. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A defendant invokes protections involving counsel and due process. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "A security policy is challenged for burdening protected speech without clear evidence of necessity. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Evaluation should consider public purpose, constitutional limits, and less restrictive alternatives.",
+          "One branch constitutionally controls all functions of the other two.",
+          "Checks and balances create one supreme branch.",
+          "The Bill of Rights grants government unlimited authority."
+        ],
+        "answer": "Evaluation should consider public purpose, constitutional limits, and less restrictive alternatives.",
+        "explain": "Evaluation should consider public purpose, constitutional limits, and less restrictive alternatives. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A security policy is challenged for burdening protected speech without clear evidence of necessity. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: Both national and state governments collect taxes while exercising other distinct powers. Evidence B: Congress passes a bill, the president may veto it, and courts may review a resulting law. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Evidence A proves “Federalism gives every governing power to cities.,” so Evidence B can be ignored.",
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “The Constitution divides authority between national and state governments.” Evidence B supports “Legislative, executive, and judicial functions are assigned to different branches.” Together, the sources show related developments while preserving each source's context."
+        ],
+        "answer": "Evidence A supports “The Constitution divides authority between national and state governments.” Evidence B supports “Legislative, executive, and judicial functions are assigned to different branches.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “The Constitution divides authority between national and state governments.” Evidence B supports “Legislative, executive, and judicial functions are assigned to different branches.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: Both national and state governments collect taxes while exercising other distinct powers. Evidence B: Congress passes a bill, the president may veto it, and courts may review a resulting law. Which thesis best evaluates both sources without overstating either one?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: Congress passes a bill, the president may veto it, and courts may review a resulting law. Evidence B: The Senate confirms executive appointments, while the president may veto legislation. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “Legislative, executive, and judicial functions are assigned to different branches.” Evidence B supports “Each branch has powers that can limit actions of another branch.” Together, the sources show related developments while preserving each source's context.",
+          "Evidence A proves “One branch constitutionally controls all functions of the other two.,” so Evidence B can be ignored."
+        ],
+        "answer": "Evidence A supports “Legislative, executive, and judicial functions are assigned to different branches.” Evidence B supports “Each branch has powers that can limit actions of another branch.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “Legislative, executive, and judicial functions are assigned to different branches.” Evidence B supports “Each branch has powers that can limit actions of another branch.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: Congress passes a bill, the president may veto it, and courts may review a resulting law. Evidence B: The Senate confirms executive appointments, while the president may veto legislation. Which thesis best evaluates both sources without overstating either one?"
+      }
+    ]
+  },
+  "g5:hist:L4": {
+    "name": "Westward Expansion",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "In Westward Expansion, historians use evidence to understand...",
+        "choices": [
+          "THE PAST",
+          "ONLY FUTURE WEATHER",
+          "None of these",
+          "ONLY MULTIPLICATION"
+        ],
+        "answer": "THE PAST",
+        "audio": "Westward Expansion history question."
+      },
+      {
+        "type": "mc",
+        "q": "A primary source for Westward Expansion comes from...",
+        "choices": [
+          "A FICTIONAL PLANET",
+          "A RANDOM GUESS",
+          "None of these",
+          "THE TIME BEING STUDIED"
+        ],
+        "answer": "THE TIME BEING STUDIED",
+        "audio": "Westward Expansion history question."
+      },
+      {
+        "type": "mc",
+        "q": "Cause and effect in Westward Expansion helps explain...",
+        "choices": [
+          "ONLY MAP COLORS",
+          "HOW TO SPELL EVERY WORD",
+          "WHY EVENTS HAPPENED AND WHAT CHANGED",
+          "None of these"
+        ],
+        "answer": "WHY EVENTS HAPPENED AND WHAT CHANGED",
+        "audio": "Westward Expansion history question."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes multiple motives in the lesson \"Westward Expansion\"?",
+        "choices": [
+          "Every westward migrant moved for the same reason.",
+          "Expansion occurred on empty land and harmed no existing community.",
+          "New territory created no political conflict within the United States.",
+          "Land, resources, family decisions, transportation, and government policy encouraged westward migration."
+        ],
+        "answer": "Land, resources, family decisions, transportation, and government policy encouraged westward migration.",
+        "explain": "Land, resources, family decisions, transportation, and government policy encouraged westward migration. This is the accurate foundation for multiple motives; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes multiple motives in the lesson \"Westward Expansion\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes Indigenous displacement in the lesson \"Westward Expansion\"?",
+        "choices": [
+          "New territory created no political conflict within the United States.",
+          "Railroads reduced movement and communication toward the West.",
+          "Expansion violated treaties and displaced Indigenous nations from homelands.",
+          "Expansion occurred on empty land and harmed no existing community."
+        ],
+        "answer": "Expansion violated treaties and displaced Indigenous nations from homelands.",
+        "explain": "Expansion violated treaties and displaced Indigenous nations from homelands. This is the accurate foundation for Indigenous displacement; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes Indigenous displacement in the lesson \"Westward Expansion\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes Mexican cession and conflict in the lesson \"Westward Expansion\"?",
+        "choices": [
+          "One settler's account supplies a complete evaluation of expansion.",
+          "War and treaty changed U.S. boundaries while raising disputes over slavery and citizenship.",
+          "New territory created no political conflict within the United States.",
+          "Railroads reduced movement and communication toward the West."
+        ],
+        "answer": "War and treaty changed U.S. boundaries while raising disputes over slavery and citizenship.",
+        "explain": "War and treaty changed U.S. boundaries while raising disputes over slavery and citizenship. This is the accurate foundation for Mexican cession and conflict; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes Mexican cession and conflict in the lesson \"Westward Expansion\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes transportation networks in the lesson \"Westward Expansion\"?",
+        "choices": [
+          "Canals, trails, railroads, and telegraphs changed travel, markets, and communication.",
+          "Railroads reduced movement and communication toward the West.",
+          "One settler's account supplies a complete evaluation of expansion.",
+          "Every westward migrant moved for the same reason."
+        ],
+        "answer": "Canals, trails, railroads, and telegraphs changed travel, markets, and communication.",
+        "explain": "Canals, trails, railroads, and telegraphs changed travel, markets, and communication. This is the accurate foundation for transportation networks; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes transportation networks in the lesson \"Westward Expansion\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes competing perspectives in the lesson \"Westward Expansion\"?",
+        "choices": [
+          "One settler's account supplies a complete evaluation of expansion.",
+          "Every westward migrant moved for the same reason.",
+          "Expansion occurred on empty land and harmed no existing community.",
+          "Settlers' opportunity narratives must be compared with Indigenous, Mexican American, and environmental evidence."
+        ],
+        "answer": "Settlers' opportunity narratives must be compared with Indigenous, Mexican American, and environmental evidence.",
+        "explain": "Settlers' opportunity narratives must be compared with Indigenous, Mexican American, and environmental evidence. This is the accurate foundation for competing perspectives; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes competing perspectives in the lesson \"Westward Expansion\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Land advertisements, diaries, and federal acts identify both private hopes and public incentives. Which interpretation is best supported?",
+        "choices": [
+          "New territory created no political conflict within the United States.",
+          "Railroads reduced movement and communication toward the West.",
+          "Land, resources, family decisions, transportation, and government policy encouraged westward migration.",
+          "Expansion occurred on empty land and harmed no existing community."
+        ],
+        "answer": "Land, resources, family decisions, transportation, and government policy encouraged westward migration.",
+        "explain": "Land, resources, family decisions, transportation, and government policy encouraged westward migration. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Land advertisements, diaries, and federal acts identify both private hopes and public incentives. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Treaty boundaries shrink on successive maps as settlement and military pressure increase. Which interpretation is best supported?",
+        "choices": [
+          "One settler's account supplies a complete evaluation of expansion.",
+          "Expansion violated treaties and displaced Indigenous nations from homelands.",
+          "New territory created no political conflict within the United States.",
+          "Railroads reduced movement and communication toward the West."
+        ],
+        "answer": "Expansion violated treaties and displaced Indigenous nations from homelands.",
+        "explain": "Expansion violated treaties and displaced Indigenous nations from homelands. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Treaty boundaries shrink on successive maps as settlement and military pressure increase. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Maps before and after the Treaty of Guadalupe Hidalgo show large territorial change. Which interpretation is best supported?",
+        "choices": [
+          "War and treaty changed U.S. boundaries while raising disputes over slavery and citizenship.",
+          "Railroads reduced movement and communication toward the West.",
+          "One settler's account supplies a complete evaluation of expansion.",
+          "Every westward migrant moved for the same reason."
+        ],
+        "answer": "War and treaty changed U.S. boundaries while raising disputes over slavery and citizenship.",
+        "explain": "War and treaty changed U.S. boundaries while raising disputes over slavery and citizenship. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Maps before and after the Treaty of Guadalupe Hidalgo show large territorial change. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Shipping records show lower travel times and costs after a rail connection opened. Which interpretation is best supported?",
+        "choices": [
+          "One settler's account supplies a complete evaluation of expansion.",
+          "Every westward migrant moved for the same reason.",
+          "Expansion occurred on empty land and harmed no existing community.",
+          "Canals, trails, railroads, and telegraphs changed travel, markets, and communication."
+        ],
+        "answer": "Canals, trails, railroads, and telegraphs changed travel, markets, and communication.",
+        "explain": "Canals, trails, railroads, and telegraphs changed travel, markets, and communication. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Shipping records show lower travel times and costs after a rail connection opened. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A migrant diary celebrates new land while a Native petition documents lost access to hunting grounds. Which interpretation is best supported?",
+        "choices": [
+          "Expansion occurred on empty land and harmed no existing community.",
+          "New territory created no political conflict within the United States.",
+          "Settlers' opportunity narratives must be compared with Indigenous, Mexican American, and environmental evidence.",
+          "Every westward migrant moved for the same reason."
+        ],
+        "answer": "Settlers' opportunity narratives must be compared with Indigenous, Mexican American, and environmental evidence.",
+        "explain": "Settlers' opportunity narratives must be compared with Indigenous, Mexican American, and environmental evidence. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A migrant diary celebrates new land while a Native petition documents lost access to hunting grounds. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Land, resources, family decisions, transportation, and government policy encouraged westward migration.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Land, resources, family decisions, transportation, and government policy encouraged westward migration. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Westward Expansion."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Expansion occurred on empty land and harmed no existing community.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. Expansion violated treaties and displaced Indigenous nations from homelands.",
+        "audio": "Evaluate this claim using the evidence from Westward Expansion."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: War and treaty changed U.S. boundaries while raising disputes over slavery and citizenship.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. War and treaty changed U.S. boundaries while raising disputes over slavery and citizenship. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Westward Expansion."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Railroads reduced movement and communication toward the West.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. Canals, trails, railroads, and telegraphs changed travel, markets, and communication.",
+        "audio": "Evaluate this claim using the evidence from Westward Expansion."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Settlers' opportunity narratives must be compared with Indigenous, Mexican American, and environmental evidence.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Settlers' opportunity narratives must be compared with Indigenous, Mexican American, and environmental evidence. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Westward Expansion."
+      },
+      {
+        "type": "mc",
+        "q": "Land advertisements, diaries, and federal acts identify both private hopes and public incentives. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Migration resulted from several interacting motives rather than one universal cause.",
+          "New territory created no political conflict within the United States.",
+          "Railroads reduced movement and communication toward the West.",
+          "One settler's account supplies a complete evaluation of expansion."
+        ],
+        "answer": "Migration resulted from several interacting motives rather than one universal cause.",
+        "explain": "Migration resulted from several interacting motives rather than one universal cause. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Land advertisements, diaries, and federal acts identify both private hopes and public incentives. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Treaty boundaries shrink on successive maps as settlement and military pressure increase. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Railroads reduced movement and communication toward the West.",
+          "One settler's account supplies a complete evaluation of expansion.",
+          "Every westward migrant moved for the same reason.",
+          "Territorial growth for settlers imposed severe political and human costs on Native communities."
+        ],
+        "answer": "Territorial growth for settlers imposed severe political and human costs on Native communities.",
+        "explain": "Territorial growth for settlers imposed severe political and human costs on Native communities. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Treaty boundaries shrink on successive maps as settlement and military pressure increase. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Maps before and after the Treaty of Guadalupe Hidalgo show large territorial change. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Every westward migrant moved for the same reason.",
+          "Expansion occurred on empty land and harmed no existing community.",
+          "Expansion altered national politics as well as borders.",
+          "One settler's account supplies a complete evaluation of expansion."
+        ],
+        "answer": "Expansion altered national politics as well as borders.",
+        "explain": "Expansion altered national politics as well as borders. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Maps before and after the Treaty of Guadalupe Hidalgo show large territorial change. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Shipping records show lower travel times and costs after a rail connection opened. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "New territory created no political conflict within the United States.",
+          "Infrastructure linked regions while redirecting settlement and economic activity.",
+          "Every westward migrant moved for the same reason.",
+          "Expansion occurred on empty land and harmed no existing community."
+        ],
+        "answer": "Infrastructure linked regions while redirecting settlement and economic activity.",
+        "explain": "Infrastructure linked regions while redirecting settlement and economic activity. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Shipping records show lower travel times and costs after a rail connection opened. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "A migrant diary celebrates new land while a Native petition documents lost access to hunting grounds. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "The sources reveal benefits for some people and dispossession for others.",
+          "Expansion occurred on empty land and harmed no existing community.",
+          "New territory created no political conflict within the United States.",
+          "Railroads reduced movement and communication toward the West."
+        ],
+        "answer": "The sources reveal benefits for some people and dispossession for others.",
+        "explain": "The sources reveal benefits for some people and dispossession for others. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A migrant diary celebrates new land while a Native petition documents lost access to hunting grounds. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: Land advertisements, diaries, and federal acts identify both private hopes and public incentives. Evidence B: Treaty boundaries shrink on successive maps as settlement and military pressure increase. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Evidence A proves “Every westward migrant moved for the same reason.,” so Evidence B can be ignored.",
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “Land, resources, family decisions, transportation, and government policy encouraged westward migration.” Evidence B supports “Expansion violated treaties and displaced Indigenous nations from homelands.” Together, the sources show related developments while preserving each source's context."
+        ],
+        "answer": "Evidence A supports “Land, resources, family decisions, transportation, and government policy encouraged westward migration.” Evidence B supports “Expansion violated treaties and displaced Indigenous nations from homelands.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “Land, resources, family decisions, transportation, and government policy encouraged westward migration.” Evidence B supports “Expansion violated treaties and displaced Indigenous nations from homelands.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: Land advertisements, diaries, and federal acts identify both private hopes and public incentives. Evidence B: Treaty boundaries shrink on successive maps as settlement and military pressure increase. Which thesis best evaluates both sources without overstating either one?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: Treaty boundaries shrink on successive maps as settlement and military pressure increase. Evidence B: Maps before and after the Treaty of Guadalupe Hidalgo show large territorial change. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “Expansion violated treaties and displaced Indigenous nations from homelands.” Evidence B supports “War and treaty changed U.S. boundaries while raising disputes over slavery and citizenship.” Together, the sources show related developments while preserving each source's context.",
+          "Evidence A proves “Expansion occurred on empty land and harmed no existing community.,” so Evidence B can be ignored."
+        ],
+        "answer": "Evidence A supports “Expansion violated treaties and displaced Indigenous nations from homelands.” Evidence B supports “War and treaty changed U.S. boundaries while raising disputes over slavery and citizenship.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “Expansion violated treaties and displaced Indigenous nations from homelands.” Evidence B supports “War and treaty changed U.S. boundaries while raising disputes over slavery and citizenship.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: Treaty boundaries shrink on successive maps as settlement and military pressure increase. Evidence B: Maps before and after the Treaty of Guadalupe Hidalgo show large territorial change. Which thesis best evaluates both sources without overstating either one?"
+      }
+    ]
+  },
+  "g5:hist:L5": {
+    "name": "Civil War Basics",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "In Civil War Basics, historians use evidence to understand...",
+        "choices": [
+          "ONLY FUTURE WEATHER",
+          "None of these",
+          "ONLY MULTIPLICATION",
+          "THE PAST"
+        ],
+        "answer": "THE PAST",
+        "audio": "Civil War Basics history question."
+      },
+      {
+        "type": "mc",
+        "q": "A primary source for Civil War Basics comes from...",
+        "choices": [
+          "A FICTIONAL PLANET",
+          "None of these",
+          "A RANDOM GUESS",
+          "THE TIME BEING STUDIED"
+        ],
+        "answer": "THE TIME BEING STUDIED",
+        "audio": "Civil War Basics history question."
+      },
+      {
+        "type": "mc",
+        "q": "Cause and effect in Civil War Basics helps explain...",
+        "choices": [
+          "ONLY MAP COLORS",
+          "WHY EVENTS HAPPENED AND WHAT CHANGED",
+          "HOW TO SPELL EVERY WORD",
+          "None of these"
+        ],
+        "answer": "WHY EVENTS HAPPENED AND WHAT CHANGED",
+        "audio": "Civil War Basics history question."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes slavery and secession in the lesson \"Civil War and Reconstruction\"?",
+        "choices": [
+          "Tariffs alone caused the Civil War.",
+          "Civil War strategy consisted only of winning isolated battles.",
+          "The Civil War ended without changing legal slavery.",
+          "The protection and expansion of slavery were central to sectional conflict and secession."
+        ],
+        "answer": "The protection and expansion of slavery were central to sectional conflict and secession.",
+        "explain": "The protection and expansion of slavery were central to sectional conflict and secession. This is the accurate foundation for slavery and secession; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes slavery and secession in the lesson \"Civil War and Reconstruction\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes wartime strategy in the lesson \"Civil War and Reconstruction\"?",
+        "choices": [
+          "The Civil War ended without changing legal slavery.",
+          "Reconstruction produced no constitutional changes.",
+          "Union and Confederate strategies connected armies, resources, geography, and political goals.",
+          "Civil War strategy consisted only of winning isolated battles."
+        ],
+        "answer": "Union and Confederate strategies connected armies, resources, geography, and political goals.",
+        "explain": "Union and Confederate strategies connected armies, resources, geography, and political goals. This is the accurate foundation for wartime strategy; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes wartime strategy in the lesson \"Civil War and Reconstruction\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes emancipation in the lesson \"Civil War and Reconstruction\"?",
+        "choices": [
+          "New amendments immediately guaranteed equal treatment in every place.",
+          "Enslaved people's actions, wartime policy, and Union victory contributed to slavery's destruction.",
+          "The Civil War ended without changing legal slavery.",
+          "Reconstruction produced no constitutional changes."
+        ],
+        "answer": "Enslaved people's actions, wartime policy, and Union victory contributed to slavery's destruction.",
+        "explain": "Enslaved people's actions, wartime policy, and Union victory contributed to slavery's destruction. This is the accurate foundation for emancipation; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes emancipation in the lesson \"Civil War and Reconstruction\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes Reconstruction amendments in the lesson \"Civil War and Reconstruction\"?",
+        "choices": [
+          "The Thirteenth, Fourteenth, and Fifteenth Amendments abolished slavery and redefined citizenship and voting protections.",
+          "Reconstruction produced no constitutional changes.",
+          "New amendments immediately guaranteed equal treatment in every place.",
+          "Tariffs alone caused the Civil War."
+        ],
+        "answer": "The Thirteenth, Fourteenth, and Fifteenth Amendments abolished slavery and redefined citizenship and voting protections.",
+        "explain": "The Thirteenth, Fourteenth, and Fifteenth Amendments abolished slavery and redefined citizenship and voting protections. This is the accurate foundation for Reconstruction amendments; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes Reconstruction amendments in the lesson \"Civil War and Reconstruction\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes gains and limits in the lesson \"Civil War and Reconstruction\"?",
+        "choices": [
+          "New amendments immediately guaranteed equal treatment in every place.",
+          "Tariffs alone caused the Civil War.",
+          "Civil War strategy consisted only of winning isolated battles.",
+          "Reconstruction expanded political participation while violence, discriminatory laws, and weak enforcement undermined rights."
+        ],
+        "answer": "Reconstruction expanded political participation while violence, discriminatory laws, and weak enforcement undermined rights.",
+        "explain": "Reconstruction expanded political participation while violence, discriminatory laws, and weak enforcement undermined rights. This is the accurate foundation for gains and limits; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes gains and limits in the lesson \"Civil War and Reconstruction\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Secession declarations repeatedly identify slavery and perceived threats to it. Which interpretation is best supported?",
+        "choices": [
+          "The Civil War ended without changing legal slavery.",
+          "Reconstruction produced no constitutional changes.",
+          "The protection and expansion of slavery were central to sectional conflict and secession.",
+          "Civil War strategy consisted only of winning isolated battles."
+        ],
+        "answer": "The protection and expansion of slavery were central to sectional conflict and secession.",
+        "explain": "The protection and expansion of slavery were central to sectional conflict and secession. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Secession declarations repeatedly identify slavery and perceived threats to it. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "The Union blockaded ports while campaigning for control of the Mississippi River. Which interpretation is best supported?",
+        "choices": [
+          "New amendments immediately guaranteed equal treatment in every place.",
+          "Union and Confederate strategies connected armies, resources, geography, and political goals.",
+          "The Civil War ended without changing legal slavery.",
+          "Reconstruction produced no constitutional changes."
+        ],
+        "answer": "Union and Confederate strategies connected armies, resources, geography, and political goals.",
+        "explain": "Union and Confederate strategies connected armies, resources, geography, and political goals. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "The Union blockaded ports while campaigning for control of the Mississippi River. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Self-emancipation, Black military service, the Emancipation Proclamation, and the Thirteenth Amendment form a sequence. Which interpretation is best supported?",
+        "choices": [
+          "Enslaved people's actions, wartime policy, and Union victory contributed to slavery's destruction.",
+          "Reconstruction produced no constitutional changes.",
+          "New amendments immediately guaranteed equal treatment in every place.",
+          "Tariffs alone caused the Civil War."
+        ],
+        "answer": "Enslaved people's actions, wartime policy, and Union victory contributed to slavery's destruction.",
+        "explain": "Enslaved people's actions, wartime policy, and Union victory contributed to slavery's destruction. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Self-emancipation, Black military service, the Emancipation Proclamation, and the Thirteenth Amendment form a sequence. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Constitutional text removes slavery, defines national citizenship, and bars race-based voting exclusion for men. Which interpretation is best supported?",
+        "choices": [
+          "New amendments immediately guaranteed equal treatment in every place.",
+          "Tariffs alone caused the Civil War.",
+          "Civil War strategy consisted only of winning isolated battles.",
+          "The Thirteenth, Fourteenth, and Fifteenth Amendments abolished slavery and redefined citizenship and voting protections."
+        ],
+        "answer": "The Thirteenth, Fourteenth, and Fifteenth Amendments abolished slavery and redefined citizenship and voting protections.",
+        "explain": "The Thirteenth, Fourteenth, and Fifteenth Amendments abolished slavery and redefined citizenship and voting protections. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Constitutional text removes slavery, defines national citizenship, and bars race-based voting exclusion for men. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Election records show Black officeholding, while reports document intimidation and disenfranchisement. Which interpretation is best supported?",
+        "choices": [
+          "Civil War strategy consisted only of winning isolated battles.",
+          "The Civil War ended without changing legal slavery.",
+          "Reconstruction expanded political participation while violence, discriminatory laws, and weak enforcement undermined rights.",
+          "Tariffs alone caused the Civil War."
+        ],
+        "answer": "Reconstruction expanded political participation while violence, discriminatory laws, and weak enforcement undermined rights.",
+        "explain": "Reconstruction expanded political participation while violence, discriminatory laws, and weak enforcement undermined rights. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Election records show Black officeholding, while reports document intimidation and disenfranchisement. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The protection and expansion of slavery were central to sectional conflict and secession.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The protection and expansion of slavery were central to sectional conflict and secession. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Civil War and Reconstruction."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Civil War strategy consisted only of winning isolated battles.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. Union and Confederate strategies connected armies, resources, geography, and political goals.",
+        "audio": "Evaluate this claim using the evidence from Civil War and Reconstruction."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Enslaved people's actions, wartime policy, and Union victory contributed to slavery's destruction.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Enslaved people's actions, wartime policy, and Union victory contributed to slavery's destruction. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Civil War and Reconstruction."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Reconstruction produced no constitutional changes.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. The Thirteenth, Fourteenth, and Fifteenth Amendments abolished slavery and redefined citizenship and voting protections.",
+        "audio": "Evaluate this claim using the evidence from Civil War and Reconstruction."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Reconstruction expanded political participation while violence, discriminatory laws, and weak enforcement undermined rights.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Reconstruction expanded political participation while violence, discriminatory laws, and weak enforcement undermined rights. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Civil War and Reconstruction."
+      },
+      {
+        "type": "mc",
+        "q": "Secession declarations repeatedly identify slavery and perceived threats to it. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Primary documents directly contradict explanations that remove slavery from secession.",
+          "The Civil War ended without changing legal slavery.",
+          "Reconstruction produced no constitutional changes.",
+          "New amendments immediately guaranteed equal treatment in every place."
+        ],
+        "answer": "Primary documents directly contradict explanations that remove slavery from secession.",
+        "explain": "Primary documents directly contradict explanations that remove slavery from secession. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Secession declarations repeatedly identify slavery and perceived threats to it. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "The Union blockaded ports while campaigning for control of the Mississippi River. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Reconstruction produced no constitutional changes.",
+          "New amendments immediately guaranteed equal treatment in every place.",
+          "Tariffs alone caused the Civil War.",
+          "The strategy targeted transportation and economic capacity as well as enemy forces."
+        ],
+        "answer": "The strategy targeted transportation and economic capacity as well as enemy forces.",
+        "explain": "The strategy targeted transportation and economic capacity as well as enemy forces. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "The Union blockaded ports while campaigning for control of the Mississippi River. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Self-emancipation, Black military service, the Emancipation Proclamation, and the Thirteenth Amendment form a sequence. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Tariffs alone caused the Civil War.",
+          "Civil War strategy consisted only of winning isolated battles.",
+          "Freedom resulted from intersecting actions and policies, not one event alone.",
+          "New amendments immediately guaranteed equal treatment in every place."
+        ],
+        "answer": "Freedom resulted from intersecting actions and policies, not one event alone.",
+        "explain": "Freedom resulted from intersecting actions and policies, not one event alone. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Self-emancipation, Black military service, the Emancipation Proclamation, and the Thirteenth Amendment form a sequence. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Constitutional text removes slavery, defines national citizenship, and bars race-based voting exclusion for men. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "The Civil War ended without changing legal slavery.",
+          "Reconstruction transformed the Constitution even where enforcement failed.",
+          "Tariffs alone caused the Civil War.",
+          "Civil War strategy consisted only of winning isolated battles."
+        ],
+        "answer": "Reconstruction transformed the Constitution even where enforcement failed.",
+        "explain": "Reconstruction transformed the Constitution even where enforcement failed. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Constitutional text removes slavery, defines national citizenship, and bars race-based voting exclusion for men. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Election records show Black officeholding, while reports document intimidation and disenfranchisement. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "A complete evaluation recognizes constitutional gains and organized resistance to them.",
+          "Civil War strategy consisted only of winning isolated battles.",
+          "The Civil War ended without changing legal slavery.",
+          "Reconstruction produced no constitutional changes."
+        ],
+        "answer": "A complete evaluation recognizes constitutional gains and organized resistance to them.",
+        "explain": "A complete evaluation recognizes constitutional gains and organized resistance to them. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Election records show Black officeholding, while reports document intimidation and disenfranchisement. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: Secession declarations repeatedly identify slavery and perceived threats to it. Evidence B: The Union blockaded ports while campaigning for control of the Mississippi River. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Evidence A proves “Tariffs alone caused the Civil War.,” so Evidence B can be ignored.",
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “The protection and expansion of slavery were central to sectional conflict and secession.” Evidence B supports “Union and Confederate strategies connected armies, resources, geography, and political goals.” Together, the sources show related developments while preserving each source's context."
+        ],
+        "answer": "Evidence A supports “The protection and expansion of slavery were central to sectional conflict and secession.” Evidence B supports “Union and Confederate strategies connected armies, resources, geography, and political goals.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “The protection and expansion of slavery were central to sectional conflict and secession.” Evidence B supports “Union and Confederate strategies connected armies, resources, geography, and political goals.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: Secession declarations repeatedly identify slavery and perceived threats to it. Evidence B: The Union blockaded ports while campaigning for control of the Mississippi River. Which thesis best evaluates both sources without overstating either one?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: The Union blockaded ports while campaigning for control of the Mississippi River. Evidence B: Self-emancipation, Black military service, the Emancipation Proclamation, and the Thirteenth Amendment form a sequence. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “Union and Confederate strategies connected armies, resources, geography, and political goals.” Evidence B supports “Enslaved people's actions, wartime policy, and Union victory contributed to slavery's destruction.” Together, the sources show related developments while preserving each source's context.",
+          "Evidence A proves “Civil War strategy consisted only of winning isolated battles.,” so Evidence B can be ignored."
+        ],
+        "answer": "Evidence A supports “Union and Confederate strategies connected armies, resources, geography, and political goals.” Evidence B supports “Enslaved people's actions, wartime policy, and Union victory contributed to slavery's destruction.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “Union and Confederate strategies connected armies, resources, geography, and political goals.” Evidence B supports “Enslaved people's actions, wartime policy, and Union victory contributed to slavery's destruction.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: The Union blockaded ports while campaigning for control of the Mississippi River. Evidence B: Self-emancipation, Black military service, the Emancipation Proclamation, and the Thirteenth Amendment form a sequence. Which thesis best evaluates both sources without overstating either one?"
+      }
+    ]
+  }
+});
+})();

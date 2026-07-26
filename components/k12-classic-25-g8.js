@@ -1,0 +1,11192 @@
+/* Explicit classic 25-question banks for G8.
+   Every prompt is stored individually; no standards, mastery, stage, or shared-pool generator is used. */
+(function(){
+  window.K12_CLASSIC_25_DATA=window.K12_CLASSIC_25_DATA||Object.create(null);
+  Object.assign(window.K12_CLASSIC_25_DATA,{
+  "g8:eng:L1": {
+    "name": "Central Idea",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Central idea means...",
+        "choices": [
+          "The main point of a text",
+          "A tiny example",
+          "The page number",
+          "Unrelated meaning"
+        ],
+        "answer": "The main point of a text",
+        "audio": "Central idea."
+      },
+      {
+        "type": "mc",
+        "q": "Which detail best supports a central idea?",
+        "choices": [
+          "A character's shoe color only",
+          "A fact that explains the main point",
+          "None of these",
+          "A random sentence"
+        ],
+        "answer": "A fact that explains the main point",
+        "audio": "Central idea."
+      },
+      {
+        "type": "mc",
+        "q": "The central idea should connect to...",
+        "choices": [
+          "None of these",
+          "Most details in the text",
+          "Only one unrelated word",
+          "The font size"
+        ],
+        "answer": "Most details in the text",
+        "audio": "Central idea."
+      },
+      {
+        "type": "mc",
+        "q": "A paragraph explains that school gardens provide vegetables, habitats for pollinators, and outdoor science labs. What is its central idea?",
+        "choices": [
+          "School gardens benefit learning and the environment",
+          "Vegetables are always easy to grow",
+          "Pollinators live only near schools",
+          "Science must be taught outdoors"
+        ],
+        "answer": "School gardens benefit learning and the environment",
+        "explain": "The three details all show different benefits produced by a school garden."
+      },
+      {
+        "type": "mc",
+        "q": "A passage describes how library e-books can be enlarged, searched, and borrowed from home. Which central idea is best supported?",
+        "choices": [
+          "Digital books can make reading more accessible",
+          "Printed books are no longer useful",
+          "Every reader prefers a screen",
+          "Libraries should close their buildings"
+        ],
+        "answer": "Digital books can make reading more accessible",
+        "explain": "Each stated feature increases access; the passage does not reject print or library buildings."
+      },
+      {
+        "type": "mc",
+        "q": "Which detail best supports the central idea that sleep improves learning?",
+        "choices": [
+          "Students who slept eight hours recalled more vocabulary the next day",
+          "Some students own blue blankets",
+          "The test was printed on white paper",
+          "The classroom opened at eight o'clock"
+        ],
+        "answer": "Students who slept eight hours recalled more vocabulary the next day",
+        "explain": "Improved recall after adequate sleep directly connects sleep with learning."
+      },
+      {
+        "type": "mc",
+        "q": "A text explains that mangrove roots reduce shoreline erosion and shelter young fish. Which title best expresses the key idea?",
+        "choices": [
+          "Mangroves Protect Coasts and Marine Life",
+          "How to Draw a Fish",
+          "The World's Tallest Trees",
+          "A History of Fishing Boats"
+        ],
+        "answer": "Mangroves Protect Coasts and Marine Life",
+        "explain": "The title captures both protection from erosion and habitat for fish."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement is a supporting detail rather than a central idea?",
+        "choices": [
+          "One refill station kept 18,000 plastic bottles out of the trash last year",
+          "Refill stations can reduce a school's plastic waste",
+          "Small infrastructure changes can produce environmental benefits",
+          "Schools can conserve resources through practical choices"
+        ],
+        "answer": "One refill station kept 18,000 plastic bottles out of the trash last year",
+        "explain": "The numerical result is specific evidence supporting the broader ideas."
+      },
+      {
+        "type": "mc",
+        "q": "'The city painted bus lanes red, adjusted signal timing, and added shelters. Ridership rose 14 percent.' Which central idea accounts for all details?",
+        "choices": [
+          "Coordinated transit improvements can encourage more people to ride buses",
+          "Red paint alone caused every new trip",
+          "Bus shelters are more important than schedules",
+          "City residents no longer drive cars"
+        ],
+        "answer": "Coordinated transit improvements can encourage more people to ride buses",
+        "explain": "The answer includes the combined changes and the measured increase without overstating causation."
+      },
+      {
+        "type": "mc",
+        "q": "A writer gives three examples of students repairing, sharing, and repurposing old devices. What key idea do the examples develop?",
+        "choices": [
+          "Extending a device's life can reduce electronic waste",
+          "New devices are never useful",
+          "Repairs require no skill",
+          "All electronic waste comes from schools"
+        ],
+        "answer": "Extending a device's life can reduce electronic waste",
+        "explain": "Repair, sharing, and repurposing are connected ways to keep electronics in use longer."
+      },
+      {
+        "type": "mc",
+        "q": "Paragraph 1 describes a drought. Paragraph 2 explains a town's water schedule. Paragraph 3 reports lower use. What is the passage mainly about?",
+        "choices": [
+          "A town responded to drought with a plan that reduced water use",
+          "Droughts end whenever towns publish schedules",
+          "Water schedules increase rainfall",
+          "The town measured only household income"
+        ],
+        "answer": "A town responded to drought with a plan that reduced water use",
+        "explain": "The central idea links the problem, response, and outcome across all three paragraphs."
+      },
+      {
+        "type": "mc",
+        "q": "A passage notes that murals brighten blank walls, preserve neighborhood stories, and create paid work for artists. Which proposed central idea is too narrow?",
+        "choices": [
+          "Murals make blank walls more colorful",
+          "Public murals can provide cultural, visual, and economic value",
+          "Community art can serve several purposes",
+          "Murals may strengthen a neighborhood in multiple ways"
+        ],
+        "answer": "Murals make blank walls more colorful",
+        "explain": "Color addresses only one of the passage's three major lines of support."
+      },
+      {
+        "type": "mc",
+        "q": "Which revision turns the topic 'urban trees' into a precise central-idea statement?",
+        "choices": [
+          "Urban trees cool streets, filter air, and make walking routes more comfortable",
+          "Urban trees",
+          "There are trees in many places",
+          "This paragraph is about nature"
+        ],
+        "answer": "Urban trees cool streets, filter air, and make walking routes more comfortable",
+        "explain": "A central idea makes a complete claim that unifies the text's important details."
+      },
+      {
+        "type": "mc",
+        "q": "A passage says a student podcast required research, interviewing, fact-checking, and audio editing. Which inference best refines the central idea?",
+        "choices": [
+          "Producing a reliable podcast combines communication skills with careful verification",
+          "Podcasting requires only a microphone",
+          "Editing makes research unnecessary",
+          "Interviews guarantee that every claim is true"
+        ],
+        "answer": "Producing a reliable podcast combines communication skills with careful verification",
+        "explain": "The listed tasks show that both presentation and verification are essential to the finished product."
+      },
+      {
+        "type": "mc",
+        "q": "Two paragraphs describe a wetland first as unused land and later as flood protection after a major storm. Why is the storm detail important to the key idea?",
+        "choices": [
+          "It demonstrates the wetland's practical value when flooding occurs",
+          "It proves wetlands prevent every flood",
+          "It changes the text into a biography",
+          "It shows storms improve land prices"
+        ],
+        "answer": "It demonstrates the wetland's practical value when flooding occurs",
+        "explain": "The storm supplies concrete evidence that the wetland performs a protective function."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: If every major detail explains a different way public libraries help residents, 'Libraries serve communities in several ways' can function as the central idea.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The statement is broad enough to unite the major details while remaining focused on the passage."
+      },
+      {
+        "type": "mc",
+        "q": "A passage presents one study showing later school start times improved attendance, then notes that transportation schedules became harder to coordinate. Which central idea is most accurate?",
+        "choices": [
+          "Later start times may improve attendance but can create scheduling tradeoffs",
+          "Later start times solve every school problem",
+          "Transportation concerns disprove the attendance data",
+          "Attendance and schedules are unrelated"
+        ],
+        "answer": "Later start times may improve attendance but can create scheduling tradeoffs",
+        "explain": "The best central idea represents both the reported benefit and the logistical limitation."
+      },
+      {
+        "type": "mc",
+        "q": "Which detail would most weaken a proposed central idea that a new trail increased park access for all neighborhoods?",
+        "choices": [
+          "Transit data show two neighborhoods still have no practical route to the trail",
+          "The trail is three miles long",
+          "Trail signs use green lettering",
+          "The ribbon-cutting occurred in May"
+        ],
+        "answer": "Transit data show two neighborhoods still have no practical route to the trail",
+        "explain": "The access gap directly challenges the inclusive phrase 'for all neighborhoods.'"
+      },
+      {
+        "type": "mc",
+        "q": "Source A reports that rooftop gardens lower summer roof temperatures. Source B reports that installation costs can be high. Which synthesis states a defensible central idea?",
+        "choices": [
+          "Rooftop gardens offer cooling benefits, but cost can limit adoption",
+          "Rooftop gardens are free cooling systems",
+          "High costs mean rooftop gardens never help",
+          "The sources discuss unrelated topics"
+        ],
+        "answer": "Rooftop gardens offer cooling benefits, but cost can limit adoption",
+        "explain": "The synthesis preserves the benefit from Source A and the constraint from Source B."
+      },
+      {
+        "type": "mc",
+        "q": "An article opens with one family's power outage, explains weaknesses in a regional grid, and ends with proposed upgrades. Which central idea best reflects the whole article?",
+        "choices": [
+          "A family's experience illustrates why broader grid improvements are needed",
+          "One family caused a regional outage",
+          "The article is mainly a list of appliances",
+          "Grid upgrades eliminate all severe weather"
+        ],
+        "answer": "A family's experience illustrates why broader grid improvements are needed",
+        "explain": "The individual example introduces a system-level problem and the proposed response."
+      },
+      {
+        "type": "mc",
+        "q": "A student claims the central idea is 'Robots are good.' The text compares robots' precision in dangerous jobs with concerns about training displaced workers. Which revision is strongest?",
+        "choices": [
+          "Robots can improve safety and precision, but their adoption requires workforce planning",
+          "Robots are good because technology is modern",
+          "Robots should replace every worker immediately",
+          "Training workers prevents robots from being precise"
+        ],
+        "answer": "Robots can improve safety and precision, but their adoption requires workforce planning",
+        "explain": "The revised idea is specific, balanced, and supported by both sides of the comparison."
+      },
+      {
+        "type": "mc",
+        "q": "A historical passage details rationing, victory gardens, factory conversions, and volunteer drives during wartime. Which key idea requires synthesizing rather than copying one detail?",
+        "choices": [
+          "Civilians changed daily life and production to support the national war effort",
+          "Families planted victory gardens",
+          "Factories produced military supplies",
+          "Volunteers organized collection drives"
+        ],
+        "answer": "Civilians changed daily life and production to support the national war effort",
+        "explain": "The first choice combines several distinct details into a broader understanding."
+      },
+      {
+        "type": "mc",
+        "q": "Two reports agree a river is warming; one emphasizes reduced shade, while the other emphasizes warm industrial discharge. What is the most responsible central-idea conclusion?",
+        "choices": [
+          "Multiple documented factors may be contributing to the river's rising temperature",
+          "Only reduced shade can explain the warming",
+          "Only industry can explain the warming",
+          "Because causes differ, the temperature data must be false"
+        ],
+        "answer": "Multiple documented factors may be contributing to the river's rising temperature",
+        "explain": "The shared result and different supported causes justify a multi-factor conclusion, not an exclusive claim."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “Source A reports that rooftop gardens lower summer roof temperatures. Source B reports that installation costs can be high. Which synthesis states a defensible central idea”?",
+        "choices": [
+          "Rooftop gardens offer cooling benefits, but cost can limit adoption",
+          "Rooftop gardens are free cooling systems",
+          "High costs mean rooftop gardens never help",
+          "The sources discuss unrelated topics"
+        ],
+        "answer": "Rooftop gardens offer cooling benefits, but cost can limit adoption",
+        "explain": "The synthesis preserves the benefit from Source A and the constraint from Source B. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “An article opens with one family's power outage, explains weaknesses in a regional grid, and ends with proposed upgrades. Which central idea best reflects the whole article”?",
+        "choices": [
+          "A family's experience illustrates why broader grid improvements are needed",
+          "One family caused a regional outage",
+          "The article is mainly a list of appliances",
+          "Grid upgrades eliminate all severe weather"
+        ],
+        "answer": "A family's experience illustrates why broader grid improvements are needed",
+        "explain": "The individual example introduces a system-level problem and the proposed response. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      }
+    ]
+  },
+  "g8:eng:L2": {
+    "name": "Text Structure",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Text structure means...",
+        "choices": [
+          "How many pages there are",
+          "How information is organized",
+          "Unrelated meaning",
+          "The author's name"
+        ],
+        "answer": "How information is organized",
+        "audio": "Text structure."
+      },
+      {
+        "type": "mc",
+        "q": "Cause and effect explains...",
+        "choices": [
+          "Only a list of names",
+          "Why something happened and what resulted",
+          "Compare and contrast",
+          "Only where something happened"
+        ],
+        "answer": "Why something happened and what resulted",
+        "audio": "Text structure."
+      },
+      {
+        "type": "mc",
+        "q": "Compare and contrast shows...",
+        "choices": [
+          "Only definitions",
+          "Unrelated meaning",
+          "Similarities and differences",
+          "Only dates"
+        ],
+        "answer": "Similarities and differences",
+        "audio": "Text structure."
+      },
+      {
+        "type": "mc",
+        "q": "A paragraph lists the stages of a butterfly from egg to adult. Which structure does it use?",
+        "choices": [
+          "sequence",
+          "compare and contrast",
+          "problem and solution",
+          "cause and effect"
+        ],
+        "answer": "sequence",
+        "explain": "Life-cycle stages are presented in chronological order."
+      },
+      {
+        "type": "mc",
+        "q": "A text explains similarities and differences between solar and wind power. Which structure is primary?",
+        "choices": [
+          "compare and contrast",
+          "chronological order",
+          "description only",
+          "question and answer"
+        ],
+        "answer": "compare and contrast",
+        "explain": "The author organizes information around shared and differing features."
+      },
+      {
+        "type": "mc",
+        "q": "An article describes polluted runoff and then proposes rain gardens as a response. Which structure is central?",
+        "choices": [
+          "problem and solution",
+          "sequence",
+          "classification",
+          "biography"
+        ],
+        "answer": "problem and solution",
+        "explain": "Polluted runoff is the problem, and rain gardens are presented as a solution."
+      },
+      {
+        "type": "mc",
+        "q": "A paragraph explains that warm ocean water supplies energy, causing a hurricane to strengthen. Which structure is used?",
+        "choices": [
+          "cause and effect",
+          "compare and contrast",
+          "spatial order",
+          "definition"
+        ],
+        "answer": "cause and effect",
+        "explain": "The paragraph connects a condition with its resulting change."
+      },
+      {
+        "type": "mc",
+        "q": "Why might an author use description to introduce a coral reef?",
+        "choices": [
+          "To help readers visualize the setting before explaining its ecology",
+          "To prove one event caused another",
+          "To rank every reef by age",
+          "To present steps in an experiment"
+        ],
+        "answer": "To help readers visualize the setting before explaining its ecology",
+        "explain": "Sensory and spatial details build a mental picture that supports later explanation."
+      },
+      {
+        "type": "mc",
+        "q": "An essay first defines food insecurity, then presents local statistics, and finally evaluates two responses. How does this organization serve the purpose?",
+        "choices": [
+          "It builds background before readers compare possible solutions",
+          "It hides the topic until the conclusion",
+          "It proves statistics are always solutions",
+          "It arranges all details alphabetically"
+        ],
+        "answer": "It builds background before readers compare possible solutions",
+        "explain": "Definition and evidence prepare readers to assess the responses intelligently."
+      },
+      {
+        "type": "mc",
+        "q": "A profile alternates between an engineer's childhood and her present-day project. What effect does this non-linear structure create?",
+        "choices": [
+          "It shows how earlier experiences shaped her current work",
+          "It makes the timeline strictly chronological",
+          "It removes every connection between past and present",
+          "It turns the profile into instructions"
+        ],
+        "answer": "It shows how earlier experiences shaped her current work",
+        "explain": "Alternating time periods invites readers to connect formative events with present choices."
+      },
+      {
+        "type": "mc",
+        "q": "A climate article moves from global temperature patterns to effects in one Texas county. Why use this broad-to-specific structure?",
+        "choices": [
+          "To connect a large-scale trend to a concrete local example",
+          "To argue that the county controls global climate",
+          "To avoid giving any evidence",
+          "To compare two unrelated biographies"
+        ],
+        "answer": "To connect a large-scale trend to a concrete local example",
+        "explain": "The local case makes the global pattern tangible and relevant."
+      },
+      {
+        "type": "mc",
+        "q": "A writer places two eyewitness accounts of the same event side by side. How does this structure support the writer's purpose?",
+        "choices": [
+          "It highlights how perspective can shape an account",
+          "It guarantees both witnesses remember identically",
+          "It establishes a step-by-step procedure",
+          "It proves eyewitness evidence is useless"
+        ],
+        "answer": "It highlights how perspective can shape an account",
+        "explain": "Juxtaposition makes similarities and differences in perspective visible."
+      },
+      {
+        "type": "mc",
+        "q": "A safety guide uses headings for 'Before,' 'During,' and 'After' a storm. What is the strongest analysis?",
+        "choices": [
+          "The time-based sections help readers locate actions for each stage quickly",
+          "The headings create a fictional plot",
+          "The guide uses cause and effect only",
+          "The headings make the advice less usable"
+        ],
+        "answer": "The time-based sections help readers locate actions for each stage quickly",
+        "explain": "Chronological headings organize practical actions around when they are needed."
+      },
+      {
+        "type": "mc",
+        "q": "An author begins an argument with a common objection, answers it with evidence, and then states a proposal. What purpose does this structure serve?",
+        "choices": [
+          "It addresses reader resistance before advancing the proposal",
+          "It conceals the author's claim permanently",
+          "It replaces evidence with emotion",
+          "It presents events in historical order"
+        ],
+        "answer": "It addresses reader resistance before advancing the proposal",
+        "explain": "Answering the objection anticipates skepticism and prepares the audience for the proposal."
+      },
+      {
+        "type": "mc",
+        "q": "A paragraph describes a declining bee population, gives several possible causes, and rates the evidence for each. Which structure best describes it?",
+        "choices": [
+          "problem followed by analysis of multiple causes",
+          "simple chronological sequence",
+          "comparison without a shared issue",
+          "spatial description of a hive"
+        ],
+        "answer": "problem followed by analysis of multiple causes",
+        "explain": "The decline frames the problem, and the author evaluates possible causal explanations."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Organizing a text from a familiar example to an abstract principle can help readers use prior understanding to grasp a complex idea.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A concrete-to-abstract structure scaffolds the unfamiliar principle with an accessible example."
+      },
+      {
+        "type": "mc",
+        "q": "A conservation essay repeats the same image of an empty reservoir at the beginning and end. How does the circular structure contribute to purpose?",
+        "choices": [
+          "It creates closure and reinforces the urgency of the water problem",
+          "It introduces an unrelated second topic",
+          "It proves the reservoir refilled",
+          "It removes the need for a conclusion"
+        ],
+        "answer": "It creates closure and reinforces the urgency of the water problem",
+        "explain": "Returning to the opening image unifies the essay and leaves the central concern prominent."
+      },
+      {
+        "type": "mc",
+        "q": "A report embeds a short case study between national data and policy recommendations. Why is that placement effective?",
+        "choices": [
+          "The case illustrates the data before readers evaluate the recommendations",
+          "The case replaces the need for national evidence",
+          "The placement makes the report chronological",
+          "The case proves one policy fits every community"
+        ],
+        "answer": "The case illustrates the data before readers evaluate the recommendations",
+        "explain": "The example bridges general evidence and proposed action without claiming universal proof."
+      },
+      {
+        "type": "mc",
+        "q": "Text A presents two energy plans in separate sections. Text B compares each feature in paired paragraphs. Which structure better supports rapid feature-by-feature comparison?",
+        "choices": [
+          "Text B's point-by-point structure",
+          "Text A's subject-by-subject structure",
+          "Both structures prevent comparison",
+          "Neither text has an organization"
+        ],
+        "answer": "Text B's point-by-point structure",
+        "explain": "Paired treatment places corresponding features near one another, reducing the reader's need to recall an entire section."
+      },
+      {
+        "type": "mc",
+        "q": "An investigative article reveals evidence in the order reporters discovered it rather than the order events occurred. What effect is most likely?",
+        "choices": [
+          "Readers experience the inquiry and changing conclusions alongside the reporters",
+          "Readers receive a perfectly linear event timeline",
+          "The evidence becomes automatically unreliable",
+          "The article becomes a dictionary entry"
+        ],
+        "answer": "Readers experience the inquiry and changing conclusions alongside the reporters",
+        "explain": "Discovery order emphasizes the reasoning process and how the explanation developed."
+      },
+      {
+        "type": "mc",
+        "q": "A policy essay uses cause-and-effect paragraphs but ends with a comparison table. How do the structures work together?",
+        "choices": [
+          "The paragraphs explain consequences, while the table helps readers weigh options",
+          "The table cancels all earlier causal evidence",
+          "Both structures merely list dates",
+          "The comparison table proves causation by itself"
+        ],
+        "answer": "The paragraphs explain consequences, while the table helps readers weigh options",
+        "explain": "Each structure serves a different part of the purpose: explanation first, evaluation second."
+      },
+      {
+        "type": "mc",
+        "q": "A student wants to persuade readers to adopt a complex recycling plan. Which organization is most effective?",
+        "choices": [
+          "Establish the waste problem, explain the plan in stages, address objections, then show likely benefits",
+          "List unrelated facts in random order",
+          "State the conclusion repeatedly without evidence",
+          "Begin with minor exceptions and omit the plan"
+        ],
+        "answer": "Establish the waste problem, explain the plan in stages, address objections, then show likely benefits",
+        "explain": "The selected sequence builds need, clarity, credibility, and a reason to act."
+      },
+      {
+        "type": "mc",
+        "q": "An author describes two neighborhoods separately and concludes that transit access differs because of past zoning. What revision would make the causal thesis easiest to evaluate?",
+        "choices": [
+          "Add a point-by-point section linking zoning differences to current transit outcomes",
+          "Delete all zoning evidence",
+          "Move the conclusion before both neighborhood descriptions and stop there",
+          "Replace the comparison with a poem"
+        ],
+        "answer": "Add a point-by-point section linking zoning differences to current transit outcomes",
+        "explain": "Explicitly pairing historical policies with present outcomes exposes the causal reasoning for readers to test."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “Text A presents two energy plans in separate sections. Text B compares each feature in paired paragraphs. Which structure better supports rapid feature-by-feature comparison”?",
+        "choices": [
+          "Text B's point-by-point structure",
+          "Text A's subject-by-subject structure",
+          "Both structures prevent comparison",
+          "Neither text has an organization"
+        ],
+        "answer": "Text B's point-by-point structure",
+        "explain": "Paired treatment places corresponding features near one another, reducing the reader's need to recall an entire section. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “An investigative article reveals evidence in the order reporters discovered it rather than the order events occurred. What effect is most likely”?",
+        "choices": [
+          "Readers experience the inquiry and changing conclusions alongside the reporters",
+          "Readers receive a perfectly linear event timeline",
+          "The evidence becomes automatically unreliable",
+          "The article becomes a dictionary entry"
+        ],
+        "answer": "Readers experience the inquiry and changing conclusions alongside the reporters",
+        "explain": "Discovery order emphasizes the reasoning process and how the explanation developed. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      }
+    ]
+  },
+  "g8:eng:L3": {
+    "name": "Argument & Claims",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "A claim is...",
+        "choices": [
+          "The last word in a sentence",
+          "A random fact with no point",
+          "A statement the writer tries to prove",
+          "None of these"
+        ],
+        "answer": "A statement the writer tries to prove",
+        "audio": "Claims and evidence."
+      },
+      {
+        "type": "mc",
+        "q": "Strong evidence should be...",
+        "choices": [
+          "Unrelated and confusing",
+          "Relevant and specific",
+          "Only an opinion",
+          "Personal opinion"
+        ],
+        "answer": "Relevant and specific",
+        "audio": "Claims and evidence."
+      },
+      {
+        "type": "mc",
+        "q": "An argument needs a claim and...",
+        "choices": [
+          "Evidence",
+          "Personal opinion",
+          "A title only",
+          "A drawing only"
+        ],
+        "answer": "Evidence",
+        "audio": "Claims and evidence."
+      },
+      {
+        "type": "mc",
+        "q": "Which sentence is a claim that can be supported with evidence?",
+        "choices": [
+          "The city should add protected bike lanes near schools",
+          "Blue is the nicest color",
+          "Wow, what a wonderful day!",
+          "Please pass the map"
+        ],
+        "answer": "The city should add protected bike lanes near schools",
+        "explain": "The bike-lane statement takes a debatable position that evidence can support or challenge."
+      },
+      {
+        "type": "mc",
+        "q": "Claim: The cafeteria should offer more plant-based meals. Which evidence is most relevant?",
+        "choices": [
+          "A student survey and sales data show strong demand for additional plant-based choices",
+          "The cafeteria walls were painted last summer",
+          "Many students carry backpacks",
+          "The school mascot is a hawk"
+        ],
+        "answer": "A student survey and sales data show strong demand for additional plant-based choices",
+        "explain": "Demand and purchasing data directly address whether the proposed meals would serve students."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement is a reason rather than evidence?",
+        "choices": [
+          "Later buses would allow more students to attend tutoring",
+          "Attendance logs show 63 students left tutoring early because buses departed",
+          "A transportation survey was completed by 410 families",
+          "The district recorded bus departure times for six weeks"
+        ],
+        "answer": "Later buses would allow more students to attend tutoring",
+        "explain": "The first statement explains why the claim might be valid; the others report observable data."
+      },
+      {
+        "type": "mc",
+        "q": "An argument says, 'Everyone online agrees, so the policy must be correct.' What is the main weakness?",
+        "choices": [
+          "Popularity does not establish that the policy is sound",
+          "Online sources can never contain facts",
+          "Policies do not need reasons",
+          "Agreement is numerical data that proves causation"
+        ],
+        "answer": "Popularity does not establish that the policy is sound",
+        "explain": "The statement relies on popularity instead of evaluating relevant evidence."
+      },
+      {
+        "type": "mc",
+        "q": "What does a counterargument do?",
+        "choices": [
+          "Presents a reasonable opposing position for the writer to address",
+          "Repeats the claim using louder language",
+          "Introduces an unrelated topic",
+          "Guarantees the original claim is false"
+        ],
+        "answer": "Presents a reasonable opposing position for the writer to address",
+        "explain": "A counterargument represents an alternative view that a strong argument considers fairly."
+      },
+      {
+        "type": "mc",
+        "q": "Claim: Homework should be limited on weekends. Which reason best supports the claim?",
+        "choices": [
+          "A reasonable limit can preserve practice while allowing time for rest and family responsibilities",
+          "Weekends occur after Friday",
+          "Some assignments use paper",
+          "Teachers have desks"
+        ],
+        "answer": "A reasonable limit can preserve practice while allowing time for rest and family responsibilities",
+        "explain": "The reason connects the proposed limit to a defensible balance of learning and well-being."
+      },
+      {
+        "type": "mc",
+        "q": "A writer cites one athlete who improved after drinking a product and concludes it works for everyone. Why is the evidence insufficient?",
+        "choices": [
+          "One person's result cannot establish a general effect for all users",
+          "Athletes are never credible sources",
+          "Products cannot be studied",
+          "Improvement is always imaginary"
+        ],
+        "answer": "One person's result cannot establish a general effect for all users",
+        "explain": "The sample is too narrow and does not rule out other explanations."
+      },
+      {
+        "type": "mc",
+        "q": "Which evidence would most strengthen a claim that a tutoring program improved algebra performance?",
+        "choices": [
+          "Scores rose for participants compared with similar nonparticipants across the same semester",
+          "One participant said the tutor was friendly",
+          "The tutoring room has twelve chairs",
+          "The program's logo uses bright colors"
+        ],
+        "answer": "Scores rose for participants compared with similar nonparticipants across the same semester",
+        "explain": "A comparison across similar groups directly tests the claimed academic effect."
+      },
+      {
+        "type": "mc",
+        "q": "An author acknowledges that a park renovation costs money, then shows reduced flood damage and maintenance expenses over ten years. What strategy is used?",
+        "choices": [
+          "Conceding a short-term cost and rebutting it with long-term evidence",
+          "Avoiding the counterargument",
+          "Using circular reasoning",
+          "Changing the subject to recreation"
+        ],
+        "answer": "Conceding a short-term cost and rebutting it with long-term evidence",
+        "explain": "The author fairly notes the cost before showing why later savings may outweigh it."
+      },
+      {
+        "type": "mc",
+        "q": "Which source is most credible for a claim about local water quality?",
+        "choices": [
+          "A dated laboratory report that explains sampling sites and methods",
+          "An anonymous post saying the water looks odd",
+          "An advertisement for bottled water",
+          "A rumor repeated without a source"
+        ],
+        "answer": "A dated laboratory report that explains sampling sites and methods",
+        "explain": "Transparent methods and traceable measurements make the laboratory report most useful and verifiable."
+      },
+      {
+        "type": "mc",
+        "q": "An argument uses accurate statistics from 2004 to justify a 2026 technology policy. What question should a reader ask first?",
+        "choices": [
+          "Are the data current enough to represent today's technology use?",
+          "Are all statistics written with commas?",
+          "Does the author like technology?",
+          "Was 2004 a leap year?"
+        ],
+        "answer": "Are the data current enough to represent today's technology use?",
+        "explain": "Relevance depends partly on whether conditions have changed since the evidence was collected."
+      },
+      {
+        "type": "mc",
+        "q": "Claim: Replacing one parking lane with trees will reduce summer sidewalk temperatures. Which evidence chain is logically strongest?",
+        "choices": [
+          "Trees add shade; shaded test blocks measured lower midday temperatures than comparable unshaded blocks",
+          "Trees are green; green is cool; therefore every street will cool",
+          "People like parks; trees grow in parks; therefore parking is harmful",
+          "Summer is hot; sidewalks are concrete; therefore any tree plan succeeds"
+        ],
+        "answer": "Trees add shade; shaded test blocks measured lower midday temperatures than comparable unshaded blocks",
+        "explain": "The strongest chain provides a mechanism and a controlled comparison related to the stated outcome."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: An argument becomes stronger merely by including more sources, even when those sources repeat the same unsupported claim.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Source quantity cannot replace independence, relevance, credibility, and actual supporting evidence."
+      },
+      {
+        "type": "mc",
+        "q": "A survey reports 82% support, but only volunteers from the debate club responded. What limitation matters most?",
+        "choices": [
+          "The voluntary, narrow sample may not represent the whole school",
+          "Percentages can never describe opinions",
+          "Debate students are unable to answer surveys",
+          "A majority must always be exactly 75%"
+        ],
+        "answer": "The voluntary, narrow sample may not represent the whole school",
+        "explain": "Sampling only one self-selected group can bias the result away from the broader population."
+      },
+      {
+        "type": "mc",
+        "q": "Which rebuttal most directly answers the counterargument that a school garden will require too much summer care?",
+        "choices": [
+          "Partner with a nearby community garden and publish a rotating volunteer schedule before approval",
+          "Gardens are beautiful",
+          "Students studied plants last year",
+          "Summer weather is sometimes hot"
+        ],
+        "answer": "Partner with a nearby community garden and publish a rotating volunteer schedule before approval",
+        "explain": "The response proposes a concrete way to manage the exact concern about summer maintenance."
+      },
+      {
+        "type": "mc",
+        "q": "Two studies reach opposite conclusions about screen time. Study A follows 40 volunteers for one week; Study B follows 2,000 randomly selected students for a year and controls for sleep. Which analysis is best?",
+        "choices": [
+          "Study B offers stronger evidence because its sample, duration, and controls reduce key limitations",
+          "Study A must be right because it is shorter",
+          "Both studies are equally strong solely because both use numbers",
+          "Study B proves every kind of screen use has the same effect"
+        ],
+        "answer": "Study B offers stronger evidence because its sample, duration, and controls reduce key limitations",
+        "explain": "The design features of Study B make its conclusion more dependable, though not unlimited."
+      },
+      {
+        "type": "mc",
+        "q": "An editorial claims a curfew reduced vandalism because incidents fell after it began. Which missing evidence would best test the causal claim?",
+        "choices": [
+          "Whether comparable areas without the curfew saw similar declines during the same period",
+          "The exact font used in the ordinance",
+          "How many words appear in the editorial",
+          "Whether residents enjoy sunsets"
+        ],
+        "answer": "Whether comparable areas without the curfew saw similar declines during the same period",
+        "explain": "A comparison group helps distinguish the curfew's effect from broader changes over time."
+      },
+      {
+        "type": "mc",
+        "q": "A writer quotes a solar-company executive to support tax credits and discloses the executive's role. How should a reader use the quotation?",
+        "choices": [
+          "Consider the expertise but corroborate the interested source with independent evidence",
+          "Reject it automatically because experts are never useful",
+          "Accept it automatically because the role is disclosed",
+          "Treat disclosure as proof the claim is unbiased"
+        ],
+        "answer": "Consider the expertise but corroborate the interested source with independent evidence",
+        "explain": "The source may know the field but also has an interest, so independent confirmation is important."
+      },
+      {
+        "type": "mc",
+        "q": "Which revision fixes circular reasoning in 'The rule is fair because it is a fair rule'?",
+        "choices": [
+          "The rule applies the same published criteria to every applicant and includes an appeal process",
+          "The rule is fair because fairness matters",
+          "Everyone knows the rule is fair",
+          "The fair rule is unquestionably fair"
+        ],
+        "answer": "The rule applies the same published criteria to every applicant and includes an appeal process",
+        "explain": "The revision replaces the repeated conclusion with testable reasons related to consistency and review."
+      },
+      {
+        "type": "mc",
+        "q": "An argument combines lower crash rates, resident interviews, and traffic-speed measurements after a street redesign. Why is this evidence set persuasive?",
+        "choices": [
+          "Different relevant evidence types converge on safety outcomes and lived experience",
+          "Interviews alone prove the redesign caused every change",
+          "Crash data make speed measurements unnecessary",
+          "Using three sources guarantees there are no limitations"
+        ],
+        "answer": "Different relevant evidence types converge on safety outcomes and lived experience",
+        "explain": "Converging quantitative and qualitative evidence supports the claim from multiple angles without eliminating the need for scrutiny."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “Two studies reach opposite conclusions about screen time. Study A follows 40 volunteers for one week; Study B follows 2,000 randomly selected students for a year and controls for sleep. Which analysis is best”?",
+        "choices": [
+          "Study B offers stronger evidence because its sample, duration, and controls reduce key limitations",
+          "Study A must be right because it is shorter",
+          "Both studies are equally strong solely because both use numbers",
+          "Study B proves every kind of screen use has the same effect"
+        ],
+        "answer": "Study B offers stronger evidence because its sample, duration, and controls reduce key limitations",
+        "explain": "The design features of Study B make its conclusion more dependable, though not unlimited. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “An editorial claims a curfew reduced vandalism because incidents fell after it began. Which missing evidence would best test the causal claim”?",
+        "choices": [
+          "Whether comparable areas without the curfew saw similar declines during the same period",
+          "The exact font used in the ordinance",
+          "How many words appear in the editorial",
+          "Whether residents enjoy sunsets"
+        ],
+        "answer": "Whether comparable areas without the curfew saw similar declines during the same period",
+        "explain": "A comparison group helps distinguish the curfew's effect from broader changes over time. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      }
+    ]
+  },
+  "g8:eng:L4": {
+    "name": "Parts of Speech (Drag)",
+    "questions": [
+      {
+        "type": "drag",
+        "q": "Drag each word to the correct answer.",
+        "pairs": [
+          {
+            "left": "analysis",
+            "right": "Noun"
+          },
+          {
+            "left": "argue",
+            "right": "Verb"
+          },
+          {
+            "left": "carefully",
+            "right": "Adverb"
+          },
+          {
+            "left": "powerful",
+            "right": "Adjective"
+          }
+        ],
+        "audio": "Drag the pairs to match them."
+      },
+      {
+        "type": "mc",
+        "q": "In 'The cautious hikers checked the map,' what part of speech is 'cautious'?",
+        "choices": [
+          "adjective",
+          "noun",
+          "adverb",
+          "preposition"
+        ],
+        "answer": "adjective",
+        "explain": "Cautious modifies the noun hikers, so it functions as an adjective."
+      },
+      {
+        "type": "mc",
+        "q": "In 'The river rose quickly,' what part of speech is 'quickly'?",
+        "choices": [
+          "adverb",
+          "verb",
+          "pronoun",
+          "conjunction"
+        ],
+        "answer": "adverb",
+        "explain": "Quickly modifies the verb rose by telling how the action happened."
+      },
+      {
+        "type": "mc",
+        "q": "In 'They carried supplies across the bridge,' what part of speech is 'across'?",
+        "choices": [
+          "preposition",
+          "adjective",
+          "interjection",
+          "noun"
+        ],
+        "answer": "preposition",
+        "explain": "Across begins a phrase that relates carried to the bridge."
+      },
+      {
+        "type": "mc",
+        "q": "In 'Maya researched and drafted the report,' what part of speech is 'and'?",
+        "choices": [
+          "coordinating conjunction",
+          "pronoun",
+          "adverb",
+          "preposition"
+        ],
+        "answer": "coordinating conjunction",
+        "explain": "And joins the two equal verbs researched and drafted."
+      },
+      {
+        "type": "mc",
+        "q": "A dictionary labels 'resilient' as adj. What does that abbreviation identify?",
+        "choices": [
+          "adjective",
+          "adverb",
+          "article",
+          "auxiliary verb"
+        ],
+        "answer": "adjective",
+        "explain": "The dictionary abbreviation adj. marks the word's part of speech as adjective."
+      },
+      {
+        "type": "mc",
+        "q": "In 'The light backpack felt comfortable,' how does 'light' function?",
+        "choices": [
+          "an adjective meaning not heavy",
+          "a noun meaning illumination",
+          "a verb meaning to ignite",
+          "an adverb modifying felt"
+        ],
+        "answer": "an adjective meaning not heavy",
+        "explain": "Here light modifies backpack and its context selects the 'not heavy' adjective sense."
+      },
+      {
+        "type": "mc",
+        "q": "In 'Please record the results,' a dictionary lists record as noun /REK-erd/ and verb /ri-KORD/. Which entry fits?",
+        "choices": [
+          "the verb entry /ri-KORD/",
+          "the noun entry /REK-erd/",
+          "the adjective entry",
+          "the preposition entry"
+        ],
+        "answer": "the verb entry /ri-KORD/",
+        "explain": "Record follows please and names the requested action, so the verb entry and pronunciation fit."
+      },
+      {
+        "type": "mc",
+        "q": "Which sentence uses 'conduct' as a noun?",
+        "choices": [
+          "The orchestra admired the conductor's professional conduct.",
+          "The scientist will conduct the trial.",
+          "Teams conduct interviews tomorrow.",
+          "Please conduct the current through the wire."
+        ],
+        "answer": "The orchestra admired the conductor's professional conduct.",
+        "explain": "In the first sentence, conduct names behavior and is the object of admired."
+      },
+      {
+        "type": "mc",
+        "q": "In 'After the alarm sounded, we left,' what role does 'after' play?",
+        "choices": [
+          "subordinating conjunction",
+          "coordinating conjunction",
+          "adjective",
+          "interjection"
+        ],
+        "answer": "subordinating conjunction",
+        "explain": "After introduces the dependent clause 'After the alarm sounded.'"
+      },
+      {
+        "type": "mc",
+        "q": "Which resource feature most directly helps determine whether 'object' is a noun or verb in a sentence?",
+        "choices": [
+          "part-of-speech labels paired with example sentences",
+          "the guide words at the top of a page",
+          "the copyright date alone",
+          "the word's alphabetical position"
+        ],
+        "answer": "part-of-speech labels paired with example sentences",
+        "explain": "Labels and contextual examples show the grammatical uses readers must distinguish."
+      },
+      {
+        "type": "mc",
+        "q": "In 'The committee considered the proposal carefully,' which analysis is correct?",
+        "choices": [
+          "'proposal' is a noun receiving the action, and 'carefully' is an adverb modifying considered",
+          "'proposal' is an adverb, and 'carefully' is a noun",
+          "both words are prepositions",
+          "both words are verbs"
+        ],
+        "answer": "'proposal' is a noun receiving the action, and 'carefully' is an adverb modifying considered",
+        "explain": "Proposal names what was considered; carefully explains how it was considered."
+      },
+      {
+        "type": "mc",
+        "q": "The word 'impact' is listed as both noun and verb. In 'The changes may impact attendance,' what evidence identifies its role?",
+        "choices": [
+          "It follows the modal 'may' and expresses an action, so it is a verb",
+          "It ends the sentence, so it must be a noun",
+          "It has two syllables, so it is an adjective",
+          "It refers to attendance, so it is a preposition"
+        ],
+        "answer": "It follows the modal 'may' and expresses an action, so it is a verb",
+        "explain": "A base-form verb follows the modal may, and impact expresses what the changes may do."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: In the sentence 'Before lunch, we rehearsed,' the word 'before' functions as a preposition because it has the object 'lunch.'",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Before introduces the prepositional phrase 'before lunch'; it does not introduce a clause in this sentence."
+      },
+      {
+        "type": "mc",
+        "q": "Compare: 'Since Tuesday, attendance has risen' and 'Since the route changed, attendance has risen.' How does 'since' change?",
+        "choices": [
+          "It is a preposition before 'Tuesday' and a subordinating conjunction before the clause",
+          "It is a noun in both sentences",
+          "It is an adjective first and an adverb second",
+          "It is a coordinating conjunction in both sentences"
+        ],
+        "answer": "It is a preposition before 'Tuesday' and a subordinating conjunction before the clause",
+        "explain": "A noun object follows since in the first; a subject-verb clause follows it in the second."
+      },
+      {
+        "type": "mc",
+        "q": "A learner sees 'abstract: adjective; noun; verb' in a dictionary. In 'The summary abstracts the main findings,' which clue selects the verb?",
+        "choices": [
+          "The word follows the subject and shows what the summary does",
+          "The word begins with a vowel",
+          "Main is an adjective",
+          "Findings is plural"
+        ],
+        "answer": "The word follows the subject and shows what the summary does",
+        "explain": "Its sentence position and meaning show that abstracts is the predicate action."
+      },
+      {
+        "type": "mc",
+        "q": "Which analysis of 'that' is accurate in 'The model that won is efficient' and 'That model is efficient'?",
+        "choices": [
+          "It is a relative pronoun in the first and a demonstrative adjective in the second",
+          "It is an adverb in both",
+          "It is a verb in the first and noun in the second",
+          "It is a preposition in both"
+        ],
+        "answer": "It is a relative pronoun in the first and a demonstrative adjective in the second",
+        "explain": "The first that introduces a relative clause and stands for model; the second directly modifies model."
+      },
+      {
+        "type": "mc",
+        "q": "In 'Running water powers the turbine,' a student calls 'running' the main verb. What is the best correction?",
+        "choices": [
+          "'Running' is a participial adjective modifying water; 'powers' is the main verb",
+          "'Running' and 'water' are both main verbs",
+          "'Powers' is a preposition",
+          "'Running' is a coordinating conjunction"
+        ],
+        "answer": "'Running' is a participial adjective modifying water; 'powers' is the main verb",
+        "explain": "Running describes the kind of water, while powers carries tense and states the sentence's action."
+      },
+      {
+        "type": "mc",
+        "q": "A dictionary gives 'minute' as noun /MIN-it/ and adjective /my-NOOT/. In 'A minute crack weakened the seal,' which analysis fits?",
+        "choices": [
+          "It is an adjective meaning extremely small, pronounced /my-NOOT/",
+          "It is a noun meaning sixty seconds",
+          "It is an adverb meaning immediately",
+          "It is a verb meaning to record details"
+        ],
+        "answer": "It is an adjective meaning extremely small, pronounced /my-NOOT/",
+        "explain": "Minute modifies crack, and the context indicates size rather than time."
+      },
+      {
+        "type": "mc",
+        "q": "Which sentence uses the underlined idea as an adverbial infinitive?",
+        "choices": [
+          "The team met early to review the evidence.",
+          "To review the evidence was difficult.",
+          "The goal was to review the evidence.",
+          "The evidence to review filled a folder."
+        ],
+        "answer": "The team met early to review the evidence.",
+        "explain": "In the first sentence, 'to review' explains why the team met, modifying the verb met."
+      },
+      {
+        "type": "mc",
+        "q": "In 'Only Jordan said the revised plan would work,' moving 'only' changes meaning. Why?",
+        "choices": [
+          "As a focusing adverb, it limits whichever word or phrase it directly modifies",
+          "As a noun, it names the plan",
+          "As a conjunction, it joins two clauses",
+          "As a preposition, it always needs an object"
+        ],
+        "answer": "As a focusing adverb, it limits whichever word or phrase it directly modifies",
+        "explain": "Only is an adverb whose placement determines whether Jordan, saying, or the plan is being limited."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “Which analysis of 'that' is accurate in 'The model that won is efficient' and 'That model is efficient'”?",
+        "choices": [
+          "It is a relative pronoun in the first and a demonstrative adjective in the second",
+          "It is an adverb in both",
+          "It is a verb in the first and noun in the second",
+          "It is a preposition in both"
+        ],
+        "answer": "It is a relative pronoun in the first and a demonstrative adjective in the second",
+        "explain": "The first that introduces a relative clause and stands for model; the second directly modifies model. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “In 'Running water powers the turbine,' a student calls 'running' the main verb. What is the best correction”?",
+        "choices": [
+          "'Running' is a participial adjective modifying water; 'powers' is the main verb",
+          "'Running' and 'water' are both main verbs",
+          "'Powers' is a preposition",
+          "'Running' is a coordinating conjunction"
+        ],
+        "answer": "'Running' is a participial adjective modifying water; 'powers' is the main verb",
+        "explain": "Running describes the kind of water, while powers carries tense and states the sentence's action. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “A dictionary gives 'minute' as noun /MIN-it/ and adjective /my-NOOT/. In 'A minute crack weakened the seal,' which analysis fits”?",
+        "choices": [
+          "It is an adjective meaning extremely small, pronounced /my-NOOT/",
+          "It is a noun meaning sixty seconds",
+          "It is an adverb meaning immediately",
+          "It is a verb meaning to record details"
+        ],
+        "answer": "It is an adjective meaning extremely small, pronounced /my-NOOT/",
+        "explain": "Minute modifies crack, and the context indicates size rather than time. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “Which sentence uses the underlined idea as an adverbial infinitive”?",
+        "choices": [
+          "The team met early to review the evidence.",
+          "To review the evidence was difficult.",
+          "The goal was to review the evidence.",
+          "The evidence to review filled a folder."
+        ],
+        "answer": "The team met early to review the evidence.",
+        "explain": "In the first sentence, 'to review' explains why the team met, modifying the verb met. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      }
+    ]
+  },
+  "g8:eng:L5": {
+    "name": "Tone & Mood",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Tone means...",
+        "choices": [
+          "The author's attitude",
+          "Unrelated meaning",
+          "The setting only",
+          "The number of paragraphs"
+        ],
+        "answer": "The author's attitude",
+        "audio": "Tone and mood."
+      },
+      {
+        "type": "mc",
+        "q": "Mood means...",
+        "choices": [
+          "Unrelated meaning",
+          "The page count",
+          "The author's address",
+          "The feeling created for the reader"
+        ],
+        "answer": "The feeling created for the reader",
+        "audio": "Tone and mood."
+      },
+      {
+        "type": "mc",
+        "q": "Words like gloomy and dark often create a ___ mood.",
+        "choices": [
+          "Mood",
+          "Excited",
+          "Funny",
+          "Sad"
+        ],
+        "answer": "Sad",
+        "audio": "Tone and mood."
+      },
+      {
+        "type": "mc",
+        "q": "The narrator calls the abandoned house 'silent, sagging, and watchful.' What mood do these words create?",
+        "choices": [
+          "uneasy",
+          "celebratory",
+          "carefree",
+          "formal"
+        ],
+        "answer": "uneasy",
+        "explain": "The personified watchfulness and signs of decay make the setting feel threatening."
+      },
+      {
+        "type": "mc",
+        "q": "An author describes a discovery as 'a promising first step, though many questions remain.' What is the tone?",
+        "choices": [
+          "cautiously optimistic",
+          "furious",
+          "mocking",
+          "indifferent"
+        ],
+        "answer": "cautiously optimistic",
+        "explain": "Promising conveys hope, while the qualification signals caution."
+      },
+      {
+        "type": "mc",
+        "q": "Which word has the most positive connotation?",
+        "choices": [
+          "resourceful",
+          "scheming",
+          "stubborn",
+          "reckless"
+        ],
+        "answer": "resourceful",
+        "explain": "Resourceful praises skill in solving problems; the other choices carry negative judgment."
+      },
+      {
+        "type": "mc",
+        "q": "What is the difference between tone and mood?",
+        "choices": [
+          "Tone is the author's attitude; mood is the feeling created for the reader",
+          "Tone is plot; mood is setting",
+          "Tone applies only to poems",
+          "They always mean exactly the same thing"
+        ],
+        "answer": "Tone is the author's attitude; mood is the feeling created for the reader",
+        "explain": "Tone concerns the speaker or author's stance, while mood describes the atmosphere readers experience."
+      },
+      {
+        "type": "mc",
+        "q": "The phrase 'another brilliant idea from our famously flawless committee' most likely conveys what tone?",
+        "choices": [
+          "sarcastic",
+          "sincere admiration",
+          "scientific neutrality",
+          "grief"
+        ],
+        "answer": "sarcastic",
+        "explain": "The exaggerated praise and 'famously flawless' wording signal criticism through sarcasm."
+      },
+      {
+        "type": "mc",
+        "q": "A storm report uses 'the system may intensify' instead of 'a monster storm will explode.' How does the revision affect tone?",
+        "choices": [
+          "It makes the tone more measured and objective",
+          "It makes the tone more panicked",
+          "It creates humor",
+          "It removes all uncertainty"
+        ],
+        "answer": "It makes the tone more measured and objective",
+        "explain": "The restrained verb and modal may communicate possibility without sensational language."
+      },
+      {
+        "type": "mc",
+        "q": "'At last, the tiny green shoot pierced the blackened soil.' Which language choice most contributes to hope?",
+        "choices": [
+          "The contrast between the green shoot and blackened soil",
+          "The word soil by itself",
+          "The use of past tense",
+          "The sentence length"
+        ],
+        "answer": "The contrast between the green shoot and blackened soil",
+        "explain": "New green life set against damage suggests recovery."
+      },
+      {
+        "type": "mc",
+        "q": "A memoir uses short fragments during an evacuation: 'No lights. No signal. No way back.' What mood results?",
+        "choices": [
+          "urgent and trapped",
+          "leisurely and expansive",
+          "playful and silly",
+          "calmly instructional"
+        ],
+        "answer": "urgent and trapped",
+        "explain": "The repeated brief fragments accelerate the pace and emphasize lost options."
+      },
+      {
+        "type": "mc",
+        "q": "Which revision creates a respectful rather than dismissive tone?",
+        "choices": [
+          "The proposal raises concerns that deserve careful review",
+          "The proposal is ridiculous nonsense",
+          "Only a fool would support the proposal",
+          "The proposal is not worth reading"
+        ],
+        "answer": "The proposal raises concerns that deserve careful review",
+        "explain": "The revision critiques without insulting the proposal or its supporters."
+      },
+      {
+        "type": "mc",
+        "q": "A nature essay speaks of the river as 'an old teacher carrying stories downstream.' What voice does this image help create?",
+        "choices": [
+          "reflective and reverent",
+          "bureaucratic and cold",
+          "hostile and impatient",
+          "technical and detached"
+        ],
+        "answer": "reflective and reverent",
+        "explain": "The metaphor treats the river with respect and invites contemplation."
+      },
+      {
+        "type": "mc",
+        "q": "A reviewer says a film is 'ambitious but uneven.' Why is the tone best described as qualified?",
+        "choices": [
+          "The praise is limited by a specific criticism",
+          "The reviewer expresses only enthusiasm",
+          "The words give no evaluation",
+          "The phrase attacks the audience"
+        ],
+        "answer": "The praise is limited by a specific criticism",
+        "explain": "But marks a balanced judgment rather than absolute approval."
+      },
+      {
+        "type": "mc",
+        "q": "Two accounts describe the same crowd. One says 'citizens gathered'; the other says 'a mob swarmed.' What does the contrast reveal?",
+        "choices": [
+          "The second account uses loaded language to create a more threatening tone",
+          "Both accounts are perfectly neutral",
+          "Gathered is always negative",
+          "Swarmed makes the crowd sound organized and calm"
+        ],
+        "answer": "The second account uses loaded language to create a more threatening tone",
+        "explain": "Mob and swarmed carry negative, chaotic connotations absent from citizens gathered."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Replacing 'walked' with 'stalked' can change tone because 'stalked' suggests stealth or threat beyond the basic action.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The denotation is movement, but the added connotation changes how the action and character are perceived."
+      },
+      {
+        "type": "mc",
+        "q": "A speaker repeats 'we can rebuild' after each description of storm damage. How does the repetition shape mood?",
+        "choices": [
+          "It counters loss with determination and hope",
+          "It makes the damage seem humorous",
+          "It proves rebuilding is complete",
+          "It creates an indifferent voice"
+        ],
+        "answer": "It counters loss with determination and hope",
+        "explain": "The repeated assurance becomes a refrain of resilience against the damaging images."
+      },
+      {
+        "type": "mc",
+        "q": "An article calls a budget cut 'fiscally disciplined'; an opponent calls it 'shortsighted austerity.' What should a critical reader notice?",
+        "choices": [
+          "Each phrase frames the same action with a different evaluative tone",
+          "Both phrases are value-neutral definitions",
+          "Only the number of syllables differs",
+          "Neither phrase reveals perspective"
+        ],
+        "answer": "Each phrase frames the same action with a different evaluative tone",
+        "explain": "Disciplined praises restraint, while shortsighted austerity criticizes harm and limited vision."
+      },
+      {
+        "type": "mc",
+        "q": "A poem shifts from long, flowing lines about summer to clipped lines after a departure. What is the likely effect?",
+        "choices": [
+          "The structural shift helps move the mood from ease to rupture",
+          "The shorter lines guarantee a cheerful mood",
+          "Line length has no relationship to pacing",
+          "The shift changes the poem into nonfiction"
+        ],
+        "answer": "The structural shift helps move the mood from ease to rupture",
+        "explain": "The abrupt clipped rhythm mirrors emotional interruption after the departure."
+      },
+      {
+        "type": "mc",
+        "q": "A narrator describes a rival's careful plan with grudging precision but ends, 'I hated to admit it, but it worked.' Which tone is most accurate?",
+        "choices": [
+          "reluctant respect",
+          "unqualified admiration",
+          "pure contempt",
+          "confusion without judgment"
+        ],
+        "answer": "reluctant respect",
+        "explain": "The narrator resists praising the rival yet acknowledges the plan's success."
+      },
+      {
+        "type": "mc",
+        "q": "Which paired details create an ominous mood without directly stating danger?",
+        "choices": [
+          "Birdsong stops, and the air pressure suddenly drops",
+          "The sky is blue, and children unpack lunch",
+          "A clock shows noon, and a door is open",
+          "A notebook rests beside a pencil"
+        ],
+        "answer": "Birdsong stops, and the air pressure suddenly drops",
+        "explain": "Sudden unnatural quiet and falling pressure act as warning signs readers can infer."
+      },
+      {
+        "type": "mc",
+        "q": "A public-health message wants urgency without panic. Which sentence best achieves that tone?",
+        "choices": [
+          "Cases are rising; taking these three steps now can reduce risk",
+          "Disaster is everywhere and no one is safe",
+          "There is absolutely nothing to worry about",
+          "Maybe people could do something someday"
+        ],
+        "answer": "Cases are rising; taking these three steps now can reduce risk",
+        "explain": "It names the concern directly and pairs it with practical agency rather than exaggeration."
+      },
+      {
+        "type": "mc",
+        "q": "A historian quotes triumphant official speeches, then quietly lists the policy's human costs. How does juxtaposition affect tone?",
+        "choices": [
+          "It creates a critical tone by exposing tension between celebration and consequences",
+          "It proves the speeches were fictional",
+          "It produces only a joyful mood",
+          "It removes the historian's perspective"
+        ],
+        "answer": "It creates a critical tone by exposing tension between celebration and consequences",
+        "explain": "Placing celebratory language beside documented costs implicitly questions the official framing."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “A poem shifts from long, flowing lines about summer to clipped lines after a departure. What is the likely effect”?",
+        "choices": [
+          "The structural shift helps move the mood from ease to rupture",
+          "The shorter lines guarantee a cheerful mood",
+          "Line length has no relationship to pacing",
+          "The shift changes the poem into nonfiction"
+        ],
+        "answer": "The structural shift helps move the mood from ease to rupture",
+        "explain": "The abrupt clipped rhythm mirrors emotional interruption after the departure. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “A narrator describes a rival's careful plan with grudging precision but ends, 'I hated to admit it, but it worked.' Which tone is most accurate”?",
+        "choices": [
+          "reluctant respect",
+          "unqualified admiration",
+          "pure contempt",
+          "confusion without judgment"
+        ],
+        "answer": "reluctant respect",
+        "explain": "The narrator resists praising the rival yet acknowledges the plan's success. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      }
+    ]
+  },
+  "g8:eng:L6": {
+    "name": "Vocabulary in Context",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "The word 'analyze' most nearly means...",
+        "choices": [
+          "Study carefully",
+          "Throw away",
+          "Copy quickly",
+          "Unrelated meaning"
+        ],
+        "answer": "Study carefully",
+        "audio": "Academic vocabulary."
+      },
+      {
+        "type": "mc",
+        "q": "The word 'contrast' means...",
+        "choices": [
+          "Show differences",
+          "Hide facts",
+          "Unrelated meaning",
+          "Make louder"
+        ],
+        "answer": "Show differences",
+        "audio": "Academic vocabulary."
+      },
+      {
+        "type": "mc",
+        "q": "The word 'significant' means...",
+        "choices": [
+          "Unrelated meaning",
+          "Unknown",
+          "Tiny",
+          "Important"
+        ],
+        "answer": "Important",
+        "audio": "Academic vocabulary."
+      },
+      {
+        "type": "mc",
+        "q": "'Unlike the arid desert, the valley was lush after weeks of rain.' What does 'arid' mean?",
+        "choices": [
+          "very dry",
+          "densely forested",
+          "extremely cold",
+          "crowded"
+        ],
+        "answer": "very dry",
+        "explain": "Unlike contrasts the dry desert with the rain-fed, lush valley."
+      },
+      {
+        "type": "mc",
+        "q": "'The glass is fragile, so wrap it carefully.' What does 'fragile' mean?",
+        "choices": [
+          "easily broken",
+          "very heavy",
+          "brightly colored",
+          "valuable only"
+        ],
+        "answer": "easily broken",
+        "explain": "The instruction to wrap the glass carefully signals that it can break easily."
+      },
+      {
+        "type": "mc",
+        "q": "'The witness gave a concise answer: three clear sentences and no extra detail.' What does 'concise' mean?",
+        "choices": [
+          "brief and direct",
+          "uncertain",
+          "angry",
+          "untruthful"
+        ],
+        "answer": "brief and direct",
+        "explain": "The colon supplies a definition through the description of brevity and focus."
+      },
+      {
+        "type": "mc",
+        "q": "'The coach tried to motivate the tired runners by reminding them of their progress.' What does 'motivate' mean?",
+        "choices": [
+          "encourage to act",
+          "measure speed",
+          "criticize unfairly",
+          "remove from a team"
+        ],
+        "answer": "encourage to act",
+        "explain": "The reminder is intended to encourage continued effort."
+      },
+      {
+        "type": "mc",
+        "q": "In 'The crane lifted steel above the site,' which meaning of 'crane' fits?",
+        "choices": [
+          "a machine used to lift heavy objects",
+          "a long-legged bird",
+          "to stretch one's neck",
+          "a folded paper figure"
+        ],
+        "answer": "a machine used to lift heavy objects",
+        "explain": "Lifted steel and construction site identify the machinery sense."
+      },
+      {
+        "type": "mc",
+        "q": "'The committee reached a tentative agreement but scheduled another meeting before signing.' What does 'tentative' mean?",
+        "choices": [
+          "not final or certain",
+          "unanimous and permanent",
+          "secret and illegal",
+          "carelessly written"
+        ],
+        "answer": "not final or certain",
+        "explain": "The need for another meeting before signing shows the agreement remains provisional."
+      },
+      {
+        "type": "mc",
+        "q": "'As supplies dwindled from fifty boxes to six, the team rationed what remained.' What does 'dwindled' mean?",
+        "choices": [
+          "decreased gradually",
+          "arrived suddenly",
+          "became more valuable",
+          "were counted incorrectly"
+        ],
+        "answer": "decreased gradually",
+        "explain": "The numerical decline from fifty to six directly demonstrates the meaning."
+      },
+      {
+        "type": "mc",
+        "q": "'Mina was pragmatic: instead of waiting for perfect tools, she repaired the leak with materials on hand.' What does 'pragmatic' mean?",
+        "choices": [
+          "focused on a practical solution",
+          "unwilling to act",
+          "concerned only with appearance",
+          "guided by fantasy"
+        ],
+        "answer": "focused on a practical solution",
+        "explain": "Her workable response using available materials exemplifies practical thinking."
+      },
+      {
+        "type": "mc",
+        "q": "'The article did not condemn the plan; its measured language was surprisingly temperate.' What does 'temperate' mean here?",
+        "choices": [
+          "restrained and moderate",
+          "related to climate zones",
+          "furious and accusing",
+          "confusing and vague"
+        ],
+        "answer": "restrained and moderate",
+        "explain": "Measured language and the contrast with condemn clarify the moderate-attitude sense."
+      },
+      {
+        "type": "mc",
+        "q": "'Because the instructions were ambiguous, one team turned left and another turned right.' What does 'ambiguous' mean?",
+        "choices": [
+          "open to more than one interpretation",
+          "written in large letters",
+          "scientifically tested",
+          "arranged in time order"
+        ],
+        "answer": "open to more than one interpretation",
+        "explain": "The two reasonable but conflicting responses show that the direction was unclear."
+      },
+      {
+        "type": "mc",
+        "q": "A paragraph calls an old law 'obsolete' and explains that new technology has made it unnecessary. Which meaning is supported?",
+        "choices": [
+          "no longer useful or current",
+          "newly invented",
+          "difficult to enforce because it is popular",
+          "carefully preserved"
+        ],
+        "answer": "no longer useful or current",
+        "explain": "The explanation that changed conditions removed the law's need defines obsolete."
+      },
+      {
+        "type": "mc",
+        "q": "'The scientist was skeptical, requesting replicated trials before accepting the dramatic result.' Which behavior reveals the meaning of 'skeptical'?",
+        "choices": [
+          "questioning a claim until stronger evidence is available",
+          "celebrating the result immediately",
+          "refusing to examine evidence",
+          "changing the measured result"
+        ],
+        "answer": "questioning a claim until stronger evidence is available",
+        "explain": "Requesting replication shows disciplined doubt rather than automatic rejection."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: In 'The bank was crowded, so we sat beside the river instead,' context clarifies that 'bank' first means a financial institution.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Being crowded and choosing the river instead distinguishes the financial institution from the river's edge."
+      },
+      {
+        "type": "mc",
+        "q": "'Her apology was perfunctory: she mumbled it while checking her phone and immediately walked away.' What does 'perfunctory' mean?",
+        "choices": [
+          "done with little care or sincerity",
+          "lengthy and heartfelt",
+          "spoken in another language",
+          "carefully rehearsed for hours"
+        ],
+        "answer": "done with little care or sincerity",
+        "explain": "The distracted, rushed behavior shows the apology was merely routine."
+      },
+      {
+        "type": "mc",
+        "q": "'The policy may mitigate flooding; it cannot eliminate every overflow.' What relationship clarifies 'mitigate'?",
+        "choices": [
+          "The contrast shows it means reduce severity rather than eliminate",
+          "The semicolon shows it means cause",
+          "The word flooding shows it means measure",
+          "The second clause proves it means predict exactly"
+        ],
+        "answer": "The contrast shows it means reduce severity rather than eliminate",
+        "explain": "Cannot eliminate narrows the claim to reducing harm or intensity."
+      },
+      {
+        "type": "mc",
+        "q": "Across a paragraph, 'yield' appears in crop totals, then in 'drivers must yield.' Which conclusion is best?",
+        "choices": [
+          "The word has different meanings: produce an amount and give way",
+          "Both uses mean surrender crops",
+          "The second use is a spelling error",
+          "Context never affects word meaning"
+        ],
+        "answer": "The word has different meanings: produce an amount and give way",
+        "explain": "Surrounding ideas select a production sense first and a traffic action second."
+      },
+      {
+        "type": "mc",
+        "q": "A character's response is called 'equivocal.' Earlier she says yes; later she denies agreeing. What does the word most likely mean?",
+        "choices": [
+          "ambiguous or deliberately noncommittal",
+          "enthusiastic and consistent",
+          "completely silent",
+          "factually proven"
+        ],
+        "answer": "ambiguous or deliberately noncommittal",
+        "explain": "Her conflicting positions prevent a clear commitment, matching equivocal."
+      },
+      {
+        "type": "mc",
+        "q": "'The reform was catalytic: within months, it prompted three agencies to revise their rules.' Which meaning is supported?",
+        "choices": [
+          "causing or accelerating change",
+          "blocking all action",
+          "occurring by accident",
+          "limited to chemistry laboratories"
+        ],
+        "answer": "causing or accelerating change",
+        "explain": "The following result shows the reform triggered further change, extending catalyst metaphorically."
+      },
+      {
+        "type": "mc",
+        "q": "A passage calls a victory 'Pyrrhic' and then explains that the winner lost nearly all resources needed for the next contest. What does 'Pyrrhic' mean?",
+        "choices": [
+          "won at such great cost that the victory is damaging",
+          "achieved without effort",
+          "celebrated by an entire nation",
+          "based on a misunderstanding"
+        ],
+        "answer": "won at such great cost that the victory is damaging",
+        "explain": "The costly aftermath makes the apparent success harmful."
+      },
+      {
+        "type": "mc",
+        "q": "'The evidence was compelling but not dispositive; it strongly supported the claim without settling it.' What does 'dispositive' mean?",
+        "choices": [
+          "decisive enough to resolve the issue",
+          "emotionally interesting",
+          "publicly available",
+          "incorrectly collected"
+        ],
+        "answer": "decisive enough to resolve the issue",
+        "explain": "The explanation contrasts strong support with evidence that would settle the question completely."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “Across a paragraph, 'yield' appears in crop totals, then in 'drivers must yield.' Which conclusion is best”?",
+        "choices": [
+          "The word has different meanings: produce an amount and give way",
+          "Both uses mean surrender crops",
+          "The second use is a spelling error",
+          "Context never affects word meaning"
+        ],
+        "answer": "The word has different meanings: produce an amount and give way",
+        "explain": "Surrounding ideas select a production sense first and a traffic action second. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “A character's response is called 'equivocal.' Earlier she says yes; later she denies agreeing. What does the word most likely mean”?",
+        "choices": [
+          "ambiguous or deliberately noncommittal",
+          "enthusiastic and consistent",
+          "completely silent",
+          "factually proven"
+        ],
+        "answer": "ambiguous or deliberately noncommittal",
+        "explain": "Her conflicting positions prevent a clear commitment, matching equivocal. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      }
+    ]
+  },
+  "g8:eng:L7": {
+    "name": "Fill in the Blank",
+    "questions": [
+      {
+        "type": "fill",
+        "q": "The writer's ___ is the point they try to prove.",
+        "answer": "claim",
+        "placeholder": "Fill in the blank",
+        "audio": "The writer's ___ is the point they try to prove."
+      },
+      {
+        "type": "fill",
+        "q": "Cause and ___ explains why something happened and what resulted.",
+        "answer": "effect",
+        "placeholder": "Fill in the blank",
+        "audio": "Cause and ___ explains why something happened and what resulted."
+      },
+      {
+        "type": "fill",
+        "q": "The author's ___ shows their attitude toward the topic.",
+        "answer": "tone",
+        "placeholder": "Fill in the blank",
+        "audio": "The author's ___ shows their attitude toward the topic."
+      },
+      {
+        "type": "mc",
+        "q": "Yesterday the robotics team ___ its final test.",
+        "choices": [
+          "completed",
+          "completes",
+          "will complete",
+          "completing"
+        ],
+        "answer": "completed",
+        "explain": "Yesterday requires the past-tense verb completed."
+      },
+      {
+        "type": "mc",
+        "q": "By the time the bus arrived, we ___ for twenty minutes.",
+        "choices": [
+          "had waited",
+          "wait",
+          "will wait",
+          "are waiting"
+        ],
+        "answer": "had waited",
+        "explain": "Past perfect had waited marks the action completed before another past event."
+      },
+      {
+        "type": "mc",
+        "q": "Every Saturday, Lena ___ water samples at the creek.",
+        "choices": [
+          "collects",
+          "collected",
+          "will collected",
+          "collecting"
+        ],
+        "answer": "collects",
+        "explain": "The repeated present-time habit and singular subject require collects."
+      },
+      {
+        "type": "mc",
+        "q": "Right now, the engineers ___ the revised design.",
+        "choices": [
+          "are testing",
+          "tested",
+          "will tested",
+          "has testing"
+        ],
+        "answer": "are testing",
+        "explain": "Are testing correctly expresses an action in progress now and agrees with engineers."
+      },
+      {
+        "type": "mc",
+        "q": "Next month, the class ___ its findings to the council.",
+        "choices": [
+          "will present",
+          "presented",
+          "has present",
+          "presenting"
+        ],
+        "answer": "will present",
+        "explain": "Next month signals future time, so will present is appropriate."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the active-voice completion: 'After reviewing the data, the committee ___.'",
+        "choices": [
+          "revised the recommendation",
+          "was revised by the recommendation",
+          "had been committee",
+          "was reviewing by data"
+        ],
+        "answer": "revised the recommendation",
+        "explain": "The committee performs the action in 'revised the recommendation,' making the voice active."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the passive-voice completion that emphasizes the result: 'Before publication, the figures ___.'",
+        "choices": [
+          "were verified by two analysts",
+          "two analysts verified",
+          "are verifying two analysts",
+          "had verify"
+        ],
+        "answer": "were verified by two analysts",
+        "explain": "Were verified forms passive voice and places the figures, the receivers of the action, first."
+      },
+      {
+        "type": "mc",
+        "q": "Complete with consistent tense: 'Mara opened the file, checked the totals, and ___ the error.'",
+        "choices": [
+          "reported",
+          "reports",
+          "will report",
+          "is reporting"
+        ],
+        "answer": "reported",
+        "explain": "Reported maintains the established simple-past sequence."
+      },
+      {
+        "type": "mc",
+        "q": "Complete the conditional correctly: 'If the sensor detects smoke, the alarm ___.'",
+        "choices": [
+          "will sound",
+          "sounded yesterday",
+          "had sounded before",
+          "soundingly"
+        ],
+        "answer": "will sound",
+        "explain": "The present condition pairs logically with will sound for its future result."
+      },
+      {
+        "type": "mc",
+        "q": "Which completion clearly shows that calibration happened before measurements began? 'The technician ___ the scale before she recorded the first mass.'",
+        "choices": [
+          "had calibrated",
+          "calibrates",
+          "will calibrate",
+          "is calibrating"
+        ],
+        "answer": "had calibrated",
+        "explain": "Past perfect explicitly places calibration before the later past action recorded."
+      },
+      {
+        "type": "mc",
+        "q": "A draft shifts without reason: 'The speaker entered and explains the plan.' Which replacement completes the sentence consistently?",
+        "choices": [
+          "explained",
+          "explains",
+          "will explain",
+          "has explaining"
+        ],
+        "answer": "explained",
+        "explain": "Entered establishes past time, so explained maintains consistency."
+      },
+      {
+        "type": "mc",
+        "q": "Which completion uses passive voice appropriately when the actor is unknown? 'Overnight, the mural ___.'",
+        "choices": [
+          "was damaged",
+          "someone damaged",
+          "damaged someone",
+          "is damage"
+        ],
+        "answer": "was damaged",
+        "explain": "Was damaged focuses on the mural and does not require naming an unknown actor."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: 'The samples were labeled by the students before they stored them' uses passive voice in the first clause and active voice in the second.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Samples receive the labeling, while students perform the storing; the shift has a clear purpose."
+      },
+      {
+        "type": "mc",
+        "q": "Complete to avoid an illogical tense shift: 'The report states that coastal erosion ___ during the previous decade.'",
+        "choices": [
+          "increased",
+          "increases tomorrow",
+          "will increased",
+          "is increase"
+        ],
+        "answer": "increased",
+        "explain": "Previous decade places the reported change in the past, so increased is logical."
+      },
+      {
+        "type": "mc",
+        "q": "Which completion makes the actor and responsibility clearest? 'Because the deadline was missed, ___.'",
+        "choices": [
+          "the project manager revised the schedule",
+          "the schedule was revised",
+          "there was revising",
+          "it had been done"
+        ],
+        "answer": "the project manager revised the schedule",
+        "explain": "Naming the project manager in active voice clarifies who took the corrective action."
+      },
+      {
+        "type": "mc",
+        "q": "Edit the sequence: 'By 2030, researchers completed the ten-year survey.' Which completion is most precise?",
+        "choices": [
+          "will have completed",
+          "complete yesterday",
+          "had completing",
+          "are completed by"
+        ],
+        "answer": "will have completed",
+        "explain": "Future perfect shows completion by a specified future point."
+      },
+      {
+        "type": "mc",
+        "q": "A narrative uses historical present for vividness: 'In 1969, the module lands, the door opens, and the astronaut ___.' Which completion maintains the chosen tense?",
+        "choices": [
+          "steps onto the surface",
+          "stepped onto the surface",
+          "will step onto the surface",
+          "had stepped onto the surface"
+        ],
+        "answer": "steps onto the surface",
+        "explain": "Steps continues the deliberate present-tense sequence."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the revision that fixes both tense and voice: 'The team analyzes the samples last week, and a report was writing by Maya.'",
+        "choices": [
+          "The team analyzed the samples last week, and Maya wrote a report.",
+          "The team analyzes the samples last week, and Maya writes a report.",
+          "The samples analyzed the team, and Maya was wrote.",
+          "Last week, a report writing and samples analyze."
+        ],
+        "answer": "The team analyzed the samples last week, and Maya wrote a report.",
+        "explain": "Analyzed matches last week, and the active clause 'Maya wrote' is grammatically complete."
+      },
+      {
+        "type": "mc",
+        "q": "Which completion best emphasizes the new policy rather than its authors? 'After months of debate, ___.'",
+        "choices": [
+          "the policy was adopted by the board",
+          "the board adopted the policy",
+          "the board was adopting",
+          "adoption the board policy"
+        ],
+        "answer": "the policy was adopted by the board",
+        "explain": "The passive construction places the policy in the topic position while still naming the actor."
+      },
+      {
+        "type": "mc",
+        "q": "Complete the sentence with a logically sequenced verb phrase: 'If the archive had digitized the records earlier, researchers ___ them during last year's closure.'",
+        "choices": [
+          "could have accessed",
+          "can access tomorrow",
+          "access now",
+          "had accessingly"
+        ],
+        "answer": "could have accessed",
+        "explain": "Could have accessed expresses the unreal past result of the earlier unmet condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “Edit the sequence: 'By 2030, researchers completed the ten-year survey.' Which completion is most precise”?",
+        "choices": [
+          "will have completed",
+          "complete yesterday",
+          "had completing",
+          "are completed by"
+        ],
+        "answer": "will have completed",
+        "explain": "Future perfect shows completion by a specified future point. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “A narrative uses historical present for vividness: 'In 1969, the module lands, the door opens, and the astronaut ___.' Which completion maintains the chosen tense”?",
+        "choices": [
+          "steps onto the surface",
+          "stepped onto the surface",
+          "will step onto the surface",
+          "had stepped onto the surface"
+        ],
+        "answer": "steps onto the surface",
+        "explain": "Steps continues the deliberate present-tense sequence. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      }
+    ]
+  },
+  "g8:eng:L8": {
+    "name": "Sentence Editing",
+    "questions": [
+      {
+        "type": "edit",
+        "q": "Fix this sentence:\nthe author uses evidence to support the claim",
+        "answer": "The author uses evidence to support the claim.",
+        "placeholder": "Type the corrected sentence",
+        "audio": "Fix the sentence."
+      },
+      {
+        "type": "edit",
+        "q": "Fix this sentence:\ntone is the author's attitude",
+        "answer": "Tone is the author's attitude.",
+        "placeholder": "Type the corrected sentence",
+        "audio": "Fix the sentence."
+      },
+      {
+        "type": "edit",
+        "q": "Fix this sentence:\ncompare and contrast shows similarities and differences",
+        "answer": "Compare and contrast shows similarities and differences.",
+        "placeholder": "Type the corrected sentence",
+        "audio": "Fix the sentence."
+      },
+      {
+        "type": "mc",
+        "q": "Which sentence has correct subject-verb agreement?",
+        "choices": [
+          "The basket of donated books is beside the door.",
+          "The basket of donated books are beside the door.",
+          "The basket of donated books be beside the door.",
+          "The basket of donated books were beside the door now."
+        ],
+        "answer": "The basket of donated books is beside the door.",
+        "explain": "Basket is the singular subject; the prepositional phrase does not change the required verb is."
+      },
+      {
+        "type": "mc",
+        "q": "Which revision fixes the fragment 'Because the storm delayed the buses.'?",
+        "choices": [
+          "Because the storm delayed the buses, school opened late.",
+          "Because the storm.",
+          "The buses because delayed.",
+          "Although because the buses."
+        ],
+        "answer": "Because the storm delayed the buses, school opened late.",
+        "explain": "Adding the independent clause 'school opened late' completes the dependent-clause fragment."
+      },
+      {
+        "type": "mc",
+        "q": "Which sentence correctly repairs the run-on?",
+        "choices": [
+          "The data were incomplete, so the team repeated the trial.",
+          "The data were incomplete the team repeated the trial.",
+          "The data were incomplete, the team repeated the trial.",
+          "The data incomplete and repeating."
+        ],
+        "answer": "The data were incomplete, so the team repeated the trial.",
+        "explain": "A comma plus the coordinating conjunction so properly joins the two independent clauses."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the complete complex sentence.",
+        "choices": [
+          "Although the route was longer, it avoided flooded streets.",
+          "Although the route was longer.",
+          "The route longer because.",
+          "Avoiding flooded streets although."
+        ],
+        "answer": "Although the route was longer, it avoided flooded streets.",
+        "explain": "The sentence combines a dependent although clause with the independent clause 'it avoided flooded streets.'"
+      },
+      {
+        "type": "mc",
+        "q": "Which verb agrees with the compound subject? 'The coach and the captain ___ the schedule.'",
+        "choices": [
+          "review",
+          "reviews",
+          "is reviewing",
+          "has reviews"
+        ],
+        "answer": "review",
+        "explain": "Two subjects joined by and form a plural subject, requiring review."
+      },
+      {
+        "type": "mc",
+        "q": "Edit the comma splice: 'The exhibit closed at five, we returned Saturday.'",
+        "choices": [
+          "The exhibit closed at five; we returned Saturday.",
+          "The exhibit closed at five, returned Saturday.",
+          "The exhibit closed, at five we returned Saturday.",
+          "The exhibit closed at five because."
+        ],
+        "answer": "The exhibit closed at five; we returned Saturday.",
+        "explain": "A semicolon can join the closely related independent clauses without a conjunction."
+      },
+      {
+        "type": "mc",
+        "q": "Which revision preserves meaning and corrects agreement? 'Each of the proposals include a budget.'",
+        "choices": [
+          "Each of the proposals includes a budget.",
+          "Each of the proposals include budgets.",
+          "Each proposals includes a budget.",
+          "Each of proposals including a budget."
+        ],
+        "answer": "Each of the proposals includes a budget.",
+        "explain": "The subject each is singular, so the verb must be includes."
+      },
+      {
+        "type": "mc",
+        "q": "Choose the best way to combine the ideas: The team tested the filter. The filter removed most sediment.",
+        "choices": [
+          "The team tested a filter that removed most sediment.",
+          "The team tested the filter, removed most sediment.",
+          "Testing the filter because sediment.",
+          "The team tested, the filter removed most sediment."
+        ],
+        "answer": "The team tested a filter that removed most sediment.",
+        "explain": "The relative clause efficiently identifies the tested filter without creating a splice."
+      },
+      {
+        "type": "mc",
+        "q": "Which sentence avoids a dangling dependent clause?",
+        "choices": [
+          "When the alarm sounded, the students followed the exit route.",
+          "When the alarm sounded.",
+          "The students when the alarm sounded.",
+          "When sounding because the route."
+        ],
+        "answer": "When the alarm sounded, the students followed the exit route.",
+        "explain": "The independent clause states what happened when the alarm sounded."
+      },
+      {
+        "type": "mc",
+        "q": "Edit: 'Neither the maps nor the compass were in the pack.' Which verb is correct?",
+        "choices": [
+          "was",
+          "were",
+          "be",
+          "have been being"
+        ],
+        "answer": "was",
+        "explain": "With neither/nor, agreement follows the nearer subject compass, which is singular."
+      },
+      {
+        "type": "mc",
+        "q": "Which revision fixes both the fragment and unclear connection? 'A solution for the leaking roof. Which damaged two classrooms.'",
+        "choices": [
+          "The school approved a solution for the leaking roof, which had damaged two classrooms.",
+          "A solution, for the leaking roof which.",
+          "The leaking roof. Damaged two classrooms a solution.",
+          "Which damaged classrooms, a solution."
+        ],
+        "answer": "The school approved a solution for the leaking roof, which had damaged two classrooms.",
+        "explain": "The revision forms one complete sentence and makes roof the clear antecedent of which."
+      },
+      {
+        "type": "mc",
+        "q": "A draft reads, 'The lab results seemed unusual the scientist checked the calibration twice.' What punctuation and word best show cause?",
+        "choices": [
+          "The lab results seemed unusual, so the scientist checked the calibration twice.",
+          "The lab results seemed unusual, the scientist checked twice.",
+          "The lab results; because the scientist checked calibration twice.",
+          "The lab results seemed unusual and because."
+        ],
+        "answer": "The lab results seemed unusual, so the scientist checked the calibration twice.",
+        "explain": "Comma plus so joins the clauses and explicitly marks the result of the unusual data."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: 'While the volunteers sorted donations, the coordinator updated the inventory' is complete because it contains a dependent clause and an independent clause.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The while clause cannot stand alone, but the coordinator clause completes the complex sentence."
+      },
+      {
+        "type": "mc",
+        "q": "Which sentence correctly handles agreement with an intervening phrase?",
+        "choices": [
+          "The effects of the new schedule remain uncertain.",
+          "The effects of the new schedule remains uncertain.",
+          "The effects of the new schedule is uncertain.",
+          "The effects of the new schedule has remained uncertain."
+        ],
+        "answer": "The effects of the new schedule remain uncertain.",
+        "explain": "The plural subject effects requires remain; schedule is only the object of a preposition."
+      },
+      {
+        "type": "mc",
+        "q": "Edit the fused sentence while emphasizing contrast: 'The first trial failed the second produced clear results.'",
+        "choices": [
+          "The first trial failed, but the second produced clear results.",
+          "The first trial failed, the second produced clear results.",
+          "The first trial because the second produced results.",
+          "Failing the first trial the second."
+        ],
+        "answer": "The first trial failed, but the second produced clear results.",
+        "explain": "Comma plus but correctly joins the clauses and signals contrast."
+      },
+      {
+        "type": "mc",
+        "q": "Which revision is the clearest complete sentence? 'After examining the bridge, several cracks were noticed by the engineer.'",
+        "choices": [
+          "After examining the bridge, the engineer noticed several cracks.",
+          "After examining the bridge, several cracks noticed.",
+          "The bridge after examining, cracks by the engineer.",
+          "Several cracks, after the bridge."
+        ],
+        "answer": "After examining the bridge, the engineer noticed several cracks.",
+        "explain": "The revision gives the opening modifier a logical subject: the engineer performed the examination."
+      },
+      {
+        "type": "mc",
+        "q": "A sentence reads, 'The collection of oral histories, photographs, and letters reveal how the town changed.' What edit is needed?",
+        "choices": [
+          "Change 'reveal' to 'reveals' because 'collection' is singular",
+          "Change 'collection' to 'collections' only",
+          "Delete 'how the town changed'",
+          "Add a comma after histories and make no other change"
+        ],
+        "answer": "Change 'reveal' to 'reveals' because 'collection' is singular",
+        "explain": "The singular head noun collection controls agreement despite the plural items in the of phrase."
+      },
+      {
+        "type": "mc",
+        "q": "Which option correctly joins three related clauses without a run-on?",
+        "choices": [
+          "The sensor failed; the backup activated, and the test continued.",
+          "The sensor failed the backup activated the test continued.",
+          "The sensor failed, the backup activated, the test continued.",
+          "Because the sensor failed and the backup."
+        ],
+        "answer": "The sensor failed; the backup activated, and the test continued.",
+        "explain": "The semicolon joins the first two independent ideas, and comma-plus-and joins the final clause."
+      },
+      {
+        "type": "mc",
+        "q": "Edit for agreement and completeness: 'One of the reasons the wetlands matters. Because it absorb floodwater.'",
+        "choices": [
+          "One reason the wetlands matter is that they absorb floodwater.",
+          "One of the reasons the wetlands matters because.",
+          "The wetlands matters, they absorb floodwater.",
+          "Because it absorb floodwater one reasons."
+        ],
+        "answer": "One reason the wetlands matter is that they absorb floodwater.",
+        "explain": "The revision forms a complete sentence and uses plural verbs and pronouns for wetlands."
+      },
+      {
+        "type": "mc",
+        "q": "Which revision most effectively varies structure while avoiding a splice? 'The hearing ended. Reporters waited outside. The council issued no decision.'",
+        "choices": [
+          "When the hearing ended, reporters waited outside, but the council issued no decision.",
+          "The hearing ended, reporters waited outside, the council issued no decision.",
+          "Ending the hearing. Reporters outside. No decision.",
+          "The hearing ended because reporters waited although no decision."
+        ],
+        "answer": "When the hearing ended, reporters waited outside, but the council issued no decision.",
+        "explain": "The complex-compound sentence expresses time and contrast with correct clause boundaries."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “Which revision is the clearest complete sentence? 'After examining the bridge, several cracks were noticed by the engineer.'”?",
+        "choices": [
+          "After examining the bridge, the engineer noticed several cracks.",
+          "After examining the bridge, several cracks noticed.",
+          "The bridge after examining, cracks by the engineer.",
+          "Several cracks, after the bridge."
+        ],
+        "answer": "After examining the bridge, the engineer noticed several cracks.",
+        "explain": "The revision gives the opening modifier a logical subject: the engineer performed the examination. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “A sentence reads, 'The collection of oral histories, photographs, and letters reveal how the town changed.' What edit is needed”?",
+        "choices": [
+          "Change 'reveal' to 'reveals' because 'collection' is singular",
+          "Change 'collection' to 'collections' only",
+          "Delete 'how the town changed'",
+          "Add a comma after histories and make no other change"
+        ],
+        "answer": "Change 'reveal' to 'reveals' because 'collection' is singular",
+        "explain": "The singular head noun collection controls agreement despite the plural items in the of phrase. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      }
+    ]
+  },
+  "g8:eng:L9": {
+    "name": "Memory Match",
+    "questions": [
+      {
+        "type": "drag",
+        "q": "Drag each word to the correct answer.",
+        "pairs": [
+          {
+            "left": "Claim",
+            "right": "Point to prove"
+          },
+          {
+            "left": "Tone",
+            "right": "Author's attitude"
+          },
+          {
+            "left": "Text structure",
+            "right": "Organization of information"
+          },
+          {
+            "left": "Evidence",
+            "right": "Proof"
+          }
+        ],
+        "audio": "Drag the pairs to match them."
+      },
+      {
+        "type": "mc",
+        "q": "Which evidence-inference pair is logically matched?",
+        "choices": [
+          "Empty hooks and wet raincoats by the door → the family recently returned from fishing",
+          "A ringing alarm → everyone is asleep",
+          "Fresh footprints in snow → no one has passed",
+          "A full water bowl → the dog is certainly thirsty"
+        ],
+        "answer": "Empty hooks and wet raincoats by the door → the family recently returned from fishing",
+        "explain": "Wet gear and empty hooks reasonably support a recent fishing trip without claiming certainty beyond evidence."
+      },
+      {
+        "type": "mc",
+        "q": "A character keeps checking the clock and tapping a foot. Which inference is best matched?",
+        "choices": [
+          "The character is impatient or anxious",
+          "The character cannot tell time",
+          "The clock is broken",
+          "The character is asleep"
+        ],
+        "answer": "The character is impatient or anxious",
+        "explain": "Repeated time-checking and restless movement are behavioral evidence of impatience or anxiety."
+      },
+      {
+        "type": "mc",
+        "q": "Which pair correctly matches evidence to an inference?",
+        "choices": [
+          "The sidewalk is wet but trees are still → rain may have fallen recently",
+          "The lights are off → the building has never had electricity",
+          "A book is open → its reader disliked it",
+          "A cup is empty → it was always empty"
+        ],
+        "answer": "The sidewalk is wet but trees are still → rain may have fallen recently",
+        "explain": "Wet pavement without wind supports recent rain as a reasonable, qualified explanation."
+      },
+      {
+        "type": "mc",
+        "q": "A student cites 'Nora hid the torn letter when footsteps approached.' What inference is supported?",
+        "choices": [
+          "Nora does not want the approaching person to see the letter",
+          "Nora plans to mail the letter",
+          "Nora cannot hear the footsteps",
+          "The letter is blank"
+        ],
+        "answer": "Nora does not want the approaching person to see the letter",
+        "explain": "Hiding the letter specifically when someone approaches suggests concealment."
+      },
+      {
+        "type": "mc",
+        "q": "Which label-definition pair is correct?",
+        "choices": [
+          "inference → a conclusion based on evidence and reasoning",
+          "evidence → a guess with no textual basis",
+          "prediction → a direct quotation only",
+          "observation → an opinion about fairness"
+        ],
+        "answer": "inference → a conclusion based on evidence and reasoning",
+        "explain": "An inference combines textual observations with reasoning to reach a supported conclusion."
+      },
+      {
+        "type": "mc",
+        "q": "Passage: 'Luis reread the email twice, smiled, and opened the scholarship portal.' Which inference-evidence match is strongest?",
+        "choices": [
+          "He likely received encouraging news; his smile and immediate portal visit support it",
+          "He lost internet access; he opened a website",
+          "He dislikes school; the message was an email",
+          "He already graduated; he reread the message"
+        ],
+        "answer": "He likely received encouraging news; his smile and immediate portal visit support it",
+        "explain": "The emotional response and relevant action together support encouraging scholarship news."
+      },
+      {
+        "type": "mc",
+        "q": "Which evidence best supports the inference that a narrator distrusts the guide?",
+        "choices": [
+          "The narrator checks every direction against a map before following it",
+          "The guide wears a red coat",
+          "The group begins at sunrise",
+          "The trail crosses a stream"
+        ],
+        "answer": "The narrator checks every direction against a map before following it",
+        "explain": "Repeatedly verifying the guide's directions reveals lack of trust."
+      },
+      {
+        "type": "mc",
+        "q": "A store adds umbrellas near the entrance, and employees place warning mats on the floor. Which inference is best?",
+        "choices": [
+          "Wet weather is expected or occurring",
+          "The store is closing permanently",
+          "Umbrellas are being banned",
+          "The floor was replaced with grass"
+        ],
+        "answer": "Wet weather is expected or occurring",
+        "explain": "Both preparations are specifically associated with rain and tracked-in water."
+      },
+      {
+        "type": "mc",
+        "q": "Which pair contains an overreach rather than a supported inference?",
+        "choices": [
+          "One light is on at school → every teacher is working overnight",
+          "Steam rises from a cup → the drink is likely hot",
+          "A character whispers near a crib → the character wants to avoid waking a baby",
+          "Several shelves are bare after a storm warning → customers bought many supplies"
+        ],
+        "answer": "One light is on at school → every teacher is working overnight",
+        "explain": "One illuminated room cannot support a claim about every teacher or the entire night."
+      },
+      {
+        "type": "mc",
+        "q": "The narrator calls the repaired bicycle 'my ticket beyond the county line.' What inference does the metaphor support?",
+        "choices": [
+          "The bicycle represents independence and opportunity",
+          "The bicycle is literally a paper ticket",
+          "The narrator plans to sell the county",
+          "The bicycle cannot travel on roads"
+        ],
+        "answer": "The bicycle represents independence and opportunity",
+        "explain": "Calling it a ticket connects transportation with freedom beyond current limits."
+      },
+      {
+        "type": "mc",
+        "q": "Two characters hear the same announcement. Amari takes notes; Devon rolls his eyes. What inference is best supported?",
+        "choices": [
+          "They differ in attention or attitude toward the announcement",
+          "Amari wrote the announcement",
+          "Devon cannot hear",
+          "Both characters fully agree"
+        ],
+        "answer": "They differ in attention or attitude toward the announcement",
+        "explain": "Their contrasting behaviors imply different levels of engagement or acceptance."
+      },
+      {
+        "type": "mc",
+        "q": "A story never states that the grandmother is ill, but medicine bottles, quiet visitors, and a postponed trip recur. Why may readers infer illness?",
+        "choices": [
+          "Several independent details converge on the same explanation",
+          "Any single bottle proves a diagnosis",
+          "Quiet visitors always indicate illness",
+          "A postponed trip has only one possible cause"
+        ],
+        "answer": "Several independent details converge on the same explanation",
+        "explain": "The inference is strengthened because multiple contextual clues point in the same direction."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The detail 'Caleb packed his cleats and shin guards' alone proves that Caleb won a soccer game.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The gear supports that Caleb may play soccer, but it provides no evidence about a game's outcome."
+      },
+      {
+        "type": "mc",
+        "q": "A narrator describes a celebration using only what can be heard through a closed door. What can readers reasonably infer about the narrator?",
+        "choices": [
+          "The narrator is separated from the gathering and has limited access to it",
+          "The narrator organized every activity",
+          "The door is made of glass",
+          "No celebration is occurring"
+        ],
+        "answer": "The narrator is separated from the gathering and has limited access to it",
+        "explain": "The restricted sensory information indicates physical separation and limited knowledge."
+      },
+      {
+        "type": "mc",
+        "q": "Which additional detail would most strengthen the inference that a manager anticipated a shortage?",
+        "choices": [
+          "She ordered extra supplies two weeks before demand surged",
+          "She counted supplies after they ran out",
+          "She likes organized shelves",
+          "She arrived at work on time"
+        ],
+        "answer": "She ordered extra supplies two weeks before demand surged",
+        "explain": "Ordering early before demand rose is direct evidence of anticipation and preparation."
+      },
+      {
+        "type": "mc",
+        "q": "Source A says a species disappeared from surveys after a drought. Source B reports it was found upstream. What inference best respects both?",
+        "choices": [
+          "The species may have shifted its range rather than vanished entirely",
+          "The species is extinct everywhere",
+          "The drought had no effect",
+          "Upstream surveys are always wrong"
+        ],
+        "answer": "The species may have shifted its range rather than vanished entirely",
+        "explain": "The upstream evidence rules out total disappearance while allowing a drought-related movement explanation."
+      },
+      {
+        "type": "mc",
+        "q": "A character returns a lost wallet anonymously, then refuses public praise. Which inference is best supported, and why?",
+        "choices": [
+          "The character values doing right more than recognition because both actions avoid personal reward",
+          "The character fears wallets because it was returned",
+          "The character wants fame because the return was anonymous",
+          "The character stole the wallet because praise was refused"
+        ],
+        "answer": "The character values doing right more than recognition because both actions avoid personal reward",
+        "explain": "The paired actions consistently show integrity without seeking attention."
+      },
+      {
+        "type": "mc",
+        "q": "An unreliable narrator insists the room was empty, but later mentions 'the stranger's cough behind the curtain.' What inference should a reader draw?",
+        "choices": [
+          "The narrator's earlier account is incomplete or misleading",
+          "The cough proves the room is outdoors",
+          "The stranger is imaginary because curtains exist",
+          "Every statement by the narrator must be false"
+        ],
+        "answer": "The narrator's earlier account is incomplete or misleading",
+        "explain": "The later detail directly conflicts with the claim of an empty room, undermining that part of the account."
+      },
+      {
+        "type": "mc",
+        "q": "A report shows declining reservoir levels, unchanged household use, and sharply increased industrial withdrawals. Which inference is most defensible?",
+        "choices": [
+          "Industrial withdrawals are a plausible contributor that warrants further testing",
+          "Households certainly caused the decline",
+          "Industry is the sole cause beyond any doubt",
+          "Reservoir measurements are irrelevant"
+        ],
+        "answer": "Industrial withdrawals are a plausible contributor that warrants further testing",
+        "explain": "The changing factor aligns with the decline, supporting investigation but not exclusive causation."
+      },
+      {
+        "type": "mc",
+        "q": "A poem's speaker repeatedly describes doors as locked, then ends with 'I found the hinge pins.' Which inference best synthesizes the symbol?",
+        "choices": [
+          "The speaker shifts from feeling trapped to discovering an unconventional means of agency",
+          "The speaker becomes a locksmith by profession",
+          "Every literal door is now open",
+          "The ending confirms escape is impossible"
+        ],
+        "answer": "The speaker shifts from feeling trapped to discovering an unconventional means of agency",
+        "explain": "Hinge pins offer an alternate way around locked doors, symbolizing resourceful possibility."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “Source A says a species disappeared from surveys after a drought. Source B reports it was found upstream. What inference best respects both”?",
+        "choices": [
+          "The species may have shifted its range rather than vanished entirely",
+          "The species is extinct everywhere",
+          "The drought had no effect",
+          "Upstream surveys are always wrong"
+        ],
+        "answer": "The species may have shifted its range rather than vanished entirely",
+        "explain": "The upstream evidence rules out total disappearance while allowing a drought-related movement explanation. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “A character returns a lost wallet anonymously, then refuses public praise. Which inference is best supported, and why”?",
+        "choices": [
+          "The character values doing right more than recognition because both actions avoid personal reward",
+          "The character fears wallets because it was returned",
+          "The character wants fame because the return was anonymous",
+          "The character stole the wallet because praise was refused"
+        ],
+        "answer": "The character values doing right more than recognition because both actions avoid personal reward",
+        "explain": "The paired actions consistently show integrity without seeking attention. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “An unreliable narrator insists the room was empty, but later mentions 'the stranger's cough behind the curtain.' What inference should a reader draw”?",
+        "choices": [
+          "The narrator's earlier account is incomplete or misleading",
+          "The cough proves the room is outdoors",
+          "The stranger is imaginary because curtains exist",
+          "Every statement by the narrator must be false"
+        ],
+        "answer": "The narrator's earlier account is incomplete or misleading",
+        "explain": "The later detail directly conflicts with the claim of an empty room, undermining that part of the account. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “A report shows declining reservoir levels, unchanged household use, and sharply increased industrial withdrawals. Which inference is most defensible”?",
+        "choices": [
+          "Industrial withdrawals are a plausible contributor that warrants further testing",
+          "Households certainly caused the decline",
+          "Industry is the sole cause beyond any doubt",
+          "Reservoir measurements are irrelevant"
+        ],
+        "answer": "Industrial withdrawals are a plausible contributor that warrants further testing",
+        "explain": "The changing factor aligns with the decline, supporting investigation but not exclusive causation. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      }
+    ]
+  },
+  "g8:eng:L10": {
+    "name": "Speed Challenge",
+    "questions": [
+      {
+        "type": "speed",
+        "q": "Claim means...",
+        "choices": [
+          "Point",
+          "Unrelated meaning",
+          "Guess",
+          "Font"
+        ],
+        "answer": "Point",
+        "seconds": 10,
+        "audio": "Claim means..."
+      },
+      {
+        "type": "speed",
+        "q": "Tone means...",
+        "choices": [
+          "Attitude",
+          "Number",
+          "Unrelated meaning",
+          "Planet"
+        ],
+        "answer": "Attitude",
+        "seconds": 10,
+        "audio": "Tone means..."
+      },
+      {
+        "type": "speed",
+        "q": "Evidence means...",
+        "choices": [
+          "Proof",
+          "Weather",
+          "Unrelated meaning",
+          "Shape"
+        ],
+        "answer": "Proof",
+        "seconds": 10,
+        "audio": "Evidence means..."
+      },
+      {
+        "type": "mc",
+        "q": "Source A: Shade trees lower playground surface temperature. Source B: Native trees usually need less irrigation after establishment. Which synthesis is supported?",
+        "choices": [
+          "Native shade trees may cool playgrounds while limiting long-term water demand",
+          "All trees need no water",
+          "Playgrounds cause drought",
+          "Irrigation always raises temperature"
+        ],
+        "answer": "Native shade trees may cool playgrounds while limiting long-term water demand",
+        "explain": "The synthesis combines the cooling finding with the water-use advantage without making absolute claims."
+      },
+      {
+        "type": "mc",
+        "q": "One text explains bees pollinate crops; another reports habitat loss reduces bee numbers. What new understanding follows?",
+        "choices": [
+          "Protecting bee habitat can support both pollinator populations and food production",
+          "Bees damage every crop",
+          "Habitat and agriculture are unrelated",
+          "Pollination eliminates habitat loss"
+        ],
+        "answer": "Protecting bee habitat can support both pollinator populations and food production",
+        "explain": "Combining ecological role and population threat reveals a practical connection to agriculture."
+      },
+      {
+        "type": "mc",
+        "q": "Source A says exercise can improve concentration. Source B says excessive training without rest increases injury risk. Which synthesis is best?",
+        "choices": [
+          "Exercise can support focus, but a sound routine also requires recovery",
+          "More exercise is always better",
+          "Rest prevents concentration",
+          "Injuries improve academic performance"
+        ],
+        "answer": "Exercise can support focus, but a sound routine also requires recovery",
+        "explain": "The balanced conclusion integrates a benefit with a documented limit."
+      },
+      {
+        "type": "mc",
+        "q": "A map shows neighborhoods far from grocery stores; a survey reports transportation is residents' largest shopping barrier. What synthesis fits?",
+        "choices": [
+          "Distance and limited transportation combine to restrict food access",
+          "Residents do not want groceries",
+          "Maps can measure personal preferences",
+          "Transportation solves every food issue"
+        ],
+        "answer": "Distance and limited transportation combine to restrict food access",
+        "explain": "Spatial and survey evidence together identify interacting access barriers."
+      },
+      {
+        "type": "mc",
+        "q": "Two biographies show inventors repeatedly revising failed prototypes. What shared understanding emerges?",
+        "choices": [
+          "Iteration and learning from failure are central to invention",
+          "Successful inventions work on the first attempt",
+          "Biography writers oppose technology",
+          "Failure guarantees fame"
+        ],
+        "answer": "Iteration and learning from failure are central to invention",
+        "explain": "The recurring revision process across both lives supports the broader insight."
+      },
+      {
+        "type": "mc",
+        "q": "Article A reports remote work reduces commuting. Article B finds some remote workers feel isolated. Which policy conclusion synthesizes both?",
+        "choices": [
+          "Flexible hybrid options may preserve commute benefits while supporting in-person connection",
+          "Remote work has no benefits",
+          "All employees should work remotely every day",
+          "Isolation is caused only by traffic"
+        ],
+        "answer": "Flexible hybrid options may preserve commute benefits while supporting in-person connection",
+        "explain": "A hybrid recommendation responds to the benefit and the social drawback described."
+      },
+      {
+        "type": "mc",
+        "q": "A historical letter praises a dam's jobs; a later report documents displaced communities. Which synthesis is most responsible?",
+        "choices": [
+          "The dam produced economic benefits while imposing serious social costs",
+          "The letter proves displacement never occurred",
+          "The report proves no jobs were created",
+          "The two sources cannot both be relevant"
+        ],
+        "answer": "The dam produced economic benefits while imposing serious social costs",
+        "explain": "Different source perspectives reveal simultaneous gains and harms."
+      },
+      {
+        "type": "mc",
+        "q": "A graph shows reading time rose after a library redesign; interviews say students value quieter zones. What tentative synthesis is justified?",
+        "choices": [
+          "Quieter redesigned spaces may have contributed to increased reading time",
+          "Quiet zones certainly caused every additional minute",
+          "Interviews invalidate the graph",
+          "Reading time determines furniture color"
+        ],
+        "answer": "Quieter redesigned spaces may have contributed to increased reading time",
+        "explain": "The sources point to a plausible relationship, but the cautious wording avoids unsupported certainty."
+      },
+      {
+        "type": "mc",
+        "q": "Source A explains wetlands store floodwater. Source B shows a wetland park attracts visitors. What new understanding follows?",
+        "choices": [
+          "Wetland restoration can provide both protective and recreational value",
+          "Flood protection prevents recreation",
+          "Visitors create all wetlands",
+          "Parks cannot contain ecosystems"
+        ],
+        "answer": "Wetland restoration can provide both protective and recreational value",
+        "explain": "The conclusion integrates an ecosystem service with a community use."
+      },
+      {
+        "type": "mc",
+        "q": "A novel portrays automation through a worker's fear; an article presents productivity data. Why synthesize both?",
+        "choices": [
+          "Together they reveal measurable benefits and human consequences",
+          "Fiction provides exact national statistics",
+          "Data make lived experience irrelevant",
+          "Both sources must use the same genre"
+        ],
+        "answer": "Together they reveal measurable benefits and human consequences",
+        "explain": "The sources contribute different but complementary kinds of understanding."
+      },
+      {
+        "type": "mc",
+        "q": "Three sources agree local summers are hotter but disagree on the strongest cause. What synthesis is warranted?",
+        "choices": [
+          "The warming pattern is supported, while its relative causes remain contested",
+          "No warming exists because causes differ",
+          "Every proposed cause contributes equally",
+          "One source must be fabricated"
+        ],
+        "answer": "The warming pattern is supported, while its relative causes remain contested",
+        "explain": "Agreement on the trend can coexist with uncertainty about causal weight."
+      },
+      {
+        "type": "mc",
+        "q": "A nutrition study finds school breakfasts improve morning attention; a budget report shows kitchen staffing limits. Which proposal best synthesizes the evidence?",
+        "choices": [
+          "Pilot breakfast at high-need campuses while measuring outcomes and staffing costs",
+          "Cancel breakfast because staffing has costs",
+          "Expand everywhere without tracking resources",
+          "Ignore the attention findings"
+        ],
+        "answer": "Pilot breakfast at high-need campuses while measuring outcomes and staffing costs",
+        "explain": "A measured pilot responds to the benefit, constraint, and need for local evidence."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Synthesis requires more than listing what each source says; it connects the ideas to form a supported new understanding.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A synthesis explains a relationship among source ideas rather than merely placing summaries side by side."
+      },
+      {
+        "type": "mc",
+        "q": "Source A shows a disease declined after vaccination. Source B notes sanitation improved during the same period. What synthesis avoids overclaiming?",
+        "choices": [
+          "Both vaccination and sanitation may have contributed, and further analysis is needed to separate their effects",
+          "Vaccination alone certainly caused the entire decline",
+          "Sanitation cannot affect disease",
+          "Because two factors changed, neither mattered"
+        ],
+        "answer": "Both vaccination and sanitation may have contributed, and further analysis is needed to separate their effects",
+        "explain": "The conclusion includes both plausible factors and acknowledges the limits of the evidence."
+      },
+      {
+        "type": "mc",
+        "q": "An editorial advocates later start times; student interviews report better alertness; bus data show higher costs. Which synthesis question remains essential?",
+        "choices": [
+          "Do alertness benefits justify or offset the added transportation cost?",
+          "What color are the buses?",
+          "Do editorials contain paragraphs?",
+          "Can interviews predict sunrise?"
+        ],
+        "answer": "Do alertness benefits justify or offset the added transportation cost?",
+        "explain": "A defensible decision must weigh the documented benefit against the operational tradeoff."
+      },
+      {
+        "type": "mc",
+        "q": "A satellite record shows forest loss, while community records show population growth and new farms. Which inference synthesizes the sources but stays cautious?",
+        "choices": [
+          "Agricultural expansion associated with population growth may be contributing to forest loss",
+          "Population growth always destroys every forest",
+          "Satellite images explain residents' motives",
+          "Farms appeared after all trees vanished"
+        ],
+        "answer": "Agricultural expansion associated with population growth may be contributing to forest loss",
+        "explain": "The aligned changes suggest a relationship, but 'may' and 'contributing' preserve appropriate uncertainty."
+      },
+      {
+        "type": "mc",
+        "q": "Text A argues facial recognition improves security. Text B documents unequal error rates. What policy best reflects both sources?",
+        "choices": [
+          "Require accuracy audits, human review, and strict limits before deployment",
+          "Deploy it everywhere because security ends all concerns",
+          "Ban all cameras regardless of evidence",
+          "Ignore error rates when a tool is useful"
+        ],
+        "answer": "Require accuracy audits, human review, and strict limits before deployment",
+        "explain": "The safeguards address the proposed benefit while responding directly to reliability and fairness risks."
+      },
+      {
+        "type": "mc",
+        "q": "A poem presents a river as memory; a science article explains sediment layers record past floods. Which cross-genre synthesis is strongest?",
+        "choices": [
+          "Both texts portray the river as carrying traces of the past, one figuratively and one physically",
+          "The poem is a scientific measurement",
+          "Sediment has human memories",
+          "Figurative and scientific meanings cannot be compared"
+        ],
+        "answer": "Both texts portray the river as carrying traces of the past, one figuratively and one physically",
+        "explain": "The shared concept is defensible while preserving the genres' distinct kinds of meaning."
+      },
+      {
+        "type": "mc",
+        "q": "Studies show a tutoring app helps when students receive teacher feedback but has little effect when used alone. Which conclusion best synthesizes the pattern?",
+        "choices": [
+          "The app appears most effective as part of guided instruction rather than as a stand-alone replacement",
+          "The app always guarantees learning",
+          "Teacher feedback is unnecessary",
+          "The app can never help"
+        ],
+        "answer": "The app appears most effective as part of guided instruction rather than as a stand-alone replacement",
+        "explain": "The comparative outcomes identify interaction with guidance as the meaningful condition."
+      },
+      {
+        "type": "mc",
+        "q": "Economic data show tourism revenue rising; ecological surveys show trail erosion accelerating. Which plan best synthesizes the evidence?",
+        "choices": [
+          "Use part of tourism revenue for visitor limits, trail repair, and continued ecological monitoring",
+          "Maximize visitors and stop measuring erosion",
+          "Close every business immediately",
+          "Repair trails without funding or monitoring"
+        ],
+        "answer": "Use part of tourism revenue for visitor limits, trail repair, and continued ecological monitoring",
+        "explain": "The plan connects the economic benefit to mitigation of the documented environmental cost."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “A satellite record shows forest loss, while community records show population growth and new farms. Which inference synthesizes the sources but stays cautious”?",
+        "choices": [
+          "Agricultural expansion associated with population growth may be contributing to forest loss",
+          "Population growth always destroys every forest",
+          "Satellite images explain residents' motives",
+          "Farms appeared after all trees vanished"
+        ],
+        "answer": "Agricultural expansion associated with population growth may be contributing to forest loss",
+        "explain": "The aligned changes suggest a relationship, but 'may' and 'contributing' preserve appropriate uncertainty. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer is best supported by the complete text, language rule, and purpose in “Text A argues facial recognition improves security. Text B documents unequal error rates. What policy best reflects both sources”?",
+        "choices": [
+          "Require accuracy audits, human review, and strict limits before deployment",
+          "Deploy it everywhere because security ends all concerns",
+          "Ban all cameras regardless of evidence",
+          "Ignore error rates when a tool is useful"
+        ],
+        "answer": "Require accuracy audits, human review, and strict limits before deployment",
+        "explain": "The safeguards address the proposed benefit while responding directly to reliability and fairness risks. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      }
+    ]
+  },
+  "g8:eng:L11": {
+    "name": "Grade 8 English L11",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Grade 8 English L11: which is a complete sentence?",
+        "choices": [
+          "The student reads.",
+          "reads student",
+          "because the",
+          "0"
+        ],
+        "answer": "The student reads.",
+        "audio": "Choose the complete sentence."
+      },
+      {
+        "type": "input",
+        "q": "Grade 8 English L11: type the missing word: A noun names a person, place, or ____.",
+        "answer": "thing",
+        "audio": "Complete the sentence."
+      },
+      {
+        "type": "drag",
+        "q": "Grade 8 English L11: match each reading word.",
+        "pairs": [
+          {
+            "left": "theme",
+            "right": "big message"
+          },
+          {
+            "left": "evidence",
+            "right": "proof from the text"
+          },
+          {
+            "left": "summary",
+            "right": "short retelling"
+          }
+        ],
+        "audio": "Match the reading vocabulary."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling correctly names a point to prove?",
+        "choices": [
+          "CLAYM",
+          "CLAME",
+          "CLAIME",
+          "CLAIM"
+        ],
+        "answer": "CLAIM",
+        "explain": "“CLAIM” is the standard spelling for a point to prove; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling correctly names taking a different position?",
+        "choices": [
+          "OPOSEING",
+          "OPPOSING",
+          "OPPOSSING",
+          "OPPOSENG"
+        ],
+        "answer": "OPPOSING",
+        "explain": "“OPPOSING” is the standard spelling for taking a different position; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling correctly names worthy of belief?",
+        "choices": [
+          "CREDITABLE",
+          "CREDDIBLE",
+          "CREDIBAL",
+          "CREDIBLE"
+        ],
+        "answer": "CREDIBLE",
+        "explain": "“CREDIBLE” is the standard spelling for worthy of belief; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling correctly names a response to an opposing claim?",
+        "choices": [
+          "REBUTTLE",
+          "REBUTTAL",
+          "REBUTAL",
+          "RIBUTTAL"
+        ],
+        "answer": "REBUTTAL",
+        "explain": "“REBUTTAL” is the standard spelling for a response to an opposing claim; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling correctly names sound and convincing?",
+        "choices": [
+          "VALID",
+          "VALAD",
+          "VALLID",
+          "VALLED"
+        ],
+        "answer": "VALID",
+        "explain": "“VALID” is the standard spelling for sound and convincing; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling follows the word pattern for a point to prove?",
+        "choices": [
+          "CLAIM",
+          "CLAME",
+          "CLAYM",
+          "CLAIME"
+        ],
+        "answer": "CLAIM",
+        "explain": "“CLAIM” is the standard spelling for a point to prove; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling follows the word pattern for taking a different position?",
+        "choices": [
+          "OPOSEING",
+          "OPPOSSING",
+          "OPPOSENG",
+          "OPPOSING"
+        ],
+        "answer": "OPPOSING",
+        "explain": "“OPPOSING” is the standard spelling for taking a different position; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling follows the word pattern for worthy of belief?",
+        "choices": [
+          "CREDDIBLE",
+          "CREDIBAL",
+          "CREDITABLE",
+          "CREDIBLE"
+        ],
+        "answer": "CREDIBLE",
+        "explain": "“CREDIBLE” is the standard spelling for worthy of belief; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling follows the word pattern for a response to an opposing claim?",
+        "choices": [
+          "REBUTTAL",
+          "REBUTTLE",
+          "REBUTAL",
+          "RIBUTTAL"
+        ],
+        "answer": "REBUTTAL",
+        "explain": "“REBUTTAL” is the standard spelling for a response to an opposing claim; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling follows the word pattern for sound and convincing?",
+        "choices": [
+          "VALLED",
+          "VALAD",
+          "VALLID",
+          "VALID"
+        ],
+        "answer": "VALID",
+        "explain": "“VALID” is the standard spelling for sound and convincing; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “CLAIM” is the correct spelling for a point to prove.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "“CLAIM” is the standard spelling for a point to prove; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Decide whether the spelling is correct."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “OPOSEING” is the correct spelling for taking a different position.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "“OPPOSING” is the standard spelling for taking a different position; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Decide whether the spelling is correct."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “CREDIBLE” is the correct spelling for worthy of belief.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "“CREDIBLE” is the standard spelling for worthy of belief; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Decide whether the spelling is correct."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “REBUTAL” is the correct spelling for a response to an opposing claim.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "“REBUTTAL” is the standard spelling for a response to an opposing claim; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Decide whether the spelling is correct."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “VALID” is the correct spelling for sound and convincing.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "“VALID” is the standard spelling for sound and convincing; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Decide whether the spelling is correct."
+      },
+      {
+        "type": "input",
+        "q": "Without choices, type the correct spelling for: a point to prove.",
+        "answer": "claim",
+        "explain": "“CLAIM” is the standard spelling for a point to prove; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Spell the word independently."
+      },
+      {
+        "type": "input",
+        "q": "Without choices, type the correct spelling for: taking a different position.",
+        "answer": "opposing",
+        "explain": "“OPPOSING” is the standard spelling for taking a different position; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Spell the word independently."
+      },
+      {
+        "type": "input",
+        "q": "Without choices, type the correct spelling for: worthy of belief.",
+        "answer": "credible",
+        "explain": "“CREDIBLE” is the standard spelling for worthy of belief; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Spell the word independently."
+      },
+      {
+        "type": "input",
+        "q": "Without choices, type the correct spelling for: a response to an opposing claim.",
+        "answer": "rebuttal",
+        "explain": "“REBUTTAL” is the standard spelling for a response to an opposing claim; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Spell the word independently."
+      },
+      {
+        "type": "input",
+        "q": "Without choices, type the correct spelling for: sound and convincing.",
+        "answer": "valid",
+        "explain": "“VALID” is the standard spelling for sound and convincing; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Spell the word independently."
+      },
+      {
+        "type": "input",
+        "q": "A draft uses “CLAME” for a point to prove. What is the correct spelling?",
+        "answer": "claim",
+        "explain": "“CLAIM” is the standard spelling for a point to prove; the other forms misuse the sound-spelling or affix pattern. The mastery check requires correcting the authentic error and confirming that the corrected word fits the meaning.",
+        "audio": "Correct the spelling and verify the meaning."
+      },
+      {
+        "type": "input",
+        "q": "A draft uses “OPOSEING” for taking a different position. What is the correct spelling?",
+        "answer": "opposing",
+        "explain": "“OPPOSING” is the standard spelling for taking a different position; the other forms misuse the sound-spelling or affix pattern. The mastery check requires correcting the authentic error and confirming that the corrected word fits the meaning.",
+        "audio": "Correct the spelling and verify the meaning."
+      }
+    ]
+  },
+  "g8:eng:L12": {
+    "name": "Grade 8 English L12",
+    "questions": [
+      {
+        "type": "input",
+        "q": "Grade 8 English L12: type the missing word: A noun names a person, place, or ____.",
+        "answer": "thing",
+        "audio": "Complete the sentence."
+      },
+      {
+        "type": "drag",
+        "q": "Grade 8 English L12: match each reading word.",
+        "pairs": [
+          {
+            "left": "theme",
+            "right": "big message"
+          },
+          {
+            "left": "evidence",
+            "right": "proof from the text"
+          },
+          {
+            "left": "summary",
+            "right": "short retelling"
+          }
+        ],
+        "audio": "Match the reading vocabulary."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 English L12: which is a complete sentence?",
+        "choices": [
+          "0",
+          "The student reads.",
+          "because the",
+          "reads student"
+        ],
+        "answer": "The student reads.",
+        "audio": "Choose the complete sentence."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning matches “claim”?",
+        "choices": [
+          "point to prove",
+          "against",
+          "trustworthy",
+          "supporting proof"
+        ],
+        "answer": "point to prove",
+        "explain": "“claim” matches “point to prove” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning matches “evidence”?",
+        "choices": [
+          "trustworthy",
+          "point to prove",
+          "supporting proof",
+          "against"
+        ],
+        "answer": "supporting proof",
+        "explain": "“evidence” matches “supporting proof” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning matches “credible”?",
+        "choices": [
+          "trustworthy",
+          "against",
+          "point to prove",
+          "supporting proof"
+        ],
+        "answer": "trustworthy",
+        "explain": "“credible” matches “trustworthy” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning matches “opposing”?",
+        "choices": [
+          "point to prove",
+          "against",
+          "supporting proof",
+          "trustworthy"
+        ],
+        "answer": "against",
+        "explain": "“opposing” matches “against” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning matches “rebuttal”?",
+        "choices": [
+          "point to prove",
+          "supporting proof",
+          "response to an opposing claim",
+          "trustworthy"
+        ],
+        "answer": "response to an opposing claim",
+        "explain": "“rebuttal” matches “response to an opposing claim” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning correctly applies to “claim”?",
+        "choices": [
+          "against",
+          "trustworthy",
+          "supporting proof",
+          "point to prove"
+        ],
+        "answer": "point to prove",
+        "explain": "“claim” matches “point to prove” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning correctly applies to “evidence”?",
+        "choices": [
+          "against",
+          "trustworthy",
+          "supporting proof",
+          "point to prove"
+        ],
+        "answer": "supporting proof",
+        "explain": "“evidence” matches “supporting proof” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning correctly applies to “credible”?",
+        "choices": [
+          "supporting proof",
+          "point to prove",
+          "against",
+          "trustworthy"
+        ],
+        "answer": "trustworthy",
+        "explain": "“credible” matches “trustworthy” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning correctly applies to “opposing”?",
+        "choices": [
+          "trustworthy",
+          "against",
+          "point to prove",
+          "supporting proof"
+        ],
+        "answer": "against",
+        "explain": "“opposing” matches “against” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning correctly applies to “rebuttal”?",
+        "choices": [
+          "trustworthy",
+          "response to an opposing claim",
+          "point to prove",
+          "supporting proof"
+        ],
+        "answer": "response to an opposing claim",
+        "explain": "“rebuttal” matches “response to an opposing claim” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “claim” matches “point to prove.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "“claim” matches “point to prove” in this lesson's word-pattern relationship.",
+        "audio": "Check the spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “evidence” matches “point to prove.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "“evidence” matches “supporting proof” in this lesson's word-pattern relationship.",
+        "audio": "Check the spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “credible” matches “trustworthy.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "“credible” matches “trustworthy” in this lesson's word-pattern relationship.",
+        "audio": "Check the spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “opposing” matches “point to prove.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "“opposing” matches “against” in this lesson's word-pattern relationship.",
+        "audio": "Check the spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “rebuttal” matches “response to an opposing claim.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "“rebuttal” matches “response to an opposing claim” in this lesson's word-pattern relationship.",
+        "audio": "Check the spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which match remains correct after analyzing the word parts in “claim”?",
+        "choices": [
+          "supporting proof",
+          "trustworthy",
+          "point to prove",
+          "against"
+        ],
+        "answer": "point to prove",
+        "explain": "“claim” matches “point to prove” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which match remains correct after analyzing the word parts in “evidence”?",
+        "choices": [
+          "trustworthy",
+          "point to prove",
+          "supporting proof",
+          "against"
+        ],
+        "answer": "supporting proof",
+        "explain": "“evidence” matches “supporting proof” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which match remains correct after analyzing the word parts in “credible”?",
+        "choices": [
+          "against",
+          "trustworthy",
+          "supporting proof",
+          "point to prove"
+        ],
+        "answer": "trustworthy",
+        "explain": "“credible” matches “trustworthy” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which match remains correct after analyzing the word parts in “opposing”?",
+        "choices": [
+          "against",
+          "point to prove",
+          "trustworthy",
+          "supporting proof"
+        ],
+        "answer": "against",
+        "explain": "“opposing” matches “against” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which match remains correct after analyzing the word parts in “rebuttal”?",
+        "choices": [
+          "response to an opposing claim",
+          "point to prove",
+          "trustworthy",
+          "supporting proof"
+        ],
+        "answer": "response to an opposing claim",
+        "explain": "“rebuttal” matches “response to an opposing claim” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "A student matched “claim” with “supporting proof.” Which relationship corrects the error?",
+        "choices": [
+          "supporting proof",
+          "against",
+          "point to prove",
+          "trustworthy"
+        ],
+        "answer": "point to prove",
+        "explain": "“claim” matches “point to prove” in this lesson's word-pattern relationship. The mastery item requires identifying why the proposed match fails and replacing it with the exact relationship.",
+        "audio": "Correct the relationship and justify the rule."
+      },
+      {
+        "type": "mc",
+        "q": "A student matched “evidence” with “point to prove.” Which relationship corrects the error?",
+        "choices": [
+          "trustworthy",
+          "point to prove",
+          "against",
+          "supporting proof"
+        ],
+        "answer": "supporting proof",
+        "explain": "“evidence” matches “supporting proof” in this lesson's word-pattern relationship. The mastery item requires identifying why the proposed match fails and replacing it with the exact relationship.",
+        "audio": "Correct the relationship and justify the rule."
+      }
+    ]
+  },
+  "g8:math:L1": {
+    "name": "Linear Equations",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Solve: x + 4 = 12",
+        "choices": [
+          "3",
+          "9",
+          "8",
+          "16"
+        ],
+        "answer": "8",
+        "audio": "Linear equations."
+      },
+      {
+        "type": "mc",
+        "q": "Solve: 2x = 18",
+        "choices": [
+          "16",
+          "10",
+          "20",
+          "9"
+        ],
+        "answer": "9",
+        "audio": "Linear equations."
+      },
+      {
+        "type": "mc",
+        "q": "Solve: x - 7 = 5",
+        "choices": [
+          "35",
+          "13",
+          "12",
+          "2"
+        ],
+        "answer": "12",
+        "audio": "Linear equations."
+      },
+      {
+        "type": "mc",
+        "q": "Solve 5x + 3 = 2x + 18.",
+        "choices": [
+          "x = 5",
+          "x = 3",
+          "x = 7",
+          "x = 15"
+        ],
+        "answer": "x = 5",
+        "explain": "Subtract 2x and 3 to get 3x = 15, so x = 5."
+      },
+      {
+        "type": "mc",
+        "q": "Solve 7x - 4 = 3x + 20.",
+        "choices": [
+          "x = 6",
+          "x = 4",
+          "x = 8",
+          "x = -6"
+        ],
+        "answer": "x = 6",
+        "explain": "Subtract 3x and add 4: 4x = 24, giving x = 6."
+      },
+      {
+        "type": "mc",
+        "q": "Solve 2x + 9 = 5x - 6.",
+        "choices": [
+          "x = 5",
+          "x = 1",
+          "x = -5",
+          "x = 15"
+        ],
+        "answer": "x = 5",
+        "explain": "Subtract 2x and add 6: 15 = 3x, so x = 5."
+      },
+      {
+        "type": "mc",
+        "q": "Solve 4(x + 2) = 2x + 18.",
+        "choices": [
+          "x = 5",
+          "x = 7",
+          "x = 9",
+          "x = 13"
+        ],
+        "answer": "x = 5",
+        "explain": "Distribute to obtain 4x + 8 = 2x + 18; then 2x = 10 and x = 5."
+      },
+      {
+        "type": "mc",
+        "q": "Solve 0.5x + 6 = 0.25x + 9.",
+        "choices": [
+          "x = 12",
+          "x = 6",
+          "x = 3",
+          "x = 15"
+        ],
+        "answer": "x = 12",
+        "explain": "Subtract 0.25x and 6 to get 0.25x = 3; dividing gives x = 12."
+      },
+      {
+        "type": "mc",
+        "q": "Gym A charges $18 plus $4 per visit. Gym B charges $30 plus $2 per visit. After how many visits do costs match?",
+        "choices": [
+          "6 visits",
+          "4 visits",
+          "8 visits",
+          "12 visits"
+        ],
+        "answer": "6 visits",
+        "explain": "The model 18 + 4v = 30 + 2v simplifies to 2v = 12, so v = 6."
+      },
+      {
+        "type": "mc",
+        "q": "A tank starts with 80 L and drains 3 L per minute. Another starts with 44 L and drains 1 L per minute. When do they contain the same amount?",
+        "choices": [
+          "18 minutes",
+          "12 minutes",
+          "24 minutes",
+          "36 minutes"
+        ],
+        "answer": "18 minutes",
+        "explain": "Set 80 - 3t = 44 - t; then 36 = 2t, so t = 18."
+      },
+      {
+        "type": "mc",
+        "q": "Plan P costs $12 + $0.08 per text; Plan Q costs $20 + $0.04 per text. At how many texts are the costs equal?",
+        "choices": [
+          "200 texts",
+          "100 texts",
+          "250 texts",
+          "400 texts"
+        ],
+        "answer": "200 texts",
+        "explain": "The equation 12 + 0.08t = 20 + 0.04t gives 0.04t = 8, so t = 200."
+      },
+      {
+        "type": "mc",
+        "q": "Two ribbons have equal final length. One is 3(x + 2) cm; the other is 2x + 11 cm. Find x.",
+        "choices": [
+          "x = 5",
+          "x = 3",
+          "x = 7",
+          "x = 11"
+        ],
+        "answer": "x = 5",
+        "explain": "Expanding gives 3x + 6 = 2x + 11, so x = 5."
+      },
+      {
+        "type": "mc",
+        "q": "A rectangle has sides x + 4 and x - 1. Its perimeter equals the perimeter of a square with side x + 1. Find x.",
+        "choices": [
+          "no solution",
+          "x = 1",
+          "x = 3",
+          "infinitely many solutions"
+        ],
+        "answer": "no solution",
+        "explain": "The equation 2(x + 4) + 2(x - 1) = 4(x + 1) simplifies to 4x + 6 = 4x + 4, then to the contradiction 6 = 4, so no value of x works."
+      },
+      {
+        "type": "mc",
+        "q": "Which first step most efficiently solves 6(x - 2) = 3(x + 8)?",
+        "choices": [
+          "Distribute on both sides to get 6x - 12 = 3x + 24",
+          "Divide only the left side by 3",
+          "Add x to both sides before removing parentheses",
+          "Change both subtraction signs to addition"
+        ],
+        "answer": "Distribute on both sides to get 6x - 12 = 3x + 24",
+        "explain": "Distribution exposes like terms on both sides while preserving equality."
+      },
+      {
+        "type": "mc",
+        "q": "A student solves 4x + 7 = 2x - 9 and writes 2x = 16. Which correction is needed?",
+        "choices": [
+          "Subtracting 7 gives 2x = -16, so x = -8",
+          "The equation should give x = 8",
+          "Combine 4x and 2x to get 6x",
+          "Add 9 only to the right side"
+        ],
+        "answer": "Subtracting 7 gives 2x = -16, so x = -8",
+        "explain": "After subtracting 2x, 2x + 7 = -9; subtracting 7 yields -16, not 16."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The equation 5(x + 2) = 5x + 10 has infinitely many solutions.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Distributing makes both sides identical, so every value of x satisfies the equation."
+      },
+      {
+        "type": "mc",
+        "q": "What is the solution classification for 3(2x - 1) = 6x + 5?",
+        "choices": [
+          "no solution",
+          "x = 4/3",
+          "x = -4/3",
+          "infinitely many solutions"
+        ],
+        "answer": "no solution",
+        "explain": "Distribution gives 6x - 3 = 6x + 5, which reduces to the false statement -3 = 5."
+      },
+      {
+        "type": "mc",
+        "q": "Which equation has the same solution as 2x/3 + 5 = x/6 + 9?",
+        "choices": [
+          "4x + 30 = x + 54",
+          "4x + 5 = x + 9",
+          "2x + 30 = x + 54",
+          "4x + 30 = x + 9"
+        ],
+        "answer": "4x + 30 = x + 54",
+        "explain": "Multiplying every term by the least common denominator 6 yields 4x + 30 = x + 54."
+      },
+      {
+        "type": "mc",
+        "q": "Solve (3/4)(x - 8) = (1/2)(x + 2).",
+        "choices": [
+          "x = 28",
+          "x = 20",
+          "x = 12",
+          "x = -28"
+        ],
+        "answer": "x = 28",
+        "explain": "Multiply by 4: 3(x - 8) = 2(x + 2); then 3x - 24 = 2x + 4, so x = 28."
+      },
+      {
+        "type": "mc",
+        "q": "A rental company offers A: $45 + $0.25m and B: $72 + $0.10m, where m is miles. At what mileage do costs match, and what is the common cost?",
+        "choices": [
+          "180 miles; $90",
+          "90 miles; $67.50",
+          "180 miles; $117",
+          "270 miles; $112.50"
+        ],
+        "answer": "180 miles; $90",
+        "explain": "Solving 45 + .25m = 72 + .10m gives .15m = 27 and m = 180; substitution gives $90."
+      },
+      {
+        "type": "mc",
+        "q": "For what value of k does k(x + 3) = 4x + 12 have infinitely many solutions?",
+        "choices": [
+          "k = 4",
+          "k = 3",
+          "k = 12",
+          "k = -4"
+        ],
+        "answer": "k = 4",
+        "explain": "Identical equations require matching x-coefficients and constants; k = 4 also makes 3k = 12."
+      },
+      {
+        "type": "mc",
+        "q": "Solve 0.3(10x - 5) + 2 = 1.5(x + 3) - 4.",
+        "choices": [
+          "x = 0",
+          "x = 1",
+          "x = -1",
+          "x = 3"
+        ],
+        "answer": "x = 0",
+        "explain": "The sides simplify to 3x + 0.5 and 1.5x + 0.5; subtracting gives 1.5x = 0, so x = 0."
+      },
+      {
+        "type": "mc",
+        "q": "A student says 2(a + 5) + 3a = 5(a + 2) has one solution. Which analysis is correct?",
+        "choices": [
+          "Both sides simplify to 5a + 10, so every real number is a solution",
+          "The only solution is a = 0",
+          "There is no solution because variables appear on both sides",
+          "The solution is a = 10"
+        ],
+        "answer": "Both sides simplify to 5a + 10, so every real number is a solution",
+        "explain": "Distributing and combining like terms produces the same expression on each side, an identity."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer solves “Solve (3/4)(x - 8) = (1/2)(x + 2)” and remains correct after the result is verified?",
+        "choices": [
+          "x = 28",
+          "x = 20",
+          "x = 12",
+          "x = -28"
+        ],
+        "answer": "x = 28",
+        "explain": "Multiply by 4: 3(x - 8) = 2(x + 2); then 3x - 24 = 2x + 4, so x = 28. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer solves “A rental company offers A: $45 + $0.25m and B: $72 + $0.10m, where m is miles. At what mileage do costs match, and what is the common cost” and remains correct after the result is verified?",
+        "choices": [
+          "180 miles; $90",
+          "90 miles; $67.50",
+          "180 miles; $117",
+          "270 miles; $112.50"
+        ],
+        "answer": "180 miles; $90",
+        "explain": "Solving 45 + .25m = 72 + .10m gives .15m = 27 and m = 180; substitution gives $90. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      }
+    ]
+  },
+  "g8:math:L2": {
+    "name": "Slope",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Slope means...",
+        "choices": [
+          "Total area",
+          "A random point",
+          "Unrelated meaning",
+          "Rate of change"
+        ],
+        "answer": "Rate of change",
+        "audio": "Slope."
+      },
+      {
+        "type": "mc",
+        "q": "In y = 3x + 2, the slope is...",
+        "choices": [
+          "2",
+          "3",
+          "5",
+          "4"
+        ],
+        "answer": "3",
+        "audio": "Slope."
+      },
+      {
+        "type": "mc",
+        "q": "A positive slope goes...",
+        "choices": [
+          "Up from left to right",
+          "Straight down only",
+          "Variable",
+          "Down from left to right"
+        ],
+        "answer": "Up from left to right",
+        "audio": "Slope."
+      },
+      {
+        "type": "mc",
+        "q": "What is the slope through (1, 3) and (3, 7)?",
+        "choices": [
+          "2",
+          "1/2",
+          "4",
+          "-2"
+        ],
+        "answer": "2",
+        "explain": "Slope is (7 - 3)/(3 - 1) = 4/2 = 2."
+      },
+      {
+        "type": "mc",
+        "q": "A table has x: 0, 1, 2 and y: 5, 8, 11. What is the slope?",
+        "choices": [
+          "3",
+          "5",
+          "8",
+          "11"
+        ],
+        "answer": "3",
+        "explain": "For each increase of 1 in x, y increases by 3."
+      },
+      {
+        "type": "mc",
+        "q": "What is the slope of a horizontal line through y = -4?",
+        "choices": [
+          "0",
+          "-4",
+          "undefined",
+          "4"
+        ],
+        "answer": "0",
+        "explain": "A horizontal line has zero change in y, so its slope is 0."
+      },
+      {
+        "type": "mc",
+        "q": "What is the slope of the vertical line x = 6?",
+        "choices": [
+          "undefined",
+          "0",
+          "6",
+          "-6"
+        ],
+        "answer": "undefined",
+        "explain": "The change in x is 0, so the slope ratio would require division by zero."
+      },
+      {
+        "type": "mc",
+        "q": "A line crosses the y-axis at (0, -2). What is its y-intercept?",
+        "choices": [
+          "-2",
+          "0",
+          "2",
+          "undefined"
+        ],
+        "answer": "-2",
+        "explain": "The y-intercept is the y-value where x equals 0, which is -2."
+      },
+      {
+        "type": "mc",
+        "q": "A taxi fare is $4 at 0 miles and $10 at 3 miles. What are the rate of change and y-intercept?",
+        "choices": [
+          "$2 per mile and $4",
+          "$4 per mile and $2",
+          "$3 per mile and $10",
+          "$2 per mile and $10"
+        ],
+        "answer": "$2 per mile and $4",
+        "explain": "The fare rises $6 over 3 miles, or $2 per mile, and begins at $4."
+      },
+      {
+        "type": "mc",
+        "q": "A tank's volume changes from 90 L at 2 min to 66 L at 6 min. What is the rate of change?",
+        "choices": [
+          "-6 L/min",
+          "6 L/min",
+          "-4 L/min",
+          "24 L/min"
+        ],
+        "answer": "-6 L/min",
+        "explain": "The volume change is -24 L over 4 minutes, so -24/4 = -6 L/min."
+      },
+      {
+        "type": "mc",
+        "q": "For the table (2, 9), (5, 15), (8, 21), what is the y-intercept of the linear relationship?",
+        "choices": [
+          "5",
+          "2",
+          "9",
+          "-5"
+        ],
+        "answer": "5",
+        "explain": "The slope is 2; using 9 = 2(2) + b gives b = 5."
+      },
+      {
+        "type": "mc",
+        "q": "A graph rises 12 units while moving right 8 units. What is its simplified slope?",
+        "choices": [
+          "3/2",
+          "2/3",
+          "12",
+          "-3/2"
+        ],
+        "answer": "3/2",
+        "explain": "Rise/run = 12/8, which simplifies to 3/2."
+      },
+      {
+        "type": "mc",
+        "q": "Which description matches a line with slope -3 and y-intercept 7?",
+        "choices": [
+          "It begins at 7 and falls 3 units for every 1 unit right",
+          "It begins at -3 and rises 7 units per unit right",
+          "It begins at 7 and rises 3 units per unit right",
+          "It crosses the x-axis at 7 and is horizontal"
+        ],
+        "answer": "It begins at 7 and falls 3 units for every 1 unit right",
+        "explain": "The intercept fixes the start at (0,7), and a negative slope means y drops 3 per unit of x."
+      },
+      {
+        "type": "mc",
+        "q": "A student computes the slope from (-2, 5) to (4, -7) as 12/6 = 2. What error occurred?",
+        "choices": [
+          "The y-change is -12, so the slope is -2",
+          "The x-change is -6, so the slope is also 2",
+          "Slope should use x-change over y-change",
+          "Negative coordinates cannot be used"
+        ],
+        "answer": "The y-change is -12, so the slope is -2",
+        "explain": "Moving from 5 to -7 changes y by -12, not +12; -12/6 = -2."
+      },
+      {
+        "type": "mc",
+        "q": "Line A has table values (0,2),(4,10). Line B follows y = 3x - 1. Which has greater slope?",
+        "choices": [
+          "Line B by 1",
+          "Line A by 1",
+          "They have equal slopes",
+          "Line A by 3"
+        ],
+        "answer": "Line B by 1",
+        "explain": "Line A's slope is (10-2)/4 = 2; Line B's slope is 3, one greater."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: If a line's table shows equal x-increments but unequal y-increments, the table does not represent one constant slope.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A linear rate of change requires the same y-change for equal x-changes."
+      },
+      {
+        "type": "mc",
+        "q": "Points (a, 4) and (a + 5, -6) lie on a line. What is the slope?",
+        "choices": [
+          "-2",
+          "2",
+          "-10",
+          "-1/2"
+        ],
+        "answer": "-2",
+        "explain": "The y-change is -10 and the x-change is 5, giving -10/5 = -2."
+      },
+      {
+        "type": "mc",
+        "q": "A line has slope 2/5 and passes through (10, 1). What is its y-intercept?",
+        "choices": [
+          "-3",
+          "1",
+          "3",
+          "5"
+        ],
+        "answer": "-3",
+        "explain": "Substitute into y = (2/5)x + b: 1 = 4 + b, so b = -3."
+      },
+      {
+        "type": "mc",
+        "q": "A streaming service costs $18 at 2 months and $42 at 6 months. If cost is linear, what does the y-intercept represent?",
+        "choices": [
+          "A $6 initial fee",
+          "A $6 monthly rate",
+          "An $18 initial fee",
+          "No initial fee"
+        ],
+        "answer": "A $6 initial fee",
+        "explain": "The slope is (42-18)/(6-2)=6; then 18=6(2)+b gives b=6, the cost at month 0."
+      },
+      {
+        "type": "mc",
+        "q": "Line P passes through (-3,-1) and (5,3). Line Q passes through (2,7) and (6,5). How are their slopes related?",
+        "choices": [
+          "They have equal magnitude but opposite signs",
+          "Both slopes are 1/2",
+          "Both slopes are -1/2",
+          "Their slopes are reciprocals with the same sign"
+        ],
+        "answer": "They have equal magnitude but opposite signs",
+        "explain": "P has slope 4/8 = 1/2; Q has slope -2/4 = -1/2."
+      },
+      {
+        "type": "mc",
+        "q": "A graph of water depth has slope -0.75 cm/min and y-intercept 24 cm. When will the depth reach 15 cm?",
+        "choices": [
+          "12 minutes",
+          "9 minutes",
+          "20 minutes",
+          "32 minutes"
+        ],
+        "answer": "12 minutes",
+        "explain": "Solve 15 = -0.75t + 24: -9 = -0.75t, so t = 12."
+      },
+      {
+        "type": "mc",
+        "q": "The table (1,4),(3,10),(7,22) is claimed to be linear. Which calculation verifies the claim?",
+        "choices": [
+          "Both interval slopes equal 3",
+          "The y-values are all even",
+          "The x-values increase",
+          "The intercept equals 4"
+        ],
+        "answer": "Both interval slopes equal 3",
+        "explain": "The slopes are (10-4)/(3-1)=3 and (22-10)/(7-3)=3, confirming a constant rate."
+      },
+      {
+        "type": "mc",
+        "q": "A line's y-intercept is 8. Doubling every y-value in its table while keeping x fixed creates a new line. What happens to slope and intercept?",
+        "choices": [
+          "Both double",
+          "Only slope doubles",
+          "Only intercept doubles",
+          "Neither changes"
+        ],
+        "answer": "Both double",
+        "explain": "If y = mx + 8, doubling outputs gives y = 2mx + 16, doubling both quantities."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer solves “A streaming service costs $18 at 2 months and $42 at 6 months. If cost is linear, what does the y-intercept represent” and remains correct after the result is verified?",
+        "choices": [
+          "A $6 initial fee",
+          "A $6 monthly rate",
+          "An $18 initial fee",
+          "No initial fee"
+        ],
+        "answer": "A $6 initial fee",
+        "explain": "The slope is (42-18)/(6-2)=6; then 18=6(2)+b gives b=6, the cost at month 0. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer solves “Line P passes through (-3,-1) and (5,3). Line Q passes through (2,7) and (6,5). How are their slopes related” and remains correct after the result is verified?",
+        "choices": [
+          "They have equal magnitude but opposite signs",
+          "Both slopes are 1/2",
+          "Both slopes are -1/2",
+          "Their slopes are reciprocals with the same sign"
+        ],
+        "answer": "They have equal magnitude but opposite signs",
+        "explain": "P has slope 4/8 = 1/2; Q has slope -2/4 = -1/2. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      }
+    ]
+  },
+  "g8:math:L3": {
+    "name": "Functions",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "A function has...",
+        "choices": [
+          "One output for each input",
+          "Many random outputs for one input",
+          "Ever",
+          "No pattern ever"
+        ],
+        "answer": "One output for each input",
+        "audio": "Functions."
+      },
+      {
+        "type": "mc",
+        "q": "If f(x)=x+2, f(3) = ?",
+        "choices": [
+          "5",
+          "6",
+          "1",
+          "4"
+        ],
+        "answer": "5",
+        "audio": "Functions."
+      },
+      {
+        "type": "mc",
+        "q": "Input-output tables show...",
+        "choices": [
+          "Relationships",
+          "Only spelling",
+          "Only weather",
+          "None of these"
+        ],
+        "answer": "Relationships",
+        "audio": "Functions."
+      },
+      {
+        "type": "mc",
+        "q": "Which relation is a function?",
+        "choices": [
+          "{(1,2),(2,4),(3,6)}",
+          "{(1,2),(1,4),(3,6)}",
+          "{(0,5),(0,6)}",
+          "{(2,1),(2,2),(2,3)}"
+        ],
+        "answer": "{(1,2),(2,4),(3,6)}",
+        "explain": "Each input in the first relation is paired with exactly one output."
+      },
+      {
+        "type": "mc",
+        "q": "A mapping sends a→2, b→2, and c→5. Is it a function?",
+        "choices": [
+          "Yes; each input has exactly one output",
+          "No; two inputs share output 2",
+          "No; outputs must all differ",
+          "Yes; only because there are three inputs"
+        ],
+        "answer": "Yes; each input has exactly one output",
+        "explain": "Functions may share outputs; the requirement is one output per input."
+      },
+      {
+        "type": "mc",
+        "q": "Which graph test identifies whether y is a function of x?",
+        "choices": [
+          "vertical line test",
+          "horizontal line test",
+          "midpoint test",
+          "slope triangle test"
+        ],
+        "answer": "vertical line test",
+        "explain": "A vertical line detects whether one x-value corresponds to more than one y-value."
+      },
+      {
+        "type": "mc",
+        "q": "A table lists x: 1, 2, 3, 4 and y: 7, 7, 7, 7. Is it a function?",
+        "choices": [
+          "Yes; each x maps to one y",
+          "No; the y-values repeat",
+          "No; a function must rise",
+          "Yes; because x and y differ"
+        ],
+        "answer": "Yes; each x maps to one y",
+        "explain": "Repeated outputs are allowed, and each listed input has one output."
+      },
+      {
+        "type": "mc",
+        "q": "Is the relation x = y² a function of x?",
+        "choices": [
+          "No; a positive x can have two y-values",
+          "Yes; every y has one x",
+          "Yes; squares are always functions of x",
+          "No; it contains an exponent"
+        ],
+        "answer": "No; a positive x can have two y-values",
+        "explain": "For x=4, both y=2 and y=-2 satisfy the relation, so y is not a function of x."
+      },
+      {
+        "type": "mc",
+        "q": "A vending machine assigns each button one snack, though two buttons may select the same snack. Does the mapping model a function?",
+        "choices": [
+          "Yes; every button has one assigned snack",
+          "No; two buttons share a snack",
+          "No; machines cannot model functions",
+          "Only if every snack is selected"
+        ],
+        "answer": "Yes; every button has one assigned snack",
+        "explain": "The buttons are inputs, and each input produces exactly one output."
+      },
+      {
+        "type": "mc",
+        "q": "Which table fails to represent a function?",
+        "choices": [
+          "x: 2,2,5; y: 1,3,8",
+          "x: 1,2,3; y: 4,4,4",
+          "x: -1,0,1; y: 1,0,1",
+          "x: 3,4,5; y: 9,16,25"
+        ],
+        "answer": "x: 2,2,5; y: 1,3,8",
+        "explain": "Input 2 is paired with two different outputs, 1 and 3."
+      },
+      {
+        "type": "mc",
+        "q": "A circle is graphed. Why is y not a function of x?",
+        "choices": [
+          "Some vertical lines cross the circle twice",
+          "Some horizontal lines cross it twice",
+          "Its points are curved",
+          "Its center may be at the origin"
+        ],
+        "answer": "Some vertical lines cross the circle twice",
+        "explain": "Two intersections on one vertical line mean a single x has two y-values."
+      },
+      {
+        "type": "mc",
+        "q": "The rule assigns each student to the month of birth. Is it a function from students to months?",
+        "choices": [
+          "Yes; each student has one birth month",
+          "No; many students share months",
+          "No; months are not numbers",
+          "Only if there are twelve students"
+        ],
+        "answer": "Yes; each student has one birth month",
+        "explain": "Multiple students may share an output, but each student has one birth month."
+      },
+      {
+        "type": "mc",
+        "q": "Which change would make {(0,1),(2,3),(2,5),(4,7)} a function?",
+        "choices": [
+          "Remove either (2,3) or (2,5)",
+          "Remove (0,1)",
+          "Add (2,7)",
+          "Swap every coordinate"
+        ],
+        "answer": "Remove either (2,3) or (2,5)",
+        "explain": "The conflict is that input 2 has two outputs; removing one conflicting pair resolves it."
+      },
+      {
+        "type": "mc",
+        "q": "A relation contains (-3,2), (-1,2), (0,2), and (4,2). What feature proves it is a function?",
+        "choices": [
+          "All four x-values are distinct",
+          "All outputs are identical",
+          "The output is positive",
+          "There are four ordered pairs"
+        ],
+        "answer": "All four x-values are distinct",
+        "explain": "Distinct inputs ensure no input is paired with more than one output."
+      },
+      {
+        "type": "mc",
+        "q": "A graph consists of separate points. A vertical line through x=3 hits two points. What is the correct conclusion?",
+        "choices": [
+          "The relation is not a function because input 3 has two outputs",
+          "The relation is a function because points are separate",
+          "The relation is linear",
+          "The relation has no domain"
+        ],
+        "answer": "The relation is not a function because input 3 has two outputs",
+        "explain": "The vertical-line result directly violates the one-output-per-input condition."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A function can map different inputs to the same output.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The definition restricts each input to one output; it does not require outputs to be unique."
+      },
+      {
+        "type": "mc",
+        "q": "A mapping diagram has input p with no arrow, q→7, and r→8. Why does it not define a function on the displayed domain?",
+        "choices": [
+          "Input p has no assigned output",
+          "Outputs 7 and 8 are consecutive",
+          "There are more inputs than outputs",
+          "Letters cannot be inputs"
+        ],
+        "answer": "Input p has no assigned output",
+        "explain": "Every member of the stated domain must be assigned exactly one output."
+      },
+      {
+        "type": "mc",
+        "q": "If the ordered pairs (k,1), (2,4), and (k,9) form a function, what must be true?",
+        "choices": [
+          "The two pairs with input k cannot both remain unless their outputs agree",
+          "k must equal 2",
+          "k must equal 1",
+          "The outputs 1 and 9 may differ for the same input"
+        ],
+        "answer": "The two pairs with input k cannot both remain unless their outputs agree",
+        "explain": "One input cannot map to both 1 and 9, so the relation must be changed or restricted."
+      },
+      {
+        "type": "mc",
+        "q": "A relation is defined by y = ±√x for x ≥ 0. Which statement is accurate?",
+        "choices": [
+          "It is not a function of x except when the domain is restricted to one branch",
+          "It is a function because square roots are positive",
+          "It is a function only when x is negative",
+          "It passes every vertical line test"
+        ],
+        "answer": "It is not a function of x except when the domain is restricted to one branch",
+        "explain": "For x>0, the plus and minus branches give two outputs; restricting to one branch restores a function."
+      },
+      {
+        "type": "mc",
+        "q": "A table records time and a runner's position, but time 12 s appears twice with positions 70 m and 74 m. What is the best interpretation?",
+        "choices": [
+          "As written it is not a function of time and may contain a recording inconsistency",
+          "It proves the runner was in two places simultaneously",
+          "Repeated times always make valid functions",
+          "Position cannot depend on time"
+        ],
+        "answer": "As written it is not a function of time and may contain a recording inconsistency",
+        "explain": "One time input has two recorded outputs, so the relation fails the function rule and should be checked."
+      },
+      {
+        "type": "mc",
+        "q": "The inverse of a function is formed by swapping x and y. When will the inverse also be a function?",
+        "choices": [
+          "When the original function never assigns the same output to two different inputs",
+          "Whenever the original has a y-intercept",
+          "Only when the original is proportional",
+          "Whenever its domain contains zero"
+        ],
+        "answer": "When the original function never assigns the same output to two different inputs",
+        "explain": "After swapping, repeated original outputs become repeated inverse inputs, so outputs must have been unique."
+      },
+      {
+        "type": "mc",
+        "q": "Which domain restriction makes x² + y² = 25 define y as a function of x?",
+        "choices": [
+          "Require y ≥ 0",
+          "Require x ≥ 0",
+          "Require -5 ≤ x ≤ 5",
+          "Require x and y to be integers"
+        ],
+        "answer": "Require y ≥ 0",
+        "explain": "The upper semicircle y=√(25-x²) supplies only one y for each allowed x."
+      },
+      {
+        "type": "mc",
+        "q": "A graph passes the vertical line test, but after reflecting it across y=x the image fails. What does that reveal about the original function?",
+        "choices": [
+          "At least two inputs shared an output",
+          "At least one input had two outputs",
+          "The original was not a function",
+          "The original had slope zero everywhere"
+        ],
+        "answer": "At least two inputs shared an output",
+        "explain": "Reflection swaps coordinates, so failure in the inverse means an original output was used by multiple inputs."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer solves “A relation is defined by y = ±√x for x ≥ 0. Which statement is accurate” and remains correct after the result is verified?",
+        "choices": [
+          "It is not a function of x except when the domain is restricted to one branch",
+          "It is a function because square roots are positive",
+          "It is a function only when x is negative",
+          "It passes every vertical line test"
+        ],
+        "answer": "It is not a function of x except when the domain is restricted to one branch",
+        "explain": "For x>0, the plus and minus branches give two outputs; restricting to one branch restores a function. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer solves “A table records time and a runner's position, but time 12 s appears twice with positions 70 m and 74 m. What is the best interpretation” and remains correct after the result is verified?",
+        "choices": [
+          "As written it is not a function of time and may contain a recording inconsistency",
+          "It proves the runner was in two places simultaneously",
+          "Repeated times always make valid functions",
+          "Position cannot depend on time"
+        ],
+        "answer": "As written it is not a function of time and may contain a recording inconsistency",
+        "explain": "One time input has two recorded outputs, so the relation fails the function rule and should be checked. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      }
+    ]
+  },
+  "g8:math:L4": {
+    "name": "Square Numbers Match",
+    "questions": [
+      {
+        "type": "drag",
+        "q": "Drag each word to the correct answer.",
+        "pairs": [
+          {
+            "left": "3²",
+            "right": "9"
+          },
+          {
+            "left": "4²",
+            "right": "16"
+          },
+          {
+            "left": "5²",
+            "right": "25"
+          },
+          {
+            "left": "10²",
+            "right": "100"
+          }
+        ],
+        "audio": "Drag the pairs to match them."
+      },
+      {
+        "type": "mc",
+        "q": "Between which consecutive integers does √20 lie?",
+        "choices": [
+          "4 and 5",
+          "3 and 4",
+          "5 and 6",
+          "9 and 10"
+        ],
+        "answer": "4 and 5",
+        "explain": "Because 4²=16 and 5²=25, √20 lies between 4 and 5."
+      },
+      {
+        "type": "mc",
+        "q": "Which approximation of √10 is closest?",
+        "choices": [
+          "3.16",
+          "2.10",
+          "3.90",
+          "5.00"
+        ],
+        "answer": "3.16",
+        "explain": "Since 3.16²≈9.99, 3.16 is a close approximation to √10."
+      },
+      {
+        "type": "mc",
+        "q": "Match √49 to its exact value.",
+        "choices": [
+          "7",
+          "6",
+          "8",
+          "24.5"
+        ],
+        "answer": "7",
+        "explain": "Seven squared equals 49, so √49=7."
+      },
+      {
+        "type": "mc",
+        "q": "Which point best locates √70 on a number line?",
+        "choices": [
+          "about 8.4",
+          "about 7.0",
+          "about 9.6",
+          "about 35.0"
+        ],
+        "answer": "about 8.4",
+        "explain": "Because 8²=64 and 9²=81, and 8.4²≈70.56, √70 is about 8.4."
+      },
+      {
+        "type": "mc",
+        "q": "Is √81 rational or irrational?",
+        "choices": [
+          "rational because it equals 9",
+          "irrational because it uses a radical",
+          "irrational because 81 is odd",
+          "rational because it equals 40.5"
+        ],
+        "answer": "rational because it equals 9",
+        "explain": "A perfect-square radicand has an integer square root, and integers are rational."
+      },
+      {
+        "type": "mc",
+        "q": "A square has area 50 cm². Which estimate is closest to its side length?",
+        "choices": [
+          "7.1 cm",
+          "6.2 cm",
+          "8.5 cm",
+          "25 cm"
+        ],
+        "answer": "7.1 cm",
+        "explain": "The side is √50; since 7.1²=50.41, 7.1 cm is a close estimate."
+      },
+      {
+        "type": "mc",
+        "q": "Order √15, 4, and √20 from least to greatest.",
+        "choices": [
+          "√15, 4, √20",
+          "4, √15, √20",
+          "√20, 4, √15",
+          "√15, √20, 4"
+        ],
+        "answer": "√15, 4, √20",
+        "explain": "√15≈3.87, while √20≈4.47, so 3.87<4<4.47."
+      },
+      {
+        "type": "mc",
+        "q": "Which decimal is a rational approximation of π to the nearest hundredth?",
+        "choices": [
+          "3.14",
+          "3.15",
+          "3.04",
+          "3.41"
+        ],
+        "answer": "3.14",
+        "explain": "π≈3.14159, which rounds to 3.14 at the hundredths place."
+      },
+      {
+        "type": "mc",
+        "q": "Between which tenths does √35 lie?",
+        "choices": [
+          "5.9 and 6.0",
+          "5.4 and 5.5",
+          "6.0 and 6.1",
+          "17.5 and 17.6"
+        ],
+        "answer": "5.9 and 6.0",
+        "explain": "5.9²=34.81 and 6.0²=36, so √35 lies between those tenths."
+      },
+      {
+        "type": "mc",
+        "q": "Which is greater, √90 or 9.4?",
+        "choices": [
+          "√90",
+          "9.4",
+          "They are equal",
+          "Cannot be determined"
+        ],
+        "answer": "√90",
+        "explain": "Because 9.4²=88.36<90, √90 must be greater than 9.4."
+      },
+      {
+        "type": "mc",
+        "q": "A student says √45≈6.9 because 6.9²=47.61. Which estimate is better?",
+        "choices": [
+          "6.7, because 6.7²=44.89",
+          "6.0, because 6²=36",
+          "7.5, because 7.5²=56.25",
+          "22.5, because it is half of 45"
+        ],
+        "answer": "6.7, because 6.7²=44.89",
+        "explain": "The square 44.89 is only 0.11 from 45, much closer than 47.61."
+      },
+      {
+        "type": "mc",
+        "q": "Which method best estimates √130 to the nearest tenth?",
+        "choices": [
+          "Compare squares near 11.4 because 11²<130<12²",
+          "Divide 130 by 2",
+          "Round 130 to 100 and report 100",
+          "Add 11 and 12"
+        ],
+        "answer": "Compare squares near 11.4 because 11²<130<12²",
+        "explain": "The bounding squares locate the root; 11.4²=129.96, giving √130≈11.4."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: √72 lies closer to 8 than to 9.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. √72≈8.49, which is 0.49 from 8 and 0.51 from 9."
+      },
+      {
+        "type": "mc",
+        "q": "Place -√50 relative to -7 and -8.",
+        "choices": [
+          "between -8 and -7, near -7.1",
+          "between 7 and 8, near 7.1",
+          "between -7 and -6, near -6.5",
+          "exactly at -25"
+        ],
+        "answer": "between -8 and -7, near -7.1",
+        "explain": "Since √50≈7.07, its negative is about -7.07, between -8 and -7."
+      },
+      {
+        "type": "mc",
+        "q": "Which comparison is correct?",
+        "choices": [
+          "√120 < 11",
+          "√120 > 12",
+          "√120 = 60",
+          "√120 < 10"
+        ],
+        "answer": "√120 < 11",
+        "explain": "Since 10²=100 and 11²=121, √120 is just below 11."
+      },
+      {
+        "type": "mc",
+        "q": "A square patio's side is √145 m. A builder rounds to 12.0 m. What is the approximate error?",
+        "choices": [
+          "about 0.04 m too short",
+          "about 1.0 m too long",
+          "about 0.45 m too short",
+          "exactly 0 m"
+        ],
+        "answer": "about 0.04 m too short",
+        "explain": "√145≈12.04, so 12.0 underestimates the side by about 0.04 m."
+      },
+      {
+        "type": "mc",
+        "q": "Which number is nearest to √200 on a number line?",
+        "choices": [
+          "14.14",
+          "13.50",
+          "14.90",
+          "20.00"
+        ],
+        "answer": "14.14",
+        "explain": "14.14²≈199.94, so it is a close approximation to √200."
+      },
+      {
+        "type": "mc",
+        "q": "Without a calculator, which bound is tightest for √85?",
+        "choices": [
+          "9.2 < √85 < 9.3",
+          "8 < √85 < 9",
+          "9.5 < √85 < 10",
+          "42 < √85 < 43"
+        ],
+        "answer": "9.2 < √85 < 9.3",
+        "explain": "9.2²=84.64 and 9.3²=86.49, which tightly enclose 85."
+      },
+      {
+        "type": "mc",
+        "q": "A point is at √12 and another at √27. What is their approximate distance?",
+        "choices": [
+          "1.73",
+          "3.46",
+          "5.20",
+          "15.00"
+        ],
+        "answer": "1.73",
+        "explain": "√27-√12≈5.196-3.464=1.732."
+      },
+      {
+        "type": "mc",
+        "q": "Which reasoning correctly locates √224?",
+        "choices": [
+          "Because 14.9²=222.01 and 15²=225, √224 is between 14.9 and 15",
+          "Because 112×2=224, √224=112",
+          "Because 14²=196, √224 is less than 14",
+          "Because 15²=225, √224 is greater than 15"
+        ],
+        "answer": "Because 14.9²=222.01 and 15²=225, √224 is between 14.9 and 15",
+        "explain": "The nearby squares 222.01 and 225 bound 224, so the root is just under 15."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer solves “A square patio's side is √145 m. A builder rounds to 12.0 m. What is the approximate error” and remains correct after the result is verified?",
+        "choices": [
+          "about 0.04 m too short",
+          "about 1.0 m too long",
+          "about 0.45 m too short",
+          "exactly 0 m"
+        ],
+        "answer": "about 0.04 m too short",
+        "explain": "√145≈12.04, so 12.0 underestimates the side by about 0.04 m. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer solves “Which number is nearest to √200 on a number line” and remains correct after the result is verified?",
+        "choices": [
+          "14.14",
+          "13.50",
+          "14.90",
+          "20.00"
+        ],
+        "answer": "14.14",
+        "explain": "14.14²≈199.94, so it is a close approximation to √200. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer solves “Without a calculator, which bound is tightest for √85” and remains correct after the result is verified?",
+        "choices": [
+          "9.2 < √85 < 9.3",
+          "8 < √85 < 9",
+          "9.5 < √85 < 10",
+          "42 < √85 < 43"
+        ],
+        "answer": "9.2 < √85 < 9.3",
+        "explain": "9.2²=84.64 and 9.3²=86.49, which tightly enclose 85. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer solves “A point is at √12 and another at √27. What is their approximate distance” and remains correct after the result is verified?",
+        "choices": [
+          "1.73",
+          "3.46",
+          "5.20",
+          "15.00"
+        ],
+        "answer": "1.73",
+        "explain": "√27-√12≈5.196-3.464=1.732. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      }
+    ]
+  },
+  "g8:math:L5": {
+    "name": "Pythagorean Theorem",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Pythagorean Theorem is...",
+        "choices": [
+          "A² + b² = c²",
+          "Theorem",
+          "Ab = c",
+          "A + b = c"
+        ],
+        "answer": "A² + b² = c²",
+        "audio": "Pythagorean Theorem."
+      },
+      {
+        "type": "mc",
+        "q": "The longest side of a right triangle is the...",
+        "choices": [
+          "Radius",
+          "Diameter",
+          "Area",
+          "Hypotenuse"
+        ],
+        "answer": "Hypotenuse",
+        "audio": "Pythagorean Theorem."
+      },
+      {
+        "type": "mc",
+        "q": "If the legs are 3 and 4, the hypotenuse is...",
+        "choices": [
+          "5",
+          "4",
+          "6",
+          "7"
+        ],
+        "answer": "5",
+        "audio": "Pythagorean Theorem."
+      },
+      {
+        "type": "mc",
+        "q": "A right triangle has legs 3 and 4. What is the hypotenuse?",
+        "choices": [
+          "5",
+          "6",
+          "7",
+          "12"
+        ],
+        "answer": "5",
+        "explain": "The theorem gives c²=3²+4²=9+16=25, so c=5."
+      },
+      {
+        "type": "mc",
+        "q": "A right triangle has legs 5 and 12. What is the hypotenuse?",
+        "choices": [
+          "13",
+          "17",
+          "7",
+          "60"
+        ],
+        "answer": "13",
+        "explain": "c²=25+144=169, and √169=13."
+      },
+      {
+        "type": "mc",
+        "q": "A right triangle has hypotenuse 10 and one leg 6. What is the other leg?",
+        "choices": [
+          "8",
+          "4",
+          "12",
+          "16"
+        ],
+        "answer": "8",
+        "explain": "The missing square is 10²-6²=100-36=64, so the leg is 8."
+      },
+      {
+        "type": "mc",
+        "q": "Which side is always c in a²+b²=c²?",
+        "choices": [
+          "the hypotenuse opposite the right angle",
+          "either shorter leg",
+          "the vertical side only",
+          "the side with smallest length"
+        ],
+        "answer": "the hypotenuse opposite the right angle",
+        "explain": "The hypotenuse is opposite the 90° angle and is the triangle's longest side."
+      },
+      {
+        "type": "mc",
+        "q": "Do side lengths 6, 8, and 10 form a right triangle?",
+        "choices": [
+          "Yes, because 6²+8²=10²",
+          "No, because 6+8>10",
+          "Yes, because all are even",
+          "No, because the sides differ"
+        ],
+        "answer": "Yes, because 6²+8²=10²",
+        "explain": "The converse applies since 36+64=100."
+      },
+      {
+        "type": "mc",
+        "q": "A 15-foot ladder stands 9 feet from a wall. How high up the wall does it reach?",
+        "choices": [
+          "12 ft",
+          "6 ft",
+          "18 ft",
+          "24 ft"
+        ],
+        "answer": "12 ft",
+        "explain": "The ladder is the hypotenuse: h²=15²-9²=225-81=144, so h=12."
+      },
+      {
+        "type": "mc",
+        "q": "A rectangular screen is 16 in wide and 12 in tall. What is its diagonal?",
+        "choices": [
+          "20 in",
+          "14 in",
+          "28 in",
+          "192 in"
+        ],
+        "answer": "20 in",
+        "explain": "d²=16²+12²=256+144=400, so d=20."
+      },
+      {
+        "type": "mc",
+        "q": "A hiker walks 7 km east and 24 km north. How far is the hiker from the start?",
+        "choices": [
+          "25 km",
+          "31 km",
+          "17 km",
+          "168 km"
+        ],
+        "answer": "25 km",
+        "explain": "The perpendicular paths form legs: d=√(7²+24²)=√625=25."
+      },
+      {
+        "type": "mc",
+        "q": "Do sides 7, 9, and 12 form a right triangle?",
+        "choices": [
+          "No, because 7²+9²≠12²",
+          "Yes, because 7+9>12",
+          "Yes, because 49+81=144",
+          "No, because all sides must be even"
+        ],
+        "answer": "No, because 7²+9²≠12²",
+        "explain": "The two shorter squares total 130, not the longest square 144."
+      },
+      {
+        "type": "mc",
+        "q": "A square has side length 8. What is the exact diagonal length?",
+        "choices": [
+          "8√2",
+          "16",
+          "4√2",
+          "64"
+        ],
+        "answer": "8√2",
+        "explain": "The diagonal is √(8²+8²)=√128=8√2."
+      },
+      {
+        "type": "mc",
+        "q": "A student uses 13²+5² to find the missing leg when the hypotenuse is 13 and one leg is 5. What is the correction?",
+        "choices": [
+          "Subtract: b²=13²-5²",
+          "Add because all side squares are positive",
+          "Multiply 13 and 5",
+          "Divide 13 by 5"
+        ],
+        "answer": "Subtract: b²=13²-5²",
+        "explain": "The hypotenuse square equals the sum of leg squares, so a missing leg requires subtraction."
+      },
+      {
+        "type": "mc",
+        "q": "Which set is a right triangle by the converse?",
+        "choices": [
+          "9, 40, 41",
+          "8, 10, 14",
+          "10, 11, 12",
+          "12, 15, 20"
+        ],
+        "answer": "9, 40, 41",
+        "explain": "For 9,40,41, the squares satisfy 81+1600=1681=41²."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A triangle with side lengths 8, 15, and 17 is a right triangle.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The squares satisfy 8²+15²=64+225=289=17²."
+      },
+      {
+        "type": "mc",
+        "q": "A coordinate grid has points (-2,1) and (4,9). What is their distance?",
+        "choices": [
+          "10",
+          "8",
+          "6",
+          "14"
+        ],
+        "answer": "10",
+        "explain": "The changes are 6 and 8; distance is √(6²+8²)=√100=10."
+      },
+      {
+        "type": "mc",
+        "q": "A 20-foot guy wire anchors 12 feet from a pole. At what height is it attached?",
+        "choices": [
+          "16 ft",
+          "8 ft",
+          "24 ft",
+          "32 ft"
+        ],
+        "answer": "16 ft",
+        "explain": "The wire is the hypotenuse, so h=√(20²-12²)=√256=16."
+      },
+      {
+        "type": "mc",
+        "q": "A ramp rises 3 feet over a horizontal run of 14 feet. What is its length to the nearest tenth?",
+        "choices": [
+          "14.3 ft",
+          "17.0 ft",
+          "13.7 ft",
+          "196.0 ft"
+        ],
+        "answer": "14.3 ft",
+        "explain": "The length is √(3²+14²)=√205≈14.3 feet."
+      },
+      {
+        "type": "mc",
+        "q": "A triangle has side lengths √50, √98, and 12. Is it right?",
+        "choices": [
+          "Yes, because 50+98=144",
+          "No, because radicals cannot be side lengths",
+          "No, because 50+98>12",
+          "Yes, because √50+√98=12"
+        ],
+        "answer": "Yes, because 50+98=144",
+        "explain": "The squares of the two shorter sides total 50+98=148, not 144."
+      },
+      {
+        "type": "mc",
+        "q": "A rectangle's diagonal is 25 cm and its width is 15 cm. What is its area?",
+        "choices": [
+          "300 cm²",
+          "200 cm²",
+          "375 cm²",
+          "500 cm²"
+        ],
+        "answer": "300 cm²",
+        "explain": "The length is √(25²-15²)=20 cm; area is 15×20=300 cm²."
+      },
+      {
+        "type": "mc",
+        "q": "A rescue boat travels 18 km west and then 80 km south. How much shorter would a direct return route be than retracing both legs?",
+        "choices": [
+          "16 km",
+          "82 km",
+          "98 km",
+          "64 km"
+        ],
+        "answer": "16 km",
+        "explain": "The direct distance is √(18²+80²)=82 km; retracing totals 98 km, a difference of 16."
+      },
+      {
+        "type": "mc",
+        "q": "A triangle has sides 11, 60, and 61. Which conclusion follows from the converse?",
+        "choices": [
+          "It is right because 11²+60²=61²",
+          "It is acute because all sides differ",
+          "It is not a triangle because 11+60>61",
+          "It is right because 11+60=71"
+        ],
+        "answer": "It is right because 11²+60²=61²",
+        "explain": "121+3600=3721, exactly 61², so the included angle opposite 61 is right."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer solves “A ramp rises 3 feet over a horizontal run of 14 feet. What is its length to the nearest tenth” and remains correct after the result is verified?",
+        "choices": [
+          "14.3 ft",
+          "17.0 ft",
+          "13.7 ft",
+          "196.0 ft"
+        ],
+        "answer": "14.3 ft",
+        "explain": "The length is √(3²+14²)=√205≈14.3 feet. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer solves “A triangle has side lengths √50, √98, and 12. Is it right” and remains correct after the result is verified?",
+        "choices": [
+          "Yes, because 50+98=144",
+          "No, because radicals cannot be side lengths",
+          "No, because 50+98>12",
+          "Yes, because √50+√98=12"
+        ],
+        "answer": "Yes, because 50+98=144",
+        "explain": "The squares of the two shorter sides total 50+98=148, not 144. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      }
+    ]
+  },
+  "g8:math:L10": {
+    "name": "Grade 8 Math L10",
+    "questions": [
+      {
+        "type": "drag",
+        "q": "Grade 8 Math L10: match each math word.",
+        "pairs": [
+          {
+            "left": "sum",
+            "right": "answer to addition"
+          },
+          {
+            "left": "difference",
+            "right": "answer to subtraction"
+          },
+          {
+            "left": "product",
+            "right": "answer to multiplication"
+          }
+        ],
+        "audio": "Match the math vocabulary."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L10: what is 10 + 2?",
+        "choices": [
+          "11",
+          "12",
+          "13",
+          "0"
+        ],
+        "answer": "12",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "input",
+        "q": "Grade 8 Math L10: type 10 times 2.",
+        "answer": "20",
+        "audio": "Multiply by two."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L10: what is 10 + 5?",
+        "choices": [
+          "16",
+          "0",
+          "14",
+          "15"
+        ],
+        "answer": "15",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L10: what is 10 + 8?",
+        "choices": [
+          "0",
+          "19",
+          "18",
+          "17"
+        ],
+        "answer": "18",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L10: what is 10 + 11?",
+        "choices": [
+          "0",
+          "20",
+          "21",
+          "22"
+        ],
+        "answer": "21",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L10: what is 10 + 14?",
+        "choices": [
+          "25",
+          "23",
+          "0",
+          "24"
+        ],
+        "answer": "24",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L10: what is 10 + 17?",
+        "choices": [
+          "0",
+          "26",
+          "28",
+          "27"
+        ],
+        "answer": "27",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L10: what is 10 + 20?",
+        "choices": [
+          "29",
+          "0",
+          "30",
+          "31"
+        ],
+        "answer": "30",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L10: what is 10 + 23?",
+        "choices": [
+          "0",
+          "33",
+          "34",
+          "32"
+        ],
+        "answer": "33",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Which two points are easiest to graph for y=2x+3?",
+        "choices": [
+          "(0,3) and (1,5)",
+          "(0,2) and (3,0)",
+          "(2,0) and (3,1)",
+          "(0,-3) and (1,-5)"
+        ],
+        "answer": "(0,3) and (1,5)",
+        "explain": "The intercept gives (0,3), and slope 2/1 gives the next point (1,5)."
+      },
+      {
+        "type": "mc",
+        "q": "For y=-x+4, where does the line cross the y-axis?",
+        "choices": [
+          "(0,4)",
+          "(4,0)",
+          "(0,-1)",
+          "(-1,4)"
+        ],
+        "answer": "(0,4)",
+        "explain": "The constant term 4 is the y-value when x=0."
+      },
+      {
+        "type": "mc",
+        "q": "Starting at (0,-2), how do you use slope 3/4 to plot another point?",
+        "choices": [
+          "Move right 4 and up 3 to (4,1)",
+          "Move right 3 and up 4 to (3,2)",
+          "Move left 4 and up 3 to (-4,1) only",
+          "Move right 4 and down 3 to (4,-5)"
+        ],
+        "answer": "Move right 4 and up 3 to (4,1)",
+        "explain": "Slope 3/4 is rise 3 over run 4, producing (4,1)."
+      },
+      {
+        "type": "mc",
+        "q": "Which equation graphs a horizontal line through y=6?",
+        "choices": [
+          "y=6",
+          "x=6",
+          "y=6x",
+          "x=0"
+        ],
+        "answer": "y=6",
+        "explain": "A constant y-value creates a horizontal line at height 6."
+      },
+      {
+        "type": "mc",
+        "q": "Which line is steeper in absolute value?",
+        "choices": [
+          "y=-5x+1",
+          "y=3x+1",
+          "y=0.5x-8",
+          "y=2x+9"
+        ],
+        "answer": "y=-5x+1",
+        "explain": "Steepness is |m|; 5 is the greatest absolute slope."
+      },
+      {
+        "type": "mc",
+        "q": "A graph passes through (0,5) and (2,11). Which equation represents it?",
+        "choices": [
+          "y=3x+5",
+          "y=5x+3",
+          "y=6x-1",
+          "y=3x-5"
+        ],
+        "answer": "y=3x+5",
+        "explain": "The slope is 6/2=3 and the y-intercept is 5."
+      },
+      {
+        "type": "mc",
+        "q": "Which point lies on y=-2x+7?",
+        "choices": [
+          "(3,1)",
+          "(2,5)",
+          "(4,1)",
+          "(-1,5)"
+        ],
+        "answer": "(3,1)",
+        "explain": "Substituting x=3 gives y=-6+7=1."
+      },
+      {
+        "type": "mc",
+        "q": "A line falls 2 units for every 5 units right and crosses y=4. Which equation fits?",
+        "choices": [
+          "y=-(2/5)x+4",
+          "y=(2/5)x+4",
+          "y=-5x+2",
+          "y=4x-2/5"
+        ],
+        "answer": "y=-(2/5)x+4",
+        "explain": "Falling gives slope -2/5, and crossing at 4 gives b=4."
+      },
+      {
+        "type": "mc",
+        "q": "What is the x-intercept of y=3x-12?",
+        "choices": [
+          "(4,0)",
+          "(0,-12)",
+          "(-4,0)",
+          "(12,0)"
+        ],
+        "answer": "(4,0)",
+        "explain": "Set y=0: 0=3x-12, so x=4."
+      },
+      {
+        "type": "mc",
+        "q": "Which graph description matches y=0.5x-3?",
+        "choices": [
+          "Crosses at -3 and rises gently left to right",
+          "Crosses at 3 and falls left to right",
+          "Crosses at 0.5 and is vertical",
+          "Crosses at -3 and is horizontal"
+        ],
+        "answer": "Crosses at -3 and rises gently left to right",
+        "explain": "The positive slope 0.5 creates a gentle rise, and b=-3 fixes the intercept."
+      },
+      {
+        "type": "mc",
+        "q": "A student plots y=-3x+2 using (0,-3) as the first point. What is the correction?",
+        "choices": [
+          "Start at (0,2), then move right 1 and down 3",
+          "Start at (-3,0), then move up 2",
+          "Start at (2,0), then move right 3",
+          "Start at (0,3), then move down 2"
+        ],
+        "answer": "Start at (0,2), then move right 1 and down 3",
+        "explain": "The y-intercept is b=2, and slope -3 means -3/1."
+      },
+      {
+        "type": "mc",
+        "q": "Which equation is parallel to y=4x-7 and passes through (0,2)?",
+        "choices": [
+          "y=4x+2",
+          "y=-4x+2",
+          "y=(1/4)x+2",
+          "y=2x+4"
+        ],
+        "answer": "y=4x+2",
+        "explain": "Parallel lines share slope 4; the given point supplies intercept 2."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The graphs of y=2x+1 and y=2x-5 never intersect.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. They have equal slopes but different y-intercepts, so they are distinct parallel lines."
+      },
+      {
+        "type": "mc",
+        "q": "At what point do y=x+4 and y=-2x+10 intersect?",
+        "choices": [
+          "(2,6)",
+          "(6,2)",
+          "(3,7)",
+          "(4,8)"
+        ],
+        "answer": "(2,6)",
+        "explain": "Set x+4=-2x+10 to get x=2; then y=6."
+      },
+      {
+        "type": "mc",
+        "q": "A line is perpendicular to y=(1/3)x+5. Which slope should it have?",
+        "choices": [
+          "-3",
+          "3",
+          "-1/3",
+          "1/3"
+        ],
+        "answer": "-3",
+        "explain": "Perpendicular nonvertical slopes are negative reciprocals; the negative reciprocal of 1/3 is -3."
+      }
+    ]
+  },
+  "g8:math:L6": {
+    "name": "Slope Memory Match",
+    "questions": [
+      {
+        "type": "fill",
+        "q": "Scientific notation uses powers of...",
+        "answer": "10",
+        "placeholder": "Fill in the blank",
+        "audio": "Scientific notation uses powers of..."
+      },
+      {
+        "type": "fill",
+        "q": "1,000 = 1 × 10___",
+        "answer": "3",
+        "placeholder": "Fill in the blank",
+        "audio": "1,000 = 1 × 10___"
+      },
+      {
+        "type": "fill",
+        "q": "5 × 10² = ___",
+        "answer": "500",
+        "placeholder": "Fill in the blank",
+        "audio": "5 × 10² = ___"
+      },
+      {
+        "type": "mc",
+        "q": "Fill in: A line with slope 3 and y-intercept 2 has equation y = ___.",
+        "choices": [
+          "3x + 2",
+          "2x + 3",
+          "3x - 2",
+          "x + 5"
+        ],
+        "answer": "3x + 2",
+        "explain": "In y=mx+b, m=3 and b=2, so the expression is 3x+2."
+      },
+      {
+        "type": "mc",
+        "q": "Fill in: A line with slope -4 and y-intercept 7 has equation y = ___.",
+        "choices": [
+          "-4x + 7",
+          "4x - 7",
+          "7x - 4",
+          "-4x - 7"
+        ],
+        "answer": "-4x + 7",
+        "explain": "Substituting m=-4 and b=7 gives y=-4x+7."
+      },
+      {
+        "type": "mc",
+        "q": "A table contains (0,5),(1,7),(2,9). Fill in: y = ___.",
+        "choices": [
+          "2x + 5",
+          "5x + 2",
+          "2x - 5",
+          "7x"
+        ],
+        "answer": "2x + 5",
+        "explain": "The output rises 2 per input, and y=5 when x=0."
+      },
+      {
+        "type": "mc",
+        "q": "A proportional relationship has unit rate 6. Fill in: y = ___.",
+        "choices": [
+          "6x",
+          "x + 6",
+          "6x + 1",
+          "x/6 + 6"
+        ],
+        "answer": "6x",
+        "explain": "A proportional line has intercept 0, so unit rate 6 produces y=6x."
+      },
+      {
+        "type": "mc",
+        "q": "A line crosses (0,-3) and rises 1 for each 2 units right. Fill in: y = ___.",
+        "choices": [
+          "0.5x - 3",
+          "2x - 3",
+          "-0.5x + 3",
+          "3x + 0.5"
+        ],
+        "answer": "0.5x - 3",
+        "explain": "Rise/run=1/2=0.5 and the y-intercept is -3."
+      },
+      {
+        "type": "mc",
+        "q": "A bike rental costs $9 plus $4 per hour. Which equation models total cost y for x hours?",
+        "choices": [
+          "y = 4x + 9",
+          "y = 9x + 4",
+          "y = 4x - 9",
+          "y = 13x"
+        ],
+        "answer": "y = 4x + 9",
+        "explain": "The hourly rate is the slope 4 and the fixed fee is the intercept 9."
+      },
+      {
+        "type": "mc",
+        "q": "A candle is 28 cm tall and burns 2 cm each hour. Which equation models height y after x hours?",
+        "choices": [
+          "y = -2x + 28",
+          "y = 2x + 28",
+          "y = 28x - 2",
+          "y = -28x + 2"
+        ],
+        "answer": "y = -2x + 28",
+        "explain": "Height begins at 28 and decreases 2 per hour."
+      },
+      {
+        "type": "mc",
+        "q": "The table (2,11),(4,17),(6,23) is linear. Which equation models it?",
+        "choices": [
+          "y = 3x + 5",
+          "y = 5x + 3",
+          "y = 3x - 5",
+          "y = 6x - 1"
+        ],
+        "answer": "y = 3x + 5",
+        "explain": "The slope is 6/2=3; using (2,11) gives b=5."
+      },
+      {
+        "type": "mc",
+        "q": "A savings account starts at $75 and receives $12 each week. Fill in y = ___ for the balance after x weeks.",
+        "choices": [
+          "12x + 75",
+          "75x + 12",
+          "12x - 75",
+          "87x"
+        ],
+        "answer": "12x + 75",
+        "explain": "The recurring deposit is slope 12, and the initial balance is intercept 75."
+      },
+      {
+        "type": "mc",
+        "q": "A graph crosses the y-axis at 10 and the x-axis at 5. Which equation fits?",
+        "choices": [
+          "y = -2x + 10",
+          "y = 2x + 10",
+          "y = -5x + 10",
+          "y = 5x - 2"
+        ],
+        "answer": "y = -2x + 10",
+        "explain": "The slope from (0,10) to (5,0) is -10/5=-2."
+      },
+      {
+        "type": "mc",
+        "q": "Which equation matches a line through (-2,1) and (2,9)?",
+        "choices": [
+          "y = 2x + 5",
+          "y = 4x + 1",
+          "y = 2x - 5",
+          "y = x + 3"
+        ],
+        "answer": "y = 2x + 5",
+        "explain": "The slope is 8/4=2; substituting (2,9) gives b=5."
+      },
+      {
+        "type": "mc",
+        "q": "A student models 'starts at 40 and falls 3 per minute' as y=40x-3. What is the correct fill-in?",
+        "choices": [
+          "y = -3x + 40",
+          "y = 3x + 40",
+          "y = 40x + 3",
+          "y = -40x + 3"
+        ],
+        "answer": "y = -3x + 40",
+        "explain": "The rate -3 multiplies time, while the start value 40 is the intercept."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The equation y = 7x - 4 models a line with a rate of change of 7 and an initial value of -4.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. In slope-intercept form, 7 is m and -4 is b."
+      },
+      {
+        "type": "mc",
+        "q": "A line's table shows (3,-1),(7,9),(11,19). Which equation fills the model?",
+        "choices": [
+          "y = 2.5x - 8.5",
+          "y = 2.5x + 8.5",
+          "y = 4x - 13",
+          "y = 10x - 31"
+        ],
+        "answer": "y = 2.5x - 8.5",
+        "explain": "The slope is 10/4=2.5; using -1=2.5(3)+b gives b=-8.5."
+      },
+      {
+        "type": "mc",
+        "q": "For y=mx+b, the points (0,6) and (k,18) have slope 4. Fill in k.",
+        "choices": [
+          "3",
+          "4",
+          "6",
+          "12"
+        ],
+        "answer": "3",
+        "explain": "Slope 4=(18-6)/(k-0)=12/k, so k=3."
+      },
+      {
+        "type": "mc",
+        "q": "A temperature is 68°F at noon and decreases 2.5°F per hour. Which model and interpretation are correct?",
+        "choices": [
+          "y = -2.5x + 68; x is hours after noon",
+          "y = 68x - 2.5; x is temperature",
+          "y = 2.5x + 68; x is hours before noon only",
+          "y = -68x + 2.5; x is minutes"
+        ],
+        "answer": "y = -2.5x + 68; x is hours after noon",
+        "explain": "The initial temperature is 68 and the hourly change is -2.5."
+      },
+      {
+        "type": "mc",
+        "q": "A line is parallel to y=-3x+8 and passes through (2,1). Fill in its equation.",
+        "choices": [
+          "y = -3x + 7",
+          "y = 3x - 5",
+          "y = -3x + 8",
+          "y = x - 1"
+        ],
+        "answer": "y = -3x + 7",
+        "explain": "Parallel lines share slope -3; 1=-3(2)+b gives b=7."
+      },
+      {
+        "type": "mc",
+        "q": "A linear model predicts 14 at x=-2 and -1 at x=3. Which equation fits both values?",
+        "choices": [
+          "y = -3x + 8",
+          "y = 3x + 20",
+          "y = -5x + 4",
+          "y = -3x - 8"
+        ],
+        "answer": "y = -3x + 8",
+        "explain": "The slope is (-1-14)/(3-(-2))=-15/5=-3; substitution gives b=8."
+      },
+      {
+        "type": "mc",
+        "q": "A fundraiser's profit is revenue of $6 per item minus a fixed $240 cost. Which equation gives profit y after x items, and when is break-even?",
+        "choices": [
+          "y = 6x - 240; 40 items",
+          "y = 240x - 6; 40 items",
+          "y = 6x + 240; 0 items",
+          "y = -6x + 240; 40 items"
+        ],
+        "answer": "y = 6x - 240; 40 items",
+        "explain": "Profit is revenue minus fixed cost; setting 0=6x-240 yields x=40."
+      },
+      {
+        "type": "mc",
+        "q": "A table's y-values are all multiplied by -2. If the original model is y=1.5x-4, what is the new model?",
+        "choices": [
+          "y = -3x + 8",
+          "y = 3x - 8",
+          "y = -0.75x - 4",
+          "y = 1.5x + 8"
+        ],
+        "answer": "y = -3x + 8",
+        "explain": "Multiplying each output by -2 distributes to both terms: -2(1.5x-4)=-3x+8."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer solves “A temperature is 68°F at noon and decreases 2.5°F per hour. Which model and interpretation are correct” and remains correct after the result is verified?",
+        "choices": [
+          "y = -2.5x + 68; x is hours after noon",
+          "y = 68x - 2.5; x is temperature",
+          "y = 2.5x + 68; x is hours before noon only",
+          "y = -68x + 2.5; x is minutes"
+        ],
+        "answer": "y = -2.5x + 68; x is hours after noon",
+        "explain": "The initial temperature is 68 and the hourly change is -2.5. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer solves “A line is parallel to y=-3x+8 and passes through (2,1). Fill in its equation” and remains correct after the result is verified?",
+        "choices": [
+          "y = -3x + 7",
+          "y = 3x - 5",
+          "y = -3x + 8",
+          "y = x - 1"
+        ],
+        "answer": "y = -3x + 7",
+        "explain": "Parallel lines share slope -3; 1=-3(2)+b gives b=7. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      }
+    ]
+  },
+  "g8:math:L7": {
+    "name": "Linear Equation Speed Problems",
+    "questions": [
+      {
+        "type": "edit",
+        "q": "Fix this sentence:\nthe slope of y = 2x + 1 is 2",
+        "answer": "The slope of y = 2x + 1 is 2.",
+        "placeholder": "Type the corrected sentence",
+        "audio": "Fix the sentence."
+      },
+      {
+        "type": "edit",
+        "q": "Fix this sentence:\nfunctions have one output for each input",
+        "answer": "Functions have one output for each input.",
+        "placeholder": "Type the corrected sentence",
+        "audio": "Fix the sentence."
+      },
+      {
+        "type": "edit",
+        "q": "Fix this sentence:\nthe hypotenuse is the longest side",
+        "answer": "The hypotenuse is the longest side.",
+        "placeholder": "Type the corrected sentence",
+        "audio": "Fix the sentence."
+      },
+      {
+        "type": "mc",
+        "q": "Which story matches 5x + 12 = 3x + 30?",
+        "choices": [
+          "Plan A costs $12 plus $5 per use; Plan B costs $30 plus $3 per use; when are costs equal?",
+          "A $12 item is discounted by $5",
+          "Thirty people form groups of three",
+          "Two plans both cost $5 per use with no fees"
+        ],
+        "answer": "Plan A costs $12 plus $5 per use; Plan B costs $30 plus $3 per use; when are costs equal?",
+        "explain": "The fixed fees and per-use rates appear on opposite sides exactly as 12+5x and 30+3x."
+      },
+      {
+        "type": "mc",
+        "q": "Which sentence represents 80 - 4m = 44 - 2m?",
+        "choices": [
+          "Two tanks start with 80 L and 44 L and drain 4 L/min and 2 L/min; when are volumes equal?",
+          "A tank gains 80 L each minute",
+          "Two tanks both begin at 4 L",
+          "A 44-L tank drains 80 L"
+        ],
+        "answer": "Two tanks start with 80 L and 44 L and drain 4 L/min and 2 L/min; when are volumes equal?",
+        "explain": "Each expression combines a start amount and a loss rate before setting remaining volumes equal."
+      },
+      {
+        "type": "mc",
+        "q": "Which situation matches 0.10d + 25 = 0.15d + 10?",
+        "choices": [
+          "Two delivery services charge base fees of $25 and $10 plus $0.10 and $0.15 per mile; when do prices match?",
+          "One service charges $25 for ten deliveries",
+          "A driver travels 0.25 mile",
+          "Both services have the same base fee"
+        ],
+        "answer": "Two delivery services charge base fees of $25 and $10 plus $0.10 and $0.15 per mile; when do prices match?",
+        "explain": "The equation compares two base-plus-rate pricing plans."
+      },
+      {
+        "type": "mc",
+        "q": "Which phrase best interprets 3(x + 4) = 2x + 19?",
+        "choices": [
+          "Three identical bundles each contain x items plus 4 extras, equaling another collection of 2x + 19 items",
+          "Three plus x equals four",
+          "Two collections always contain 19",
+          "The variable represents only a price"
+        ],
+        "answer": "Three identical bundles each contain x items plus 4 extras, equaling another collection of 2x + 19 items",
+        "explain": "The parentheses indicate three groups of the entire quantity x+4."
+      },
+      {
+        "type": "mc",
+        "q": "Which wording matches 7x - 9 = 5x + 15?",
+        "choices": [
+          "One account earns $7 per week after a $9 fee; another starts with $15 and earns $5 per week; when are balances equal?",
+          "One account loses $7 weekly",
+          "Both accounts begin at $9",
+          "The accounts are never compared"
+        ],
+        "answer": "One account earns $7 per week after a $9 fee; another starts with $15 and earns $5 per week; when are balances equal?",
+        "explain": "The first balance is 7x-9 and the second is 5x+15, exactly matching the equation."
+      },
+      {
+        "type": "mc",
+        "q": "Edit this model sentence for 4x+8=6x-10: 'Both clubs charge the same fee and the same rate.' Which replacement is correct?",
+        "choices": [
+          "Club A charges $8 plus $4 per visit; Club B gives a $10 credit then charges $6 per visit; find equal cost",
+          "Both clubs charge $4 plus $8 per visit",
+          "Club A and B each charge $10",
+          "One club charges no variable rate"
+        ],
+        "answer": "Club A charges $8 plus $4 per visit; Club B gives a $10 credit then charges $6 per visit; find equal cost",
+        "explain": "The replacement assigns each coefficient and constant to its correct side of the equation."
+      },
+      {
+        "type": "mc",
+        "q": "Which story has solution x=12 for the equation 2.5x+6=1.5x+18?",
+        "choices": [
+          "Two rideshare fares are $6+$2.50 per mile and $18+$1.50 per mile; at what distance are they equal?",
+          "A $6 fare decreases $2.50 per mile",
+          "Both fares begin at $18",
+          "A single fare totals $1.50"
+        ],
+        "answer": "Two rideshare fares are $6+$2.50 per mile and $18+$1.50 per mile; at what distance are they equal?",
+        "explain": "The two linear fares match at 2.5x+6=1.5x+18, whose solution is 12."
+      },
+      {
+        "type": "mc",
+        "q": "Which variable definition makes 24+3h=8+5h meaningful?",
+        "choices": [
+          "h is the number of hours until two balances are equal",
+          "h is the fixed starting fee",
+          "h is the final balance itself",
+          "h is always 24"
+        ],
+        "answer": "h is the number of hours until two balances are equal",
+        "explain": "Both expressions change per hour, so h naturally represents elapsed hours."
+      },
+      {
+        "type": "mc",
+        "q": "A student writes 'Store A costs 9x+4; Store B costs 4x+9' for 9+4x=4+9x. What edit is needed?",
+        "choices": [
+          "Swap each rate and fixed fee so the stories match 9+4x and 4+9x",
+          "No edit is needed because addition order never matters across terms",
+          "Delete x from both expressions",
+          "Change the equal sign to multiplication"
+        ],
+        "answer": "Swap each rate and fixed fee so the stories match 9+4x and 4+9x",
+        "explain": "In a context, the coefficient of x is the rate and the standalone number is the fixed amount."
+      },
+      {
+        "type": "mc",
+        "q": "Which real-world question matches 6(x-2)=4x+10?",
+        "choices": [
+          "Six tickets each receive a $2 discount from price x, and that total equals four full-price tickets plus $10; what is x?",
+          "Six tickets cost x+2 each",
+          "Four tickets receive a $10 discount each",
+          "Two tickets cost $6 total"
+        ],
+        "answer": "Six tickets each receive a $2 discount from price x, and that total equals four full-price tickets plus $10; what is x?",
+        "explain": "Six groups of x-2 are compared with 4x+10 as the equation states."
+      },
+      {
+        "type": "mc",
+        "q": "Why is 'Two cars travel 60 miles' not enough to model 45+0.5m=25+0.8m?",
+        "choices": [
+          "It omits the two distinct starting amounts, rates, and the question of equal totals",
+          "It contains a number",
+          "Cars cannot be modeled linearly",
+          "Miles cannot be a variable"
+        ],
+        "answer": "It omits the two distinct starting amounts, rates, and the question of equal totals",
+        "explain": "A corresponding problem must account for every coefficient, constant, and the equality."
+      },
+      {
+        "type": "mc",
+        "q": "Which context makes 3x+12=3x+12 an identity?",
+        "choices": [
+          "Two accounts have the same $12 start and gain $3 per week, so their balances match every week",
+          "One account gains $12 and the other loses $12",
+          "The accounts match only at week 3",
+          "Neither account changes"
+        ],
+        "answer": "Two accounts have the same $12 start and gain $3 per week, so their balances match every week",
+        "explain": "Identical starting values and rates make the expressions equal for all x."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The story 'Plan A charges $20 plus $4 per month; Plan B charges $4 plus $20 per month' corresponds to 20 + 4m = 4 + 20m.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Each plan's fixed charge is the constant and its monthly rate is the coefficient of m."
+      },
+      {
+        "type": "mc",
+        "q": "Which story corresponds to an equation with no solution: 5x+8=5x+12?",
+        "choices": [
+          "Two savings plans earn the same amount weekly but start $4 apart; when will balances match?",
+          "Two plans start equally and earn equally",
+          "One plan earns $5 more each week",
+          "Both balances are always zero"
+        ],
+        "answer": "Two savings plans earn the same amount weekly but start $4 apart; when will balances match?",
+        "explain": "Equal rates preserve the initial $4 difference, so the balances never become equal."
+      },
+      {
+        "type": "mc",
+        "q": "An equation is (3/4)x+10=(1/2)x+16. Which context correctly interprets the rational coefficients?",
+        "choices": [
+          "Two tanks fill at 3/4 L/min and 1/2 L/min from starts of 10 L and 16 L; when are amounts equal?",
+          "One tank starts at 3/4 L and instantly gains x",
+          "Both tanks fill 10 L/min",
+          "Fractions cannot describe rates"
+        ],
+        "answer": "Two tanks fill at 3/4 L/min and 1/2 L/min from starts of 10 L and 16 L; when are amounts equal?",
+        "explain": "The fractional coefficients are per-minute rates, and the constants are starting amounts."
+      },
+      {
+        "type": "mc",
+        "q": "Which revision makes the question for 12-2t=3+t mathematically complete?",
+        "choices": [
+          "A 12-L tank drains 2 L/min while a 3-L tank fills 1 L/min; after how many minutes are amounts equal?",
+          "A tank has 12 L and another has 3 L.",
+          "Water changes over time.",
+          "Find t without describing the quantities."
+        ],
+        "answer": "A 12-L tank drains 2 L/min while a 3-L tank fills 1 L/min; after how many minutes are amounts equal?",
+        "explain": "The revision names the initial values, rates, time variable, and equality condition."
+      },
+      {
+        "type": "mc",
+        "q": "A context for 40+6w=100-4w says the second fund 'gains $4 weekly.' What correction is required?",
+        "choices": [
+          "It should lose $4 weekly because the expression is 100-4w",
+          "It should gain $100 weekly",
+          "The first fund should lose $6 weekly",
+          "No correction is needed"
+        ],
+        "answer": "It should lose $4 weekly because the expression is 100-4w",
+        "explain": "The negative coefficient represents a decrease of 4 for every additional week."
+      },
+      {
+        "type": "mc",
+        "q": "Which equation and story pair is internally consistent?",
+        "choices": [
+          "18+2x=6+5x: a $18+$2/use plan is compared with a $6+$5/use plan",
+          "18-2x=6+5x: both plans increase",
+          "18+2=6+5: x is the number of uses",
+          "18x+2=6x+5: fixed fees are 18x and 6x"
+        ],
+        "answer": "18+2x=6+5x: a $18+$2/use plan is compared with a $6+$5/use plan",
+        "explain": "The first pair correctly assigns fixed fees to constants and per-use charges to coefficients."
+      },
+      {
+        "type": "mc",
+        "q": "Write the equation implied by: Service A's $14 setup plus $2.40 per GB equals Service B's $5 setup plus $3.15 per GB.",
+        "choices": [
+          "14 + 2.40g = 5 + 3.15g",
+          "14g + 2.40 = 5g + 3.15",
+          "14 - 2.40g = 5 - 3.15g",
+          "2.40(g+14)=3.15(g+5)"
+        ],
+        "answer": "14 + 2.40g = 5 + 3.15g",
+        "explain": "Each total is setup fee plus per-GB rate times g."
+      },
+      {
+        "type": "mc",
+        "q": "A student models two runners as 2+6t=10+5t. Which narrative detail is essential to justify the constants?",
+        "choices": [
+          "At time zero, the runners are already 2 m and 10 m from the reference point",
+          "Both runners travel for exactly two seconds",
+          "The track is ten meters wide",
+          "Each runner wears five shoes"
+        ],
+        "answer": "At time zero, the runners are already 2 m and 10 m from the reference point",
+        "explain": "The constants are initial positions, so the story must specify them at t=0."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer solves “Which revision makes the question for 12-2t=3+t mathematically complete” and remains correct after the result is verified?",
+        "choices": [
+          "A 12-L tank drains 2 L/min while a 3-L tank fills 1 L/min; after how many minutes are amounts equal?",
+          "A tank has 12 L and another has 3 L.",
+          "Water changes over time.",
+          "Find t without describing the quantities."
+        ],
+        "answer": "A 12-L tank drains 2 L/min while a 3-L tank fills 1 L/min; after how many minutes are amounts equal?",
+        "explain": "The revision names the initial values, rates, time variable, and equality condition. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      },
+      {
+        "type": "mc",
+        "q": "Which answer solves “A context for 40+6w=100-4w says the second fund 'gains $4 weekly.' What correction is required” and remains correct after the result is verified?",
+        "choices": [
+          "It should lose $4 weekly because the expression is 100-4w",
+          "It should gain $100 weekly",
+          "The first fund should lose $6 weekly",
+          "No correction is needed"
+        ],
+        "answer": "It should lose $4 weekly because the expression is 100-4w",
+        "explain": "The negative coefficient represents a decrease of 4 for every additional week. This mastery item also requires a second check: the selected answer must satisfy every condition while the distractors each fail at least one condition."
+      }
+    ]
+  },
+  "g8:math:L8": {
+    "name": "Grade 8 Math L8",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L8: what is 8 + 1?",
+        "choices": [
+          "9",
+          "10",
+          "8",
+          "0"
+        ],
+        "answer": "9",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "input",
+        "q": "Grade 8 Math L8: type 8 times 2.",
+        "answer": "16",
+        "audio": "Multiply by two."
+      },
+      {
+        "type": "drag",
+        "q": "Grade 8 Math L8: match each math word.",
+        "pairs": [
+          {
+            "left": "sum",
+            "right": "answer to addition"
+          },
+          {
+            "left": "difference",
+            "right": "answer to subtraction"
+          },
+          {
+            "left": "product",
+            "right": "answer to multiplication"
+          }
+        ],
+        "audio": "Match the math vocabulary."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L8: what is 8 + 4?",
+        "choices": [
+          "0",
+          "11",
+          "13",
+          "12"
+        ],
+        "answer": "12",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L8: what is 8 + 7?",
+        "choices": [
+          "0",
+          "15",
+          "16",
+          "14"
+        ],
+        "answer": "15",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L8: what is 8 + 10?",
+        "choices": [
+          "18",
+          "19",
+          "17",
+          "0"
+        ],
+        "answer": "18",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L8: what is 8 + 13?",
+        "choices": [
+          "22",
+          "21",
+          "20",
+          "0"
+        ],
+        "answer": "21",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L8: what is 8 + 16?",
+        "choices": [
+          "0",
+          "23",
+          "25",
+          "24"
+        ],
+        "answer": "24",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L8: what is 8 + 19?",
+        "choices": [
+          "27",
+          "28",
+          "26",
+          "0"
+        ],
+        "answer": "27",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L8: what is 8 + 22?",
+        "choices": [
+          "29",
+          "0",
+          "31",
+          "30"
+        ],
+        "answer": "30",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L8: what is 8 + 25?",
+        "choices": [
+          "32",
+          "34",
+          "0",
+          "33"
+        ],
+        "answer": "33",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Which equation matches a proportional relationship?",
+        "choices": [
+          "y = 4x",
+          "y = 4x + 1",
+          "y = x - 4",
+          "y = 4"
+        ],
+        "answer": "y = 4x",
+        "explain": "A proportional relationship has form y=kx and passes through the origin."
+      },
+      {
+        "type": "mc",
+        "q": "Which table is proportional?",
+        "choices": [
+          "(1,3),(2,6),(4,12)",
+          "(1,3),(2,7),(4,13)",
+          "(0,2),(1,4),(2,6)",
+          "(2,3),(4,5),(6,7)"
+        ],
+        "answer": "(1,3),(2,6),(4,12)",
+        "explain": "Every y/x ratio in the first table equals 3."
+      },
+      {
+        "type": "mc",
+        "q": "Match y=5x+2 to its classification.",
+        "choices": [
+          "non-proportional linear",
+          "proportional linear",
+          "nonlinear",
+          "not a function"
+        ],
+        "answer": "non-proportional linear",
+        "explain": "The nonzero intercept 2 makes the linear relationship non-proportional."
+      },
+      {
+        "type": "mc",
+        "q": "What graph feature matches every proportional relationship?",
+        "choices": [
+          "It is a straight line through (0,0)",
+          "It is horizontal",
+          "It curves upward",
+          "It crosses the y-axis above zero"
+        ],
+        "answer": "It is a straight line through (0,0)",
+        "explain": "The equation y=kx gives y=0 when x=0 and has constant slope."
+      },
+      {
+        "type": "mc",
+        "q": "A $7-per-ticket cost with no fee is what type of relationship?",
+        "choices": [
+          "proportional",
+          "non-proportional",
+          "nonlinear",
+          "not measurable"
+        ],
+        "answer": "proportional",
+        "explain": "Total cost y=7x has constant ratio and zero initial value."
+      },
+      {
+        "type": "mc",
+        "q": "A rental costs $15 plus $6 per hour. Which match is correct?",
+        "choices": [
+          "y=6x+15; non-proportional",
+          "y=15x+6; proportional",
+          "y=6x; proportional",
+          "y=15; nonlinear"
+        ],
+        "answer": "y=6x+15; non-proportional",
+        "explain": "The $15 fixed fee creates a nonzero intercept, while $6 is the hourly slope."
+      },
+      {
+        "type": "mc",
+        "q": "The table (0,-4),(2,2),(4,8) matches which equation and type?",
+        "choices": [
+          "y=3x-4; non-proportional",
+          "y=3x; proportional",
+          "y=-4x+3; non-proportional",
+          "y=6x-4; proportional"
+        ],
+        "answer": "y=3x-4; non-proportional",
+        "explain": "The slope is 3 and the y-value at x=0 is -4, so the line is not proportional."
+      },
+      {
+        "type": "mc",
+        "q": "Which situation is proportional?",
+        "choices": [
+          "Water flows into an empty tank at 8 L/min",
+          "A tank begins with 20 L and gains 8 L/min",
+          "A taxi charges a $4 pickup fee plus mileage",
+          "A candle starts 30 cm tall and burns down"
+        ],
+        "answer": "Water flows into an empty tank at 8 L/min",
+        "explain": "Only the empty tank has output 0 at time 0 and a constant y/x ratio."
+      },
+      {
+        "type": "mc",
+        "q": "A graph is linear with y-intercept -6. Which classification matches?",
+        "choices": [
+          "non-proportional",
+          "proportional",
+          "nonlinear",
+          "cannot be a function"
+        ],
+        "answer": "non-proportional",
+        "explain": "A proportional graph must have y-intercept 0; -6 makes it non-proportional."
+      },
+      {
+        "type": "mc",
+        "q": "Which evidence proves the table x:2,4,6; y:5,10,15 is proportional?",
+        "choices": [
+          "The ratio y/x is always 2.5",
+          "The differences in x are even",
+          "All y-values are multiples of 5",
+          "The table omits x=0"
+        ],
+        "answer": "The ratio y/x is always 2.5",
+        "explain": "A constant output-to-input ratio is the defining numerical evidence."
+      },
+      {
+        "type": "mc",
+        "q": "A student says y=2(x+3) is proportional because it contains multiplication. What is the correction?",
+        "choices": [
+          "It expands to y=2x+6, so the nonzero intercept makes it non-proportional",
+          "It is proportional because 2 is constant",
+          "It is nonlinear because of parentheses",
+          "It is not an equation"
+        ],
+        "answer": "It expands to y=2x+6, so the nonzero intercept makes it non-proportional",
+        "explain": "Distributing reveals an added constant 6; at x=0, y=6 rather than 0."
+      },
+      {
+        "type": "mc",
+        "q": "Two lines have the same slope 4. Line P passes through the origin; Line Q crosses at -3. How are they classified?",
+        "choices": [
+          "P is proportional; Q is non-proportional",
+          "Both are proportional",
+          "Both are non-proportional",
+          "P is nonlinear; Q is proportional"
+        ],
+        "answer": "P is proportional; Q is non-proportional",
+        "explain": "The shared slope does not determine proportionality; only P has zero intercept."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A constant ratio y/x for all nonzero table inputs supports a proportional relationship.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A constant ratio supplies k in y=kx; the relationship also includes the origin."
+      },
+      {
+        "type": "mc",
+        "q": "A table has (0,0),(3,12),(6,24), but also (9,35). What is the best classification?",
+        "choices": [
+          "not proportional because 35/9 is not 4",
+          "proportional because the first three points fit",
+          "non-proportional linear with intercept 0",
+          "proportional because all outputs rise"
+        ],
+        "answer": "not proportional because 35/9 is not 4",
+        "explain": "Every point must share the same constant ratio; the last pair breaks the pattern."
+      }
+    ]
+  },
+  "g8:math:L9": {
+    "name": "Grade 8 Math L9",
+    "questions": [
+      {
+        "type": "input",
+        "q": "Grade 8 Math L9: type 9 times 2.",
+        "answer": "18",
+        "audio": "Multiply by two."
+      },
+      {
+        "type": "drag",
+        "q": "Grade 8 Math L9: match each math word.",
+        "pairs": [
+          {
+            "left": "sum",
+            "right": "answer to addition"
+          },
+          {
+            "left": "difference",
+            "right": "answer to subtraction"
+          },
+          {
+            "left": "product",
+            "right": "answer to multiplication"
+          }
+        ],
+        "audio": "Match the math vocabulary."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L9: what is 9 + 3?",
+        "choices": [
+          "0",
+          "11",
+          "13",
+          "12"
+        ],
+        "answer": "12",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L9: what is 9 + 6?",
+        "choices": [
+          "15",
+          "14",
+          "16",
+          "0"
+        ],
+        "answer": "15",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L9: what is 9 + 9?",
+        "choices": [
+          "18",
+          "0",
+          "17",
+          "19"
+        ],
+        "answer": "18",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L9: what is 9 + 12?",
+        "choices": [
+          "21",
+          "0",
+          "22",
+          "20"
+        ],
+        "answer": "21",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L9: what is 9 + 15?",
+        "choices": [
+          "24",
+          "23",
+          "0",
+          "25"
+        ],
+        "answer": "24",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L9: what is 9 + 18?",
+        "choices": [
+          "27",
+          "26",
+          "0",
+          "28"
+        ],
+        "answer": "27",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L9: what is 9 + 21?",
+        "choices": [
+          "29",
+          "30",
+          "0",
+          "31"
+        ],
+        "answer": "30",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Math L9: what is 9 + 24?",
+        "choices": [
+          "32",
+          "34",
+          "33",
+          "0"
+        ],
+        "answer": "33",
+        "audio": "Solve the math problem."
+      },
+      {
+        "type": "mc",
+        "q": "Solve mentally: 4x+9=2x+19.",
+        "choices": [
+          "x=5",
+          "x=4",
+          "x=9",
+          "x=14"
+        ],
+        "answer": "x=5",
+        "explain": "Subtract 2x and 9 to get 2x=10, so x=5."
+      },
+      {
+        "type": "mc",
+        "q": "Solve: 8x-6=5x+15.",
+        "choices": [
+          "x=7",
+          "x=3",
+          "x=-7",
+          "x=21"
+        ],
+        "answer": "x=7",
+        "explain": "Subtract 5x and add 6: 3x=21, so x=7."
+      },
+      {
+        "type": "mc",
+        "q": "Solve: 9-3x=x+25.",
+        "choices": [
+          "x=-4",
+          "x=4",
+          "x=-8",
+          "x=16"
+        ],
+        "answer": "x=-4",
+        "explain": "Subtract 9 and x to get -4x=16, so x=-4."
+      },
+      {
+        "type": "mc",
+        "q": "Solve: 6(x+1)=4x+18.",
+        "choices": [
+          "x=6",
+          "x=4",
+          "x=9",
+          "x=12"
+        ],
+        "answer": "x=6",
+        "explain": "Distribute: 6x+6=4x+18; then 2x=12 and x=6."
+      },
+      {
+        "type": "mc",
+        "q": "Solve: 2.5x+4=1.5x+13.",
+        "choices": [
+          "x=9",
+          "x=4.5",
+          "x=13",
+          "x=-9"
+        ],
+        "answer": "x=9",
+        "explain": "Subtract 1.5x and 4 to obtain x=9."
+      },
+      {
+        "type": "mc",
+        "q": "Which value makes 7x+2 and 4x+26 equal?",
+        "choices": [
+          "8",
+          "6",
+          "10",
+          "28"
+        ],
+        "answer": "8",
+        "explain": "Set the expressions equal: 7x+2=4x+26 gives 3x=24 and x=8."
+      },
+      {
+        "type": "mc",
+        "q": "Solve: 3(2x-5)=x+20.",
+        "choices": [
+          "x=7",
+          "x=5",
+          "x=4",
+          "x=35"
+        ],
+        "answer": "x=7",
+        "explain": "Distribution gives 6x-15=x+20; then 5x=35 and x=7."
+      },
+      {
+        "type": "mc",
+        "q": "Solve: (1/2)x+7=(1/4)x+12.",
+        "choices": [
+          "x=20",
+          "x=5",
+          "x=12",
+          "x=-20"
+        ],
+        "answer": "x=20",
+        "explain": "Subtract one-fourth x and 7: one-fourth x=5, so x=20."
+      },
+      {
+        "type": "mc",
+        "q": "Classify 4x+11=4x-3.",
+        "choices": [
+          "no solution",
+          "x=-14",
+          "x=14",
+          "infinitely many solutions"
+        ],
+        "answer": "no solution",
+        "explain": "Subtracting 4x gives the contradiction 11=-3."
+      },
+      {
+        "type": "mc",
+        "q": "Classify 5(x-2)=5x-10.",
+        "choices": [
+          "infinitely many solutions",
+          "no solution",
+          "x=0",
+          "x=2"
+        ],
+        "answer": "infinitely many solutions",
+        "explain": "Distribution makes both sides 5x-10, so every x works."
+      },
+      {
+        "type": "mc",
+        "q": "A student solves 2x+15=6x-1 as 4x=14. What should 4x equal?",
+        "choices": [
+          "16",
+          "14",
+          "-16",
+          "8"
+        ],
+        "answer": "16",
+        "explain": "Subtract 2x and add 1: 16=4x."
+      },
+      {
+        "type": "mc",
+        "q": "Solve: -2(x-6)=3x+2.",
+        "choices": [
+          "x=2",
+          "x=-2",
+          "x=10",
+          "x=14/5"
+        ],
+        "answer": "x=2",
+        "explain": "Distribute to -2x+12=3x+2; then 10=5x and x=2."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: x=-3 solves 5x+4=2x-5.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Both sides equal -11 when x=-3; algebraically 3x=-9."
+      },
+      {
+        "type": "mc",
+        "q": "Solve: 0.4x-1=0.1x+5.",
+        "choices": [
+          "x=20",
+          "x=2",
+          "x=12",
+          "x=-20"
+        ],
+        "answer": "x=20",
+        "explain": "Subtract 0.1x and add 1: 0.3x=6, so x=20."
+      },
+      {
+        "type": "mc",
+        "q": "Solve: 7-(x+2)=2x-4.",
+        "choices": [
+          "x=3",
+          "x=1",
+          "x=-3",
+          "x=9"
+        ],
+        "answer": "x=3",
+        "explain": "Simplify to 5-x=2x-4; add x and 4 to get 9=3x, so x=3."
+      }
+    ]
+  },
+  "g8:sci:L1": {
+    "name": "Atoms",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Atoms are made of...",
+        "choices": [
+          "Rocks only",
+          "None of these",
+          "Protons, neutrons, and electrons",
+          "Cells only"
+        ],
+        "answer": "Protons, neutrons, and electrons",
+        "audio": "Atomic structure."
+      },
+      {
+        "type": "mc",
+        "q": "Protons have a ___ charge.",
+        "choices": [
+          "No",
+          "Negative",
+          "Charge",
+          "Positive"
+        ],
+        "answer": "Positive",
+        "audio": "Atomic structure."
+      },
+      {
+        "type": "mc",
+        "q": "Electrons have a ___ charge.",
+        "choices": [
+          "Negative",
+          "No",
+          "Positive",
+          "Charge"
+        ],
+        "answer": "Negative",
+        "audio": "Atomic structure."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains protons?",
+        "choices": [
+          "Protons have positive charge, about one atomic mass unit, and are located in the nucleus.",
+          "Protons are negative particles in the electron cloud.",
+          "Protons have no mass and no charge.",
+          "Protons orbit outside every atom."
+        ],
+        "answer": "Protons have positive charge, about one atomic mass unit, and are located in the nucleus.",
+        "explain": "Protons have positive charge, about one atomic mass unit, and are located in the nucleus. This is the defining relationship for protons."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains neutrons?",
+        "choices": [
+          "Neutrons have no net charge, about one atomic mass unit, and are located in the nucleus.",
+          "Neutrons are positive particles outside the nucleus.",
+          "Neutrons determine an ion's charge directly.",
+          "Neutrons have no mass."
+        ],
+        "answer": "Neutrons have no net charge, about one atomic mass unit, and are located in the nucleus.",
+        "explain": "Neutrons have no net charge, about one atomic mass unit, and are located in the nucleus. This is the defining relationship for neutrons."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains electrons?",
+        "choices": [
+          "Electrons have negative charge, very small mass, and occupy the electron cloud around the nucleus.",
+          "Electrons are positive particles in the nucleus.",
+          "Electrons contribute one full atomic mass unit each.",
+          "Electrons determine the element's atomic number."
+        ],
+        "answer": "Electrons have negative charge, very small mass, and occupy the electron cloud around the nucleus.",
+        "explain": "Electrons have negative charge, very small mass, and occupy the electron cloud around the nucleus. This is the defining relationship for electrons."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains atomic number?",
+        "choices": [
+          "Atomic number equals the number of protons and uniquely identifies an element.",
+          "Atomic number equals protons plus neutrons.",
+          "Atomic number changes whenever an electron moves.",
+          "Atomic number is the atom's net charge."
+        ],
+        "answer": "Atomic number equals the number of protons and uniquely identifies an element.",
+        "explain": "Atomic number equals the number of protons and uniquely identifies an element. This is the defining relationship for atomic number."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains neutral atoms and ions?",
+        "choices": [
+          "A neutral atom has equal protons and electrons; unequal counts produce a charged ion.",
+          "Neutrality requires equal neutrons and electrons.",
+          "Every atom with neutrons is negative.",
+          "Ions form only when proton count changes."
+        ],
+        "answer": "A neutral atom has equal protons and electrons; unequal counts produce a charged ion.",
+        "explain": "A neutral atom has equal protons and electrons; unequal counts produce a charged ion. This is the defining relationship for neutral atoms and ions."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about protons should guide the answer to “An atom's identity changes when its proton count changes. Which proton property explains why atomic number identifies an element”?",
+        "choices": [
+          "Protons have positive charge, about one atomic mass unit, and are located in the nucleus.",
+          "Protons are negative particles in the electron cloud.",
+          "Protons have no mass and no charge.",
+          "Protons orbit outside every atom."
+        ],
+        "answer": "Protons have positive charge, about one atomic mass unit, and are located in the nucleus.",
+        "explain": "The situation “An atom's identity changes when its proton count changes. Which proton property explains why atomic number identifies an element” is an application of protons. Protons have positive charge, about one atomic mass unit, and are located in the nucleus."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about neutrons should guide the answer to “Two atoms share proton count but differ in neutron count. How should the relationship be described”?",
+        "choices": [
+          "Neutrons have no net charge, about one atomic mass unit, and are located in the nucleus.",
+          "Neutrons are positive particles outside the nucleus.",
+          "Neutrons determine an ion's charge directly.",
+          "Neutrons have no mass."
+        ],
+        "answer": "Neutrons have no net charge, about one atomic mass unit, and are located in the nucleus.",
+        "explain": "The situation “Two atoms share proton count but differ in neutron count. How should the relationship be described” is an application of neutrons. Neutrons have no net charge, about one atomic mass unit, and are located in the nucleus."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about electrons should guide the answer to “A neutral atom loses one electron. Which particle change explains the resulting positive ion”?",
+        "choices": [
+          "Electrons have negative charge, very small mass, and occupy the electron cloud around the nucleus.",
+          "Electrons are positive particles in the nucleus.",
+          "Electrons contribute one full atomic mass unit each.",
+          "Electrons determine the element's atomic number."
+        ],
+        "answer": "Electrons have negative charge, very small mass, and occupy the electron cloud around the nucleus.",
+        "explain": "The situation “A neutral atom loses one electron. Which particle change explains the resulting positive ion” is an application of electrons. Electrons have negative charge, very small mass, and occupy the electron cloud around the nucleus."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about atomic number should guide the answer to “An atom contains 8 protons, 9 neutrons, and 10 electrons. Which number fixes its elemental identity”?",
+        "choices": [
+          "Atomic number equals the number of protons and uniquely identifies an element.",
+          "Atomic number equals protons plus neutrons.",
+          "Atomic number changes whenever an electron moves.",
+          "Atomic number is the atom's net charge."
+        ],
+        "answer": "Atomic number equals the number of protons and uniquely identifies an element.",
+        "explain": "The situation “An atom contains 8 protons, 9 neutrons, and 10 electrons. Which number fixes its elemental identity” is an application of atomic number. Atomic number equals the number of protons and uniquely identifies an element."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about neutral atoms and ions should guide the answer to “A particle has 17 protons and 18 electrons. Determine its charge relationship”?",
+        "choices": [
+          "A neutral atom has equal protons and electrons; unequal counts produce a charged ion.",
+          "Neutrality requires equal neutrons and electrons.",
+          "Every atom with neutrons is negative.",
+          "Ions form only when proton count changes."
+        ],
+        "answer": "A neutral atom has equal protons and electrons; unequal counts produce a charged ion.",
+        "explain": "The situation “A particle has 17 protons and 18 electrons. Determine its charge relationship” is an application of neutral atoms and ions. A neutral atom has equal protons and electrons; unequal counts produce a charged ion."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Protons have positive charge, about one atomic mass unit, and are located in the nucleus.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Protons have positive charge, about one atomic mass unit, and are located in the nucleus."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Neutrons are positive particles outside the nucleus.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Neutrons have no net charge, about one atomic mass unit, and are located in the nucleus. The claim confuses this with \"Neutrons are positive particles outside the nucleus..\""
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Electrons have negative charge, very small mass, and occupy the electron cloud around the nucleus.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Electrons have negative charge, very small mass, and occupy the electron cloud around the nucleus."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Atomic number equals protons plus neutrons.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Atomic number equals the number of protons and uniquely identifies an element. The claim confuses this with \"Atomic number equals protons plus neutrons..\""
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A neutral atom has equal protons and electrons; unequal counts produce a charged ion.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A neutral atom has equal protons and electrons; unequal counts produce a charged ion."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about protons must guide a correct analysis of “A model moves a proton from one nucleus to another. Determine why both atoms' elemental identities change”?",
+        "choices": [
+          "Protons have positive charge, about one atomic mass unit, and are located in the nucleus.",
+          "Protons are negative particles in the electron cloud.",
+          "Protons have no mass and no charge.",
+          "Protons orbit outside every atom."
+        ],
+        "answer": "Protons have positive charge, about one atomic mass unit, and are located in the nucleus.",
+        "explain": "The challenge “A model moves a proton from one nucleus to another. Determine why both atoms' elemental identities change” requires the protons relationship. Protons have positive charge, about one atomic mass unit, and are located in the nucleus."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about neutrons must guide a correct analysis of “Use proton and neutron counts to distinguish element identity, isotope identity, and approximate mass number”?",
+        "choices": [
+          "Neutrons have no net charge, about one atomic mass unit, and are located in the nucleus.",
+          "Neutrons are positive particles outside the nucleus.",
+          "Neutrons determine an ion's charge directly.",
+          "Neutrons have no mass."
+        ],
+        "answer": "Neutrons have no net charge, about one atomic mass unit, and are located in the nucleus.",
+        "explain": "The challenge “Use proton and neutron counts to distinguish element identity, isotope identity, and approximate mass number” requires the neutrons relationship. Neutrons have no net charge, about one atomic mass unit, and are located in the nucleus."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about electrons must guide a correct analysis of “Compare two ions with the same nucleus but different electron counts and infer their net charges”?",
+        "choices": [
+          "Electrons have negative charge, very small mass, and occupy the electron cloud around the nucleus.",
+          "Electrons are positive particles in the nucleus.",
+          "Electrons contribute one full atomic mass unit each.",
+          "Electrons determine the element's atomic number."
+        ],
+        "answer": "Electrons have negative charge, very small mass, and occupy the electron cloud around the nucleus.",
+        "explain": "The challenge “Compare two ions with the same nucleus but different electron counts and infer their net charges” requires the electrons relationship. Electrons have negative charge, very small mass, and occupy the electron cloud around the nucleus."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about atomic number must guide a correct analysis of “A claim says an atom with 12 protons can be the same element as one with 13 protons. Evaluate it using atomic number”?",
+        "choices": [
+          "Atomic number equals the number of protons and uniquely identifies an element.",
+          "Atomic number equals protons plus neutrons.",
+          "Atomic number changes whenever an electron moves.",
+          "Atomic number is the atom's net charge."
+        ],
+        "answer": "Atomic number equals the number of protons and uniquely identifies an element.",
+        "explain": "The challenge “A claim says an atom with 12 protons can be the same element as one with 13 protons. Evaluate it using atomic number” requires the atomic number relationship. Atomic number equals the number of protons and uniquely identifies an element."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about neutral atoms and ions must guide a correct analysis of “A particle model omits two electrons from an otherwise neutral atom. Calculate the sign and magnitude of the ion's charge”?",
+        "choices": [
+          "A neutral atom has equal protons and electrons; unequal counts produce a charged ion.",
+          "Neutrality requires equal neutrons and electrons.",
+          "Every atom with neutrons is negative.",
+          "Ions form only when proton count changes."
+        ],
+        "answer": "A neutral atom has equal protons and electrons; unequal counts produce a charged ion.",
+        "explain": "The challenge “A particle model omits two electrons from an otherwise neutral atom. Calculate the sign and magnitude of the ion's charge” requires the neutral atoms and ions relationship. A neutral atom has equal protons and electrons; unequal counts produce a charged ion."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about protons remains valid when “An atom's identity changes when its proton count changes. Which proton property explains why atomic number identifies an element” and “A model moves a proton from one nucleus to another. Determine why both atoms' elemental identities change” are evaluated together?",
+        "choices": [
+          "Protons have positive charge, about one atomic mass unit, and are located in the nucleus.",
+          "Protons are negative particles in the electron cloud.",
+          "Protons have no mass and no charge.",
+          "Protons orbit outside every atom."
+        ],
+        "answer": "Protons have positive charge, about one atomic mass unit, and are located in the nucleus.",
+        "explain": "The application and challenge both test the same protons relationship. Protons have positive charge, about one atomic mass unit, and are located in the nucleus."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about neutrons remains valid when “Two atoms share proton count but differ in neutron count. How should the relationship be described” and “Use proton and neutron counts to distinguish element identity, isotope identity, and approximate mass number” are evaluated together?",
+        "choices": [
+          "Neutrons have no net charge, about one atomic mass unit, and are located in the nucleus.",
+          "Neutrons are positive particles outside the nucleus.",
+          "Neutrons determine an ion's charge directly.",
+          "Neutrons have no mass."
+        ],
+        "answer": "Neutrons have no net charge, about one atomic mass unit, and are located in the nucleus.",
+        "explain": "The application and challenge both test the same neutrons relationship. Neutrons have no net charge, about one atomic mass unit, and are located in the nucleus."
+      }
+    ]
+  },
+  "g8:sci:L2": {
+    "name": "Chemical Reactions",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "A chemical reaction creates...",
+        "choices": [
+          "New substances",
+          "Nothing different",
+          "Only louder sound",
+          "None of these"
+        ],
+        "answer": "New substances",
+        "audio": "Chemical reactions."
+      },
+      {
+        "type": "mc",
+        "q": "Rust forming is an example of...",
+        "choices": [
+          "Physical change",
+          "None of these",
+          "Friction",
+          "Chemical change"
+        ],
+        "answer": "Chemical change",
+        "audio": "Chemical reactions."
+      },
+      {
+        "type": "mc",
+        "q": "Signs of a chemical reaction include...",
+        "choices": [
+          "Gas or color change",
+          "No change",
+          "Friction",
+          "Only size change"
+        ],
+        "answer": "Gas or color change",
+        "audio": "Chemical reactions."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains conservation of mass?",
+        "choices": [
+          "In a closed system, total mass remains constant during a chemical reaction because atoms are rearranged rather than created or destroyed.",
+          "Products always have less mass because atoms vanish.",
+          "Every reaction creates new atoms.",
+          "Mass is conserved only when color does not change."
+        ],
+        "answer": "In a closed system, total mass remains constant during a chemical reaction because atoms are rearranged rather than created or destroyed.",
+        "explain": "In a closed system, total mass remains constant during a chemical reaction because atoms are rearranged rather than created or destroyed. This is the defining relationship for conservation of mass."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains balanced equations?",
+        "choices": [
+          "A balanced chemical equation has the same number of each type of atom on both sides.",
+          "Balanced means every coefficient is one.",
+          "Balanced means reactant and product formulas are identical.",
+          "Subscripts may be changed freely to balance an equation."
+        ],
+        "answer": "A balanced chemical equation has the same number of each type of atom on both sides.",
+        "explain": "A balanced chemical equation has the same number of each type of atom on both sides. This is the defining relationship for balanced equations."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains atom rearrangement?",
+        "choices": [
+          "Chemical reactions rearrange existing atoms into new combinations with new properties.",
+          "Reactions convert atoms into energy only.",
+          "Atoms keep exactly the same partners in every reaction.",
+          "New elements appear without nuclear change."
+        ],
+        "answer": "Chemical reactions rearrange existing atoms into new combinations with new properties.",
+        "explain": "Chemical reactions rearrange existing atoms into new combinations with new properties. This is the defining relationship for atom rearrangement."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains closed and open systems?",
+        "choices": [
+          "A closed system retains all reactants and products, including gases, so measured mass can be compared accurately.",
+          "Open systems conserve no mass.",
+          "Closed systems prevent all reactions.",
+          "Only liquids can form closed systems."
+        ],
+        "answer": "A closed system retains all reactants and products, including gases, so measured mass can be compared accurately.",
+        "explain": "A closed system retains all reactants and products, including gases, so measured mass can be compared accurately. This is the defining relationship for closed and open systems."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains physical versus chemical change?",
+        "choices": [
+          "Both physical and chemical changes conserve matter, but chemical changes form substances with new compositions.",
+          "Only physical changes conserve mass.",
+          "Melting creates a new element.",
+          "Chemical changes destroy all original atoms."
+        ],
+        "answer": "Both physical and chemical changes conserve matter, but chemical changes form substances with new compositions.",
+        "explain": "Both physical and chemical changes conserve matter, but chemical changes form substances with new compositions. This is the defining relationship for physical versus chemical change."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about conservation of mass should guide the answer to “A sealed flask has the same mass before and after fizzing. What principle explains the data”?",
+        "choices": [
+          "In a closed system, total mass remains constant during a chemical reaction because atoms are rearranged rather than created or destroyed.",
+          "Products always have less mass because atoms vanish.",
+          "Every reaction creates new atoms.",
+          "Mass is conserved only when color does not change."
+        ],
+        "answer": "In a closed system, total mass remains constant during a chemical reaction because atoms are rearranged rather than created or destroyed.",
+        "explain": "The situation “A sealed flask has the same mass before and after fizzing. What principle explains the data” is an application of conservation of mass. In a closed system, total mass remains constant during a chemical reaction because atoms are rearranged rather than created or destroyed."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about balanced equations should guide the answer to “Which evidence would verify that a particle equation is balanced”?",
+        "choices": [
+          "A balanced chemical equation has the same number of each type of atom on both sides.",
+          "Balanced means every coefficient is one.",
+          "Balanced means reactant and product formulas are identical.",
+          "Subscripts may be changed freely to balance an equation."
+        ],
+        "answer": "A balanced chemical equation has the same number of each type of atom on both sides.",
+        "explain": "The situation “Which evidence would verify that a particle equation is balanced” is an application of balanced equations. A balanced chemical equation has the same number of each type of atom on both sides."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about atom rearrangement should guide the answer to “Hydrogen and oxygen atoms form water molecules. What changed and what remained conserved”?",
+        "choices": [
+          "Chemical reactions rearrange existing atoms into new combinations with new properties.",
+          "Reactions convert atoms into energy only.",
+          "Atoms keep exactly the same partners in every reaction.",
+          "New elements appear without nuclear change."
+        ],
+        "answer": "Chemical reactions rearrange existing atoms into new combinations with new properties.",
+        "explain": "The situation “Hydrogen and oxygen atoms form water molecules. What changed and what remained conserved” is an application of atom rearrangement. Chemical reactions rearrange existing atoms into new combinations with new properties."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about closed and open systems should guide the answer to “Why should a gas-producing reaction be capped when testing mass conservation”?",
+        "choices": [
+          "A closed system retains all reactants and products, including gases, so measured mass can be compared accurately.",
+          "Open systems conserve no mass.",
+          "Closed systems prevent all reactions.",
+          "Only liquids can form closed systems."
+        ],
+        "answer": "A closed system retains all reactants and products, including gases, so measured mass can be compared accurately.",
+        "explain": "The situation “Why should a gas-producing reaction be capped when testing mass conservation” is an application of closed and open systems. A closed system retains all reactants and products, including gases, so measured mass can be compared accurately."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about physical versus chemical change should guide the answer to “Compare melting ice with reacting vinegar and baking soda in sealed containers”?",
+        "choices": [
+          "Both physical and chemical changes conserve matter, but chemical changes form substances with new compositions.",
+          "Only physical changes conserve mass.",
+          "Melting creates a new element.",
+          "Chemical changes destroy all original atoms."
+        ],
+        "answer": "Both physical and chemical changes conserve matter, but chemical changes form substances with new compositions.",
+        "explain": "The situation “Compare melting ice with reacting vinegar and baking soda in sealed containers” is an application of physical versus chemical change. Both physical and chemical changes conserve matter, but chemical changes form substances with new compositions."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: In a closed system, total mass remains constant during a chemical reaction because atoms are rearranged rather than created or destroyed.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. In a closed system, total mass remains constant during a chemical reaction because atoms are rearranged rather than created or destroyed."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Balanced means every coefficient is one.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. A balanced chemical equation has the same number of each type of atom on both sides. The claim confuses this with \"Balanced means every coefficient is one..\""
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Chemical reactions rearrange existing atoms into new combinations with new properties.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Chemical reactions rearrange existing atoms into new combinations with new properties."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Open systems conserve no mass.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. A closed system retains all reactants and products, including gases, so measured mass can be compared accurately. The claim confuses this with \"Open systems conserve no mass..\""
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Both physical and chemical changes conserve matter, but chemical changes form substances with new compositions.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Both physical and chemical changes conserve matter, but chemical changes form substances with new compositions."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about conservation of mass must guide a correct analysis of “An open reaction appears to lose mass as gas escapes. Reconcile the measurement with conservation of mass”?",
+        "choices": [
+          "In a closed system, total mass remains constant during a chemical reaction because atoms are rearranged rather than created or destroyed.",
+          "Products always have less mass because atoms vanish.",
+          "Every reaction creates new atoms.",
+          "Mass is conserved only when color does not change."
+        ],
+        "answer": "In a closed system, total mass remains constant during a chemical reaction because atoms are rearranged rather than created or destroyed.",
+        "explain": "The challenge “An open reaction appears to lose mass as gas escapes. Reconcile the measurement with conservation of mass” requires the conservation of mass relationship. In a closed system, total mass remains constant during a chemical reaction because atoms are rearranged rather than created or destroyed."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about balanced equations must guide a correct analysis of “Evaluate why changing H2O to H2O2 is not a valid method for balancing an oxygen equation”?",
+        "choices": [
+          "A balanced chemical equation has the same number of each type of atom on both sides.",
+          "Balanced means every coefficient is one.",
+          "Balanced means reactant and product formulas are identical.",
+          "Subscripts may be changed freely to balance an equation."
+        ],
+        "answer": "A balanced chemical equation has the same number of each type of atom on both sides.",
+        "explain": "The challenge “Evaluate why changing H2O to H2O2 is not a valid method for balancing an oxygen equation” requires the balanced equations relationship. A balanced chemical equation has the same number of each type of atom on both sides."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about atom rearrangement must guide a correct analysis of “Use a particle diagram to distinguish bond rearrangement from atom creation”?",
+        "choices": [
+          "Chemical reactions rearrange existing atoms into new combinations with new properties.",
+          "Reactions convert atoms into energy only.",
+          "Atoms keep exactly the same partners in every reaction.",
+          "New elements appear without nuclear change."
+        ],
+        "answer": "Chemical reactions rearrange existing atoms into new combinations with new properties.",
+        "explain": "The challenge “Use a particle diagram to distinguish bond rearrangement from atom creation” requires the atom rearrangement relationship. Chemical reactions rearrange existing atoms into new combinations with new properties."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about closed and open systems must guide a correct analysis of “Design a fair comparison between an open and sealed reaction and predict the mass readings”?",
+        "choices": [
+          "A closed system retains all reactants and products, including gases, so measured mass can be compared accurately.",
+          "Open systems conserve no mass.",
+          "Closed systems prevent all reactions.",
+          "Only liquids can form closed systems."
+        ],
+        "answer": "A closed system retains all reactants and products, including gases, so measured mass can be compared accurately.",
+        "explain": "The challenge “Design a fair comparison between an open and sealed reaction and predict the mass readings” requires the closed and open systems relationship. A closed system retains all reactants and products, including gases, so measured mass can be compared accurately."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about physical versus chemical change must guide a correct analysis of “Determine which observations show new substances while still supporting conservation in both systems”?",
+        "choices": [
+          "Both physical and chemical changes conserve matter, but chemical changes form substances with new compositions.",
+          "Only physical changes conserve mass.",
+          "Melting creates a new element.",
+          "Chemical changes destroy all original atoms."
+        ],
+        "answer": "Both physical and chemical changes conserve matter, but chemical changes form substances with new compositions.",
+        "explain": "The challenge “Determine which observations show new substances while still supporting conservation in both systems” requires the physical versus chemical change relationship. Both physical and chemical changes conserve matter, but chemical changes form substances with new compositions."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about conservation of mass remains valid when “A sealed flask has the same mass before and after fizzing. What principle explains the data” and “An open reaction appears to lose mass as gas escapes. Reconcile the measurement with conservation of mass” are evaluated together?",
+        "choices": [
+          "In a closed system, total mass remains constant during a chemical reaction because atoms are rearranged rather than created or destroyed.",
+          "Products always have less mass because atoms vanish.",
+          "Every reaction creates new atoms.",
+          "Mass is conserved only when color does not change."
+        ],
+        "answer": "In a closed system, total mass remains constant during a chemical reaction because atoms are rearranged rather than created or destroyed.",
+        "explain": "The application and challenge both test the same conservation of mass relationship. In a closed system, total mass remains constant during a chemical reaction because atoms are rearranged rather than created or destroyed."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about balanced equations remains valid when “Which evidence would verify that a particle equation is balanced” and “Evaluate why changing H2O to H2O2 is not a valid method for balancing an oxygen equation” are evaluated together?",
+        "choices": [
+          "A balanced chemical equation has the same number of each type of atom on both sides.",
+          "Balanced means every coefficient is one.",
+          "Balanced means reactant and product formulas are identical.",
+          "Subscripts may be changed freely to balance an equation."
+        ],
+        "answer": "A balanced chemical equation has the same number of each type of atom on both sides.",
+        "explain": "The application and challenge both test the same balanced equations relationship. A balanced chemical equation has the same number of each type of atom on both sides."
+      }
+    ]
+  },
+  "g8:sci:L4": {
+    "name": "Natural Selection",
+    "questions": [
+      {
+        "type": "drag",
+        "q": "Drag each word to the correct answer.",
+        "pairs": [
+          {
+            "left": "Proton",
+            "right": "Positive charge"
+          },
+          {
+            "left": "Electron",
+            "right": "Negative charge"
+          },
+          {
+            "left": "Neutron",
+            "right": "No charge"
+          },
+          {
+            "left": "Nucleus",
+            "right": "Center of atom"
+          }
+        ],
+        "audio": "Drag the pairs to match them."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains isotopes?",
+        "choices": [
+          "Isotopes of one element have the same proton count but different neutron counts.",
+          "Isotopes have different proton counts.",
+          "Isotopes differ only in electron charge.",
+          "Isotopes are different compounds."
+        ],
+        "answer": "Isotopes of one element have the same proton count but different neutron counts.",
+        "explain": "Isotopes of one element have the same proton count but different neutron counts. This is the defining relationship for isotopes."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains cations?",
+        "choices": [
+          "A cation has a positive net charge because it has fewer electrons than protons.",
+          "A cation has more electrons than protons.",
+          "A cation has no protons.",
+          "A cation must gain neutrons."
+        ],
+        "answer": "A cation has a positive net charge because it has fewer electrons than protons.",
+        "explain": "A cation has a positive net charge because it has fewer electrons than protons. This is the defining relationship for cations."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains anions?",
+        "choices": [
+          "An anion has a negative net charge because it has more electrons than protons.",
+          "An anion has fewer electrons than protons.",
+          "An anion is always neutral.",
+          "An anion forms by losing all neutrons."
+        ],
+        "answer": "An anion has a negative net charge because it has more electrons than protons.",
+        "explain": "An anion has a negative net charge because it has more electrons than protons. This is the defining relationship for anions."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains mass number?",
+        "choices": [
+          "Mass number is the total number of protons plus neutrons in one atom's nucleus.",
+          "Mass number equals electron count only.",
+          "Mass number equals net charge.",
+          "Mass number is always identical to atomic number."
+        ],
+        "answer": "Mass number is the total number of protons plus neutrons in one atom's nucleus.",
+        "explain": "Mass number is the total number of protons plus neutrons in one atom's nucleus. This is the defining relationship for mass number."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains particle-model evidence?",
+        "choices": [
+          "A complete atomic model must represent particle type, location, count, and charge consistently.",
+          "Color alone proves particle identity.",
+          "Electron position fixes neutron count.",
+          "A model needs no scale or labels."
+        ],
+        "answer": "A complete atomic model must represent particle type, location, count, and charge consistently.",
+        "explain": "A complete atomic model must represent particle type, location, count, and charge consistently. This is the defining relationship for particle-model evidence."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about isotopes should guide the answer to “Carbon-12 and carbon-14 share six protons. What makes them isotopes”?",
+        "choices": [
+          "Isotopes of one element have the same proton count but different neutron counts.",
+          "Isotopes have different proton counts.",
+          "Isotopes differ only in electron charge.",
+          "Isotopes are different compounds."
+        ],
+        "answer": "Isotopes of one element have the same proton count but different neutron counts.",
+        "explain": "The situation “Carbon-12 and carbon-14 share six protons. What makes them isotopes” is an application of isotopes. Isotopes of one element have the same proton count but different neutron counts."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about cations should guide the answer to “A neutral magnesium atom loses two electrons. How should the product be classified”?",
+        "choices": [
+          "A cation has a positive net charge because it has fewer electrons than protons.",
+          "A cation has more electrons than protons.",
+          "A cation has no protons.",
+          "A cation must gain neutrons."
+        ],
+        "answer": "A cation has a positive net charge because it has fewer electrons than protons.",
+        "explain": "The situation “A neutral magnesium atom loses two electrons. How should the product be classified” is an application of cations. A cation has a positive net charge because it has fewer electrons than protons."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about anions should guide the answer to “A chlorine atom gains one electron. What ion type results”?",
+        "choices": [
+          "An anion has a negative net charge because it has more electrons than protons.",
+          "An anion has fewer electrons than protons.",
+          "An anion is always neutral.",
+          "An anion forms by losing all neutrons."
+        ],
+        "answer": "An anion has a negative net charge because it has more electrons than protons.",
+        "explain": "The situation “A chlorine atom gains one electron. What ion type results” is an application of anions. An anion has a negative net charge because it has more electrons than protons."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about mass number should guide the answer to “An atom has 11 protons and 12 neutrons. What nuclear total identifies the isotope”?",
+        "choices": [
+          "Mass number is the total number of protons plus neutrons in one atom's nucleus.",
+          "Mass number equals electron count only.",
+          "Mass number equals net charge.",
+          "Mass number is always identical to atomic number."
+        ],
+        "answer": "Mass number is the total number of protons plus neutrons in one atom's nucleus.",
+        "explain": "The situation “An atom has 11 protons and 12 neutrons. What nuclear total identifies the isotope” is an application of mass number. Mass number is the total number of protons plus neutrons in one atom's nucleus."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about particle-model evidence should guide the answer to “Which labels are needed to test whether a diagram represents a neutral atom”?",
+        "choices": [
+          "A complete atomic model must represent particle type, location, count, and charge consistently.",
+          "Color alone proves particle identity.",
+          "Electron position fixes neutron count.",
+          "A model needs no scale or labels."
+        ],
+        "answer": "A complete atomic model must represent particle type, location, count, and charge consistently.",
+        "explain": "The situation “Which labels are needed to test whether a diagram represents a neutral atom” is an application of particle-model evidence. A complete atomic model must represent particle type, location, count, and charge consistently."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Isotopes of one element have the same proton count but different neutron counts.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Isotopes of one element have the same proton count but different neutron counts."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A cation has more electrons than protons.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. A cation has a positive net charge because it has fewer electrons than protons. The claim confuses this with \"A cation has more electrons than protons..\""
+      },
+      {
+        "type": "mc",
+        "q": "True or false: An anion has a negative net charge because it has more electrons than protons.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. An anion has a negative net charge because it has more electrons than protons."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Mass number equals electron count only.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Mass number is the total number of protons plus neutrons in one atom's nucleus. The claim confuses this with \"Mass number equals electron count only..\""
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A complete atomic model must represent particle type, location, count, and charge consistently.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A complete atomic model must represent particle type, location, count, and charge consistently."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about isotopes must guide a correct analysis of “Compare two particle models and identify whether they are isotopes, ions, or different elements”?",
+        "choices": [
+          "Isotopes of one element have the same proton count but different neutron counts.",
+          "Isotopes have different proton counts.",
+          "Isotopes differ only in electron charge.",
+          "Isotopes are different compounds."
+        ],
+        "answer": "Isotopes of one element have the same proton count but different neutron counts.",
+        "explain": "The challenge “Compare two particle models and identify whether they are isotopes, ions, or different elements” requires the isotopes relationship. Isotopes of one element have the same proton count but different neutron counts."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about cations must guide a correct analysis of “Calculate the ion charge for 13 protons and 10 electrons and justify the sign”?",
+        "choices": [
+          "A cation has a positive net charge because it has fewer electrons than protons.",
+          "A cation has more electrons than protons.",
+          "A cation has no protons.",
+          "A cation must gain neutrons."
+        ],
+        "answer": "A cation has a positive net charge because it has fewer electrons than protons.",
+        "explain": "The challenge “Calculate the ion charge for 13 protons and 10 electrons and justify the sign” requires the cations relationship. A cation has a positive net charge because it has fewer electrons than protons."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about anions must guide a correct analysis of “A model contains 16 protons and 18 electrons. Classify it and calculate charge”?",
+        "choices": [
+          "An anion has a negative net charge because it has more electrons than protons.",
+          "An anion has fewer electrons than protons.",
+          "An anion is always neutral.",
+          "An anion forms by losing all neutrons."
+        ],
+        "answer": "An anion has a negative net charge because it has more electrons than protons.",
+        "explain": "The challenge “A model contains 16 protons and 18 electrons. Classify it and calculate charge” requires the anions relationship. An anion has a negative net charge because it has more electrons than protons."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about mass number must guide a correct analysis of “Given mass number 31 and atomic number 15, determine neutron count and explain the subtraction”?",
+        "choices": [
+          "Mass number is the total number of protons plus neutrons in one atom's nucleus.",
+          "Mass number equals electron count only.",
+          "Mass number equals net charge.",
+          "Mass number is always identical to atomic number."
+        ],
+        "answer": "Mass number is the total number of protons plus neutrons in one atom's nucleus.",
+        "explain": "The challenge “Given mass number 31 and atomic number 15, determine neutron count and explain the subtraction” requires the mass number relationship. Mass number is the total number of protons plus neutrons in one atom's nucleus."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about particle-model evidence must guide a correct analysis of “Critique a model that places electrons in the nucleus and neutrons in the electron cloud”?",
+        "choices": [
+          "A complete atomic model must represent particle type, location, count, and charge consistently.",
+          "Color alone proves particle identity.",
+          "Electron position fixes neutron count.",
+          "A model needs no scale or labels."
+        ],
+        "answer": "A complete atomic model must represent particle type, location, count, and charge consistently.",
+        "explain": "The challenge “Critique a model that places electrons in the nucleus and neutrons in the electron cloud” requires the particle-model evidence relationship. A complete atomic model must represent particle type, location, count, and charge consistently."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about isotopes remains valid when “Carbon-12 and carbon-14 share six protons. What makes them isotopes” and “Compare two particle models and identify whether they are isotopes, ions, or different elements” are evaluated together?",
+        "choices": [
+          "Isotopes of one element have the same proton count but different neutron counts.",
+          "Isotopes have different proton counts.",
+          "Isotopes differ only in electron charge.",
+          "Isotopes are different compounds."
+        ],
+        "answer": "Isotopes of one element have the same proton count but different neutron counts.",
+        "explain": "The application and challenge both test the same isotopes relationship. Isotopes of one element have the same proton count but different neutron counts."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about cations remains valid when “A neutral magnesium atom loses two electrons. How should the product be classified” and “Calculate the ion charge for 13 protons and 10 electrons and justify the sign” are evaluated together?",
+        "choices": [
+          "A cation has a positive net charge because it has fewer electrons than protons.",
+          "A cation has more electrons than protons.",
+          "A cation has no protons.",
+          "A cation must gain neutrons."
+        ],
+        "answer": "A cation has a positive net charge because it has fewer electrons than protons.",
+        "explain": "The application and challenge both test the same cations relationship. A cation has a positive net charge because it has fewer electrons than protons."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about anions remains valid when “A chlorine atom gains one electron. What ion type results” and “A model contains 16 protons and 18 electrons. Classify it and calculate charge” are evaluated together?",
+        "choices": [
+          "An anion has a negative net charge because it has more electrons than protons.",
+          "An anion has fewer electrons than protons.",
+          "An anion is always neutral.",
+          "An anion forms by losing all neutrons."
+        ],
+        "answer": "An anion has a negative net charge because it has more electrons than protons.",
+        "explain": "The application and challenge both test the same anions relationship. An anion has a negative net charge because it has more electrons than protons."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about mass number remains valid when “An atom has 11 protons and 12 neutrons. What nuclear total identifies the isotope” and “Given mass number 31 and atomic number 15, determine neutron count and explain the subtraction” are evaluated together?",
+        "choices": [
+          "Mass number is the total number of protons plus neutrons in one atom's nucleus.",
+          "Mass number equals electron count only.",
+          "Mass number equals net charge.",
+          "Mass number is always identical to atomic number."
+        ],
+        "answer": "Mass number is the total number of protons plus neutrons in one atom's nucleus.",
+        "explain": "The application and challenge both test the same mass number relationship. Mass number is the total number of protons plus neutrons in one atom's nucleus."
+      }
+    ]
+  },
+  "g8:sci:L3": {
+    "name": "Genetics",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Genes are made of...",
+        "choices": [
+          "None of these",
+          "Sunlight",
+          "Water",
+          "DNA"
+        ],
+        "answer": "DNA",
+        "audio": "Genetics."
+      },
+      {
+        "type": "mc",
+        "q": "Traits can be passed from...",
+        "choices": [
+          "Parents to offspring",
+          "None of these",
+          "Rocks to clouds",
+          "Tables to chairs"
+        ],
+        "answer": "Parents to offspring",
+        "audio": "Genetics."
+      },
+      {
+        "type": "mc",
+        "q": "Genetics is the study of...",
+        "choices": [
+          "None of these",
+          "Heredity",
+          "Weather",
+          "Sound waves"
+        ],
+        "answer": "Heredity",
+        "audio": "Genetics."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains genes?",
+        "choices": [
+          "A gene is a segment of DNA whose information contributes to a functional product and inherited traits.",
+          "A gene is an entire organism.",
+          "Genes are made only of proteins.",
+          "A gene is acquired solely through exercise."
+        ],
+        "answer": "A gene is a segment of DNA whose information contributes to a functional product and inherited traits.",
+        "explain": "A gene is a segment of DNA whose information contributes to a functional product and inherited traits. This is the defining relationship for genes."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains chromosomes?",
+        "choices": [
+          "Chromosomes are organized DNA-protein structures that carry many genes.",
+          "Chromosomes are organs made of tissues.",
+          "Each chromosome carries only one possible gene.",
+          "Chromosomes are outside every cell."
+        ],
+        "answer": "Chromosomes are organized DNA-protein structures that carry many genes.",
+        "explain": "Chromosomes are organized DNA-protein structures that carry many genes. This is the defining relationship for chromosomes."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains alleles?",
+        "choices": [
+          "Alleles are different versions of a gene that can contribute to variation in a trait.",
+          "Alleles are unrelated species.",
+          "An allele is a whole chromosome set.",
+          "Every allele produces an identical outcome."
+        ],
+        "answer": "Alleles are different versions of a gene that can contribute to variation in a trait.",
+        "explain": "Alleles are different versions of a gene that can contribute to variation in a trait. This is the defining relationship for alleles."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains genotype and phenotype?",
+        "choices": [
+          "Genotype describes genetic information; phenotype is an observable outcome influenced by genotype and often environment.",
+          "Phenotype is the DNA sequence only.",
+          "Genotype is any learned behavior.",
+          "Environment can never influence phenotype."
+        ],
+        "answer": "Genotype describes genetic information; phenotype is an observable outcome influenced by genotype and often environment.",
+        "explain": "Genotype describes genetic information; phenotype is an observable outcome influenced by genotype and often environment. This is the defining relationship for genotype and phenotype."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains inheritance?",
+        "choices": [
+          "Offspring receive genetic information through chromosomes from biological parents, producing predictable patterns and variation.",
+          "Offspring inherit every acquired habit.",
+          "Only one parent contributes chromosomes.",
+          "Inheritance eliminates all variation."
+        ],
+        "answer": "Offspring receive genetic information through chromosomes from biological parents, producing predictable patterns and variation.",
+        "explain": "Offspring receive genetic information through chromosomes from biological parents, producing predictable patterns and variation. This is the defining relationship for inheritance."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about genes should guide the answer to “A DNA sequence change alters a protein. Which gene relationship connects the change to a possible trait effect”?",
+        "choices": [
+          "A gene is a segment of DNA whose information contributes to a functional product and inherited traits.",
+          "A gene is an entire organism.",
+          "Genes are made only of proteins.",
+          "A gene is acquired solely through exercise."
+        ],
+        "answer": "A gene is a segment of DNA whose information contributes to a functional product and inherited traits.",
+        "explain": "The situation “A DNA sequence change alters a protein. Which gene relationship connects the change to a possible trait effect” is an application of genes. A gene is a segment of DNA whose information contributes to a functional product and inherited traits."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about chromosomes should guide the answer to “A model shows DNA coiled with proteins in a nucleus. What structure is represented”?",
+        "choices": [
+          "Chromosomes are organized DNA-protein structures that carry many genes.",
+          "Chromosomes are organs made of tissues.",
+          "Each chromosome carries only one possible gene.",
+          "Chromosomes are outside every cell."
+        ],
+        "answer": "Chromosomes are organized DNA-protein structures that carry many genes.",
+        "explain": "The situation “A model shows DNA coiled with proteins in a nucleus. What structure is represented” is an application of chromosomes. Chromosomes are organized DNA-protein structures that carry many genes."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about alleles should guide the answer to “Two homologous chromosomes carry different versions at the same gene location. What term describes the versions”?",
+        "choices": [
+          "Alleles are different versions of a gene that can contribute to variation in a trait.",
+          "Alleles are unrelated species.",
+          "An allele is a whole chromosome set.",
+          "Every allele produces an identical outcome."
+        ],
+        "answer": "Alleles are different versions of a gene that can contribute to variation in a trait.",
+        "explain": "The situation “Two homologous chromosomes carry different versions at the same gene location. What term describes the versions” is an application of alleles. Alleles are different versions of a gene that can contribute to variation in a trait."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about genotype and phenotype should guide the answer to “Identical plant genotypes grow to different heights under different light levels. What distinction explains the result”?",
+        "choices": [
+          "Genotype describes genetic information; phenotype is an observable outcome influenced by genotype and often environment.",
+          "Phenotype is the DNA sequence only.",
+          "Genotype is any learned behavior.",
+          "Environment can never influence phenotype."
+        ],
+        "answer": "Genotype describes genetic information; phenotype is an observable outcome influenced by genotype and often environment.",
+        "explain": "The situation “Identical plant genotypes grow to different heights under different light levels. What distinction explains the result” is an application of genotype and phenotype. Genotype describes genetic information; phenotype is an observable outcome influenced by genotype and often environment."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about inheritance should guide the answer to “A trait appears in siblings at different frequencies. Which process connects chromosome transmission to variation”?",
+        "choices": [
+          "Offspring receive genetic information through chromosomes from biological parents, producing predictable patterns and variation.",
+          "Offspring inherit every acquired habit.",
+          "Only one parent contributes chromosomes.",
+          "Inheritance eliminates all variation."
+        ],
+        "answer": "Offspring receive genetic information through chromosomes from biological parents, producing predictable patterns and variation.",
+        "explain": "The situation “A trait appears in siblings at different frequencies. Which process connects chromosome transmission to variation” is an application of inheritance. Offspring receive genetic information through chromosomes from biological parents, producing predictable patterns and variation."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A gene is a segment of DNA whose information contributes to a functional product and inherited traits.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A gene is a segment of DNA whose information contributes to a functional product and inherited traits."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Chromosomes are organs made of tissues.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Chromosomes are organized DNA-protein structures that carry many genes. The claim confuses this with \"Chromosomes are organs made of tissues..\""
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Alleles are different versions of a gene that can contribute to variation in a trait.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Alleles are different versions of a gene that can contribute to variation in a trait."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Phenotype is the DNA sequence only.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Genotype describes genetic information; phenotype is an observable outcome influenced by genotype and often environment. The claim confuses this with \"Phenotype is the DNA sequence only..\""
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Offspring receive genetic information through chromosomes from biological parents, producing predictable patterns and variation.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Offspring receive genetic information through chromosomes from biological parents, producing predictable patterns and variation."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about genes must guide a correct analysis of “Reject the claim that one gene always determines a complex trait without environmental influence”?",
+        "choices": [
+          "A gene is a segment of DNA whose information contributes to a functional product and inherited traits.",
+          "A gene is an entire organism.",
+          "Genes are made only of proteins.",
+          "A gene is acquired solely through exercise."
+        ],
+        "answer": "A gene is a segment of DNA whose information contributes to a functional product and inherited traits.",
+        "explain": "The challenge “Reject the claim that one gene always determines a complex trait without environmental influence” requires the genes relationship. A gene is a segment of DNA whose information contributes to a functional product and inherited traits."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about chromosomes must guide a correct analysis of “Trace the organization from DNA bases to genes to chromosomes without reversing the hierarchy”?",
+        "choices": [
+          "Chromosomes are organized DNA-protein structures that carry many genes.",
+          "Chromosomes are organs made of tissues.",
+          "Each chromosome carries only one possible gene.",
+          "Chromosomes are outside every cell."
+        ],
+        "answer": "Chromosomes are organized DNA-protein structures that carry many genes.",
+        "explain": "The challenge “Trace the organization from DNA bases to genes to chromosomes without reversing the hierarchy” requires the chromosomes relationship. Chromosomes are organized DNA-protein structures that carry many genes."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about alleles must guide a correct analysis of “Use a heterozygous genotype to distinguish gene location, allele versions, and expressed phenotype”?",
+        "choices": [
+          "Alleles are different versions of a gene that can contribute to variation in a trait.",
+          "Alleles are unrelated species.",
+          "An allele is a whole chromosome set.",
+          "Every allele produces an identical outcome."
+        ],
+        "answer": "Alleles are different versions of a gene that can contribute to variation in a trait.",
+        "explain": "The challenge “Use a heterozygous genotype to distinguish gene location, allele versions, and expressed phenotype” requires the alleles relationship. Alleles are different versions of a gene that can contribute to variation in a trait."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about genotype and phenotype must guide a correct analysis of “Evaluate why matching phenotypes do not prove two organisms have identical genotypes”?",
+        "choices": [
+          "Genotype describes genetic information; phenotype is an observable outcome influenced by genotype and often environment.",
+          "Phenotype is the DNA sequence only.",
+          "Genotype is any learned behavior.",
+          "Environment can never influence phenotype."
+        ],
+        "answer": "Genotype describes genetic information; phenotype is an observable outcome influenced by genotype and often environment.",
+        "explain": "The challenge “Evaluate why matching phenotypes do not prove two organisms have identical genotypes” requires the genotype and phenotype relationship. Genotype describes genetic information; phenotype is an observable outcome influenced by genotype and often environment."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about inheritance must guide a correct analysis of “Explain how chromosome assortment can produce genetically different siblings without new species forming”?",
+        "choices": [
+          "Offspring receive genetic information through chromosomes from biological parents, producing predictable patterns and variation.",
+          "Offspring inherit every acquired habit.",
+          "Only one parent contributes chromosomes.",
+          "Inheritance eliminates all variation."
+        ],
+        "answer": "Offspring receive genetic information through chromosomes from biological parents, producing predictable patterns and variation.",
+        "explain": "The challenge “Explain how chromosome assortment can produce genetically different siblings without new species forming” requires the inheritance relationship. Offspring receive genetic information through chromosomes from biological parents, producing predictable patterns and variation."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about genes remains valid when “A DNA sequence change alters a protein. Which gene relationship connects the change to a possible trait effect” and “Reject the claim that one gene always determines a complex trait without environmental influence” are evaluated together?",
+        "choices": [
+          "A gene is a segment of DNA whose information contributes to a functional product and inherited traits.",
+          "A gene is an entire organism.",
+          "Genes are made only of proteins.",
+          "A gene is acquired solely through exercise."
+        ],
+        "answer": "A gene is a segment of DNA whose information contributes to a functional product and inherited traits.",
+        "explain": "The application and challenge both test the same genes relationship. A gene is a segment of DNA whose information contributes to a functional product and inherited traits."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about chromosomes remains valid when “A model shows DNA coiled with proteins in a nucleus. What structure is represented” and “Trace the organization from DNA bases to genes to chromosomes without reversing the hierarchy” are evaluated together?",
+        "choices": [
+          "Chromosomes are organized DNA-protein structures that carry many genes.",
+          "Chromosomes are organs made of tissues.",
+          "Each chromosome carries only one possible gene.",
+          "Chromosomes are outside every cell."
+        ],
+        "answer": "Chromosomes are organized DNA-protein structures that carry many genes.",
+        "explain": "The application and challenge both test the same chromosomes relationship. Chromosomes are organized DNA-protein structures that carry many genes."
+      }
+    ]
+  },
+  "g8:sci:L5": {
+    "name": "Grade 8 Science L5",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Grade 8 Science L5: which one is living?",
+        "choices": [
+          "plant",
+          "0",
+          "rock",
+          "pencil"
+        ],
+        "answer": "plant",
+        "audio": "Choose the living thing."
+      },
+      {
+        "type": "input",
+        "q": "Grade 8 Science L5: water can be solid, liquid, or ____.",
+        "answer": "gas",
+        "audio": "Name the third state of water."
+      },
+      {
+        "type": "drag",
+        "q": "Grade 8 Science L5: match each science word.",
+        "pairs": [
+          {
+            "left": "habitat",
+            "right": "where something lives"
+          },
+          {
+            "left": "force",
+            "right": "push or pull"
+          },
+          {
+            "left": "energy",
+            "right": "ability to do work"
+          }
+        ],
+        "audio": "Match the science vocabulary."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains inherited variation?",
+        "choices": [
+          "Natural selection acts on inherited trait variation already present in a population.",
+          "Individuals choose needed genes during life.",
+          "All members of a population are genetically identical.",
+          "Only acquired scars drive inheritance."
+        ],
+        "answer": "Natural selection acts on inherited trait variation already present in a population.",
+        "explain": "Natural selection acts on inherited trait variation already present in a population. This is the defining relationship for inherited variation."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains differential reproduction?",
+        "choices": [
+          "Individuals with advantageous inherited traits may leave more surviving offspring, changing trait frequencies over generations.",
+          "Every individual changes its genes equally.",
+          "Survival alone matters even without reproduction.",
+          "Trait frequencies never change."
+        ],
+        "answer": "Individuals with advantageous inherited traits may leave more surviving offspring, changing trait frequencies over generations.",
+        "explain": "Individuals with advantageous inherited traits may leave more surviving offspring, changing trait frequencies over generations. This is the defining relationship for differential reproduction."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains adaptation?",
+        "choices": [
+          "An adaptation is an inherited population-level trait that became more common because it improved reproductive success in an environment.",
+          "An adaptation is any action learned once.",
+          "Adaptations appear because organisms want them.",
+          "Every trait is adaptive in every environment."
+        ],
+        "answer": "An adaptation is an inherited population-level trait that became more common because it improved reproductive success in an environment.",
+        "explain": "An adaptation is an inherited population-level trait that became more common because it improved reproductive success in an environment. This is the defining relationship for adaptation."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains population change?",
+        "choices": [
+          "Populations evolve across generations; individual organisms do not genetically evolve during their lifetimes.",
+          "Individuals evolve new inherited traits on demand.",
+          "Evolution is a daily change in muscle size.",
+          "Populations remain genetically fixed."
+        ],
+        "answer": "Populations evolve across generations; individual organisms do not genetically evolve during their lifetimes.",
+        "explain": "Populations evolve across generations; individual organisms do not genetically evolve during their lifetimes. This is the defining relationship for population change."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains selection evidence?",
+        "choices": [
+          "Evidence for natural selection connects heritable variation, an environmental pressure, and differences in reproductive success over generations.",
+          "A single unusual individual proves selection.",
+          "Any environmental change guarantees adaptation.",
+          "Trait frequency data are unnecessary."
+        ],
+        "answer": "Evidence for natural selection connects heritable variation, an environmental pressure, and differences in reproductive success over generations.",
+        "explain": "Evidence for natural selection connects heritable variation, an environmental pressure, and differences in reproductive success over generations. This is the defining relationship for selection evidence."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about inherited variation should guide the answer to “Some beetles are naturally darker before a habitat darkens. Why is this variation important”?",
+        "choices": [
+          "Natural selection acts on inherited trait variation already present in a population.",
+          "Individuals choose needed genes during life.",
+          "All members of a population are genetically identical.",
+          "Only acquired scars drive inheritance."
+        ],
+        "answer": "Natural selection acts on inherited trait variation already present in a population.",
+        "explain": "The situation “Some beetles are naturally darker before a habitat darkens. Why is this variation important” is an application of inherited variation. Natural selection acts on inherited trait variation already present in a population."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about differential reproduction should guide the answer to “Birds with beaks suited to available seeds raise more young. What mechanism follows”?",
+        "choices": [
+          "Individuals with advantageous inherited traits may leave more surviving offspring, changing trait frequencies over generations.",
+          "Every individual changes its genes equally.",
+          "Survival alone matters even without reproduction.",
+          "Trait frequencies never change."
+        ],
+        "answer": "Individuals with advantageous inherited traits may leave more surviving offspring, changing trait frequencies over generations.",
+        "explain": "The situation “Birds with beaks suited to available seeds raise more young. What mechanism follows” is an application of differential reproduction. Individuals with advantageous inherited traits may leave more surviving offspring, changing trait frequencies over generations."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about adaptation should guide the answer to “Webbed feet improve feeding in one habitat. When can they be called an adaptation”?",
+        "choices": [
+          "An adaptation is an inherited population-level trait that became more common because it improved reproductive success in an environment.",
+          "An adaptation is any action learned once.",
+          "Adaptations appear because organisms want them.",
+          "Every trait is adaptive in every environment."
+        ],
+        "answer": "An adaptation is an inherited population-level trait that became more common because it improved reproductive success in an environment.",
+        "explain": "The situation “Webbed feet improve feeding in one habitat. When can they be called an adaptation” is an application of adaptation. An adaptation is an inherited population-level trait that became more common because it improved reproductive success in an environment."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about population change should guide the answer to “A pesticide-resistant allele becomes more common after many generations. What level changed”?",
+        "choices": [
+          "Populations evolve across generations; individual organisms do not genetically evolve during their lifetimes.",
+          "Individuals evolve new inherited traits on demand.",
+          "Evolution is a daily change in muscle size.",
+          "Populations remain genetically fixed."
+        ],
+        "answer": "Populations evolve across generations; individual organisms do not genetically evolve during their lifetimes.",
+        "explain": "The situation “A pesticide-resistant allele becomes more common after many generations. What level changed” is an application of population change. Populations evolve across generations; individual organisms do not genetically evolve during their lifetimes."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about selection evidence should guide the answer to “Which data set would best test selection in a lizard population”?",
+        "choices": [
+          "Evidence for natural selection connects heritable variation, an environmental pressure, and differences in reproductive success over generations.",
+          "A single unusual individual proves selection.",
+          "Any environmental change guarantees adaptation.",
+          "Trait frequency data are unnecessary."
+        ],
+        "answer": "Evidence for natural selection connects heritable variation, an environmental pressure, and differences in reproductive success over generations.",
+        "explain": "The situation “Which data set would best test selection in a lizard population” is an application of selection evidence. Evidence for natural selection connects heritable variation, an environmental pressure, and differences in reproductive success over generations."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Natural selection acts on inherited trait variation already present in a population.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Natural selection acts on inherited trait variation already present in a population."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Every individual changes its genes equally.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Individuals with advantageous inherited traits may leave more surviving offspring, changing trait frequencies over generations. The claim confuses this with \"Every individual changes its genes equally..\""
+      },
+      {
+        "type": "mc",
+        "q": "True or false: An adaptation is an inherited population-level trait that became more common because it improved reproductive success in an environment.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. An adaptation is an inherited population-level trait that became more common because it improved reproductive success in an environment."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Individuals evolve new inherited traits on demand.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Populations evolve across generations; individual organisms do not genetically evolve during their lifetimes. The claim confuses this with \"Individuals evolve new inherited traits on demand..\""
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Evidence for natural selection connects heritable variation, an environmental pressure, and differences in reproductive success over generations.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Evidence for natural selection connects heritable variation, an environmental pressure, and differences in reproductive success over generations."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about inherited variation must guide a correct analysis of “Distinguish selection on existing alleles from a claim that the environment intentionally creates useful traits”?",
+        "choices": [
+          "Natural selection acts on inherited trait variation already present in a population.",
+          "Individuals choose needed genes during life.",
+          "All members of a population are genetically identical.",
+          "Only acquired scars drive inheritance."
+        ],
+        "answer": "Natural selection acts on inherited trait variation already present in a population.",
+        "explain": "The challenge “Distinguish selection on existing alleles from a claim that the environment intentionally creates useful traits” requires the inherited variation relationship. Natural selection acts on inherited trait variation already present in a population."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about differential reproduction must guide a correct analysis of “Use offspring counts, not just adult survival, to identify which phenotype has higher fitness”?",
+        "choices": [
+          "Individuals with advantageous inherited traits may leave more surviving offspring, changing trait frequencies over generations.",
+          "Every individual changes its genes equally.",
+          "Survival alone matters even without reproduction.",
+          "Trait frequencies never change."
+        ],
+        "answer": "Individuals with advantageous inherited traits may leave more surviving offspring, changing trait frequencies over generations.",
+        "explain": "The challenge “Use offspring counts, not just adult survival, to identify which phenotype has higher fitness” requires the differential reproduction relationship. Individuals with advantageous inherited traits may leave more surviving offspring, changing trait frequencies over generations."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about adaptation must guide a correct analysis of “Evaluate a trait that helps in wetlands but costs energy on dry land and explain environmental context”?",
+        "choices": [
+          "An adaptation is an inherited population-level trait that became more common because it improved reproductive success in an environment.",
+          "An adaptation is any action learned once.",
+          "Adaptations appear because organisms want them.",
+          "Every trait is adaptive in every environment."
+        ],
+        "answer": "An adaptation is an inherited population-level trait that became more common because it improved reproductive success in an environment.",
+        "explain": "The challenge “Evaluate a trait that helps in wetlands but costs energy on dry land and explain environmental context” requires the adaptation relationship. An adaptation is an inherited population-level trait that became more common because it improved reproductive success in an environment."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about population change must guide a correct analysis of “Reject a statement that one insect evolved resistance because it survived one spray”?",
+        "choices": [
+          "Populations evolve across generations; individual organisms do not genetically evolve during their lifetimes.",
+          "Individuals evolve new inherited traits on demand.",
+          "Evolution is a daily change in muscle size.",
+          "Populations remain genetically fixed."
+        ],
+        "answer": "Populations evolve across generations; individual organisms do not genetically evolve during their lifetimes.",
+        "explain": "The challenge “Reject a statement that one insect evolved resistance because it survived one spray” requires the population change relationship. Populations evolve across generations; individual organisms do not genetically evolve during their lifetimes."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about selection evidence must guide a correct analysis of “Design a conclusion from before-and-after allele frequencies while acknowledging migration as an alternative explanation”?",
+        "choices": [
+          "Evidence for natural selection connects heritable variation, an environmental pressure, and differences in reproductive success over generations.",
+          "A single unusual individual proves selection.",
+          "Any environmental change guarantees adaptation.",
+          "Trait frequency data are unnecessary."
+        ],
+        "answer": "Evidence for natural selection connects heritable variation, an environmental pressure, and differences in reproductive success over generations.",
+        "explain": "The challenge “Design a conclusion from before-and-after allele frequencies while acknowledging migration as an alternative explanation” requires the selection evidence relationship. Evidence for natural selection connects heritable variation, an environmental pressure, and differences in reproductive success over generations."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about inherited variation remains valid when “Some beetles are naturally darker before a habitat darkens. Why is this variation important” and “Distinguish selection on existing alleles from a claim that the environment intentionally creates useful traits” are evaluated together?",
+        "choices": [
+          "Natural selection acts on inherited trait variation already present in a population.",
+          "Individuals choose needed genes during life.",
+          "All members of a population are genetically identical.",
+          "Only acquired scars drive inheritance."
+        ],
+        "answer": "Natural selection acts on inherited trait variation already present in a population.",
+        "explain": "The application and challenge both test the same inherited variation relationship. Natural selection acts on inherited trait variation already present in a population."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about differential reproduction remains valid when “Birds with beaks suited to available seeds raise more young. What mechanism follows” and “Use offspring counts, not just adult survival, to identify which phenotype has higher fitness” are evaluated together?",
+        "choices": [
+          "Individuals with advantageous inherited traits may leave more surviving offspring, changing trait frequencies over generations.",
+          "Every individual changes its genes equally.",
+          "Survival alone matters even without reproduction.",
+          "Trait frequencies never change."
+        ],
+        "answer": "Individuals with advantageous inherited traits may leave more surviving offspring, changing trait frequencies over generations.",
+        "explain": "The application and challenge both test the same differential reproduction relationship. Individuals with advantageous inherited traits may leave more surviving offspring, changing trait frequencies over generations."
+      }
+    ]
+  },
+  "g8:sci:L6": {
+    "name": "Grade 8 Science L6",
+    "questions": [
+      {
+        "type": "input",
+        "q": "Grade 8 Science L6: water can be solid, liquid, or ____.",
+        "answer": "gas",
+        "audio": "Name the third state of water."
+      },
+      {
+        "type": "drag",
+        "q": "Grade 8 Science L6: match each science word.",
+        "pairs": [
+          {
+            "left": "habitat",
+            "right": "where something lives"
+          },
+          {
+            "left": "force",
+            "right": "push or pull"
+          },
+          {
+            "left": "energy",
+            "right": "ability to do work"
+          }
+        ],
+        "audio": "Match the science vocabulary."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Science L6: which one is living?",
+        "choices": [
+          "pencil",
+          "0",
+          "plant",
+          "rock"
+        ],
+        "answer": "plant",
+        "audio": "Choose the living thing."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains homozygous?",
+        "choices": [
+          "Homozygous means having two identical alleles at a gene locus.",
+          "Homozygous means two different alleles.",
+          "Homozygous means no chromosomes.",
+          "Homozygous describes any phenotype."
+        ],
+        "answer": "Homozygous means having two identical alleles at a gene locus.",
+        "explain": "Homozygous means having two identical alleles at a gene locus. This is the defining relationship for homozygous."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains heterozygous?",
+        "choices": [
+          "Heterozygous means having two different alleles at a gene locus.",
+          "Heterozygous means two identical alleles.",
+          "Heterozygous is an environmental factor.",
+          "Heterozygous means no trait is expressed."
+        ],
+        "answer": "Heterozygous means having two different alleles at a gene locus.",
+        "explain": "Heterozygous means having two different alleles at a gene locus. This is the defining relationship for heterozygous."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains dominant allele?",
+        "choices": [
+          "In a simple dominant-recessive model, one dominant allele can determine the heterozygous phenotype.",
+          "Dominant means most common in every population.",
+          "Dominant alleles erase recessive alleles.",
+          "Dominant means physically stronger."
+        ],
+        "answer": "In a simple dominant-recessive model, one dominant allele can determine the heterozygous phenotype.",
+        "explain": "In a simple dominant-recessive model, one dominant allele can determine the heterozygous phenotype. This is the defining relationship for dominant allele."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains recessive allele?",
+        "choices": [
+          "A recessive phenotype in a simple model appears when no dominant allele is present.",
+          "A recessive allele is always harmful.",
+          "Recessive alleles disappear in heterozygotes.",
+          "Recessive means rarely inherited."
+        ],
+        "answer": "A recessive phenotype in a simple model appears when no dominant allele is present.",
+        "explain": "A recessive phenotype in a simple model appears when no dominant allele is present. This is the defining relationship for recessive allele."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains Punnett probability?",
+        "choices": [
+          "A Punnett square represents possible allele combinations and probabilities, not guaranteed family outcomes.",
+          "A Punnett square predicts exact birth order.",
+          "Each box must occur once in four offspring.",
+          "Probability changes the parents' alleles."
+        ],
+        "answer": "A Punnett square represents possible allele combinations and probabilities, not guaranteed family outcomes.",
+        "explain": "A Punnett square represents possible allele combinations and probabilities, not guaranteed family outcomes. This is the defining relationship for Punnett probability."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about homozygous should guide the answer to “Which genotype notation represents a homozygous individual”?",
+        "choices": [
+          "Homozygous means having two identical alleles at a gene locus.",
+          "Homozygous means two different alleles.",
+          "Homozygous means no chromosomes.",
+          "Homozygous describes any phenotype."
+        ],
+        "answer": "Homozygous means having two identical alleles at a gene locus.",
+        "explain": "The situation “Which genotype notation represents a homozygous individual” is an application of homozygous. Homozygous means having two identical alleles at a gene locus."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about heterozygous should guide the answer to “Why is Bb classified as heterozygous”?",
+        "choices": [
+          "Heterozygous means having two different alleles at a gene locus.",
+          "Heterozygous means two identical alleles.",
+          "Heterozygous is an environmental factor.",
+          "Heterozygous means no trait is expressed."
+        ],
+        "answer": "Heterozygous means having two different alleles at a gene locus.",
+        "explain": "The situation “Why is Bb classified as heterozygous” is an application of heterozygous. Heterozygous means having two different alleles at a gene locus."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about dominant allele should guide the answer to “Why can a heterozygote show the dominant trait while carrying a recessive allele”?",
+        "choices": [
+          "In a simple dominant-recessive model, one dominant allele can determine the heterozygous phenotype.",
+          "Dominant means most common in every population.",
+          "Dominant alleles erase recessive alleles.",
+          "Dominant means physically stronger."
+        ],
+        "answer": "In a simple dominant-recessive model, one dominant allele can determine the heterozygous phenotype.",
+        "explain": "The situation “Why can a heterozygote show the dominant trait while carrying a recessive allele” is an application of dominant allele. In a simple dominant-recessive model, one dominant allele can determine the heterozygous phenotype."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about recessive allele should guide the answer to “Which genotype condition produces a recessive phenotype”?",
+        "choices": [
+          "A recessive phenotype in a simple model appears when no dominant allele is present.",
+          "A recessive allele is always harmful.",
+          "Recessive alleles disappear in heterozygotes.",
+          "Recessive means rarely inherited."
+        ],
+        "answer": "A recessive phenotype in a simple model appears when no dominant allele is present.",
+        "explain": "The situation “Which genotype condition produces a recessive phenotype” is an application of recessive allele. A recessive phenotype in a simple model appears when no dominant allele is present."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about Punnett probability should guide the answer to “What does a 25% box frequency mean for each independent offspring”?",
+        "choices": [
+          "A Punnett square represents possible allele combinations and probabilities, not guaranteed family outcomes.",
+          "A Punnett square predicts exact birth order.",
+          "Each box must occur once in four offspring.",
+          "Probability changes the parents' alleles."
+        ],
+        "answer": "A Punnett square represents possible allele combinations and probabilities, not guaranteed family outcomes.",
+        "explain": "The situation “What does a 25% box frequency mean for each independent offspring” is an application of Punnett probability. A Punnett square represents possible allele combinations and probabilities, not guaranteed family outcomes."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Homozygous means having two identical alleles at a gene locus.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Homozygous means having two identical alleles at a gene locus."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Heterozygous means two identical alleles.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Heterozygous means having two different alleles at a gene locus. The claim confuses this with \"Heterozygous means two identical alleles..\""
+      },
+      {
+        "type": "mc",
+        "q": "True or false: In a simple dominant-recessive model, one dominant allele can determine the heterozygous phenotype.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. In a simple dominant-recessive model, one dominant allele can determine the heterozygous phenotype."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A recessive allele is always harmful.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. A recessive phenotype in a simple model appears when no dominant allele is present. The claim confuses this with \"A recessive allele is always harmful..\""
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A Punnett square represents possible allele combinations and probabilities, not guaranteed family outcomes.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A Punnett square represents possible allele combinations and probabilities, not guaranteed family outcomes."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about homozygous must guide a correct analysis of “Compare AA, Aa, and aa and explain which are homozygous without assuming dominance”?",
+        "choices": [
+          "Homozygous means having two identical alleles at a gene locus.",
+          "Homozygous means two different alleles.",
+          "Homozygous means no chromosomes.",
+          "Homozygous describes any phenotype."
+        ],
+        "answer": "Homozygous means having two identical alleles at a gene locus.",
+        "explain": "The challenge “Compare AA, Aa, and aa and explain which are homozygous without assuming dominance” requires the homozygous relationship. Homozygous means having two identical alleles at a gene locus."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about heterozygous must guide a correct analysis of “Distinguish heterozygous genotype from a blended phenotype in incomplete dominance”?",
+        "choices": [
+          "Heterozygous means having two different alleles at a gene locus.",
+          "Heterozygous means two identical alleles.",
+          "Heterozygous is an environmental factor.",
+          "Heterozygous means no trait is expressed."
+        ],
+        "answer": "Heterozygous means having two different alleles at a gene locus.",
+        "explain": "The challenge “Distinguish heterozygous genotype from a blended phenotype in incomplete dominance” requires the heterozygous relationship. Heterozygous means having two different alleles at a gene locus."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about dominant allele must guide a correct analysis of “Reject the claim that dominant alleles must increase across generations without selection”?",
+        "choices": [
+          "In a simple dominant-recessive model, one dominant allele can determine the heterozygous phenotype.",
+          "Dominant means most common in every population.",
+          "Dominant alleles erase recessive alleles.",
+          "Dominant means physically stronger."
+        ],
+        "answer": "In a simple dominant-recessive model, one dominant allele can determine the heterozygous phenotype.",
+        "explain": "The challenge “Reject the claim that dominant alleles must increase across generations without selection” requires the dominant allele relationship. In a simple dominant-recessive model, one dominant allele can determine the heterozygous phenotype."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about recessive allele must guide a correct analysis of “Explain how two unaffected heterozygous parents can produce an offspring with a recessive phenotype”?",
+        "choices": [
+          "A recessive phenotype in a simple model appears when no dominant allele is present.",
+          "A recessive allele is always harmful.",
+          "Recessive alleles disappear in heterozygotes.",
+          "Recessive means rarely inherited."
+        ],
+        "answer": "A recessive phenotype in a simple model appears when no dominant allele is present.",
+        "explain": "The challenge “Explain how two unaffected heterozygous parents can produce an offspring with a recessive phenotype” requires the recessive allele relationship. A recessive phenotype in a simple model appears when no dominant allele is present."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about Punnett probability must guide a correct analysis of “Evaluate why four children need not display a 1:2:1 genotype ratio exactly”?",
+        "choices": [
+          "A Punnett square represents possible allele combinations and probabilities, not guaranteed family outcomes.",
+          "A Punnett square predicts exact birth order.",
+          "Each box must occur once in four offspring.",
+          "Probability changes the parents' alleles."
+        ],
+        "answer": "A Punnett square represents possible allele combinations and probabilities, not guaranteed family outcomes.",
+        "explain": "The challenge “Evaluate why four children need not display a 1:2:1 genotype ratio exactly” requires the Punnett probability relationship. A Punnett square represents possible allele combinations and probabilities, not guaranteed family outcomes."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about homozygous remains valid when “Which genotype notation represents a homozygous individual” and “Compare AA, Aa, and aa and explain which are homozygous without assuming dominance” are evaluated together?",
+        "choices": [
+          "Homozygous means having two identical alleles at a gene locus.",
+          "Homozygous means two different alleles.",
+          "Homozygous means no chromosomes.",
+          "Homozygous describes any phenotype."
+        ],
+        "answer": "Homozygous means having two identical alleles at a gene locus.",
+        "explain": "The application and challenge both test the same homozygous relationship. Homozygous means having two identical alleles at a gene locus."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about heterozygous remains valid when “Why is Bb classified as heterozygous” and “Distinguish heterozygous genotype from a blended phenotype in incomplete dominance” are evaluated together?",
+        "choices": [
+          "Heterozygous means having two different alleles at a gene locus.",
+          "Heterozygous means two identical alleles.",
+          "Heterozygous is an environmental factor.",
+          "Heterozygous means no trait is expressed."
+        ],
+        "answer": "Heterozygous means having two different alleles at a gene locus.",
+        "explain": "The application and challenge both test the same heterozygous relationship. Heterozygous means having two different alleles at a gene locus."
+      }
+    ]
+  },
+  "g8:sci:L7": {
+    "name": "Grade 8 Science L7",
+    "questions": [
+      {
+        "type": "drag",
+        "q": "Grade 8 Science L7: match each science word.",
+        "pairs": [
+          {
+            "left": "habitat",
+            "right": "where something lives"
+          },
+          {
+            "left": "force",
+            "right": "push or pull"
+          },
+          {
+            "left": "energy",
+            "right": "ability to do work"
+          }
+        ],
+        "audio": "Match the science vocabulary."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Science L7: which one is living?",
+        "choices": [
+          "0",
+          "plant",
+          "rock",
+          "pencil"
+        ],
+        "answer": "plant",
+        "audio": "Choose the living thing."
+      },
+      {
+        "type": "input",
+        "q": "Grade 8 Science L7: water can be solid, liquid, or ____.",
+        "answer": "gas",
+        "audio": "Name the third state of water."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains coefficient use?",
+        "choices": [
+          "Coefficients change molecule counts without changing the identity of each substance.",
+          "Coefficients change elemental symbols.",
+          "Coefficients may be inserted inside formulas.",
+          "Coefficients destroy atoms."
+        ],
+        "answer": "Coefficients change molecule counts without changing the identity of each substance.",
+        "explain": "Coefficients change molecule counts without changing the identity of each substance. This is the defining relationship for coefficient use."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains subscript meaning?",
+        "choices": [
+          "A subscript states the fixed atom ratio within one chemical formula.",
+          "A subscript counts containers.",
+          "Subscripts can change during balancing.",
+          "Subscripts show reaction speed."
+        ],
+        "answer": "A subscript states the fixed atom ratio within one chemical formula.",
+        "explain": "A subscript states the fixed atom ratio within one chemical formula. This is the defining relationship for subscript meaning."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains gas mass?",
+        "choices": [
+          "Gas products have mass and must be included when testing conservation.",
+          "Gases are massless because they are invisible.",
+          "Escaping gas proves atoms were destroyed.",
+          "Only solids contribute mass."
+        ],
+        "answer": "Gas products have mass and must be included when testing conservation.",
+        "explain": "Gas products have mass and must be included when testing conservation. This is the defining relationship for gas mass."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains limiting observations?",
+        "choices": [
+          "Color change, gas formation, precipitate, or temperature change can provide evidence of a reaction but do not alone quantify conserved mass.",
+          "Color change gives exact atom counts.",
+          "Every temperature change proves a reaction.",
+          "No observation is useful."
+        ],
+        "answer": "Color change, gas formation, precipitate, or temperature change can provide evidence of a reaction but do not alone quantify conserved mass.",
+        "explain": "Color change, gas formation, precipitate, or temperature change can provide evidence of a reaction but do not alone quantify conserved mass. This is the defining relationship for limiting observations."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains equation audit?",
+        "choices": [
+          "Atom counts for every element must match between reactants and products in a valid balanced equation.",
+          "Only total molecule count must match.",
+          "Only oxygen atoms need match.",
+          "Charges and formulas never matter."
+        ],
+        "answer": "Atom counts for every element must match between reactants and products in a valid balanced equation.",
+        "explain": "Atom counts for every element must match between reactants and products in a valid balanced equation. This is the defining relationship for equation audit."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about coefficient use should guide the answer to “Why does 2H2O represent two water molecules rather than hydrogen peroxide”?",
+        "choices": [
+          "Coefficients change molecule counts without changing the identity of each substance.",
+          "Coefficients change elemental symbols.",
+          "Coefficients may be inserted inside formulas.",
+          "Coefficients destroy atoms."
+        ],
+        "answer": "Coefficients change molecule counts without changing the identity of each substance.",
+        "explain": "The situation “Why does 2H2O represent two water molecules rather than hydrogen peroxide” is an application of coefficient use. Coefficients change molecule counts without changing the identity of each substance."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about subscript meaning should guide the answer to “What does the 2 in CO2 communicate”?",
+        "choices": [
+          "A subscript states the fixed atom ratio within one chemical formula.",
+          "A subscript counts containers.",
+          "Subscripts can change during balancing.",
+          "Subscripts show reaction speed."
+        ],
+        "answer": "A subscript states the fixed atom ratio within one chemical formula.",
+        "explain": "The situation “What does the 2 in CO2 communicate” is an application of subscript meaning. A subscript states the fixed atom ratio within one chemical formula."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about gas mass should guide the answer to “Why can an open flask weigh less after a reaction”?",
+        "choices": [
+          "Gas products have mass and must be included when testing conservation.",
+          "Gases are massless because they are invisible.",
+          "Escaping gas proves atoms were destroyed.",
+          "Only solids contribute mass."
+        ],
+        "answer": "Gas products have mass and must be included when testing conservation.",
+        "explain": "The situation “Why can an open flask weigh less after a reaction” is an application of gas mass. Gas products have mass and must be included when testing conservation."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about limiting observations should guide the answer to “Which observation suggests new substances while a balance supplies mass evidence”?",
+        "choices": [
+          "Color change, gas formation, precipitate, or temperature change can provide evidence of a reaction but do not alone quantify conserved mass.",
+          "Color change gives exact atom counts.",
+          "Every temperature change proves a reaction.",
+          "No observation is useful."
+        ],
+        "answer": "Color change, gas formation, precipitate, or temperature change can provide evidence of a reaction but do not alone quantify conserved mass.",
+        "explain": "The situation “Which observation suggests new substances while a balance supplies mass evidence” is an application of limiting observations. Color change, gas formation, precipitate, or temperature change can provide evidence of a reaction but do not alone quantify conserved mass."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about equation audit should guide the answer to “What checklist should a student use after choosing coefficients”?",
+        "choices": [
+          "Atom counts for every element must match between reactants and products in a valid balanced equation.",
+          "Only total molecule count must match.",
+          "Only oxygen atoms need match.",
+          "Charges and formulas never matter."
+        ],
+        "answer": "Atom counts for every element must match between reactants and products in a valid balanced equation.",
+        "explain": "The situation “What checklist should a student use after choosing coefficients” is an application of equation audit. Atom counts for every element must match between reactants and products in a valid balanced equation."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Coefficients change molecule counts without changing the identity of each substance.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Coefficients change molecule counts without changing the identity of each substance."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A subscript counts containers.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. A subscript states the fixed atom ratio within one chemical formula. The claim confuses this with \"A subscript counts containers..\""
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Gas products have mass and must be included when testing conservation.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Gas products have mass and must be included when testing conservation."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Color change gives exact atom counts.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Color change, gas formation, precipitate, or temperature change can provide evidence of a reaction but do not alone quantify conserved mass. The claim confuses this with \"Color change gives exact atom counts..\""
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Atom counts for every element must match between reactants and products in a valid balanced equation.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Atom counts for every element must match between reactants and products in a valid balanced equation."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about coefficient use must guide a correct analysis of “Correct a student's balance attempt that changes a subscript instead of a coefficient”?",
+        "choices": [
+          "Coefficients change molecule counts without changing the identity of each substance.",
+          "Coefficients change elemental symbols.",
+          "Coefficients may be inserted inside formulas.",
+          "Coefficients destroy atoms."
+        ],
+        "answer": "Coefficients change molecule counts without changing the identity of each substance.",
+        "explain": "The challenge “Correct a student's balance attempt that changes a subscript instead of a coefficient” requires the coefficient use relationship. Coefficients change molecule counts without changing the identity of each substance."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about subscript meaning must guide a correct analysis of “Explain why changing CO2 to CO balances no equation involving the same substance”?",
+        "choices": [
+          "A subscript states the fixed atom ratio within one chemical formula.",
+          "A subscript counts containers.",
+          "Subscripts can change during balancing.",
+          "Subscripts show reaction speed."
+        ],
+        "answer": "A subscript states the fixed atom ratio within one chemical formula.",
+        "explain": "The challenge “Explain why changing CO2 to CO balances no equation involving the same substance” requires the subscript meaning relationship. A subscript states the fixed atom ratio within one chemical formula."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about gas mass must guide a correct analysis of “Use a sealed bag model to distinguish system mass from the mass remaining in an open container”?",
+        "choices": [
+          "Gas products have mass and must be included when testing conservation.",
+          "Gases are massless because they are invisible.",
+          "Escaping gas proves atoms were destroyed.",
+          "Only solids contribute mass."
+        ],
+        "answer": "Gas products have mass and must be included when testing conservation.",
+        "explain": "The challenge “Use a sealed bag model to distinguish system mass from the mass remaining in an open container” requires the gas mass relationship. Gas products have mass and must be included when testing conservation."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about limiting observations must guide a correct analysis of “Evaluate a claim that bubbling alone proves mass disappeared”?",
+        "choices": [
+          "Color change, gas formation, precipitate, or temperature change can provide evidence of a reaction but do not alone quantify conserved mass.",
+          "Color change gives exact atom counts.",
+          "Every temperature change proves a reaction.",
+          "No observation is useful."
+        ],
+        "answer": "Color change, gas formation, precipitate, or temperature change can provide evidence of a reaction but do not alone quantify conserved mass.",
+        "explain": "The challenge “Evaluate a claim that bubbling alone proves mass disappeared” requires the limiting observations relationship. Color change, gas formation, precipitate, or temperature change can provide evidence of a reaction but do not alone quantify conserved mass."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about equation audit must guide a correct analysis of “Audit an equation that conserves total atom count but changes one element into another and explain the flaw”?",
+        "choices": [
+          "Atom counts for every element must match between reactants and products in a valid balanced equation.",
+          "Only total molecule count must match.",
+          "Only oxygen atoms need match.",
+          "Charges and formulas never matter."
+        ],
+        "answer": "Atom counts for every element must match between reactants and products in a valid balanced equation.",
+        "explain": "The challenge “Audit an equation that conserves total atom count but changes one element into another and explain the flaw” requires the equation audit relationship. Atom counts for every element must match between reactants and products in a valid balanced equation."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about coefficient use remains valid when “Why does 2H2O represent two water molecules rather than hydrogen peroxide” and “Correct a student's balance attempt that changes a subscript instead of a coefficient” are evaluated together?",
+        "choices": [
+          "Coefficients change molecule counts without changing the identity of each substance.",
+          "Coefficients change elemental symbols.",
+          "Coefficients may be inserted inside formulas.",
+          "Coefficients destroy atoms."
+        ],
+        "answer": "Coefficients change molecule counts without changing the identity of each substance.",
+        "explain": "The application and challenge both test the same coefficient use relationship. Coefficients change molecule counts without changing the identity of each substance."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about subscript meaning remains valid when “What does the 2 in CO2 communicate” and “Explain why changing CO2 to CO balances no equation involving the same substance” are evaluated together?",
+        "choices": [
+          "A subscript states the fixed atom ratio within one chemical formula.",
+          "A subscript counts containers.",
+          "Subscripts can change during balancing.",
+          "Subscripts show reaction speed."
+        ],
+        "answer": "A subscript states the fixed atom ratio within one chemical formula.",
+        "explain": "The application and challenge both test the same subscript meaning relationship. A subscript states the fixed atom ratio within one chemical formula."
+      }
+    ]
+  },
+  "g8:sci:L8": {
+    "name": "Grade 8 Science L8",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Grade 8 Science L8: which one is living?",
+        "choices": [
+          "0",
+          "pencil",
+          "plant",
+          "rock"
+        ],
+        "answer": "plant",
+        "audio": "Choose the living thing."
+      },
+      {
+        "type": "input",
+        "q": "Grade 8 Science L8: water can be solid, liquid, or ____.",
+        "answer": "gas",
+        "audio": "Name the third state of water."
+      },
+      {
+        "type": "drag",
+        "q": "Grade 8 Science L8: match each science word.",
+        "pairs": [
+          {
+            "left": "habitat",
+            "right": "where something lives"
+          },
+          {
+            "left": "force",
+            "right": "push or pull"
+          },
+          {
+            "left": "energy",
+            "right": "ability to do work"
+          }
+        ],
+        "audio": "Match the science vocabulary."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains element?",
+        "choices": [
+          "An element consists of atoms with one proton count, even when isotope or ion forms differ.",
+          "An element requires only one neutron count.",
+          "Every molecule is an element.",
+          "Changing electrons creates a new element."
+        ],
+        "answer": "An element consists of atoms with one proton count, even when isotope or ion forms differ.",
+        "explain": "An element consists of atoms with one proton count, even when isotope or ion forms differ. This is the defining relationship for element."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains molecule?",
+        "choices": [
+          "A molecule contains two or more atoms chemically bonded in a discrete unit.",
+          "A molecule is one unbonded proton.",
+          "Every molecule must contain different elements.",
+          "Molecules are mixtures with no bonds."
+        ],
+        "answer": "A molecule contains two or more atoms chemically bonded in a discrete unit.",
+        "explain": "A molecule contains two or more atoms chemically bonded in a discrete unit. This is the defining relationship for molecule."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains compound?",
+        "choices": [
+          "A compound contains atoms of two or more elements chemically combined in fixed ratios.",
+          "A compound is any physical mixture.",
+          "A compound contains one element only.",
+          "Compound ratios change freely without new substances."
+        ],
+        "answer": "A compound contains atoms of two or more elements chemically combined in fixed ratios.",
+        "explain": "A compound contains atoms of two or more elements chemically combined in fixed ratios. This is the defining relationship for compound."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains ion?",
+        "choices": [
+          "An ion is an atom or bonded group with a net charge caused by unequal proton and electron totals.",
+          "An ion must have unequal protons and neutrons.",
+          "All charged particles are new elements.",
+          "Ions contain no electrons."
+        ],
+        "answer": "An ion is an atom or bonded group with a net charge caused by unequal proton and electron totals.",
+        "explain": "An ion is an atom or bonded group with a net charge caused by unequal proton and electron totals. This is the defining relationship for ion."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains model limits?",
+        "choices": [
+          "Particle models explain counts, bonds, and arrangement but may not represent true scale, motion, or probability clouds.",
+          "A model is correct only if life-size.",
+          "Colors in models are literal atom colors.",
+          "Models have no limitations."
+        ],
+        "answer": "Particle models explain counts, bonds, and arrangement but may not represent true scale, motion, or probability clouds.",
+        "explain": "Particle models explain counts, bonds, and arrangement but may not represent true scale, motion, or probability clouds. This is the defining relationship for model limits."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about element should guide the answer to “Several particles share eight protons but have different neutrons and electrons. What remains the same”?",
+        "choices": [
+          "An element consists of atoms with one proton count, even when isotope or ion forms differ.",
+          "An element requires only one neutron count.",
+          "Every molecule is an element.",
+          "Changing electrons creates a new element."
+        ],
+        "answer": "An element consists of atoms with one proton count, even when isotope or ion forms differ.",
+        "explain": "The situation “Several particles share eight protons but have different neutrons and electrons. What remains the same” is an application of element. An element consists of atoms with one proton count, even when isotope or ion forms differ."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about molecule should guide the answer to “Why is O2 a molecule but not a compound”?",
+        "choices": [
+          "A molecule contains two or more atoms chemically bonded in a discrete unit.",
+          "A molecule is one unbonded proton.",
+          "Every molecule must contain different elements.",
+          "Molecules are mixtures with no bonds."
+        ],
+        "answer": "A molecule contains two or more atoms chemically bonded in a discrete unit.",
+        "explain": "The situation “Why is O2 a molecule but not a compound” is an application of molecule. A molecule contains two or more atoms chemically bonded in a discrete unit."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about compound should guide the answer to “Why is CO2 a compound while C and O2 together are a mixture before reaction”?",
+        "choices": [
+          "A compound contains atoms of two or more elements chemically combined in fixed ratios.",
+          "A compound is any physical mixture.",
+          "A compound contains one element only.",
+          "Compound ratios change freely without new substances."
+        ],
+        "answer": "A compound contains atoms of two or more elements chemically combined in fixed ratios.",
+        "explain": "The situation “Why is CO2 a compound while C and O2 together are a mixture before reaction” is an application of compound. A compound contains atoms of two or more elements chemically combined in fixed ratios."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about ion should guide the answer to “Which count comparison identifies a monatomic ion”?",
+        "choices": [
+          "An ion is an atom or bonded group with a net charge caused by unequal proton and electron totals.",
+          "An ion must have unequal protons and neutrons.",
+          "All charged particles are new elements.",
+          "Ions contain no electrons."
+        ],
+        "answer": "An ion is an atom or bonded group with a net charge caused by unequal proton and electron totals.",
+        "explain": "The situation “Which count comparison identifies a monatomic ion” is an application of ion. An ion is an atom or bonded group with a net charge caused by unequal proton and electron totals."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about model limits should guide the answer to “Why can a useful atom diagram still be inaccurate in scale”?",
+        "choices": [
+          "Particle models explain counts, bonds, and arrangement but may not represent true scale, motion, or probability clouds.",
+          "A model is correct only if life-size.",
+          "Colors in models are literal atom colors.",
+          "Models have no limitations."
+        ],
+        "answer": "Particle models explain counts, bonds, and arrangement but may not represent true scale, motion, or probability clouds.",
+        "explain": "The situation “Why can a useful atom diagram still be inaccurate in scale” is an application of model limits. Particle models explain counts, bonds, and arrangement but may not represent true scale, motion, or probability clouds."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: An element consists of atoms with one proton count, even when isotope or ion forms differ.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. An element consists of atoms with one proton count, even when isotope or ion forms differ."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A molecule is one unbonded proton.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. A molecule contains two or more atoms chemically bonded in a discrete unit. The claim confuses this with \"A molecule is one unbonded proton..\""
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A compound contains atoms of two or more elements chemically combined in fixed ratios.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A compound contains atoms of two or more elements chemically combined in fixed ratios."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: An ion must have unequal protons and neutrons.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. An ion is an atom or bonded group with a net charge caused by unequal proton and electron totals. The claim confuses this with \"An ion must have unequal protons and neutrons..\""
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Particle models explain counts, bonds, and arrangement but may not represent true scale, motion, or probability clouds.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Particle models explain counts, bonds, and arrangement but may not represent true scale, motion, or probability clouds."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about element must guide a correct analysis of “Classify a set containing neutral and charged isotopes of oxygen without splitting it into new elements”?",
+        "choices": [
+          "An element consists of atoms with one proton count, even when isotope or ion forms differ.",
+          "An element requires only one neutron count.",
+          "Every molecule is an element.",
+          "Changing electrons creates a new element."
+        ],
+        "answer": "An element consists of atoms with one proton count, even when isotope or ion forms differ.",
+        "explain": "The challenge “Classify a set containing neutral and charged isotopes of oxygen without splitting it into new elements” requires the element relationship. An element consists of atoms with one proton count, even when isotope or ion forms differ."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about molecule must guide a correct analysis of “Compare O2, H2O, and an unbonded O/H particle mixture using bonds and element identity”?",
+        "choices": [
+          "A molecule contains two or more atoms chemically bonded in a discrete unit.",
+          "A molecule is one unbonded proton.",
+          "Every molecule must contain different elements.",
+          "Molecules are mixtures with no bonds."
+        ],
+        "answer": "A molecule contains two or more atoms chemically bonded in a discrete unit.",
+        "explain": "The challenge “Compare O2, H2O, and an unbonded O/H particle mixture using bonds and element identity” requires the molecule relationship. A molecule contains two or more atoms chemically bonded in a discrete unit."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about compound must guide a correct analysis of “Use particle diagrams to distinguish a compound from a mixed container with the same overall atom counts”?",
+        "choices": [
+          "A compound contains atoms of two or more elements chemically combined in fixed ratios.",
+          "A compound is any physical mixture.",
+          "A compound contains one element only.",
+          "Compound ratios change freely without new substances."
+        ],
+        "answer": "A compound contains atoms of two or more elements chemically combined in fixed ratios.",
+        "explain": "The challenge “Use particle diagrams to distinguish a compound from a mixed container with the same overall atom counts” requires the compound relationship. A compound contains atoms of two or more elements chemically combined in fixed ratios."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about ion must guide a correct analysis of “Calculate the net charge of a polyatomic model from total protons and electrons”?",
+        "choices": [
+          "An ion is an atom or bonded group with a net charge caused by unequal proton and electron totals.",
+          "An ion must have unequal protons and neutrons.",
+          "All charged particles are new elements.",
+          "Ions contain no electrons."
+        ],
+        "answer": "An ion is an atom or bonded group with a net charge caused by unequal proton and electron totals.",
+        "explain": "The challenge “Calculate the net charge of a polyatomic model from total protons and electrons” requires the ion relationship. An ion is an atom or bonded group with a net charge caused by unequal proton and electron totals."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about model limits must guide a correct analysis of “Compare two models and select the one better suited to explaining charge even if neither represents true size”?",
+        "choices": [
+          "Particle models explain counts, bonds, and arrangement but may not represent true scale, motion, or probability clouds.",
+          "A model is correct only if life-size.",
+          "Colors in models are literal atom colors.",
+          "Models have no limitations."
+        ],
+        "answer": "Particle models explain counts, bonds, and arrangement but may not represent true scale, motion, or probability clouds.",
+        "explain": "The challenge “Compare two models and select the one better suited to explaining charge even if neither represents true size” requires the model limits relationship. Particle models explain counts, bonds, and arrangement but may not represent true scale, motion, or probability clouds."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about element remains valid when “Several particles share eight protons but have different neutrons and electrons. What remains the same” and “Classify a set containing neutral and charged isotopes of oxygen without splitting it into new elements” are evaluated together?",
+        "choices": [
+          "An element consists of atoms with one proton count, even when isotope or ion forms differ.",
+          "An element requires only one neutron count.",
+          "Every molecule is an element.",
+          "Changing electrons creates a new element."
+        ],
+        "answer": "An element consists of atoms with one proton count, even when isotope or ion forms differ.",
+        "explain": "The application and challenge both test the same element relationship. An element consists of atoms with one proton count, even when isotope or ion forms differ."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about molecule remains valid when “Why is O2 a molecule but not a compound” and “Compare O2, H2O, and an unbonded O/H particle mixture using bonds and element identity” are evaluated together?",
+        "choices": [
+          "A molecule contains two or more atoms chemically bonded in a discrete unit.",
+          "A molecule is one unbonded proton.",
+          "Every molecule must contain different elements.",
+          "Molecules are mixtures with no bonds."
+        ],
+        "answer": "A molecule contains two or more atoms chemically bonded in a discrete unit.",
+        "explain": "The application and challenge both test the same molecule relationship. A molecule contains two or more atoms chemically bonded in a discrete unit."
+      }
+    ]
+  },
+  "g8:sci:L9": {
+    "name": "Grade 8 Science L9",
+    "questions": [
+      {
+        "type": "input",
+        "q": "Grade 8 Science L9: water can be solid, liquid, or ____.",
+        "answer": "gas",
+        "audio": "Name the third state of water."
+      },
+      {
+        "type": "drag",
+        "q": "Grade 8 Science L9: match each science word.",
+        "pairs": [
+          {
+            "left": "habitat",
+            "right": "where something lives"
+          },
+          {
+            "left": "force",
+            "right": "push or pull"
+          },
+          {
+            "left": "energy",
+            "right": "ability to do work"
+          }
+        ],
+        "audio": "Match the science vocabulary."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Science L9: which one is living?",
+        "choices": [
+          "plant",
+          "pencil",
+          "rock",
+          "0"
+        ],
+        "answer": "plant",
+        "audio": "Choose the living thing."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains frequency data?",
+        "choices": [
+          "A change in inherited-trait frequency across generations is stronger evolution evidence than a change in one individual's behavior.",
+          "One individual's growth proves evolution.",
+          "Trait frequency never matters.",
+          "Only fossils can show selection."
+        ],
+        "answer": "A change in inherited-trait frequency across generations is stronger evolution evidence than a change in one individual's behavior.",
+        "explain": "A change in inherited-trait frequency across generations is stronger evolution evidence than a change in one individual's behavior. This is the defining relationship for frequency data."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains fitness?",
+        "choices": [
+          "Evolutionary fitness is relative reproductive contribution in a particular environment, not strength or lifespan alone.",
+          "Fitness means largest body size.",
+          "Fitness is identical in every environment.",
+          "Survival without offspring guarantees high fitness."
+        ],
+        "answer": "Evolutionary fitness is relative reproductive contribution in a particular environment, not strength or lifespan alone.",
+        "explain": "Evolutionary fitness is relative reproductive contribution in a particular environment, not strength or lifespan alone. This is the defining relationship for fitness."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains environmental pressure?",
+        "choices": [
+          "An environmental condition changes which inherited variants leave more offspring; it does not choose traits intentionally.",
+          "The environment gives organisms requested alleles.",
+          "Pressure affects every phenotype equally by definition.",
+          "Selection has a future goal."
+        ],
+        "answer": "An environmental condition changes which inherited variants leave more offspring; it does not choose traits intentionally.",
+        "explain": "An environmental condition changes which inherited variants leave more offspring; it does not choose traits intentionally. This is the defining relationship for environmental pressure."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains adaptation tradeoffs?",
+        "choices": [
+          "A trait may be advantageous in one environment and costly in another.",
+          "An adaptation is always best everywhere.",
+          "Useful traits have no energy costs.",
+          "Tradeoffs disprove natural selection."
+        ],
+        "answer": "A trait may be advantageous in one environment and costly in another.",
+        "explain": "A trait may be advantageous in one environment and costly in another. This is the defining relationship for adaptation tradeoffs."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains alternative explanations?",
+        "choices": [
+          "Selection claims should consider migration, mutation, genetic drift, and sampling error when data allow them.",
+          "Every frequency change proves selection.",
+          "Alternative hypotheses should never be tested.",
+          "Small samples eliminate uncertainty."
+        ],
+        "answer": "Selection claims should consider migration, mutation, genetic drift, and sampling error when data allow them.",
+        "explain": "Selection claims should consider migration, mutation, genetic drift, and sampling error when data allow them. This is the defining relationship for alternative explanations."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about frequency data should guide the answer to “Which before-and-after population data would support selection”?",
+        "choices": [
+          "A change in inherited-trait frequency across generations is stronger evolution evidence than a change in one individual's behavior.",
+          "One individual's growth proves evolution.",
+          "Trait frequency never matters.",
+          "Only fossils can show selection."
+        ],
+        "answer": "A change in inherited-trait frequency across generations is stronger evolution evidence than a change in one individual's behavior.",
+        "explain": "The situation “Which before-and-after population data would support selection” is an application of frequency data. A change in inherited-trait frequency across generations is stronger evolution evidence than a change in one individual's behavior."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about fitness should guide the answer to “Two phenotypes survive equally, but one raises twice as many offspring. Which has higher fitness”?",
+        "choices": [
+          "Evolutionary fitness is relative reproductive contribution in a particular environment, not strength or lifespan alone.",
+          "Fitness means largest body size.",
+          "Fitness is identical in every environment.",
+          "Survival without offspring guarantees high fitness."
+        ],
+        "answer": "Evolutionary fitness is relative reproductive contribution in a particular environment, not strength or lifespan alone.",
+        "explain": "The situation “Two phenotypes survive equally, but one raises twice as many offspring. Which has higher fitness” is an application of fitness. Evolutionary fitness is relative reproductive contribution in a particular environment, not strength or lifespan alone."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about environmental pressure should guide the answer to “Antibiotic exposure favors preexisting resistant bacteria. What role does the drug play”?",
+        "choices": [
+          "An environmental condition changes which inherited variants leave more offspring; it does not choose traits intentionally.",
+          "The environment gives organisms requested alleles.",
+          "Pressure affects every phenotype equally by definition.",
+          "Selection has a future goal."
+        ],
+        "answer": "An environmental condition changes which inherited variants leave more offspring; it does not choose traits intentionally.",
+        "explain": "The situation “Antibiotic exposure favors preexisting resistant bacteria. What role does the drug play” is an application of environmental pressure. An environmental condition changes which inherited variants leave more offspring; it does not choose traits intentionally."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about adaptation tradeoffs should guide the answer to “Thick fur helps in cold but increases overheating in heat. What does this show”?",
+        "choices": [
+          "A trait may be advantageous in one environment and costly in another.",
+          "An adaptation is always best everywhere.",
+          "Useful traits have no energy costs.",
+          "Tradeoffs disprove natural selection."
+        ],
+        "answer": "A trait may be advantageous in one environment and costly in another.",
+        "explain": "The situation “Thick fur helps in cold but increases overheating in heat. What does this show” is an application of adaptation tradeoffs. A trait may be advantageous in one environment and costly in another."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about alternative explanations should guide the answer to “A rare allele rises after ten individuals colonize an island. Which alternative to selection is plausible”?",
+        "choices": [
+          "Selection claims should consider migration, mutation, genetic drift, and sampling error when data allow them.",
+          "Every frequency change proves selection.",
+          "Alternative hypotheses should never be tested.",
+          "Small samples eliminate uncertainty."
+        ],
+        "answer": "Selection claims should consider migration, mutation, genetic drift, and sampling error when data allow them.",
+        "explain": "The situation “A rare allele rises after ten individuals colonize an island. Which alternative to selection is plausible” is an application of alternative explanations. Selection claims should consider migration, mutation, genetic drift, and sampling error when data allow them."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A change in inherited-trait frequency across generations is stronger evolution evidence than a change in one individual's behavior.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A change in inherited-trait frequency across generations is stronger evolution evidence than a change in one individual's behavior."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Fitness means largest body size.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Evolutionary fitness is relative reproductive contribution in a particular environment, not strength or lifespan alone. The claim confuses this with \"Fitness means largest body size..\""
+      },
+      {
+        "type": "mc",
+        "q": "True or false: An environmental condition changes which inherited variants leave more offspring; it does not choose traits intentionally.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. An environmental condition changes which inherited variants leave more offspring; it does not choose traits intentionally."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: An adaptation is always best everywhere.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. A trait may be advantageous in one environment and costly in another. The claim confuses this with \"An adaptation is always best everywhere..\""
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Selection claims should consider migration, mutation, genetic drift, and sampling error when data allow them.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Selection claims should consider migration, mutation, genetic drift, and sampling error when data allow them."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about frequency data must guide a correct analysis of “Interpret a frequency graph while separating percentage change from raw population size”?",
+        "choices": [
+          "A change in inherited-trait frequency across generations is stronger evolution evidence than a change in one individual's behavior.",
+          "One individual's growth proves evolution.",
+          "Trait frequency never matters.",
+          "Only fossils can show selection."
+        ],
+        "answer": "A change in inherited-trait frequency across generations is stronger evolution evidence than a change in one individual's behavior.",
+        "explain": "The challenge “Interpret a frequency graph while separating percentage change from raw population size” requires the frequency data relationship. A change in inherited-trait frequency across generations is stronger evolution evidence than a change in one individual's behavior."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about fitness must guide a correct analysis of “Compare fitness when one trait improves survival but reduces mating success”?",
+        "choices": [
+          "Evolutionary fitness is relative reproductive contribution in a particular environment, not strength or lifespan alone.",
+          "Fitness means largest body size.",
+          "Fitness is identical in every environment.",
+          "Survival without offspring guarantees high fitness."
+        ],
+        "answer": "Evolutionary fitness is relative reproductive contribution in a particular environment, not strength or lifespan alone.",
+        "explain": "The challenge “Compare fitness when one trait improves survival but reduces mating success” requires the fitness relationship. Evolutionary fitness is relative reproductive contribution in a particular environment, not strength or lifespan alone."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about environmental pressure must guide a correct analysis of “Correct a goal-directed explanation of resistance using variation and differential reproduction”?",
+        "choices": [
+          "An environmental condition changes which inherited variants leave more offspring; it does not choose traits intentionally.",
+          "The environment gives organisms requested alleles.",
+          "Pressure affects every phenotype equally by definition.",
+          "Selection has a future goal."
+        ],
+        "answer": "An environmental condition changes which inherited variants leave more offspring; it does not choose traits intentionally.",
+        "explain": "The challenge “Correct a goal-directed explanation of resistance using variation and differential reproduction” requires the environmental pressure relationship. An environmental condition changes which inherited variants leave more offspring; it does not choose traits intentionally."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about adaptation tradeoffs must guide a correct analysis of “Predict how a sustained climate shift could alter relative fitness without claiming instant individual change”?",
+        "choices": [
+          "A trait may be advantageous in one environment and costly in another.",
+          "An adaptation is always best everywhere.",
+          "Useful traits have no energy costs.",
+          "Tradeoffs disprove natural selection."
+        ],
+        "answer": "A trait may be advantageous in one environment and costly in another.",
+        "explain": "The challenge “Predict how a sustained climate shift could alter relative fitness without claiming instant individual change” requires the adaptation tradeoffs relationship. A trait may be advantageous in one environment and costly in another."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about alternative explanations must guide a correct analysis of “Design evidence that distinguishes selection from migration in two connected populations”?",
+        "choices": [
+          "Selection claims should consider migration, mutation, genetic drift, and sampling error when data allow them.",
+          "Every frequency change proves selection.",
+          "Alternative hypotheses should never be tested.",
+          "Small samples eliminate uncertainty."
+        ],
+        "answer": "Selection claims should consider migration, mutation, genetic drift, and sampling error when data allow them.",
+        "explain": "The challenge “Design evidence that distinguishes selection from migration in two connected populations” requires the alternative explanations relationship. Selection claims should consider migration, mutation, genetic drift, and sampling error when data allow them."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about frequency data remains valid when “Which before-and-after population data would support selection” and “Interpret a frequency graph while separating percentage change from raw population size” are evaluated together?",
+        "choices": [
+          "A change in inherited-trait frequency across generations is stronger evolution evidence than a change in one individual's behavior.",
+          "One individual's growth proves evolution.",
+          "Trait frequency never matters.",
+          "Only fossils can show selection."
+        ],
+        "answer": "A change in inherited-trait frequency across generations is stronger evolution evidence than a change in one individual's behavior.",
+        "explain": "The application and challenge both test the same frequency data relationship. A change in inherited-trait frequency across generations is stronger evolution evidence than a change in one individual's behavior."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about fitness remains valid when “Two phenotypes survive equally, but one raises twice as many offspring. Which has higher fitness” and “Compare fitness when one trait improves survival but reduces mating success” are evaluated together?",
+        "choices": [
+          "Evolutionary fitness is relative reproductive contribution in a particular environment, not strength or lifespan alone.",
+          "Fitness means largest body size.",
+          "Fitness is identical in every environment.",
+          "Survival without offspring guarantees high fitness."
+        ],
+        "answer": "Evolutionary fitness is relative reproductive contribution in a particular environment, not strength or lifespan alone.",
+        "explain": "The application and challenge both test the same fitness relationship. Evolutionary fitness is relative reproductive contribution in a particular environment, not strength or lifespan alone."
+      }
+    ]
+  },
+  "g8:sci:L10": {
+    "name": "Grade 8 Science L10",
+    "questions": [
+      {
+        "type": "drag",
+        "q": "Grade 8 Science L10: match each science word.",
+        "pairs": [
+          {
+            "left": "habitat",
+            "right": "where something lives"
+          },
+          {
+            "left": "force",
+            "right": "push or pull"
+          },
+          {
+            "left": "energy",
+            "right": "ability to do work"
+          }
+        ],
+        "audio": "Match the science vocabulary."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 8 Science L10: which one is living?",
+        "choices": [
+          "rock",
+          "pencil",
+          "0",
+          "plant"
+        ],
+        "answer": "plant",
+        "audio": "Choose the living thing."
+      },
+      {
+        "type": "input",
+        "q": "Grade 8 Science L10: water can be solid, liquid, or ____.",
+        "answer": "gas",
+        "audio": "Name the third state of water."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains DNA-to-trait connection?",
+        "choices": [
+          "DNA sequence can influence protein structure or amount, which can contribute to phenotype.",
+          "DNA becomes a visible trait without cellular processes.",
+          "Proteins rewrite every chromosome.",
+          "Phenotype never involves proteins."
+        ],
+        "answer": "DNA sequence can influence protein structure or amount, which can contribute to phenotype.",
+        "explain": "DNA sequence can influence protein structure or amount, which can contribute to phenotype. This is the defining relationship for DNA-to-trait connection."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains chromosome pairs?",
+        "choices": [
+          "In diploid organisms, homologous chromosome pairs carry corresponding gene locations, potentially with different alleles.",
+          "Homologous chromosomes are always genetically identical.",
+          "Each pair contains unrelated gene locations.",
+          "Chromosome pairs form only after birth."
+        ],
+        "answer": "In diploid organisms, homologous chromosome pairs carry corresponding gene locations, potentially with different alleles.",
+        "explain": "In diploid organisms, homologous chromosome pairs carry corresponding gene locations, potentially with different alleles. This is the defining relationship for chromosome pairs."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains meiosis and variation?",
+        "choices": [
+          "Meiosis distributes chromosome copies into gametes and contributes to new allele combinations.",
+          "Meiosis makes every gamete identical.",
+          "Meiosis doubles chromosome number in gametes.",
+          "Meiosis is ordinary body growth."
+        ],
+        "answer": "Meiosis distributes chromosome copies into gametes and contributes to new allele combinations.",
+        "explain": "Meiosis distributes chromosome copies into gametes and contributes to new allele combinations. This is the defining relationship for meiosis and variation."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains probability versus outcome?",
+        "choices": [
+          "Inheritance probabilities describe repeated possibilities; each fertilization is an independent event.",
+          "A previous offspring forces the next genotype.",
+          "A 50% chance guarantees one of every two births.",
+          "Probability identifies exact birth order."
+        ],
+        "answer": "Inheritance probabilities describe repeated possibilities; each fertilization is an independent event.",
+        "explain": "Inheritance probabilities describe repeated possibilities; each fertilization is an independent event. This is the defining relationship for probability versus outcome."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately explains genes and environment?",
+        "choices": [
+          "Many traits reflect interactions among multiple genes and environmental conditions.",
+          "Every trait is controlled by one gene only.",
+          "Environment changes inherited DNA whenever a trait changes.",
+          "Genes have no influence on phenotype."
+        ],
+        "answer": "Many traits reflect interactions among multiple genes and environmental conditions.",
+        "explain": "Many traits reflect interactions among multiple genes and environmental conditions. This is the defining relationship for genes and environment."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about DNA-to-trait connection should guide the answer to “A mutation changes an enzyme's active site. Trace the most direct pathway to a trait effect”?",
+        "choices": [
+          "DNA sequence can influence protein structure or amount, which can contribute to phenotype.",
+          "DNA becomes a visible trait without cellular processes.",
+          "Proteins rewrite every chromosome.",
+          "Phenotype never involves proteins."
+        ],
+        "answer": "DNA sequence can influence protein structure or amount, which can contribute to phenotype.",
+        "explain": "The situation “A mutation changes an enzyme's active site. Trace the most direct pathway to a trait effect” is an application of DNA-to-trait connection. DNA sequence can influence protein structure or amount, which can contribute to phenotype."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about chromosome pairs should guide the answer to “Why can two alleles for a gene be present in one individual”?",
+        "choices": [
+          "In diploid organisms, homologous chromosome pairs carry corresponding gene locations, potentially with different alleles.",
+          "Homologous chromosomes are always genetically identical.",
+          "Each pair contains unrelated gene locations.",
+          "Chromosome pairs form only after birth."
+        ],
+        "answer": "In diploid organisms, homologous chromosome pairs carry corresponding gene locations, potentially with different alleles.",
+        "explain": "The situation “Why can two alleles for a gene be present in one individual” is an application of chromosome pairs. In diploid organisms, homologous chromosome pairs carry corresponding gene locations, potentially with different alleles."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about meiosis and variation should guide the answer to “How can siblings inherit different chromosome combinations from the same parents”?",
+        "choices": [
+          "Meiosis distributes chromosome copies into gametes and contributes to new allele combinations.",
+          "Meiosis makes every gamete identical.",
+          "Meiosis doubles chromosome number in gametes.",
+          "Meiosis is ordinary body growth."
+        ],
+        "answer": "Meiosis distributes chromosome copies into gametes and contributes to new allele combinations.",
+        "explain": "The situation “How can siblings inherit different chromosome combinations from the same parents” is an application of meiosis and variation. Meiosis distributes chromosome copies into gametes and contributes to new allele combinations."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about probability versus outcome should guide the answer to “After three offspring show a dominant phenotype, what happens to the modeled probability for the fourth”?",
+        "choices": [
+          "Inheritance probabilities describe repeated possibilities; each fertilization is an independent event.",
+          "A previous offspring forces the next genotype.",
+          "A 50% chance guarantees one of every two births.",
+          "Probability identifies exact birth order."
+        ],
+        "answer": "Inheritance probabilities describe repeated possibilities; each fertilization is an independent event.",
+        "explain": "The situation “After three offspring show a dominant phenotype, what happens to the modeled probability for the fourth” is an application of probability versus outcome. Inheritance probabilities describe repeated possibilities; each fertilization is an independent event."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about genes and environment should guide the answer to “Two genetically similar plants receive different nutrients and grow differently. Which interaction is supported”?",
+        "choices": [
+          "Many traits reflect interactions among multiple genes and environmental conditions.",
+          "Every trait is controlled by one gene only.",
+          "Environment changes inherited DNA whenever a trait changes.",
+          "Genes have no influence on phenotype."
+        ],
+        "answer": "Many traits reflect interactions among multiple genes and environmental conditions.",
+        "explain": "The situation “Two genetically similar plants receive different nutrients and grow differently. Which interaction is supported” is an application of genes and environment. Many traits reflect interactions among multiple genes and environmental conditions."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: DNA sequence can influence protein structure or amount, which can contribute to phenotype.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. DNA sequence can influence protein structure or amount, which can contribute to phenotype."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Homologous chromosomes are always genetically identical.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. In diploid organisms, homologous chromosome pairs carry corresponding gene locations, potentially with different alleles. The claim confuses this with \"Homologous chromosomes are always genetically identical..\""
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Meiosis distributes chromosome copies into gametes and contributes to new allele combinations.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Meiosis distributes chromosome copies into gametes and contributes to new allele combinations."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A previous offspring forces the next genotype.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. Inheritance probabilities describe repeated possibilities; each fertilization is an independent event. The claim confuses this with \"A previous offspring forces the next genotype..\""
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Many traits reflect interactions among multiple genes and environmental conditions.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Many traits reflect interactions among multiple genes and environmental conditions."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about DNA-to-trait connection must guide a correct analysis of “Evaluate a model that jumps from chromosome to trait while omitting gene expression and environmental context”?",
+        "choices": [
+          "DNA sequence can influence protein structure or amount, which can contribute to phenotype.",
+          "DNA becomes a visible trait without cellular processes.",
+          "Proteins rewrite every chromosome.",
+          "Phenotype never involves proteins."
+        ],
+        "answer": "DNA sequence can influence protein structure or amount, which can contribute to phenotype.",
+        "explain": "The challenge “Evaluate a model that jumps from chromosome to trait while omitting gene expression and environmental context” requires the DNA-to-trait connection relationship. DNA sequence can influence protein structure or amount, which can contribute to phenotype."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about chromosome pairs must guide a correct analysis of “Use a chromosome-pair diagram to distinguish homologs from sister chromatids”?",
+        "choices": [
+          "In diploid organisms, homologous chromosome pairs carry corresponding gene locations, potentially with different alleles.",
+          "Homologous chromosomes are always genetically identical.",
+          "Each pair contains unrelated gene locations.",
+          "Chromosome pairs form only after birth."
+        ],
+        "answer": "In diploid organisms, homologous chromosome pairs carry corresponding gene locations, potentially with different alleles.",
+        "explain": "The challenge “Use a chromosome-pair diagram to distinguish homologs from sister chromatids” requires the chromosome pairs relationship. In diploid organisms, homologous chromosome pairs carry corresponding gene locations, potentially with different alleles."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about meiosis and variation must guide a correct analysis of “Trace a chromosome-count error in meiosis and predict why gamete combinations change”?",
+        "choices": [
+          "Meiosis distributes chromosome copies into gametes and contributes to new allele combinations.",
+          "Meiosis makes every gamete identical.",
+          "Meiosis doubles chromosome number in gametes.",
+          "Meiosis is ordinary body growth."
+        ],
+        "answer": "Meiosis distributes chromosome copies into gametes and contributes to new allele combinations.",
+        "explain": "The challenge “Trace a chromosome-count error in meiosis and predict why gamete combinations change” requires the meiosis and variation relationship. Meiosis distributes chromosome copies into gametes and contributes to new allele combinations."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about probability versus outcome must guide a correct analysis of “Explain why a small family's observed ratio may differ substantially from a Punnett-square probability”?",
+        "choices": [
+          "Inheritance probabilities describe repeated possibilities; each fertilization is an independent event.",
+          "A previous offspring forces the next genotype.",
+          "A 50% chance guarantees one of every two births.",
+          "Probability identifies exact birth order."
+        ],
+        "answer": "Inheritance probabilities describe repeated possibilities; each fertilization is an independent event.",
+        "explain": "The challenge “Explain why a small family's observed ratio may differ substantially from a Punnett-square probability” requires the probability versus outcome relationship. Inheritance probabilities describe repeated possibilities; each fertilization is an independent event."
+      },
+      {
+        "type": "mc",
+        "q": "Which principle about genes and environment must guide a correct analysis of “Reject both genetic determinism and the claim that genes never matter using a multifactor trait example”?",
+        "choices": [
+          "Many traits reflect interactions among multiple genes and environmental conditions.",
+          "Every trait is controlled by one gene only.",
+          "Environment changes inherited DNA whenever a trait changes.",
+          "Genes have no influence on phenotype."
+        ],
+        "answer": "Many traits reflect interactions among multiple genes and environmental conditions.",
+        "explain": "The challenge “Reject both genetic determinism and the claim that genes never matter using a multifactor trait example” requires the genes and environment relationship. Many traits reflect interactions among multiple genes and environmental conditions."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about DNA-to-trait connection remains valid when “A mutation changes an enzyme's active site. Trace the most direct pathway to a trait effect” and “Evaluate a model that jumps from chromosome to trait while omitting gene expression and environmental context” are evaluated together?",
+        "choices": [
+          "DNA sequence can influence protein structure or amount, which can contribute to phenotype.",
+          "DNA becomes a visible trait without cellular processes.",
+          "Proteins rewrite every chromosome.",
+          "Phenotype never involves proteins."
+        ],
+        "answer": "DNA sequence can influence protein structure or amount, which can contribute to phenotype.",
+        "explain": "The application and challenge both test the same DNA-to-trait connection relationship. DNA sequence can influence protein structure or amount, which can contribute to phenotype."
+      },
+      {
+        "type": "mc",
+        "q": "Which governing principle about chromosome pairs remains valid when “Why can two alleles for a gene be present in one individual” and “Use a chromosome-pair diagram to distinguish homologs from sister chromatids” are evaluated together?",
+        "choices": [
+          "In diploid organisms, homologous chromosome pairs carry corresponding gene locations, potentially with different alleles.",
+          "Homologous chromosomes are always genetically identical.",
+          "Each pair contains unrelated gene locations.",
+          "Chromosome pairs form only after birth."
+        ],
+        "answer": "In diploid organisms, homologous chromosome pairs carry corresponding gene locations, potentially with different alleles.",
+        "explain": "The application and challenge both test the same chromosome pairs relationship. In diploid organisms, homologous chromosome pairs carry corresponding gene locations, potentially with different alleles."
+      }
+    ]
+  },
+  "g8:hist:L1": {
+    "name": "Colonial America",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "In Colonial America, historians use evidence to understand...",
+        "choices": [
+          "ONLY FUTURE WEATHER",
+          "ONLY MULTIPLICATION",
+          "None of these",
+          "THE PAST"
+        ],
+        "answer": "THE PAST",
+        "audio": "Colonial America history question."
+      },
+      {
+        "type": "mc",
+        "q": "A primary source for Colonial America comes from...",
+        "choices": [
+          "A FICTIONAL PLANET",
+          "A RANDOM GUESS",
+          "THE TIME BEING STUDIED",
+          "None of these"
+        ],
+        "answer": "THE TIME BEING STUDIED",
+        "audio": "Colonial America history question."
+      },
+      {
+        "type": "mc",
+        "q": "Cause and effect in Colonial America helps explain...",
+        "choices": [
+          "WHY EVENTS HAPPENED AND WHAT CHANGED",
+          "ONLY MAP COLORS",
+          "None of these",
+          "HOW TO SPELL EVERY WORD"
+        ],
+        "answer": "WHY EVENTS HAPPENED AND WHAT CHANGED",
+        "audio": "Colonial America history question."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes regional economies in the lesson \"Colonial America\"?",
+        "choices": [
+          "All British colonies developed identical economies.",
+          "Indigenous nations had no diplomatic influence.",
+          "Colonial labor systems were entirely voluntary.",
+          "Climate, land, markets, and labor systems helped produce distinct colonial regions."
+        ],
+        "answer": "Climate, land, markets, and labor systems helped produce distinct colonial regions.",
+        "explain": "Climate, land, markets, and labor systems helped produce distinct colonial regions. This is the accurate foundation for regional economies; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes regional economies in the lesson \"Colonial America\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes Indigenous power in the lesson \"Colonial America\"?",
+        "choices": [
+          "Colonial labor systems were entirely voluntary.",
+          "Britain exercised no authority over its colonies.",
+          "Indigenous nations used diplomacy, trade, alliance, and warfare to protect interests.",
+          "Indigenous nations had no diplomatic influence."
+        ],
+        "answer": "Indigenous nations used diplomacy, trade, alliance, and warfare to protect interests.",
+        "explain": "Indigenous nations used diplomacy, trade, alliance, and warfare to protect interests. This is the accurate foundation for Indigenous power; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes Indigenous power in the lesson \"Colonial America\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes racial slavery in the lesson \"Colonial America\"?",
+        "choices": [
+          "A colonial advertisement objectively represents every inhabitant.",
+          "Law and economic demand made hereditary racial slavery central to several colonial economies.",
+          "Colonial labor systems were entirely voluntary.",
+          "Britain exercised no authority over its colonies."
+        ],
+        "answer": "Law and economic demand made hereditary racial slavery central to several colonial economies.",
+        "explain": "Law and economic demand made hereditary racial slavery central to several colonial economies. This is the accurate foundation for racial slavery; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes racial slavery in the lesson \"Colonial America\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes self-government within empire in the lesson \"Colonial America\"?",
+        "choices": [
+          "Assemblies, town meetings, governors, and imperial rules created layered authority.",
+          "Britain exercised no authority over its colonies.",
+          "A colonial advertisement objectively represents every inhabitant.",
+          "All British colonies developed identical economies."
+        ],
+        "answer": "Assemblies, town meetings, governors, and imperial rules created layered authority.",
+        "explain": "Assemblies, town meetings, governors, and imperial rules created layered authority. This is the accurate foundation for self-government within empire; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes self-government within empire in the lesson \"Colonial America\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes evaluating colonial narratives in the lesson \"Colonial America\"?",
+        "choices": [
+          "A colonial advertisement objectively represents every inhabitant.",
+          "All British colonies developed identical economies.",
+          "Indigenous nations had no diplomatic influence.",
+          "Promotional accounts should be compared with Indigenous, enslaved, laborer, and demographic evidence."
+        ],
+        "answer": "Promotional accounts should be compared with Indigenous, enslaved, laborer, and demographic evidence.",
+        "explain": "Promotional accounts should be compared with Indigenous, enslaved, laborer, and demographic evidence. This is the accurate foundation for evaluating colonial narratives; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes evaluating colonial narratives in the lesson \"Colonial America\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Shipping and crop records contrast commercial ports, mixed farms, and plantation exports. Which interpretation is best supported?",
+        "choices": [
+          "Colonial labor systems were entirely voluntary.",
+          "Britain exercised no authority over its colonies.",
+          "Climate, land, markets, and labor systems helped produce distinct colonial regions.",
+          "Indigenous nations had no diplomatic influence."
+        ],
+        "answer": "Climate, land, markets, and labor systems helped produce distinct colonial regions.",
+        "explain": "Climate, land, markets, and labor systems helped produce distinct colonial regions. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Shipping and crop records contrast commercial ports, mixed farms, and plantation exports. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Treaties show colonial governments negotiating with Native confederacies over land and security. Which interpretation is best supported?",
+        "choices": [
+          "A colonial advertisement objectively represents every inhabitant.",
+          "Indigenous nations used diplomacy, trade, alliance, and warfare to protect interests.",
+          "Colonial labor systems were entirely voluntary.",
+          "Britain exercised no authority over its colonies."
+        ],
+        "answer": "Indigenous nations used diplomacy, trade, alliance, and warfare to protect interests.",
+        "explain": "Indigenous nations used diplomacy, trade, alliance, and warfare to protect interests. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Treaties show colonial governments negotiating with Native confederacies over land and security. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Statutes increasingly define enslaved status by ancestry while shipping records track forced migration. Which interpretation is best supported?",
+        "choices": [
+          "Law and economic demand made hereditary racial slavery central to several colonial economies.",
+          "Britain exercised no authority over its colonies.",
+          "A colonial advertisement objectively represents every inhabitant.",
+          "All British colonies developed identical economies."
+        ],
+        "answer": "Law and economic demand made hereditary racial slavery central to several colonial economies.",
+        "explain": "Law and economic demand made hereditary racial slavery central to several colonial economies. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Statutes increasingly define enslaved status by ancestry while shipping records track forced migration. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "An elected assembly controls some taxes while a royal governor retains veto power. Which interpretation is best supported?",
+        "choices": [
+          "A colonial advertisement objectively represents every inhabitant.",
+          "All British colonies developed identical economies.",
+          "Indigenous nations had no diplomatic influence.",
+          "Assemblies, town meetings, governors, and imperial rules created layered authority."
+        ],
+        "answer": "Assemblies, town meetings, governors, and imperial rules created layered authority.",
+        "explain": "Assemblies, town meetings, governors, and imperial rules created layered authority. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "An elected assembly controls some taxes while a royal governor retains veto power. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A land pamphlet promises prosperity while mortality records and letters describe severe hardship. Which interpretation is best supported?",
+        "choices": [
+          "Indigenous nations had no diplomatic influence.",
+          "Colonial labor systems were entirely voluntary.",
+          "Promotional accounts should be compared with Indigenous, enslaved, laborer, and demographic evidence.",
+          "All British colonies developed identical economies."
+        ],
+        "answer": "Promotional accounts should be compared with Indigenous, enslaved, laborer, and demographic evidence.",
+        "explain": "Promotional accounts should be compared with Indigenous, enslaved, laborer, and demographic evidence. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A land pamphlet promises prosperity while mortality records and letters describe severe hardship. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Climate, land, markets, and labor systems helped produce distinct colonial regions.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Climate, land, markets, and labor systems helped produce distinct colonial regions. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Colonial America."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Indigenous nations had no diplomatic influence.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. Indigenous nations used diplomacy, trade, alliance, and warfare to protect interests.",
+        "audio": "Evaluate this claim using the evidence from Colonial America."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Law and economic demand made hereditary racial slavery central to several colonial economies.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Law and economic demand made hereditary racial slavery central to several colonial economies. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Colonial America."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Britain exercised no authority over its colonies.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. Assemblies, town meetings, governors, and imperial rules created layered authority.",
+        "audio": "Evaluate this claim using the evidence from Colonial America."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Promotional accounts should be compared with Indigenous, enslaved, laborer, and demographic evidence.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Promotional accounts should be compared with Indigenous, enslaved, laborer, and demographic evidence. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Colonial America."
+      },
+      {
+        "type": "mc",
+        "q": "Shipping and crop records contrast commercial ports, mixed farms, and plantation exports. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Regional economies reflected interacting geography and human institutions.",
+          "Colonial labor systems were entirely voluntary.",
+          "Britain exercised no authority over its colonies.",
+          "A colonial advertisement objectively represents every inhabitant."
+        ],
+        "answer": "Regional economies reflected interacting geography and human institutions.",
+        "explain": "Regional economies reflected interacting geography and human institutions. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Shipping and crop records contrast commercial ports, mixed farms, and plantation exports. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Treaties show colonial governments negotiating with Native confederacies over land and security. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Britain exercised no authority over its colonies.",
+          "A colonial advertisement objectively represents every inhabitant.",
+          "All British colonies developed identical economies.",
+          "Native nations remained consequential political actors throughout colonization."
+        ],
+        "answer": "Native nations remained consequential political actors throughout colonization.",
+        "explain": "Native nations remained consequential political actors throughout colonization. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Treaties show colonial governments negotiating with Native confederacies over land and security. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Statutes increasingly define enslaved status by ancestry while shipping records track forced migration. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "All British colonies developed identical economies.",
+          "Indigenous nations had no diplomatic influence.",
+          "The evidence shows slavery built through law, violence, and commerce.",
+          "A colonial advertisement objectively represents every inhabitant."
+        ],
+        "answer": "The evidence shows slavery built through law, violence, and commerce.",
+        "explain": "The evidence shows slavery built through law, violence, and commerce. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Statutes increasingly define enslaved status by ancestry while shipping records track forced migration. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "An elected assembly controls some taxes while a royal governor retains veto power. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Colonial labor systems were entirely voluntary.",
+          "Local political practice coexisted with British sovereignty and unequal participation.",
+          "All British colonies developed identical economies.",
+          "Indigenous nations had no diplomatic influence."
+        ],
+        "answer": "Local political practice coexisted with British sovereignty and unequal participation.",
+        "explain": "Local political practice coexisted with British sovereignty and unequal participation. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "An elected assembly controls some taxes while a royal governor retains veto power. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "A land pamphlet promises prosperity while mortality records and letters describe severe hardship. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Source purpose explains the contrast and cautions against treating promotion as full description.",
+          "Indigenous nations had no diplomatic influence.",
+          "Colonial labor systems were entirely voluntary.",
+          "Britain exercised no authority over its colonies."
+        ],
+        "answer": "Source purpose explains the contrast and cautions against treating promotion as full description.",
+        "explain": "Source purpose explains the contrast and cautions against treating promotion as full description. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A land pamphlet promises prosperity while mortality records and letters describe severe hardship. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: Shipping and crop records contrast commercial ports, mixed farms, and plantation exports. Evidence B: Treaties show colonial governments negotiating with Native confederacies over land and security. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Evidence A proves “All British colonies developed identical economies.,” so Evidence B can be ignored.",
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “Climate, land, markets, and labor systems helped produce distinct colonial regions.” Evidence B supports “Indigenous nations used diplomacy, trade, alliance, and warfare to protect interests.” Together, the sources show related developments while preserving each source's context."
+        ],
+        "answer": "Evidence A supports “Climate, land, markets, and labor systems helped produce distinct colonial regions.” Evidence B supports “Indigenous nations used diplomacy, trade, alliance, and warfare to protect interests.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “Climate, land, markets, and labor systems helped produce distinct colonial regions.” Evidence B supports “Indigenous nations used diplomacy, trade, alliance, and warfare to protect interests.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: Shipping and crop records contrast commercial ports, mixed farms, and plantation exports. Evidence B: Treaties show colonial governments negotiating with Native confederacies over land and security. Which thesis best evaluates both sources without overstating either one?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: Treaties show colonial governments negotiating with Native confederacies over land and security. Evidence B: Statutes increasingly define enslaved status by ancestry while shipping records track forced migration. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “Indigenous nations used diplomacy, trade, alliance, and warfare to protect interests.” Evidence B supports “Law and economic demand made hereditary racial slavery central to several colonial economies.” Together, the sources show related developments while preserving each source's context.",
+          "Evidence A proves “Indigenous nations had no diplomatic influence.,” so Evidence B can be ignored."
+        ],
+        "answer": "Evidence A supports “Indigenous nations used diplomacy, trade, alliance, and warfare to protect interests.” Evidence B supports “Law and economic demand made hereditary racial slavery central to several colonial economies.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “Indigenous nations used diplomacy, trade, alliance, and warfare to protect interests.” Evidence B supports “Law and economic demand made hereditary racial slavery central to several colonial economies.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: Treaties show colonial governments negotiating with Native confederacies over land and security. Evidence B: Statutes increasingly define enslaved status by ancestry while shipping records track forced migration. Which thesis best evaluates both sources without overstating either one?"
+      }
+    ]
+  },
+  "g8:hist:L2": {
+    "name": "Independence",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "In Independence, historians use evidence to understand...",
+        "choices": [
+          "THE PAST",
+          "ONLY MULTIPLICATION",
+          "None of these",
+          "ONLY FUTURE WEATHER"
+        ],
+        "answer": "THE PAST",
+        "audio": "Independence history question."
+      },
+      {
+        "type": "mc",
+        "q": "A primary source for Independence comes from...",
+        "choices": [
+          "THE TIME BEING STUDIED",
+          "A RANDOM GUESS",
+          "None of these",
+          "A FICTIONAL PLANET"
+        ],
+        "answer": "THE TIME BEING STUDIED",
+        "audio": "Independence history question."
+      },
+      {
+        "type": "mc",
+        "q": "Cause and effect in Independence helps explain...",
+        "choices": [
+          "HOW TO SPELL EVERY WORD",
+          "ONLY MAP COLORS",
+          "None of these",
+          "WHY EVENTS HAPPENED AND WHAT CHANGED"
+        ],
+        "answer": "WHY EVENTS HAPPENED AND WHAT CHANGED",
+        "audio": "Independence history question."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes escalation in the lesson \"Independence\"?",
+        "choices": [
+          "Independence resulted from one isolated tax.",
+          "The Declaration created the three branches of Congress.",
+          "Foreign assistance had no effect on American victory.",
+          "British taxation, enforcement, colonial resistance, and punitive responses escalated imperial conflict."
+        ],
+        "answer": "British taxation, enforcement, colonial resistance, and punitive responses escalated imperial conflict.",
+        "explain": "British taxation, enforcement, colonial resistance, and punitive responses escalated imperial conflict. This is the accurate foundation for escalation; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes escalation in the lesson \"Independence\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes Declaration principles in the lesson \"Independence\"?",
+        "choices": [
+          "Foreign assistance had no effect on American victory.",
+          "All colonists supported independence from the beginning.",
+          "The Declaration grounds independence in equality, natural rights, consent, and listed grievances.",
+          "The Declaration created the three branches of Congress."
+        ],
+        "answer": "The Declaration grounds independence in equality, natural rights, consent, and listed grievances.",
+        "explain": "The Declaration grounds independence in equality, natural rights, consent, and listed grievances. This is the accurate foundation for Declaration principles; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes Declaration principles in the lesson \"Independence\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes military turning points in the lesson \"Independence\"?",
+        "choices": [
+          "Victory immediately secured equal rights for every person.",
+          "Geography, resources, leadership, and strategy shaped the war's turning points.",
+          "Foreign assistance had no effect on American victory.",
+          "All colonists supported independence from the beginning."
+        ],
+        "answer": "Geography, resources, leadership, and strategy shaped the war's turning points.",
+        "explain": "Geography, resources, leadership, and strategy shaped the war's turning points. This is the accurate foundation for military turning points; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes military turning points in the lesson \"Independence\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes divided society in the lesson \"Independence\"?",
+        "choices": [
+          "Patriots, Loyalists, neutral people, Indigenous nations, and enslaved people pursued different interests.",
+          "All colonists supported independence from the beginning.",
+          "Victory immediately secured equal rights for every person.",
+          "Independence resulted from one isolated tax."
+        ],
+        "answer": "Patriots, Loyalists, neutral people, Indigenous nations, and enslaved people pursued different interests.",
+        "explain": "Patriots, Loyalists, neutral people, Indigenous nations, and enslaved people pursued different interests. This is the accurate foundation for divided society; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes divided society in the lesson \"Independence\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes outcomes and limits in the lesson \"Independence\"?",
+        "choices": [
+          "Victory immediately secured equal rights for every person.",
+          "Independence resulted from one isolated tax.",
+          "The Declaration created the three branches of Congress.",
+          "Independence created republican governments but left slavery, dispossession, and unequal citizenship unresolved."
+        ],
+        "answer": "Independence created republican governments but left slavery, dispossession, and unequal citizenship unresolved.",
+        "explain": "Independence created republican governments but left slavery, dispossession, and unequal citizenship unresolved. This is the accurate foundation for outcomes and limits; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes outcomes and limits in the lesson \"Independence\"?"
+      },
+      {
+        "type": "mc",
+        "q": "A timeline connects the Stamp Act, protests, the Coercive Acts, and intercolonial organization. Which interpretation is best supported?",
+        "choices": [
+          "Foreign assistance had no effect on American victory.",
+          "All colonists supported independence from the beginning.",
+          "British taxation, enforcement, colonial resistance, and punitive responses escalated imperial conflict.",
+          "The Declaration created the three branches of Congress."
+        ],
+        "answer": "British taxation, enforcement, colonial resistance, and punitive responses escalated imperial conflict.",
+        "explain": "British taxation, enforcement, colonial resistance, and punitive responses escalated imperial conflict. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A timeline connects the Stamp Act, protests, the Coercive Acts, and intercolonial organization. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Its argument moves from general principles to accusations against the king. Which interpretation is best supported?",
+        "choices": [
+          "Victory immediately secured equal rights for every person.",
+          "The Declaration grounds independence in equality, natural rights, consent, and listed grievances.",
+          "Foreign assistance had no effect on American victory.",
+          "All colonists supported independence from the beginning."
+        ],
+        "answer": "The Declaration grounds independence in equality, natural rights, consent, and listed grievances.",
+        "explain": "The Declaration grounds independence in equality, natural rights, consent, and listed grievances. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Its argument moves from general principles to accusations against the king. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "The Saratoga victory encourages French alliance; Yorktown combines land and naval pressure. Which interpretation is best supported?",
+        "choices": [
+          "Geography, resources, leadership, and strategy shaped the war's turning points.",
+          "All colonists supported independence from the beginning.",
+          "Victory immediately secured equal rights for every person.",
+          "Independence resulted from one isolated tax."
+        ],
+        "answer": "Geography, resources, leadership, and strategy shaped the war's turning points.",
+        "explain": "Geography, resources, leadership, and strategy shaped the war's turning points. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "The Saratoga victory encourages French alliance; Yorktown combines land and naval pressure. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Petitions, runaway notices, and military records show choices that changed with location and opportunity. Which interpretation is best supported?",
+        "choices": [
+          "Victory immediately secured equal rights for every person.",
+          "Independence resulted from one isolated tax.",
+          "The Declaration created the three branches of Congress.",
+          "Patriots, Loyalists, neutral people, Indigenous nations, and enslaved people pursued different interests."
+        ],
+        "answer": "Patriots, Loyalists, neutral people, Indigenous nations, and enslaved people pursued different interests.",
+        "explain": "Patriots, Loyalists, neutral people, Indigenous nations, and enslaved people pursued different interests. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Petitions, runaway notices, and military records show choices that changed with location and opportunity. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "New state constitutions expand some representation while excluding women, enslaved people, and many poor men. Which interpretation is best supported?",
+        "choices": [
+          "The Declaration created the three branches of Congress.",
+          "Foreign assistance had no effect on American victory.",
+          "Independence created republican governments but left slavery, dispossession, and unequal citizenship unresolved.",
+          "Independence resulted from one isolated tax."
+        ],
+        "answer": "Independence created republican governments but left slavery, dispossession, and unequal citizenship unresolved.",
+        "explain": "Independence created republican governments but left slavery, dispossession, and unequal citizenship unresolved. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "New state constitutions expand some representation while excluding women, enslaved people, and many poor men. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: British taxation, enforcement, colonial resistance, and punitive responses escalated imperial conflict.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. British taxation, enforcement, colonial resistance, and punitive responses escalated imperial conflict. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Independence."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The Declaration created the three branches of Congress.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. The Declaration grounds independence in equality, natural rights, consent, and listed grievances.",
+        "audio": "Evaluate this claim using the evidence from Independence."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Geography, resources, leadership, and strategy shaped the war's turning points.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Geography, resources, leadership, and strategy shaped the war's turning points. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Independence."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: All colonists supported independence from the beginning.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. Patriots, Loyalists, neutral people, Indigenous nations, and enslaved people pursued different interests.",
+        "audio": "Evaluate this claim using the evidence from Independence."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Independence created republican governments but left slavery, dispossession, and unequal citizenship unresolved.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Independence created republican governments but left slavery, dispossession, and unequal citizenship unresolved. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Independence."
+      },
+      {
+        "type": "mc",
+        "q": "A timeline connects the Stamp Act, protests, the Coercive Acts, and intercolonial organization. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "The crisis developed through action and reaction over more than one policy.",
+          "Foreign assistance had no effect on American victory.",
+          "All colonists supported independence from the beginning.",
+          "Victory immediately secured equal rights for every person."
+        ],
+        "answer": "The crisis developed through action and reaction over more than one policy.",
+        "explain": "The crisis developed through action and reaction over more than one policy. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A timeline connects the Stamp Act, protests, the Coercive Acts, and intercolonial organization. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Its argument moves from general principles to accusations against the king. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "All colonists supported independence from the beginning.",
+          "Victory immediately secured equal rights for every person.",
+          "Independence resulted from one isolated tax.",
+          "The structure uses political theory to justify a specific break with authority."
+        ],
+        "answer": "The structure uses political theory to justify a specific break with authority.",
+        "explain": "The structure uses political theory to justify a specific break with authority. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Its argument moves from general principles to accusations against the king. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "The Saratoga victory encourages French alliance; Yorktown combines land and naval pressure. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Independence resulted from one isolated tax.",
+          "The Declaration created the three branches of Congress.",
+          "Military success and diplomacy reinforced one another.",
+          "Victory immediately secured equal rights for every person."
+        ],
+        "answer": "Military success and diplomacy reinforced one another.",
+        "explain": "Military success and diplomacy reinforced one another. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "The Saratoga victory encourages French alliance; Yorktown combines land and naval pressure. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Petitions, runaway notices, and military records show choices that changed with location and opportunity. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Foreign assistance had no effect on American victory.",
+          "The Revolution divided communities and offered unequal risks and possibilities.",
+          "Independence resulted from one isolated tax.",
+          "The Declaration created the three branches of Congress."
+        ],
+        "answer": "The Revolution divided communities and offered unequal risks and possibilities.",
+        "explain": "The Revolution divided communities and offered unequal risks and possibilities. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Petitions, runaway notices, and military records show choices that changed with location and opportunity. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "New state constitutions expand some representation while excluding women, enslaved people, and many poor men. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Revolutionary ideals changed politics without being fully applied.",
+          "The Declaration created the three branches of Congress.",
+          "Foreign assistance had no effect on American victory.",
+          "All colonists supported independence from the beginning."
+        ],
+        "answer": "Revolutionary ideals changed politics without being fully applied.",
+        "explain": "Revolutionary ideals changed politics without being fully applied. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "New state constitutions expand some representation while excluding women, enslaved people, and many poor men. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: A timeline connects the Stamp Act, protests, the Coercive Acts, and intercolonial organization. Evidence B: Its argument moves from general principles to accusations against the king. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Evidence A proves “Independence resulted from one isolated tax.,” so Evidence B can be ignored.",
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “British taxation, enforcement, colonial resistance, and punitive responses escalated imperial conflict.” Evidence B supports “The Declaration grounds independence in equality, natural rights, consent, and listed grievances.” Together, the sources show related developments while preserving each source's context."
+        ],
+        "answer": "Evidence A supports “British taxation, enforcement, colonial resistance, and punitive responses escalated imperial conflict.” Evidence B supports “The Declaration grounds independence in equality, natural rights, consent, and listed grievances.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “British taxation, enforcement, colonial resistance, and punitive responses escalated imperial conflict.” Evidence B supports “The Declaration grounds independence in equality, natural rights, consent, and listed grievances.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: A timeline connects the Stamp Act, protests, the Coercive Acts, and intercolonial organization. Evidence B: Its argument moves from general principles to accusations against the king. Which thesis best evaluates both sources without overstating either one?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: Its argument moves from general principles to accusations against the king. Evidence B: The Saratoga victory encourages French alliance; Yorktown combines land and naval pressure. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “The Declaration grounds independence in equality, natural rights, consent, and listed grievances.” Evidence B supports “Geography, resources, leadership, and strategy shaped the war's turning points.” Together, the sources show related developments while preserving each source's context.",
+          "Evidence A proves “The Declaration created the three branches of Congress.,” so Evidence B can be ignored."
+        ],
+        "answer": "Evidence A supports “The Declaration grounds independence in equality, natural rights, consent, and listed grievances.” Evidence B supports “Geography, resources, leadership, and strategy shaped the war's turning points.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “The Declaration grounds independence in equality, natural rights, consent, and listed grievances.” Evidence B supports “Geography, resources, leadership, and strategy shaped the war's turning points.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: Its argument moves from general principles to accusations against the king. Evidence B: The Saratoga victory encourages French alliance; Yorktown combines land and naval pressure. Which thesis best evaluates both sources without overstating either one?"
+      }
+    ]
+  },
+  "g8:hist:L3": {
+    "name": "The Constitution",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "In The Constitution, historians use evidence to understand...",
+        "choices": [
+          "None of these",
+          "ONLY FUTURE WEATHER",
+          "THE PAST",
+          "ONLY MULTIPLICATION"
+        ],
+        "answer": "THE PAST",
+        "audio": "The Constitution history question."
+      },
+      {
+        "type": "mc",
+        "q": "A primary source for The Constitution comes from...",
+        "choices": [
+          "THE TIME BEING STUDIED",
+          "None of these",
+          "A FICTIONAL PLANET",
+          "A RANDOM GUESS"
+        ],
+        "answer": "THE TIME BEING STUDIED",
+        "audio": "The Constitution history question."
+      },
+      {
+        "type": "mc",
+        "q": "Cause and effect in The Constitution helps explain...",
+        "choices": [
+          "WHY EVENTS HAPPENED AND WHAT CHANGED",
+          "HOW TO SPELL EVERY WORD",
+          "ONLY MAP COLORS",
+          "None of these"
+        ],
+        "answer": "WHY EVENTS HAPPENED AND WHAT CHANGED",
+        "audio": "The Constitution history question."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes weaknesses of the Articles in the lesson \"The Constitution\"?",
+        "choices": [
+          "The Articles gave Congress unlimited taxing and enforcement power.",
+          "Federalism eliminates state authority.",
+          "Checks and balances create one unchecked supreme branch.",
+          "Financial, interstate, and enforcement problems under the Articles encouraged calls for revision."
+        ],
+        "answer": "Financial, interstate, and enforcement problems under the Articles encouraged calls for revision.",
+        "explain": "Financial, interstate, and enforcement problems under the Articles encouraged calls for revision. This is the accurate foundation for weaknesses of the Articles; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes weaknesses of the Articles in the lesson \"The Constitution\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes federalism in the lesson \"The Constitution\"?",
+        "choices": [
+          "Checks and balances create one unchecked supreme branch.",
+          "Ratification produced no serious disagreement.",
+          "Federalism divides and shares authority between national and state governments.",
+          "Federalism eliminates state authority."
+        ],
+        "answer": "Federalism divides and shares authority between national and state governments.",
+        "explain": "Federalism divides and shares authority between national and state governments. This is the accurate foundation for federalism; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes federalism in the lesson \"The Constitution\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes separation and checks in the lesson \"The Constitution\"?",
+        "choices": [
+          "A useful policy cannot violate any constitutional protection.",
+          "Separated branches use checks to limit concentrated power.",
+          "Checks and balances create one unchecked supreme branch.",
+          "Ratification produced no serious disagreement."
+        ],
+        "answer": "Separated branches use checks to limit concentrated power.",
+        "explain": "Separated branches use checks to limit concentrated power. This is the accurate foundation for separation and checks; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes separation and checks in the lesson \"The Constitution\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes ratification debate in the lesson \"The Constitution\"?",
+        "choices": [
+          "Federalists and Anti-Federalists disagreed about power, liberty, representation, and the need for a bill of rights.",
+          "Ratification produced no serious disagreement.",
+          "A useful policy cannot violate any constitutional protection.",
+          "The Articles gave Congress unlimited taxing and enforcement power."
+        ],
+        "answer": "Federalists and Anti-Federalists disagreed about power, liberty, representation, and the need for a bill of rights.",
+        "explain": "Federalists and Anti-Federalists disagreed about power, liberty, representation, and the need for a bill of rights. This is the accurate foundation for ratification debate; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes ratification debate in the lesson \"The Constitution\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes constitutional reasoning in the lesson \"The Constitution\"?",
+        "choices": [
+          "A useful policy cannot violate any constitutional protection.",
+          "The Articles gave Congress unlimited taxing and enforcement power.",
+          "Federalism eliminates state authority.",
+          "Applying the Constitution requires analyzing text, structure, precedent, rights, and governmental purposes."
+        ],
+        "answer": "Applying the Constitution requires analyzing text, structure, precedent, rights, and governmental purposes.",
+        "explain": "Applying the Constitution requires analyzing text, structure, precedent, rights, and governmental purposes. This is the accurate foundation for constitutional reasoning; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes constitutional reasoning in the lesson \"The Constitution\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Congress requests funds from states but lacks dependable power to collect revenue. Which interpretation is best supported?",
+        "choices": [
+          "Checks and balances create one unchecked supreme branch.",
+          "Ratification produced no serious disagreement.",
+          "Financial, interstate, and enforcement problems under the Articles encouraged calls for revision.",
+          "Federalism eliminates state authority."
+        ],
+        "answer": "Financial, interstate, and enforcement problems under the Articles encouraged calls for revision.",
+        "explain": "Financial, interstate, and enforcement problems under the Articles encouraged calls for revision. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Congress requests funds from states but lacks dependable power to collect revenue. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Constitutional clauses grant national powers while reserving broad state responsibilities. Which interpretation is best supported?",
+        "choices": [
+          "A useful policy cannot violate any constitutional protection.",
+          "Federalism divides and shares authority between national and state governments.",
+          "Checks and balances create one unchecked supreme branch.",
+          "Ratification produced no serious disagreement."
+        ],
+        "answer": "Federalism divides and shares authority between national and state governments.",
+        "explain": "Federalism divides and shares authority between national and state governments. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Constitutional clauses grant national powers while reserving broad state responsibilities. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "The president nominates judges, the Senate confirms them, and courts interpret law. Which interpretation is best supported?",
+        "choices": [
+          "Separated branches use checks to limit concentrated power.",
+          "Ratification produced no serious disagreement.",
+          "A useful policy cannot violate any constitutional protection.",
+          "The Articles gave Congress unlimited taxing and enforcement power."
+        ],
+        "answer": "Separated branches use checks to limit concentrated power.",
+        "explain": "Separated branches use checks to limit concentrated power. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "The president nominates judges, the Senate confirms them, and courts interpret law. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Pamphlets defend energetic national government while critics warn of distant consolidated power. Which interpretation is best supported?",
+        "choices": [
+          "A useful policy cannot violate any constitutional protection.",
+          "The Articles gave Congress unlimited taxing and enforcement power.",
+          "Federalism eliminates state authority.",
+          "Federalists and Anti-Federalists disagreed about power, liberty, representation, and the need for a bill of rights."
+        ],
+        "answer": "Federalists and Anti-Federalists disagreed about power, liberty, representation, and the need for a bill of rights.",
+        "explain": "Federalists and Anti-Federalists disagreed about power, liberty, representation, and the need for a bill of rights. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Pamphlets defend energetic national government while critics warn of distant consolidated power. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A law pursues public safety but burdens political speech more broadly than necessary. Which interpretation is best supported?",
+        "choices": [
+          "Federalism eliminates state authority.",
+          "Checks and balances create one unchecked supreme branch.",
+          "Applying the Constitution requires analyzing text, structure, precedent, rights, and governmental purposes.",
+          "The Articles gave Congress unlimited taxing and enforcement power."
+        ],
+        "answer": "Applying the Constitution requires analyzing text, structure, precedent, rights, and governmental purposes.",
+        "explain": "Applying the Constitution requires analyzing text, structure, precedent, rights, and governmental purposes. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A law pursues public safety but burdens political speech more broadly than necessary. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Financial, interstate, and enforcement problems under the Articles encouraged calls for revision.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Financial, interstate, and enforcement problems under the Articles encouraged calls for revision. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from The Constitution."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Federalism eliminates state authority.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. Federalism divides and shares authority between national and state governments.",
+        "audio": "Evaluate this claim using the evidence from The Constitution."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Separated branches use checks to limit concentrated power.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Separated branches use checks to limit concentrated power. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from The Constitution."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Ratification produced no serious disagreement.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. Federalists and Anti-Federalists disagreed about power, liberty, representation, and the need for a bill of rights.",
+        "audio": "Evaluate this claim using the evidence from The Constitution."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Applying the Constitution requires analyzing text, structure, precedent, rights, and governmental purposes.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Applying the Constitution requires analyzing text, structure, precedent, rights, and governmental purposes. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from The Constitution."
+      },
+      {
+        "type": "mc",
+        "q": "Congress requests funds from states but lacks dependable power to collect revenue. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "The weakness illustrates why delegates sought a stronger national framework.",
+          "Checks and balances create one unchecked supreme branch.",
+          "Ratification produced no serious disagreement.",
+          "A useful policy cannot violate any constitutional protection."
+        ],
+        "answer": "The weakness illustrates why delegates sought a stronger national framework.",
+        "explain": "The weakness illustrates why delegates sought a stronger national framework. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Congress requests funds from states but lacks dependable power to collect revenue. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Constitutional clauses grant national powers while reserving broad state responsibilities. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Ratification produced no serious disagreement.",
+          "A useful policy cannot violate any constitutional protection.",
+          "The Articles gave Congress unlimited taxing and enforcement power.",
+          "The system balances unity with continued state government."
+        ],
+        "answer": "The system balances unity with continued state government.",
+        "explain": "The system balances unity with continued state government. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Constitutional clauses grant national powers while reserving broad state responsibilities. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "The president nominates judges, the Senate confirms them, and courts interpret law. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "The Articles gave Congress unlimited taxing and enforcement power.",
+          "Federalism eliminates state authority.",
+          "The appointment process distributes authority among institutions.",
+          "A useful policy cannot violate any constitutional protection."
+        ],
+        "answer": "The appointment process distributes authority among institutions.",
+        "explain": "The appointment process distributes authority among institutions. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "The president nominates judges, the Senate confirms them, and courts interpret law. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Pamphlets defend energetic national government while critics warn of distant consolidated power. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Checks and balances create one unchecked supreme branch.",
+          "Ratification involved genuine constitutional tradeoffs rather than unanimous agreement.",
+          "The Articles gave Congress unlimited taxing and enforcement power.",
+          "Federalism eliminates state authority."
+        ],
+        "answer": "Ratification involved genuine constitutional tradeoffs rather than unanimous agreement.",
+        "explain": "Ratification involved genuine constitutional tradeoffs rather than unanimous agreement. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Pamphlets defend energetic national government while critics warn of distant consolidated power. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "A law pursues public safety but burdens political speech more broadly than necessary. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "A sound evaluation considers both legitimate power and enforceable constitutional limits.",
+          "Federalism eliminates state authority.",
+          "Checks and balances create one unchecked supreme branch.",
+          "Ratification produced no serious disagreement."
+        ],
+        "answer": "A sound evaluation considers both legitimate power and enforceable constitutional limits.",
+        "explain": "A sound evaluation considers both legitimate power and enforceable constitutional limits. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A law pursues public safety but burdens political speech more broadly than necessary. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: Congress requests funds from states but lacks dependable power to collect revenue. Evidence B: Constitutional clauses grant national powers while reserving broad state responsibilities. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Evidence A proves “The Articles gave Congress unlimited taxing and enforcement power.,” so Evidence B can be ignored.",
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “Financial, interstate, and enforcement problems under the Articles encouraged calls for revision.” Evidence B supports “Federalism divides and shares authority between national and state governments.” Together, the sources show related developments while preserving each source's context."
+        ],
+        "answer": "Evidence A supports “Financial, interstate, and enforcement problems under the Articles encouraged calls for revision.” Evidence B supports “Federalism divides and shares authority between national and state governments.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “Financial, interstate, and enforcement problems under the Articles encouraged calls for revision.” Evidence B supports “Federalism divides and shares authority between national and state governments.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: Congress requests funds from states but lacks dependable power to collect revenue. Evidence B: Constitutional clauses grant national powers while reserving broad state responsibilities. Which thesis best evaluates both sources without overstating either one?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: Constitutional clauses grant national powers while reserving broad state responsibilities. Evidence B: The president nominates judges, the Senate confirms them, and courts interpret law. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “Federalism divides and shares authority between national and state governments.” Evidence B supports “Separated branches use checks to limit concentrated power.” Together, the sources show related developments while preserving each source's context.",
+          "Evidence A proves “Federalism eliminates state authority.,” so Evidence B can be ignored."
+        ],
+        "answer": "Evidence A supports “Federalism divides and shares authority between national and state governments.” Evidence B supports “Separated branches use checks to limit concentrated power.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “Federalism divides and shares authority between national and state governments.” Evidence B supports “Separated branches use checks to limit concentrated power.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: Constitutional clauses grant national powers while reserving broad state responsibilities. Evidence B: The president nominates judges, the Senate confirms them, and courts interpret law. Which thesis best evaluates both sources without overstating either one?"
+      }
+    ]
+  },
+  "g8:hist:L4": {
+    "name": "Reform Movements",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "In Reform Movements, historians use evidence to understand...",
+        "choices": [
+          "ONLY FUTURE WEATHER",
+          "THE PAST",
+          "ONLY MULTIPLICATION",
+          "None of these"
+        ],
+        "answer": "THE PAST",
+        "audio": "Reform Movements history question."
+      },
+      {
+        "type": "mc",
+        "q": "A primary source for Reform Movements comes from...",
+        "choices": [
+          "THE TIME BEING STUDIED",
+          "None of these",
+          "A FICTIONAL PLANET",
+          "A RANDOM GUESS"
+        ],
+        "answer": "THE TIME BEING STUDIED",
+        "audio": "Reform Movements history question."
+      },
+      {
+        "type": "mc",
+        "q": "Cause and effect in Reform Movements helps explain...",
+        "choices": [
+          "None of these",
+          "ONLY MAP COLORS",
+          "HOW TO SPELL EVERY WORD",
+          "WHY EVENTS HAPPENED AND WHAT CHANGED"
+        ],
+        "answer": "WHY EVENTS HAPPENED AND WHAT CHANGED",
+        "audio": "Reform Movements history question."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes reform conditions in the lesson \"Reform Movements\"?",
+        "choices": [
+          "All reform movements arose from one event.",
+          "Abolitionists used no public argument or organizing.",
+          "Women's-rights activism had no relationship to other reform networks.",
+          "Religious change, market growth, inequality, and democratic ideals encouraged antebellum reform."
+        ],
+        "answer": "Religious change, market growth, inequality, and democratic ideals encouraged antebellum reform.",
+        "explain": "Religious change, market growth, inequality, and democratic ideals encouraged antebellum reform. This is the accurate foundation for reform conditions; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes reform conditions in the lesson \"Reform Movements\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes abolition in the lesson \"Reform Movements\"?",
+        "choices": [
+          "Women's-rights activism had no relationship to other reform networks.",
+          "Every reformer supported one identical strategy.",
+          "Abolitionists used moral argument, testimony, newspapers, petitions, political action, and resistance.",
+          "Abolitionists used no public argument or organizing."
+        ],
+        "answer": "Abolitionists used moral argument, testimony, newspapers, petitions, political action, and resistance.",
+        "explain": "Abolitionists used moral argument, testimony, newspapers, petitions, political action, and resistance. This is the accurate foundation for abolition; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes abolition in the lesson \"Reform Movements\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes women's rights in the lesson \"Reform Movements\"?",
+        "choices": [
+          "A movement matters only if it wins every demand immediately.",
+          "Women's participation in reform helped generate organized demands for legal and political equality.",
+          "Women's-rights activism had no relationship to other reform networks.",
+          "Every reformer supported one identical strategy."
+        ],
+        "answer": "Women's participation in reform helped generate organized demands for legal and political equality.",
+        "explain": "Women's participation in reform helped generate organized demands for legal and political equality. This is the accurate foundation for women's rights; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes women's rights in the lesson \"Reform Movements\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes strategy and disagreement in the lesson \"Reform Movements\"?",
+        "choices": [
+          "Reform coalitions disagreed over voting, parties, moral persuasion, immediacy, race, and gender.",
+          "Every reformer supported one identical strategy.",
+          "A movement matters only if it wins every demand immediately.",
+          "All reform movements arose from one event."
+        ],
+        "answer": "Reform coalitions disagreed over voting, parties, moral persuasion, immediacy, race, and gender.",
+        "explain": "Reform coalitions disagreed over voting, parties, moral persuasion, immediacy, race, and gender. This is the accurate foundation for strategy and disagreement; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes strategy and disagreement in the lesson \"Reform Movements\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes evaluating impact in the lesson \"Reform Movements\"?",
+        "choices": [
+          "A movement matters only if it wins every demand immediately.",
+          "All reform movements arose from one event.",
+          "Abolitionists used no public argument or organizing.",
+          "Reform impact includes legal change, public debate, institution building, backlash, and unfinished goals."
+        ],
+        "answer": "Reform impact includes legal change, public debate, institution building, backlash, and unfinished goals.",
+        "explain": "Reform impact includes legal change, public debate, institution building, backlash, and unfinished goals. This is the accurate foundation for evaluating impact; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes evaluating impact in the lesson \"Reform Movements\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Newspapers link revival meetings and voluntary societies to campaigns for education and temperance. Which interpretation is best supported?",
+        "choices": [
+          "Women's-rights activism had no relationship to other reform networks.",
+          "Every reformer supported one identical strategy.",
+          "Religious change, market growth, inequality, and democratic ideals encouraged antebellum reform.",
+          "Abolitionists used no public argument or organizing."
+        ],
+        "answer": "Religious change, market growth, inequality, and democratic ideals encouraged antebellum reform.",
+        "explain": "Religious change, market growth, inequality, and democratic ideals encouraged antebellum reform. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Newspapers link revival meetings and voluntary societies to campaigns for education and temperance. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Slave narratives and antislavery newspapers expose violence while demanding immediate change. Which interpretation is best supported?",
+        "choices": [
+          "A movement matters only if it wins every demand immediately.",
+          "Abolitionists used moral argument, testimony, newspapers, petitions, political action, and resistance.",
+          "Women's-rights activism had no relationship to other reform networks.",
+          "Every reformer supported one identical strategy."
+        ],
+        "answer": "Abolitionists used moral argument, testimony, newspapers, petitions, political action, and resistance.",
+        "explain": "Abolitionists used moral argument, testimony, newspapers, petitions, political action, and resistance. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Slave narratives and antislavery newspapers expose violence while demanding immediate change. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "The Seneca Falls Declaration adapts language from the Declaration of Independence. Which interpretation is best supported?",
+        "choices": [
+          "Women's participation in reform helped generate organized demands for legal and political equality.",
+          "Every reformer supported one identical strategy.",
+          "A movement matters only if it wins every demand immediately.",
+          "All reform movements arose from one event."
+        ],
+        "answer": "Women's participation in reform helped generate organized demands for legal and political equality.",
+        "explain": "Women's participation in reform helped generate organized demands for legal and political equality. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "The Seneca Falls Declaration adapts language from the Declaration of Independence. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Meeting records document splits even among people opposing the same injustice. Which interpretation is best supported?",
+        "choices": [
+          "A movement matters only if it wins every demand immediately.",
+          "All reform movements arose from one event.",
+          "Abolitionists used no public argument or organizing.",
+          "Reform coalitions disagreed over voting, parties, moral persuasion, immediacy, race, and gender."
+        ],
+        "answer": "Reform coalitions disagreed over voting, parties, moral persuasion, immediacy, race, and gender.",
+        "explain": "Reform coalitions disagreed over voting, parties, moral persuasion, immediacy, race, and gender. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Meeting records document splits even among people opposing the same injustice. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Petition totals rise and some state laws change, while national resistance remains strong. Which interpretation is best supported?",
+        "choices": [
+          "Abolitionists used no public argument or organizing.",
+          "Women's-rights activism had no relationship to other reform networks.",
+          "Reform impact includes legal change, public debate, institution building, backlash, and unfinished goals.",
+          "All reform movements arose from one event."
+        ],
+        "answer": "Reform impact includes legal change, public debate, institution building, backlash, and unfinished goals.",
+        "explain": "Reform impact includes legal change, public debate, institution building, backlash, and unfinished goals. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Petition totals rise and some state laws change, while national resistance remains strong. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Religious change, market growth, inequality, and democratic ideals encouraged antebellum reform.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Religious change, market growth, inequality, and democratic ideals encouraged antebellum reform. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Reform Movements."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Abolitionists used no public argument or organizing.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. Abolitionists used moral argument, testimony, newspapers, petitions, political action, and resistance.",
+        "audio": "Evaluate this claim using the evidence from Reform Movements."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Women's participation in reform helped generate organized demands for legal and political equality.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Women's participation in reform helped generate organized demands for legal and political equality. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Reform Movements."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Every reformer supported one identical strategy.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. Reform coalitions disagreed over voting, parties, moral persuasion, immediacy, race, and gender.",
+        "audio": "Evaluate this claim using the evidence from Reform Movements."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Reform impact includes legal change, public debate, institution building, backlash, and unfinished goals.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Reform impact includes legal change, public debate, institution building, backlash, and unfinished goals. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Reform Movements."
+      },
+      {
+        "type": "mc",
+        "q": "Newspapers link revival meetings and voluntary societies to campaigns for education and temperance. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Reform grew from several social and intellectual conditions.",
+          "Women's-rights activism had no relationship to other reform networks.",
+          "Every reformer supported one identical strategy.",
+          "A movement matters only if it wins every demand immediately."
+        ],
+        "answer": "Reform grew from several social and intellectual conditions.",
+        "explain": "Reform grew from several social and intellectual conditions. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Newspapers link revival meetings and voluntary societies to campaigns for education and temperance. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Slave narratives and antislavery newspapers expose violence while demanding immediate change. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Every reformer supported one identical strategy.",
+          "A movement matters only if it wins every demand immediately.",
+          "All reform movements arose from one event.",
+          "First-person evidence and organized advocacy challenged slavery publicly."
+        ],
+        "answer": "First-person evidence and organized advocacy challenged slavery publicly.",
+        "explain": "First-person evidence and organized advocacy challenged slavery publicly. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Slave narratives and antislavery newspapers expose violence while demanding immediate change. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "The Seneca Falls Declaration adapts language from the Declaration of Independence. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "All reform movements arose from one event.",
+          "Abolitionists used no public argument or organizing.",
+          "Reformers used familiar founding ideals to expose unequal citizenship.",
+          "A movement matters only if it wins every demand immediately."
+        ],
+        "answer": "Reformers used familiar founding ideals to expose unequal citizenship.",
+        "explain": "Reformers used familiar founding ideals to expose unequal citizenship. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "The Seneca Falls Declaration adapts language from the Declaration of Independence. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Meeting records document splits even among people opposing the same injustice. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Women's-rights activism had no relationship to other reform networks.",
+          "Shared goals did not erase strategic and ideological conflict.",
+          "All reform movements arose from one event.",
+          "Abolitionists used no public argument or organizing."
+        ],
+        "answer": "Shared goals did not erase strategic and ideological conflict.",
+        "explain": "Shared goals did not erase strategic and ideological conflict. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Meeting records document splits even among people opposing the same injustice. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Petition totals rise and some state laws change, while national resistance remains strong. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "The movement influenced politics before fully achieving its goals.",
+          "Abolitionists used no public argument or organizing.",
+          "Women's-rights activism had no relationship to other reform networks.",
+          "Every reformer supported one identical strategy."
+        ],
+        "answer": "The movement influenced politics before fully achieving its goals.",
+        "explain": "The movement influenced politics before fully achieving its goals. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Petition totals rise and some state laws change, while national resistance remains strong. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: Newspapers link revival meetings and voluntary societies to campaigns for education and temperance. Evidence B: Slave narratives and antislavery newspapers expose violence while demanding immediate change. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Evidence A proves “All reform movements arose from one event.,” so Evidence B can be ignored.",
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “Religious change, market growth, inequality, and democratic ideals encouraged antebellum reform.” Evidence B supports “Abolitionists used moral argument, testimony, newspapers, petitions, political action, and resistance.” Together, the sources show related developments while preserving each source's context."
+        ],
+        "answer": "Evidence A supports “Religious change, market growth, inequality, and democratic ideals encouraged antebellum reform.” Evidence B supports “Abolitionists used moral argument, testimony, newspapers, petitions, political action, and resistance.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “Religious change, market growth, inequality, and democratic ideals encouraged antebellum reform.” Evidence B supports “Abolitionists used moral argument, testimony, newspapers, petitions, political action, and resistance.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: Newspapers link revival meetings and voluntary societies to campaigns for education and temperance. Evidence B: Slave narratives and antislavery newspapers expose violence while demanding immediate change. Which thesis best evaluates both sources without overstating either one?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: Slave narratives and antislavery newspapers expose violence while demanding immediate change. Evidence B: The Seneca Falls Declaration adapts language from the Declaration of Independence. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “Abolitionists used moral argument, testimony, newspapers, petitions, political action, and resistance.” Evidence B supports “Women's participation in reform helped generate organized demands for legal and political equality.” Together, the sources show related developments while preserving each source's context.",
+          "Evidence A proves “Abolitionists used no public argument or organizing.,” so Evidence B can be ignored."
+        ],
+        "answer": "Evidence A supports “Abolitionists used moral argument, testimony, newspapers, petitions, political action, and resistance.” Evidence B supports “Women's participation in reform helped generate organized demands for legal and political equality.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “Abolitionists used moral argument, testimony, newspapers, petitions, political action, and resistance.” Evidence B supports “Women's participation in reform helped generate organized demands for legal and political equality.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: Slave narratives and antislavery newspapers expose violence while demanding immediate change. Evidence B: The Seneca Falls Declaration adapts language from the Declaration of Independence. Which thesis best evaluates both sources without overstating either one?"
+      }
+    ]
+  },
+  "g8:hist:L5": {
+    "name": "Civil War and Reconstruction",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "In Civil War and Reconstruction, historians use evidence to understand...",
+        "choices": [
+          "THE PAST",
+          "None of these",
+          "ONLY MULTIPLICATION",
+          "ONLY FUTURE WEATHER"
+        ],
+        "answer": "THE PAST",
+        "audio": "Civil War and Reconstruction history question."
+      },
+      {
+        "type": "mc",
+        "q": "A primary source for Civil War and Reconstruction comes from...",
+        "choices": [
+          "None of these",
+          "A FICTIONAL PLANET",
+          "THE TIME BEING STUDIED",
+          "A RANDOM GUESS"
+        ],
+        "answer": "THE TIME BEING STUDIED",
+        "audio": "Civil War and Reconstruction history question."
+      },
+      {
+        "type": "mc",
+        "q": "Cause and effect in Civil War and Reconstruction helps explain...",
+        "choices": [
+          "None of these",
+          "HOW TO SPELL EVERY WORD",
+          "ONLY MAP COLORS",
+          "WHY EVENTS HAPPENED AND WHAT CHANGED"
+        ],
+        "answer": "WHY EVENTS HAPPENED AND WHAT CHANGED",
+        "audio": "Civil War and Reconstruction history question."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes sectional conflict and slavery in the lesson \"Civil War and Reconstruction\"?",
+        "choices": [
+          "The Civil War had no connection to slavery.",
+          "Strategy involved battlefield tactics only.",
+          "One presidential document alone immediately freed everyone everywhere.",
+          "Slavery's expansion and political power drove sectional crisis and secession."
+        ],
+        "answer": "Slavery's expansion and political power drove sectional crisis and secession.",
+        "explain": "Slavery's expansion and political power drove sectional crisis and secession. This is the accurate foundation for sectional conflict and slavery; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes sectional conflict and slavery in the lesson \"Civil War and Reconstruction\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes Union and Confederate strategy in the lesson \"Civil War and Reconstruction\"?",
+        "choices": [
+          "One presidential document alone immediately freed everyone everywhere.",
+          "Reconstruction changed no constitutional rights.",
+          "Strategy integrated armies, transportation, industry, diplomacy, and political objectives.",
+          "Strategy involved battlefield tactics only."
+        ],
+        "answer": "Strategy integrated armies, transportation, industry, diplomacy, and political objectives.",
+        "explain": "Strategy integrated armies, transportation, industry, diplomacy, and political objectives. This is the accurate foundation for Union and Confederate strategy; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes Union and Confederate strategy in the lesson \"Civil War and Reconstruction\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes emancipation as process in the lesson \"Civil War and Reconstruction\"?",
+        "choices": [
+          "Amendments instantly ended racial discrimination and violence.",
+          "Enslaved people's flight and service, wartime policy, military victory, and amendment changed slavery's legal status.",
+          "One presidential document alone immediately freed everyone everywhere.",
+          "Reconstruction changed no constitutional rights."
+        ],
+        "answer": "Enslaved people's flight and service, wartime policy, military victory, and amendment changed slavery's legal status.",
+        "explain": "Enslaved people's flight and service, wartime policy, military victory, and amendment changed slavery's legal status. This is the accurate foundation for emancipation as process; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes emancipation as process in the lesson \"Civil War and Reconstruction\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes Reconstruction citizenship in the lesson \"Civil War and Reconstruction\"?",
+        "choices": [
+          "The Fourteenth and Fifteenth Amendments transformed national definitions of citizenship and political rights.",
+          "Reconstruction changed no constitutional rights.",
+          "Amendments instantly ended racial discrimination and violence.",
+          "The Civil War had no connection to slavery."
+        ],
+        "answer": "The Fourteenth and Fifteenth Amendments transformed national definitions of citizenship and political rights.",
+        "explain": "The Fourteenth and Fifteenth Amendments transformed national definitions of citizenship and political rights. This is the accurate foundation for Reconstruction citizenship; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes Reconstruction citizenship in the lesson \"Civil War and Reconstruction\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes contested outcomes in the lesson \"Civil War and Reconstruction\"?",
+        "choices": [
+          "Amendments instantly ended racial discrimination and violence.",
+          "The Civil War had no connection to slavery.",
+          "Strategy involved battlefield tactics only.",
+          "Black political participation and institution building faced discriminatory law, economic coercion, and organized violence."
+        ],
+        "answer": "Black political participation and institution building faced discriminatory law, economic coercion, and organized violence.",
+        "explain": "Black political participation and institution building faced discriminatory law, economic coercion, and organized violence. This is the accurate foundation for contested outcomes; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes contested outcomes in the lesson \"Civil War and Reconstruction\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Party platforms, territorial debates, and secession declarations repeatedly center slavery. Which interpretation is best supported?",
+        "choices": [
+          "One presidential document alone immediately freed everyone everywhere.",
+          "Reconstruction changed no constitutional rights.",
+          "Slavery's expansion and political power drove sectional crisis and secession.",
+          "Strategy involved battlefield tactics only."
+        ],
+        "answer": "Slavery's expansion and political power drove sectional crisis and secession.",
+        "explain": "Slavery's expansion and political power drove sectional crisis and secession. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Party platforms, territorial debates, and secession declarations repeatedly center slavery. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Union campaigns target the Mississippi and blockade trade while Confederate leaders seek survival and foreign recognition. Which interpretation is best supported?",
+        "choices": [
+          "Amendments instantly ended racial discrimination and violence.",
+          "Strategy integrated armies, transportation, industry, diplomacy, and political objectives.",
+          "One presidential document alone immediately freed everyone everywhere.",
+          "Reconstruction changed no constitutional rights."
+        ],
+        "answer": "Strategy integrated armies, transportation, industry, diplomacy, and political objectives.",
+        "explain": "Strategy integrated armies, transportation, industry, diplomacy, and political objectives. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Union campaigns target the Mississippi and blockade trade while Confederate leaders seek survival and foreign recognition. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Contraband camps, Black regiments, the Emancipation Proclamation, and the Thirteenth Amendment form connected evidence. Which interpretation is best supported?",
+        "choices": [
+          "Enslaved people's flight and service, wartime policy, military victory, and amendment changed slavery's legal status.",
+          "Reconstruction changed no constitutional rights.",
+          "Amendments instantly ended racial discrimination and violence.",
+          "The Civil War had no connection to slavery."
+        ],
+        "answer": "Enslaved people's flight and service, wartime policy, military victory, and amendment changed slavery's legal status.",
+        "explain": "Enslaved people's flight and service, wartime policy, military victory, and amendment changed slavery's legal status. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Contraband camps, Black regiments, the Emancipation Proclamation, and the Thirteenth Amendment form connected evidence. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "The amendments establish birthright citizenship, equal protection, and voting protections for men regardless of race. Which interpretation is best supported?",
+        "choices": [
+          "Amendments instantly ended racial discrimination and violence.",
+          "The Civil War had no connection to slavery.",
+          "Strategy involved battlefield tactics only.",
+          "The Fourteenth and Fifteenth Amendments transformed national definitions of citizenship and political rights."
+        ],
+        "answer": "The Fourteenth and Fifteenth Amendments transformed national definitions of citizenship and political rights.",
+        "explain": "The Fourteenth and Fifteenth Amendments transformed national definitions of citizenship and political rights. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "The amendments establish birthright citizenship, equal protection, and voting protections for men regardless of race. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Election returns show officeholding while testimony documents terror and voter suppression. Which interpretation is best supported?",
+        "choices": [
+          "Strategy involved battlefield tactics only.",
+          "One presidential document alone immediately freed everyone everywhere.",
+          "Black political participation and institution building faced discriminatory law, economic coercion, and organized violence.",
+          "The Civil War had no connection to slavery."
+        ],
+        "answer": "Black political participation and institution building faced discriminatory law, economic coercion, and organized violence.",
+        "explain": "Black political participation and institution building faced discriminatory law, economic coercion, and organized violence. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Election returns show officeholding while testimony documents terror and voter suppression. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Slavery's expansion and political power drove sectional crisis and secession.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Slavery's expansion and political power drove sectional crisis and secession. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Civil War and Reconstruction."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Strategy involved battlefield tactics only.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. Strategy integrated armies, transportation, industry, diplomacy, and political objectives.",
+        "audio": "Evaluate this claim using the evidence from Civil War and Reconstruction."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Enslaved people's flight and service, wartime policy, military victory, and amendment changed slavery's legal status.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Enslaved people's flight and service, wartime policy, military victory, and amendment changed slavery's legal status. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Civil War and Reconstruction."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Reconstruction changed no constitutional rights.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. The Fourteenth and Fifteenth Amendments transformed national definitions of citizenship and political rights.",
+        "audio": "Evaluate this claim using the evidence from Civil War and Reconstruction."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Black political participation and institution building faced discriminatory law, economic coercion, and organized violence.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Black political participation and institution building faced discriminatory law, economic coercion, and organized violence. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Civil War and Reconstruction."
+      },
+      {
+        "type": "mc",
+        "q": "Party platforms, territorial debates, and secession declarations repeatedly center slavery. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Converging primary sources make slavery indispensable to a causal explanation.",
+          "One presidential document alone immediately freed everyone everywhere.",
+          "Reconstruction changed no constitutional rights.",
+          "Amendments instantly ended racial discrimination and violence."
+        ],
+        "answer": "Converging primary sources make slavery indispensable to a causal explanation.",
+        "explain": "Converging primary sources make slavery indispensable to a causal explanation. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Party platforms, territorial debates, and secession declarations repeatedly center slavery. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Union campaigns target the Mississippi and blockade trade while Confederate leaders seek survival and foreign recognition. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Reconstruction changed no constitutional rights.",
+          "Amendments instantly ended racial discrimination and violence.",
+          "The Civil War had no connection to slavery.",
+          "Strategy operated at military, economic, and political levels."
+        ],
+        "answer": "Strategy operated at military, economic, and political levels.",
+        "explain": "Strategy operated at military, economic, and political levels. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Union campaigns target the Mississippi and blockade trade while Confederate leaders seek survival and foreign recognition. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Contraband camps, Black regiments, the Emancipation Proclamation, and the Thirteenth Amendment form connected evidence. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "The Civil War had no connection to slavery.",
+          "Strategy involved battlefield tactics only.",
+          "Emancipation emerged through actions from below and policy from above.",
+          "Amendments instantly ended racial discrimination and violence."
+        ],
+        "answer": "Emancipation emerged through actions from below and policy from above.",
+        "explain": "Emancipation emerged through actions from below and policy from above. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Contraband camps, Black regiments, the Emancipation Proclamation, and the Thirteenth Amendment form connected evidence. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "The amendments establish birthright citizenship, equal protection, and voting protections for men regardless of race. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "One presidential document alone immediately freed everyone everywhere.",
+          "Constitutional change expanded federal responsibility for civil rights.",
+          "The Civil War had no connection to slavery.",
+          "Strategy involved battlefield tactics only."
+        ],
+        "answer": "Constitutional change expanded federal responsibility for civil rights.",
+        "explain": "Constitutional change expanded federal responsibility for civil rights. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "The amendments establish birthright citizenship, equal protection, and voting protections for men regardless of race. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Election returns show officeholding while testimony documents terror and voter suppression. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Reconstruction combined democratic gains with a powerful counterrevolution.",
+          "Strategy involved battlefield tactics only.",
+          "One presidential document alone immediately freed everyone everywhere.",
+          "Reconstruction changed no constitutional rights."
+        ],
+        "answer": "Reconstruction combined democratic gains with a powerful counterrevolution.",
+        "explain": "Reconstruction combined democratic gains with a powerful counterrevolution. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Election returns show officeholding while testimony documents terror and voter suppression. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: Party platforms, territorial debates, and secession declarations repeatedly center slavery. Evidence B: Union campaigns target the Mississippi and blockade trade while Confederate leaders seek survival and foreign recognition. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Evidence A proves “The Civil War had no connection to slavery.,” so Evidence B can be ignored.",
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “Slavery's expansion and political power drove sectional crisis and secession.” Evidence B supports “Strategy integrated armies, transportation, industry, diplomacy, and political objectives.” Together, the sources show related developments while preserving each source's context."
+        ],
+        "answer": "Evidence A supports “Slavery's expansion and political power drove sectional crisis and secession.” Evidence B supports “Strategy integrated armies, transportation, industry, diplomacy, and political objectives.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “Slavery's expansion and political power drove sectional crisis and secession.” Evidence B supports “Strategy integrated armies, transportation, industry, diplomacy, and political objectives.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: Party platforms, territorial debates, and secession declarations repeatedly center slavery. Evidence B: Union campaigns target the Mississippi and blockade trade while Confederate leaders seek survival and foreign recognition. Which thesis best evaluates both sources without overstating either one?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: Union campaigns target the Mississippi and blockade trade while Confederate leaders seek survival and foreign recognition. Evidence B: Contraband camps, Black regiments, the Emancipation Proclamation, and the Thirteenth Amendment form connected evidence. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “Strategy integrated armies, transportation, industry, diplomacy, and political objectives.” Evidence B supports “Enslaved people's flight and service, wartime policy, military victory, and amendment changed slavery's legal status.” Together, the sources show related developments while preserving each source's context.",
+          "Evidence A proves “Strategy involved battlefield tactics only.,” so Evidence B can be ignored."
+        ],
+        "answer": "Evidence A supports “Strategy integrated armies, transportation, industry, diplomacy, and political objectives.” Evidence B supports “Enslaved people's flight and service, wartime policy, military victory, and amendment changed slavery's legal status.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “Strategy integrated armies, transportation, industry, diplomacy, and political objectives.” Evidence B supports “Enslaved people's flight and service, wartime policy, military victory, and amendment changed slavery's legal status.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: Union campaigns target the Mississippi and blockade trade while Confederate leaders seek survival and foreign recognition. Evidence B: Contraband camps, Black regiments, the Emancipation Proclamation, and the Thirteenth Amendment form connected evidence. Which thesis best evaluates both sources without overstating either one?"
+      }
+    ]
+  }
+});
+})();

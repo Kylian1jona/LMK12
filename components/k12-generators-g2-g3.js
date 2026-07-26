@@ -34,43 +34,7 @@ function k12CloneRoundItem(item){
 function k12RoundPick(items){
   if(!Array.isArray(items) || !items.length) return G23_RANDOM_PICK(items);
   const round = g23RoundNumber();
-  const index = items.length >= 10
-    ? Math.min(round - 1, items.length - 1)
-    : (round - 1) % items.length;
-  const selected = k12CloneRoundItem(items[index]);
-
-  // Older lesson banks were padded to ten rows by copying the same three
-  // questions. Give every copied prompt a distinct, natural instruction so a
-  // student never sees the exact same question wording twice in one lesson.
-  if(selected && typeof selected === "object" && selected.q){
-    const signature = JSON.stringify([selected.q, selected.t, selected.a]);
-    let occurrence = 0;
-    for(let i=0;i<index;i++){
-      const earlier = items[i];
-      if(earlier && JSON.stringify([earlier.q, earlier.t, earlier.a]) === signature){
-        occurrence++;
-      }
-    }
-    if(occurrence > 0) selected.q = k12MakeUniquePrompt(selected.q, occurrence);
-  }
-  return selected;
-}
-
-function k12MakeUniquePrompt(question, occurrence){
-  const q = String(question);
-  const n = occurrence % 9;
-  const leads = [
-    "Choose the best answer:",
-    "Select the correct answer:",
-    "Read carefully and answer:",
-    "Pick the best response:",
-    "Think about the lesson and answer:",
-    "Choose the correct response:",
-    "Look closely and answer:",
-    "Select the best response:",
-    "Answer this question:"
-  ];
-  return `${leads[n]} ${q}`;
+  return k12CloneRoundItem(items[(round - 1) % items.length]);
 }
 
 function g23Pick(items){

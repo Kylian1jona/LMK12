@@ -1,0 +1,8560 @@
+/* Explicit classic 25-question banks for G2.
+   Every prompt is stored individually; no standards, mastery, stage, or shared-pool generator is used. */
+(function(){
+  window.K12_CLASSIC_25_DATA=window.K12_CLASSIC_25_DATA||Object.create(null);
+  Object.assign(window.K12_CLASSIC_25_DATA,{
+  "g2:eng:L1": {
+    "name": "Nouns & Verbs",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Is \"DOG\" a NOUN or a VERB?",
+        "choices": [
+          "Adverb",
+          "NOUN",
+          "VERB",
+          "ADJECTIVE"
+        ],
+        "answer": "NOUN",
+        "audio": "Is dog a noun or a verb?"
+      },
+      {
+        "type": "mc",
+        "q": "Is \"JUMP\" a NOUN or a VERB?",
+        "choices": [
+          "VERB",
+          "Adverb",
+          "ADJECTIVE",
+          "NOUN"
+        ],
+        "answer": "VERB",
+        "audio": "Is jump a noun or a verb?"
+      },
+      {
+        "type": "mc",
+        "q": "Is \"PIZZA\" a NOUN or a VERB?",
+        "choices": [
+          "NOUN",
+          "Adverb",
+          "VERB",
+          "ADJECTIVE"
+        ],
+        "answer": "NOUN",
+        "audio": "Is pizza a noun or a verb?"
+      },
+      {
+        "type": "mc",
+        "q": "Is \"WRITE\" a NOUN or a VERB?",
+        "choices": [
+          "ADJECTIVE",
+          "Adverb",
+          "NOUN",
+          "VERB"
+        ],
+        "answer": "VERB",
+        "audio": "Is write a noun or a verb?"
+      },
+      {
+        "type": "mc",
+        "q": "Is \"RAIN\" a NOUN or a VERB?",
+        "choices": [
+          "NOUN",
+          "VERB",
+          "ADJECTIVE",
+          "Adverb"
+        ],
+        "answer": "NOUN",
+        "audio": "Is rain a noun or a verb?"
+      },
+      {
+        "type": "mc",
+        "q": "Is \"PLAY\" a NOUN or a VERB?",
+        "choices": [
+          "VERB",
+          "Adverb",
+          "ADJECTIVE",
+          "NOUN"
+        ],
+        "answer": "VERB",
+        "audio": "Is play a noun or a verb?"
+      },
+      {
+        "type": "mc",
+        "q": "Is \"PENCIL\" a NOUN or a VERB?",
+        "choices": [
+          "Adverb",
+          "NOUN",
+          "VERB",
+          "ADJECTIVE"
+        ],
+        "answer": "NOUN",
+        "audio": "Is pencil a noun or a verb?"
+      },
+      {
+        "type": "mc",
+        "q": "Is \"SWIM\" a NOUN or a VERB?",
+        "choices": [
+          "Adverb",
+          "ADJECTIVE",
+          "NOUN",
+          "VERB"
+        ],
+        "answer": "VERB",
+        "audio": "Is swim a noun or a verb?"
+      },
+      {
+        "type": "mc",
+        "q": "Is \"LIBRARY\" a NOUN or a VERB?",
+        "choices": [
+          "NOUN",
+          "ADJECTIVE",
+          "VERB",
+          "Adverb"
+        ],
+        "answer": "NOUN",
+        "audio": "Is library a noun or a verb?"
+      },
+      {
+        "type": "mc",
+        "q": "Is \"EXPLAIN\" a NOUN or a VERB?",
+        "choices": [
+          "ADJECTIVE",
+          "VERB",
+          "NOUN",
+          "Adverb"
+        ],
+        "answer": "VERB",
+        "audio": "Is explain a noun or a verb?"
+      },
+      {
+        "type": "mc",
+        "q": "Which sentence has a noun subject and a verb that agree?",
+        "choices": [
+          "The rabbit across the quiet garden.",
+          "Hops across the quiet garden.",
+          "The rabbit hops across the quiet garden.",
+          "The rabbit hop across the quiet garden."
+        ],
+        "answer": "The rabbit hops across the quiet garden.",
+        "explain": "“The rabbit” is the complete noun subject, and “hops” is the verb that agrees with it.",
+        "audio": "Which sentence has a noun subject and a verb that agree?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: My science partner records the temperature each morning Example: Which sentence has a noun subject and a verb that agree.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. “My science partner” is the complete noun subject, and “records” is the verb that agrees with it.",
+        "audio": "True or false. My science partner records the temperature each morning Example: Which sentence has a noun subject and a verb that agree."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Our class visit the community library on Friday Example: Which sentence has a noun subject and a verb that agree.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “Our class visits the community library on Friday.” “Our class” is the complete noun subject, and “visits” is the verb that agrees with it.",
+        "audio": "True or false. Our class visit the community library on Friday Example: Which sentence has a noun subject and a verb that agree."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A strong magnet attracts the iron paper clips Example: Which sentence has a noun subject and a verb that agree.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. “A strong magnet” is the complete noun subject, and “attracts” is the verb that agrees with it.",
+        "audio": "True or false. A strong magnet attracts the iron paper clips Example: Which sentence has a noun subject and a verb that agree."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Our neighborhood creek flow toward the larger river Example: Which sentence has a noun subject and a verb that agree.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “Our neighborhood creek flows toward the larger river.” “Our neighborhood creek” is the complete noun subject, and “flows” is the verb that agrees with it.",
+        "audio": "True or false. Our neighborhood creek flow toward the larger river Example: Which sentence has a noun subject and a verb that agree."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The migrating geese follow the same route each autumn Example: Which sentence has a noun subject and a verb that agree.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. “The migrating geese” is the complete noun subject, and “follow” is the verb that agrees with it.",
+        "audio": "True or false. The migrating geese follow the same route each autumn Example: Which sentence has a noun subject and a verb that agree."
+      },
+      {
+        "type": "mc",
+        "q": "Which response correctly answers “Which sentence has a noun subject and a verb that agree” and supports its conclusion with all relevant evidence?",
+        "choices": [
+          "Conclusion: The young inventors test their redesigned paper bridge. Evidence and reasoning: “The young inventors” is the complete noun subject, and “test” is the verb that agrees with it.",
+          "Conclusion: The young inventors their redesigned paper bridge. Evidence: the conditions in the original task can be ignored.",
+          "Conclusion: The young inventors test their redesigned paper bridge. Evidence: an unrelated detail supports every possible conclusion.",
+          "Conclusion: The young inventors tests their redesigned paper bridge. Evidence is unnecessary once a choice has been made."
+        ],
+        "answer": "Conclusion: The young inventors test their redesigned paper bridge. Evidence and reasoning: “The young inventors” is the complete noun subject, and “test” is the verb that agrees with it.",
+        "explain": "A mastery response must be accurate and supported by the words in the text, its structure, or the relevant language convention. “The young inventors” is the complete noun subject, and “test” is the verb that agrees with it.",
+        "audio": "Which response correctly answers “Which sentence has a noun subject and a verb that agree” and supports its conclusion with all relevant evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "A student answered “A desert tortoise water inside its body” to “Which sentence has a noun subject and a verb that agree.” Which feedback identifies the error and gives a supported correction?",
+        "choices": [
+          "Keep “A desert tortoise water inside its body” because the task's conditions do not need to be checked.",
+          "Accept every response because evidence cannot distinguish a correct conclusion from an error.",
+          "Replace it with “Stores water inside its body” without using the words in the text, its structure, or the relevant language convention.",
+          "Replace “A desert tortoise water inside its body” with “A desert tortoise stores water inside its body”; “A desert tortoise” is the complete noun subject, and “stores” is the verb that agrees with it."
+        ],
+        "answer": "Replace “A desert tortoise water inside its body” with “A desert tortoise stores water inside its body”; “A desert tortoise” is the complete noun subject, and “stores” is the verb that agrees with it.",
+        "explain": "The first response does not satisfy the task. The correction is A desert tortoise stores water inside its body, supported by the words in the text, its structure, or the relevant language convention. “A desert tortoise” is the complete noun subject, and “stores” is the verb that agrees with it.",
+        "audio": "A student answered “A desert tortoise water inside its body” to “Which sentence has a noun subject and a verb that agree.” Which feedback identifies the error and gives a supported correction?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The evidence supports “The crossing guard helps families reach school safely” rather than “Helps families reach school safely.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Student A's conclusion is the one supported by the task. “The crossing guard” is the complete noun subject, and “helps” is the verb that agrees with it.",
+        "audio": "True or false. The evidence supports “The crossing guard helps families reach school safely” rather than “Helps families reach school safely.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which response answers “Which sentence has a noun subject and a verb that agree,” gives relevant evidence, and rejects “The migrating geese follows the same route each autumn”?",
+        "choices": [
+          "Choose “The migrating geese follow the same route each autumn”; support it with “The migrating geese” is the complete noun subject, and “follow” is the verb that agrees with it. Reject “The migrating geese follows the same route each autumn” because it does not satisfy the evidence or conditions.",
+          "Choose “The migrating geese the same route each autumn” because repeating a competing response counts as correcting it.",
+          "Choose “The migrating geese follow the same route each autumn,” but use an unrelated fact as the only support and do not evaluate alternatives.",
+          "Choose “The migrating geese follows the same route each autumn”; a conclusion does not need evidence or error analysis."
+        ],
+        "answer": "Choose “The migrating geese follow the same route each autumn”; support it with “The migrating geese” is the complete noun subject, and “follow” is the verb that agrees with it. Reject “The migrating geese follows the same route each autumn” because it does not satisfy the evidence or conditions.",
+        "explain": "The complete evaluation gives The migrating geese follow the same route each autumn, supports it with the words in the text, its structure, or the relevant language convention, and explains why The migrating geese follows the same route each autumn fails. “The migrating geese” is the complete noun subject, and “follow” is the verb that agrees with it.",
+        "audio": "Which response answers “Which sentence has a noun subject and a verb that agree,” gives relevant evidence, and rejects “The migrating geese follows the same route each autumn”?"
+      },
+      {
+        "type": "mc",
+        "q": "Which response answers “Which sentence has a noun subject and a verb that agree,” justifies its conclusion, and corrects “A skilled author sentences to make ideas clearer”?",
+        "choices": [
+          "Conclusion: A skilled author sentences to make ideas clearer. Justification: evidence is optional. Error correction: preserve the original error.",
+          "Conclusion: Revises sentences to make ideas clearer. Justification: repeat the choice without analyzing the task. Error correction: none.",
+          "Conclusion: A skilled author revises sentences to make ideas clearer. Justification: the words in the text, its structure, or the relevant language convention supports every conflicting response equally.",
+          "Conclusion: A skilled author revises sentences to make ideas clearer. Justification: “A skilled author” is the complete noun subject, and “revises” is the verb that agrees with it. Error correction: “A skilled author sentences to make ideas clearer” is not supported by the task."
+        ],
+        "answer": "Conclusion: A skilled author revises sentences to make ideas clearer. Justification: “A skilled author” is the complete noun subject, and “revises” is the verb that agrees with it. Error correction: “A skilled author sentences to make ideas clearer” is not supported by the task.",
+        "explain": "Synthesis combines a correct conclusion, relevant justification, and explicit correction of an unsupported response. “A skilled author” is the complete noun subject, and “revises” is the verb that agrees with it.",
+        "audio": "Which response answers “Which sentence has a noun subject and a verb that agree,” justifies its conclusion, and corrects “A skilled author sentences to make ideas clearer”?"
+      },
+      {
+        "type": "mc",
+        "q": "In \"The puppy barks.\", which word is a noun?",
+        "choices": [
+          "puppy",
+          "The",
+          "barks",
+          "quickly"
+        ],
+        "answer": "puppy"
+      },
+      {
+        "type": "mc",
+        "q": "In \"The puppy barks.\", which word is a verb?",
+        "choices": [
+          "barks",
+          "The",
+          "puppy",
+          "quickly"
+        ],
+        "answer": "barks"
+      },
+      {
+        "type": "mc",
+        "q": "In \"Rain falls.\", which word is a noun?",
+        "choices": [
+          "Rain",
+          "falls",
+          "quickly"
+        ],
+        "answer": "Rain"
+      },
+      {
+        "type": "mc",
+        "q": "In \"Rain falls.\", which word is a verb?",
+        "choices": [
+          "falls",
+          "Rain",
+          "quickly"
+        ],
+        "answer": "falls"
+      }
+    ]
+  },
+  "g2:eng:L2": {
+    "name": "Sentence Fix",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Which choice correctly fixes this sentence?\n\"pizza is a food\"",
+        "choices": [
+          "pizza is a food",
+          "None of these",
+          "Pizza is a food,",
+          "Pizza is a food."
+        ],
+        "answer": "Pizza is a food.",
+        "audio": "Fix the sentence. Use a capital letter and ending punctuation."
+      },
+      {
+        "type": "mc",
+        "q": "Which choice correctly fixes this sentence?\n\"the park is outside\"",
+        "choices": [
+          "The park is outside,",
+          "the park is outside",
+          "The park is outside.",
+          "None of these"
+        ],
+        "answer": "The park is outside.",
+        "audio": "Fix the sentence. Use a capital letter and ending punctuation."
+      },
+      {
+        "type": "mc",
+        "q": "Which choice correctly fixes this sentence?\n\"a dog is an animal\"",
+        "choices": [
+          "A dog is an animal,",
+          "A dog is an animal.",
+          "Mammal",
+          "a dog is an animal"
+        ],
+        "answer": "A dog is an animal.",
+        "audio": "Fix the sentence. Use a capital letter and ending punctuation."
+      },
+      {
+        "type": "mc",
+        "q": "Which choice correctly fixes this sentence?\n\"the sun gives light\"",
+        "choices": [
+          "The sun gives light.",
+          "the sun gives light",
+          "The sun gives light,",
+          "None of these"
+        ],
+        "answer": "The sun gives light.",
+        "audio": "Fix the sentence. Use a capital letter and ending punctuation."
+      },
+      {
+        "type": "mc",
+        "q": "Which choice correctly fixes this sentence?\n\"books can be read\"",
+        "choices": [
+          "None of these",
+          "Books can be read,",
+          "books can be read",
+          "Books can be read."
+        ],
+        "answer": "Books can be read.",
+        "audio": "Fix the sentence. Use a capital letter and ending punctuation."
+      },
+      {
+        "type": "mc",
+        "q": "Which choice correctly fixes this sentence?\n\"a teacher helps students\"",
+        "choices": [
+          "A teacher helps students,",
+          "a teacher helps students",
+          "None of these",
+          "A teacher helps students."
+        ],
+        "answer": "A teacher helps students.",
+        "audio": "Fix the sentence. Use a capital letter and ending punctuation."
+      },
+      {
+        "type": "mc",
+        "q": "Which choice correctly fixes this sentence?\n\"pencils are used for writing\"",
+        "choices": [
+          "pencils are used for writing",
+          "None of these",
+          "Pencils are used for writing.",
+          "Pencils are used for writing,"
+        ],
+        "answer": "Pencils are used for writing.",
+        "audio": "Fix the sentence. Use a capital letter and ending punctuation."
+      },
+      {
+        "type": "mc",
+        "q": "Which choice correctly fixes this sentence?\n\"a library has books\"",
+        "choices": [
+          "A library has books.",
+          "None of these",
+          "a library has books",
+          "A library has books,"
+        ],
+        "answer": "A library has books.",
+        "audio": "Fix the sentence. Use a capital letter and ending punctuation."
+      },
+      {
+        "type": "mc",
+        "q": "Which choice correctly fixes this sentence?\n\"a question needs an answer\"",
+        "choices": [
+          "A question needs an answer.",
+          "a question needs an answer",
+          "None of these",
+          "A question needs an answer,"
+        ],
+        "answer": "A question needs an answer.",
+        "audio": "Fix the sentence. Use a capital letter and ending punctuation."
+      },
+      {
+        "type": "mc",
+        "q": "Which choice correctly fixes this sentence?\n\"a sentence starts with a capital letter\"",
+        "choices": [
+          "A sentence starts with a capital letter.",
+          "a sentence starts with a capital letter",
+          "None of these",
+          "A sentence starts with a capital letter,"
+        ],
+        "answer": "A sentence starts with a capital letter.",
+        "audio": "Fix the sentence. Use a capital letter and ending punctuation."
+      },
+      {
+        "type": "mc",
+        "q": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “the rabbit / hops / across the quiet garden”",
+        "choices": [
+          "The rabbit hops across the quiet garden.",
+          "The rabbit, hops across the quiet garden.",
+          "The rabbit hops across the quiet garden"
+        ],
+        "answer": "The rabbit hops across the quiet garden.",
+        "explain": "The correct revision uses every supplied part, begins with a capital letter, keeps the subject and predicate together, and ends with a period.",
+        "audio": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “the rabbit / hops / across the quiet garden”"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “two puppies / chase / a rolling red ball”",
+        "choices": [
+          "Two puppies, chase a rolling red ball.",
+          "Two puppies chase a rolling red ball.",
+          "Two puppies chase a rolling red ball"
+        ],
+        "answer": "Two puppies chase a rolling red ball.",
+        "explain": "The correct revision uses every supplied part, begins with a capital letter, keeps the subject and predicate together, and ends with a period.",
+        "audio": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “two puppies / chase / a rolling red ball”"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: My science partner records the temperature each morning Example: Which revision uses all three parts to form one complete… / records / the temperature each morning.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The correct revision uses every supplied part, begins with a capital letter, keeps the subject and predicate together, and ends with a period.",
+        "audio": "True or false. My science partner records the temperature each morning Example: Which revision uses all three parts to form one complete… / records / the temperature each morning.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “the bright stars / shine / above the campsite”",
+        "choices": [
+          "The bright stars shine above the campsite.",
+          "The bright stars shine above the campsite",
+          "The bright stars, shine above the campsite."
+        ],
+        "answer": "The bright stars shine above the campsite.",
+        "explain": "The correct revision uses every supplied part, begins with a capital letter, keeps the subject and predicate together, and ends with a period.",
+        "audio": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “the bright stars / shine / above the campsite”"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “a careful reader / checks / the paragraph for evidence”",
+        "choices": [
+          "A careful reader checks the paragraph for evidence.",
+          "A careful reader checks the paragraph for evidence",
+          "A careful reader, checks the paragraph for evidence."
+        ],
+        "answer": "A careful reader checks the paragraph for evidence.",
+        "explain": "The correct revision uses every supplied part, begins with a capital letter, keeps the subject and predicate together, and ends with a period.",
+        "audio": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “a careful reader / checks / the paragraph for evidence”"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “those busy ants / carry / crumbs into their nest”",
+        "choices": [
+          "Those busy ants carry crumbs into their nest.",
+          "Those busy ants carry crumbs into their nest",
+          "Those busy ants, carry crumbs into their nest."
+        ],
+        "answer": "Those busy ants carry crumbs into their nest.",
+        "explain": "The correct revision uses every supplied part, begins with a capital letter, keeps the subject and predicate together, and ends with a period.",
+        "audio": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “those busy ants / carry / crumbs into their nest”"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: our class visits the community library on Friday Example: Which revision uses all three parts to form one complete… visits / the community library on Friday.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “Our class visits the community library on Friday.” The correct revision uses every supplied part, begins with a capital letter, keeps the subject and predicate together, and ends with a period.",
+        "audio": "True or false. our class visits the community library on Friday Example: Which revision uses all three parts to form one complete… visits / the community library on Friday.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “the old oak tree / shelters / three small birds”",
+        "choices": [
+          "The old oak tree shelters three small birds.",
+          "The old oak tree, shelters three small birds.",
+          "The old oak tree shelters three small birds"
+        ],
+        "answer": "The old oak tree shelters three small birds.",
+        "explain": "The correct revision uses every supplied part, begins with a capital letter, keeps the subject and predicate together, and ends with a period.",
+        "audio": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “the old oak tree / shelters / three small birds”"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “several musicians / practice / before the evening concert”",
+        "choices": [
+          "Several musicians practice before the evening concert",
+          "Several musicians practice before the evening concert.",
+          "Several musicians, practice before the evening concert."
+        ],
+        "answer": "Several musicians practice before the evening concert.",
+        "explain": "The correct revision uses every supplied part, begins with a capital letter, keeps the subject and predicate together, and ends with a period.",
+        "audio": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “several musicians / practice / before the evening concert”"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “the blue whale / breathes / air through its blowhole”",
+        "choices": [
+          "The blue whale, breathes air through its blowhole.",
+          "The blue whale breathes air through its blowhole.",
+          "The blue whale breathes air through its blowhole"
+        ],
+        "answer": "The blue whale breathes air through its blowhole.",
+        "explain": "The correct revision uses every supplied part, begins with a capital letter, keeps the subject and predicate together, and ends with a period.",
+        "audio": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “the blue whale / breathes / air through its blowhole”"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A strong magnet attracts the iron paper clips Example: Which revision uses all three parts to form one complete… magnet / attracts / the iron paper clips.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The correct revision uses every supplied part, begins with a capital letter, keeps the subject and predicate together, and ends with a period.",
+        "audio": "True or false. A strong magnet attracts the iron paper clips Example: Which revision uses all three parts to form one complete… magnet / attracts / the iron paper clips.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “the soccer players / pass / the ball across the field”",
+        "choices": [
+          "The soccer players pass the ball across the field.",
+          "The soccer players pass the ball across the field",
+          "The soccer players, pass the ball across the field."
+        ],
+        "answer": "The soccer players pass the ball across the field.",
+        "explain": "The correct revision uses every supplied part, begins with a capital letter, keeps the subject and predicate together, and ends with a period.",
+        "audio": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “the soccer players / pass / the ball across the field”"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “maya and luis / compare / their two solution strategies”",
+        "choices": [
+          "Maya and Luis compare their two solution strategies.",
+          "Maya and Luis, compare their two solution strategies.",
+          "Maya and Luis compare their two solution strategies"
+        ],
+        "answer": "Maya and Luis compare their two solution strategies.",
+        "explain": "The correct revision uses every supplied part, begins with a capital letter, keeps the subject and predicate together, and ends with a period.",
+        "audio": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “maya and luis / compare / their two solution strategies”"
+      },
+      {
+        "type": "mc",
+        "q": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “the patient baker / measures / each ingredient precisely”",
+        "choices": [
+          "The patient baker measures each ingredient precisely.",
+          "The patient baker, measures each ingredient precisely.",
+          "The patient baker measures each ingredient precisely"
+        ],
+        "answer": "The patient baker measures each ingredient precisely.",
+        "explain": "The correct revision uses every supplied part, begins with a capital letter, keeps the subject and predicate together, and ends with a period.",
+        "audio": "Which revision uses all three parts to form one complete sentence with correct capitalization and end punctuation? “the patient baker / measures / each ingredient precisely”"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: our neighborhood creek flows toward the larger river Example: Which revision uses all three parts to form one complete… creek / flows / toward the larger river.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “Our neighborhood creek flows toward the larger river.” The correct revision uses every supplied part, begins with a capital letter, keeps the subject and predicate together, and ends with a period.",
+        "audio": "True or false. our neighborhood creek flows toward the larger river Example: Which revision uses all three parts to form one complete… creek / flows / toward the larger river.”"
+      }
+    ]
+  },
+  "g2:eng:L3": {
+    "name": "Reading Check",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Mia has a red kite. She runs outside. The wind makes it fly high. What does Mia have?",
+        "choices": [
+          "A kite",
+          "A bike",
+          "A cat",
+          "Cat"
+        ],
+        "answer": "A kite",
+        "audio": "Listen to the story and answer the question."
+      },
+      {
+        "type": "mc",
+        "q": "Ben plants seeds. He waters them. Soon a small plant grows. What helps the seeds grow?",
+        "choices": [
+          "Water",
+          "Sand",
+          "Snow",
+          "Roots"
+        ],
+        "answer": "Water",
+        "audio": "Listen to the story and answer the question."
+      },
+      {
+        "type": "mc",
+        "q": "A frog lives near a pond. It likes to hop and catch bugs. Where does the frog live?",
+        "choices": [
+          "On a mountain",
+          "In a desert",
+          "Mountain",
+          "Near a pond"
+        ],
+        "answer": "Near a pond",
+        "audio": "Listen to the story and answer the question."
+      },
+      {
+        "type": "mc",
+        "q": "Nora packs a lunch before school. She puts an apple and sandwich in her bag. What does Nora pack?",
+        "choices": [
+          "A toy",
+          "A blanket",
+          "Blanket",
+          "A lunch"
+        ],
+        "answer": "A lunch",
+        "audio": "Listen to the story and answer the question."
+      },
+      {
+        "type": "mc",
+        "q": "Jay hears thunder, so he closes the window. Then he reads on the couch. Why does Jay close the window?",
+        "choices": [
+          "He lost a book",
+          "He is hungry",
+          "Book",
+          "He hears thunder"
+        ],
+        "answer": "He hears thunder",
+        "audio": "Listen to the story and answer the question."
+      },
+      {
+        "type": "mc",
+        "q": "The class visits a garden. They see bees moving from flower to flower. What do the bees visit?",
+        "choices": [
+          "Flowers",
+          "Pencils",
+          "Desks",
+          "Roots"
+        ],
+        "answer": "Flowers",
+        "audio": "Listen to the story and answer the question."
+      },
+      {
+        "type": "mc",
+        "q": "Ava forgets her mittens. Her hands feel cold on the walk home. Why are Ava's hands cold?",
+        "choices": [
+          "She ate lunch",
+          "Shell",
+          "She forgot mittens",
+          "She found a shell"
+        ],
+        "answer": "She forgot mittens",
+        "audio": "Listen to the story and answer the question."
+      },
+      {
+        "type": "mc",
+        "q": "Carlos sorts his toys. Cars go in one bin, blocks go in another bin. How does Carlos sort the toys?",
+        "choices": [
+          "None of these",
+          "By sound",
+          "By color only",
+          "By kind"
+        ],
+        "answer": "By kind",
+        "audio": "Listen to the story and answer the question."
+      },
+      {
+        "type": "mc",
+        "q": "The puppy barks at the door. Mom opens it, and the puppy runs to the yard. What does the puppy want?",
+        "choices": [
+          "To go outside",
+          "To read",
+          "Read",
+          "To take a nap"
+        ],
+        "answer": "To go outside",
+        "audio": "Listen to the story and answer the question."
+      },
+      {
+        "type": "mc",
+        "q": "Rain falls all morning. By noon, puddles cover the sidewalk. What caused the puddles?",
+        "choices": [
+          "Climate",
+          "Rain",
+          "Wind",
+          "Sunshine"
+        ],
+        "answer": "Rain",
+        "audio": "Listen to the story and answer the question."
+      },
+      {
+        "type": "mc",
+        "q": "Beavers build dams from branches and mud. The dam slows a stream and creates a pond where the beavers can live safely. Which detail is stated in the text?",
+        "choices": [
+          "A detail not mentioned in the passage",
+          "A beaver dam creates a safer pond",
+          "The dam slows the stream",
+          "Beavers use branches and mud"
+        ],
+        "answer": "Beavers use branches and mud",
+        "explain": "The text directly states: Beavers use branches and mud.",
+        "audio": "Beavers build dams from branches and mud. The dam slows a stream and creates a pond where the beavers can live safely. Which detail is stated in the text?"
+      },
+      {
+        "type": "mc",
+        "q": "A rain gauge stood in the school garden. After the storm, Nia measured two inches of water and recorded it on the class chart. Which detail is stated in the text?",
+        "choices": [
+          "Nia measured rainfall after a storm",
+          "A detail not mentioned in the passage",
+          "The gauge was in the garden",
+          "She recorded two inches"
+        ],
+        "answer": "The gauge was in the garden",
+        "explain": "The text directly states: The gauge was in the garden.",
+        "audio": "A rain gauge stood in the school garden. After the storm, Nia measured two inches of water and recorded it on the class chart. Which detail is stated in the text?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The text directly states: Paper went in the blue bin Example: Jordan sorted the recycling. Paper went into the blue bin,… gray bin, and glass into the green bin.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The text directly states: Paper went in the blue bin.",
+        "audio": "True or false. The text directly states: Paper went in the blue bin Example: Jordan sorted the recycling. Paper went into the blue bin,… gray bin, and glass into the green bin."
+      },
+      {
+        "type": "mc",
+        "q": "The library book was due Friday. Eli placed it beside his backpack Thursday night so he would remember it in the morning. Which detail is stated in the text?",
+        "choices": [
+          "The book was due Friday",
+          "A detail not mentioned in the passage",
+          "Eli planned how to return a book on time",
+          "He put it by his backpack"
+        ],
+        "answer": "The book was due Friday",
+        "explain": "The text directly states: The book was due Friday.",
+        "audio": "The library book was due Friday. Eli placed it beside his backpack Thursday night so he would remember it in the morning. Which detail is stated in the text?"
+      },
+      {
+        "type": "mc",
+        "q": "A sunflower bends toward sunlight during the day. Its broad leaves also capture light that the plant uses to make food. Which detail is stated in the text?",
+        "choices": [
+          "The leaves are broad",
+          "Sunflowers use sunlight",
+          "The plant makes food",
+          "A detail not mentioned in the passage"
+        ],
+        "answer": "The leaves are broad",
+        "explain": "The text directly states: The leaves are broad.",
+        "audio": "A sunflower bends toward sunlight during the day. Its broad leaves also capture light that the plant uses to make food. Which detail is stated in the text?"
+      },
+      {
+        "type": "mc",
+        "q": "When the temperature dropped, Priya covered the garden plants with cloth. The cloth trapped warmth near their leaves overnight. Which detail is stated in the text?",
+        "choices": [
+          "A detail not mentioned in the passage",
+          "Priya protected plants from cold",
+          "Cloth trapped warmth",
+          "The temperature dropped"
+        ],
+        "answer": "The temperature dropped",
+        "explain": "The text directly states: The temperature dropped.",
+        "audio": "When the temperature dropped, Priya covered the garden plants with cloth. The cloth trapped warmth near their leaves overnight. Which detail is stated in the text?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The text directly states: The second sound was louder Example: The drummer tapped the small drum softly, then struck the… second sound was lower and much louder.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “The first tap was soft.” The text directly states: The first tap was soft.",
+        "audio": "True or false. The text directly states: The second sound was louder Example: The drummer tapped the small drum softly, then struck the… second sound was lower and much louder."
+      },
+      {
+        "type": "mc",
+        "q": "Sea turtles hatch on sandy beaches. The tiny turtles crawl toward the brightest horizon, which is usually over the ocean. Which detail is stated in the text?",
+        "choices": [
+          "A detail not mentioned in the passage",
+          "They hatch in sand",
+          "Hatchling turtles move from beach to ocean",
+          "They follow the bright horizon"
+        ],
+        "answer": "They hatch in sand",
+        "explain": "The text directly states: They hatch in sand.",
+        "audio": "Sea turtles hatch on sandy beaches. The tiny turtles crawl toward the brightest horizon, which is usually over the ocean. Which detail is stated in the text?"
+      },
+      {
+        "type": "mc",
+        "q": "A city planted trees beside the playground. Years later, their branches shaded the slides and kept the ground cooler. Which detail is stated in the text?",
+        "choices": [
+          "The city planted them",
+          "A detail not mentioned in the passage",
+          "Trees made the playground cooler",
+          "Branches shaded the slides"
+        ],
+        "answer": "The city planted them",
+        "explain": "The text directly states: The city planted them.",
+        "audio": "A city planted trees beside the playground. Years later, their branches shaded the slides and kept the ground cooler. Which detail is stated in the text?"
+      },
+      {
+        "type": "mc",
+        "q": "Mateo tested two paper airplanes. The plane with wider wings stayed in the air longer, so he used wide wings in his final design. Which detail is stated in the text?",
+        "choices": [
+          "A detail not mentioned in the passage",
+          "Mateo used test evidence to improve a plane",
+          "Wide wings stayed up longer",
+          "He tested two planes"
+        ],
+        "answer": "He tested two planes",
+        "explain": "The text directly states: He tested two planes.",
+        "audio": "Mateo tested two paper airplanes. The plane with wider wings stayed in the air longer, so he used wide wings in his final design. Which detail is stated in the text?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Both stated details support “Bees help flowering plants reproduce” Example: Honeybees carry pollen between flowers. This helps many plants form fruits and seeds.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Both stated details support “Bees help flowering plants reproduce.”",
+        "audio": "True or false. Both stated details support “Bees help flowering plants reproduce” Example: Honeybees carry pollen between flowers. This helps many plants form fruits and seeds."
+      },
+      {
+        "type": "mc",
+        "q": "The class wanted quieter chairs. They attached felt pads under each chair leg, and the scraping sound almost disappeared. Which key idea is best supported by both details?",
+        "choices": [
+          "The scraping almost stopped",
+          "Pads went under chair legs",
+          "The passage gives no key idea",
+          "Felt pads reduced chair noise"
+        ],
+        "answer": "Felt pads reduced chair noise",
+        "explain": "Both stated details support “Felt pads reduced chair noise.”",
+        "audio": "The class wanted quieter chairs. They attached felt pads under each chair leg, and the scraping sound almost disappeared. Which key idea is best supported by both details?"
+      },
+      {
+        "type": "mc",
+        "q": "A cactus has a thick stem that stores water. A waxy coating slows water loss in the dry desert air. Which key idea is best supported by both details?",
+        "choices": [
+          "Its stem is thick",
+          "Its coating is waxy",
+          "Cactus structures conserve water",
+          "The passage gives no key idea"
+        ],
+        "answer": "Cactus structures conserve water",
+        "explain": "Both stated details support “Cactus structures conserve water.”",
+        "audio": "A cactus has a thick stem that stores water. A waxy coating slows water loss in the dry desert air. Which key idea is best supported by both details?"
+      },
+      {
+        "type": "mc",
+        "q": "Lena read the recipe twice before cooking. She gathered every tool and ingredient, then followed the numbered steps in order. Which key idea is best supported by both details?",
+        "choices": [
+          "The passage gives no key idea",
+          "Lena prepared carefully and followed a procedure",
+          "She followed numbered steps",
+          "She read twice"
+        ],
+        "answer": "Lena prepared carefully and followed a procedure",
+        "explain": "Both stated details support “Lena prepared carefully and followed a procedure.”",
+        "audio": "Lena read the recipe twice before cooking. She gathered every tool and ingredient, then followed the numbered steps in order. Which key idea is best supported by both details?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Both stated details support “The sunny side melted first” Example: Snow melted on the sunny roof first. The shaded side stayed… icy until the afternoon temperature rose.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “Sunlight affects how quickly snow melts.” Both stated details support “Sunlight affects how quickly snow melts.”",
+        "audio": "True or false. Both stated details support “The sunny side melted first” Example: Snow melted on the sunny roof first. The shaded side stayed… icy until the afternoon temperature rose."
+      }
+    ]
+  },
+  "g2:eng:L4": {
+    "name": "Parts of Speech (Drag)",
+    "questions": [
+      {
+        "type": "drag",
+        "q": "Drag each word to the correct group.",
+        "pairs": [
+          {
+            "word": "run",
+            "match": "VERB"
+          },
+          {
+            "word": "dog",
+            "match": "NOUN"
+          },
+          {
+            "word": "happy",
+            "match": "ADJECTIVE"
+          }
+        ],
+        "audio": "Drag each word to the correct group."
+      },
+      {
+        "type": "mc",
+        "q": "In the class note “Monday: The rabbit hops across the quiet garden,” how should “Monday” be classified?",
+        "choices": [
+          "singular common noun",
+          "verb",
+          "plural common noun",
+          "proper noun"
+        ],
+        "answer": "proper noun",
+        "explain": "“Monday” is a proper noun.",
+        "audio": "In the class note “Monday: The rabbit hops across the quiet garden,” how should “Monday” be classified?"
+      },
+      {
+        "type": "mc",
+        "q": "In the class note “Ava: Two puppies chase a rolling red ball,” how should “puppies” be classified?",
+        "choices": [
+          "singular common noun",
+          "proper noun",
+          "plural common noun",
+          "verb"
+        ],
+        "answer": "plural common noun",
+        "explain": "“puppies” is a plural common noun.",
+        "audio": "In the class note “Ava: Two puppies chase a rolling red ball,” how should “puppies” be classified?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Houston” is a proper noun Example: In the class note “Houston: My science partner records the… how should “Houston” be classified.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. “Houston” is a proper noun.",
+        "audio": "True or false. “Houston” is a proper noun Example: In the class note “Houston: My science partner records the… how should “Houston” be classified."
+      },
+      {
+        "type": "mc",
+        "q": "In the class note “July: The bright stars shine above the campsite,” how should “stars” be classified?",
+        "choices": [
+          "plural common noun",
+          "verb",
+          "singular common noun",
+          "proper noun"
+        ],
+        "answer": "plural common noun",
+        "explain": "“stars” is a plural common noun.",
+        "audio": "In the class note “July: The bright stars shine above the campsite,” how should “stars” be classified?"
+      },
+      {
+        "type": "mc",
+        "q": "In the class note “Texas: A careful reader checks the paragraph for evidence,” how should “Texas” be classified?",
+        "choices": [
+          "proper noun",
+          "plural common noun",
+          "verb",
+          "singular common noun"
+        ],
+        "answer": "proper noun",
+        "explain": "“Texas” is a proper noun.",
+        "audio": "In the class note “Texas: A careful reader checks the paragraph for evidence,” how should “Texas” be classified?"
+      },
+      {
+        "type": "mc",
+        "q": "In the class note “Monday: Those busy ants carry crumbs into their nest,” how should “ants” be classified?",
+        "choices": [
+          "plural common noun",
+          "verb",
+          "proper noun",
+          "singular common noun"
+        ],
+        "answer": "plural common noun",
+        "explain": "“ants” is a plural common noun.",
+        "audio": "In the class note “Monday: Those busy ants carry crumbs into their nest,” how should “ants” be classified?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Ava” is a verb Example: In the class note “Ava: Our class visits the community… on Friday,” how should “Ava” be classified.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “proper noun.” “Ava” is a proper noun.",
+        "audio": "True or false. “Ava” is a verb Example: In the class note “Ava: Our class visits the community… on Friday,” how should “Ava” be classified."
+      },
+      {
+        "type": "mc",
+        "q": "In the class note “Houston: The old oak tree shelters three small birds,” how should “tree” be classified?",
+        "choices": [
+          "plural common noun",
+          "verb",
+          "proper noun",
+          "singular common noun"
+        ],
+        "answer": "singular common noun",
+        "explain": "“tree” is a singular common noun.",
+        "audio": "In the class note “Houston: The old oak tree shelters three small birds,” how should “tree” be classified?"
+      },
+      {
+        "type": "mc",
+        "q": "In the class note “July: Several musicians practice before the evening concert,” how should “July” be classified?",
+        "choices": [
+          "proper noun",
+          "singular common noun",
+          "verb",
+          "plural common noun"
+        ],
+        "answer": "proper noun",
+        "explain": "“July” is a proper noun.",
+        "audio": "In the class note “July: Several musicians practice before the evening concert,” how should “July” be classified?"
+      },
+      {
+        "type": "mc",
+        "q": "In the class note “Texas: The blue whale breathes air through its blowhole,” how should “whale” be classified?",
+        "choices": [
+          "singular common noun",
+          "verb",
+          "proper noun",
+          "plural common noun"
+        ],
+        "answer": "singular common noun",
+        "explain": "“whale” is a singular common noun.",
+        "audio": "In the class note “Texas: The blue whale breathes air through its blowhole,” how should “whale” be classified?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Monday” is a proper noun Example: In the class note “Monday: A strong magnet attracts the… clips,” how should “Monday” be classified.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. “Monday” is a proper noun.",
+        "audio": "True or false. “Monday” is a proper noun Example: In the class note “Monday: A strong magnet attracts the… clips,” how should “Monday” be classified."
+      },
+      {
+        "type": "mc",
+        "q": "In the class note “Ava: The soccer players pass the ball across the field,” how should “players” be classified?",
+        "choices": [
+          "plural common noun",
+          "verb",
+          "proper noun",
+          "singular common noun"
+        ],
+        "answer": "plural common noun",
+        "explain": "“players” is a plural common noun.",
+        "audio": "In the class note “Ava: The soccer players pass the ball across the field,” how should “players” be classified?"
+      },
+      {
+        "type": "mc",
+        "q": "In the class note “Houston: Maya and Luis compare their two solution strategies,” how should “Houston” be classified?",
+        "choices": [
+          "verb",
+          "proper noun",
+          "plural common noun",
+          "singular common noun"
+        ],
+        "answer": "proper noun",
+        "explain": "“Houston” is a proper noun.",
+        "audio": "In the class note “Houston: Maya and Luis compare their two solution strategies,” how should “Houston” be classified?"
+      },
+      {
+        "type": "mc",
+        "q": "In the class note “July: The patient baker measures each ingredient precisely,” how should “baker” be classified?",
+        "choices": [
+          "singular common noun",
+          "plural common noun",
+          "proper noun",
+          "verb"
+        ],
+        "answer": "singular common noun",
+        "explain": "“baker” is a singular common noun.",
+        "audio": "In the class note “July: The patient baker measures each ingredient precisely,” how should “baker” be classified?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Texas” is a verb Example: In the class note “Texas: Our neighborhood creek flows… river,” how should “Texas” be classified.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “proper noun.” “Texas” is a proper noun.",
+        "audio": "True or false. “Texas” is a verb Example: In the class note “Texas: Our neighborhood creek flows… river,” how should “Texas” be classified."
+      },
+      {
+        "type": "mc",
+        "q": "In the class note “Monday: The young inventors test their redesigned paper bridge,” how should “inventors” be classified?",
+        "choices": [
+          "plural common noun",
+          "proper noun",
+          "singular common noun",
+          "verb"
+        ],
+        "answer": "plural common noun",
+        "explain": "“inventors” is a plural common noun.",
+        "audio": "In the class note “Monday: The young inventors test their redesigned paper bridge,” how should “inventors” be classified?"
+      },
+      {
+        "type": "mc",
+        "q": "In the class note “Ava: A desert tortoise stores water inside its body,” how should “Ava” be classified?",
+        "choices": [
+          "proper noun",
+          "plural common noun",
+          "singular common noun",
+          "verb"
+        ],
+        "answer": "proper noun",
+        "explain": "“Ava” is a proper noun.",
+        "audio": "In the class note “Ava: A desert tortoise stores water inside its body,” how should “Ava” be classified?"
+      },
+      {
+        "type": "mc",
+        "q": "In the class note “Houston: The crossing guard helps families reach school safely,” how should “guard” be classified?",
+        "choices": [
+          "singular common noun",
+          "verb",
+          "proper noun",
+          "plural common noun"
+        ],
+        "answer": "singular common noun",
+        "explain": "“guard” is a singular common noun.",
+        "audio": "In the class note “Houston: The crossing guard helps families reach school safely,” how should “guard” be classified?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “July” is a proper noun Example: In the class note “July: The migrating geese follow the… autumn,” how should “July” be classified.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. “July” is a proper noun.",
+        "audio": "True or false. “July” is a proper noun Example: In the class note “July: The migrating geese follow the… autumn,” how should “July” be classified."
+      },
+      {
+        "type": "mc",
+        "q": "In the class note “Texas: A skilled author revises sentences to make ideas clearer,” how should “author” be classified?",
+        "choices": [
+          "plural common noun",
+          "verb",
+          "proper noun",
+          "singular common noun"
+        ],
+        "answer": "singular common noun",
+        "explain": "“author” is a singular common noun.",
+        "audio": "In the class note “Texas: A skilled author revises sentences to make ideas clearer,” how should “author” be classified?"
+      },
+      {
+        "type": "mc",
+        "q": "Which response correctly answers “In the class note “Monday: The young inventors test their redesigned paper bridge,” how should “inventors” be classified” and supports its conclusion with all relevant evidence?",
+        "choices": [
+          "Conclusion: plural common noun. Evidence and reasoning: “inventors” is a plural common noun.",
+          "Conclusion: proper noun. Evidence: the conditions in the original task can be ignored.",
+          "Conclusion: verb. Evidence is unnecessary once a choice has been made.",
+          "Conclusion: plural common noun. Evidence: an unrelated detail supports every possible conclusion."
+        ],
+        "answer": "Conclusion: plural common noun. Evidence and reasoning: “inventors” is a plural common noun.",
+        "explain": "A mastery response must be accurate and supported by the words in the text, its structure, or the relevant language convention. “inventors” is a plural common noun.",
+        "audio": "Which response correctly answers “In the class note “Monday: The young inventors test their redesigned paper bridge,” how should “inventors” be classified” and supports its conclusion with all relevant evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "A student answered “singular common noun” to “In the class note “Ava: A desert tortoise stores water inside its body,” how should “Ava” be classified.” Which feedback identifies the error and gives a supported correction?",
+        "choices": [
+          "Replace “singular common noun” with “proper noun”; “Ava” is a proper noun.",
+          "Accept every response because evidence cannot distinguish a correct conclusion from an error.",
+          "Keep “singular common noun” because the task's conditions do not need to be checked.",
+          "Replace it with “plural common noun” without using the words in the text, its structure, or the relevant language convention."
+        ],
+        "answer": "Replace “singular common noun” with “proper noun”; “Ava” is a proper noun.",
+        "explain": "The first response does not satisfy the task. The correction is proper noun, supported by the words in the text, its structure, or the relevant language convention. “Ava” is a proper noun.",
+        "audio": "A student answered “singular common noun” to “In the class note “Ava: A desert tortoise stores water inside its body,” how should “Ava” be classified.” Which feedback identifies the error and gives a supported correction?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The evidence supports “singular common noun” rather than “plural common noun.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Student A's conclusion is the one supported by the task. “guard” is a singular common noun.",
+        "audio": "True or false. The evidence supports “singular common noun” rather than “plural common noun.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which response answers “In the class note “July: The migrating geese follow the same route each autumn,” how should “July” be classified,” gives relevant evidence, and rejects “verb”?",
+        "choices": [
+          "Choose “proper noun”; support it with “July” is a proper noun. Reject “verb” because it does not satisfy the evidence or conditions.",
+          "Choose “verb”; a conclusion does not need evidence or error analysis.",
+          "Choose “proper noun,” but use an unrelated fact as the only support and do not evaluate alternatives.",
+          "Choose “singular common noun” because repeating a competing response counts as correcting it."
+        ],
+        "answer": "Choose “proper noun”; support it with “July” is a proper noun. Reject “verb” because it does not satisfy the evidence or conditions.",
+        "explain": "The complete evaluation gives proper noun, supports it with the words in the text, its structure, or the relevant language convention, and explains why verb fails. “July” is a proper noun.",
+        "audio": "Which response answers “In the class note “July: The migrating geese follow the same route each autumn,” how should “July” be classified,” gives relevant evidence, and rejects “verb”?"
+      }
+    ]
+  },
+  "g2:eng:L5": {
+    "name": "Past vs Present",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Pick the PAST tense of \"WALK\".",
+        "choices": [
+          "None of these",
+          "WALKED",
+          "WALK",
+          "WILL WALK"
+        ],
+        "answer": "WALKED",
+        "audio": "Choose the correct verb tense."
+      },
+      {
+        "type": "mc",
+        "q": "Pick the PRESENT tense of \"JUMPED\".",
+        "choices": [
+          "WILL JUMP",
+          "JUMP",
+          "None of these",
+          "JUMPED"
+        ],
+        "answer": "JUMP",
+        "audio": "Choose the correct verb tense."
+      },
+      {
+        "type": "mc",
+        "q": "Pick the PAST tense of \"PLAY\".",
+        "choices": [
+          "PLAYED",
+          "None of these",
+          "WILL PLAY",
+          "PLAY"
+        ],
+        "answer": "PLAYED",
+        "audio": "Choose the correct verb tense."
+      },
+      {
+        "type": "mc",
+        "q": "Pick the PRESENT tense of \"HELPED\".",
+        "choices": [
+          "WILL HELP",
+          "HELPED",
+          "None of these",
+          "HELP"
+        ],
+        "answer": "HELP",
+        "audio": "Choose the correct verb tense."
+      },
+      {
+        "type": "mc",
+        "q": "Pick the PAST tense of \"COOK\".",
+        "choices": [
+          "COOKED",
+          "COOK",
+          "WILL COOK",
+          "None of these"
+        ],
+        "answer": "COOKED",
+        "audio": "Choose the correct verb tense."
+      },
+      {
+        "type": "mc",
+        "q": "Pick the PRESENT tense of \"PAINTED\".",
+        "choices": [
+          "WILL PAINT",
+          "PAINT",
+          "None of these",
+          "PAINTED"
+        ],
+        "answer": "PAINT",
+        "audio": "Choose the correct verb tense."
+      },
+      {
+        "type": "mc",
+        "q": "Pick the PAST tense of \"PLANT\".",
+        "choices": [
+          "WILL PLANT",
+          "Roots",
+          "PLANTED",
+          "PLANT"
+        ],
+        "answer": "PLANTED",
+        "audio": "Choose the correct verb tense."
+      },
+      {
+        "type": "mc",
+        "q": "Pick the PRESENT tense of \"CLIMBED\".",
+        "choices": [
+          "WILL CLIMB",
+          "CLIMBED",
+          "None of these",
+          "CLIMB"
+        ],
+        "answer": "CLIMB",
+        "audio": "Choose the correct verb tense."
+      },
+      {
+        "type": "mc",
+        "q": "Pick the PAST tense of \"CARRY\".",
+        "choices": [
+          "CARRY",
+          "WILL CARRY",
+          "None of these",
+          "CARRIED"
+        ],
+        "answer": "CARRIED",
+        "audio": "Choose the correct verb tense."
+      },
+      {
+        "type": "mc",
+        "q": "Pick the PRESENT tense of \"STUDIED\".",
+        "choices": [
+          "STUDIED",
+          "STUDY",
+          "WILL STUDY",
+          "None of these"
+        ],
+        "answer": "STUDY",
+        "audio": "Choose the correct verb tense."
+      },
+      {
+        "type": "mc",
+        "q": "Complete the sentence with the past-tense form of “hop”: “Yesterday, the students ___ carefully.”",
+        "choices": [
+          "hopped",
+          "hop",
+          "hoping",
+          "will hop"
+        ],
+        "answer": "hopped",
+        "explain": "“hopped” is the past-tense form of “hop.”",
+        "audio": "Complete the sentence with the past-tense form of “hop”: “Yesterday, the students ___ carefully.”"
+      },
+      {
+        "type": "mc",
+        "q": "Complete the sentence with the past-tense form of “chase”: “Yesterday, the students ___ carefully.”",
+        "choices": [
+          "chase",
+          "will chase",
+          "chaseing",
+          "chased"
+        ],
+        "answer": "chased",
+        "explain": "“chased” is the past-tense form of “chase.”",
+        "audio": "Complete the sentence with the past-tense form of “chase”: “Yesterday, the students ___ carefully.”"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “recorded” is the past-tense form of “record” Example: Complete the sentence with the past-tense form of “record”:… “Yesterday, the students ___ carefully.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. “recorded” is the past-tense form of “record.”",
+        "audio": "True or false. “recorded” is the past-tense form of “record” Example: Complete the sentence with the past-tense form of “record”:… “Yesterday, the students ___ carefully.”"
+      },
+      {
+        "type": "mc",
+        "q": "Complete the sentence with the past-tense form of “shine”: “Yesterday, the students ___ carefully.”",
+        "choices": [
+          "shone",
+          "shine",
+          "shineing",
+          "will shine"
+        ],
+        "answer": "shone",
+        "explain": "“shone” is the past-tense form of “shine.”",
+        "audio": "Complete the sentence with the past-tense form of “shine”: “Yesterday, the students ___ carefully.”"
+      },
+      {
+        "type": "mc",
+        "q": "Complete the sentence with the past-tense form of “check”: “Yesterday, the students ___ carefully.”",
+        "choices": [
+          "checking",
+          "check",
+          "will check",
+          "checked"
+        ],
+        "answer": "checked",
+        "explain": "“checked” is the past-tense form of “check.”",
+        "audio": "Complete the sentence with the past-tense form of “check”: “Yesterday, the students ___ carefully.”"
+      },
+      {
+        "type": "mc",
+        "q": "Complete the sentence with the past-tense form of “carry”: “Yesterday, the students ___ carefully.”",
+        "choices": [
+          "carry",
+          "carried",
+          "carrying",
+          "will carry"
+        ],
+        "answer": "carried",
+        "explain": "“carried” is the past-tense form of “carry.”",
+        "audio": "Complete the sentence with the past-tense form of “carry”: “Yesterday, the students ___ carefully.”"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “visit” is the past-tense form of “visit” Example: Complete the sentence with the past-tense form of “visit”:… “Yesterday, the students ___ carefully.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “visited.” “visited” is the past-tense form of “visit.”",
+        "audio": "True or false. “visit” is the past-tense form of “visit” Example: Complete the sentence with the past-tense form of “visit”:… “Yesterday, the students ___ carefully.”"
+      },
+      {
+        "type": "mc",
+        "q": "Complete the sentence with the past-tense form of “shelter”: “Yesterday, the students ___ carefully.”",
+        "choices": [
+          "will shelter",
+          "sheltering",
+          "shelter",
+          "sheltered"
+        ],
+        "answer": "sheltered",
+        "explain": "“sheltered” is the past-tense form of “shelter.”",
+        "audio": "Complete the sentence with the past-tense form of “shelter”: “Yesterday, the students ___ carefully.”"
+      },
+      {
+        "type": "mc",
+        "q": "Complete the sentence with the past-tense form of “practice”: “Yesterday, the students ___ carefully.”",
+        "choices": [
+          "will practice",
+          "practiced",
+          "practice",
+          "practiceing"
+        ],
+        "answer": "practiced",
+        "explain": "“practiced” is the past-tense form of “practice.”",
+        "audio": "Complete the sentence with the past-tense form of “practice”: “Yesterday, the students ___ carefully.”"
+      },
+      {
+        "type": "mc",
+        "q": "Complete the sentence with the past-tense form of “breathe”: “Yesterday, the students ___ carefully.”",
+        "choices": [
+          "breatheing",
+          "breathe",
+          "will breathe",
+          "breathed"
+        ],
+        "answer": "breathed",
+        "explain": "“breathed” is the past-tense form of “breathe.”",
+        "audio": "Complete the sentence with the past-tense form of “breathe”: “Yesterday, the students ___ carefully.”"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “will attract” is the future-tense form of “attract” Example: Complete the sentence with the future-tense form of… “Tomorrow, the students ___ carefully.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. “will attract” is the future-tense form of “attract.”",
+        "audio": "True or false. “will attract” is the future-tense form of “attract” Example: Complete the sentence with the future-tense form of… “Tomorrow, the students ___ carefully.”"
+      },
+      {
+        "type": "mc",
+        "q": "Complete the sentence with the future-tense form of “pas”: “Tomorrow, the students ___ carefully.”",
+        "choices": [
+          "passed",
+          "will pas",
+          "pas",
+          "pasing"
+        ],
+        "answer": "will pas",
+        "explain": "“will pas” is the future-tense form of “pas.”",
+        "audio": "Complete the sentence with the future-tense form of “pas”: “Tomorrow, the students ___ carefully.”"
+      },
+      {
+        "type": "mc",
+        "q": "Complete the sentence with the future-tense form of “compare”: “Tomorrow, the students ___ carefully.”",
+        "choices": [
+          "will compare",
+          "compareing",
+          "compared",
+          "compare"
+        ],
+        "answer": "will compare",
+        "explain": "“will compare” is the future-tense form of “compare.”",
+        "audio": "Complete the sentence with the future-tense form of “compare”: “Tomorrow, the students ___ carefully.”"
+      },
+      {
+        "type": "mc",
+        "q": "Complete the sentence with the future-tense form of “measure”: “Tomorrow, the students ___ carefully.”",
+        "choices": [
+          "measured",
+          "will measure",
+          "measureing",
+          "measure"
+        ],
+        "answer": "will measure",
+        "explain": "“will measure” is the future-tense form of “measure.”",
+        "audio": "Complete the sentence with the future-tense form of “measure”: “Tomorrow, the students ___ carefully.”"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “flow” is the future-tense form of “flow” Example: Complete the sentence with the future-tense form of “flow”:… “Tomorrow, the students ___ carefully.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “will flow.” “will flow” is the future-tense form of “flow.”",
+        "audio": "True or false. “flow” is the future-tense form of “flow” Example: Complete the sentence with the future-tense form of “flow”:… “Tomorrow, the students ___ carefully.”"
+      }
+    ]
+  },
+  "g2:eng:L6": {
+    "name": "Syllables",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "How many SYLLABLES are in \"PIZZA\"?",
+        "choices": [
+          "2",
+          "Map",
+          "3",
+          "1"
+        ],
+        "answer": "2",
+        "audio": "Clap the beats, then choose the number."
+      },
+      {
+        "type": "mc",
+        "q": "How many SYLLABLES are in \"ROBOT\"?",
+        "choices": [
+          "Map",
+          "2",
+          "3",
+          "1"
+        ],
+        "answer": "2",
+        "audio": "Clap the beats, then choose the number."
+      },
+      {
+        "type": "mc",
+        "q": "How many SYLLABLES are in \"APPLE\"?",
+        "choices": [
+          "3",
+          "1",
+          "Map",
+          "2"
+        ],
+        "answer": "2",
+        "audio": "Clap the beats, then choose the number."
+      },
+      {
+        "type": "mc",
+        "q": "How many SYLLABLES are in \"PENCIL\"?",
+        "choices": [
+          "3",
+          "Map",
+          "1",
+          "2"
+        ],
+        "answer": "2",
+        "audio": "Clap the beats, then choose the number."
+      },
+      {
+        "type": "mc",
+        "q": "How many SYLLABLES are in \"WATER\"?",
+        "choices": [
+          "2",
+          "1",
+          "Map",
+          "3"
+        ],
+        "answer": "2",
+        "audio": "Clap the beats, then choose the number."
+      },
+      {
+        "type": "mc",
+        "q": "How many SYLLABLES are in \"RAINBOW\"?",
+        "choices": [
+          "3",
+          "2",
+          "Map",
+          "1"
+        ],
+        "answer": "2",
+        "audio": "Clap the beats, then choose the number."
+      },
+      {
+        "type": "mc",
+        "q": "How many SYLLABLES are in \"BANANA\"?",
+        "choices": [
+          "2",
+          "4",
+          "Map",
+          "3"
+        ],
+        "answer": "3",
+        "audio": "Clap the beats, then choose the number."
+      },
+      {
+        "type": "mc",
+        "q": "How many SYLLABLES are in \"TOMATO\"?",
+        "choices": [
+          "3",
+          "4",
+          "2",
+          "Map"
+        ],
+        "answer": "3",
+        "audio": "Clap the beats, then choose the number."
+      },
+      {
+        "type": "mc",
+        "q": "How many SYLLABLES are in \"COMPUTER\"?",
+        "choices": [
+          "3",
+          "4",
+          "Map",
+          "2"
+        ],
+        "answer": "3",
+        "audio": "Clap the beats, then choose the number."
+      },
+      {
+        "type": "mc",
+        "q": "How many SYLLABLES are in \"ELEPHANT\"?",
+        "choices": [
+          "3",
+          "Map",
+          "2",
+          "4"
+        ],
+        "answer": "3",
+        "audio": "Clap the beats, then choose the number."
+      },
+      {
+        "type": "mc",
+        "q": "How many SYLLABLES are in \"UMBRELLA\"?",
+        "choices": [
+          "Map",
+          "3",
+          "2",
+          "4"
+        ],
+        "answer": "3",
+        "audio": "Clap the beats, then choose the number."
+      },
+      {
+        "type": "mc",
+        "q": "How many SYLLABLES are in \"CALCULATOR\"?",
+        "choices": [
+          "4",
+          "Map",
+          "3",
+          "5"
+        ],
+        "answer": "4",
+        "audio": "Clap the beats, then choose the number."
+      },
+      {
+        "type": "mc",
+        "q": "How many SYLLABLES are in \"CELEBRATION\"?",
+        "choices": [
+          "4",
+          "Map",
+          "3",
+          "5"
+        ],
+        "answer": "4",
+        "audio": "Clap the beats, then choose the number."
+      },
+      {
+        "type": "mc",
+        "q": "How many SYLLABLES are in \"BUTTERFLY\"?",
+        "choices": [
+          "4",
+          "3",
+          "Map",
+          "2"
+        ],
+        "answer": "3",
+        "audio": "Clap the beats, then choose the number."
+      },
+      {
+        "type": "mc",
+        "q": "How many SYLLABLES are in \"CHOCOLATE\"?",
+        "choices": [
+          "3",
+          "2",
+          "4",
+          "Map"
+        ],
+        "answer": "3",
+        "audio": "Clap the beats, then choose the number."
+      },
+      {
+        "type": "mc",
+        "q": "How many spoken syllables are in “sunset”?",
+        "choices": [
+          "1",
+          "4",
+          "3",
+          "2"
+        ],
+        "answer": "2",
+        "explain": "Clapping the spoken parts in “sunset” gives 2 syllables.",
+        "audio": "How many spoken syllables are in “sunset”?"
+      },
+      {
+        "type": "mc",
+        "q": "How many spoken syllables are in “robot”?",
+        "choices": [
+          "3",
+          "4",
+          "1",
+          "2"
+        ],
+        "answer": "2",
+        "explain": "Clapping the spoken parts in “robot” gives 2 syllables.",
+        "audio": "How many spoken syllables are in “robot”?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Clapping the spoken parts in “picnic” gives 2 syllables Example: How many spoken syllables are in “picnic.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Clapping the spoken parts in “picnic” gives 2 syllables.",
+        "audio": "True or false. Clapping the spoken parts in “picnic” gives 2 syllables Example: How many spoken syllables are in “picnic.”"
+      },
+      {
+        "type": "mc",
+        "q": "How many spoken syllables are in “basket”?",
+        "choices": [
+          "4",
+          "3",
+          "1",
+          "2"
+        ],
+        "answer": "2",
+        "explain": "Clapping the spoken parts in “basket” gives 2 syllables.",
+        "audio": "How many spoken syllables are in “basket”?"
+      },
+      {
+        "type": "mc",
+        "q": "How many spoken syllables are in “music”?",
+        "choices": [
+          "4",
+          "2",
+          "3",
+          "1"
+        ],
+        "answer": "2",
+        "explain": "Clapping the spoken parts in “music” gives 2 syllables.",
+        "audio": "How many spoken syllables are in “music”?"
+      },
+      {
+        "type": "mc",
+        "q": "How many spoken syllables are in “volcano”?",
+        "choices": [
+          "3",
+          "5",
+          "4",
+          "2"
+        ],
+        "answer": "3",
+        "explain": "Clapping the spoken parts in “volcano” gives 3 syllables.",
+        "audio": "How many spoken syllables are in “volcano”?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Clapping the spoken parts in “animal” gives 2 syllables Example: How many spoken syllables are in “animal.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “3.” Clapping the spoken parts in “animal” gives 3 syllables.",
+        "audio": "True or false. Clapping the spoken parts in “animal” gives 2 syllables Example: How many spoken syllables are in “animal.”"
+      },
+      {
+        "type": "mc",
+        "q": "How many spoken syllables are in “computer”?",
+        "choices": [
+          "3",
+          "4",
+          "2",
+          "5"
+        ],
+        "answer": "3",
+        "explain": "Clapping the spoken parts in “computer” gives 3 syllables.",
+        "audio": "How many spoken syllables are in “computer”?"
+      },
+      {
+        "type": "mc",
+        "q": "How many spoken syllables are in “tomorrow”?",
+        "choices": [
+          "4",
+          "2",
+          "3",
+          "5"
+        ],
+        "answer": "3",
+        "explain": "Clapping the spoken parts in “tomorrow” gives 3 syllables.",
+        "audio": "How many spoken syllables are in “tomorrow”?"
+      },
+      {
+        "type": "mc",
+        "q": "How many spoken syllables are in “butterfly”?",
+        "choices": [
+          "5",
+          "4",
+          "2",
+          "3"
+        ],
+        "answer": "3",
+        "explain": "Clapping the spoken parts in “butterfly” gives 3 syllables.",
+        "audio": "How many spoken syllables are in “butterfly”?"
+      }
+    ]
+  },
+  "g2:eng:L7": {
+    "name": "Fill in the Blank",
+    "questions": [
+      {
+        "type": "fill",
+        "q": "The dog ___ fast.",
+        "answer": "runs",
+        "placeholder": "Fill in the blank",
+        "audio": "The dog ___ fast."
+      },
+      {
+        "type": "fill",
+        "q": "I like to ___ books.",
+        "answer": "read",
+        "placeholder": "Fill in the blank",
+        "audio": "I like to ___ books."
+      },
+      {
+        "type": "fill",
+        "q": "The sun is very ___.",
+        "answer": "bright",
+        "placeholder": "Fill in the blank",
+        "audio": "The sun is very ___."
+      },
+      {
+        "type": "fill",
+        "q": "A cat says ___.",
+        "answer": "meow",
+        "placeholder": "Fill in the blank",
+        "audio": "A cat says ___."
+      },
+      {
+        "type": "fill",
+        "q": "The bird can ___.",
+        "answer": "fly",
+        "placeholder": "Fill in the blank",
+        "audio": "The bird can ___."
+      },
+      {
+        "type": "fill",
+        "q": "A noun can name a ___.",
+        "answer": "thing",
+        "placeholder": "Fill in the blank",
+        "audio": "A noun can name a ___."
+      },
+      {
+        "type": "fill",
+        "q": "A verb can show an ___.",
+        "answer": "action",
+        "placeholder": "Fill in the blank",
+        "audio": "A verb can show an ___."
+      },
+      {
+        "type": "fill",
+        "q": "The opposite of cold is ___.",
+        "answer": "hot",
+        "placeholder": "Fill in the blank",
+        "audio": "The opposite of cold is ___."
+      },
+      {
+        "type": "fill",
+        "q": "A sentence ends with punctuation like a ___.",
+        "answer": "period",
+        "placeholder": "Fill in the blank",
+        "audio": "A sentence ends with punctuation like a ___."
+      },
+      {
+        "type": "fill",
+        "q": "The word happy describes a ___.",
+        "answer": "feeling",
+        "placeholder": "Fill in the blank",
+        "audio": "The word happy describes a ___."
+      },
+      {
+        "type": "mc",
+        "q": "Nora was careful, checking every measurement twice. What does “careful” mean in this sentence?",
+        "choices": [
+          "the opposite of the context clue",
+          "a person or place named in the sentence",
+          "taking time to avoid mistakes",
+          "an action unrelated to the sentence"
+        ],
+        "answer": "taking time to avoid mistakes",
+        "explain": "The context supports the meaning “taking time to avoid mistakes.”",
+        "audio": "Nora was careful, checking every measurement twice. What does “careful” mean in this sentence?"
+      },
+      {
+        "type": "mc",
+        "q": "The fragile glass was wrapped in thick paper before moving. What does “fragile” mean in this sentence?",
+        "choices": [
+          "a person or place named in the sentence",
+          "the opposite of the context clue",
+          "easy to break",
+          "an action unrelated to the sentence"
+        ],
+        "answer": "easy to break",
+        "explain": "The context supports the meaning “easy to break.”",
+        "audio": "The fragile glass was wrapped in thick paper before moving. What does “fragile” mean in this sentence?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The context supports the meaning “very large” Example: The enormous whale was longer than the small boat.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The context supports the meaning “very large.”",
+        "audio": "True or false. The context supports the meaning “very large” Example: The enormous whale was longer than the small boat."
+      },
+      {
+        "type": "mc",
+        "q": "Scientists observe the nest without touching it. What does “observe” mean in this sentence?",
+        "choices": [
+          "watch closely",
+          "the opposite of the context clue",
+          "a person or place named in the sentence",
+          "an action unrelated to the sentence"
+        ],
+        "answer": "watch closely",
+        "explain": "The context supports the meaning “watch closely.”",
+        "audio": "Scientists observe the nest without touching it. What does “observe” mean in this sentence?"
+      },
+      {
+        "type": "mc",
+        "q": "The swift rabbit crossed the field in seconds. What does “swift” mean in this sentence?",
+        "choices": [
+          "moving quickly",
+          "an action unrelated to the sentence",
+          "the opposite of the context clue",
+          "a person or place named in the sentence"
+        ],
+        "answer": "moving quickly",
+        "explain": "The context supports the meaning “moving quickly.”",
+        "audio": "The swift rabbit crossed the field in seconds. What does “swift” mean in this sentence?"
+      },
+      {
+        "type": "mc",
+        "q": "After months without rain, clean pond water became scarce. What does “scarce” mean in this sentence?",
+        "choices": [
+          "hard to find or limited",
+          "the opposite of the context clue",
+          "a person or place named in the sentence",
+          "an action unrelated to the sentence"
+        ],
+        "answer": "hard to find or limited",
+        "explain": "The context supports the meaning “hard to find or limited.”",
+        "audio": "After months without rain, clean pond water became scarce. What does “scarce” mean in this sentence?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The context supports the meaning “the opposite of the context clue” Example: After the long trip, Leo felt drowsy and yawned.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “ready to sleep.” The context supports the meaning “ready to sleep.”",
+        "audio": "True or false. The context supports the meaning “the opposite of the context clue” Example: After the long trip, Leo felt drowsy and yawned."
+      },
+      {
+        "type": "mc",
+        "q": "The sturdy bridge held every test weight. What does “sturdy” mean in this sentence?",
+        "choices": [
+          "the opposite of the context clue",
+          "a person or place named in the sentence",
+          "an action unrelated to the sentence",
+          "strong and not easily damaged"
+        ],
+        "answer": "strong and not easily damaged",
+        "explain": "The context supports the meaning “strong and not easily damaged.”",
+        "audio": "The sturdy bridge held every test weight. What does “sturdy” mean in this sentence?"
+      },
+      {
+        "type": "mc",
+        "q": "The puddles will vanish when sunlight dries the water. What does “vanish” mean in this sentence?",
+        "choices": [
+          "an action unrelated to the sentence",
+          "a person or place named in the sentence",
+          "the opposite of the context clue",
+          "disappear"
+        ],
+        "answer": "disappear",
+        "explain": "The context supports the meaning “disappear.”",
+        "audio": "The puddles will vanish when sunlight dries the water. What does “vanish” mean in this sentence?"
+      },
+      {
+        "type": "mc",
+        "q": "We were fortunate that the storm ended before the trip. What does “fortunate” mean in this sentence?",
+        "choices": [
+          "having good luck",
+          "an action unrelated to the sentence",
+          "the opposite of the context clue",
+          "a person or place named in the sentence"
+        ],
+        "answer": "having good luck",
+        "explain": "The context supports the meaning “having good luck.”",
+        "audio": "We were fortunate that the storm ended before the trip. What does “fortunate” mean in this sentence?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The context supports the meaning “not willing or eager” Example: Mia was reluctant to step onto the wobbly board and stayed back.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The context supports the meaning “not willing or eager.”",
+        "audio": "True or false. The context supports the meaning “not willing or eager” Example: Mia was reluctant to step onto the wobbly board and stayed back."
+      },
+      {
+        "type": "mc",
+        "q": "Water is essential; the plant cannot survive without it. What does “essential” mean in this sentence?",
+        "choices": [
+          "completely necessary",
+          "the opposite of the context clue",
+          "a person or place named in the sentence",
+          "an action unrelated to the sentence"
+        ],
+        "answer": "completely necessary",
+        "explain": "The context supports the meaning “completely necessary.”",
+        "audio": "Water is essential; the plant cannot survive without it. What does “essential” mean in this sentence?"
+      },
+      {
+        "type": "mc",
+        "q": "The engineer will inspect every joint for cracks. What does “inspect” mean in this sentence?",
+        "choices": [
+          "a person or place named in the sentence",
+          "an action unrelated to the sentence",
+          "examine carefully",
+          "the opposite of the context clue"
+        ],
+        "answer": "examine carefully",
+        "explain": "The context supports the meaning “examine carefully.”",
+        "audio": "The engineer will inspect every joint for cracks. What does “inspect” mean in this sentence?"
+      },
+      {
+        "type": "mc",
+        "q": "After the rainy month, wildflowers were abundant across the field. What does “abundant” mean in this sentence?",
+        "choices": [
+          "available in large amounts",
+          "an action unrelated to the sentence",
+          "the opposite of the context clue",
+          "a person or place named in the sentence"
+        ],
+        "answer": "available in large amounts",
+        "explain": "The context supports the meaning “available in large amounts.”",
+        "audio": "After the rainy month, wildflowers were abundant across the field. What does “abundant” mean in this sentence?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The context supports the meaning “the opposite of the context clue” Example: Use the pattern to predict what will happen next.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “say what is likely to happen.” The context supports the meaning “say what is likely to happen.”",
+        "audio": "True or false. The context supports the meaning “the opposite of the context clue” Example: Use the pattern to predict what will happen next."
+      }
+    ]
+  },
+  "g2:eng:L8": {
+    "name": "Sentence Editing",
+    "questions": [
+      {
+        "type": "edit",
+        "q": "Fix this sentence:\napples grow on trees",
+        "answer": "Apples grow on trees.",
+        "placeholder": "Type the corrected sentence",
+        "audio": "Fix the sentence."
+      },
+      {
+        "type": "edit",
+        "q": "Fix this sentence:\npeople can go home",
+        "answer": "People can go home.",
+        "placeholder": "Type the corrected sentence",
+        "audio": "Fix the sentence."
+      },
+      {
+        "type": "edit",
+        "q": "Fix this sentence:\ndogs can be fun",
+        "answer": "Dogs can be fun.",
+        "placeholder": "Type the corrected sentence",
+        "audio": "Fix the sentence."
+      },
+      {
+        "type": "edit",
+        "q": "Fix this sentence:\nchildren can jump",
+        "answer": "Children can jump.",
+        "placeholder": "Type the corrected sentence",
+        "audio": "Fix the sentence."
+      },
+      {
+        "type": "edit",
+        "q": "Fix this sentence:\nbooks have pages",
+        "answer": "Books have pages.",
+        "placeholder": "Type the corrected sentence",
+        "audio": "Fix the sentence."
+      },
+      {
+        "type": "edit",
+        "q": "Fix this sentence:\na question mark ends a question",
+        "answer": "A question mark ends a question.",
+        "placeholder": "Type the corrected sentence",
+        "audio": "Fix the sentence."
+      },
+      {
+        "type": "edit",
+        "q": "Fix this sentence:\na capital letter starts a sentence",
+        "answer": "A capital letter starts a sentence.",
+        "placeholder": "Type the corrected sentence",
+        "audio": "Fix the sentence."
+      },
+      {
+        "type": "edit",
+        "q": "Fix this sentence:\nadjectives describe nouns",
+        "answer": "Adjectives describe nouns.",
+        "placeholder": "Type the corrected sentence",
+        "audio": "Fix the sentence."
+      },
+      {
+        "type": "edit",
+        "q": "Fix this sentence:\nverbs can show action",
+        "answer": "Verbs can show action.",
+        "placeholder": "Type the corrected sentence",
+        "audio": "Fix the sentence."
+      },
+      {
+        "type": "edit",
+        "q": "Fix this sentence:\nreaders use clues",
+        "answer": "Readers use clues.",
+        "placeholder": "Type the corrected sentence",
+        "audio": "Fix the sentence."
+      },
+      {
+        "type": "mc",
+        "q": "Which revision uses capitals, commas, and end punctuation correctly?",
+        "choices": [
+          "On July 1, we packed pencils notebooks and rulers",
+          "On July 1 we packed, pencils, notebooks and rulers?",
+          "on july 1 we packed pencils notebooks rulers",
+          "On July 1, we packed pencils, notebooks, and rulers."
+        ],
+        "answer": "On July 1, we packed pencils, notebooks, and rulers.",
+        "explain": "The correct sentence capitalizes the date, places commas in the series, and ends with a period.",
+        "audio": "Which revision uses capitals, commas, and end punctuation correctly?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: On July 3, we packed pencils, notebooks, and rulers Example: Which revision uses capitals, commas, and end punctuation correctly.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The correct sentence capitalizes the date, places commas in the series, and ends with a period.",
+        "audio": "True or false. On July 3, we packed pencils, notebooks, and rulers Example: Which revision uses capitals, commas, and end punctuation correctly."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “on july 7 we packed pencils notebooks rulers” is the correct response Example: Which revision uses capitals, commas, and end punctuation correctly.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “On July 7, we packed pencils, notebooks, and rulers.” The correct sentence capitalizes the date, places commas in the series, and ends with a period.",
+        "audio": "True or false. “on july 7 we packed pencils notebooks rulers” is the correct response Example: Which revision uses capitals, commas, and end punctuation correctly."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: On July 11, we packed pencils, notebooks, and rulers Example: Which revision uses capitals, commas, and end punctuation correctly.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The correct sentence capitalizes the date, places commas in the series, and ends with a period.",
+        "audio": "True or false. On July 11, we packed pencils, notebooks, and rulers Example: Which revision uses capitals, commas, and end punctuation correctly."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “on july 15 we packed pencils notebooks rulers” is the correct response Example: Which revision uses capitals, commas, and end punctuation correctly.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “On July 15, we packed pencils, notebooks, and rulers.” The correct sentence capitalizes the date, places commas in the series, and ends with a period.",
+        "audio": "True or false. “on july 15 we packed pencils notebooks rulers” is the correct response Example: Which revision uses capitals, commas, and end punctuation correctly."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: On July 19, we packed pencils, notebooks, and rulers Example: Which revision uses capitals, commas, and end punctuation correctly.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The correct sentence capitalizes the date, places commas in the series, and ends with a period.",
+        "audio": "True or false. On July 19, we packed pencils, notebooks, and rulers Example: Which revision uses capitals, commas, and end punctuation correctly."
+      },
+      {
+        "type": "mc",
+        "q": "Which response correctly answers “Which revision uses capitals, commas, and end punctuation correctly” and supports its conclusion with all relevant evidence?",
+        "choices": [
+          "Conclusion: On July 16, we packed pencils, notebooks, and rulers. Evidence: an unrelated detail supports every possible conclusion.",
+          "Conclusion: on july 16 we packed pencils notebooks rulers. Evidence is unnecessary once a choice has been made.",
+          "Conclusion: On July 16, we packed pencils notebooks and rulers. Evidence: the conditions in the original task can be ignored.",
+          "Conclusion: On July 16, we packed pencils, notebooks, and rulers. Evidence and reasoning: The correct sentence capitalizes the date, places commas in the series, and ends with a period."
+        ],
+        "answer": "Conclusion: On July 16, we packed pencils, notebooks, and rulers. Evidence and reasoning: The correct sentence capitalizes the date, places commas in the series, and ends with a period.",
+        "explain": "A mastery response must be accurate and supported by the words in the text, its structure, or the relevant language convention. The correct sentence capitalizes the date, places commas in the series, and ends with a period.",
+        "audio": "Which response correctly answers “Which revision uses capitals, commas, and end punctuation correctly” and supports its conclusion with all relevant evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "A student answered “On July 17, we packed pencils notebooks and rulers” to “Which revision uses capitals, commas, and end punctuation correctly.” Which feedback identifies the error and gives a supported correction?",
+        "choices": [
+          "Replace it with “On July 17 we packed, pencils, notebooks and rulers” without using the words in the text, its structure, or the relevant language convention.",
+          "Keep “On July 17, we packed pencils notebooks and rulers” because the task's conditions do not need to be checked.",
+          "Accept every response because evidence cannot distinguish a correct conclusion from an error.",
+          "Replace “On July 17, we packed pencils notebooks and rulers” with “On July 17, we packed pencils, notebooks, and rulers”; The correct sentence capitalizes the date, places commas in the series, and ends with a period."
+        ],
+        "answer": "Replace “On July 17, we packed pencils notebooks and rulers” with “On July 17, we packed pencils, notebooks, and rulers”; The correct sentence capitalizes the date, places commas in the series, and ends with a period.",
+        "explain": "The first response does not satisfy the task. The correction is On July 17, we packed pencils, notebooks, and rulers, supported by the words in the text, its structure, or the relevant language convention. The correct sentence capitalizes the date, places commas in the series, and ends with a period.",
+        "audio": "A student answered “On July 17, we packed pencils notebooks and rulers” to “Which revision uses capitals, commas, and end punctuation correctly.” Which feedback identifies the error and gives a supported correction?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The evidence supports “On July 18, we packed pencils, notebooks, and rulers” rather than “On July 18 we packed, pencils, notebooks and rulers.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Student A's conclusion is the one supported by the task. The correct sentence capitalizes the date, places commas in the series, and ends with a period.",
+        "audio": "True or false. The evidence supports “On July 18, we packed pencils, notebooks, and rulers” rather than “On July 18 we packed, pencils, notebooks and rulers.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which response answers “Which revision uses capitals, commas, and end punctuation correctly,” gives relevant evidence, and rejects “on july 19 we packed pencils notebooks rulers”?",
+        "choices": [
+          "Choose “On July 19, we packed pencils, notebooks, and rulers,” but use an unrelated fact as the only support and do not evaluate alternatives.",
+          "Choose “on july 19 we packed pencils notebooks rulers”; a conclusion does not need evidence or error analysis.",
+          "Choose “On July 19, we packed pencils, notebooks, and rulers”; support it with The correct sentence capitalizes the date, places commas in the series, and ends with a period. Reject “on july 19 we packed pencils notebooks rulers” because it does not satisfy the evidence or conditions.",
+          "Choose “On July 19, we packed pencils notebooks and rulers” because repeating a competing response counts as correcting it."
+        ],
+        "answer": "Choose “On July 19, we packed pencils, notebooks, and rulers”; support it with The correct sentence capitalizes the date, places commas in the series, and ends with a period. Reject “on july 19 we packed pencils notebooks rulers” because it does not satisfy the evidence or conditions.",
+        "explain": "The complete evaluation gives On July 19, we packed pencils, notebooks, and rulers, supports it with the words in the text, its structure, or the relevant language convention, and explains why on july 19 we packed pencils notebooks rulers fails. The correct sentence capitalizes the date, places commas in the series, and ends with a period.",
+        "audio": "Which response answers “Which revision uses capitals, commas, and end punctuation correctly,” gives relevant evidence, and rejects “on july 19 we packed pencils notebooks rulers”?"
+      },
+      {
+        "type": "mc",
+        "q": "Which response answers “Which revision uses capitals, commas, and end punctuation correctly,” justifies its conclusion, and corrects “On July 20, we packed pencils notebooks and rulers”?",
+        "choices": [
+          "Conclusion: On July 20, we packed pencils, notebooks, and rulers. Justification: The correct sentence capitalizes the date, places commas in the series, and ends with a period. Error correction: “On July 20, we packed pencils notebooks and rulers” is not supported by the task.",
+          "Conclusion: On July 20, we packed pencils notebooks and rulers. Justification: evidence is optional. Error correction: preserve the original error.",
+          "Conclusion: On July 20 we packed, pencils, notebooks and rulers. Justification: repeat the choice without analyzing the task. Error correction: none.",
+          "Conclusion: On July 20, we packed pencils, notebooks, and rulers. Justification: the words in the text, its structure, or the relevant language convention supports every conflicting response equally."
+        ],
+        "answer": "Conclusion: On July 20, we packed pencils, notebooks, and rulers. Justification: The correct sentence capitalizes the date, places commas in the series, and ends with a period. Error correction: “On July 20, we packed pencils notebooks and rulers” is not supported by the task.",
+        "explain": "Synthesis combines a correct conclusion, relevant justification, and explicit correction of an unsupported response. The correct sentence capitalizes the date, places commas in the series, and ends with a period.",
+        "audio": "Which response answers “Which revision uses capitals, commas, and end punctuation correctly,” justifies its conclusion, and corrects “On July 20, we packed pencils notebooks and rulers”?"
+      },
+      {
+        "type": "mc",
+        "q": "Which sentence correctly edits \"my dog is brown\"?",
+        "choices": [
+          "My dog is brown.",
+          "my dog is brown"
+        ],
+        "answer": "My dog is brown."
+      },
+      {
+        "type": "mc",
+        "q": "Which sentence correctly edits \"we went to texas\"?",
+        "choices": [
+          "We went to Texas.",
+          "we went to texas"
+        ],
+        "answer": "We went to Texas."
+      },
+      {
+        "type": "mc",
+        "q": "Which sentence correctly edits \"can you help me\"?",
+        "choices": [
+          "Can you help me?",
+          "can you help me"
+        ],
+        "answer": "Can you help me?"
+      },
+      {
+        "type": "mc",
+        "q": "Which sentence correctly edits \"wow that is amazing\"?",
+        "choices": [
+          "Wow! That is amazing.",
+          "wow that is amazing",
+          "Wow! That is amazing"
+        ],
+        "answer": "Wow! That is amazing."
+      }
+    ]
+  },
+  "g2:eng:L9": {
+    "name": "Memory Match",
+    "questions": [
+      {
+        "type": "drag",
+        "q": "Drag each word to the correct answer.",
+        "pairs": [
+          {
+            "left": "Noun",
+            "right": "Person/place/thing"
+          },
+          {
+            "left": "Verb",
+            "right": "Action word"
+          },
+          {
+            "left": "Adjective",
+            "right": "Describing word"
+          }
+        ],
+        "audio": "Drag the pairs to match them."
+      },
+      {
+        "type": "mc",
+        "q": "Which word is a plural common noun?",
+        "choices": [
+          "hops",
+          "rabbits",
+          "Monday",
+          "rabbit"
+        ],
+        "answer": "rabbits",
+        "explain": "“rabbits” is a plural common noun.",
+        "audio": "Which word is a plural common noun?"
+      },
+      {
+        "type": "mc",
+        "q": "Which word is a proper noun?",
+        "choices": [
+          "Ava",
+          "puppies",
+          "river",
+          "chase"
+        ],
+        "answer": "Ava",
+        "explain": "“Ava” is a proper noun.",
+        "audio": "Which word is a proper noun?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “partners” is a plural common noun Example: Which word is a plural common noun.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. “partners” is a plural common noun.",
+        "audio": "True or false. “partners” is a plural common noun Example: Which word is a plural common noun."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Ava” is a plural common noun Example: Which word is a plural common noun.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “classes.” “classes” is a plural common noun.",
+        "audio": "True or false. “Ava” is a plural common noun Example: Which word is a plural common noun."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “magnets” is a plural common noun Example: Which word is a plural common noun.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. “magnets” is a plural common noun.",
+        "audio": "True or false. “magnets” is a plural common noun Example: Which word is a plural common noun."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “Texas” is a plural common noun Example: Which word is a plural common noun.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “creeks.” “creeks” is a plural common noun.",
+        "audio": "True or false. “Texas” is a plural common noun Example: Which word is a plural common noun."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “geese” is a plural common noun Example: Which word is a plural common noun.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. “geese” is a plural common noun.",
+        "audio": "True or false. “geese” is a plural common noun Example: Which word is a plural common noun."
+      },
+      {
+        "type": "mc",
+        "q": "Which response correctly answers “Which word is a proper noun” and supports its conclusion with all relevant evidence?",
+        "choices": [
+          "Conclusion: Monday. Evidence and reasoning: “Monday” is a proper noun.",
+          "Conclusion: Monday. Evidence: an unrelated detail supports every possible conclusion.",
+          "Conclusion: river. Evidence: the conditions in the original task can be ignored.",
+          "Conclusion: inventors. Evidence is unnecessary once a choice has been made."
+        ],
+        "answer": "Conclusion: Monday. Evidence and reasoning: “Monday” is a proper noun.",
+        "explain": "A mastery response must be accurate and supported by the words in the text, its structure, or the relevant language convention. “Monday” is a proper noun.",
+        "audio": "Which response correctly answers “Which word is a proper noun” and supports its conclusion with all relevant evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "A student answered “tortoise” to “Which word is a plural common noun.” Which feedback identifies the error and gives a supported correction?",
+        "choices": [
+          "Replace it with “stores” without using the words in the text, its structure, or the relevant language convention.",
+          "Replace “tortoise” with “tortoises”; “tortoises” is a plural common noun.",
+          "Accept every response because evidence cannot distinguish a correct conclusion from an error.",
+          "Keep “tortoise” because the task's conditions do not need to be checked."
+        ],
+        "answer": "Replace “tortoise” with “tortoises”; “tortoises” is a plural common noun.",
+        "explain": "The first response does not satisfy the task. The correction is tortoises, supported by the words in the text, its structure, or the relevant language convention. “tortoises” is a plural common noun.",
+        "audio": "A student answered “tortoise” to “Which word is a plural common noun.” Which feedback identifies the error and gives a supported correction?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The evidence supports “Houston” rather than “helps.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Student A's conclusion is the one supported by the task. “Houston” is a proper noun.",
+        "audio": "True or false. The evidence supports “Houston” rather than “helps.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which response answers “Which word is a plural common noun,” gives relevant evidence, and rejects “July”?",
+        "choices": [
+          "Choose “geese,” but use an unrelated fact as the only support and do not evaluate alternatives.",
+          "Choose “river” because repeating a competing response counts as correcting it.",
+          "Choose “July”; a conclusion does not need evidence or error analysis.",
+          "Choose “geese”; support it with “geese” is a plural common noun. Reject “July” because it does not satisfy the evidence or conditions."
+        ],
+        "answer": "Choose “geese”; support it with “geese” is a plural common noun. Reject “July” because it does not satisfy the evidence or conditions.",
+        "explain": "The complete evaluation gives geese, supports it with the words in the text, its structure, or the relevant language convention, and explains why July fails. “geese” is a plural common noun.",
+        "audio": "Which response answers “Which word is a plural common noun,” gives relevant evidence, and rejects “July”?"
+      },
+      {
+        "type": "mc",
+        "q": "Which response answers “Which word is a proper noun,” justifies its conclusion, and corrects “author”?",
+        "choices": [
+          "Conclusion: author. Justification: evidence is optional. Error correction: preserve the original error.",
+          "Conclusion: revises. Justification: repeat the choice without analyzing the task. Error correction: none.",
+          "Conclusion: Texas. Justification: “Texas” is a proper noun. Error correction: “author” is not supported by the task.",
+          "Conclusion: Texas. Justification: the words in the text, its structure, or the relevant language convention supports every conflicting response equally."
+        ],
+        "answer": "Conclusion: Texas. Justification: “Texas” is a proper noun. Error correction: “author” is not supported by the task.",
+        "explain": "Synthesis combines a correct conclusion, relevant justification, and explicit correction of an unsupported response. “Texas” is a proper noun.",
+        "audio": "Which response answers “Which word is a proper noun,” justifies its conclusion, and corrects “author”?"
+      },
+      {
+        "type": "mc",
+        "q": "In \"The puppy barks.\", which word is a noun?",
+        "choices": [
+          "puppy",
+          "The",
+          "barks",
+          "quickly"
+        ],
+        "answer": "puppy"
+      },
+      {
+        "type": "mc",
+        "q": "In \"The puppy barks.\", which word is a verb?",
+        "choices": [
+          "barks",
+          "The",
+          "puppy",
+          "quickly"
+        ],
+        "answer": "barks"
+      },
+      {
+        "type": "mc",
+        "q": "In \"Rain falls.\", which word is a noun?",
+        "choices": [
+          "Rain",
+          "falls",
+          "quickly"
+        ],
+        "answer": "Rain"
+      },
+      {
+        "type": "mc",
+        "q": "In \"Rain falls.\", which word is a verb?",
+        "choices": [
+          "falls",
+          "Rain",
+          "quickly"
+        ],
+        "answer": "falls"
+      },
+      {
+        "type": "mc",
+        "q": "In \"Carlos reads books.\", which word is a noun?",
+        "choices": [
+          "Carlos",
+          "reads",
+          "books",
+          "quickly"
+        ],
+        "answer": "Carlos"
+      },
+      {
+        "type": "mc",
+        "q": "In \"Carlos reads books.\", which word is a verb?",
+        "choices": [
+          "reads",
+          "Carlos",
+          "books",
+          "quickly"
+        ],
+        "answer": "reads"
+      },
+      {
+        "type": "mc",
+        "q": "In \"Birds build nests.\", which word is a noun?",
+        "choices": [
+          "Birds",
+          "build",
+          "nests",
+          "quickly"
+        ],
+        "answer": "Birds"
+      },
+      {
+        "type": "mc",
+        "q": "In \"Birds build nests.\", which word is a verb?",
+        "choices": [
+          "build",
+          "Birds",
+          "nests",
+          "quickly"
+        ],
+        "answer": "build"
+      },
+      {
+        "type": "mc",
+        "q": "In \"The teacher smiles.\", which word is a noun?",
+        "choices": [
+          "teacher",
+          "The",
+          "smiles",
+          "quickly"
+        ],
+        "answer": "teacher"
+      },
+      {
+        "type": "mc",
+        "q": "In \"The teacher smiles.\", which word is a verb?",
+        "choices": [
+          "smiles",
+          "The",
+          "teacher",
+          "quickly"
+        ],
+        "answer": "smiles"
+      },
+      {
+        "type": "mc",
+        "q": "In \"Waves crash.\", which word is a noun?",
+        "choices": [
+          "Waves",
+          "crash",
+          "quickly"
+        ],
+        "answer": "Waves"
+      },
+      {
+        "type": "mc",
+        "q": "In \"Waves crash.\", which word is a verb?",
+        "choices": [
+          "crash",
+          "Waves",
+          "quickly"
+        ],
+        "answer": "crash"
+      }
+    ]
+  },
+  "g2:eng:L10": {
+    "name": "Speed Challenge",
+    "questions": [
+      {
+        "type": "speed",
+        "q": "Which word is a noun?",
+        "choices": [
+          "Dog",
+          "Run",
+          "Fast",
+          "Adverb"
+        ],
+        "answer": "Dog",
+        "seconds": 10,
+        "audio": "Which word is a noun?"
+      },
+      {
+        "type": "speed",
+        "q": "Which word is a verb?",
+        "choices": [
+          "Blue",
+          "Jump",
+          "Adverb",
+          "House"
+        ],
+        "answer": "Jump",
+        "seconds": 10,
+        "audio": "Which word is a verb?"
+      },
+      {
+        "type": "speed",
+        "q": "Which word describes?",
+        "choices": [
+          "Big",
+          "Cat",
+          "Eat",
+          "Describes"
+        ],
+        "answer": "Big",
+        "seconds": 10,
+        "audio": "Which word describes?"
+      },
+      {
+        "type": "speed",
+        "q": "Which word is an adjective?",
+        "choices": [
+          "Shine",
+          "Sun",
+          "Adverb",
+          "Bright"
+        ],
+        "answer": "Bright",
+        "seconds": 10,
+        "audio": "Which word is an adjective?"
+      },
+      {
+        "type": "speed",
+        "q": "Which word is a noun",
+        "choices": [
+          "Park",
+          "Adverb",
+          "Play",
+          "Green"
+        ],
+        "answer": "Park",
+        "seconds": 10,
+        "audio": "Which word is a noun"
+      },
+      {
+        "type": "speed",
+        "q": "Which word names a thing?",
+        "choices": [
+          "Careful",
+          "Question",
+          "Ask",
+          "Thing"
+        ],
+        "answer": "Question",
+        "seconds": 10,
+        "audio": "Which word names a thing?"
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling correctly completes this sentence? “The writer chose the word ___ after checking a dictionary.”",
+        "choices": [
+          "careful",
+          "cereful",
+          "carefu",
+          "careflu"
+        ],
+        "answer": "careful",
+        "explain": "“careful” follows the correct spelling pattern.",
+        "audio": "Which spelling correctly completes this sentence? “The writer chose the word ___ after checking a dictionary.”"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “enormous” follows the correct spelling pattern Example: Which spelling correctly completes this sentence? “The… the word ___ after checking a dictionary.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. “enormous” follows the correct spelling pattern.",
+        "audio": "True or false. “enormous” follows the correct spelling pattern Example: Which spelling correctly completes this sentence? “The… the word ___ after checking a dictionary.”"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “druwsy” follows the correct spelling pattern Example: Which spelling correctly completes this sentence? “The… the word ___ after checking a dictionary.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “drowsy.” “drowsy” follows the correct spelling pattern.",
+        "audio": "True or false. “druwsy” follows the correct spelling pattern Example: Which spelling correctly completes this sentence? “The… the word ___ after checking a dictionary.”"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “reluctant” follows the correct spelling pattern Example: Which spelling correctly completes this sentence? “The… the word ___ after checking a dictionary.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. “reluctant” follows the correct spelling pattern.",
+        "audio": "True or false. “reluctant” follows the correct spelling pattern Example: Which spelling correctly completes this sentence? “The… the word ___ after checking a dictionary.”"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “pridict” follows the correct spelling pattern Example: Which spelling correctly completes this sentence? “The… the word ___ after checking a dictionary.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “predict.” “predict” follows the correct spelling pattern.",
+        "audio": "True or false. “pridict” follows the correct spelling pattern Example: Which spelling correctly completes this sentence? “The… the word ___ after checking a dictionary.”"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “conclude” follows the correct spelling pattern Example: Which spelling correctly completes this sentence? “The… the word ___ after checking a dictionary.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. “conclude” follows the correct spelling pattern.",
+        "audio": "True or false. “conclude” follows the correct spelling pattern Example: Which spelling correctly completes this sentence? “The… the word ___ after checking a dictionary.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which response correctly answers “Which spelling correctly completes this sentence? “The writer chose the word ___ after checking a dictionary”” and supports its conclusion with all relevant evidence?",
+        "choices": [
+          "Conclusion: conserv. Evidence: the conditions in the original task can be ignored.",
+          "Conclusion: cunserve. Evidence is unnecessary once a choice has been made.",
+          "Conclusion: conserve. Evidence: an unrelated detail supports every possible conclusion.",
+          "Conclusion: conserve. Evidence and reasoning: “conserve” follows the correct spelling pattern."
+        ],
+        "answer": "Conclusion: conserve. Evidence and reasoning: “conserve” follows the correct spelling pattern.",
+        "explain": "A mastery response must be accurate and supported by the words in the text, its structure, or the relevant language convention. “conserve” follows the correct spelling pattern.",
+        "audio": "Which response correctly answers “Which spelling correctly completes this sentence? “The writer chose the word ___ after checking a dictionary”” and supports its conclusion with all relevant evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "A student answered “transparen” to “Which spelling correctly completes this sentence? “The writer chose the word ___ after checking a dictionary”.” Which feedback identifies the error and gives a supported correction?",
+        "choices": [
+          "Accept every response because evidence cannot distinguish a correct conclusion from an error.",
+          "Replace “transparen” with “transparent”; “transparent” follows the correct spelling pattern.",
+          "Keep “transparen” because the task's conditions do not need to be checked.",
+          "Replace it with “transparetn” without using the words in the text, its structure, or the relevant language convention."
+        ],
+        "answer": "Replace “transparen” with “transparent”; “transparent” follows the correct spelling pattern.",
+        "explain": "The first response does not satisfy the task. The correction is transparent, supported by the words in the text, its structure, or the relevant language convention. “transparent” follows the correct spelling pattern.",
+        "audio": "A student answered “transparen” to “Which spelling correctly completes this sentence? “The writer chose the word ___ after checking a dictionary”.” Which feedback identifies the error and gives a supported correction?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The evidence supports “adapt” rather than “adatp.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Student A's conclusion is the one supported by the task. “adapt” follows the correct spelling pattern.",
+        "audio": "True or false. The evidence supports “adapt” rather than “adatp.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which response answers “Which spelling correctly completes this sentence? “The writer chose the word ___ after checking a dictionary”,” gives relevant evidence, and rejects “cunclude”?",
+        "choices": [
+          "Choose “conclude”; support it with “conclude” follows the correct spelling pattern. Reject “cunclude” because it does not satisfy the evidence or conditions.",
+          "Choose “cunclude”; a conclusion does not need evidence or error analysis.",
+          "Choose “conclude,” but use an unrelated fact as the only support and do not evaluate alternatives.",
+          "Choose “conclud” because repeating a competing response counts as correcting it."
+        ],
+        "answer": "Choose “conclude”; support it with “conclude” follows the correct spelling pattern. Reject “cunclude” because it does not satisfy the evidence or conditions.",
+        "explain": "The complete evaluation gives conclude, supports it with the words in the text, its structure, or the relevant language convention, and explains why cunclude fails. “conclude” follows the correct spelling pattern.",
+        "audio": "Which response answers “Which spelling correctly completes this sentence? “The writer chose the word ___ after checking a dictionary”,” gives relevant evidence, and rejects “cunclude”?"
+      },
+      {
+        "type": "mc",
+        "q": "Which response answers “Which spelling correctly completes this sentence? “The writer chose the word ___ after checking a dictionary”,” justifies its conclusion, and corrects “efficien”?",
+        "choices": [
+          "Conclusion: efficient. Justification: the words in the text, its structure, or the relevant language convention supports every conflicting response equally.",
+          "Conclusion: efficietn. Justification: repeat the choice without analyzing the task. Error correction: none.",
+          "Conclusion: efficien. Justification: evidence is optional. Error correction: preserve the original error.",
+          "Conclusion: efficient. Justification: “efficient” follows the correct spelling pattern. Error correction: “efficien” is not supported by the task."
+        ],
+        "answer": "Conclusion: efficient. Justification: “efficient” follows the correct spelling pattern. Error correction: “efficien” is not supported by the task.",
+        "explain": "Synthesis combines a correct conclusion, relevant justification, and explicit correction of an unsupported response. “efficient” follows the correct spelling pattern.",
+        "audio": "Which response answers “Which spelling correctly completes this sentence? “The writer chose the word ___ after checking a dictionary”,” justifies its conclusion, and corrects “efficien”?"
+      },
+      {
+        "type": "mc",
+        "q": "In \"The puppy barks.\", which word is a noun?",
+        "choices": [
+          "puppy",
+          "The",
+          "barks",
+          "quickly"
+        ],
+        "answer": "puppy"
+      },
+      {
+        "type": "mc",
+        "q": "In \"The puppy barks.\", which word is a verb?",
+        "choices": [
+          "barks",
+          "The",
+          "puppy",
+          "quickly"
+        ],
+        "answer": "barks"
+      },
+      {
+        "type": "mc",
+        "q": "In \"Rain falls.\", which word is a noun?",
+        "choices": [
+          "Rain",
+          "falls",
+          "quickly"
+        ],
+        "answer": "Rain"
+      },
+      {
+        "type": "mc",
+        "q": "In \"Rain falls.\", which word is a verb?",
+        "choices": [
+          "falls",
+          "Rain",
+          "quickly"
+        ],
+        "answer": "falls"
+      },
+      {
+        "type": "mc",
+        "q": "In \"Carlos reads books.\", which word is a noun?",
+        "choices": [
+          "Carlos",
+          "reads",
+          "books",
+          "quickly"
+        ],
+        "answer": "Carlos"
+      },
+      {
+        "type": "mc",
+        "q": "In \"Carlos reads books.\", which word is a verb?",
+        "choices": [
+          "reads",
+          "Carlos",
+          "books",
+          "quickly"
+        ],
+        "answer": "reads"
+      },
+      {
+        "type": "mc",
+        "q": "In \"Birds build nests.\", which word is a noun?",
+        "choices": [
+          "Birds",
+          "build",
+          "nests",
+          "quickly"
+        ],
+        "answer": "Birds"
+      },
+      {
+        "type": "mc",
+        "q": "In \"Birds build nests.\", which word is a verb?",
+        "choices": [
+          "build",
+          "Birds",
+          "nests",
+          "quickly"
+        ],
+        "answer": "build"
+      }
+    ]
+  },
+  "g2:eng:L11": {
+    "name": "Grade 2 English L11",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Grade 2 English L11: which is a complete sentence?",
+        "choices": [
+          "0",
+          "reads student",
+          "because the",
+          "The student reads."
+        ],
+        "answer": "The student reads.",
+        "audio": "Choose the complete sentence."
+      },
+      {
+        "type": "input",
+        "q": "Grade 2 English L11: type the missing word: A noun names a person, place, or ____.",
+        "answer": "thing",
+        "audio": "Complete the sentence."
+      },
+      {
+        "type": "drag",
+        "q": "Grade 2 English L11: match each reading word.",
+        "pairs": [
+          {
+            "left": "theme",
+            "right": "big message"
+          },
+          {
+            "left": "evidence",
+            "right": "proof from the text"
+          },
+          {
+            "left": "summary",
+            "right": "short retelling"
+          }
+        ],
+        "audio": "Match the reading vocabulary."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling correctly names a small animal that says meow?",
+        "choices": [
+          "COT",
+          "CAT",
+          "CET",
+          "CIT"
+        ],
+        "answer": "CAT",
+        "explain": "“CAT” is the standard spelling for a small animal that says meow; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling correctly names a farm animal with a curly tail?",
+        "choices": [
+          "PIG",
+          "PEG",
+          "PAG",
+          "PUG"
+        ],
+        "answer": "PIG",
+        "explain": "“PIG” is the standard spelling for a farm animal with a curly tail; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling correctly names the star that lights daytime?",
+        "choices": [
+          "SAN",
+          "SIN",
+          "SUN",
+          "SEN"
+        ],
+        "answer": "SUN",
+        "explain": "“SUN” is the standard spelling for the star that lights daytime; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling correctly names a place to sleep?",
+        "choices": [
+          "BUD",
+          "BID",
+          "BED",
+          "BAD"
+        ],
+        "answer": "BED",
+        "explain": "“BED” is the standard spelling for a place to sleep; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling correctly names a container used for drinking?",
+        "choices": [
+          "COP",
+          "CAP",
+          "CEP",
+          "CUP"
+        ],
+        "answer": "CUP",
+        "explain": "“CUP” is the standard spelling for a container used for drinking; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling follows the word pattern for a small animal that says meow?",
+        "choices": [
+          "CET",
+          "CIT",
+          "COT",
+          "CAT"
+        ],
+        "answer": "CAT",
+        "explain": "“CAT” is the standard spelling for a small animal that says meow; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling follows the word pattern for a farm animal with a curly tail?",
+        "choices": [
+          "PAG",
+          "PUG",
+          "PEG",
+          "PIG"
+        ],
+        "answer": "PIG",
+        "explain": "“PIG” is the standard spelling for a farm animal with a curly tail; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling follows the word pattern for the star that lights daytime?",
+        "choices": [
+          "SAN",
+          "SUN",
+          "SEN",
+          "SIN"
+        ],
+        "answer": "SUN",
+        "explain": "“SUN” is the standard spelling for the star that lights daytime; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling follows the word pattern for a place to sleep?",
+        "choices": [
+          "BUD",
+          "BED",
+          "BAD",
+          "BID"
+        ],
+        "answer": "BED",
+        "explain": "“BED” is the standard spelling for a place to sleep; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "Which spelling follows the word pattern for a container used for drinking?",
+        "choices": [
+          "CUP",
+          "CAP",
+          "COP",
+          "CEP"
+        ],
+        "answer": "CUP",
+        "explain": "“CUP” is the standard spelling for a container used for drinking; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Choose the correctly spelled word."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “CAT” is the correct spelling for a small animal that says meow.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "“CAT” is the standard spelling for a small animal that says meow; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Decide whether the spelling is correct."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “PEG” is the correct spelling for a farm animal with a curly tail.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "“PIG” is the standard spelling for a farm animal with a curly tail; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Decide whether the spelling is correct."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “SUN” is the correct spelling for the star that lights daytime.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "“SUN” is the standard spelling for the star that lights daytime; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Decide whether the spelling is correct."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “BAD” is the correct spelling for a place to sleep.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "“BED” is the standard spelling for a place to sleep; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Decide whether the spelling is correct."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “CUP” is the correct spelling for a container used for drinking.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "“CUP” is the standard spelling for a container used for drinking; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Decide whether the spelling is correct."
+      },
+      {
+        "type": "input",
+        "q": "Without choices, type the correct spelling for: a small animal that says meow.",
+        "answer": "cat",
+        "explain": "“CAT” is the standard spelling for a small animal that says meow; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Spell the word independently."
+      },
+      {
+        "type": "input",
+        "q": "Without choices, type the correct spelling for: a farm animal with a curly tail.",
+        "answer": "pig",
+        "explain": "“PIG” is the standard spelling for a farm animal with a curly tail; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Spell the word independently."
+      },
+      {
+        "type": "input",
+        "q": "Without choices, type the correct spelling for: the star that lights daytime.",
+        "answer": "sun",
+        "explain": "“SUN” is the standard spelling for the star that lights daytime; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Spell the word independently."
+      },
+      {
+        "type": "input",
+        "q": "Without choices, type the correct spelling for: a place to sleep.",
+        "answer": "bed",
+        "explain": "“BED” is the standard spelling for a place to sleep; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Spell the word independently."
+      },
+      {
+        "type": "input",
+        "q": "Without choices, type the correct spelling for: a container used for drinking.",
+        "answer": "cup",
+        "explain": "“CUP” is the standard spelling for a container used for drinking; the other forms misuse the sound-spelling or affix pattern.",
+        "audio": "Spell the word independently."
+      },
+      {
+        "type": "input",
+        "q": "A draft uses “CET” for a small animal that says meow. What is the correct spelling?",
+        "answer": "cat",
+        "explain": "“CAT” is the standard spelling for a small animal that says meow; the other forms misuse the sound-spelling or affix pattern. The mastery check requires correcting the authentic error and confirming that the corrected word fits the meaning.",
+        "audio": "Correct the spelling and verify the meaning."
+      },
+      {
+        "type": "input",
+        "q": "A draft uses “PEG” for a farm animal with a curly tail. What is the correct spelling?",
+        "answer": "pig",
+        "explain": "“PIG” is the standard spelling for a farm animal with a curly tail; the other forms misuse the sound-spelling or affix pattern. The mastery check requires correcting the authentic error and confirming that the corrected word fits the meaning.",
+        "audio": "Correct the spelling and verify the meaning."
+      }
+    ]
+  },
+  "g2:eng:L12": {
+    "name": "Grade 2 English L12",
+    "questions": [
+      {
+        "type": "input",
+        "q": "Grade 2 English L12: type the missing word: A noun names a person, place, or ____.",
+        "answer": "thing",
+        "audio": "Complete the sentence."
+      },
+      {
+        "type": "drag",
+        "q": "Grade 2 English L12: match each reading word.",
+        "pairs": [
+          {
+            "left": "theme",
+            "right": "big message"
+          },
+          {
+            "left": "evidence",
+            "right": "proof from the text"
+          },
+          {
+            "left": "summary",
+            "right": "short retelling"
+          }
+        ],
+        "audio": "Match the reading vocabulary."
+      },
+      {
+        "type": "mc",
+        "q": "Grade 2 English L12: which is a complete sentence?",
+        "choices": [
+          "The student reads.",
+          "0",
+          "reads student",
+          "because the"
+        ],
+        "answer": "The student reads.",
+        "audio": "Choose the complete sentence."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning matches “cat”?",
+        "choices": [
+          "-op family",
+          "-un family",
+          "-ig family",
+          "-at family"
+        ],
+        "answer": "-at family",
+        "explain": "“cat” matches “-at family” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning matches “hop”?",
+        "choices": [
+          "-ig family",
+          "-at family",
+          "-op family",
+          "-un family"
+        ],
+        "answer": "-op family",
+        "explain": "“hop” matches “-op family” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning matches “sun”?",
+        "choices": [
+          "-op family",
+          "-at family",
+          "-ig family",
+          "-un family"
+        ],
+        "answer": "-un family",
+        "explain": "“sun” matches “-un family” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning matches “big”?",
+        "choices": [
+          "-un family",
+          "-at family",
+          "-ig family",
+          "-op family"
+        ],
+        "answer": "-ig family",
+        "explain": "“big” matches “-ig family” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning matches “hen”?",
+        "choices": [
+          "-un family",
+          "-at family",
+          "-op family",
+          "-en family"
+        ],
+        "answer": "-en family",
+        "explain": "“hen” matches “-en family” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning correctly applies to “cat”?",
+        "choices": [
+          "-at family",
+          "-ig family",
+          "-un family",
+          "-op family"
+        ],
+        "answer": "-at family",
+        "explain": "“cat” matches “-at family” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning correctly applies to “hop”?",
+        "choices": [
+          "-ig family",
+          "-op family",
+          "-at family",
+          "-un family"
+        ],
+        "answer": "-op family",
+        "explain": "“hop” matches “-op family” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning correctly applies to “sun”?",
+        "choices": [
+          "-ig family",
+          "-at family",
+          "-un family",
+          "-op family"
+        ],
+        "answer": "-un family",
+        "explain": "“sun” matches “-un family” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning correctly applies to “big”?",
+        "choices": [
+          "-at family",
+          "-op family",
+          "-un family",
+          "-ig family"
+        ],
+        "answer": "-ig family",
+        "explain": "“big” matches “-ig family” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which rule or meaning correctly applies to “hen”?",
+        "choices": [
+          "-un family",
+          "-at family",
+          "-en family",
+          "-op family"
+        ],
+        "answer": "-en family",
+        "explain": "“hen” matches “-en family” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “cat” matches “-at family.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "“cat” matches “-at family” in this lesson's word-pattern relationship.",
+        "audio": "Check the spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “hop” matches “-at family.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "“hop” matches “-op family” in this lesson's word-pattern relationship.",
+        "audio": "Check the spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “sun” matches “-un family.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "“sun” matches “-un family” in this lesson's word-pattern relationship.",
+        "audio": "Check the spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “big” matches “-at family.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "“big” matches “-ig family” in this lesson's word-pattern relationship.",
+        "audio": "Check the spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: “hen” matches “-en family.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "“hen” matches “-en family” in this lesson's word-pattern relationship.",
+        "audio": "Check the spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which match remains correct after analyzing the word parts in “cat”?",
+        "choices": [
+          "-op family",
+          "-ig family",
+          "-at family",
+          "-un family"
+        ],
+        "answer": "-at family",
+        "explain": "“cat” matches “-at family” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which match remains correct after analyzing the word parts in “hop”?",
+        "choices": [
+          "-op family",
+          "-ig family",
+          "-un family",
+          "-at family"
+        ],
+        "answer": "-op family",
+        "explain": "“hop” matches “-op family” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which match remains correct after analyzing the word parts in “sun”?",
+        "choices": [
+          "-at family",
+          "-op family",
+          "-ig family",
+          "-un family"
+        ],
+        "answer": "-un family",
+        "explain": "“sun” matches “-un family” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which match remains correct after analyzing the word parts in “big”?",
+        "choices": [
+          "-op family",
+          "-at family",
+          "-ig family",
+          "-un family"
+        ],
+        "answer": "-ig family",
+        "explain": "“big” matches “-ig family” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "Which match remains correct after analyzing the word parts in “hen”?",
+        "choices": [
+          "-en family",
+          "-un family",
+          "-at family",
+          "-op family"
+        ],
+        "answer": "-en family",
+        "explain": "“hen” matches “-en family” in this lesson's word-pattern relationship.",
+        "audio": "Choose the exact spelling relationship."
+      },
+      {
+        "type": "mc",
+        "q": "A student matched “cat” with “-op family.” Which relationship corrects the error?",
+        "choices": [
+          "-at family",
+          "-ig family",
+          "-un family",
+          "-op family"
+        ],
+        "answer": "-at family",
+        "explain": "“cat” matches “-at family” in this lesson's word-pattern relationship. The mastery item requires identifying why the proposed match fails and replacing it with the exact relationship.",
+        "audio": "Correct the relationship and justify the rule."
+      },
+      {
+        "type": "mc",
+        "q": "A student matched “hop” with “-at family.” Which relationship corrects the error?",
+        "choices": [
+          "-ig family",
+          "-un family",
+          "-at family",
+          "-op family"
+        ],
+        "answer": "-op family",
+        "explain": "“hop” matches “-op family” in this lesson's word-pattern relationship. The mastery item requires identifying why the proposed match fails and replacing it with the exact relationship.",
+        "audio": "Correct the relationship and justify the rule."
+      }
+    ]
+  },
+  "g2:math:L1": {
+    "name": "2–3 Digit Add/Sub",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "37 + 17 = ?",
+        "choices": [
+          "54",
+          "0",
+          "57",
+          "60"
+        ],
+        "answer": "54",
+        "audio": "What is 37 plus 17?"
+      },
+      {
+        "type": "mc",
+        "q": "54 + 26 = ?",
+        "choices": [
+          "80",
+          "85",
+          "0",
+          "82"
+        ],
+        "answer": "80",
+        "audio": "What is 54 plus 26?"
+      },
+      {
+        "type": "mc",
+        "q": "71 + 35 = ?",
+        "choices": [
+          "0",
+          "101",
+          "106",
+          "107"
+        ],
+        "answer": "106",
+        "audio": "What is 71 plus 35?"
+      },
+      {
+        "type": "mc",
+        "q": "88 + 44 = ?",
+        "choices": [
+          "133",
+          "131",
+          "0",
+          "132"
+        ],
+        "answer": "132",
+        "audio": "What is 88 plus 44?"
+      },
+      {
+        "type": "mc",
+        "q": "105 + 53 = ?",
+        "choices": [
+          "158",
+          "153",
+          "160",
+          "0"
+        ],
+        "answer": "158",
+        "audio": "What is 105 plus 53?"
+      },
+      {
+        "type": "mc",
+        "q": "242 − 97 = ?",
+        "choices": [
+          "145",
+          "0",
+          "139",
+          "142"
+        ],
+        "answer": "145",
+        "audio": "What is 242 minus 97?"
+      },
+      {
+        "type": "mc",
+        "q": "259 − 106 = ?",
+        "choices": [
+          "150",
+          "158",
+          "0",
+          "153"
+        ],
+        "answer": "153",
+        "audio": "What is 259 minus 106?"
+      },
+      {
+        "type": "mc",
+        "q": "276 − 115 = ?",
+        "choices": [
+          "156",
+          "0",
+          "161",
+          "163"
+        ],
+        "answer": "161",
+        "audio": "What is 276 minus 115?"
+      },
+      {
+        "type": "mc",
+        "q": "293 − 124 = ?",
+        "choices": [
+          "0",
+          "168",
+          "169",
+          "165"
+        ],
+        "answer": "169",
+        "audio": "What is 293 minus 124?"
+      },
+      {
+        "type": "mc",
+        "q": "310 − 133 = ?",
+        "choices": [
+          "0",
+          "177",
+          "178",
+          "171"
+        ],
+        "answer": "177",
+        "audio": "What is 310 minus 133?"
+      },
+      {
+        "type": "mc",
+        "q": "327 − 142 = ?",
+        "choices": [
+          "185",
+          "190",
+          "0",
+          "187"
+        ],
+        "answer": "185",
+        "audio": "What is 327 minus 142?"
+      },
+      {
+        "type": "mc",
+        "q": "344 − 151 = ?",
+        "choices": [
+          "193",
+          "192",
+          "195",
+          "0"
+        ],
+        "answer": "193",
+        "audio": "What is 344 minus 151?"
+      },
+      {
+        "type": "mc",
+        "q": "361 − 160 = ?",
+        "choices": [
+          "0",
+          "201",
+          "204",
+          "207"
+        ],
+        "answer": "201",
+        "audio": "What is 361 minus 160?"
+      },
+      {
+        "type": "mc",
+        "q": "378 − 169 = ?",
+        "choices": [
+          "205",
+          "204",
+          "0",
+          "209"
+        ],
+        "answer": "209",
+        "audio": "What is 378 minus 169?"
+      },
+      {
+        "type": "mc",
+        "q": "395 − 178 = ?",
+        "choices": [
+          "214",
+          "213",
+          "0",
+          "217"
+        ],
+        "answer": "217",
+        "audio": "What is 395 minus 178?"
+      },
+      {
+        "type": "mc",
+        "q": "412 − 187 = ?",
+        "choices": [
+          "225",
+          "219",
+          "0",
+          "227"
+        ],
+        "answer": "225",
+        "audio": "What is 412 minus 187?"
+      },
+      {
+        "type": "mc",
+        "q": "429 − 196 = ?",
+        "choices": [
+          "230",
+          "233",
+          "0",
+          "232"
+        ],
+        "answer": "233",
+        "audio": "What is 429 minus 196?"
+      },
+      {
+        "type": "mc",
+        "q": "446 − 205 = ?",
+        "choices": [
+          "241",
+          "0",
+          "245",
+          "242"
+        ],
+        "answer": "241",
+        "audio": "What is 446 minus 205?"
+      },
+      {
+        "type": "mc",
+        "q": "463 − 214 = ?",
+        "choices": [
+          "249",
+          "244",
+          "0",
+          "252"
+        ],
+        "answer": "249",
+        "audio": "What is 463 minus 214?"
+      },
+      {
+        "type": "mc",
+        "q": "480 − 223 = ?",
+        "choices": [
+          "251",
+          "258",
+          "0",
+          "257"
+        ],
+        "answer": "257",
+        "audio": "What is 480 minus 223?"
+      },
+      {
+        "type": "mc",
+        "q": "497 − 232 = ?",
+        "choices": [
+          "0",
+          "265",
+          "270",
+          "263"
+        ],
+        "answer": "265",
+        "audio": "What is 497 minus 232?"
+      },
+      {
+        "type": "mc",
+        "q": "514 − 241 = ?",
+        "choices": [
+          "273",
+          "0",
+          "279",
+          "276"
+        ],
+        "answer": "273",
+        "audio": "What is 514 minus 241?"
+      },
+      {
+        "type": "mc",
+        "q": "531 − 250 = ?",
+        "choices": [
+          "0",
+          "281",
+          "279",
+          "283"
+        ],
+        "answer": "281",
+        "audio": "What is 531 minus 250?"
+      },
+      {
+        "type": "mc",
+        "q": "548 − 259 = ?",
+        "choices": [
+          "289",
+          "283",
+          "0",
+          "291"
+        ],
+        "answer": "289",
+        "audio": "What is 548 minus 259?"
+      },
+      {
+        "type": "mc",
+        "q": "565 − 268 = ?",
+        "choices": [
+          "294",
+          "292",
+          "0",
+          "297"
+        ],
+        "answer": "297",
+        "audio": "What is 565 minus 268?"
+      }
+    ]
+  },
+  "g2:math:L2": {
+    "name": "Place Value",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Number: 190\nWhat digit is in the ONES place?",
+        "choices": [
+          "0",
+          "1",
+          "6",
+          "3"
+        ],
+        "answer": "0",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 280\nWhat digit is in the TENS place?",
+        "choices": [
+          "8",
+          "0",
+          "6",
+          "3"
+        ],
+        "answer": "8",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 349\nWhat digit is in the HUNDREDS place?",
+        "choices": [
+          "0",
+          "3",
+          "6",
+          "4"
+        ],
+        "answer": "3",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 439\nWhat digit is in the ONES place?",
+        "choices": [
+          "9",
+          "5",
+          "8",
+          "0"
+        ],
+        "answer": "9",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 529\nWhat digit is in the TENS place?",
+        "choices": [
+          "8",
+          "0",
+          "4",
+          "2"
+        ],
+        "answer": "2",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 598\nWhat digit is in the HUNDREDS place?",
+        "choices": [
+          "0",
+          "1",
+          "5",
+          "9"
+        ],
+        "answer": "5",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 688\nWhat digit is in the ONES place?",
+        "choices": [
+          "8",
+          "3",
+          "0",
+          "2"
+        ],
+        "answer": "8",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 778\nWhat digit is in the TENS place?",
+        "choices": [
+          "7",
+          "1",
+          "2",
+          "0"
+        ],
+        "answer": "7",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 847\nWhat digit is in the HUNDREDS place?",
+        "choices": [
+          "8",
+          "0",
+          "4",
+          "5"
+        ],
+        "answer": "8",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 937\nWhat digit is in the HUNDREDS place?",
+        "choices": [
+          "0",
+          "9",
+          "7",
+          "3"
+        ],
+        "answer": "9",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 1027\nWhat digit is in the ONES place?",
+        "choices": [
+          "8",
+          "0",
+          "7",
+          "3"
+        ],
+        "answer": "7",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 1096\nWhat digit is in the TENS place?",
+        "choices": [
+          "3",
+          "0",
+          "9",
+          "6"
+        ],
+        "answer": "9",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 1186\nWhat digit is in the HUNDREDS place?",
+        "choices": [
+          "11",
+          "0",
+          "5",
+          "6"
+        ],
+        "answer": "11",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 1276\nWhat digit is in the ONES place?",
+        "choices": [
+          "1",
+          "6",
+          "0",
+          "9"
+        ],
+        "answer": "6",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 1345\nWhat digit is in the TENS place?",
+        "choices": [
+          "3",
+          "4",
+          "9",
+          "0"
+        ],
+        "answer": "4",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 1435\nWhat digit is in the HUNDREDS place?",
+        "choices": [
+          "9",
+          "0",
+          "14",
+          "7"
+        ],
+        "answer": "14",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 1525\nWhat digit is in the ONES place?",
+        "choices": [
+          "0",
+          "5",
+          "3",
+          "8"
+        ],
+        "answer": "5",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 1594\nWhat digit is in the TENS place?",
+        "choices": [
+          "9",
+          "6",
+          "0",
+          "3"
+        ],
+        "answer": "9",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 1684\nWhat digit is in the HUNDREDS place?",
+        "choices": [
+          "8",
+          "0",
+          "16",
+          "9"
+        ],
+        "answer": "16",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 1774\nWhat digit is in the HUNDREDS place?",
+        "choices": [
+          "9",
+          "17",
+          "0",
+          "7"
+        ],
+        "answer": "17",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 1843\nWhat digit is in the ONES place?",
+        "choices": [
+          "3",
+          "1",
+          "5",
+          "0"
+        ],
+        "answer": "3",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 1933\nWhat digit is in the TENS place?",
+        "choices": [
+          "0",
+          "4",
+          "1",
+          "3"
+        ],
+        "answer": "3",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 2023\nWhat digit is in the HUNDREDS place?",
+        "choices": [
+          "20",
+          "0",
+          "9",
+          "7"
+        ],
+        "answer": "20",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 2092\nWhat digit is in the ONES place?",
+        "choices": [
+          "0",
+          "1",
+          "7",
+          "2"
+        ],
+        "answer": "2",
+        "audio": "Find the digit in the place value."
+      },
+      {
+        "type": "mc",
+        "q": "Number: 2182\nWhat digit is in the TENS place?",
+        "choices": [
+          "3",
+          "9",
+          "8",
+          "0"
+        ],
+        "answer": "8",
+        "audio": "Find the digit in the place value."
+      }
+    ]
+  },
+  "g2:math:L4": {
+    "name": "Skip Count (5s/10s)",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Skip count by 5s:\n0, 5, __, 15, 20, 25\nWhat number goes in the blank?",
+        "choices": [
+          "10",
+          "12",
+          "7",
+          "0"
+        ],
+        "answer": "10",
+        "audio": "Skip count by 5s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 5s:\n5, 10, __, 20, 25, 30\nWhat number goes in the blank?",
+        "choices": [
+          "11",
+          "15",
+          "0",
+          "16"
+        ],
+        "answer": "15",
+        "audio": "Skip count by 5s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 10s:\n20, 30, 40, __, 60, 70\nWhat number goes in the blank?",
+        "choices": [
+          "46",
+          "49",
+          "50",
+          "0"
+        ],
+        "answer": "50",
+        "audio": "Skip count by 10s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 10s:\n30, 40, 50, __, 70, 80\nWhat number goes in the blank?",
+        "choices": [
+          "59",
+          "56",
+          "0",
+          "60"
+        ],
+        "answer": "60",
+        "audio": "Skip count by 10s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 5s:\n20, 25, 30, 35, __, 45\nWhat number goes in the blank?",
+        "choices": [
+          "40",
+          "34",
+          "0",
+          "42"
+        ],
+        "answer": "40",
+        "audio": "Skip count by 5s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 10s:\n50, 60, 70, 80, __, 100\nWhat number goes in the blank?",
+        "choices": [
+          "90",
+          "0",
+          "91",
+          "88"
+        ],
+        "answer": "90",
+        "audio": "Skip count by 10s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 5s:\n30, 35, 40, 45, 50, __\nWhat number goes in the blank?",
+        "choices": [
+          "60",
+          "54",
+          "55",
+          "0"
+        ],
+        "answer": "55",
+        "audio": "Skip count by 5s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 10s:\n70, 80, 90, 100, 110, __\nWhat number goes in the blank?",
+        "choices": [
+          "98",
+          "99",
+          "0",
+          "120"
+        ],
+        "answer": "120",
+        "audio": "Skip count by 10s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 5s:\n40, 45, 50, 55, 60, __\nWhat number goes in the blank?",
+        "choices": [
+          "67",
+          "68",
+          "65",
+          "0"
+        ],
+        "answer": "65",
+        "audio": "Skip count by 5s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 10s:\n90, 100, 110, 120, 130, __\nWhat number goes in the blank?",
+        "choices": [
+          "140",
+          "100",
+          "98",
+          "0"
+        ],
+        "answer": "140",
+        "audio": "Skip count by 10s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 5s:\n50, 55, 60, 65, 70, __\nWhat number goes in the blank?",
+        "choices": [
+          "75",
+          "78",
+          "80",
+          "0"
+        ],
+        "answer": "75",
+        "audio": "Skip count by 5s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 5s:\n55, 60, 65, 70, 75, __\nWhat number goes in the blank?",
+        "choices": [
+          "74",
+          "80",
+          "0",
+          "81"
+        ],
+        "answer": "80",
+        "audio": "Skip count by 5s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 10s:\n120, 130, 140, 150, 160, __\nWhat number goes in the blank?",
+        "choices": [
+          "170",
+          "0",
+          "100",
+          "98"
+        ],
+        "answer": "170",
+        "audio": "Skip count by 10s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 10s:\n130, 140, 150, 160, 170, __\nWhat number goes in the blank?",
+        "choices": [
+          "99",
+          "0",
+          "180",
+          "100"
+        ],
+        "answer": "180",
+        "audio": "Skip count by 10s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 5s:\n70, 75, 80, 85, 90, __\nWhat number goes in the blank?",
+        "choices": [
+          "95",
+          "92",
+          "90",
+          "0"
+        ],
+        "answer": "95",
+        "audio": "Skip count by 5s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 10s:\n150, 160, 170, 180, 190, __\nWhat number goes in the blank?",
+        "choices": [
+          "200",
+          "100",
+          "98",
+          "0"
+        ],
+        "answer": "200",
+        "audio": "Skip count by 10s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 5s:\n80, 85, 90, 95, 100, __\nWhat number goes in the blank?",
+        "choices": [
+          "99",
+          "0",
+          "100",
+          "105"
+        ],
+        "answer": "105",
+        "audio": "Skip count by 5s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 10s:\n170, 180, 190, 200, 210, __\nWhat number goes in the blank?",
+        "choices": [
+          "220",
+          "100",
+          "0",
+          "99"
+        ],
+        "answer": "220",
+        "audio": "Skip count by 10s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 5s:\n90, 95, 100, 105, 110, __\nWhat number goes in the blank?",
+        "choices": [
+          "100",
+          "98",
+          "0",
+          "115"
+        ],
+        "answer": "115",
+        "audio": "Skip count by 5s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 10s:\n190, 200, 210, 220, 230, __\nWhat number goes in the blank?",
+        "choices": [
+          "98",
+          "240",
+          "100",
+          "0"
+        ],
+        "answer": "240",
+        "audio": "Skip count by 10s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 5s:\n100, 105, 110, 115, 120, __\nWhat number goes in the blank?",
+        "choices": [
+          "98",
+          "125",
+          "99",
+          "0"
+        ],
+        "answer": "125",
+        "audio": "Skip count by 5s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 5s:\n105, 110, 115, 120, 125, __\nWhat number goes in the blank?",
+        "choices": [
+          "130",
+          "98",
+          "99",
+          "0"
+        ],
+        "answer": "130",
+        "audio": "Skip count by 5s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 10s:\n220, 230, 240, 250, 260, __\nWhat number goes in the blank?",
+        "choices": [
+          "100",
+          "99",
+          "0",
+          "270"
+        ],
+        "answer": "270",
+        "audio": "Skip count by 10s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 10s:\n230, 240, 250, 260, 270, __\nWhat number goes in the blank?",
+        "choices": [
+          "280",
+          "0",
+          "100",
+          "98"
+        ],
+        "answer": "280",
+        "audio": "Skip count by 10s. What number is missing?"
+      },
+      {
+        "type": "mc",
+        "q": "Skip count by 5s:\n120, 125, 130, 135, 140, __\nWhat number goes in the blank?",
+        "choices": [
+          "100",
+          "0",
+          "145",
+          "99"
+        ],
+        "answer": "145",
+        "audio": "Skip count by 5s. What number is missing?"
+      }
+    ]
+  },
+  "g2:math:L3": {
+    "name": "Time to 5 Minutes",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Pick the time that matches: 4:00",
+        "choices": [
+          "5:00",
+          "4:05",
+          "4:00",
+          "0"
+        ],
+        "answer": "4:00",
+        "audio": "Choose the matching time."
+      },
+      {
+        "type": "mc",
+        "q": "Pick the time that matches: 5:05",
+        "choices": [
+          "5:10",
+          "0",
+          "5:05",
+          "6:05"
+        ],
+        "answer": "5:05",
+        "audio": "Choose the matching time."
+      },
+      {
+        "type": "mc",
+        "q": "Pick the time that matches: 6:10",
+        "choices": [
+          "6:15",
+          "6:10",
+          "0",
+          "7:10"
+        ],
+        "answer": "6:10",
+        "audio": "Choose the matching time."
+      },
+      {
+        "type": "mc",
+        "q": "Pick the time that matches: 7:15",
+        "choices": [
+          "7:15",
+          "0",
+          "7:20",
+          "8:15"
+        ],
+        "answer": "7:15",
+        "audio": "Choose the matching time."
+      },
+      {
+        "type": "mc",
+        "q": "Pick the time that matches: 8:20",
+        "choices": [
+          "9:20",
+          "8:20",
+          "0",
+          "8:25"
+        ],
+        "answer": "8:20",
+        "audio": "Choose the matching time."
+      },
+      {
+        "type": "mc",
+        "q": "Pick the time that matches: 9:25",
+        "choices": [
+          "0",
+          "10:25",
+          "9:30",
+          "9:25"
+        ],
+        "answer": "9:25",
+        "audio": "Choose the matching time."
+      },
+      {
+        "type": "mc",
+        "q": "Pick the time that matches: 10:30",
+        "choices": [
+          "10:35",
+          "0",
+          "11:30",
+          "10:30"
+        ],
+        "answer": "10:30",
+        "audio": "Choose the matching time."
+      },
+      {
+        "type": "mc",
+        "q": "Pick the time that matches: 11:35",
+        "choices": [
+          "12:35",
+          "0",
+          "11:35",
+          "11:40"
+        ],
+        "answer": "11:35",
+        "audio": "Choose the matching time."
+      },
+      {
+        "type": "mc",
+        "q": "Pick the time that matches: 12:40",
+        "choices": [
+          "12:45",
+          "0",
+          "1:40",
+          "12:40"
+        ],
+        "answer": "12:40",
+        "audio": "Choose the matching time."
+      },
+      {
+        "type": "mc",
+        "q": "Pick the time that matches: 1:45",
+        "choices": [
+          "1:50",
+          "2:45",
+          "1:45",
+          "0"
+        ],
+        "answer": "1:45",
+        "audio": "Choose the matching time."
+      },
+      {
+        "type": "mc",
+        "q": "Pick the time that matches: 2:50",
+        "choices": [
+          "0",
+          "2:55",
+          "2:50",
+          "3:50"
+        ],
+        "answer": "2:50",
+        "audio": "Choose the matching time."
+      },
+      {
+        "type": "mc",
+        "q": "Pick the time that matches: 3:55",
+        "choices": [
+          "4:55",
+          "3:00",
+          "0",
+          "3:55"
+        ],
+        "answer": "3:55",
+        "audio": "Choose the matching time."
+      },
+      {
+        "type": "mc",
+        "q": "A morning clock shows 8 minutes after 8. What is the exact digital time with a.m. or p.m.?",
+        "choices": [
+          "8:08 a.m.",
+          "8:13 a.m.",
+          "8:08 p.m.",
+          "9:08 a.m."
+        ],
+        "answer": "8:08 a.m.",
+        "explain": "8 minutes after 8 is 8:08 a.m..",
+        "audio": "A morning clock shows 8 minutes after 8. What is the exact digital time with a.m. or p.m.?"
+      },
+      {
+        "type": "mc",
+        "q": "An evening clock shows 15 minutes after 9. What is the exact digital time with a.m. or p.m.?",
+        "choices": [
+          "9:15 p.m.",
+          "10:15 p.m.",
+          "9:20 p.m.",
+          "9:15 a.m."
+        ],
+        "answer": "9:15 p.m.",
+        "explain": "15 minutes after 9 is 9:15 p.m..",
+        "audio": "An evening clock shows 15 minutes after 9. What is the exact digital time with a.m. or p.m.?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: 10:22 a.m Example: A morning clock shows 22 minutes after 10.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. 22 minutes after 10 is 10:22 a.m.",
+        "audio": "True or false. 10:22 a.m Example: A morning clock shows 22 minutes after 10."
+      },
+      {
+        "type": "mc",
+        "q": "An evening clock shows 29 minutes after 11. What is the exact digital time with a.m. or p.m.?",
+        "choices": [
+          "12:29 p.m.",
+          "11:29 p.m.",
+          "11:29 a.m.",
+          "11:34 p.m."
+        ],
+        "answer": "11:29 p.m.",
+        "explain": "29 minutes after 11 is 11:29 p.m..",
+        "audio": "An evening clock shows 29 minutes after 11. What is the exact digital time with a.m. or p.m.?"
+      },
+      {
+        "type": "mc",
+        "q": "A morning clock shows 36 minutes after 12. What is the exact digital time with a.m. or p.m.?",
+        "choices": [
+          "12:36 a.m.",
+          "12:41 a.m.",
+          "1:36 a.m.",
+          "12:36 p.m."
+        ],
+        "answer": "12:36 a.m.",
+        "explain": "36 minutes after 12 is 12:36 a.m..",
+        "audio": "A morning clock shows 36 minutes after 12. What is the exact digital time with a.m. or p.m.?"
+      },
+      {
+        "type": "mc",
+        "q": "An evening clock shows 44 minutes after 1. What is the exact digital time with a.m. or p.m.?",
+        "choices": [
+          "2:44 p.m.",
+          "1:44 a.m.",
+          "1:49 p.m.",
+          "1:44 p.m."
+        ],
+        "answer": "1:44 p.m.",
+        "explain": "44 minutes after 1 is 1:44 p.m..",
+        "audio": "An evening clock shows 44 minutes after 1. What is the exact digital time with a.m. or p.m.?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: 2:56 a.m Example: A morning clock shows 51 minutes after 2.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “2:51 a.m.” 51 minutes after 2 is 2:51 a.m.",
+        "audio": "True or false. 2:56 a.m Example: A morning clock shows 51 minutes after 2."
+      },
+      {
+        "type": "mc",
+        "q": "An evening clock shows 58 minutes after 3. What is the exact digital time with a.m. or p.m.?",
+        "choices": [
+          "4:58 p.m.",
+          "3:58 a.m.",
+          "3:03 p.m.",
+          "3:58 p.m."
+        ],
+        "answer": "3:58 p.m.",
+        "explain": "58 minutes after 3 is 3:58 p.m..",
+        "audio": "An evening clock shows 58 minutes after 3. What is the exact digital time with a.m. or p.m.?"
+      },
+      {
+        "type": "mc",
+        "q": "A morning clock shows 5 minutes after 4. What is the exact digital time with a.m. or p.m.?",
+        "choices": [
+          "5:05 a.m.",
+          "4:05 p.m.",
+          "4:05 a.m.",
+          "4:10 a.m."
+        ],
+        "answer": "4:05 a.m.",
+        "explain": "5 minutes after 4 is 4:05 a.m..",
+        "audio": "A morning clock shows 5 minutes after 4. What is the exact digital time with a.m. or p.m.?"
+      },
+      {
+        "type": "mc",
+        "q": "An evening clock shows 12 minutes after 5. What is the exact digital time with a.m. or p.m.?",
+        "choices": [
+          "5:12 a.m.",
+          "5:12 p.m.",
+          "5:17 p.m.",
+          "6:12 p.m."
+        ],
+        "answer": "5:12 p.m.",
+        "explain": "12 minutes after 5 is 5:12 p.m..",
+        "audio": "An evening clock shows 12 minutes after 5. What is the exact digital time with a.m. or p.m.?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: 6:20 a.m Example: A morning clock shows 20 minutes after 6.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. 20 minutes after 6 is 6:20 a.m.",
+        "audio": "True or false. 6:20 a.m Example: A morning clock shows 20 minutes after 6."
+      },
+      {
+        "type": "mc",
+        "q": "An evening clock shows 27 minutes after 7. What is the exact digital time with a.m. or p.m.?",
+        "choices": [
+          "7:27 p.m.",
+          "7:32 p.m.",
+          "7:27 a.m.",
+          "8:27 p.m."
+        ],
+        "answer": "7:27 p.m.",
+        "explain": "27 minutes after 7 is 7:27 p.m..",
+        "audio": "An evening clock shows 27 minutes after 7. What is the exact digital time with a.m. or p.m.?"
+      },
+      {
+        "type": "mc",
+        "q": "A morning clock shows 34 minutes after 8. What is the exact digital time with a.m. or p.m.?",
+        "choices": [
+          "8:39 a.m.",
+          "8:34 a.m.",
+          "9:34 a.m.",
+          "8:34 p.m."
+        ],
+        "answer": "8:34 a.m.",
+        "explain": "34 minutes after 8 is 8:34 a.m..",
+        "audio": "A morning clock shows 34 minutes after 8. What is the exact digital time with a.m. or p.m.?"
+      }
+    ]
+  },
+  "g2:math:L5": {
+    "name": "Word Problems",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Lia has 12 apples. She buys 8 more. How many apples now?",
+        "choices": [
+          "20",
+          "0",
+          "16",
+          "18"
+        ],
+        "answer": "20",
+        "audio": "Solve the word problem."
+      },
+      {
+        "type": "mc",
+        "q": "Ben has 30 stickers. He gives away 7. How many left?",
+        "choices": [
+          "0",
+          "20",
+          "24",
+          "23"
+        ],
+        "answer": "23",
+        "audio": "Solve the word problem."
+      },
+      {
+        "type": "mc",
+        "q": "A box has 15 crayons. Another box has 14 crayons. How many total?",
+        "choices": [
+          "32",
+          "31",
+          "29",
+          "0"
+        ],
+        "answer": "29",
+        "audio": "Solve the word problem."
+      },
+      {
+        "type": "mc",
+        "q": "There are 40 cookies. Kids eat 12. How many remain?",
+        "choices": [
+          "28",
+          "26",
+          "0",
+          "32"
+        ],
+        "answer": "28",
+        "audio": "Solve the word problem."
+      },
+      {
+        "type": "mc",
+        "q": "Mia reads 18 pages on Monday and 23 pages on Tuesday. How many pages total?",
+        "choices": [
+          "0",
+          "42",
+          "38",
+          "41"
+        ],
+        "answer": "41",
+        "audio": "Solve the word problem."
+      },
+      {
+        "type": "mc",
+        "q": "A class has 52 pencils. Students use 19. How many pencils are left?",
+        "choices": [
+          "33",
+          "0",
+          "27",
+          "39"
+        ],
+        "answer": "33",
+        "audio": "Solve the word problem."
+      },
+      {
+        "type": "mc",
+        "q": "Nora saves 35 shells and finds 28 more. How many shells now?",
+        "choices": [
+          "63",
+          "58",
+          "0",
+          "57"
+        ],
+        "answer": "63",
+        "audio": "Solve the word problem."
+      },
+      {
+        "type": "mc",
+        "q": "There are 74 tickets. The class uses 36. How many tickets remain?",
+        "choices": [
+          "40",
+          "33",
+          "0",
+          "38"
+        ],
+        "answer": "38",
+        "audio": "Solve the word problem."
+      },
+      {
+        "type": "mc",
+        "q": "A shelf has 46 books. Another shelf has 37 books. How many books total?",
+        "choices": [
+          "83",
+          "0",
+          "59",
+          "58"
+        ],
+        "answer": "83",
+        "audio": "Solve the word problem."
+      },
+      {
+        "type": "mc",
+        "q": "A farmer picks 95 berries and sells 48. How many berries are left?",
+        "choices": [
+          "47",
+          "51",
+          "0",
+          "42"
+        ],
+        "answer": "47",
+        "audio": "Solve the word problem."
+      },
+      {
+        "type": "mc",
+        "q": "The art room had 144 sheets of paper and received 55 more. How many sheets are left?",
+        "choices": [
+          "309",
+          "210",
+          "199",
+          "221"
+        ],
+        "answer": "199",
+        "explain": "Add the delivery: the answer is 199.",
+        "audio": "The art room had 144 sheets of paper and received 55 more. How many sheets are left?"
+      },
+      {
+        "type": "mc",
+        "q": "The art room had 163 sheets of paper and received 62 more. How many sheets are left?",
+        "choices": [
+          "225",
+          "335",
+          "247",
+          "236"
+        ],
+        "answer": "225",
+        "explain": "Add the delivery: the answer is 225.",
+        "audio": "The art room had 163 sheets of paper and received 62 more. How many sheets are left?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Add the delivery: the answer is 251 Example: The art room had 182 sheets of paper and received 69 more.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Add the delivery: the answer is 251.",
+        "audio": "True or false. Add the delivery: the answer is 251 Example: The art room had 182 sheets of paper and received 69 more."
+      },
+      {
+        "type": "mc",
+        "q": "The art room had 201 sheets of paper and received 76 more. How many sheets are left?",
+        "choices": [
+          "277",
+          "387",
+          "288",
+          "299"
+        ],
+        "answer": "277",
+        "explain": "Add the delivery: the answer is 277.",
+        "audio": "The art room had 201 sheets of paper and received 76 more. How many sheets are left?"
+      },
+      {
+        "type": "mc",
+        "q": "The art room had 220 sheets of paper and received 83 more. How many sheets are left?",
+        "choices": [
+          "303",
+          "325",
+          "314",
+          "413"
+        ],
+        "answer": "303",
+        "explain": "Add the delivery: the answer is 303.",
+        "audio": "The art room had 220 sheets of paper and received 83 more. How many sheets are left?"
+      },
+      {
+        "type": "mc",
+        "q": "The art room had 239 sheets of paper and received 90 more. How many sheets are left?",
+        "choices": [
+          "353",
+          "341",
+          "449",
+          "329"
+        ],
+        "answer": "329",
+        "explain": "Add the delivery: the answer is 329.",
+        "audio": "The art room had 239 sheets of paper and received 90 more. How many sheets are left?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Add the delivery: the answer is 367 Example: The art room had 258 sheets of paper and received 97 more.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “355.” Add the delivery: the answer is 355.",
+        "audio": "True or false. Add the delivery: the answer is 367 Example: The art room had 258 sheets of paper and received 97 more."
+      },
+      {
+        "type": "mc",
+        "q": "The art room had 277 sheets of paper and received 104 more. How many sheets are left?",
+        "choices": [
+          "381",
+          "501",
+          "405",
+          "393"
+        ],
+        "answer": "381",
+        "explain": "Add the delivery: the answer is 381.",
+        "audio": "The art room had 277 sheets of paper and received 104 more. How many sheets are left?"
+      },
+      {
+        "type": "mc",
+        "q": "The art room had 296 sheets of paper and received 111 more. How many sheets are left?",
+        "choices": [
+          "407",
+          "431",
+          "527",
+          "419"
+        ],
+        "answer": "407",
+        "explain": "Add the delivery: the answer is 407.",
+        "audio": "The art room had 296 sheets of paper and received 111 more. How many sheets are left?"
+      },
+      {
+        "type": "mc",
+        "q": "The art room had 315 sheets of paper and received 118 more. How many sheets are left?",
+        "choices": [
+          "553",
+          "445",
+          "457",
+          "433"
+        ],
+        "answer": "433",
+        "explain": "Add the delivery: the answer is 433.",
+        "audio": "The art room had 315 sheets of paper and received 118 more. How many sheets are left?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Add the delivery, then subtract the amount used: the answer is 405 Example: The art room had 334 sheets of paper and received 125 more. Then 54 were used.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Add the delivery, then subtract the amount used: the answer is 405.",
+        "audio": "True or false. Add the delivery, then subtract the amount used: the answer is 405 Example: The art room had 334 sheets of paper and received 125 more. Then 54 were used."
+      },
+      {
+        "type": "mc",
+        "q": "The art room had 353 sheets of paper and received 132 more. Then 57 were used. How many sheets are left?",
+        "choices": [
+          "441",
+          "454",
+          "558",
+          "428"
+        ],
+        "answer": "428",
+        "explain": "Add the delivery, then subtract the amount used: the answer is 428.",
+        "audio": "The art room had 353 sheets of paper and received 132 more. Then 57 were used. How many sheets are left?"
+      },
+      {
+        "type": "mc",
+        "q": "The art room had 372 sheets of paper and received 139 more. Then 60 were used. How many sheets are left?",
+        "choices": [
+          "451",
+          "581",
+          "464",
+          "477"
+        ],
+        "answer": "451",
+        "explain": "Add the delivery, then subtract the amount used: the answer is 451.",
+        "audio": "The art room had 372 sheets of paper and received 139 more. Then 60 were used. How many sheets are left?"
+      },
+      {
+        "type": "mc",
+        "q": "The art room had 391 sheets of paper and received 146 more. Then 63 were used. How many sheets are left?",
+        "choices": [
+          "604",
+          "487",
+          "474",
+          "500"
+        ],
+        "answer": "474",
+        "explain": "Add the delivery, then subtract the amount used: the answer is 474.",
+        "audio": "The art room had 391 sheets of paper and received 146 more. Then 63 were used. How many sheets are left?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Add the delivery, then subtract the amount used: the answer is 510 Example: The art room had 410 sheets of paper and received 153 more. Then 66 were used.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “497.” Add the delivery, then subtract the amount used: the answer is 497.",
+        "audio": "True or false. Add the delivery, then subtract the amount used: the answer is 510 Example: The art room had 410 sheets of paper and received 153 more. Then 66 were used."
+      }
+    ]
+  },
+  "g2:math:L6": {
+    "name": "Money Memory Match",
+    "questions": [
+      {
+        "type": "drag",
+        "q": "Drag each word to the correct answer.",
+        "pairs": [
+          {
+            "left": "Penny",
+            "right": "1 Cent"
+          },
+          {
+            "left": "Nickel",
+            "right": "5 Cents"
+          },
+          {
+            "left": "Dime",
+            "right": "10 Cents"
+          }
+        ],
+        "audio": "Drag the pairs to match them."
+      },
+      {
+        "type": "mc",
+        "q": "Find the value: 1 quarter(s), 2 dime(s), 2 nickel(s), and 4 penny/pennies.",
+        "choices": [
+          "59¢ ($0.59)",
+          "84¢ ($0.84)",
+          "64¢ ($0.64)",
+          "69¢ ($0.69)"
+        ],
+        "answer": "59¢ ($0.59)",
+        "explain": "Multiply each coin count by its value and add: 59¢ ($0.59).",
+        "audio": "Find the value: 1 quarter(s), 2 dime(s), 2 nickel(s), and 4 penny/pennies."
+      },
+      {
+        "type": "mc",
+        "q": "Find the value: 2 quarter(s), 0 dime(s), 1 nickel(s), and 7 penny/pennies.",
+        "choices": [
+          "72¢ ($0.72)",
+          "62¢ ($0.62)",
+          "87¢ ($0.87)",
+          "67¢ ($0.67)"
+        ],
+        "answer": "62¢ ($0.62)",
+        "explain": "Multiply each coin count by its value and add: 62¢ ($0.62).",
+        "audio": "Find the value: 2 quarter(s), 0 dime(s), 1 nickel(s), and 7 penny/pennies."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Multiply each coin count by its value and add: 10¢ ($0.10) Example: Find the value: 0 quarter(s), 1 dime(s), 0 nickel(s), and 0 penny/pennies.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Multiply each coin count by its value and add: 10¢ ($0.10).",
+        "audio": "True or false. Multiply each coin count by its value and add: 10¢ ($0.10) Example: Find the value: 0 quarter(s), 1 dime(s), 0 nickel(s), and 0 penny/pennies."
+      },
+      {
+        "type": "mc",
+        "q": "Find the value: 1 quarter(s), 2 dime(s), 2 nickel(s), and 3 penny/pennies.",
+        "choices": [
+          "58¢ ($0.58)",
+          "63¢ ($0.63)",
+          "68¢ ($0.68)",
+          "83¢ ($0.83)"
+        ],
+        "answer": "58¢ ($0.58)",
+        "explain": "Multiply each coin count by its value and add: 58¢ ($0.58).",
+        "audio": "Find the value: 1 quarter(s), 2 dime(s), 2 nickel(s), and 3 penny/pennies."
+      },
+      {
+        "type": "mc",
+        "q": "Find the value: 2 quarter(s), 0 dime(s), 1 nickel(s), and 6 penny/pennies.",
+        "choices": [
+          "71¢ ($0.71)",
+          "66¢ ($0.66)",
+          "61¢ ($0.61)",
+          "86¢ ($0.86)"
+        ],
+        "answer": "61¢ ($0.61)",
+        "explain": "Multiply each coin count by its value and add: 61¢ ($0.61).",
+        "audio": "Find the value: 2 quarter(s), 0 dime(s), 1 nickel(s), and 6 penny/pennies."
+      },
+      {
+        "type": "mc",
+        "q": "Find the value: 0 quarter(s), 2 dime(s), 0 nickel(s), and 0 penny/pennies.",
+        "choices": [
+          "20¢ ($0.20)",
+          "25¢ ($0.25)",
+          "30¢ ($0.30)",
+          "45¢ ($0.45)"
+        ],
+        "answer": "20¢ ($0.20)",
+        "explain": "Multiply each coin count by its value and add: 20¢ ($0.20).",
+        "audio": "Find the value: 0 quarter(s), 2 dime(s), 0 nickel(s), and 0 penny/pennies."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Multiply each coin count by its value and add: 43¢ ($0.43) Example: Find the value: 1 quarter(s), 0 dime(s), 2 nickel(s), and 3 penny/pennies.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “38¢ ($0.38).” Multiply each coin count by its value and add: 38¢ ($0.38).",
+        "audio": "True or false. Multiply each coin count by its value and add: 43¢ ($0.43) Example: Find the value: 1 quarter(s), 0 dime(s), 2 nickel(s), and 3 penny/pennies."
+      },
+      {
+        "type": "mc",
+        "q": "Find the value: 2 quarter(s), 1 dime(s), 1 nickel(s), and 6 penny/pennies.",
+        "choices": [
+          "71¢ ($0.71)",
+          "76¢ ($0.76)",
+          "81¢ ($0.81)",
+          "96¢ ($0.96)"
+        ],
+        "answer": "71¢ ($0.71)",
+        "explain": "Multiply each coin count by its value and add: 71¢ ($0.71).",
+        "audio": "Find the value: 2 quarter(s), 1 dime(s), 1 nickel(s), and 6 penny/pennies."
+      },
+      {
+        "type": "mc",
+        "q": "Find the value: 0 quarter(s), 2 dime(s), 0 nickel(s), and 9 penny/pennies.",
+        "choices": [
+          "54¢ ($0.54)",
+          "29¢ ($0.29)",
+          "39¢ ($0.39)",
+          "34¢ ($0.34)"
+        ],
+        "answer": "29¢ ($0.29)",
+        "explain": "Multiply each coin count by its value and add: 29¢ ($0.29).",
+        "audio": "Find the value: 0 quarter(s), 2 dime(s), 0 nickel(s), and 9 penny/pennies."
+      },
+      {
+        "type": "mc",
+        "q": "Find the value: 1 quarter(s), 0 dime(s), 2 nickel(s), and 2 penny/pennies.",
+        "choices": [
+          "62¢ ($0.62)",
+          "42¢ ($0.42)",
+          "47¢ ($0.47)",
+          "37¢ ($0.37)"
+        ],
+        "answer": "37¢ ($0.37)",
+        "explain": "Multiply each coin count by its value and add: 37¢ ($0.37).",
+        "audio": "Find the value: 1 quarter(s), 0 dime(s), 2 nickel(s), and 2 penny/pennies."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Multiply each coin count by its value and add: 81¢ ($0.81) Example: Find the value: 2 quarter(s), 2 dime(s), 1 nickel(s), and 6 penny/pennies.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Multiply each coin count by its value and add: 81¢ ($0.81).",
+        "audio": "True or false. Multiply each coin count by its value and add: 81¢ ($0.81) Example: Find the value: 2 quarter(s), 2 dime(s), 1 nickel(s), and 6 penny/pennies."
+      },
+      {
+        "type": "mc",
+        "q": "Find the value: 0 quarter(s), 0 dime(s), 0 nickel(s), and 9 penny/pennies.",
+        "choices": [
+          "19¢ ($0.19)",
+          "34¢ ($0.34)",
+          "9¢ ($0.09)",
+          "14¢ ($0.14)"
+        ],
+        "answer": "9¢ ($0.09)",
+        "explain": "Multiply each coin count by its value and add: 9¢ ($0.09).",
+        "audio": "Find the value: 0 quarter(s), 0 dime(s), 0 nickel(s), and 9 penny/pennies."
+      },
+      {
+        "type": "mc",
+        "q": "Find the value: 1 quarter(s), 1 dime(s), 2 nickel(s), and 2 penny/pennies.",
+        "choices": [
+          "47¢ ($0.47)",
+          "72¢ ($0.72)",
+          "57¢ ($0.57)",
+          "52¢ ($0.52)"
+        ],
+        "answer": "47¢ ($0.47)",
+        "explain": "Multiply each coin count by its value and add: 47¢ ($0.47).",
+        "audio": "Find the value: 1 quarter(s), 1 dime(s), 2 nickel(s), and 2 penny/pennies."
+      },
+      {
+        "type": "mc",
+        "q": "Find the value: 2 quarter(s), 2 dime(s), 1 nickel(s), and 5 penny/pennies.",
+        "choices": [
+          "90¢ ($0.90)",
+          "80¢ ($0.80)",
+          "105¢ ($1.05)",
+          "85¢ ($0.85)"
+        ],
+        "answer": "80¢ ($0.80)",
+        "explain": "Multiply each coin count by its value and add: 80¢ ($0.80).",
+        "audio": "Find the value: 2 quarter(s), 2 dime(s), 1 nickel(s), and 5 penny/pennies."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Multiply each coin count by its value and add: 13¢ ($0.13) Example: Find the value: 0 quarter(s), 0 dime(s), 0 nickel(s), and 8 penny/pennies.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “8¢ ($0.08).” Multiply each coin count by its value and add: 8¢ ($0.08).",
+        "audio": "True or false. Multiply each coin count by its value and add: 13¢ ($0.13) Example: Find the value: 0 quarter(s), 0 dime(s), 0 nickel(s), and 8 penny/pennies."
+      },
+      {
+        "type": "mc",
+        "q": "Find the value: 1 quarter(s), 2 dime(s), 2 nickel(s), and 2 penny/pennies.",
+        "choices": [
+          "57¢ ($0.57)",
+          "62¢ ($0.62)",
+          "82¢ ($0.82)",
+          "67¢ ($0.67)"
+        ],
+        "answer": "57¢ ($0.57)",
+        "explain": "Multiply each coin count by its value and add: 57¢ ($0.57).",
+        "audio": "Find the value: 1 quarter(s), 2 dime(s), 2 nickel(s), and 2 penny/pennies."
+      },
+      {
+        "type": "mc",
+        "q": "Find the value: 2 quarter(s), 0 dime(s), 1 nickel(s), and 5 penny/pennies.",
+        "choices": [
+          "85¢ ($0.85)",
+          "70¢ ($0.70)",
+          "60¢ ($0.60)",
+          "65¢ ($0.65)"
+        ],
+        "answer": "60¢ ($0.60)",
+        "explain": "Multiply each coin count by its value and add: 60¢ ($0.60).",
+        "audio": "Find the value: 2 quarter(s), 0 dime(s), 1 nickel(s), and 5 penny/pennies."
+      },
+      {
+        "type": "mc",
+        "q": "Find the value: 0 quarter(s), 1 dime(s), 0 nickel(s), and 8 penny/pennies.",
+        "choices": [
+          "43¢ ($0.43)",
+          "18¢ ($0.18)",
+          "28¢ ($0.28)",
+          "23¢ ($0.23)"
+        ],
+        "answer": "18¢ ($0.18)",
+        "explain": "Multiply each coin count by its value and add: 18¢ ($0.18).",
+        "audio": "Find the value: 0 quarter(s), 1 dime(s), 0 nickel(s), and 8 penny/pennies."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Multiply each coin count by its value and add: 56¢ ($0.56) Example: Find the value: 1 quarter(s), 2 dime(s), 2 nickel(s), and 1 penny/pennies.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Multiply each coin count by its value and add: 56¢ ($0.56).",
+        "audio": "True or false. Multiply each coin count by its value and add: 56¢ ($0.56) Example: Find the value: 1 quarter(s), 2 dime(s), 2 nickel(s), and 1 penny/pennies."
+      },
+      {
+        "type": "mc",
+        "q": "Find the value: 2 quarter(s), 0 dime(s), 1 nickel(s), and 4 penny/pennies.",
+        "choices": [
+          "84¢ ($0.84)",
+          "59¢ ($0.59)",
+          "69¢ ($0.69)",
+          "64¢ ($0.64)"
+        ],
+        "answer": "59¢ ($0.59)",
+        "explain": "Multiply each coin count by its value and add: 59¢ ($0.59).",
+        "audio": "Find the value: 2 quarter(s), 0 dime(s), 1 nickel(s), and 4 penny/pennies."
+      },
+      {
+        "type": "mc",
+        "q": "Which response correctly answers “Find the value: 1 quarter(s), 0 dime(s), 2 nickel(s), and 3 penny/pennies” and supports its conclusion with all relevant evidence?",
+        "choices": [
+          "Conclusion: 38¢ ($0.38). Evidence and reasoning: Multiply each coin count by its value and add: 38¢ ($0.38).",
+          "Conclusion: 43¢ ($0.43). Evidence is unnecessary once a choice has been made.",
+          "Conclusion: 48¢ ($0.48). Evidence: the conditions in the original task can be ignored.",
+          "Conclusion: 38¢ ($0.38). Evidence: an unrelated detail supports every possible conclusion."
+        ],
+        "answer": "Conclusion: 38¢ ($0.38). Evidence and reasoning: Multiply each coin count by its value and add: 38¢ ($0.38).",
+        "explain": "A mastery response must be accurate and supported by the quantities, operation, model, or related fact. Multiply each coin count by its value and add: 38¢ ($0.38).",
+        "audio": "Which response correctly answers “Find the value: 1 quarter(s), 0 dime(s), 2 nickel(s), and 3 penny/pennies” and supports its conclusion with all relevant evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "A student answered “81¢ ($0.81)” to “Find the value: 2 quarter(s), 1 dime(s), 1 nickel(s), and 6 penny/pennies.” Which feedback identifies the error and gives a supported correction?",
+        "choices": [
+          "Keep “81¢ ($0.81)” because the task's conditions do not need to be checked.",
+          "Replace it with “96¢ ($0.96)” without using the quantities, operation, model, or related fact.",
+          "Accept every response because evidence cannot distinguish a correct conclusion from an error.",
+          "Replace “81¢ ($0.81)” with “71¢ ($0.71)”; Multiply each coin count by its value and add: 71¢ ($0.71)."
+        ],
+        "answer": "Replace “81¢ ($0.81)” with “71¢ ($0.71)”; Multiply each coin count by its value and add: 71¢ ($0.71).",
+        "explain": "The first response does not satisfy the task. The correction is 71¢ ($0.71), supported by the quantities, operation, model, or related fact. Multiply each coin count by its value and add: 71¢ ($0.71).",
+        "audio": "A student answered “81¢ ($0.81)” to “Find the value: 2 quarter(s), 1 dime(s), 1 nickel(s), and 6 penny/pennies.” Which feedback identifies the error and gives a supported correction?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The evidence supports “29¢ ($0.29)” rather than “54¢ ($0.54).”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Student A's conclusion is the one supported by the task. Multiply each coin count by its value and add: 29¢ ($0.29).",
+        "audio": "True or false. The evidence supports “29¢ ($0.29)” rather than “54¢ ($0.54).”"
+      },
+      {
+        "type": "mc",
+        "q": "Which response answers “Find the value: 1 quarter(s), 0 dime(s), 2 nickel(s), and 2 penny/pennies,” gives relevant evidence, and rejects “42¢ ($0.42)”?",
+        "choices": [
+          "Choose “47¢ ($0.47)” because repeating a competing response counts as correcting it.",
+          "Choose “42¢ ($0.42)”; a conclusion does not need evidence or error analysis.",
+          "Choose “37¢ ($0.37)”; support it with Multiply each coin count by its value and add: 37¢ ($0.37). Reject “42¢ ($0.42)” because it does not satisfy the evidence or conditions.",
+          "Choose “37¢ ($0.37),” but use an unrelated fact as the only support and do not evaluate alternatives."
+        ],
+        "answer": "Choose “37¢ ($0.37)”; support it with Multiply each coin count by its value and add: 37¢ ($0.37). Reject “42¢ ($0.42)” because it does not satisfy the evidence or conditions.",
+        "explain": "The complete evaluation gives 37¢ ($0.37), supports it with the quantities, operation, model, or related fact, and explains why 42¢ ($0.42) fails. Multiply each coin count by its value and add: 37¢ ($0.37).",
+        "audio": "Which response answers “Find the value: 1 quarter(s), 0 dime(s), 2 nickel(s), and 2 penny/pennies,” gives relevant evidence, and rejects “42¢ ($0.42)”?"
+      }
+    ]
+  },
+  "g2:math:L7": {
+    "name": "Add/Sub Speed Problems",
+    "questions": [
+      {
+        "type": "speed",
+        "q": "What is 23 + 44?",
+        "choices": [
+          "67",
+          "68",
+          "66",
+          "77"
+        ],
+        "answer": "67",
+        "seconds": 10,
+        "audio": "What is 23 + 44?"
+      },
+      {
+        "type": "speed",
+        "q": "What is 29 + 39?",
+        "choices": [
+          "68",
+          "58",
+          "78",
+          "69"
+        ],
+        "answer": "68",
+        "seconds": 10,
+        "audio": "What is 29 + 39?"
+      },
+      {
+        "type": "speed",
+        "q": "What is 48 - 19?",
+        "choices": [
+          "39",
+          "27",
+          "30",
+          "29"
+        ],
+        "answer": "29",
+        "seconds": 10,
+        "audio": "What is 48 - 19?"
+      },
+      {
+        "type": "speed",
+        "q": "What is 37 + 28?",
+        "choices": [
+          "55",
+          "66",
+          "65",
+          "75"
+        ],
+        "answer": "65",
+        "seconds": 10,
+        "audio": "What is 37 + 28?"
+      },
+      {
+        "type": "speed",
+        "q": "What is 92 - 46?",
+        "choices": [
+          "46",
+          "56",
+          "44",
+          "47"
+        ],
+        "answer": "46",
+        "seconds": 10,
+        "audio": "What is 92 - 46?"
+      },
+      {
+        "type": "speed",
+        "q": "What is 125 + 34?",
+        "choices": [
+          "159",
+          "160",
+          "169",
+          "149"
+        ],
+        "answer": "159",
+        "seconds": 10,
+        "audio": "What is 125 + 34?"
+      },
+      {
+        "type": "speed",
+        "q": "What is 180 - 65?",
+        "choices": [
+          "115",
+          "105",
+          "125",
+          "116"
+        ],
+        "answer": "115",
+        "seconds": 10,
+        "audio": "What is 180 - 65?"
+      },
+      {
+        "type": "speed",
+        "q": "What is 246 + 38?",
+        "choices": [
+          "284",
+          "285",
+          "294",
+          "274"
+        ],
+        "answer": "284",
+        "seconds": 10,
+        "audio": "What is 246 + 38?"
+      },
+      {
+        "type": "speed",
+        "q": "What is 300 - 128?",
+        "choices": [
+          "162",
+          "172",
+          "173",
+          "182"
+        ],
+        "answer": "172",
+        "seconds": 10,
+        "audio": "What is 300 - 128?"
+      },
+      {
+        "type": "speed",
+        "q": "What is 175 + 149?",
+        "choices": [
+          "314",
+          "334",
+          "325",
+          "324"
+        ],
+        "answer": "324",
+        "seconds": 10,
+        "audio": "What is 175 + 149?"
+      },
+      {
+        "type": "mc",
+        "q": "What is 29 + 14?",
+        "choices": [
+          "43",
+          "53",
+          "45",
+          "44"
+        ],
+        "answer": "43",
+        "explain": "Combining tens and ones carefully gives 43.",
+        "audio": "What is 29 + 14?"
+      },
+      {
+        "type": "mc",
+        "q": "What is 32 + 16 − 0?",
+        "choices": [
+          "58",
+          "49",
+          "48",
+          "50"
+        ],
+        "answer": "48",
+        "explain": "Combining tens and ones carefully gives 48.",
+        "audio": "What is 32 + 16 − 0?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Combining tens and ones carefully gives 53 Example: What is 35 + 18.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Combining tens and ones carefully gives 53.",
+        "audio": "True or false. Combining tens and ones carefully gives 53 Example: What is 35 + 18."
+      },
+      {
+        "type": "mc",
+        "q": "What is 38 + 20 − 0?",
+        "choices": [
+          "68",
+          "60",
+          "59",
+          "58"
+        ],
+        "answer": "58",
+        "explain": "Combining tens and ones carefully gives 58.",
+        "audio": "What is 38 + 20 − 0?"
+      },
+      {
+        "type": "mc",
+        "q": "What is 41 + 22?",
+        "choices": [
+          "63",
+          "73",
+          "64",
+          "65"
+        ],
+        "answer": "63",
+        "explain": "Combining tens and ones carefully gives 63.",
+        "audio": "What is 41 + 22?"
+      },
+      {
+        "type": "mc",
+        "q": "What is 49 + 24 − 0?",
+        "choices": [
+          "77",
+          "73",
+          "75",
+          "93"
+        ],
+        "answer": "73",
+        "explain": "Combining tens and ones carefully gives 73.",
+        "audio": "What is 49 + 24 − 0?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Combining tens and ones carefully gives 80 Example: What is 52 + 26.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “78.” Combining tens and ones carefully gives 78.",
+        "audio": "True or false. Combining tens and ones carefully gives 80 Example: What is 52 + 26."
+      },
+      {
+        "type": "mc",
+        "q": "What is 55 + 28 − 0?",
+        "choices": [
+          "103",
+          "87",
+          "83",
+          "85"
+        ],
+        "answer": "83",
+        "explain": "Combining tens and ones carefully gives 83.",
+        "audio": "What is 55 + 28 − 0?"
+      },
+      {
+        "type": "mc",
+        "q": "What is 58 + 30?",
+        "choices": [
+          "90",
+          "88",
+          "92",
+          "108"
+        ],
+        "answer": "88",
+        "explain": "Combining tens and ones carefully gives 88.",
+        "audio": "What is 58 + 30?"
+      },
+      {
+        "type": "mc",
+        "q": "What is 61 + 32 − 0?",
+        "choices": [
+          "93",
+          "113",
+          "95",
+          "97"
+        ],
+        "answer": "93",
+        "explain": "Combining tens and ones carefully gives 93.",
+        "audio": "What is 61 + 32 − 0?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Combining tens and ones carefully gives 103 Example: What is 69 + 34.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Combining tens and ones carefully gives 103.",
+        "audio": "True or false. Combining tens and ones carefully gives 103 Example: What is 69 + 34."
+      },
+      {
+        "type": "mc",
+        "q": "What is 72 + 36 − 0?",
+        "choices": [
+          "108",
+          "138",
+          "114",
+          "111"
+        ],
+        "answer": "108",
+        "explain": "Combining tens and ones carefully gives 108.",
+        "audio": "What is 72 + 36 − 0?"
+      },
+      {
+        "type": "mc",
+        "q": "What is 75 + 38?",
+        "choices": [
+          "113",
+          "143",
+          "119",
+          "116"
+        ],
+        "answer": "113",
+        "explain": "Combining tens and ones carefully gives 113.",
+        "audio": "What is 75 + 38?"
+      },
+      {
+        "type": "mc",
+        "q": "What is 78 + 40 − 0?",
+        "choices": [
+          "124",
+          "148",
+          "121",
+          "118"
+        ],
+        "answer": "118",
+        "explain": "Combining tens and ones carefully gives 118.",
+        "audio": "What is 78 + 40 − 0?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Combining tens and ones carefully gives 126 Example: What is 81 + 42.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “123.” Combining tens and ones carefully gives 123.",
+        "audio": "True or false. Combining tens and ones carefully gives 126 Example: What is 81 + 42."
+      }
+    ]
+  },
+  "g2:sci:L2": {
+    "name": "Animal Groups",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "A salmon is a...",
+        "choices": [
+          "Fish",
+          "Bird",
+          "None of these",
+          "Mammal"
+        ],
+        "answer": "Fish",
+        "audio": "Pick the animal group."
+      },
+      {
+        "type": "mc",
+        "q": "A robin is a...",
+        "choices": [
+          "Amphibian",
+          "Fish",
+          "Bird",
+          "None of these"
+        ],
+        "answer": "Bird",
+        "audio": "Pick the animal group."
+      },
+      {
+        "type": "mc",
+        "q": "A snake is a...",
+        "choices": [
+          "Amphibian",
+          "Reptile",
+          "Insect",
+          "Bird"
+        ],
+        "answer": "Reptile",
+        "audio": "Pick the animal group."
+      },
+      {
+        "type": "mc",
+        "q": "A frog is an...",
+        "choices": [
+          "Amphibian",
+          "Fish",
+          "Mammal",
+          "None of these"
+        ],
+        "answer": "Amphibian",
+        "audio": "Pick the animal group."
+      },
+      {
+        "type": "mc",
+        "q": "A butterfly is an...",
+        "choices": [
+          "Fish",
+          "Bird",
+          "None of these",
+          "Insect"
+        ],
+        "answer": "Insect",
+        "audio": "Pick the animal group."
+      },
+      {
+        "type": "mc",
+        "q": "A dog is a...",
+        "choices": [
+          "Mammal",
+          "Insect",
+          "Amphibian",
+          "None of these"
+        ],
+        "answer": "Mammal",
+        "audio": "Pick the animal group."
+      },
+      {
+        "type": "mc",
+        "q": "A lizard is a...",
+        "choices": [
+          "Amphibian",
+          "Bird",
+          "Mammal",
+          "Reptile"
+        ],
+        "answer": "Reptile",
+        "audio": "Pick the animal group."
+      },
+      {
+        "type": "mc",
+        "q": "Animals with feathers are usually...",
+        "choices": [
+          "Fish",
+          "Reptile",
+          "Birds",
+          "Insects"
+        ],
+        "answer": "Birds",
+        "audio": "Pick the animal group."
+      },
+      {
+        "type": "mc",
+        "q": "Animals that live part of life in water and part on land can be...",
+        "choices": [
+          "Amphibians",
+          "Reptile",
+          "Birds",
+          "Mammals"
+        ],
+        "answer": "Amphibians",
+        "audio": "Pick the animal group."
+      },
+      {
+        "type": "mc",
+        "q": "Animals with six legs are usually...",
+        "choices": [
+          "Insects",
+          "Fish",
+          "Reptiles",
+          "Reptile"
+        ],
+        "answer": "Insects",
+        "audio": "Pick the animal group."
+      },
+      {
+        "type": "mc",
+        "q": "Scientists observe that wolves surround prey and share food. How does group behavior help survival?",
+        "choices": [
+          "It removes the need for food, water, and shelter.",
+          "It helps them obtain food.",
+          "It guarantees that weather and predators disappear.",
+          "It changes every animal into a different species."
+        ],
+        "answer": "It helps them obtain food.",
+        "explain": "The observation is evidence that group behavior helps wolves obtain food.",
+        "audio": "Scientists observe that wolves surround prey and share food. How does group behavior help survival?"
+      },
+      {
+        "type": "mc",
+        "q": "Scientists observe that musk oxen form a circle around calves. How does group behavior help survival?",
+        "choices": [
+          "It changes every animal into a different species.",
+          "It helps them defend themselves.",
+          "It removes the need for food, water, and shelter.",
+          "It guarantees that weather and predators disappear."
+        ],
+        "answer": "It helps them defend themselves.",
+        "explain": "The observation is evidence that group behavior helps musk oxen defend themselves.",
+        "audio": "Scientists observe that musk oxen form a circle around calves. How does group behavior help survival?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: It helps them cope with cold Example: Scientists observe that penguins huddle tightly in winter wind.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The observation is evidence that group behavior helps penguins cope with cold.",
+        "audio": "True or false. It helps them cope with cold Example: Scientists observe that penguins huddle tightly in winter wind."
+      },
+      {
+        "type": "mc",
+        "q": "Scientists observe that meerkats take turns watching for predators. How does group behavior help survival?",
+        "choices": [
+          "It changes every animal into a different species.",
+          "It removes the need for food, water, and shelter.",
+          "It guarantees that weather and predators disappear.",
+          "It helps them defend themselves."
+        ],
+        "answer": "It helps them defend themselves.",
+        "explain": "The observation is evidence that group behavior helps meerkats defend themselves.",
+        "audio": "Scientists observe that meerkats take turns watching for predators. How does group behavior help survival?"
+      },
+      {
+        "type": "mc",
+        "q": "Scientists observe that dolphins work together to herd fish. How does group behavior help survival?",
+        "choices": [
+          "It removes the need for food, water, and shelter.",
+          "It guarantees that weather and predators disappear.",
+          "It changes every animal into a different species.",
+          "It helps them obtain food."
+        ],
+        "answer": "It helps them obtain food.",
+        "explain": "The observation is evidence that group behavior helps dolphins obtain food.",
+        "audio": "Scientists observe that dolphins work together to herd fish. How does group behavior help survival?"
+      },
+      {
+        "type": "mc",
+        "q": "Scientists observe that ants follow scent trails to food. How does group behavior help survival?",
+        "choices": [
+          "It changes every animal into a different species.",
+          "It helps them obtain food.",
+          "It removes the need for food, water, and shelter.",
+          "It guarantees that weather and predators disappear."
+        ],
+        "answer": "It helps them obtain food.",
+        "explain": "The observation is evidence that group behavior helps ants obtain food.",
+        "audio": "Scientists observe that ants follow scent trails to food. How does group behavior help survival?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: It changes every animal into a different species Example: Scientists observe that zebras stay in a herd with many watchful eyes.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “It helps them defend themselves.” The observation is evidence that group behavior helps zebras defend themselves.",
+        "audio": "True or false. It changes every animal into a different species Example: Scientists observe that zebras stay in a herd with many watchful eyes."
+      },
+      {
+        "type": "mc",
+        "q": "Scientists observe that geese fly in a V formation to reduce effort. How does group behavior help survival?",
+        "choices": [
+          "It guarantees that weather and predators disappear.",
+          "It changes every animal into a different species.",
+          "It removes the need for food, water, and shelter.",
+          "It helps them cope with migration."
+        ],
+        "answer": "It helps them cope with migration.",
+        "explain": "The observation is evidence that group behavior helps geese cope with migration.",
+        "audio": "Scientists observe that geese fly in a V formation to reduce effort. How does group behavior help survival?"
+      },
+      {
+        "type": "mc",
+        "q": "Scientists observe that lions hunt cooperatively. How does group behavior help survival?",
+        "choices": [
+          "It guarantees that weather and predators disappear.",
+          "It changes every animal into a different species.",
+          "It removes the need for food, water, and shelter.",
+          "It helps them obtain food."
+        ],
+        "answer": "It helps them obtain food.",
+        "explain": "The observation is evidence that group behavior helps lions obtain food.",
+        "audio": "Scientists observe that lions hunt cooperatively. How does group behavior help survival?"
+      },
+      {
+        "type": "mc",
+        "q": "Scientists observe that prairie dogs give alarm calls. How does group behavior help survival?",
+        "choices": [
+          "It helps them defend themselves.",
+          "It changes every animal into a different species.",
+          "It guarantees that weather and predators disappear.",
+          "It removes the need for food, water, and shelter."
+        ],
+        "answer": "It helps them defend themselves.",
+        "explain": "The observation is evidence that group behavior helps prairie dogs defend themselves.",
+        "audio": "Scientists observe that prairie dogs give alarm calls. How does group behavior help survival?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: It helps them obtain food Example: Scientists observe that bees signal the direction of flowers.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The observation is evidence that group behavior helps bees obtain food.",
+        "audio": "True or false. It helps them obtain food Example: Scientists observe that bees signal the direction of flowers."
+      },
+      {
+        "type": "mc",
+        "q": "Scientists observe that elephants protect calves in the center of the herd. How does group behavior help survival?",
+        "choices": [
+          "It changes every animal into a different species.",
+          "It removes the need for food, water, and shelter.",
+          "It guarantees that weather and predators disappear.",
+          "It helps them defend themselves."
+        ],
+        "answer": "It helps them defend themselves.",
+        "explain": "The observation is evidence that group behavior helps elephants defend themselves.",
+        "audio": "Scientists observe that elephants protect calves in the center of the herd. How does group behavior help survival?"
+      },
+      {
+        "type": "mc",
+        "q": "Scientists observe that orcas coordinate to catch fast prey. How does group behavior help survival?",
+        "choices": [
+          "It guarantees that weather and predators disappear.",
+          "It helps them obtain food.",
+          "It changes every animal into a different species.",
+          "It removes the need for food, water, and shelter."
+        ],
+        "answer": "It helps them obtain food.",
+        "explain": "The observation is evidence that group behavior helps orcas obtain food.",
+        "audio": "Scientists observe that orcas coordinate to catch fast prey. How does group behavior help survival?"
+      },
+      {
+        "type": "mc",
+        "q": "Scientists observe that flamingos gather where food is plentiful. How does group behavior help survival?",
+        "choices": [
+          "It guarantees that weather and predators disappear.",
+          "It changes every animal into a different species.",
+          "It helps them obtain food.",
+          "It removes the need for food, water, and shelter."
+        ],
+        "answer": "It helps them obtain food.",
+        "explain": "The observation is evidence that group behavior helps flamingos obtain food.",
+        "audio": "Scientists observe that flamingos gather where food is plentiful. How does group behavior help survival?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: It changes every animal into a different species Example: Scientists observe that bison stand together during a storm.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “It helps them cope with weather.” The observation is evidence that group behavior helps bison cope with weather.",
+        "audio": "True or false. It changes every animal into a different species Example: Scientists observe that bison stand together during a storm."
+      }
+    ]
+  },
+  "g2:sci:L3": {
+    "name": "Life Cycles",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Butterfly life cycle starts as an...",
+        "choices": [
+          "None of these",
+          "Egg",
+          "Puppy",
+          "Seed"
+        ],
+        "answer": "Egg",
+        "audio": "Think about life cycles."
+      },
+      {
+        "type": "mc",
+        "q": "A tadpole grows into a...",
+        "choices": [
+          "Frog",
+          "Fish",
+          "Bird",
+          "None of these"
+        ],
+        "answer": "Frog",
+        "audio": "Think about life cycles."
+      },
+      {
+        "type": "mc",
+        "q": "A caterpillar changes into a...",
+        "choices": [
+          "Butterfly",
+          "Snake",
+          "Frog",
+          "Larva"
+        ],
+        "answer": "Butterfly",
+        "audio": "Think about life cycles."
+      },
+      {
+        "type": "mc",
+        "q": "A seed can grow into a...",
+        "choices": [
+          "Roots",
+          "Rock",
+          "Plant",
+          "Cloud"
+        ],
+        "answer": "Plant",
+        "audio": "Think about life cycles."
+      },
+      {
+        "type": "mc",
+        "q": "A young frog is called a...",
+        "choices": [
+          "Chick",
+          "Calf",
+          "Larva",
+          "Tadpole"
+        ],
+        "answer": "Tadpole",
+        "audio": "Think about life cycles."
+      },
+      {
+        "type": "mc",
+        "q": "A butterfly changes inside a...",
+        "choices": [
+          "Chrysalis",
+          "Pond",
+          "Nest",
+          "Larva"
+        ],
+        "answer": "Chrysalis",
+        "audio": "Think about life cycles."
+      },
+      {
+        "type": "mc",
+        "q": "A plant life cycle can begin with a...",
+        "choices": [
+          "Feather",
+          "Roots",
+          "Stone",
+          "Seed"
+        ],
+        "answer": "Seed",
+        "audio": "Think about life cycles."
+      },
+      {
+        "type": "mc",
+        "q": "A chick hatches from an...",
+        "choices": [
+          "None of these",
+          "Shell only",
+          "Leaf",
+          "Egg"
+        ],
+        "answer": "Egg",
+        "audio": "Think about life cycles."
+      },
+      {
+        "type": "mc",
+        "q": "Living things grow and...",
+        "choices": [
+          "Change",
+          "Melt",
+          "Disappear",
+          "And"
+        ],
+        "answer": "Change",
+        "audio": "Think about life cycles."
+      },
+      {
+        "type": "mc",
+        "q": "The adult stage comes after earlier life cycle...",
+        "choices": [
+          "Colors",
+          "Toys",
+          "Larva",
+          "Stages"
+        ],
+        "answer": "Stages",
+        "audio": "Think about life cycles."
+      },
+      {
+        "type": "mc",
+        "q": "Which observation accurately describes a butterfly life cycle in which the young differs from the parent?",
+        "choices": [
+          "The organism never changes its body structures as it grows.",
+          "The young is always a smaller copy of the adult.",
+          "egg → caterpillar → chrysalis → adult",
+          "The stages can occur in any random order."
+        ],
+        "answer": "egg → caterpillar → chrysalis → adult",
+        "explain": "The butterfly undergoes an ordered life cycle: egg → caterpillar → chrysalis → adult.",
+        "audio": "Which observation accurately describes a butterfly life cycle in which the young differs from the parent?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation accurately describes a frog life cycle in which the young differs from the parent?",
+        "choices": [
+          "egg → tadpole → froglet → adult",
+          "The organism never changes its body structures as it grows.",
+          "The stages can occur in any random order.",
+          "The young is always a smaller copy of the adult."
+        ],
+        "answer": "egg → tadpole → froglet → adult",
+        "explain": "The frog undergoes an ordered life cycle: egg → tadpole → froglet → adult.",
+        "audio": "Which observation accurately describes a frog life cycle in which the young differs from the parent?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The butterfly undergoes an ordered life cycle: egg → larva → pupa → winged adult Example: Which observation accurately describes a butterfly life… in which the young differs from the parent.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The butterfly undergoes an ordered life cycle: egg → larva → pupa → winged adult.",
+        "audio": "True or false. The butterfly undergoes an ordered life cycle: egg → larva → pupa → winged adult Example: Which observation accurately describes a butterfly life… in which the young differs from the parent."
+      },
+      {
+        "type": "mc",
+        "q": "Which observation accurately describes a moth life cycle in which the young differs from the parent?",
+        "choices": [
+          "egg → caterpillar → cocoon → adult",
+          "The organism never changes its body structures as it grows.",
+          "The stages can occur in any random order.",
+          "The young is always a smaller copy of the adult."
+        ],
+        "answer": "egg → caterpillar → cocoon → adult",
+        "explain": "The moth undergoes an ordered life cycle: egg → caterpillar → cocoon → adult.",
+        "audio": "Which observation accurately describes a moth life cycle in which the young differs from the parent?"
+      },
+      {
+        "type": "mc",
+        "q": "Which observation accurately describes a toad life cycle in which the young differs from the parent?",
+        "choices": [
+          "egg → tadpole → toadlet → adult",
+          "The young is always a smaller copy of the adult.",
+          "The organism never changes its body structures as it grows.",
+          "The stages can occur in any random order."
+        ],
+        "answer": "egg → tadpole → toadlet → adult",
+        "explain": "The toad undergoes an ordered life cycle: egg → tadpole → toadlet → adult.",
+        "audio": "Which observation accurately describes a toad life cycle in which the young differs from the parent?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The young is always a smaller copy of the adult Example: Which observation accurately describes a butterfly life… in which the young differs from the parent.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “caterpillar eats and grows before forming a chrysalis.” The butterfly undergoes an ordered life cycle: caterpillar eats and grows before forming a chrysalis.",
+        "audio": "True or false. The young is always a smaller copy of the adult Example: Which observation accurately describes a butterfly life… in which the young differs from the parent."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The butterfly undergoes an ordered life cycle: pupa is the stage between caterpillar and adult Example: Which observation accurately describes a butterfly life… in which the young differs from the parent.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The butterfly undergoes an ordered life cycle: pupa is the stage between caterpillar and adult.",
+        "audio": "True or false. The butterfly undergoes an ordered life cycle: pupa is the stage between caterpillar and adult Example: Which observation accurately describes a butterfly life… in which the young differs from the parent."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The young is always a smaller copy of the adult Example: Which observation accurately describes a moth life cycle in… in which the young differs from the parent.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “a cocoon protects the transforming pupa.” The moth undergoes an ordered life cycle: a cocoon protects the transforming pupa.",
+        "audio": "True or false. The young is always a smaller copy of the adult Example: Which observation accurately describes a moth life cycle in… in which the young differs from the parent."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The moth undergoes an ordered life cycle: each stage has structures suited to different needs Example: Which observation accurately describes a moth life cycle in… in which the young differs from the parent.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The moth undergoes an ordered life cycle: each stage has structures suited to different needs.",
+        "audio": "True or false. The moth undergoes an ordered life cycle: each stage has structures suited to different needs Example: Which observation accurately describes a moth life cycle in… in which the young differs from the parent."
+      },
+      {
+        "type": "mc",
+        "q": "Which response correctly answers “Which observation accurately describes a toad life cycle in which the young differs from the parent” and supports its conclusion with all relevant evidence?",
+        "choices": [
+          "Conclusion: The stages can occur in any random order. Evidence: the conditions in the original task can be ignored.",
+          "Conclusion: a tadpole develops lungs and legs as it changes. Evidence: an unrelated detail supports every possible conclusion.",
+          "Conclusion: The young is always a smaller copy of the adult. Evidence is unnecessary once a choice has been made.",
+          "Conclusion: a tadpole develops lungs and legs as it changes. Evidence and reasoning: The toad undergoes an ordered life cycle: a tadpole develops lungs and legs as it changes."
+        ],
+        "answer": "Conclusion: a tadpole develops lungs and legs as it changes. Evidence and reasoning: The toad undergoes an ordered life cycle: a tadpole develops lungs and legs as it changes.",
+        "explain": "A mastery response must be accurate and supported by the observation, measured evidence, and cause-and-effect relationship. The toad undergoes an ordered life cycle: a tadpole develops lungs and legs as it changes.",
+        "audio": "Which response correctly answers “Which observation accurately describes a toad life cycle in which the young differs from the parent” and supports its conclusion with all relevant evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "A student answered “The stages can occur in any random order” to “Which observation accurately describes a butterfly life cycle in which the young differs from the parent.” Which feedback identifies the error and gives a supported correction?",
+        "choices": [
+          "Accept every response because evidence cannot distinguish a correct conclusion from an error.",
+          "Replace “The stages can occur in any random order” with “metamorphosis changes crawling larva into flying adult”; The butterfly undergoes an ordered life cycle: metamorphosis changes crawling larva into flying adult.",
+          "Keep “The stages can occur in any random order” because the task's conditions do not need to be checked.",
+          "Replace it with “The organism never changes its body structures as it grows” without using the observation, measured evidence, and cause-and-effect relationship."
+        ],
+        "answer": "Replace “The stages can occur in any random order” with “metamorphosis changes crawling larva into flying adult”; The butterfly undergoes an ordered life cycle: metamorphosis changes crawling larva into flying adult.",
+        "explain": "The first response does not satisfy the task. The correction is metamorphosis changes crawling larva into flying adult, supported by the observation, measured evidence, and cause-and-effect relationship. The butterfly undergoes an ordered life cycle: metamorphosis changes crawling larva into flying adult.",
+        "audio": "A student answered “The stages can occur in any random order” to “Which observation accurately describes a butterfly life cycle in which the young differs from the parent.” Which feedback identifies the error and gives a supported correction?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The evidence supports “metamorphosis changes an aquatic tadpole into an adult frog” rather than “The organism never changes its body structures as it grows.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Student A's conclusion is the one supported by the task. The frog undergoes an ordered life cycle: metamorphosis changes an aquatic tadpole into an adult frog.",
+        "audio": "True or false. The evidence supports “metamorphosis changes an aquatic tadpole into an adult frog” rather than “The organism never changes its body structures as it grows.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which response answers “Which observation accurately describes a moth life cycle in which the young differs from the parent,” gives relevant evidence, and rejects “The young is always a smaller copy of the adult”?",
+        "choices": [
+          "Choose “The young is always a smaller copy of the adult”; a conclusion does not need evidence or error analysis.",
+          "Choose “each stage has structures suited to different needs,” but use an unrelated fact as the only support and do not evaluate alternatives.",
+          "Choose “The stages can occur in any random order” because repeating a competing response counts as correcting it.",
+          "Choose “each stage has structures suited to different needs”; support it with The moth undergoes an ordered life cycle: each stage has structures suited to different needs. Reject “The young is always a smaller copy of the adult” because it does not satisfy the evidence or conditions."
+        ],
+        "answer": "Choose “each stage has structures suited to different needs”; support it with The moth undergoes an ordered life cycle: each stage has structures suited to different needs. Reject “The young is always a smaller copy of the adult” because it does not satisfy the evidence or conditions.",
+        "explain": "The complete evaluation gives each stage has structures suited to different needs, supports it with the observation, measured evidence, and cause-and-effect relationship, and explains why The young is always a smaller copy of the adult fails. The moth undergoes an ordered life cycle: each stage has structures suited to different needs.",
+        "audio": "Which response answers “Which observation accurately describes a moth life cycle in which the young differs from the parent,” gives relevant evidence, and rejects “The young is always a smaller copy of the adult”?"
+      },
+      {
+        "type": "mc",
+        "q": "Which response answers “Which observation accurately describes a frog life cycle in which the young differs from the parent,” justifies its conclusion, and corrects “The stages can occur in any random order”?",
+        "choices": [
+          "Conclusion: The organism never changes its body structures as it grows. Justification: repeat the choice without analyzing the task. Error correction: none.",
+          "Conclusion: observations across time show the ordered pattern of change. Justification: The frog undergoes an ordered life cycle: observations across time show the ordered pattern of change. Error correction: “The stages can occur in any random order” is not supported by the task.",
+          "Conclusion: observations across time show the ordered pattern of change. Justification: the observation, measured evidence, and cause-and-effect relationship supports every conflicting response equally.",
+          "Conclusion: The stages can occur in any random order. Justification: evidence is optional. Error correction: preserve the original error."
+        ],
+        "answer": "Conclusion: observations across time show the ordered pattern of change. Justification: The frog undergoes an ordered life cycle: observations across time show the ordered pattern of change. Error correction: “The stages can occur in any random order” is not supported by the task.",
+        "explain": "Synthesis combines a correct conclusion, relevant justification, and explicit correction of an unsupported response. The frog undergoes an ordered life cycle: observations across time show the ordered pattern of change.",
+        "audio": "Which response answers “Which observation accurately describes a frog life cycle in which the young differs from the parent,” justifies its conclusion, and corrects “The stages can occur in any random order”?"
+      },
+      {
+        "type": "mc",
+        "q": "Which stage comes first in a butterfly life cycle?",
+        "choices": [
+          "egg",
+          "adult",
+          "pupa",
+          "caterpillar"
+        ],
+        "answer": "egg"
+      }
+    ]
+  },
+  "g2:sci:L4": {
+    "name": "Plant Parts",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Leaves help a plant make...",
+        "choices": [
+          "Roots",
+          "Sand",
+          "Toys",
+          "Food"
+        ],
+        "answer": "Food",
+        "audio": "Choose the correct plant part job."
+      },
+      {
+        "type": "mc",
+        "q": "Roots take in...",
+        "choices": [
+          "Roots",
+          "Sunlight",
+          "Stars",
+          "Water"
+        ],
+        "answer": "Water",
+        "audio": "Choose the correct plant part job."
+      },
+      {
+        "type": "mc",
+        "q": "The flower helps make...",
+        "choices": [
+          "Seeds",
+          "Roots",
+          "Clouds",
+          "Rocks"
+        ],
+        "answer": "Seeds",
+        "audio": "Choose the correct plant part job."
+      },
+      {
+        "type": "mc",
+        "q": "The stem helps carry...",
+        "choices": [
+          "Music",
+          "Water",
+          "Roots",
+          "Cars"
+        ],
+        "answer": "Water",
+        "audio": "Choose the correct plant part job."
+      },
+      {
+        "type": "mc",
+        "q": "Roots also help hold a plant in the...",
+        "choices": [
+          "Soil",
+          "Wind",
+          "Roots",
+          "Sky"
+        ],
+        "answer": "Soil",
+        "audio": "Choose the correct plant part job."
+      },
+      {
+        "type": "mc",
+        "q": "A seed can grow into a new...",
+        "choices": [
+          "Rock",
+          "Roots",
+          "Fish",
+          "Plant"
+        ],
+        "answer": "Plant",
+        "audio": "Choose the correct plant part job."
+      },
+      {
+        "type": "mc",
+        "q": "Plants use sunlight, air, and water to make...",
+        "choices": [
+          "Roots",
+          "Sound",
+          "Plastic",
+          "Food"
+        ],
+        "answer": "Food",
+        "audio": "Choose the correct plant part job."
+      },
+      {
+        "type": "mc",
+        "q": "The stem supports the plant and carries...",
+        "choices": [
+          "Water",
+          "Roots",
+          "Toys",
+          "Sand"
+        ],
+        "answer": "Water",
+        "audio": "Choose the correct plant part job."
+      },
+      {
+        "type": "mc",
+        "q": "Flowers can help plants make...",
+        "choices": [
+          "Seeds",
+          "Roots",
+          "Metal",
+          "Clouds"
+        ],
+        "answer": "Seeds",
+        "audio": "Choose the correct plant part job."
+      },
+      {
+        "type": "mc",
+        "q": "Leaves take in light from the...",
+        "choices": [
+          "Soil",
+          "Moon",
+          "None of these",
+          "Sun"
+        ],
+        "answer": "Sun",
+        "audio": "Choose the correct plant part job."
+      },
+      {
+        "type": "mc",
+        "q": "A plant must survive in its environment. Which structure-function explanation is supported by science?",
+        "choices": [
+          "Roots remove every basic need of the plant.",
+          "Roots have no connection to plant survival.",
+          "Roots make the plant an animal.",
+          "Roots absorb water and anchor the plant."
+        ],
+        "answer": "Roots absorb water and anchor the plant.",
+        "explain": "“Roots absorb water and anchor the plant” explains how the structure supports plant survival.",
+        "audio": "A plant must survive in its environment. Which structure-function explanation is supported by science?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Leaves capture light used to make food Example: A plant must survive in its environment.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. “Leaves capture light used to make food” explains how the structure supports plant survival.",
+        "audio": "True or false. Leaves capture light used to make food Example: A plant must survive in its environment."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Deep roots make the plant an animal Example: A plant must survive in its environment.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “Deep roots reach water farther below dry soil.” “Deep roots reach water farther below dry soil” explains how the structure supports plant survival.",
+        "audio": "True or false. Deep roots make the plant an animal Example: A plant must survive in its environment."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Flexible stem bends without breaking in wind Example: A plant must survive in its environment.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. “Flexible stem bends without breaking in wind” explains how the structure supports plant survival.",
+        "audio": "True or false. Flexible stem bends without breaking in wind Example: A plant must survive in its environment."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Fibrous roots make the plant an animal Example: A plant must survive in its environment.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “Fibrous roots hold loose soil in many places.” “Fibrous roots hold loose soil in many places” explains how the structure supports plant survival.",
+        "audio": "True or false. Fibrous roots make the plant an animal Example: A plant must survive in its environment."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Flower petals surround and protect reproductive structures Example: A plant must survive in its environment.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. “Flower petals surround and protect reproductive structures” explains how the structure supports plant survival.",
+        "audio": "True or false. Flower petals surround and protect reproductive structures Example: A plant must survive in its environment."
+      },
+      {
+        "type": "mc",
+        "q": "Which response correctly answers “A plant must survive in its environment. Which structure-function explanation is supported by science” and supports its conclusion with all relevant evidence?",
+        "choices": [
+          "Conclusion: Taproot stores food and reaches deep water. Evidence and reasoning: “Taproot stores food and reaches deep water” explains how the structure supports plant survival.",
+          "Conclusion: Taproot removes every basic need of the plant. Evidence: the conditions in the original task can be ignored.",
+          "Conclusion: Taproot stores food and reaches deep water. Evidence: an unrelated detail supports every possible conclusion.",
+          "Conclusion: Taproot makes the plant an animal. Evidence is unnecessary once a choice has been made."
+        ],
+        "answer": "Conclusion: Taproot stores food and reaches deep water. Evidence and reasoning: “Taproot stores food and reaches deep water” explains how the structure supports plant survival.",
+        "explain": "A mastery response must be accurate and supported by the observation, measured evidence, and cause-and-effect relationship. “Taproot stores food and reaches deep water” explains how the structure supports plant survival.",
+        "audio": "Which response correctly answers “A plant must survive in its environment. Which structure-function explanation is supported by science” and supports its conclusion with all relevant evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "A student answered “Needlelike leaves remove every basic need of the plant” to “A plant must survive in its environment. Which structure-function explanation is supported by science.” Which feedback identifies the error and gives a supported correction?",
+        "choices": [
+          "Replace “Needlelike leaves remove every basic need of the plant” with “Needlelike leaves reduce water loss in cold or dry air”; “Needlelike leaves reduce water loss in cold or dry air” explains how the structure supports plant survival.",
+          "Keep “Needlelike leaves remove every basic need of the plant” because the task's conditions do not need to be checked.",
+          "Accept every response because evidence cannot distinguish a correct conclusion from an error.",
+          "Replace it with “Needlelike leaves have no connection to plant survival” without using the observation, measured evidence, and cause-and-effect relationship."
+        ],
+        "answer": "Replace “Needlelike leaves remove every basic need of the plant” with “Needlelike leaves reduce water loss in cold or dry air”; “Needlelike leaves reduce water loss in cold or dry air” explains how the structure supports plant survival.",
+        "explain": "The first response does not satisfy the task. The correction is Needlelike leaves reduce water loss in cold or dry air, supported by the observation, measured evidence, and cause-and-effect relationship. “Needlelike leaves reduce water loss in cold or dry air” explains how the structure supports plant survival.",
+        "audio": "A student answered “Needlelike leaves remove every basic need of the plant” to “A plant must survive in its environment. Which structure-function explanation is supported by science.” Which feedback identifies the error and gives a supported correction?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: The evidence supports “Vine stem climbs toward available sunlight” rather than “Vine stem has no connection to plant survival.”",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Student A's conclusion is the one supported by the task. “Vine stem climbs toward available sunlight” explains how the structure supports plant survival.",
+        "audio": "True or false. The evidence supports “Vine stem climbs toward available sunlight” rather than “Vine stem has no connection to plant survival.”"
+      },
+      {
+        "type": "mc",
+        "q": "Which response answers “A plant must survive in its environment. Which structure-function explanation is supported by science,” gives relevant evidence, and rejects “Flower petals make the plant an animal”?",
+        "choices": [
+          "Choose “Flower petals remove every basic need of the plant” because repeating a competing response counts as correcting it.",
+          "Choose “Flower petals make the plant an animal”; a conclusion does not need evidence or error analysis.",
+          "Choose “Flower petals surround and protect reproductive structures”; support it with “Flower petals surround and protect reproductive structures” explains how the structure supports plant survival. Reject “Flower petals make the plant an animal” because it does not satisfy the evidence or conditions.",
+          "Choose “Flower petals surround and protect reproductive structures,” but use an unrelated fact as the only support and do not evaluate alternatives."
+        ],
+        "answer": "Choose “Flower petals surround and protect reproductive structures”; support it with “Flower petals surround and protect reproductive structures” explains how the structure supports plant survival. Reject “Flower petals make the plant an animal” because it does not satisfy the evidence or conditions.",
+        "explain": "The complete evaluation gives Flower petals surround and protect reproductive structures, supports it with the observation, measured evidence, and cause-and-effect relationship, and explains why Flower petals make the plant an animal fails. “Flower petals surround and protect reproductive structures” explains how the structure supports plant survival.",
+        "audio": "Which response answers “A plant must survive in its environment. Which structure-function explanation is supported by science,” gives relevant evidence, and rejects “Flower petals make the plant an animal”?"
+      },
+      {
+        "type": "mc",
+        "q": "Which response answers “A plant must survive in its environment. Which structure-function explanation is supported by science,” justifies its conclusion, and corrects “Seed coat removes every basic need of the plant”?",
+        "choices": [
+          "Conclusion: Seed coat protects the young plant until conditions support growth. Justification: “Seed coat protects the young plant until conditions support growth” explains how the structure supports plant survival. Error correction: “Seed coat removes every basic need of the plant” is not supported by the task.",
+          "Conclusion: Seed coat protects the young plant until conditions support growth. Justification: the observation, measured evidence, and cause-and-effect relationship supports every conflicting response equally.",
+          "Conclusion: Seed coat removes every basic need of the plant. Justification: evidence is optional. Error correction: preserve the original error.",
+          "Conclusion: Seed coat has no connection to plant survival. Justification: repeat the choice without analyzing the task. Error correction: none."
+        ],
+        "answer": "Conclusion: Seed coat protects the young plant until conditions support growth. Justification: “Seed coat protects the young plant until conditions support growth” explains how the structure supports plant survival. Error correction: “Seed coat removes every basic need of the plant” is not supported by the task.",
+        "explain": "Synthesis combines a correct conclusion, relevant justification, and explicit correction of an unsupported response. “Seed coat protects the young plant until conditions support growth” explains how the structure supports plant survival.",
+        "audio": "Which response answers “A plant must survive in its environment. Which structure-function explanation is supported by science,” justifies its conclusion, and corrects “Seed coat removes every basic need of the plant”?"
+      },
+      {
+        "type": "mc",
+        "q": "Which plant part absorbs water from soil?",
+        "choices": [
+          "roots",
+          "flowers",
+          "fruit",
+          "seeds"
+        ],
+        "answer": "roots"
+      },
+      {
+        "type": "mc",
+        "q": "Which plant part carries water upward?",
+        "choices": [
+          "stem",
+          "petal",
+          "fruit",
+          "root hair"
+        ],
+        "answer": "stem"
+      },
+      {
+        "type": "mc",
+        "q": "Which plant part captures sunlight?",
+        "choices": [
+          "leaves",
+          "roots",
+          "seeds",
+          "fruit"
+        ],
+        "answer": "leaves"
+      },
+      {
+        "type": "mc",
+        "q": "Which plant part often attracts pollinators?",
+        "choices": [
+          "flower",
+          "root",
+          "stem",
+          "soil"
+        ],
+        "answer": "flower"
+      }
+    ]
+  },
+  "g2:sci:L1": {
+    "name": "States of Matter",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "Ice is a...",
+        "choices": [
+          "Mixture",
+          "Solid",
+          "Gas",
+          "Liquid"
+        ],
+        "answer": "Solid",
+        "audio": "Choose the correct state of matter."
+      },
+      {
+        "type": "mc",
+        "q": "Water you can pour is a...",
+        "choices": [
+          "Liquid",
+          "Solid",
+          "Gas",
+          "Mixture"
+        ],
+        "answer": "Liquid",
+        "audio": "Choose the correct state of matter."
+      },
+      {
+        "type": "mc",
+        "q": "Air you breathe is a...",
+        "choices": [
+          "Solid",
+          "Mixture",
+          "Gas",
+          "Liquid"
+        ],
+        "answer": "Gas",
+        "audio": "Choose the correct state of matter."
+      },
+      {
+        "type": "mc",
+        "q": "A solid keeps its...",
+        "choices": [
+          "Weight",
+          "Size",
+          "Color",
+          "Shape"
+        ],
+        "answer": "Shape",
+        "audio": "Choose the correct state of matter."
+      },
+      {
+        "type": "mc",
+        "q": "Steam is water as a...",
+        "choices": [
+          "Mixture",
+          "Liquid",
+          "Gas",
+          "Solid"
+        ],
+        "answer": "Gas",
+        "audio": "Choose the correct state of matter."
+      },
+      {
+        "type": "mc",
+        "q": "Melting changes ice into...",
+        "choices": [
+          "Steam",
+          "Snow",
+          "Ice",
+          "Liquid water"
+        ],
+        "answer": "Liquid water",
+        "audio": "Choose the correct state of matter."
+      },
+      {
+        "type": "mc",
+        "q": "Freezing changes water into...",
+        "choices": [
+          "Steam",
+          "Liquid water",
+          "Rain",
+          "Ice"
+        ],
+        "answer": "Ice",
+        "audio": "Choose the correct state of matter."
+      },
+      {
+        "type": "mc",
+        "q": "A liquid takes the shape of its...",
+        "choices": [
+          "Container",
+          "Color",
+          "Weight",
+          "Temperature"
+        ],
+        "answer": "Container",
+        "audio": "Choose the correct state of matter."
+      },
+      {
+        "type": "mc",
+        "q": "Matter can be solid, liquid, or...",
+        "choices": [
+          "Light",
+          "Energy",
+          "Mixture",
+          "Gas"
+        ],
+        "answer": "Gas",
+        "audio": "Choose the correct state of matter."
+      },
+      {
+        "type": "mc",
+        "q": "Heating can change a liquid into a...",
+        "choices": [
+          "Mixture",
+          "Ice",
+          "Solid",
+          "Gas"
+        ],
+        "answer": "Gas",
+        "audio": "Choose the correct state of matter."
+      },
+      {
+        "type": "mc",
+        "q": "A student observes a wooden block. Which classification uses an observable property as evidence?",
+        "choices": [
+          "It is a liquid because of its color.",
+          "Its state cannot be classified by observation.",
+          "It is a gas because it is useful.",
+          "It is a solid because it is rigid."
+        ],
+        "answer": "It is a solid because it is rigid.",
+        "explain": "The observable evidence “is rigid” supports classifying a wooden block as a solid.",
+        "audio": "A student observes a wooden block. Which classification uses an observable property as evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "A student observes some orange juice. Which classification uses an observable property as evidence?",
+        "choices": [
+          "It is a liquid because it takes the shape of its cup.",
+          "Its state cannot be classified by observation.",
+          "It is a solid because of its color.",
+          "It is a gas because it is useful."
+        ],
+        "answer": "It is a liquid because it takes the shape of its cup.",
+        "explain": "The observable evidence “takes the shape of its cup” supports classifying some orange juice as a liquid.",
+        "audio": "A student observes some orange juice. Which classification uses an observable property as evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: It is a solid because it is flexible Example: A student observes a rubber band.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The observable evidence “is flexible” supports classifying a rubber band as a solid.",
+        "audio": "True or false. It is a solid because it is flexible Example: A student observes a rubber band."
+      },
+      {
+        "type": "mc",
+        "q": "A student observes some cooking oil. Which classification uses an observable property as evidence?",
+        "choices": [
+          "It is a solid because of its color.",
+          "It is a liquid because it flows.",
+          "Its state cannot be classified by observation.",
+          "It is a gas because it is useful."
+        ],
+        "answer": "It is a liquid because it flows.",
+        "explain": "The observable evidence “flows” supports classifying some cooking oil as a liquid.",
+        "audio": "A student observes some cooking oil. Which classification uses an observable property as evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "A student observes a metal spoon. Which classification uses an observable property as evidence?",
+        "choices": [
+          "It is a solid because it is smooth and rigid.",
+          "It is a liquid because of its color.",
+          "It is a gas because it is useful.",
+          "Its state cannot be classified by observation."
+        ],
+        "answer": "It is a solid because it is smooth and rigid.",
+        "explain": "The observable evidence “is smooth and rigid” supports classifying a metal spoon as a solid.",
+        "audio": "A student observes a metal spoon. Which classification uses an observable property as evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "A student observes some water. Which classification uses an observable property as evidence?",
+        "choices": [
+          "It is a gas because it is useful.",
+          "It is a liquid because it takes the shape of its bottle.",
+          "Its state cannot be classified by observation.",
+          "It is a solid because of its color."
+        ],
+        "answer": "It is a liquid because it takes the shape of its bottle.",
+        "explain": "The observable evidence “takes the shape of its bottle” supports classifying some water as a liquid.",
+        "audio": "A student observes some water. Which classification uses an observable property as evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: It is a gas because it is useful Example: A student observes some cotton cloth.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “It is a solid because it is soft and flexible.” The observable evidence “is soft and flexible” supports classifying some cotton cloth as a solid.",
+        "audio": "True or false. It is a gas because it is useful Example: A student observes some cotton cloth."
+      },
+      {
+        "type": "mc",
+        "q": "A student observes some milk. Which classification uses an observable property as evidence?",
+        "choices": [
+          "It is a solid because of its color.",
+          "It is a liquid because it can be poured.",
+          "Its state cannot be classified by observation.",
+          "It is a gas because it is useful."
+        ],
+        "answer": "It is a liquid because it can be poured.",
+        "explain": "The observable evidence “can be poured” supports classifying some milk as a liquid.",
+        "audio": "A student observes some milk. Which classification uses an observable property as evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "A student observes a sheet of sandpaper. Which classification uses an observable property as evidence?",
+        "choices": [
+          "It is a solid because it is rough.",
+          "It is a gas because it is useful.",
+          "It is a liquid because of its color.",
+          "Its state cannot be classified by observation."
+        ],
+        "answer": "It is a solid because it is rough.",
+        "explain": "The observable evidence “is rough” supports classifying a sheet of sandpaper as a solid.",
+        "audio": "A student observes a sheet of sandpaper. Which classification uses an observable property as evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "A student observes some honey. Which classification uses an observable property as evidence?",
+        "choices": [
+          "It is a liquid because it flows slowly.",
+          "It is a solid because of its color.",
+          "It is a gas because it is useful.",
+          "Its state cannot be classified by observation."
+        ],
+        "answer": "It is a liquid because it flows slowly.",
+        "explain": "The observable evidence “flows slowly” supports classifying some honey as a liquid.",
+        "audio": "A student observes some honey. Which classification uses an observable property as evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: It is a solid because it is flexible Example: A student observes some aluminum foil.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. The observable evidence “is flexible” supports classifying some aluminum foil as a solid.",
+        "audio": "True or false. It is a solid because it is flexible Example: A student observes some aluminum foil."
+      },
+      {
+        "type": "mc",
+        "q": "A student observes some rainwater. Which classification uses an observable property as evidence?",
+        "choices": [
+          "Its state cannot be classified by observation.",
+          "It is a gas because it is useful.",
+          "It is a liquid because it takes the shape of a puddle.",
+          "It is a solid because of its color."
+        ],
+        "answer": "It is a liquid because it takes the shape of a puddle.",
+        "explain": "The observable evidence “takes the shape of a puddle” supports classifying some rainwater as a liquid.",
+        "audio": "A student observes some rainwater. Which classification uses an observable property as evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "A student observes a plastic ruler. Which classification uses an observable property as evidence?",
+        "choices": [
+          "It is a solid because it is rigid.",
+          "Its state cannot be classified by observation.",
+          "It is a liquid because of its color.",
+          "It is a gas because it is useful."
+        ],
+        "answer": "It is a solid because it is rigid.",
+        "explain": "The observable evidence “is rigid” supports classifying a plastic ruler as a solid.",
+        "audio": "A student observes a plastic ruler. Which classification uses an observable property as evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "A student observes some dish soap. Which classification uses an observable property as evidence?",
+        "choices": [
+          "Its state cannot be classified by observation.",
+          "It is a liquid because it flows and takes a container's shape.",
+          "It is a solid because of its color.",
+          "It is a gas because it is useful."
+        ],
+        "answer": "It is a liquid because it flows and takes a container's shape.",
+        "explain": "The observable evidence “flows and takes a container's shape” supports classifying some dish soap as a liquid.",
+        "audio": "A student observes some dish soap. Which classification uses an observable property as evidence?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: It is a gas because it is useful Example: A student observes some wax paper.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The correct response is “It is a solid because it is smooth and flexible.” The observable evidence “is smooth and flexible” supports classifying some wax paper as a solid.",
+        "audio": "True or false. It is a gas because it is useful Example: A student observes some wax paper."
+      }
+    ]
+  },
+  "g2:hist:L1": {
+    "name": "Families and Communities",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "In Families and Communities, historians use evidence to understand...",
+        "choices": [
+          "ONLY FUTURE WEATHER",
+          "THE PAST",
+          "ONLY MULTIPLICATION",
+          "None of these"
+        ],
+        "answer": "THE PAST",
+        "audio": "Families and Communities history question."
+      },
+      {
+        "type": "mc",
+        "q": "A primary source for Families and Communities comes from...",
+        "choices": [
+          "None of these",
+          "A FICTIONAL PLANET",
+          "A RANDOM GUESS",
+          "THE TIME BEING STUDIED"
+        ],
+        "answer": "THE TIME BEING STUDIED",
+        "audio": "Families and Communities history question."
+      },
+      {
+        "type": "mc",
+        "q": "Cause and effect in Families and Communities helps explain...",
+        "choices": [
+          "HOW TO SPELL EVERY WORD",
+          "None of these",
+          "WHY EVENTS HAPPENED AND WHAT CHANGED",
+          "ONLY MAP COLORS"
+        ],
+        "answer": "WHY EVENTS HAPPENED AND WHAT CHANGED",
+        "audio": "Families and Communities history question."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes chronology in the lesson \"Community Landmarks and Celebrations\"?",
+        "choices": [
+          "A later event must have caused every earlier event.",
+          "A landmark is evidence only when it is still used for its original purpose.",
+          "Every celebration proves all community members remember the past in the same way.",
+          "A timeline places community events in date order."
+        ],
+        "answer": "A timeline places community events in date order.",
+        "explain": "A timeline places community events in date order. This is the accurate foundation for chronology; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes chronology in the lesson \"Community Landmarks and Celebrations\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes landmarks as evidence in the lesson \"Community Landmarks and Celebrations\"?",
+        "choices": [
+          "Every celebration proves all community members remember the past in the same way.",
+          "A photograph automatically explains what every person in it believed.",
+          "Historic buildings and monuments can preserve evidence about a community's past.",
+          "A landmark is evidence only when it is still used for its original purpose."
+        ],
+        "answer": "Historic buildings and monuments can preserve evidence about a community's past.",
+        "explain": "Historic buildings and monuments can preserve evidence about a community's past. This is the accurate foundation for landmarks as evidence; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes landmarks as evidence in the lesson \"Community Landmarks and Celebrations\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes commemoration in the lesson \"Community Landmarks and Celebrations\"?",
+        "choices": [
+          "If one landmark remains, the entire community must be unchanged.",
+          "Celebrations can honor people, ideals, or events a community considers significant.",
+          "Every celebration proves all community members remember the past in the same way.",
+          "A photograph automatically explains what every person in it believed."
+        ],
+        "answer": "Celebrations can honor people, ideals, or events a community considers significant.",
+        "explain": "Celebrations can honor people, ideals, or events a community considers significant. This is the accurate foundation for commemoration; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes commemoration in the lesson \"Community Landmarks and Celebrations\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes source perspective in the lesson \"Community Landmarks and Celebrations\"?",
+        "choices": [
+          "Photographs, objects, and oral accounts may reveal different views of one community event.",
+          "A photograph automatically explains what every person in it believed.",
+          "If one landmark remains, the entire community must be unchanged.",
+          "A later event must have caused every earlier event."
+        ],
+        "answer": "Photographs, objects, and oral accounts may reveal different views of one community event.",
+        "explain": "Photographs, objects, and oral accounts may reveal different views of one community event. This is the accurate foundation for source perspective; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes source perspective in the lesson \"Community Landmarks and Celebrations\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes continuity and change in the lesson \"Community Landmarks and Celebrations\"?",
+        "choices": [
+          "If one landmark remains, the entire community must be unchanged.",
+          "A later event must have caused every earlier event.",
+          "A landmark is evidence only when it is still used for its original purpose.",
+          "Comparing sources from different years can show what a community kept and what it changed."
+        ],
+        "answer": "Comparing sources from different years can show what a community kept and what it changed.",
+        "explain": "Comparing sources from different years can show what a community kept and what it changed. This is the accurate foundation for continuity and change; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes continuity and change in the lesson \"Community Landmarks and Celebrations\"?"
+      },
+      {
+        "type": "mc",
+        "q": "A festival program dates the first celebration before a later monument dedication. Which interpretation is best supported?",
+        "choices": [
+          "Every celebration proves all community members remember the past in the same way.",
+          "A photograph automatically explains what every person in it believed.",
+          "A timeline places community events in date order.",
+          "A landmark is evidence only when it is still used for its original purpose."
+        ],
+        "answer": "A timeline places community events in date order.",
+        "explain": "A timeline places community events in date order. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A festival program dates the first celebration before a later monument dedication. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "An old courthouse cornerstone lists its construction year and original public purpose. Which interpretation is best supported?",
+        "choices": [
+          "If one landmark remains, the entire community must be unchanged.",
+          "Historic buildings and monuments can preserve evidence about a community's past.",
+          "Every celebration proves all community members remember the past in the same way.",
+          "A photograph automatically explains what every person in it believed."
+        ],
+        "answer": "Historic buildings and monuments can preserve evidence about a community's past.",
+        "explain": "Historic buildings and monuments can preserve evidence about a community's past. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "An old courthouse cornerstone lists its construction year and original public purpose. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A city holds an annual ceremony on the date a local civil-rights leader opened a school. Which interpretation is best supported?",
+        "choices": [
+          "Celebrations can honor people, ideals, or events a community considers significant.",
+          "A photograph automatically explains what every person in it believed.",
+          "If one landmark remains, the entire community must be unchanged.",
+          "A later event must have caused every earlier event."
+        ],
+        "answer": "Celebrations can honor people, ideals, or events a community considers significant.",
+        "explain": "Celebrations can honor people, ideals, or events a community considers significant. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A city holds an annual ceremony on the date a local civil-rights leader opened a school. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A parade photograph shows spectators while an interview explains why one family attended. Which interpretation is best supported?",
+        "choices": [
+          "If one landmark remains, the entire community must be unchanged.",
+          "A later event must have caused every earlier event.",
+          "A landmark is evidence only when it is still used for its original purpose.",
+          "Photographs, objects, and oral accounts may reveal different views of one community event."
+        ],
+        "answer": "Photographs, objects, and oral accounts may reveal different views of one community event.",
+        "explain": "Photographs, objects, and oral accounts may reveal different views of one community event. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A parade photograph shows spectators while an interview explains why one family attended. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Two maps show the same town square but different roads and public buildings. Which interpretation is best supported?",
+        "choices": [
+          "A landmark is evidence only when it is still used for its original purpose.",
+          "Every celebration proves all community members remember the past in the same way.",
+          "Comparing sources from different years can show what a community kept and what it changed.",
+          "A later event must have caused every earlier event."
+        ],
+        "answer": "Comparing sources from different years can show what a community kept and what it changed.",
+        "explain": "Comparing sources from different years can show what a community kept and what it changed. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Two maps show the same town square but different roads and public buildings. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A timeline places community events in date order.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A timeline places community events in date order. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Community Landmarks and Celebrations."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A landmark is evidence only when it is still used for its original purpose.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. Historic buildings and monuments can preserve evidence about a community's past.",
+        "audio": "Evaluate this claim using the evidence from Community Landmarks and Celebrations."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Celebrations can honor people, ideals, or events a community considers significant.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Celebrations can honor people, ideals, or events a community considers significant. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Community Landmarks and Celebrations."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A photograph automatically explains what every person in it believed.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. Photographs, objects, and oral accounts may reveal different views of one community event.",
+        "audio": "Evaluate this claim using the evidence from Community Landmarks and Celebrations."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Comparing sources from different years can show what a community kept and what it changed.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Comparing sources from different years can show what a community kept and what it changed. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Community Landmarks and Celebrations."
+      },
+      {
+        "type": "mc",
+        "q": "A festival program dates the first celebration before a later monument dedication. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "The dates establish sequence, but another source is needed to explain why each event occurred.",
+          "Every celebration proves all community members remember the past in the same way.",
+          "A photograph automatically explains what every person in it believed.",
+          "If one landmark remains, the entire community must be unchanged."
+        ],
+        "answer": "The dates establish sequence, but another source is needed to explain why each event occurred.",
+        "explain": "The dates establish sequence, but another source is needed to explain why each event occurred. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A festival program dates the first celebration before a later monument dedication. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "An old courthouse cornerstone lists its construction year and original public purpose. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "A photograph automatically explains what every person in it believed.",
+          "If one landmark remains, the entire community must be unchanged.",
+          "A later event must have caused every earlier event.",
+          "The inscription is useful evidence about when and why the building was created."
+        ],
+        "answer": "The inscription is useful evidence about when and why the building was created.",
+        "explain": "The inscription is useful evidence about when and why the building was created. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "An old courthouse cornerstone lists its construction year and original public purpose. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "A city holds an annual ceremony on the date a local civil-rights leader opened a school. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "A later event must have caused every earlier event.",
+          "A landmark is evidence only when it is still used for its original purpose.",
+          "The date and ceremony connect a present tradition to a remembered contribution.",
+          "If one landmark remains, the entire community must be unchanged."
+        ],
+        "answer": "The date and ceremony connect a present tradition to a remembered contribution.",
+        "explain": "The date and ceremony connect a present tradition to a remembered contribution. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A city holds an annual ceremony on the date a local civil-rights leader opened a school. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "A parade photograph shows spectators while an interview explains why one family attended. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Every celebration proves all community members remember the past in the same way.",
+          "The sources answer different questions and become stronger when interpreted together.",
+          "A later event must have caused every earlier event.",
+          "A landmark is evidence only when it is still used for its original purpose."
+        ],
+        "answer": "The sources answer different questions and become stronger when interpreted together.",
+        "explain": "The sources answer different questions and become stronger when interpreted together. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A parade photograph shows spectators while an interview explains why one family attended. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Two maps show the same town square but different roads and public buildings. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "The town preserved a central place while transportation and services changed around it.",
+          "A landmark is evidence only when it is still used for its original purpose.",
+          "Every celebration proves all community members remember the past in the same way.",
+          "A photograph automatically explains what every person in it believed."
+        ],
+        "answer": "The town preserved a central place while transportation and services changed around it.",
+        "explain": "The town preserved a central place while transportation and services changed around it. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Two maps show the same town square but different roads and public buildings. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: A festival program dates the first celebration before a later monument dedication. Evidence B: An old courthouse cornerstone lists its construction year and original public purpose. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Evidence A proves “A later event must have caused every earlier event.,” so Evidence B can be ignored.",
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “A timeline places community events in date order.” Evidence B supports “Historic buildings and monuments can preserve evidence about a community's past.” Together, the sources show related developments while preserving each source's context."
+        ],
+        "answer": "Evidence A supports “A timeline places community events in date order.” Evidence B supports “Historic buildings and monuments can preserve evidence about a community's past.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “A timeline places community events in date order.” Evidence B supports “Historic buildings and monuments can preserve evidence about a community's past.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: A festival program dates the first celebration before a later monument dedication. Evidence B: An old courthouse cornerstone lists its construction year and original public purpose. Which thesis best evaluates both sources without overstating either one?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: An old courthouse cornerstone lists its construction year and original public purpose. Evidence B: A city holds an annual ceremony on the date a local civil-rights leader opened a school. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “Historic buildings and monuments can preserve evidence about a community's past.” Evidence B supports “Celebrations can honor people, ideals, or events a community considers significant.” Together, the sources show related developments while preserving each source's context.",
+          "Evidence A proves “A landmark is evidence only when it is still used for its original purpose.,” so Evidence B can be ignored."
+        ],
+        "answer": "Evidence A supports “Historic buildings and monuments can preserve evidence about a community's past.” Evidence B supports “Celebrations can honor people, ideals, or events a community considers significant.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “Historic buildings and monuments can preserve evidence about a community's past.” Evidence B supports “Celebrations can honor people, ideals, or events a community considers significant.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: An old courthouse cornerstone lists its construction year and original public purpose. Evidence B: A city holds an annual ceremony on the date a local civil-rights leader opened a school. Which thesis best evaluates both sources without overstating either one?"
+      }
+    ]
+  },
+  "g2:hist:L2": {
+    "name": "Rules and Laws",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "In Rules and Laws, historians use evidence to understand...",
+        "choices": [
+          "THE PAST",
+          "None of these",
+          "ONLY MULTIPLICATION",
+          "ONLY FUTURE WEATHER"
+        ],
+        "answer": "THE PAST",
+        "audio": "Rules and Laws history question."
+      },
+      {
+        "type": "mc",
+        "q": "A primary source for Rules and Laws comes from...",
+        "choices": [
+          "THE TIME BEING STUDIED",
+          "A RANDOM GUESS",
+          "A FICTIONAL PLANET",
+          "None of these"
+        ],
+        "answer": "THE TIME BEING STUDIED",
+        "audio": "Rules and Laws history question."
+      },
+      {
+        "type": "mc",
+        "q": "Cause and effect in Rules and Laws helps explain...",
+        "choices": [
+          "ONLY MAP COLORS",
+          "None of these",
+          "HOW TO SPELL EVERY WORD",
+          "WHY EVENTS HAPPENED AND WHAT CHANGED"
+        ],
+        "answer": "WHY EVENTS HAPPENED AND WHAT CHANGED",
+        "audio": "Rules and Laws history question."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes public order in the lesson \"Local Government and Services\"?",
+        "choices": [
+          "Local rules exist mainly to give officials unlimited authority.",
+          "Libraries and road repair cannot be local public services.",
+          "A local budget can fund every request without tradeoffs.",
+          "Local rules help communities protect safety, property, and fair use of shared spaces."
+        ],
+        "answer": "Local rules help communities protect safety, property, and fair use of shared spaces.",
+        "explain": "Local rules help communities protect safety, property, and fair use of shared spaces. This is the accurate foundation for public order; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes public order in the lesson \"Local Government and Services\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes public services in the lesson \"Local Government and Services\"?",
+        "choices": [
+          "A local budget can fund every request without tradeoffs.",
+          "Citizens have no legitimate role after officials are elected.",
+          "Local governments commonly support services such as fire protection, libraries, parks, and roads.",
+          "Libraries and road repair cannot be local public services."
+        ],
+        "answer": "Local governments commonly support services such as fire protection, libraries, parks, and roads.",
+        "explain": "Local governments commonly support services such as fire protection, libraries, parks, and roads. This is the accurate foundation for public services; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes public services in the lesson \"Local Government and Services\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes budget choices in the lesson \"Local Government and Services\"?",
+        "choices": [
+          "One favorable comment proves a service meets every community need.",
+          "Because money is limited, local officials must choose among competing service needs.",
+          "A local budget can fund every request without tradeoffs.",
+          "Citizens have no legitimate role after officials are elected."
+        ],
+        "answer": "Because money is limited, local officials must choose among competing service needs.",
+        "explain": "Because money is limited, local officials must choose among competing service needs. This is the accurate foundation for budget choices; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes budget choices in the lesson \"Local Government and Services\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes officials and citizens in the lesson \"Local Government and Services\"?",
+        "choices": [
+          "Elected officials make public decisions, while citizens can communicate needs and evaluate those decisions.",
+          "Citizens have no legitimate role after officials are elected.",
+          "One favorable comment proves a service meets every community need.",
+          "Local rules exist mainly to give officials unlimited authority."
+        ],
+        "answer": "Elected officials make public decisions, while citizens can communicate needs and evaluate those decisions.",
+        "explain": "Elected officials make public decisions, while citizens can communicate needs and evaluate those decisions. This is the accurate foundation for officials and citizens; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes officials and citizens in the lesson \"Local Government and Services\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes evaluating services in the lesson \"Local Government and Services\"?",
+        "choices": [
+          "One favorable comment proves a service meets every community need.",
+          "Local rules exist mainly to give officials unlimited authority.",
+          "Libraries and road repair cannot be local public services.",
+          "Evidence such as response times, use data, and public feedback can help evaluate a service."
+        ],
+        "answer": "Evidence such as response times, use data, and public feedback can help evaluate a service.",
+        "explain": "Evidence such as response times, use data, and public feedback can help evaluate a service. This is the accurate foundation for evaluating services; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes evaluating services in the lesson \"Local Government and Services\"?"
+      },
+      {
+        "type": "mc",
+        "q": "A town rule sets safe speeds near a school and identifies who enforces it. Which interpretation is best supported?",
+        "choices": [
+          "A local budget can fund every request without tradeoffs.",
+          "Citizens have no legitimate role after officials are elected.",
+          "Local rules help communities protect safety, property, and fair use of shared spaces.",
+          "Libraries and road repair cannot be local public services."
+        ],
+        "answer": "Local rules help communities protect safety, property, and fair use of shared spaces.",
+        "explain": "Local rules help communities protect safety, property, and fair use of shared spaces. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A town rule sets safe speeds near a school and identifies who enforces it. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A city budget lists spending for firefighters, library hours, and street repair. Which interpretation is best supported?",
+        "choices": [
+          "One favorable comment proves a service meets every community need.",
+          "Local governments commonly support services such as fire protection, libraries, parks, and roads.",
+          "A local budget can fund every request without tradeoffs.",
+          "Citizens have no legitimate role after officials are elected."
+        ],
+        "answer": "Local governments commonly support services such as fire protection, libraries, parks, and roads.",
+        "explain": "Local governments commonly support services such as fire protection, libraries, parks, and roads. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A city budget lists spending for firefighters, library hours, and street repair. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Residents request both a new park and more emergency equipment, but current revenue cannot fully fund both. Which interpretation is best supported?",
+        "choices": [
+          "Because money is limited, local officials must choose among competing service needs.",
+          "Citizens have no legitimate role after officials are elected.",
+          "One favorable comment proves a service meets every community need.",
+          "Local rules exist mainly to give officials unlimited authority."
+        ],
+        "answer": "Because money is limited, local officials must choose among competing service needs.",
+        "explain": "Because money is limited, local officials must choose among competing service needs. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Residents request both a new park and more emergency equipment, but current revenue cannot fully fund both. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Meeting minutes record council votes and comments from residents about a proposed bus route. Which interpretation is best supported?",
+        "choices": [
+          "One favorable comment proves a service meets every community need.",
+          "Local rules exist mainly to give officials unlimited authority.",
+          "Libraries and road repair cannot be local public services.",
+          "Elected officials make public decisions, while citizens can communicate needs and evaluate those decisions."
+        ],
+        "answer": "Elected officials make public decisions, while citizens can communicate needs and evaluate those decisions.",
+        "explain": "Elected officials make public decisions, while citizens can communicate needs and evaluate those decisions. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Meeting minutes record council votes and comments from residents about a proposed bus route. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Library visits rise after weekend hours begin, while staffing costs also rise. Which interpretation is best supported?",
+        "choices": [
+          "Libraries and road repair cannot be local public services.",
+          "A local budget can fund every request without tradeoffs.",
+          "Evidence such as response times, use data, and public feedback can help evaluate a service.",
+          "Local rules exist mainly to give officials unlimited authority."
+        ],
+        "answer": "Evidence such as response times, use data, and public feedback can help evaluate a service.",
+        "explain": "Evidence such as response times, use data, and public feedback can help evaluate a service. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Library visits rise after weekend hours begin, while staffing costs also rise. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Local rules help communities protect safety, property, and fair use of shared spaces.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Local rules help communities protect safety, property, and fair use of shared spaces. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Local Government and Services."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Libraries and road repair cannot be local public services.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. Local governments commonly support services such as fire protection, libraries, parks, and roads.",
+        "audio": "Evaluate this claim using the evidence from Local Government and Services."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Because money is limited, local officials must choose among competing service needs.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Because money is limited, local officials must choose among competing service needs. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Local Government and Services."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Citizens have no legitimate role after officials are elected.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. Elected officials make public decisions, while citizens can communicate needs and evaluate those decisions.",
+        "audio": "Evaluate this claim using the evidence from Local Government and Services."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Evidence such as response times, use data, and public feedback can help evaluate a service.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Evidence such as response times, use data, and public feedback can help evaluate a service. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Local Government and Services."
+      },
+      {
+        "type": "mc",
+        "q": "A town rule sets safe speeds near a school and identifies who enforces it. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "The rule addresses a public safety problem and depends on lawful enforcement.",
+          "A local budget can fund every request without tradeoffs.",
+          "Citizens have no legitimate role after officials are elected.",
+          "One favorable comment proves a service meets every community need."
+        ],
+        "answer": "The rule addresses a public safety problem and depends on lawful enforcement.",
+        "explain": "The rule addresses a public safety problem and depends on lawful enforcement. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A town rule sets safe speeds near a school and identifies who enforces it. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "A city budget lists spending for firefighters, library hours, and street repair. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Citizens have no legitimate role after officials are elected.",
+          "One favorable comment proves a service meets every community need.",
+          "Local rules exist mainly to give officials unlimited authority.",
+          "The budget is evidence that local government allocates resources among community needs."
+        ],
+        "answer": "The budget is evidence that local government allocates resources among community needs.",
+        "explain": "The budget is evidence that local government allocates resources among community needs. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A city budget lists spending for firefighters, library hours, and street repair. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Residents request both a new park and more emergency equipment, but current revenue cannot fully fund both. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Local rules exist mainly to give officials unlimited authority.",
+          "Libraries and road repair cannot be local public services.",
+          "The decision involves scarcity and should be explained with costs, benefits, and community priorities.",
+          "One favorable comment proves a service meets every community need."
+        ],
+        "answer": "The decision involves scarcity and should be explained with costs, benefits, and community priorities.",
+        "explain": "The decision involves scarcity and should be explained with costs, benefits, and community priorities. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Residents request both a new park and more emergency equipment, but current revenue cannot fully fund both. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Meeting minutes record council votes and comments from residents about a proposed bus route. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "A local budget can fund every request without tradeoffs.",
+          "The record shows different civic roles working within a public decision process.",
+          "Local rules exist mainly to give officials unlimited authority.",
+          "Libraries and road repair cannot be local public services."
+        ],
+        "answer": "The record shows different civic roles working within a public decision process.",
+        "explain": "The record shows different civic roles working within a public decision process. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Meeting minutes record council votes and comments from residents about a proposed bus route. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Library visits rise after weekend hours begin, while staffing costs also rise. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "A responsible evaluation weighs improved access against the additional cost.",
+          "Libraries and road repair cannot be local public services.",
+          "A local budget can fund every request without tradeoffs.",
+          "Citizens have no legitimate role after officials are elected."
+        ],
+        "answer": "A responsible evaluation weighs improved access against the additional cost.",
+        "explain": "A responsible evaluation weighs improved access against the additional cost. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Library visits rise after weekend hours begin, while staffing costs also rise. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: A town rule sets safe speeds near a school and identifies who enforces it. Evidence B: A city budget lists spending for firefighters, library hours, and street repair. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Evidence A proves “Local rules exist mainly to give officials unlimited authority.,” so Evidence B can be ignored.",
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “Local rules help communities protect safety, property, and fair use of shared spaces.” Evidence B supports “Local governments commonly support services such as fire protection, libraries, parks, and roads.” Together, the sources show related developments while preserving each source's context."
+        ],
+        "answer": "Evidence A supports “Local rules help communities protect safety, property, and fair use of shared spaces.” Evidence B supports “Local governments commonly support services such as fire protection, libraries, parks, and roads.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “Local rules help communities protect safety, property, and fair use of shared spaces.” Evidence B supports “Local governments commonly support services such as fire protection, libraries, parks, and roads.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: A town rule sets safe speeds near a school and identifies who enforces it. Evidence B: A city budget lists spending for firefighters, library hours, and street repair. Which thesis best evaluates both sources without overstating either one?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: A city budget lists spending for firefighters, library hours, and street repair. Evidence B: Residents request both a new park and more emergency equipment, but current revenue cannot fully fund both. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “Local governments commonly support services such as fire protection, libraries, parks, and roads.” Evidence B supports “Because money is limited, local officials must choose among competing service needs.” Together, the sources show related developments while preserving each source's context.",
+          "Evidence A proves “Libraries and road repair cannot be local public services.,” so Evidence B can be ignored."
+        ],
+        "answer": "Evidence A supports “Local governments commonly support services such as fire protection, libraries, parks, and roads.” Evidence B supports “Because money is limited, local officials must choose among competing service needs.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “Local governments commonly support services such as fire protection, libraries, parks, and roads.” Evidence B supports “Because money is limited, local officials must choose among competing service needs.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: A city budget lists spending for firefighters, library hours, and street repair. Evidence B: Residents request both a new park and more emergency equipment, but current revenue cannot fully fund both. Which thesis best evaluates both sources without overstating either one?"
+      }
+    ]
+  },
+  "g2:hist:L3": {
+    "name": "Maps and Places",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "In Maps and Places, historians use evidence to understand...",
+        "choices": [
+          "ONLY FUTURE WEATHER",
+          "THE PAST",
+          "None of these",
+          "ONLY MULTIPLICATION"
+        ],
+        "answer": "THE PAST",
+        "audio": "Maps and Places history question."
+      },
+      {
+        "type": "mc",
+        "q": "A primary source for Maps and Places comes from...",
+        "choices": [
+          "THE TIME BEING STUDIED",
+          "A FICTIONAL PLANET",
+          "None of these",
+          "A RANDOM GUESS"
+        ],
+        "answer": "THE TIME BEING STUDIED",
+        "audio": "Maps and Places history question."
+      },
+      {
+        "type": "mc",
+        "q": "Cause and effect in Maps and Places helps explain...",
+        "choices": [
+          "WHY EVENTS HAPPENED AND WHAT CHANGED",
+          "HOW TO SPELL EVERY WORD",
+          "ONLY MAP COLORS",
+          "None of these"
+        ],
+        "answer": "WHY EVENTS HAPPENED AND WHAT CHANGED",
+        "audio": "Maps and Places history question."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes cardinal directions in the lesson \"Maps and Places\"?",
+        "choices": [
+          "North changes to south whenever the paper is turned.",
+          "A legend shows how tomorrow's weather will change.",
+          "Relative location gives an exact latitude and longitude.",
+          "A compass rose identifies north, south, east, and west on a map."
+        ],
+        "answer": "A compass rose identifies north, south, east, and west on a map.",
+        "explain": "A compass rose identifies north, south, east, and west on a map. This is the accurate foundation for cardinal directions; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes cardinal directions in the lesson \"Maps and Places\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes map legends in the lesson \"Maps and Places\"?",
+        "choices": [
+          "Relative location gives an exact latitude and longitude.",
+          "Every line on a map represents a natural landform.",
+          "A map legend explains what symbols and colors represent.",
+          "A legend shows how tomorrow's weather will change."
+        ],
+        "answer": "A map legend explains what symbols and colors represent.",
+        "explain": "A map legend explains what symbols and colors represent. This is the accurate foundation for map legends; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes map legends in the lesson \"Maps and Places\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes relative location in the lesson \"Maps and Places\"?",
+        "choices": [
+          "Only one map of a place can contain valid information.",
+          "Relative location describes one place by its position compared with another.",
+          "Relative location gives an exact latitude and longitude.",
+          "Every line on a map represents a natural landform."
+        ],
+        "answer": "Relative location describes one place by its position compared with another.",
+        "explain": "Relative location describes one place by its position compared with another. This is the accurate foundation for relative location; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes relative location in the lesson \"Maps and Places\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes physical and human features in the lesson \"Maps and Places\"?",
+        "choices": [
+          "Maps can distinguish natural features from features built by people.",
+          "Every line on a map represents a natural landform.",
+          "Only one map of a place can contain valid information.",
+          "North changes to south whenever the paper is turned."
+        ],
+        "answer": "Maps can distinguish natural features from features built by people.",
+        "explain": "Maps can distinguish natural features from features built by people. This is the accurate foundation for physical and human features; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes physical and human features in the lesson \"Maps and Places\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes maps as selected evidence in the lesson \"Maps and Places\"?",
+        "choices": [
+          "Only one map of a place can contain valid information.",
+          "North changes to south whenever the paper is turned.",
+          "A legend shows how tomorrow's weather will change.",
+          "Different maps select information for different purposes."
+        ],
+        "answer": "Different maps select information for different purposes.",
+        "explain": "Different maps select information for different purposes. This is the accurate foundation for maps as selected evidence; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes maps as selected evidence in the lesson \"Maps and Places\"?"
+      },
+      {
+        "type": "mc",
+        "q": "The school is drawn above the park on a map whose compass rose points north at the top. Which interpretation is best supported?",
+        "choices": [
+          "Relative location gives an exact latitude and longitude.",
+          "Every line on a map represents a natural landform.",
+          "A compass rose identifies north, south, east, and west on a map.",
+          "A legend shows how tomorrow's weather will change."
+        ],
+        "answer": "A compass rose identifies north, south, east, and west on a map.",
+        "explain": "A compass rose identifies north, south, east, and west on a map. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "The school is drawn above the park on a map whose compass rose points north at the top. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "The legend identifies a blue line as a river and a star as the town hall. Which interpretation is best supported?",
+        "choices": [
+          "Only one map of a place can contain valid information.",
+          "A map legend explains what symbols and colors represent.",
+          "Relative location gives an exact latitude and longitude.",
+          "Every line on a map represents a natural landform."
+        ],
+        "answer": "A map legend explains what symbols and colors represent.",
+        "explain": "A map legend explains what symbols and colors represent. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "The legend identifies a blue line as a river and a star as the town hall. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Directions say the library is west of the school and beside the park. Which interpretation is best supported?",
+        "choices": [
+          "Relative location describes one place by its position compared with another.",
+          "Every line on a map represents a natural landform.",
+          "Only one map of a place can contain valid information.",
+          "North changes to south whenever the paper is turned."
+        ],
+        "answer": "Relative location describes one place by its position compared with another.",
+        "explain": "Relative location describes one place by its position compared with another. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Directions say the library is west of the school and beside the park. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A map marks a river, hill, bridge, and highway. Which interpretation is best supported?",
+        "choices": [
+          "Only one map of a place can contain valid information.",
+          "North changes to south whenever the paper is turned.",
+          "A legend shows how tomorrow's weather will change.",
+          "Maps can distinguish natural features from features built by people."
+        ],
+        "answer": "Maps can distinguish natural features from features built by people.",
+        "explain": "Maps can distinguish natural features from features built by people. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A map marks a river, hill, bridge, and highway. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A road map emphasizes streets while a physical map of the same place emphasizes elevation and water. Which interpretation is best supported?",
+        "choices": [
+          "A legend shows how tomorrow's weather will change.",
+          "Relative location gives an exact latitude and longitude.",
+          "Different maps select information for different purposes.",
+          "North changes to south whenever the paper is turned."
+        ],
+        "answer": "Different maps select information for different purposes.",
+        "explain": "Different maps select information for different purposes. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A road map emphasizes streets while a physical map of the same place emphasizes elevation and water. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A compass rose identifies north, south, east, and west on a map.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A compass rose identifies north, south, east, and west on a map. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Maps and Places."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A legend shows how tomorrow's weather will change.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. A map legend explains what symbols and colors represent.",
+        "audio": "Evaluate this claim using the evidence from Maps and Places."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Relative location describes one place by its position compared with another.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Relative location describes one place by its position compared with another. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Maps and Places."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Every line on a map represents a natural landform.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. Maps can distinguish natural features from features built by people.",
+        "audio": "Evaluate this claim using the evidence from Maps and Places."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Different maps select information for different purposes.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Different maps select information for different purposes. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Maps and Places."
+      },
+      {
+        "type": "mc",
+        "q": "The school is drawn above the park on a map whose compass rose points north at the top. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "The school is north of the park according to the map's stated orientation.",
+          "Relative location gives an exact latitude and longitude.",
+          "Every line on a map represents a natural landform.",
+          "Only one map of a place can contain valid information."
+        ],
+        "answer": "The school is north of the park according to the map's stated orientation.",
+        "explain": "The school is north of the park according to the map's stated orientation. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "The school is drawn above the park on a map whose compass rose points north at the top. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "The legend identifies a blue line as a river and a star as the town hall. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Every line on a map represents a natural landform.",
+          "Only one map of a place can contain valid information.",
+          "North changes to south whenever the paper is turned.",
+          "The symbols can be interpreted only by applying the map's legend."
+        ],
+        "answer": "The symbols can be interpreted only by applying the map's legend.",
+        "explain": "The symbols can be interpreted only by applying the map's legend. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "The legend identifies a blue line as a river and a star as the town hall. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Directions say the library is west of the school and beside the park. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "North changes to south whenever the paper is turned.",
+          "A legend shows how tomorrow's weather will change.",
+          "The description locates the library through relationships rather than coordinates.",
+          "Only one map of a place can contain valid information."
+        ],
+        "answer": "The description locates the library through relationships rather than coordinates.",
+        "explain": "The description locates the library through relationships rather than coordinates. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Directions say the library is west of the school and beside the park. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "A map marks a river, hill, bridge, and highway. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Relative location gives an exact latitude and longitude.",
+          "The river and hill are physical features; the bridge and highway are human features.",
+          "North changes to south whenever the paper is turned.",
+          "A legend shows how tomorrow's weather will change."
+        ],
+        "answer": "The river and hill are physical features; the bridge and highway are human features.",
+        "explain": "The river and hill are physical features; the bridge and highway are human features. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A map marks a river, hill, bridge, and highway. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "A road map emphasizes streets while a physical map of the same place emphasizes elevation and water. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "The maps can both be accurate because each answers a different geographic question.",
+          "A legend shows how tomorrow's weather will change.",
+          "Relative location gives an exact latitude and longitude.",
+          "Every line on a map represents a natural landform."
+        ],
+        "answer": "The maps can both be accurate because each answers a different geographic question.",
+        "explain": "The maps can both be accurate because each answers a different geographic question. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A road map emphasizes streets while a physical map of the same place emphasizes elevation and water. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: The school is drawn above the park on a map whose compass rose points north at the top. Evidence B: The legend identifies a blue line as a river and a star as the town hall. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Evidence A proves “North changes to south whenever the paper is turned.,” so Evidence B can be ignored.",
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “A compass rose identifies north, south, east, and west on a map.” Evidence B supports “A map legend explains what symbols and colors represent.” Together, the sources show related developments while preserving each source's context."
+        ],
+        "answer": "Evidence A supports “A compass rose identifies north, south, east, and west on a map.” Evidence B supports “A map legend explains what symbols and colors represent.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “A compass rose identifies north, south, east, and west on a map.” Evidence B supports “A map legend explains what symbols and colors represent.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: The school is drawn above the park on a map whose compass rose points north at the top. Evidence B: The legend identifies a blue line as a river and a star as the town hall. Which thesis best evaluates both sources without overstating either one?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: The legend identifies a blue line as a river and a star as the town hall. Evidence B: Directions say the library is west of the school and beside the park. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “A map legend explains what symbols and colors represent.” Evidence B supports “Relative location describes one place by its position compared with another.” Together, the sources show related developments while preserving each source's context.",
+          "Evidence A proves “A legend shows how tomorrow's weather will change.,” so Evidence B can be ignored."
+        ],
+        "answer": "Evidence A supports “A map legend explains what symbols and colors represent.” Evidence B supports “Relative location describes one place by its position compared with another.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “A map legend explains what symbols and colors represent.” Evidence B supports “Relative location describes one place by its position compared with another.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: The legend identifies a blue line as a river and a star as the town hall. Evidence B: Directions say the library is west of the school and beside the park. Which thesis best evaluates both sources without overstating either one?"
+      }
+    ]
+  },
+  "g2:hist:L4": {
+    "name": "Important People",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "In Important People, historians use evidence to understand...",
+        "choices": [
+          "None of these",
+          "ONLY FUTURE WEATHER",
+          "ONLY MULTIPLICATION",
+          "THE PAST"
+        ],
+        "answer": "THE PAST",
+        "audio": "Important People history question."
+      },
+      {
+        "type": "mc",
+        "q": "A primary source for Important People comes from...",
+        "choices": [
+          "THE TIME BEING STUDIED",
+          "A RANDOM GUESS",
+          "A FICTIONAL PLANET",
+          "None of these"
+        ],
+        "answer": "THE TIME BEING STUDIED",
+        "audio": "Important People history question."
+      },
+      {
+        "type": "mc",
+        "q": "Cause and effect in Important People helps explain...",
+        "choices": [
+          "WHY EVENTS HAPPENED AND WHAT CHANGED",
+          "ONLY MAP COLORS",
+          "HOW TO SPELL EVERY WORD",
+          "None of these"
+        ],
+        "answer": "WHY EVENTS HAPPENED AND WHAT CHANGED",
+        "audio": "Important People history question."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes documented actions in the lesson \"Historical People and Contributions\"?",
+        "choices": [
+          "Being well known automatically proves a person improved the community.",
+          "A contribution can be measured only by how many years ago it occurred.",
+          "Every modern textbook is a primary source.",
+          "A claim about a historical person's contribution should identify an action supported by evidence."
+        ],
+        "answer": "A claim about a historical person's contribution should identify an action supported by evidence.",
+        "explain": "A claim about a historical person's contribution should identify an action supported by evidence. This is the accurate foundation for documented actions; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes documented actions in the lesson \"Historical People and Contributions\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes cause and impact in the lesson \"Historical People and Contributions\"?",
+        "choices": [
+          "Every modern textbook is a primary source.",
+          "One person's account proves everyone experienced an event identically.",
+          "A contribution matters historically when evidence connects an action to consequences.",
+          "A contribution can be measured only by how many years ago it occurred."
+        ],
+        "answer": "A contribution matters historically when evidence connects an action to consequences.",
+        "explain": "A contribution matters historically when evidence connects an action to consequences. This is the accurate foundation for cause and impact; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes cause and impact in the lesson \"Historical People and Contributions\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes primary and secondary sources in the lesson \"Historical People and Contributions\"?",
+        "choices": [
+          "A single rumor is stronger than several independent records.",
+          "A primary source comes from the time studied; a secondary source interprets the past later.",
+          "Every modern textbook is a primary source.",
+          "One person's account proves everyone experienced an event identically."
+        ],
+        "answer": "A primary source comes from the time studied; a secondary source interprets the past later.",
+        "explain": "A primary source comes from the time studied; a secondary source interprets the past later. This is the accurate foundation for primary and secondary sources; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes primary and secondary sources in the lesson \"Historical People and Contributions\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes perspective in the lesson \"Historical People and Contributions\"?",
+        "choices": [
+          "A source reflects what its creator could observe, valued, and intended to communicate.",
+          "One person's account proves everyone experienced an event identically.",
+          "A single rumor is stronger than several independent records.",
+          "Being well known automatically proves a person improved the community."
+        ],
+        "answer": "A source reflects what its creator could observe, valued, and intended to communicate.",
+        "explain": "A source reflects what its creator could observe, valued, and intended to communicate. This is the accurate foundation for perspective; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes perspective in the lesson \"Historical People and Contributions\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes corroboration in the lesson \"Historical People and Contributions\"?",
+        "choices": [
+          "A single rumor is stronger than several independent records.",
+          "Being well known automatically proves a person improved the community.",
+          "A contribution can be measured only by how many years ago it occurred.",
+          "Agreement among independent sources can strengthen a claim, while disagreement requires investigation."
+        ],
+        "answer": "Agreement among independent sources can strengthen a claim, while disagreement requires investigation.",
+        "explain": "Agreement among independent sources can strengthen a claim, while disagreement requires investigation. This is the accurate foundation for corroboration; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes corroboration in the lesson \"Historical People and Contributions\"?"
+      },
+      {
+        "type": "mc",
+        "q": "A dated newspaper reports that a community leader organized the town's first public clinic. Which interpretation is best supported?",
+        "choices": [
+          "Every modern textbook is a primary source.",
+          "One person's account proves everyone experienced an event identically.",
+          "A claim about a historical person's contribution should identify an action supported by evidence.",
+          "A contribution can be measured only by how many years ago it occurred."
+        ],
+        "answer": "A claim about a historical person's contribution should identify an action supported by evidence.",
+        "explain": "A claim about a historical person's contribution should identify an action supported by evidence. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A dated newspaper reports that a community leader organized the town's first public clinic. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "School records show attendance increased after an organizer helped open a neighborhood school. Which interpretation is best supported?",
+        "choices": [
+          "A single rumor is stronger than several independent records.",
+          "A contribution matters historically when evidence connects an action to consequences.",
+          "Every modern textbook is a primary source.",
+          "One person's account proves everyone experienced an event identically."
+        ],
+        "answer": "A contribution matters historically when evidence connects an action to consequences.",
+        "explain": "A contribution matters historically when evidence connects an action to consequences. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "School records show attendance increased after an organizer helped open a neighborhood school. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A leader's 1940 letter is compared with a historian's 2010 account of the same campaign. Which interpretation is best supported?",
+        "choices": [
+          "A primary source comes from the time studied; a secondary source interprets the past later.",
+          "One person's account proves everyone experienced an event identically.",
+          "A single rumor is stronger than several independent records.",
+          "Being well known automatically proves a person improved the community."
+        ],
+        "answer": "A primary source comes from the time studied; a secondary source interprets the past later.",
+        "explain": "A primary source comes from the time studied; a secondary source interprets the past later. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A leader's 1940 letter is compared with a historian's 2010 account of the same campaign. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A mayor's speech praises a project, while a resident's diary records disruption during construction. Which interpretation is best supported?",
+        "choices": [
+          "A single rumor is stronger than several independent records.",
+          "Being well known automatically proves a person improved the community.",
+          "A contribution can be measured only by how many years ago it occurred.",
+          "A source reflects what its creator could observe, valued, and intended to communicate."
+        ],
+        "answer": "A source reflects what its creator could observe, valued, and intended to communicate.",
+        "explain": "A source reflects what its creator could observe, valued, and intended to communicate. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A mayor's speech praises a project, while a resident's diary records disruption during construction. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A photograph, meeting record, and interview all place an organizer at the same relief effort. Which interpretation is best supported?",
+        "choices": [
+          "A contribution can be measured only by how many years ago it occurred.",
+          "Every modern textbook is a primary source.",
+          "Agreement among independent sources can strengthen a claim, while disagreement requires investigation.",
+          "Being well known automatically proves a person improved the community."
+        ],
+        "answer": "Agreement among independent sources can strengthen a claim, while disagreement requires investigation.",
+        "explain": "Agreement among independent sources can strengthen a claim, while disagreement requires investigation. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A photograph, meeting record, and interview all place an organizer at the same relief effort. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A claim about a historical person's contribution should identify an action supported by evidence.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A claim about a historical person's contribution should identify an action supported by evidence. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Historical People and Contributions."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A contribution can be measured only by how many years ago it occurred.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. A contribution matters historically when evidence connects an action to consequences.",
+        "audio": "Evaluate this claim using the evidence from Historical People and Contributions."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: A primary source comes from the time studied; a secondary source interprets the past later.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. A primary source comes from the time studied; a secondary source interprets the past later. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Historical People and Contributions."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: One person's account proves everyone experienced an event identically.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. A source reflects what its creator could observe, valued, and intended to communicate.",
+        "audio": "Evaluate this claim using the evidence from Historical People and Contributions."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Agreement among independent sources can strengthen a claim, while disagreement requires investigation.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Agreement among independent sources can strengthen a claim, while disagreement requires investigation. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Historical People and Contributions."
+      },
+      {
+        "type": "mc",
+        "q": "A dated newspaper reports that a community leader organized the town's first public clinic. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "The report supports a specific contribution more strongly than fame alone would.",
+          "Every modern textbook is a primary source.",
+          "One person's account proves everyone experienced an event identically.",
+          "A single rumor is stronger than several independent records."
+        ],
+        "answer": "The report supports a specific contribution more strongly than fame alone would.",
+        "explain": "The report supports a specific contribution more strongly than fame alone would. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A dated newspaper reports that a community leader organized the town's first public clinic. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "School records show attendance increased after an organizer helped open a neighborhood school. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "One person's account proves everyone experienced an event identically.",
+          "A single rumor is stronger than several independent records.",
+          "Being well known automatically proves a person improved the community.",
+          "The records support a link between the organizer's action and expanded school access."
+        ],
+        "answer": "The records support a link between the organizer's action and expanded school access.",
+        "explain": "The records support a link between the organizer's action and expanded school access. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "School records show attendance increased after an organizer helped open a neighborhood school. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "A leader's 1940 letter is compared with a historian's 2010 account of the same campaign. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Being well known automatically proves a person improved the community.",
+          "A contribution can be measured only by how many years ago it occurred.",
+          "The letter provides contemporary evidence, while the later account supplies interpretation and context.",
+          "A single rumor is stronger than several independent records."
+        ],
+        "answer": "The letter provides contemporary evidence, while the later account supplies interpretation and context.",
+        "explain": "The letter provides contemporary evidence, while the later account supplies interpretation and context. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A leader's 1940 letter is compared with a historian's 2010 account of the same campaign. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "A mayor's speech praises a project, while a resident's diary records disruption during construction. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Every modern textbook is a primary source.",
+          "The sources may both contain evidence even though their purposes and experiences differ.",
+          "Being well known automatically proves a person improved the community.",
+          "A contribution can be measured only by how many years ago it occurred."
+        ],
+        "answer": "The sources may both contain evidence even though their purposes and experiences differ.",
+        "explain": "The sources may both contain evidence even though their purposes and experiences differ. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A mayor's speech praises a project, while a resident's diary records disruption during construction. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "A photograph, meeting record, and interview all place an organizer at the same relief effort. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "The three sources corroborate participation, though they may not prove every claim about its impact.",
+          "A contribution can be measured only by how many years ago it occurred.",
+          "Every modern textbook is a primary source.",
+          "One person's account proves everyone experienced an event identically."
+        ],
+        "answer": "The three sources corroborate participation, though they may not prove every claim about its impact.",
+        "explain": "The three sources corroborate participation, though they may not prove every claim about its impact. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A photograph, meeting record, and interview all place an organizer at the same relief effort. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: A dated newspaper reports that a community leader organized the town's first public clinic. Evidence B: School records show attendance increased after an organizer helped open a neighborhood school. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Evidence A proves “Being well known automatically proves a person improved the community.,” so Evidence B can be ignored.",
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “A claim about a historical person's contribution should identify an action supported by evidence.” Evidence B supports “A contribution matters historically when evidence connects an action to consequences.” Together, the sources show related developments while preserving each source's context."
+        ],
+        "answer": "Evidence A supports “A claim about a historical person's contribution should identify an action supported by evidence.” Evidence B supports “A contribution matters historically when evidence connects an action to consequences.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “A claim about a historical person's contribution should identify an action supported by evidence.” Evidence B supports “A contribution matters historically when evidence connects an action to consequences.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: A dated newspaper reports that a community leader organized the town's first public clinic. Evidence B: School records show attendance increased after an organizer helped open a neighborhood school. Which thesis best evaluates both sources without overstating either one?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: School records show attendance increased after an organizer helped open a neighborhood school. Evidence B: A leader's 1940 letter is compared with a historian's 2010 account of the same campaign. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “A contribution matters historically when evidence connects an action to consequences.” Evidence B supports “A primary source comes from the time studied; a secondary source interprets the past later.” Together, the sources show related developments while preserving each source's context.",
+          "Evidence A proves “A contribution can be measured only by how many years ago it occurred.,” so Evidence B can be ignored."
+        ],
+        "answer": "Evidence A supports “A contribution matters historically when evidence connects an action to consequences.” Evidence B supports “A primary source comes from the time studied; a secondary source interprets the past later.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “A contribution matters historically when evidence connects an action to consequences.” Evidence B supports “A primary source comes from the time studied; a secondary source interprets the past later.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: School records show attendance increased after an organizer helped open a neighborhood school. Evidence B: A leader's 1940 letter is compared with a historian's 2010 account of the same campaign. Which thesis best evaluates both sources without overstating either one?"
+      }
+    ]
+  },
+  "g2:hist:L5": {
+    "name": "Then and Now",
+    "questions": [
+      {
+        "type": "mc",
+        "q": "In Then and Now, historians use evidence to understand...",
+        "choices": [
+          "None of these",
+          "ONLY FUTURE WEATHER",
+          "THE PAST",
+          "ONLY MULTIPLICATION"
+        ],
+        "answer": "THE PAST",
+        "audio": "Then and Now history question."
+      },
+      {
+        "type": "mc",
+        "q": "A primary source for Then and Now comes from...",
+        "choices": [
+          "A FICTIONAL PLANET",
+          "A RANDOM GUESS",
+          "THE TIME BEING STUDIED",
+          "None of these"
+        ],
+        "answer": "THE TIME BEING STUDIED",
+        "audio": "Then and Now history question."
+      },
+      {
+        "type": "mc",
+        "q": "Cause and effect in Then and Now helps explain...",
+        "choices": [
+          "ONLY MAP COLORS",
+          "HOW TO SPELL EVERY WORD",
+          "WHY EVENTS HAPPENED AND WHAT CHANGED",
+          "None of these"
+        ],
+        "answer": "WHY EVENTS HAPPENED AND WHAT CHANGED",
+        "audio": "Then and Now history question."
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes communication change in the lesson \"Technology: Then and Now\"?",
+        "choices": [
+          "Communication technology has never changed the speed of sharing news.",
+          "New transportation always makes every older route immediately useless.",
+          "Past and present tools are identical in both design and effect.",
+          "Communication technologies can change how quickly and widely information travels."
+        ],
+        "answer": "Communication technologies can change how quickly and widely information travels.",
+        "explain": "Communication technologies can change how quickly and widely information travels. This is the accurate foundation for communication change; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes communication change in the lesson \"Technology: Then and Now\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes transportation change in the lesson \"Technology: Then and Now\"?",
+        "choices": [
+          "Past and present tools are identical in both design and effect.",
+          "If a tool changes, the human purpose must also disappear.",
+          "Transportation innovations can alter travel time, trade, and settlement connections.",
+          "New transportation always makes every older route immediately useless."
+        ],
+        "answer": "Transportation innovations can alter travel time, trade, and settlement connections.",
+        "explain": "Transportation innovations can alter travel time, trade, and settlement connections. This is the accurate foundation for transportation change; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes transportation change in the lesson \"Technology: Then and Now\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes work and recreation in the lesson \"Technology: Then and Now\"?",
+        "choices": [
+          "Every technological change has benefits and no tradeoffs.",
+          "Technology can change how people work and spend free time.",
+          "Past and present tools are identical in both design and effect.",
+          "If a tool changes, the human purpose must also disappear."
+        ],
+        "answer": "Technology can change how people work and spend free time.",
+        "explain": "Technology can change how people work and spend free time. This is the accurate foundation for work and recreation; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes work and recreation in the lesson \"Technology: Then and Now\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes continuity in the lesson \"Technology: Then and Now\"?",
+        "choices": [
+          "A new tool may change a method while the underlying human need continues.",
+          "If a tool changes, the human purpose must also disappear.",
+          "Every technological change has benefits and no tradeoffs.",
+          "Communication technology has never changed the speed of sharing news."
+        ],
+        "answer": "A new tool may change a method while the underlying human need continues.",
+        "explain": "A new tool may change a method while the underlying human need continues. This is the accurate foundation for continuity; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes continuity in the lesson \"Technology: Then and Now\"?"
+      },
+      {
+        "type": "mc",
+        "q": "Which statement accurately establishes benefits and tradeoffs in the lesson \"Technology: Then and Now\"?",
+        "choices": [
+          "Every technological change has benefits and no tradeoffs.",
+          "Communication technology has never changed the speed of sharing news.",
+          "New transportation always makes every older route immediately useless.",
+          "Technological change can create benefits while also producing costs or new problems."
+        ],
+        "answer": "Technological change can create benefits while also producing costs or new problems.",
+        "explain": "Technological change can create benefits while also producing costs or new problems. This is the accurate foundation for benefits and tradeoffs; each other choice contradicts evidence owned by this lesson.",
+        "audio": "Which statement accurately establishes benefits and tradeoffs in the lesson \"Technology: Then and Now\"?"
+      },
+      {
+        "type": "mc",
+        "q": "A mailed notice took days to arrive, while a later electronic alert reached residents within minutes. Which interpretation is best supported?",
+        "choices": [
+          "Past and present tools are identical in both design and effect.",
+          "If a tool changes, the human purpose must also disappear.",
+          "Communication technologies can change how quickly and widely information travels.",
+          "New transportation always makes every older route immediately useless."
+        ],
+        "answer": "Communication technologies can change how quickly and widely information travels.",
+        "explain": "Communication technologies can change how quickly and widely information travels. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A mailed notice took days to arrive, while a later electronic alert reached residents within minutes. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "A timetable shows a rail trip replaced a much longer wagon journey between two towns. Which interpretation is best supported?",
+        "choices": [
+          "Every technological change has benefits and no tradeoffs.",
+          "Transportation innovations can alter travel time, trade, and settlement connections.",
+          "Past and present tools are identical in both design and effect.",
+          "If a tool changes, the human purpose must also disappear."
+        ],
+        "answer": "Transportation innovations can alter travel time, trade, and settlement connections.",
+        "explain": "Transportation innovations can alter travel time, trade, and settlement connections. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "A timetable shows a rail trip replaced a much longer wagon journey between two towns. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Photographs show hand tools in an older workshop and powered machines in a later one. Which interpretation is best supported?",
+        "choices": [
+          "Technology can change how people work and spend free time.",
+          "If a tool changes, the human purpose must also disappear.",
+          "Every technological change has benefits and no tradeoffs.",
+          "Communication technology has never changed the speed of sharing news."
+        ],
+        "answer": "Technology can change how people work and spend free time.",
+        "explain": "Technology can change how people work and spend free time. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Photographs show hand tools in an older workshop and powered machines in a later one. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Families used letters and later video calls to maintain relationships across distance. Which interpretation is best supported?",
+        "choices": [
+          "Every technological change has benefits and no tradeoffs.",
+          "Communication technology has never changed the speed of sharing news.",
+          "New transportation always makes every older route immediately useless.",
+          "A new tool may change a method while the underlying human need continues."
+        ],
+        "answer": "A new tool may change a method while the underlying human need continues.",
+        "explain": "A new tool may change a method while the underlying human need continues. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Families used letters and later video calls to maintain relationships across distance. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "Cars shortened many trips but increased traffic, fuel use, and road demand. Which interpretation is best supported?",
+        "choices": [
+          "New transportation always makes every older route immediately useless.",
+          "Past and present tools are identical in both design and effect.",
+          "Technological change can create benefits while also producing costs or new problems.",
+          "Communication technology has never changed the speed of sharing news."
+        ],
+        "answer": "Technological change can create benefits while also producing costs or new problems.",
+        "explain": "Technological change can create benefits while also producing costs or new problems. The specific evidence in the prompt illustrates that relationship without claiming more than the source can show.",
+        "audio": "Cars shortened many trips but increased traffic, fuel use, and road demand. Which interpretation is best supported?"
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Communication technologies can change how quickly and widely information travels.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Communication technologies can change how quickly and widely information travels. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Technology: Then and Now."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: New transportation always makes every older route immediately useless.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. Transportation innovations can alter travel time, trade, and settlement connections.",
+        "audio": "Evaluate this claim using the evidence from Technology: Then and Now."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Technology can change how people work and spend free time.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Technology can change how people work and spend free time. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Technology: Then and Now."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: If a tool changes, the human purpose must also disappear.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "False",
+        "explain": "False. The claim conflicts with the lesson evidence. A new tool may change a method while the underlying human need continues.",
+        "audio": "Evaluate this claim using the evidence from Technology: Then and Now."
+      },
+      {
+        "type": "mc",
+        "q": "True or false: Technological change can create benefits while also producing costs or new problems.",
+        "choices": [
+          "True",
+          "False"
+        ],
+        "answer": "True",
+        "explain": "True. Technological change can create benefits while also producing costs or new problems. The lesson evidence supports this claim.",
+        "audio": "Evaluate this claim using the evidence from Technology: Then and Now."
+      },
+      {
+        "type": "mc",
+        "q": "A mailed notice took days to arrive, while a later electronic alert reached residents within minutes. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "The comparison shows increased speed, not that the purpose of communication disappeared.",
+          "Past and present tools are identical in both design and effect.",
+          "If a tool changes, the human purpose must also disappear.",
+          "Every technological change has benefits and no tradeoffs."
+        ],
+        "answer": "The comparison shows increased speed, not that the purpose of communication disappeared.",
+        "explain": "The comparison shows increased speed, not that the purpose of communication disappeared. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A mailed notice took days to arrive, while a later electronic alert reached residents within minutes. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "A timetable shows a rail trip replaced a much longer wagon journey between two towns. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "If a tool changes, the human purpose must also disappear.",
+          "Every technological change has benefits and no tradeoffs.",
+          "Communication technology has never changed the speed of sharing news.",
+          "Faster travel could increase movement of people and goods between the towns."
+        ],
+        "answer": "Faster travel could increase movement of people and goods between the towns.",
+        "explain": "Faster travel could increase movement of people and goods between the towns. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "A timetable shows a rail trip replaced a much longer wagon journey between two towns. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Photographs show hand tools in an older workshop and powered machines in a later one. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Communication technology has never changed the speed of sharing news.",
+          "New transportation always makes every older route immediately useless.",
+          "The sources show a change in tools and production, but not necessarily the loss of every skilled task.",
+          "Every technological change has benefits and no tradeoffs."
+        ],
+        "answer": "The sources show a change in tools and production, but not necessarily the loss of every skilled task.",
+        "explain": "The sources show a change in tools and production, but not necessarily the loss of every skilled task. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Photographs show hand tools in an older workshop and powered machines in a later one. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Families used letters and later video calls to maintain relationships across distance. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "Past and present tools are identical in both design and effect.",
+          "The method changed while the goal of staying connected continued.",
+          "Communication technology has never changed the speed of sharing news.",
+          "New transportation always makes every older route immediately useless."
+        ],
+        "answer": "The method changed while the goal of staying connected continued.",
+        "explain": "The method changed while the goal of staying connected continued. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Families used letters and later video calls to maintain relationships across distance. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Cars shortened many trips but increased traffic, fuel use, and road demand. Which inference remains most defensible after checking chronology and context?",
+        "choices": [
+          "A balanced account evaluates improved mobility together with its public and environmental costs.",
+          "New transportation always makes every older route immediately useless.",
+          "Past and present tools are identical in both design and effect.",
+          "If a tool changes, the human purpose must also disappear."
+        ],
+        "answer": "A balanced account evaluates improved mobility together with its public and environmental costs.",
+        "explain": "A balanced account evaluates improved mobility together with its public and environmental costs. This inference connects the named evidence to its context while avoiding an unsupported absolute conclusion.",
+        "audio": "Cars shortened many trips but increased traffic, fuel use, and road demand. Which inference remains most defensible after checking chronology and context?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: A mailed notice took days to arrive, while a later electronic alert reached residents within minutes. Evidence B: A timetable shows a rail trip replaced a much longer wagon journey between two towns. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Evidence A proves “Communication technology has never changed the speed of sharing news.,” so Evidence B can be ignored.",
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “Communication technologies can change how quickly and widely information travels.” Evidence B supports “Transportation innovations can alter travel time, trade, and settlement connections.” Together, the sources show related developments while preserving each source's context."
+        ],
+        "answer": "Evidence A supports “Communication technologies can change how quickly and widely information travels.” Evidence B supports “Transportation innovations can alter travel time, trade, and settlement connections.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “Communication technologies can change how quickly and widely information travels.” Evidence B supports “Transportation innovations can alter travel time, trade, and settlement connections.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: A mailed notice took days to arrive, while a later electronic alert reached residents within minutes. Evidence B: A timetable shows a rail trip replaced a much longer wagon journey between two towns. Which thesis best evaluates both sources without overstating either one?"
+      },
+      {
+        "type": "mc",
+        "q": "Evidence A: A timetable shows a rail trip replaced a much longer wagon journey between two towns. Evidence B: Photographs show hand tools in an older workshop and powered machines in a later one. Which thesis best evaluates both sources without overstating either one?",
+        "choices": [
+          "Both sources prove that one event caused every later development, regardless of chronology or context.",
+          "Because the sources discuss related topics, neither source needs corroboration.",
+          "Evidence A supports “Transportation innovations can alter travel time, trade, and settlement connections.” Evidence B supports “Technology can change how people work and spend free time.” Together, the sources show related developments while preserving each source's context.",
+          "Evidence A proves “New transportation always makes every older route immediately useless.,” so Evidence B can be ignored."
+        ],
+        "answer": "Evidence A supports “Transportation innovations can alter travel time, trade, and settlement connections.” Evidence B supports “Technology can change how people work and spend free time.” Together, the sources show related developments while preserving each source's context.",
+        "explain": "Evidence A supports “Transportation innovations can alter travel time, trade, and settlement connections.” Evidence B supports “Technology can change how people work and spend free time.” Together, the sources show related developments while preserving each source's context. This response states what each source supports and avoids turning related evidence into proof of a single, universal cause.",
+        "audio": "Evidence A: A timetable shows a rail trip replaced a much longer wagon journey between two towns. Evidence B: Photographs show hand tools in an older workshop and powered machines in a later one. Which thesis best evaluates both sources without overstating either one?"
+      }
+    ]
+  }
+});
+})();

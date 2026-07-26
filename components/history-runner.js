@@ -227,7 +227,7 @@
     </div>
 
     <div class="quiz-card mt-2">
-      <div class="small-note fw-bold" id="lrProg">Question 1 of 10</div>
+      <div class="small-note fw-bold" id="lrProg">Question 1 of 25</div>
       <img id="lrImage" class="lesson-img" alt="">
       <div style="font-size:26px;font-weight:900;margin-top:6px" id="lrQuestion">Question text…</div>
 
