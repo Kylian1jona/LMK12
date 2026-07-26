@@ -16,11 +16,11 @@
       <div class="lesson-column">
         <h3>History</h3>
         <p>Study people, places, events, and evidence from the past.</p>
-        <button type="button" class="btn btn-main" onclick="startLesson('g2','hist','L1')">Community Landmarks and Celebrations</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g2','hist','L2')">Local Government and Services</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','hist','L1')">Families and Communities</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','hist','L2')">Rules and Laws</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g2','hist','L3')">Maps and Places</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g2','hist','L4')">Historical People and Contributions</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g2','hist','L5')">Technology: Then and Now</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','hist','L4')">Important People</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','hist','L5')">Then and Now</button>
       </div>
     </div>
 
@@ -41,9 +41,9 @@
         <p>Study people, places, events, and evidence from the past.</p>
         <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L1')">Communities</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L2')">Maps and Globes</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L3')">Local Government and Leaders</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L4')">Timelines and Evidence</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L5')">Scarcity and Economic Choices</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L3')">Local Leaders</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L4')">Timelines</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L5')">Needs and Wants</button>
       </div>
     </div>
 
@@ -62,11 +62,11 @@
       <div class="lesson-column">
         <h3>History</h3>
         <p>Study people, places, events, and evidence from the past.</p>
-        <button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L1')">Texas Regions</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L2')">Texas Revolution and Republic</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L3')">Indigenous Peoples of Texas</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L4')">Exploration and Colonization</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L5')">Texas Citizenship</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L1')">Regions</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L2')">State History</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L3')">Native Peoples</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L4')">Exploration</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L5')">Civic Responsibility</button>
       </div>
     </div>
 
@@ -85,11 +85,11 @@
       <div class="lesson-column">
         <h3>History</h3>
         <p>Study people, places, events, and evidence from the past.</p>
-        <button type="button" class="btn btn-main" onclick="startLesson('g5','hist','L1')">Colonial America</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g5','hist','L1')">Early America</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g5','hist','L2')">American Revolution</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g5','hist','L3')">Constitutional Government</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g5','hist','L3')">Constitution</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g5','hist','L4')">Westward Expansion</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g5','hist','L5')">Civil War and Reconstruction</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g5','hist','L5')">Civil War Basics</button>
       </div>
     </div>
 
@@ -108,11 +108,11 @@
       <div class="lesson-column">
         <h3>History</h3>
         <p>Study people, places, events, and evidence from the past.</p>
-        <button type="button" class="btn btn-main" onclick="startLesson('g6','hist','L1')">Historical Influences on Contemporary Societies</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g6','hist','L2')">Population, Migration, and World Regions</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g6','hist','L3')">Economic Systems and Development</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g6','hist','L4')">Limited Government and Citizenship</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g6','hist','L5')">Culture, Diffusion, and Innovation</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g6','hist','L1')">Ancient Civilizations</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g6','hist','L2')">Mesopotamia</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g6','hist','L3')">Ancient Egypt</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g6','hist','L4')">Ancient Greece</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g6','hist','L5')">Ancient Rome</button>
       </div>
     </div>
 
@@ -131,11 +131,11 @@
       <div class="lesson-column">
         <h3>History</h3>
         <p>Study people, places, events, and evidence from the past.</p>
-        <button type="button" class="btn btn-main" onclick="startLesson('g7','hist','L1')">Natural Texas and Indigenous Peoples</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g7','hist','L2')">Spanish and Mexican Texas</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g7','hist','L3')">Texas Revolution</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g7','hist','L4')">Republic and Early Statehood</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g7','hist','L5')">Civil War and Reconstruction in Texas</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g7','hist','L1')">World Religions</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g7','hist','L2')">Medieval Europe</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g7','hist','L3')">Islamic Golden Age</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g7','hist','L4')">African Kingdoms</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g7','hist','L5')">Early Americas</button>
       </div>
     </div>
 
@@ -177,11 +177,11 @@
       <div class="lesson-column">
         <h3>History</h3>
         <p>Study people, places, events, and evidence from the past.</p>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','hist','L1')">World Regions and Spatial Patterns</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','hist','L2')">Physical Processes and Human Settlement</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','hist','L3')">Population and Migration</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','hist','L4')">Economic Systems and Development</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','hist','L5')">Culture and Globalization</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','hist','L1')">World Geography</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','hist','L2')">Ancient Trade Routes</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','hist','L3')">Revolutions</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','hist','L4')">Industrialization</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','hist','L5')">Nationalism</button>
       </div>
     </div>
 
@@ -200,11 +200,11 @@
       <div class="lesson-column">
         <h3>History</h3>
         <p>Study people, places, events, and evidence from the past.</p>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','hist','L1')">Early Civilizations</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','hist','L2')">Classical Empires</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','hist','L3')">Global Exchange</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','hist','L4')">Political and Industrial Revolutions</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','hist','L5')">World Wars and Cold War</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','hist','L1')">Modern World History</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','hist','L2')">Imperialism</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','hist','L3')">World War I</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','hist','L4')">World War II</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','hist','L5')">Cold War</button>
       </div>
     </div>
 
@@ -220,24 +220,15 @@
 <div id="lessonRunner" class="section d-none">
   <div class="cardish text-center kid-font">
     <h1 id="lrTitle">Lesson</h1>
-    <div id="lrTeksBadge" class="teks-lesson-badge" aria-live="polite"></div>
-    <p id="lrLearningGoal" class="lesson-learning-goal"></p>
 
     <div class="scorebar">
       <div class="badge-pill">⭐ Points: <span id="lrPoints">0</span></div>
       <div class="badge-pill"><span class="learner-icon" role="img" aria-label="Learner"></span> Learners: <span id="lrLearners">0</span></div>
     </div>
 
-    <div class="quiz-card mt-2" id="lrQuestionPanel">
-      <div class="lesson-stage-track" id="lrStageTrack" aria-label="Lesson difficulty stages">
-        <span data-stage="1">Foundation</span>
-        <span data-stage="2">Apply</span>
-        <span data-stage="3">Reason</span>
-        <span data-stage="4">Challenge</span>
-        <span data-stage="5">Mastery</span>
-      </div>
-      <div class="lesson-stage-meter" aria-hidden="true"><i id="lrStageMeter"></i></div>
-      <div class="small-note fw-bold" id="lrProg">Question 1 of 25 · Foundation</div>
+    <div class="quiz-card mt-2">
+      <div class="small-note fw-bold" id="lrProg">Question 1 of 10</div>
+      <img id="lrImage" class="lesson-img" alt="">
       <div style="font-size:26px;font-weight:900;margin-top:6px" id="lrQuestion">Question text…</div>
 
       <!-- NORMAL CHOICES -->

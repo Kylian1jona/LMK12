@@ -36,18 +36,6 @@
     </div>
   </div>
 
-  <!-- CURRICULUM STANDARDS -->
-  <div id="curriculumStandards" class="section d-none">
-    <div class="standards-shell">
-      <span class="standards-eyebrow">Texas curriculum framework</span>
-      <h1>TEKS-aligned learning</h1>
-      <p>LearnMaster maps its four core subject areas to the official Texas Essential Knowledge and Skills chapters published by the Texas Education Agency.</p>
-      <div id="teksStandardsGrid" class="standards-grid"></div>
-      <div class="standards-note"><strong>Alignment statement</strong><p>The official source framework is verified. Individual LearnMaster lessons are internally mapped and must complete educator review before being labeled lesson-level verified. LearnMaster is independent and is not endorsed or approved by TEA.</p></div>
-      <div class="parent-actions"><button type="button" class="btn btn-main" onclick="show('grades')">Browse lessons</button><button type="button" class="btn btn-main" onclick="show('home')">Back home</button></div>
-    </div>
-  </div>
-
   <!-- GRADES -->
   <div id="grades" class="section d-none grades-background">
     <div class="cardish grades-panel">

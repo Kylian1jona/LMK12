@@ -30,29 +30,30 @@
 <div id="g2-eng" class="section d-none">
   <div class="cardish text-center kid-font">
     <h1>Grade 2 English</h1>
-    <p class="small-note">Pick a lesson</p>
+    <p class="small-note">Pick a lesson </p>
     <div class="lesson-columns">
       <div class="lesson-column">
-        <div class="d-flex justify-content-center gap-2 flex-wrap mt-3">
-        <button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L1')">Nouns & Verbs</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L2')">Sentence Fix</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L3')">Reading Check</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L4')">Adjectives</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L5')">Past vs Present</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L6')">Syllables</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L7')">Fill in the Blank</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L8')">Sentence Editing</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L9')">Memory Match</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L10')">Speed Challenge</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L11')">Spelling: Short Vowels</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L12')">Spelling Drag</button>
-        </div>
+    <div class="d-flex justify-content-center gap-2 flex-wrap mt-3">
+      <button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L1')">Nouns & Verbs</button>
+      <button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L2')">Sentence Fix</button>
+      <button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L3')">Reading Check</button>
+
+      <button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L4')">Adjectives</button>
+<button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L5')">Past vs Present</button>
+<button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L6')">Syllables</button>
+<button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L7')">Fill in the Blank</button>
+<button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L8')">Sentence Editing</button>
+<button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L9')">Memory Match</button>
+<button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L10')">Speed Challenge</button>
+<button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L11')">Spelling: Short Vowels</button>
+<button type="button" class="btn btn-main" onclick="startLesson('g2','eng','L12')">Spelling Drag</button>
+</div>
       </div>
-    </div>
     <div class="lesson-back-row">
       <button type="button" class="btn btn-main px-4" onclick="show('grade2')">
         Back to Grade 2
       </button>
+    </div>
     </div>
   </div>
 </div>
@@ -1069,15 +1070,15 @@
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g4','sci','L18')">
-          Weather and Climate
+          Weather Patterns
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g4','sci','L19')">
-          Season and Daylight Patterns
+          The Solar System
         </button>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g4','sci','L20')">
-          Moon Appearance Patterns
+          Moon Phases
         </button>
       </div>
 
@@ -1089,11 +1090,11 @@
   <p>Learn how organisms survive and grow.</p>
 
   <button type="button" class="btn btn-main" onclick="startLesson('g4','sci','L21')">
-    Inherited and Acquired Traits
+    Animal Adaptations
   </button>
 
   <button type="button" class="btn btn-main" onclick="startLesson('g4','sci','L22')">
-    Food Webs
+    Habitats
   </button>
 </div>
 
@@ -1102,11 +1103,11 @@
   <p>Explore Earth's history and resources.</p>
 
   <button type="button" class="btn btn-main" onclick="startLesson('g4','sci','L23')">
-    Fossil Evidence
+    Fossils
   </button>
 
   <button type="button" class="btn btn-main" onclick="startLesson('g4','sci','L24')">
-    Matter and Energy in Ecosystems
+    Earth's Layers
   </button>
 
   <button type="button" class="btn btn-main" onclick="startLesson('g4','sci','L25')">

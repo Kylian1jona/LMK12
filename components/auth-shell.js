@@ -25,8 +25,8 @@
       </div>
 
       <div class="auth-highlights" aria-label="Platform highlights">
-        <div><strong>25</strong><span>questions per lesson</span></div>
-        <div><strong>TEKS</strong><span>curriculum alignment</span></div>
+        <div><strong>10</strong><span>questions per lesson</span></div>
+        <div><strong>Classic</strong><span>question format</span></div>
       </div>
 
       <div class="auth-path" aria-hidden="true">

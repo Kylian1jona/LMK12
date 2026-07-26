@@ -7,12 +7,12 @@
         <footer class="site-footer">
           <div class="site-footer-brand"><strong>LearnMaster K-12</strong><span>Practice, progress, and family learning.</span></div>
           <nav aria-label="Footer navigation">
-            <button type="button" onclick="openTeksStandards()">TEKS alignment</button>
+            <button type="button" onclick="show('home')">Home</button>
+            <button type="button" onclick="show('grades')">Grades</button>
             <button type="button" onclick="openPrivacyNotice()">Children's privacy</button>
             <button type="button" onclick="openParentFromFooter()">Parent area</button>
-            <a href="https://tea.texas.gov/curriculum-and-instruction/texas-essential-knowledge-and-skills-teks" target="_blank" rel="noopener">Official TEA standards</a>
           </nav>
-          <small>© ${new Date().getFullYear()} LearnMaster. Independent educational software; not endorsed or approved by the Texas Education Agency.</small>
+          <small>© ${new Date().getFullYear()} LearnMaster. Independent educational software.</small>
         </footer>
         <div id="privacyNotice" class="privacy-overlay" role="dialog" aria-modal="true" aria-labelledby="privacyTitle" style="display:none">
           <div class="privacy-card">

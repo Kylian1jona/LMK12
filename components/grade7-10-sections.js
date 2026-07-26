@@ -592,11 +592,11 @@
       </div>
 
       <div class="lesson-column">
-        <h3>🧭 Transformations & Statistics</h3>
-        <p>Analyze coordinate transformations and data.</p>
+        <h3>🧮 Algebra & Statistics</h3>
+        <p>Practice algebraic reasoning and data.</p>
 
         <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L4')">Geometry Match</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L5')">Coordinate Transformations</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L5')">Polynomials</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L6')">Statistics</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g10','math','L7')">Fill in the Blank</button>
       </div>
@@ -641,10 +641,10 @@
       </div>
 
       <div class="lesson-column">
-        <h3>⚖️ Quantitative Chemistry</h3>
-        <p>Use balanced equations and mole ratios.</p>
+        <h3>🌎 Earth Science</h3>
+        <p>Explore climate and environmental science.</p>
 
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','sci','L5')">Chemical Stoichiometry</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','sci','L5')">Climate Science</button>
       </div>
 
       <div class="lesson-column">
