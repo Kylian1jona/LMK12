@@ -7,7 +7,7 @@
     questions:[
       {"type":"mc","q":"Central idea means...","choices":["The main point of a text","A tiny example","The page number"],"answer":"The main point of a text","audio":"Central idea."},
       {"type":"mc","q":"Which detail best supports a central idea?","choices":["A character's shoe color only","A fact that explains the main point","A random sentence"],"answer":"A fact that explains the main point","audio":"Central idea."},
-      {"type":"mc","q":"The central idea should connect to...","choices":["Most details in the text","The font size"],"answer":"Most details in the text","audio":"Central idea."},
+      {"type":"mc","q":"The central idea should connect to...","choices":["Most details in the text","The font size","Only the first sentence"],"answer":"Most details in the text","audio":"Central idea."},
       {"type":"mc","q":"A paragraph explains that school gardens provide vegetables, habitats for pollinators, and outdoor science labs. What is its central idea?","choices":["School gardens benefit learning and the environment","Vegetables are always easy to grow","Pollinators live only near schools","Science must be taught outdoors"],"answer":"School gardens benefit learning and the environment","explain":"The three details all show different benefits produced by a school garden."},
       {"type":"mc","q":"A passage describes how library e-books can be enlarged, searched, and borrowed from home. Which central idea is best supported?","choices":["Digital books can make reading more accessible","Printed books are no longer useful","Every reader prefers a screen","Libraries should close their buildings"],"answer":"Digital books can make reading more accessible","explain":"Each stated feature increases access; the passage does not reject print or library buildings."},
       {"type":"mc","q":"Which detail best supports the central idea that sleep improves learning?","choices":["Students who slept eight hours recalled more vocabulary the next day","Some students own blue blankets","The test was printed on white paper","The classroom opened at eight o'clock"],"answer":"Students who slept eight hours recalled more vocabulary the next day","explain":"Improved recall after adequate sleep directly connects sleep with learning."},
@@ -66,7 +66,7 @@
     name:"Argument & Claims",
     questions:[
       {"type":"mc","q":"A claim is...","choices":["The last word in a sentence","A random fact with no point","A statement the writer tries to prove"],"answer":"A statement the writer tries to prove","audio":"Claims and evidence."},
-      {"type":"mc","q":"Strong evidence should be...","choices":["Relevant and specific","Only an opinion"],"answer":"Relevant and specific","audio":"Claims and evidence."},
+      {"type":"mc","q":"Strong evidence should be...","choices":["Relevant and specific","Only an opinion","General and vague"],"answer":"Relevant and specific","audio":"Claims and evidence."},
       {"type":"mc","q":"An argument needs a claim and...","choices":["Evidence","A title only","A drawing only"],"answer":"Evidence","audio":"Claims and evidence."},
       {"type":"mc","q":"Which sentence is a claim that can be supported with evidence?","choices":["The city should add protected bike lanes near schools","Blue is the nicest color","Wow, what a wonderful day!","Please pass the map"],"answer":"The city should add protected bike lanes near schools","explain":"The bike-lane statement takes a debatable position that evidence can support or challenge."},
       {"type":"mc","q":"Claim: The cafeteria should offer more plant-based meals. Which evidence is most relevant?","choices":["A student survey and sales data show strong demand for additional plant-based choices","The cafeteria walls were painted last summer","Many students carry backpacks","The school mascot is a hawk"],"answer":"A student survey and sales data show strong demand for additional plant-based choices","explain":"Demand and purchasing data directly address whether the proposed meals would serve students."},
@@ -125,7 +125,7 @@
   "g8:eng:L5":{
     name:"Tone & Mood",
     questions:[
-      {"type":"mc","q":"Tone means...","choices":["The author's attitude","The number of paragraphs"],"answer":"The author's attitude","audio":"Tone and mood."},
+      {"type":"mc","q":"Tone means...","choices":["The author's attitude","The number of paragraphs","The date the text was published"],"answer":"The author's attitude","audio":"Tone and mood."},
       {"type":"mc","q":"Mood means...","choices":["The page count","The author's address","The feeling created for the reader"],"answer":"The feeling created for the reader","audio":"Tone and mood."},
       {"type":"mc","q":"Words like gloomy and dark often create a ___ mood.","choices":["Mood","Excited","Funny","Sad"],"answer":"Sad","audio":"Tone and mood."},
       {"type":"mc","q":"The narrator calls the abandoned house 'silent, sagging, and watchful.' What mood do these words create?","choices":["uneasy","celebratory","carefree","formal"],"answer":"uneasy","explain":"The personified watchfulness and signs of decay make the setting feel threatening."},

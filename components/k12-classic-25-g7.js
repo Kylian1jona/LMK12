@@ -5,7 +5,7 @@
   "g7:eng:L1":{
     name:"Theme & Central Idea",
     questions:[
-      {"type":"mc","q":"What is the theme of a story?","choices":["The title","The lesson or message"],"answer":"The lesson or message","audio":"Theme and central idea."},
+      {"type":"mc","q":"What is the theme of a story?","choices":["The title","The lesson or message","A list of every event in the story"],"answer":"The lesson or message","audio":"Theme and central idea."},
       {"type":"mc","q":"Which theme best fits a story about never giving up?","choices":["Perseverance","Weather","Transportation"],"answer":"Perseverance","audio":"Theme and central idea."},
       {"type":"mc","q":"Central idea means...","choices":["The main point of a text","A tiny detail","A character name"],"answer":"The main point of a text","audio":"Theme and central idea."},
       {"type":"mc","q":"What is a theme in a literary text?","choices":["A broad message about life revealed by the text","A one-word topic named in the title","A list of every event in order","The place and time of the story"],"answer":"A broad message about life revealed by the text","explain":"A theme is a complete insight about life, not merely a topic, summary, or setting."},
@@ -36,8 +36,8 @@
     name:"Text Evidence",
     questions:[
       {"type":"mc","q":"Which is text evidence?","choices":["A rumor heard after class","A claim with no quotation from the text","A quote from the passage","An unsupported statement recalled from memory"],"answer":"A quote from the passage","audio":"Text evidence."},
-      {"type":"mc","q":"Good text evidence should...","choices":["Ignore the question","Support your answer"],"answer":"Support your answer","audio":"Text evidence."},
-      {"type":"mc","q":"Which phrase introduces evidence?","choices":["According to the text","I feel like"],"answer":"According to the text","audio":"Text evidence."},
+      {"type":"mc","q":"Good text evidence should...","choices":["Ignore the question","Support your answer","Be chosen before reading the text"],"answer":"Support your answer","audio":"Text evidence."},
+      {"type":"mc","q":"Which phrase introduces evidence?","choices":["According to the text","I feel like","In my imagination"],"answer":"According to the text","audio":"Text evidence."},
       {"type":"mc","q":"Which choice is text evidence?","choices":["A specific quotation or paraphrased detail from the source","A guess made before reading","A fact from an unknown different text"],"answer":"A specific quotation or paraphrased detail from the source","explain":"Text evidence comes from the source being analyzed and directly supports a response."},
       {"type":"mc","q":"Which sentence best introduces evidence in a response?","choices":["The passage states that the trail 'reopened after volunteers repaired it.'","I just know the trail became better.","Everyone must agree with my opinion.","Trails are interesting for many reasons."],"answer":"The passage states that the trail 'reopened after volunteers repaired it.'","explain":"The sentence identifies the passage and integrates a precise quotation."},
       {"type":"mc","q":"Claim: The storm surprised the campers. Which detail is strongest evidence?","choices":["The forecast predicted clear skies, and the campers had packed no rain gear.","The campers carried blue backpacks.","The storm lasted for forty minutes.","The campsite had six wooden tables."],"answer":"The forecast predicted clear skies, and the campers had packed no rain gear.","explain":"The inaccurate forecast and missing rain gear directly demonstrate that the storm was unexpected."},
