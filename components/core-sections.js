@@ -78,10 +78,17 @@
   <!-- GRADES -->
   <div id="grades" class="section d-none grades-background">
     <div class="cardish grades-panel">
-      <div class="text-center mb-3">
-        <h3 style="font-weight:900;font-family:'Baloo 2',cursive;">Choose a Grade</h3>
-        <div class="small-note">Each grade has multiple lessons.</div>
-      </div>
+      <header class="grade-selector-hero">
+        <div class="grade-selector-copy">
+          <span class="selector-eyebrow">YOUR LEARNING JOURNEY</span>
+          <h1>Where should we start?</h1>
+          <p>Choose your grade to discover lessons made for your level. Every path includes instant feedback, revision practice, and a celebration at the finish.</p>
+        </div>
+        <div class="grade-selector-badge" aria-hidden="true">
+          <span>12</span>
+          <small>learning<br>levels</small>
+        </div>
+      </header>
 
       <section class="suggested-lessons" aria-labelledby="suggestedLessonsTitle">
         <div class="suggested-lessons-head">
@@ -94,7 +101,7 @@
         <div id="suggestedLessonsGrid" class="suggested-lessons-grid"></div>
       </section>
 
-      <div class="grade-grid">
+      <div class="grade-grid" aria-label="Grade levels">
         <div class="grade-card" id="cardPrek">
           <div class="grade-title">🍎 Pre-K</div>
           <p class="grade-sub">Addition • Counting • Shapes</p>

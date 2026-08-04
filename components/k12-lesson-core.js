@@ -33,6 +33,10 @@ const LR = {
   total:25,
   round:1,
   score:0,
+  phase:"lesson",
+  revisionQueue:[],
+  revisionTotal:0,
+  revisionIndex:0,
   current:null, // {type, q, choices, answer}
   backSection:"grades"
 };
@@ -40,18 +44,60 @@ let LR_WRONG_ADVANCE_TIMER = null;
 
 function lrAdvanceQuestion(){
   clearTimeout(LR_WRONG_ADVANCE_TIMER);
-  if(LR.round < LR.total){
+  if(LR.phase === "revision"){
+    if(LR.revisionQueue.length){
+      lrLoadQuestion();
+    }else{
+      lrFinish();
+    }
+  }else if(LR.round < LR.total){
     LR.round++;
+    lrLoadQuestion();
+  }else if(LR.revisionQueue.length){
+    LR.phase = "revision";
+    LR.revisionTotal = LR.revisionQueue.length;
+    LR.revisionIndex = 0;
     lrLoadQuestion();
   }else{
     lrFinish();
   }
 }
 
+function cloneRevisionQuestion(question){
+  try{
+    return typeof structuredClone === "function"
+      ? structuredClone(question)
+      : JSON.parse(JSON.stringify(question));
+  }catch(error){
+    return question;
+  }
+}
+
+function queueRevisionQuestion(){
+  if(LR.phase !== "lesson" || !LR.current) return;
+  LR.revisionQueue.push(cloneRevisionQuestion(LR.current));
+}
+
+function lessonCorrect(feedback, rewardMessage){
+  if(LR.phase === "lesson"){
+    LR.score++;
+    correctReward(rewardMessage || feedback);
+    $("lrFb").textContent = feedback;
+  }else{
+    $("lrFb").textContent = "Revision complete — this does not change your score.";
+  }
+  $("lrNextBtn").disabled = false;
+}
+
 function lrWrongMoveOn(feedback = "Not quite. Moving on.", penalty = "", delayMs = 2600){
   clearInterval(SPEED_TIMER);
-  $("lrFb").textContent = feedback;
-  wrongPenalty(penalty || feedback);
+  if(LR.phase === "lesson"){
+    queueRevisionQuestion();
+    $("lrFb").textContent = feedback;
+    wrongPenalty(penalty || feedback);
+  }else{
+    $("lrFb").textContent = "Revision complete — review the correction and keep going. Your score stays the same.";
+  }
   $("lrNextBtn").disabled = false;
   clearTimeout(LR_WRONG_ADVANCE_TIMER);
   highlightLessonAnswers(LR.current, LR.lastAnswer);
@@ -450,6 +496,10 @@ async function startLesson(grade, subj, lesson){
   LR.total = 25;
   LR.round = 1;
   LR.score = 0;
+  LR.phase = "lesson";
+  LR.revisionQueue = [];
+  LR.revisionTotal = 0;
+  LR.revisionIndex = 0;
 
   // back goes to subject page (g2-eng etc)
   LR.backSection = `${grade}-${subj}`.replace("g","g"); // just builds g2-eng style
@@ -457,6 +507,8 @@ async function startLesson(grade, subj, lesson){
   LR.backSection = `${grade}-${subj}`; // grade is "g2", subj "eng" => "g2-eng"
 
   $("lrDone").classList.add("d-none");
+  $("lrQuestionCard")?.classList.remove("d-none");
+  $("lrLessonActions")?.classList.remove("d-none");
   $("lrTitle").textContent = LR.title;
 
   show("lessonRunner");
@@ -471,7 +523,9 @@ function lrRender(){
   $("lrPoints").textContent = String(state.points);
   $("lrLearners").textContent = String(state.learners);
 
-  $("lrProg").textContent = `Question ${LR.round} of ${LR.total}`;
+  $("lrProg").textContent = LR.phase === "revision"
+    ? `Revision Question ${LR.revisionIndex} of ${LR.revisionTotal} · unscored`
+    : `Question ${LR.round} of ${LR.total}`;
   $("lrFb").textContent = "";
   $("lrNextBtn").disabled = true;
 
@@ -572,10 +626,7 @@ function lrPick(choice){
   const q = LR.current;
   LR.lastAnswer = String(choice);
   if(String(choice) === String(q.answer)){
-    LR.score++;
-    $("lrFb").textContent = "🎉 Correct!";
-    correctReward("Correct!");
-    $("lrNextBtn").disabled = false;
+    lessonCorrect("🎉 Correct!", "Correct!");
   }else{
     lrWrongMoveOn(wrongExplanation(q, choice));
   }
@@ -598,10 +649,7 @@ function lrCheck(){
     });
 
     if(correct){
-      LR.score++;
-      $("lrFb").textContent = "🎉 Correct!";
-      correctReward("Great matching!");
-      $("lrNextBtn").disabled = false;
+      lessonCorrect("🎉 Correct!", "Great matching!");
     }else{
       showDragCorrections(q);
       lrWrongMoveOn(wrongExplanation(q), "Review the red corrections.", 4500);
@@ -618,16 +666,19 @@ function lrCheck(){
   }
 
   if(typed === String(q.answer)){
-    LR.score++;
-    $("lrFb").textContent = "🎉 Correct!";
-    correctReward("Correct!");
-    $("lrNextBtn").disabled = false;
+    lessonCorrect("🎉 Correct!", "Correct!");
   }else{
     lrWrongMoveOn(wrongExplanation(q, typed));
   }
 }
 
 function lrLoadQuestion(){
+  if(LR.phase === "revision"){
+    LR.current = LR.revisionQueue.shift();
+    LR.revisionIndex++;
+    lrRender();
+    return;
+  }
   const pack = getLessonPack(LR.grade, LR.subj, LR.lesson);
   if(!pack) return;
   try{
@@ -697,13 +748,27 @@ function lrNext(){
 }
 function lrFinish(){
   if(typeof pauseUniversalLessonTimer==="function") pauseUniversalLessonTimer();
+  $("lrQuestionCard")?.classList.add("d-none");
   $("lrDone").classList.remove("d-none");
   $("lrDone").classList.remove("lesson-complete-celebrate");
   void $("lrDone").offsetWidth;
   $("lrDone").classList.add("lesson-complete-celebrate");
+  const percent = Math.round((LR.score/LR.total)*100);
   const stars = clamp(Math.round((LR.score/LR.total)*5), 1, 5);
+  let verdict = "You kept going and finished every question — that is real progress. Review the tricky ideas, then try again and watch your score grow.";
+  if(percent >= 90){
+    verdict = "Outstanding work! You showed excellent understanding and handled the lesson with confidence. Keep challenging yourself — you are ready for what comes next.";
+  }else if(percent >= 75){
+    verdict = "Great job! You understand most of the lesson and worked through every revision question. A little more practice will make these skills even stronger.";
+  }else if(percent >= 60){
+    verdict = "Good effort! You have a solid start, and the revision questions helped you revisit the toughest parts. Keep practicing — each attempt builds your confidence.";
+  }
   $("lrStars").textContent = "⭐".repeat(stars);
-  $("lrSummary").textContent = `Score: ${LR.score} / ${LR.total}. Keep practicing to earn more ⭐!`;
+  $("lrSummary").innerHTML = `
+    <span class="lesson-result-percent">${percent}%</span>
+    <strong>${LR.score} of ${LR.total} scored questions correct</strong>
+    <span>${verdict}</span>
+    <small>Revision questions were practice only and did not change this result.</small>`;
   recordLearningStat("lesson", { title:LR.title });
   launchConfetti(200);
   speakQ("Great job! You finished the lesson!");
@@ -714,8 +779,14 @@ function lrRestart(){
   clearTimeout(LR_WRONG_ADVANCE_TIMER);
   $("lrDone").classList.add("d-none");
   $("lrDone").classList.remove("lesson-complete-celebrate");
+  $("lrQuestionCard")?.classList.remove("d-none");
+  $("lrLessonActions")?.classList.remove("d-none");
   LR.round = 1;
   LR.score = 0;
+  LR.phase = "lesson";
+  LR.revisionQueue = [];
+  LR.revisionTotal = 0;
+  LR.revisionIndex = 0;
   lrLoadQuestion();
 }
 function lrBack(){
@@ -797,7 +868,9 @@ function lrRender(){
 
   $("lrPoints").textContent = String(state.points);
   $("lrLearners").textContent = String(state.learners);
-  $("lrProg").textContent = `Question ${LR.round} of ${LR.total}`;
+  $("lrProg").textContent = LR.phase === "revision"
+    ? `Revision Question ${LR.revisionIndex} of ${LR.revisionTotal} · unscored`
+    : `Question ${LR.round} of ${LR.total}`;
   $("lrFb").textContent = "";
   $("lrNextBtn").disabled = true;
   LR.lastAnswer = "";
@@ -879,10 +952,7 @@ function lrCheck(){
       if(zone.dataset.dropped !== zone.dataset.answer) ok = false;
     });
     if(ok){
-      LR.score++;
-      $("lrFb").textContent = "ðŸŽ‰ Correct!";
-      correctReward("Great matching!");
-      $("lrNextBtn").disabled = false;
+      lessonCorrect("Correct!", "Great matching!");
     }else{
       LR.lastAnswer = "the current matches";
       showDragCorrections(q);
@@ -896,10 +966,7 @@ function lrCheck(){
     const answers = [...q.answers].map(String).sort();
     const ok = picked.length === answers.length && picked.every((v,i)=>v === answers[i]);
     if(ok){
-      LR.score++;
-      $("lrFb").textContent = "Correct!";
-      correctReward("Great choices!");
-      $("lrNextBtn").disabled = false;
+      lessonCorrect("Correct!", "Great choices!");
     }else{
       LR.lastAnswer = picked.join(", ") || "No choices selected";
       lrWrongMoveOn(wrongExplanation(q, picked.join(", ")), "Review the correct choices.", 3500);
@@ -911,10 +978,7 @@ function lrCheck(){
     const picked = [...document.querySelectorAll("#lrChoices .order-choice")].filter(b=>b.classList.contains("picked")).map(b=>b.dataset.value);
     const ok = picked.length === q.items.length && picked.every((v,i)=>v === String(q.items[i]));
     if(ok){
-      LR.score++;
-      $("lrFb").textContent = "Correct order!";
-      correctReward("Correct order!");
-      $("lrNextBtn").disabled = false;
+      lessonCorrect("Correct order!", "Correct order!");
     }else{
       LR.lastAnswer = picked.join(", ") || "No order selected";
       lrWrongMoveOn(wrongExplanation(q, picked.join(", ")), picked.length < q.items.length ? "Finish the order before checking." : "Review the correct order.", 3500);
@@ -933,10 +997,7 @@ function lrCheck(){
   }
 
   if(ok){
-    LR.score++;
-    $("lrFb").textContent = "🎉 Correct!";
-    correctReward("Correct!");
-    $("lrNextBtn").disabled = false;
+    lessonCorrect("🎉 Correct!", "Correct!");
   }else{
     lrWrongMoveOn(wrongExplanation(q, user));
   }
@@ -978,10 +1039,7 @@ function renderMatch(q){
         MATCH_PICK = null;
 
         if(document.querySelectorAll("#lessonExtra .done").length === q.pairs.length * 2){
-          LR.score++;
-          $("lrFb").textContent = "🎉 All matched!";
-          correctReward("Great match!");
-          $("lrNextBtn").disabled = false;
+          lessonCorrect("🎉 All matched!", "Great match!");
         }
       }else{
         LR.lastAnswer = `${MATCH_PICK.textContent} with ${b.textContent}`;

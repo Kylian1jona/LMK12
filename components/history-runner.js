@@ -226,7 +226,7 @@
       <div class="badge-pill"><span class="learner-icon" role="img" aria-label="Learner"></span> Learners: <span id="lrLearners">0</span></div>
     </div>
 
-    <div class="quiz-card mt-2">
+    <div class="quiz-card mt-2" id="lrQuestionCard">
       <div class="small-note fw-bold" id="lrProg">Question 1 of 25</div>
       <img id="lrImage" class="lesson-img" alt="">
       <div style="font-size:26px;font-weight:900;margin-top:6px" id="lrQuestion">Question text…</div>
@@ -261,17 +261,17 @@
       <div class="feedback" id="lrFb"></div>
     </div>
 
-    <div class="d-flex justify-content-center gap-2 flex-wrap mt-3">
+    <div class="d-flex justify-content-center gap-2 flex-wrap mt-3" id="lrLessonActions">
       <button type="button" class="btn btn-main" onclick="lrRestart()">Restart</button>
       <button type="button" class="btn btn-main" onclick="lrBack()">Back</button>
     </div>
 
-    <div class="quiz-card mt-3 d-none" id="lrDone">
+    <div class="quiz-card mt-3 d-none special-complete-card" id="lrDone">
       <img class="lesson-complete-medal" src="images/lesson-gold-medal.png" alt="Gold star medal earned for completing the lesson">
       <div class="lesson-complete-kicker">Lesson complete</div>
-      <h2 style="font-weight:900;">Great Job!</h2>
+      <h2 style="font-weight:900;">You did it!</h2>
       <div class="stars" id="lrStars"></div>
-      <p class="small-note" id="lrSummary"></p>
+      <div class="small-note lesson-result-summary" id="lrSummary"></div>
     </div>
   </div>
 </div>
