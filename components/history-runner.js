@@ -218,18 +218,27 @@
    UNIVERSAL LESSON RUNNER
 ========================== -->
 <div id="lessonRunner" class="section d-none">
-  <div class="cardish text-center kid-font">
-    <h1 id="lrTitle">Lesson</h1>
-
-    <div class="scorebar">
-      <div class="badge-pill">⭐ Points: <span id="lrPoints">0</span></div>
-      <div class="badge-pill"><span class="learner-icon" role="img" aria-label="Learner"></span> Learners: <span id="lrLearners">0</span></div>
+  <div class="cardish text-center kid-font lesson-quiz-shell">
+    <div class="lesson-quiz-topbar">
+      <button type="button" class="lesson-back-circle" onclick="lrBack()" aria-label="Back to lessons">‹</button>
+      <div class="lesson-count-pill" aria-label="Question progress">
+        <span class="lesson-count-star" aria-hidden="true">★</span>
+        <span id="lrProg">Question 1 of 25</span>
+      </div>
+      <div class="lesson-progress-track" role="progressbar" aria-label="Lesson progress" aria-valuemin="0" aria-valuemax="25" aria-valuenow="1">
+        <span id="lrProgressFill"></span>
+      </div>
+      <div class="lesson-points-pill"><span aria-hidden="true">●</span> <span id="lrPoints">0</span> points</div>
     </div>
 
+    <h1 id="lrTitle" class="lesson-quiz-title">Lesson</h1>
+    <div class="lesson-question-banner" id="lrQuestionBanner">Question 1 of 25</div>
+
     <div class="quiz-card mt-2" id="lrQuestionCard">
-      <div class="small-note fw-bold" id="lrProg">Question 1 of 25</div>
-      <img id="lrImage" class="lesson-img" alt="">
-      <div style="font-size:26px;font-weight:900;margin-top:6px" id="lrQuestion">Question text…</div>
+      <div class="lesson-image-frame" id="lrImageFrame">
+        <img id="lrImage" class="lesson-img" alt="">
+      </div>
+      <div class="lesson-question-text" id="lrQuestion">Question text…</div>
 
       <!-- NORMAL CHOICES -->
 <div id="lrChoices"></div>
@@ -261,7 +270,7 @@
       <div class="feedback" id="lrFb"></div>
     </div>
 
-    <div class="d-flex justify-content-center gap-2 flex-wrap mt-3" id="lrLessonActions">
+    <div class="d-flex justify-content-center gap-2 flex-wrap mt-3 lesson-footer-actions" id="lrLessonActions">
       <button type="button" class="btn btn-main" onclick="lrRestart()">Restart</button>
       <button type="button" class="btn btn-main" onclick="lrBack()">Back</button>
     </div>

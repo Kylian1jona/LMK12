@@ -521,7 +521,7 @@ function lrRender(){
   renderAllBadges();
 
   $("lrPoints").textContent = String(state.points);
-  $("lrLearners").textContent = String(state.learners);
+  if($("lrLearners")) $("lrLearners").textContent = String(state.learners);
 
   $("lrProg").textContent = LR.phase === "revision"
     ? `Revision Question ${LR.revisionIndex} of ${LR.revisionTotal} · unscored`
@@ -850,10 +850,12 @@ let SPEED_LEFT = 10;
 
 function renderLessonImage(image){
   const img = $("lrImage");
+  const frame = $("lrImageFrame");
   if(!img) return;
   const src = typeof image === "string" ? image : image?.src;
   if(!src){
     img.style.display = "none";
+    frame?.classList.add("d-none");
     img.removeAttribute?.("src");
     img.alt = "";
     return;
@@ -861,16 +863,33 @@ function renderLessonImage(image){
   img.src = src;
   img.alt = image?.alt || "Lesson image";
   img.style.display = "block";
+  frame?.classList.remove("d-none");
 }
 
 function lrRender(){
   renderAllBadges();
 
   $("lrPoints").textContent = String(state.points);
-  $("lrLearners").textContent = String(state.learners);
-  $("lrProg").textContent = LR.phase === "revision"
-    ? `Revision Question ${LR.revisionIndex} of ${LR.revisionTotal} · unscored`
-    : `Question ${LR.round} of ${LR.total}`;
+  if($("lrLearners")) $("lrLearners").textContent = String(state.learners);
+  const questionNumber = LR.phase === "revision" ? LR.revisionIndex : LR.round;
+  const questionTotal = LR.phase === "revision" ? LR.revisionTotal : LR.total;
+  const progressText = LR.phase === "revision"
+    ? `Revision ${questionNumber} of ${questionTotal}`
+    : `${questionNumber} / ${questionTotal}`;
+  $("lrProg").textContent = progressText;
+  if($("lrQuestionBanner")){
+    $("lrQuestionBanner").textContent = LR.phase === "revision"
+      ? `Revision Question ${questionNumber} of ${questionTotal}`
+      : `Question ${questionNumber} of ${questionTotal}`;
+  }
+  const progressTrack = document.querySelector(".lesson-progress-track");
+  const progressFill = $("lrProgressFill");
+  const progressPercent = questionTotal ? Math.max(0, Math.min(100, (questionNumber / questionTotal) * 100)) : 0;
+  if(progressFill) progressFill.style.width = `${progressPercent}%`;
+  if(progressTrack){
+    progressTrack.setAttribute("aria-valuemax", String(questionTotal || 0));
+    progressTrack.setAttribute("aria-valuenow", String(questionNumber || 0));
+  }
   $("lrFb").textContent = "";
   $("lrNextBtn").disabled = true;
   LR.lastAnswer = "";
