@@ -22,16 +22,6 @@
             <span>✓ Progress rewards</span>
           </div>
         </div>
-        <div class="home-hero-visual" aria-hidden="true">
-          <div class="home-orbit home-orbit-one">A+</div>
-          <div class="home-orbit home-orbit-two">123</div>
-          <div class="home-orbit home-orbit-three">★</div>
-          <div class="home-mascot-card">
-            <div class="home-mascot">🎓</div>
-            <strong>Ready to learn?</strong>
-            <span>Pick a path and begin.</span>
-          </div>
-        </div>
       </section>
 
       <section class="home-paths" aria-labelledby="homePathsTitle">
