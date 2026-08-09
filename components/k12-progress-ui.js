@@ -999,26 +999,39 @@ g2:{
 function readingButton(label, action){
   const b = document.createElement("button");
   b.type = "button";
-  b.className = "btn btn-main";
+  b.className = "btn btn-main reading-card-action";
   b.textContent = label;
   b.onclick = action;
   return b;
+}
+
+function readingViewHeader(step, title, description, backLabel=""){
+  return `
+    <div class="reading-view-head">
+      <div>
+        <span class="reading-view-step">${htmlSafe(step)}</span>
+        <h2>${htmlSafe(title)}</h2>
+        <p>${htmlSafe(description)}</p>
+      </div>
+      ${backLabel ? `<button type="button" class="reading-back-btn" id="readingBackBtn" aria-label="${htmlSafe(backLabel)}">← ${htmlSafe(backLabel)}</button>` : ""}
+    </div>
+  `;
 }
 
 function renderReadingHome(){
   const panel = $("readingPanel");
   if(!panel) return;
   panel.innerHTML = `
-    <p class="small-note text-center">Choose a grade, then pick a subject and reading topic.</p>
+    ${readingViewHeader("Step 1 of 3", "Choose your grade", `${Object.keys(READING_LIBRARY).length} grade levels available`)}
     <div class="reading-grid" id="readingGrid"></div>
   `;
   const grid = $("readingGrid");
   Object.keys(READING_LIBRARY).forEach(gradeId=>{
     const grade = READING_LIBRARY[gradeId];
     const card = document.createElement("div");
-    card.className = "reading-card";
-    card.innerHTML = `<h3>${htmlSafe(grade.title)}</h3><p>Short reading lessons for English, math, and science.</p>`;
-    card.appendChild(readingButton("Open", ()=>renderReadingGrade(gradeId)));
+    card.className = "reading-card reading-grade-card";
+    card.innerHTML = `<span class="reading-card-kicker">GRADE LEVEL</span><h3>${htmlSafe(grade.title)}</h3><p>${Object.keys(grade.subjects).length} subjects</p>`;
+    card.appendChild(readingButton("Explore grade", ()=>renderReadingGrade(gradeId)));
     grid.appendChild(card);
   });
 }
@@ -1028,18 +1041,16 @@ function renderReadingGrade(gradeId){
   const panel = $("readingPanel");
   if(!grade || !panel) return;
   panel.innerHTML = `
-    <h2 class="text-center">${htmlSafe(grade.title)} Reading</h2>
-    <p class="small-note text-center">Choose a subject.</p>
+    ${readingViewHeader("Step 2 of 3", `${grade.title} Reading`, "Choose a subject to see its passages.", "All grades")}
     <div class="reading-grid" id="readingGrid"></div>
-    <div class="lesson-back-row"><button type="button" class="btn btn-main" id="readingBackBtn">Back</button></div>
   `;
   const grid = $("readingGrid");
   Object.keys(grade.subjects).forEach(subjId=>{
     const subj = grade.subjects[subjId];
     const card = document.createElement("div");
-    card.className = "reading-card";
-    card.innerHTML = `<h3>${htmlSafe(subj.title)}</h3><p>${subj.topics.length} topic${subj.topics.length === 1 ? "" : "s"}</p>`;
-    card.appendChild(readingButton("Open", ()=>renderReadingSubject(gradeId, subjId)));
+    card.className = `reading-card reading-subject-card reading-subject-${htmlSafe(subjId)}`;
+    card.innerHTML = `<span class="reading-subject-mark" aria-hidden="true">${htmlSafe(subj.title.charAt(0))}</span><h3>${htmlSafe(subj.title)}</h3><p>${subj.topics.length} passage${subj.topics.length === 1 ? "" : "s"}</p>`;
+    card.appendChild(readingButton("View passages", ()=>renderReadingSubject(gradeId, subjId)));
     grid.appendChild(card);
   });
   $("readingBackBtn").onclick = renderReadingHome;
@@ -1051,17 +1062,15 @@ function renderReadingSubject(gradeId, subjId){
   const panel = $("readingPanel");
   if(!grade || !subj || !panel) return;
   panel.innerHTML = `
-    <h2 class="text-center">${htmlSafe(grade.title)} ${htmlSafe(subj.title)}</h2>
-    <p class="small-note text-center">Choose a reading passage.</p>
+    ${readingViewHeader("Step 3 of 3", `${grade.title} · ${subj.title}`, "Choose a passage and start reading.", "Subjects")}
     <div class="reading-grid" id="readingGrid"></div>
-    <div class="lesson-back-row"><button type="button" class="btn btn-main" id="readingBackBtn">Back</button></div>
   `;
   const grid = $("readingGrid");
   subj.topics.forEach((topic, index)=>{
     const card = document.createElement("div");
-    card.className = "reading-card";
-    card.innerHTML = `<h3>${htmlSafe(topic.title)}</h3><p>${htmlSafe(topic.body[0]).slice(0, 110)}...</p>`;
-    card.appendChild(readingButton("Read", ()=>renderReadingTopic(gradeId, subjId, index)));
+    card.className = "reading-card reading-topic-card";
+    card.innerHTML = `<span class="reading-card-kicker">PASSAGE ${index + 1}</span><h3>${htmlSafe(topic.title)}</h3><p>${htmlSafe(topic.body[0]).slice(0, 125)}...</p>`;
+    card.appendChild(readingButton("Start reading", ()=>renderReadingTopic(gradeId, subjId, index)));
     grid.appendChild(card);
   });
   $("readingBackBtn").onclick = ()=>renderReadingGrade(gradeId);
@@ -1093,15 +1102,18 @@ function renderReadingTopic(gradeId, subjId, topicIndex){
   const panel = $("readingPanel");
   if(!grade || !subj || !topic || !panel) return;
   panel.innerHTML = `
-    <h2 class="text-center">${htmlSafe(topic.title)}</h2>
-    <div class="reading-passage">
+    <div class="reading-reader-head">
+      <button type="button" class="reading-back-btn" id="readingBackBtn" aria-label="Back to passages">← Passages</button>
+      <div class="reading-reader-actions">
+        <button type="button" class="btn btn-main" id="readingSpeakBtn">▶ Read aloud</button>
+        <button type="button" class="reading-stop-btn" id="readingStopBtn">Stop</button>
+      </div>
+    </div>
+    <article class="reading-passage">
+      <span class="reading-view-step">${htmlSafe(grade.title)} · ${htmlSafe(subj.title)}</span>
+      <h2>${htmlSafe(topic.title)}</h2>
       ${topic.body.map(p=>`<p>${htmlSafe(p)}</p>`).join("")}
-    </div>
-    <div class="reading-voice-row">
-      <button type="button" class="btn btn-main" id="readingSpeakBtn">Read aloud</button>
-      <button type="button" class="btn btn-main" id="readingStopBtn">Stop voice</button>
-    </div>
-    <div class="lesson-back-row"><button type="button" class="btn btn-main" id="readingBackBtn">Back</button></div>
+    </article>
   `;
   $("readingSpeakBtn").onclick = ()=>readReadingTopic(gradeId, subjId, topicIndex);
   $("readingStopBtn").onclick = ()=>stopVoice();
