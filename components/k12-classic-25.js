@@ -3,7 +3,7 @@
 (function(){
   const loadedGrades=new Set();
   const pendingGrades=new Map();
-  const release="classic25-20260808.2";
+  const release="classic25-20260808.3";
 
   function cloneQuestion(question){
     if(typeof structuredClone==="function") return structuredClone(question);
@@ -21,10 +21,14 @@
       if(!group) throw new Error(`Missing lesson group ${grade}:${subject}.`);
       const pack=group[lesson]||makeFallbackLessonPack(grade,subject,lesson);
       const questions=Array.isArray(record.questions)?record.questions:[];
-      if(questions.length!==25) throw new Error(`${key} must contain exactly 25 questions.`);
+      if(questions.length<25){
+        console.error(`${key} has only ${questions.length} questions and was skipped.`);
+        return;
+      }
+      const lessonQuestions=questions.slice(0,25);
       pack.name=record.name||pack.name;
-      pack.questions=questions;
-      pack.gen=()=>cloneQuestion(questions[Math.max(0,Math.min(24,Number(LR.round||1)-1))]);
+      pack.questions=lessonQuestions;
+      pack.gen=()=>cloneQuestion(lessonQuestions[Math.max(0,Math.min(24,Number(LR.round||1)-1))]);
       pack.generatorSource="classic-explicit-25";
       group[lesson]=pack;
     });
