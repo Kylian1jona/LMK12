@@ -4332,28 +4332,34 @@ body:has(#home:not(.d-none)) .site-footer{
   backdrop-filter:blur(16px);
 }
 .grade-selector-hero{
-  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:30px;
-  padding:clamp(26px,5vw,54px);margin-bottom:28px;overflow:hidden;border-radius:30px;color:#fff;
-  background:radial-gradient(circle at 82% 10%,rgba(255,255,255,.22),transparent 24%),
-    linear-gradient(125deg,#4238ca 0%,#6857e5 48%,#1289a7 100%);
-  box-shadow:0 20px 45px rgba(66,56,202,.25);
+  position:relative;display:flex;align-items:center;justify-content:center;
+  min-height:clamp(500px,61vw,720px);padding:clamp(26px,5vw,54px);margin-bottom:28px;
+  overflow:hidden;border:1px solid rgba(109,82,31,.12);border-radius:30px;color:#173357;
+  background:#fff8e8 url("images/grade-selector-hero-bg.png") center / cover no-repeat;
+  box-shadow:0 20px 45px rgba(90,73,36,.16);
+}
+.grade-selector-copy{
+  z-index:1;max-width:650px;padding:clamp(22px,4vw,38px);text-align:center;
+  border:1px solid rgba(255,255,255,.82);border-radius:28px;
+  background:rgba(255,253,245,.88);box-shadow:0 18px 50px rgba(83,62,25,.16);
+  backdrop-filter:blur(9px);
 }
 .selector-eyebrow{
-  display:inline-flex;padding:7px 12px;margin-bottom:12px;border:1px solid rgba(255,255,255,.35);
-  border-radius:999px;background:rgba(255,255,255,.12);font-size:12px;font-weight:900;letter-spacing:.14em;
+  display:inline-flex;padding:7px 12px;margin-bottom:12px;border:1px solid rgba(35,137,190,.2);
+  border-radius:999px;background:rgba(38,179,232,.1);color:#147ca9;font-size:12px;font-weight:900;letter-spacing:.14em;
 }
 .grade-selector-copy h1{
-  margin:0 0 8px;color:#fff;font:800 clamp(36px,6vw,66px)/.98 "Baloo 2",cursive;letter-spacing:-.035em;
+  margin:0 0 8px;color:#173357;font:800 clamp(36px,6vw,66px)/.98 "Baloo 2",cursive;letter-spacing:-.035em;
 }
 .grade-selector-copy p{
-  max-width:690px;margin:0;color:rgba(255,255,255,.86);font-size:clamp(16px,2vw,19px);line-height:1.6;
+  max-width:690px;margin:0;color:#51657d;font-size:clamp(16px,2vw,19px);line-height:1.6;
 }
 .grade-selector-badge{
-  width:150px;height:150px;display:grid;place-content:center;text-align:center;
-  border:2px solid rgba(255,255,255,.38);border-radius:38px;background:rgba(255,255,255,.14);
-  box-shadow:inset 0 1px rgba(255,255,255,.4);transform:rotate(4deg);
+  position:absolute;right:4%;top:43%;width:112px;height:112px;display:grid;place-content:center;text-align:center;
+  border:2px solid rgba(255,255,255,.82);border-radius:30px;background:rgba(255,253,245,.9);color:#6246c7;
+  box-shadow:0 14px 36px rgba(83,62,25,.14);transform:rotate(4deg);backdrop-filter:blur(8px);
 }
-.grade-selector-badge span{font:800 58px/1 "Baloo 2",cursive}
+.grade-selector-badge span{font:800 46px/1 "Baloo 2",cursive}
 .grade-selector-badge small{font-size:12px;font-weight:800;line-height:1.05;letter-spacing:.08em;text-transform:uppercase}
 #grades .suggested-lessons{margin:0 0 30px;padding:24px;border:1px solid #e8e6ff;border-radius:24px;background:#faf9ff}
 #grades .grade-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
@@ -4439,7 +4445,8 @@ body:has(#home:not(.d-none)) .site-footer{
   .lesson-column p{min-height:auto}
 }
 @media (max-width:620px){
-  .grade-selector-hero{grid-template-columns:1fr;padding:28px 22px}
+  .grade-selector-hero{min-height:510px;padding:24px 16px;background-position:center;background-size:auto 100%}
+  .grade-selector-copy{padding:24px 18px;border-radius:22px}
   .grade-selector-badge{display:none}
   #grades .grades-panel{padding:14px;border-radius:24px}
   #grades .grade-grid{grid-template-columns:1fr}
