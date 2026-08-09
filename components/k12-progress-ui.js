@@ -1005,11 +1005,23 @@ function readingButton(label, action){
   return b;
 }
 
+function readingStepNavigation(currentStep){
+  const steps = ["Grade", "Subject", "Passage"];
+  return `<ol class="reading-stepper" aria-label="Reading steps">
+    ${steps.map((label,index)=>{
+      const step = index + 1;
+      const state = step < currentStep ? "is-complete" : (step === currentStep ? "is-current" : "");
+      return `<li class="${state}" ${step === currentStep ? 'aria-current="step"' : ""}><span>${step < currentStep ? "✓" : step}</span><b>${label}</b></li>`;
+    }).join("")}
+  </ol>`;
+}
+
 function readingViewHeader(step, title, description, backLabel=""){
   return `
+    ${readingStepNavigation(step)}
     <div class="reading-view-head">
       <div>
-        <span class="reading-view-step">${htmlSafe(step)}</span>
+        <span class="reading-view-step">STEP ${step} OF 3</span>
         <h2>${htmlSafe(title)}</h2>
         <p>${htmlSafe(description)}</p>
       </div>
@@ -1022,7 +1034,7 @@ function renderReadingHome(){
   const panel = $("readingPanel");
   if(!panel) return;
   panel.innerHTML = `
-    ${readingViewHeader("Step 1 of 3", "Choose your grade", `${Object.keys(READING_LIBRARY).length} grade levels available`)}
+    ${readingViewHeader(1, "Choose your grade", `${Object.keys(READING_LIBRARY).length} grade levels available`)}
     <div class="reading-grid" id="readingGrid"></div>
   `;
   const grid = $("readingGrid");
@@ -1030,7 +1042,7 @@ function renderReadingHome(){
     const grade = READING_LIBRARY[gradeId];
     const card = document.createElement("div");
     card.className = "reading-card reading-grade-card";
-    card.innerHTML = `<span class="reading-card-kicker">GRADE LEVEL</span><h3>${htmlSafe(grade.title)}</h3><p>${Object.keys(grade.subjects).length} subjects</p>`;
+    card.innerHTML = `<span class="reading-grade-number" aria-hidden="true">${htmlSafe(grade.title.replace("Grade ", ""))}</span><div><span class="reading-card-kicker">GRADE LEVEL</span><h3>${htmlSafe(grade.title)}</h3><p>${Object.keys(grade.subjects).length} subjects</p></div>`;
     card.appendChild(readingButton("Explore grade", ()=>renderReadingGrade(gradeId)));
     grid.appendChild(card);
   });
@@ -1041,7 +1053,7 @@ function renderReadingGrade(gradeId){
   const panel = $("readingPanel");
   if(!grade || !panel) return;
   panel.innerHTML = `
-    ${readingViewHeader("Step 2 of 3", `${grade.title} Reading`, "Choose a subject to see its passages.", "All grades")}
+    ${readingViewHeader(2, `${grade.title} Reading`, "Choose a subject to see its passages.", "All grades")}
     <div class="reading-grid" id="readingGrid"></div>
   `;
   const grid = $("readingGrid");
@@ -1062,14 +1074,14 @@ function renderReadingSubject(gradeId, subjId){
   const panel = $("readingPanel");
   if(!grade || !subj || !panel) return;
   panel.innerHTML = `
-    ${readingViewHeader("Step 3 of 3", `${grade.title} · ${subj.title}`, "Choose a passage and start reading.", "Subjects")}
+    ${readingViewHeader(3, `${grade.title} · ${subj.title}`, "Choose a passage and start reading.", "Subjects")}
     <div class="reading-grid" id="readingGrid"></div>
   `;
   const grid = $("readingGrid");
   subj.topics.forEach((topic, index)=>{
     const card = document.createElement("div");
     card.className = "reading-card reading-topic-card";
-    card.innerHTML = `<span class="reading-card-kicker">PASSAGE ${index + 1}</span><h3>${htmlSafe(topic.title)}</h3><p>${htmlSafe(topic.body[0]).slice(0, 125)}...</p>`;
+    card.innerHTML = `<span class="reading-card-kicker">PASSAGE ${index + 1}</span><h3>${htmlSafe(topic.title)}</h3><p>${htmlSafe(topic.body[0]).slice(0, 88)}...</p>`;
     card.appendChild(readingButton("Start reading", ()=>renderReadingTopic(gradeId, subjId, index)));
     grid.appendChild(card);
   });

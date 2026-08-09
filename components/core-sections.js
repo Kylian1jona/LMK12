@@ -180,13 +180,13 @@
 ========================== -->
 
 <div id="reading" class="section d-none">
-  <div class="kid-font reading-box">
+  <div class="kid-font reading-box reading-workspace">
     <header class="reading-page-head">
       <span class="reading-page-icon" aria-hidden="true">📚</span>
       <div>
-        <span class="reading-eyebrow">READING LIBRARY</span>
-        <h1>Reading Center</h1>
-        <p>Build confidence with short, focused passages for every subject.</p>
+        <span class="reading-eyebrow">YOUR READING ADVENTURE</span>
+        <h1>Pick a story. Learn something new.</h1>
+        <p>Choose a grade, find a subject, and read at your own pace.</p>
       </div>
     </header>
     <div id="readingPanel"></div>
