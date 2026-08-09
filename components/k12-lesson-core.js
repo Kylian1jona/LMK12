@@ -711,7 +711,13 @@ function normalizeLessonQuestion(q, pack){
     }
     if(q.answer === undefined || q.answer === null) q.answer = q.choices[0];
     q.answer = String(q.answer);
-    q.choices = fourChoices(q.answer, q.choices.filter(choice=>String(choice) !== q.answer));
+    const normalizedChoices = q.choices.map(choice=>String(choice));
+    const isTrueFalse = normalizedChoices.length === 2
+      && normalizedChoices.includes("True")
+      && normalizedChoices.includes("False");
+    q.choices = isTrueFalse
+      ? ["True", "False"]
+      : fourChoices(q.answer, normalizedChoices.filter(choice=>choice !== q.answer));
   }
   if((q.type === "input" || q.type === "fill" || q.type === "edit") && (q.answer === undefined || q.answer === null)){
     q.answer = "";
@@ -725,7 +731,13 @@ function normalizeLessonQuestion(q, pack){
     if(!Array.isArray(q.choices) || !q.choices.length) q.choices = fourChoices(q.answer || "Correct", ["Try again", "Not this one"]);
     if(q.answer === undefined || q.answer === null) q.answer = q.choices[0];
     q.answer = String(q.answer);
-    q.choices = fourChoices(q.answer, q.choices.filter(choice=>String(choice) !== q.answer));
+    const normalizedChoices = q.choices.map(choice=>String(choice));
+    const isTrueFalse = normalizedChoices.length === 2
+      && normalizedChoices.includes("True")
+      && normalizedChoices.includes("False");
+    q.choices = isTrueFalse
+      ? ["True", "False"]
+      : fourChoices(q.answer, normalizedChoices.filter(choice=>choice !== q.answer));
   }
   if(q.type === "truefalse"){
     q.choices = ["True", "False"];
