@@ -337,10 +337,14 @@ window.addEventListener("pagehide",pauseUniversalLessonTimer);
 function show(id){
   if(!loggedIn){ showLogin(""); return; }
   if(!gateAllowedSection(id)){
+    if(typeof hideCorrectFeedbackOverlay==="function") hideCorrectFeedbackOverlay();
+    if(typeof clearLessonAdvanceTimers==="function") clearLessonAdvanceTimers();
     showPaywall();
     toast("Choose a plan to unlock this.");
     return;
   }
+  if(typeof hideCorrectFeedbackOverlay==="function") hideCorrectFeedbackOverlay();
+  if(id!=="lessonRunner" && typeof clearLessonAdvanceTimers==="function") clearLessonAdvanceTimers();
   if(["settings","analysis","addUserPage"].includes(id)) hidePaywall();
   cancelLessonVoice();
   if(TIMED_LESSON_SECTIONS.has(id)){
@@ -1459,7 +1463,17 @@ function renderAnalysis(){
 =========================== */
 let correctFeedbackTimer = null;
 let correctFeedbackHideTimer = null;
-function showCorrectFeedbackOverlay(){
+function hideCorrectFeedbackOverlay(){
+  clearTimeout(correctFeedbackTimer);
+  clearTimeout(correctFeedbackHideTimer);
+  correctFeedbackTimer=null;
+  correctFeedbackHideTimer=null;
+  const overlay=$("correctFeedbackOverlay");
+  if(!overlay) return;
+  overlay.classList.remove("is-visible","is-fading");
+  overlay.setAttribute("aria-hidden","true");
+}
+function showCorrectFeedbackOverlay(message="You earned 2 points!"){
   let overlay=$("correctFeedbackOverlay");
   if(!overlay){
     overlay=document.createElement("div");
@@ -1467,6 +1481,7 @@ function showCorrectFeedbackOverlay(){
     overlay.className="correct-feedback-overlay";
     overlay.setAttribute("role","status");
     overlay.setAttribute("aria-live","assertive");
+    overlay.setAttribute("aria-hidden","true");
     overlay.innerHTML=`<div class="correct-feedback-card"><span class="correct-check" aria-hidden="true">&#10003;</span><h2>CORRECT!</h2><p>You earned 2 points!</p></div>`;
     document.body.appendChild(overlay);
   }
@@ -1474,8 +1489,11 @@ function showCorrectFeedbackOverlay(){
   clearTimeout(correctFeedbackHideTimer);
   overlay.classList.remove("is-fading");
   overlay.classList.add("is-visible");
+  overlay.setAttribute("aria-hidden","false");
+  const messageNode=overlay.querySelector("p");
+  if(messageNode) messageNode.textContent=message;
   correctFeedbackTimer=setTimeout(()=>overlay.classList.add("is-fading"),2100);
-  correctFeedbackHideTimer=setTimeout(()=>overlay.classList.remove("is-visible","is-fading"),2500);
+  correctFeedbackHideTimer=setTimeout(hideCorrectFeedbackOverlay,2500);
 }
 function correctReward(msg="Correct!"){
   safePlay($("correct"));
@@ -1483,7 +1501,7 @@ function correctReward(msg="Correct!"){
   recordLearningStat("correct");
   if(Math.random() < 0.2) launchConfetti(45);
   speakGlobal(msg);
-  showCorrectFeedbackOverlay();
+  showCorrectFeedbackOverlay("You earned 2 points!");
 }
 function wrongPenalty(msg="Try again!"){
   safePlay($("wrong"));

@@ -41,9 +41,17 @@ const LR = {
   backSection:"grades"
 };
 let LR_WRONG_ADVANCE_TIMER = null;
+let LR_CORRECT_ADVANCE_TIMER = null;
+
+function clearLessonAdvanceTimers(){
+  clearTimeout(LR_WRONG_ADVANCE_TIMER);
+  clearTimeout(LR_CORRECT_ADVANCE_TIMER);
+  LR_WRONG_ADVANCE_TIMER = null;
+  LR_CORRECT_ADVANCE_TIMER = null;
+}
 
 function lrAdvanceQuestion(){
-  clearTimeout(LR_WRONG_ADVANCE_TIMER);
+  clearLessonAdvanceTimers();
   if(LR.phase === "revision"){
     if(LR.revisionQueue.length){
       lrLoadQuestion();
@@ -79,14 +87,26 @@ function queueRevisionQuestion(){
 }
 
 function lessonCorrect(feedback, rewardMessage){
+  const answeredQuestion=LR.current;
   if(LR.phase === "lesson"){
     LR.score++;
     correctReward(rewardMessage || feedback);
     $("lrFb").textContent = feedback;
   }else{
     $("lrFb").textContent = "Revision complete — this does not change your score.";
+    if(typeof showCorrectFeedbackOverlay==="function") showCorrectFeedbackOverlay("Practice complete!");
   }
-  $("lrNextBtn").disabled = false;
+  $("lrNextBtn").disabled = true;
+  clearTimeout(LR_CORRECT_ADVANCE_TIMER);
+  let didAutoAdvance=false;
+  LR_CORRECT_ADVANCE_TIMER=setTimeout(()=>{
+    if(didAutoAdvance) return;
+    didAutoAdvance=true;
+    LR_CORRECT_ADVANCE_TIMER=null;
+    if(LR.current!==answeredQuestion) return;
+    if($("lessonRunner")?.classList.contains("d-none")) return;
+    lrAdvanceQuestion();
+  },2500);
 }
 
 function lrWrongMoveOn(feedback = "Not quite. Moving on.", penalty = "", delayMs = 2600){
@@ -479,6 +499,7 @@ function launchLessonPack(grade, subj, lesson, pack, backSection){
   if(!pack){ toast("Lesson missing"); return; }
   const group=CURR?.[grade]?.[subj];
   if(!group){ toast("Lesson group missing"); return; }
+  clearLessonAdvanceTimers();
   LR.grade = grade;
   LR.subj = subj;
   LR.lesson = lesson;
@@ -700,6 +721,7 @@ function lrCheck(){
 }
 
 function lrLoadQuestion(){
+  clearLessonAdvanceTimers();
   if(LR.phase === "revision"){
     LR.current = LR.revisionQueue.shift();
     LR.revisionIndex++;
@@ -786,6 +808,7 @@ function lrNext(){
   lrAdvanceQuestion();
 }
 function lrFinish(){
+  clearLessonAdvanceTimers();
   if(typeof pauseUniversalLessonTimer==="function") pauseUniversalLessonTimer();
   $("lrQuestionCard")?.classList.add("d-none");
   $("lrDone").classList.remove("d-none");
@@ -815,7 +838,7 @@ function lrFinish(){
 function lrRestart(){
   safeClick();
   if(typeof restartUniversalLessonTimer==="function") restartUniversalLessonTimer();
-  clearTimeout(LR_WRONG_ADVANCE_TIMER);
+  clearLessonAdvanceTimers();
   $("lrDone").classList.add("d-none");
   $("lrDone").classList.remove("lesson-complete-celebrate");
   $("lrQuestionCard")?.classList.remove("d-none");
@@ -830,6 +853,8 @@ function lrRestart(){
 }
 function lrBack(){
   safeClick();
+  clearLessonAdvanceTimers();
+  if(typeof hideCorrectFeedbackOverlay==="function") hideCorrectFeedbackOverlay();
   show(LR.backSection || "grades");
 }
 function cleanAnswer(x){

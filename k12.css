@@ -5764,3 +5764,31 @@ k12-site-footer{display:block;background:#fff}.site-footer{max-width:1180px;marg
   body #lessonRunner{padding:0}body #lessonRunner>.lesson-quiz-shell{min-height:100vh;padding:18px 12px 48px;border-radius:0}body #lessonRunner .lesson-quiz-topbar{grid-template-columns:48px 1fr auto}body #lessonRunner .lesson-progress-track{grid-column:1/-1;grid-row:2}body #lessonRunner #lrQuestionCard{min-height:550px;padding:24px 14px}body #lessonRunner #lrChoices{grid-template-columns:1fr}body #lessonRunner #lrChoices .choice-btn{min-height:76px;padding-left:66px}.correct-feedback-card{padding:44px 24px}.correct-check{font-size:78px}
   .lm-coming-soon{min-height:500px;padding:32px 18px}.lm-coming-soon>div{display:grid;width:100%}.lm-coming-soon button{width:100%}
 }
+
+/* Focused UI regression fixes. */
+k12-main-nav{position:sticky;top:0;z-index:1050;display:block}
+.lm-topbar{position:relative;top:auto}
+.lm-menu-drawer{inset:0 0 0 auto!important;transform:translateX(102%)!important}
+.lm-menu-shell.is-open .lm-menu-drawer{transform:translateX(0)!important}
+.lm-menu-shell[aria-hidden="true"]{visibility:hidden}
+.lm-menu-shell[aria-hidden="false"]{visibility:visible}
+.lm-menu-drawer button,.lm-topbar button,.lm-home button,.grade-card button,.early-lesson-card{touch-action:manipulation}
+.lesson-search-popover{z-index:1200;max-width:min(430px,calc(100vw - 24px))}
+.lesson-search-results{max-height:min(58vh,430px);overflow:auto}
+.grade-title,.grade-sub,.early-lesson-card strong,.early-lesson-card small,.lesson-column .btn,#lrQuestion,.choice-btn{overflow-wrap:anywhere}
+body #lessonRunner #lrChoices .choice-btn{min-width:0;line-height:1.3}
+body #lessonRunner .lesson-footer-actions{min-height:52px}
+body #lessonRunner #lrNextBtn:disabled{opacity:.45;cursor:default}
+#paywall .payclose{z-index:3;top:18px;right:18px}
+.settings-grid>*,.analysis-grid>*,.parent-summary-grid>*,.parent-account-grid>*{min-width:0}
+.correct-feedback-overlay[aria-hidden="true"]{visibility:hidden;pointer-events:none}
+
+@media(max-width:420px){
+  .lm-topbar{grid-template-columns:minmax(112px,1fr) auto;gap:6px}.lm-logo-button{width:126px}.lm-top-actions{gap:5px}.lm-points{height:40px;padding:0 8px}.lm-menu-button{width:42px;height:40px;padding:10px}
+  .analysis-grid{grid-template-columns:1fr}.metric-card{min-height:96px}.lm-menu-head img{width:165px}.lm-grade-jump>div{grid-template-columns:repeat(4,1fr)}
+  body #lessonRunner .lesson-points-pill{padding-inline:10px}.correct-feedback-card h2{font-size:46px}.correct-feedback-card p{font-size:23px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
