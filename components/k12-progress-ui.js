@@ -180,9 +180,58 @@ function renderConvertButtons(){
 /* ===========================
    Voice
 =========================== */
-let voiceOn = true;
+const VOICE_ENABLED_PREF_KEY = "learnmaster_voice_enabled_v1";
+let voiceOn = learnMasterStore.getItem(VOICE_ENABLED_PREF_KEY) !== "off";
 const VOICE_PREF_KEY = "learnmaster_voice_pref_v1";
 let voiceType = learnMasterStore.getItem(VOICE_PREF_KEY) || "female";
+const MUSIC_PREF_KEY = "learnmaster_music_pref_v1";
+let musicOn = learnMasterStore.getItem(MUSIC_PREF_KEY) === "on";
+let MUSIC_TIMER = 0;
+let musicStep = 0;
+
+function playMusicNote(){
+  if(!musicOn) return;
+  try{
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if(!AudioContextClass) return;
+    K12_AUDIO_CONTEXT = K12_AUDIO_CONTEXT || new AudioContextClass();
+    if(K12_AUDIO_CONTEXT.state === "suspended") K12_AUDIO_CONTEXT.resume().catch(()=>{});
+    const notes = [261.63,329.63,392,329.63,293.66,349.23,440,349.23];
+    const oscillator = K12_AUDIO_CONTEXT.createOscillator();
+    const gain = K12_AUDIO_CONTEXT.createGain();
+    const now = K12_AUDIO_CONTEXT.currentTime;
+    oscillator.type = "sine";
+    oscillator.frequency.value = notes[musicStep++ % notes.length];
+    gain.gain.setValueAtTime(.0001,now);
+    gain.gain.exponentialRampToValueAtTime(.018,now+.04);
+    gain.gain.exponentialRampToValueAtTime(.0001,now+.72);
+    oscillator.connect(gain);
+    gain.connect(K12_AUDIO_CONTEXT.destination);
+    oscillator.start(now);
+    oscillator.stop(now+.75);
+  }catch(e){}
+}
+
+function startMusic(){
+  if(!musicOn || MUSIC_TIMER) return;
+  playMusicNote();
+  MUSIC_TIMER = window.setInterval(playMusicNote,900);
+}
+
+function stopMusic(){
+  window.clearInterval(MUSIC_TIMER);
+  MUSIC_TIMER = 0;
+}
+
+function toggleMusic(){
+  safePlay($("clickSfx"));
+  musicOn = !musicOn;
+  learnMasterStore.setItem(MUSIC_PREF_KEY,musicOn ? "on" : "off");
+  if(musicOn) startMusic();
+  else stopMusic();
+  renderVoiceControls();
+  toast(musicOn ? "Music turned on." : "Music turned off.");
+}
 
 function getSpeechVoices(){
   try{
@@ -208,16 +257,18 @@ function getPreferredSpeechVoice(){
 function renderVoiceControls(){
   if($("voiceItem")) $("voiceItem").textContent = voiceOn ? "Voice: On" : "Voice: Off";
   if($("settingsVoiceBtn")) $("settingsVoiceBtn").textContent = voiceOn ? "Voice: On" : "Voice: Off";
+  if($("musicItem")) $("musicItem").textContent = musicOn ? "Music: On" : "Music: Off";
+  if($("settingsMusicBtn")) $("settingsMusicBtn").textContent = musicOn ? "Music: On" : "Music: Off";
   if($("voiceFemaleBtn")) $("voiceFemaleBtn").classList.toggle("active", voiceType === "female");
   if($("voiceMaleBtn")) $("voiceMaleBtn").classList.toggle("active", voiceType === "male");
 }
 function toggleVoice(){
   safeClick();
   voiceOn = !voiceOn;
-  if($("voiceItem")) $("voiceItem").textContent = voiceOn ? "🔊 Voice: On" : "🔈 Voice: Off";
-  if($("settingsVoiceBtn")) $("settingsVoiceBtn").textContent = voiceOn ? "Voice: On" : "Voice: Off";
+  learnMasterStore.setItem(VOICE_ENABLED_PREF_KEY,voiceOn ? "on" : "off");
   renderVoiceControls();
   if(!voiceOn) try{ speechSynthesis.cancel(); }catch(e){}
+  toast(voiceOn ? "Voice turned on." : "Voice turned off.");
 }
 function setVoiceType(type){
   safeClick();
@@ -1180,11 +1231,13 @@ function renderSettings(){
         <input id="settingsReadingGoal" class="form-control" type="number" min="5" max="180" step="5" value="${htmlSafe(kid?.readingGoal || 20)}">
 
         <button type="button" class="btn btn-main mt-3" onclick="saveProfileSettings()">Save profile</button>
+        <p class="settings-save-status" id="settingsSaveStatus" role="status" aria-live="polite"></p>
       </div>
 
       <div class="settings-block settings-learning-block">
         <h3>Learning</h3>
         <button type="button" class="btn btn-main" onclick="toggleVoice()" id="settingsVoiceBtn">${voiceOn ? "Voice: On" : "Voice: Off"}</button>
+        <button type="button" class="btn btn-main" onclick="toggleMusic()" id="settingsMusicBtn">${musicOn ? "Music: On" : "Music: Off"}</button>
         <div class="settings-label">Voice type</div>
         <div class="voice-choice-row">
           <button type="button" class="btn btn-main" id="voiceFemaleBtn" onclick="setVoiceType('female')">Female voice</button>
@@ -1312,11 +1365,14 @@ function saveProfileSettings(){
     patch.avatar = avatar || undefined;
   }
   updateActiveKidProfile(patch);
+  const status = $("settingsSaveStatus");
+  if(status) status.textContent = "Saved! Your profile and daily goals are up to date.";
   toast("Settings saved.");
 }
 
 function setAvatarColor(colorId){
   updateActiveKidProfile({ avatarColor: colorId });
+  renderSettings();
   toast("Avatar updated.");
 }
 
@@ -1328,6 +1384,7 @@ function setAvatarPreset(presetId){
   }else{
     updateActiveKidProfile({ avatar:preset.value, avatarImage:"" });
   }
+  renderSettings();
   toast("Avatar updated.");
 }
 
@@ -1335,6 +1392,7 @@ function useTypedAvatarText(){
   const avatar = ($("settingsAvatarText")?.value || "").trim().slice(0,2).toUpperCase();
   if(!avatar){ toast("Type an avatar first."); return; }
   updateActiveKidProfile({ avatar, avatarImage:"" });
+  renderSettings();
   toast("Avatar updated.");
 }
 

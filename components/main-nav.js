@@ -39,6 +39,7 @@
     <button type="button" onclick="navigateFromAppMenu('grades')">Grades</button>
     <button type="button" onclick="navigateFromAppMenu('reading')">Reading</button>
     <button type="button" onclick="navigateFromAppMenu('analysis')">Progress</button>
+    <button type="button" onclick="navigateFromAppMenu('settings')">Settings</button>
     <button type="button" class="is-coming" onclick="navigateFromAppMenu('playground')">Playground <small>Coming soon</small></button>
   </nav>
   <div class="lm-top-actions">

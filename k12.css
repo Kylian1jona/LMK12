@@ -5729,6 +5729,7 @@ body .section[id^="g"][id*="-"] .lesson-column{padding:25px;border-color:#dceaea
 .settings-head,.analysis-head,.parent-portal-head{margin-bottom:38px;padding-bottom:28px;border-bottom:1px solid #dfeaea}.settings-head h1,.analysis-head h1,.parent-portal-head h1{color:var(--lm2-navy);font:800 clamp(38px,5vw,55px)/1 "Baloo 2",cursive}.settings-head p,.analysis-head p,.parent-portal-head p{color:var(--lm2-muted);font-size:16px}
 .lm-page-kicker{color:var(--lm2-teal);font-size:11px;font-weight:800;letter-spacing:.14em}
 .settings-grid{grid-template-columns:1fr 1fr;gap:18px}.settings-block,.analysis-panel,.parent-account-grid article,.parent-learner-report{padding:25px;border:1px solid #dceaea;border-radius:20px;background:#fff;box-shadow:none}.settings-block h3{margin-bottom:22px;color:var(--lm2-navy)}.settings-block .btn{width:auto;margin:5px 5px 5px 0}.settings-label{margin-top:18px;color:#526b7e}.form-control{min-height:48px;border-color:#d6e5e5;border-radius:13px!important}.form-control:focus{border-color:var(--lm2-teal);box-shadow:0 0 0 4px rgba(18,155,152,.12)}
+.settings-save-status{min-height:24px;margin:12px 0 0;color:#08727a;font-weight:700}
 .analysis-grid{grid-template-columns:repeat(4,1fr);gap:14px}.metric-card{min-height:135px;padding:24px;border:1px solid #dceaea;border-radius:20px;background:#fff;box-shadow:none}.metric-card b{color:var(--lm2-teal);font-size:38px}.analysis-panel{margin-top:22px}.progress-track{height:12px;background:#e7efef}.progress-track div{background:linear-gradient(90deg,var(--lm2-teal),#58c2ab)}
 .parent-summary-grid{gap:14px}.parent-summary-grid article{border:1px solid #dceaea;border-radius:20px;background:#fff;box-shadow:none}.parent-actions{gap:10px}
 #paywall{padding:24px;background:rgba(11,45,89,.38);backdrop-filter:blur(9px)}#paywall .paycard{width:min(1040px,100%);max-height:92vh;overflow:auto;padding:clamp(25px,4vw,48px);border:1px solid rgba(255,255,255,.9);border-radius:32px;background:#fffdf8 url("images/learnmaster-page-bg-v2.png") center/cover no-repeat;box-shadow:0 32px 90px rgba(11,45,89,.25)}#paywall .paygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.payhead{grid-column:1/-1;margin-bottom:12px;text-align:center}.lm-dialog-logo{display:block;width:min(270px,70vw);height:auto;margin:0 auto 15px}.plan{padding:27px;border:1px solid #d9e8e8!important;border-radius:22px;background:rgba(255,255,255,.95);box-shadow:none}.plan:nth-of-type(3){border-color:#ead08f!important}.plan h3{color:var(--lm2-navy)}.plan .price{color:var(--lm2-teal)}.paynote{grid-column:1/-1;padding:20px;border:1px solid #dceaea;border-radius:18px;background:#f7fbfb;text-align:center}
@@ -5783,10 +5784,26 @@ body #lessonRunner #lrNextBtn:disabled{opacity:.45;cursor:default}
 .settings-grid>*,.analysis-grid>*,.parent-summary-grid>*,.parent-account-grid>*{min-width:0}
 .correct-feedback-overlay[aria-hidden="true"]{visibility:hidden;pointer-events:none}
 
+/* Distinct LearnMaster illustrated spaces for each part of the app. */
+#home{background:#f7fcfc url("images/learnmaster-page-bg-v2.png") center top/cover no-repeat}
+#grades,#prek,#prek-add,#prek-count,#prek-shapes,#kinder,#k-syll-count,#k-syll-build,#k-rhymes,#grade1,#g1-addsub,#g1-graphs,#g1-money,#early-bank,#grade2,#grade3,#grade4,#grade5,#grade6,#grade7,#grade8,#grade9,#grade10,
+.section[id^="g"][id*="-"]{background:#fff url("images/learnmaster-books-bg-v2.png") center top/cover fixed no-repeat}
+#reading{background:#fbfefd url("images/learnmaster-nature-bg-v2.png") center top/cover fixed no-repeat}
+#settings,#analysis,#addUserPage,#shop{background:#fffdf8 url("images/learnmaster-skyline-bg-v2.png") center top/cover fixed no-repeat}
+#parentPortal,#adminPortal,#curriculumStandards,#playground{background:#fffdf8 url("images/learnmaster-city-bg-v2.png") center top/cover fixed no-repeat}
+#paywall .paycard{background-image:linear-gradient(rgba(255,253,248,.84),rgba(255,253,248,.84)),url("images/learnmaster-city-bg-v2.png")}
+#loginWall{background-image:linear-gradient(rgba(237,248,248,.55),rgba(237,248,248,.55)),url("images/learnmaster-skyline-bg-v2.png")}
+body #lessonRunner>.lesson-quiz-shell{background-image:linear-gradient(rgba(255,253,248,.83),rgba(255,253,248,.83)),url("images/learnmaster-page-bg-v2.png")!important}
+
 @media(max-width:420px){
   .lm-topbar{grid-template-columns:minmax(112px,1fr) auto;gap:6px}.lm-logo-button{width:126px}.lm-top-actions{gap:5px}.lm-points{height:40px;padding:0 8px}.lm-menu-button{width:42px;height:40px;padding:10px}
   .analysis-grid{grid-template-columns:1fr}.metric-card{min-height:96px}.lm-menu-head img{width:165px}.lm-grade-jump>div{grid-template-columns:repeat(4,1fr)}
   body #lessonRunner .lesson-points-pill{padding-inline:10px}.correct-feedback-card h2{font-size:46px}.correct-feedback-card p{font-size:23px}
+}
+
+@media(max-width:650px){
+  #grades,#prek,#prek-add,#prek-count,#prek-shapes,#kinder,#k-syll-count,#k-syll-build,#k-rhymes,#grade1,#g1-addsub,#g1-graphs,#g1-money,#early-bank,#grade2,#grade3,#grade4,#grade5,#grade6,#grade7,#grade8,#grade9,#grade10,
+  .section[id^="g"][id*="-"],#reading,#settings,#analysis,#addUserPage,#shop,#parentPortal,#adminPortal,#curriculumStandards,#playground{background-attachment:scroll}
 }
 
 @media(prefers-reduced-motion:reduce){
