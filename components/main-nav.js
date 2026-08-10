@@ -30,63 +30,62 @@
       if(this.dataset.rendered==="true") return;
       this.dataset.rendered="true";
       this.innerHTML=String.raw`
-<header class="app-shell-bar">
-  <button type="button" id="appMenuButton" class="app-menu-button" onclick="toggleAppNavigation()" aria-label="Open learning menu" aria-controls="appNavShell" aria-expanded="false"><span></span><span></span><span></span></button>
-  <button type="button" class="app-wordmark" onclick="navigateFromAppMenu('home')"><span class="app-wordmark-mark">LM</span><span><strong>LearnMaster</strong><small>K–12 Learning</small></span></button>
-  <div class="appbar-actions">
-    <div class="lesson-search-nav appbar-search" id="lessonSearchNav">
-      <button type="button" class="appbar-icon-button lesson-search-toggle" onclick="toggleLessonSearch(event)" aria-label="Search lessons">⌕</button>
+<header class="lm-topbar">
+  <button type="button" class="lm-logo-button" onclick="navigateFromAppMenu('home')" aria-label="LearnMaster home">
+    <img src="images/learnmaster-logo-header-v2.png" alt="LearnMaster K12">
+  </button>
+  <nav class="lm-desktop-nav" aria-label="Main navigation">
+    <button type="button" onclick="navigateFromAppMenu('home')">Home</button>
+    <button type="button" onclick="navigateFromAppMenu('grades')">Grades</button>
+    <button type="button" onclick="navigateFromAppMenu('reading')">Reading</button>
+    <button type="button" onclick="navigateFromAppMenu('analysis')">Progress</button>
+    <button type="button" class="is-coming" onclick="navigateFromAppMenu('playground')">Playground <small>Coming soon</small></button>
+  </nav>
+  <div class="lm-top-actions">
+    <div class="lesson-search-nav lm-search" id="lessonSearchNav">
+      <button type="button" class="lm-round-button lesson-search-toggle" onclick="toggleLessonSearch(event)" aria-label="Search lessons">Search</button>
       <div class="lesson-search-popover" id="lessonSearchPanel" hidden>
-        <input id="lessonSearchInput" class="lesson-search-input" type="search" placeholder="Search every lesson" autocomplete="off">
+        <input id="lessonSearchInput" class="lesson-search-input" type="search" placeholder="Search lessons" autocomplete="off">
         <div id="lessonSearchResults" class="lesson-search-results" aria-live="polite"></div>
       </div>
     </div>
-    <button type="button" class="app-points-chip" onclick="navigateFromAppMenu('shop')" aria-label="Open rewards shop"><span>★</span><b id="menuPoints">0</b><small>points</small></button>
-    <div class="dropdown">
-      <button type="button" class="app-profile-button dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        <span class="avatar" id="userAvatar">U</span><span class="app-profile-copy"><b id="userNameNav">User</b><small>My learning space</small></span>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end user-menu app-profile-menu">
-        <li class="user-head"><div class="user-mini"><div class="avatar" id="userAvatar2">U</div><div><b id="userNameMenu">User</b><div class="user-sub">Plan: <span class="user-chip" id="planChip">NONE</span> · Trial: <span id="trialChip">Off</span></div><div class="user-sub">Learners: <span id="menuLearners">0</span></div></div></div></li>
-        <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">Switch learner</li><li><div class="user-switch-list" id="userListMenu"></div></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><button type="button" class="dropdown-item" onclick="show('analysis')">Progress</button></li>
-        <li><button type="button" class="dropdown-item" onclick="show('settings')">Settings & avatar</button></li>
-        <li><button type="button" class="dropdown-item" onclick="showPaywall()">Subscription</button></li>
-        <li><button type="button" class="dropdown-item" onclick="toggleVoice()" id="voiceItem">Voice: On</button></li>
-        <li><button type="button" class="dropdown-item" onclick="toggleMusic()" id="musicItem">Music: Off</button></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><button type="button" class="dropdown-item app-signout" onclick="logout()">Sign out</button></li>
-      </ul>
-    </div>
+    <button type="button" class="lm-points" onclick="navigateFromAppMenu('shop')"><span>&#9733;</span><b id="menuPoints">0</b></button>
+    <button type="button" id="appMenuButton" class="lm-menu-button" onclick="toggleAppNavigation()" aria-label="Open account menu" aria-controls="appNavShell" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<div id="appNavShell" class="app-nav-shell" aria-hidden="true">
-  <button type="button" class="app-nav-scrim" onclick="toggleAppNavigation(false)" aria-label="Close learning menu"></button>
-  <aside class="app-nav-drawer" aria-label="Learning navigation">
-    <div class="app-nav-head"><div><span>LEARNMASTER</span><h2>Where to next?</h2></div><button type="button" onclick="toggleAppNavigation(false)" aria-label="Close menu">×</button></div>
-    <nav class="app-nav-primary">
-      <button type="button" onclick="navigateFromAppMenu('home')"><span>⌂</span><div><b>Today</b><small>Your learning dashboard</small></div></button>
-      <button type="button" onclick="navigateFromAppMenu('grades')"><span>▦</span><div><b>Grade library</b><small>Browse every level</small></div></button>
-      <button type="button" onclick="navigateFromAppMenu('reading')"><span>R</span><div><b>Reading room</b><small>Passages by grade</small></div></button>
-      <button type="button" onclick="navigateFromAppMenu('playground')"><span>◇</span><div><b>Playground</b><small>Reward games</small></div></button>
+<div id="appNavShell" class="app-nav-shell lm-menu-shell" aria-hidden="true">
+  <button type="button" class="app-nav-scrim" onclick="toggleAppNavigation(false)" aria-label="Close menu"></button>
+  <aside class="app-nav-drawer lm-menu-drawer" aria-label="Account and learning menu">
+    <div class="lm-menu-head">
+      <img src="images/learnmaster-logo-header-v2.png" alt="LearnMaster K12">
+      <button type="button" onclick="toggleAppNavigation(false)" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="lm-learner-card">
+      <span class="avatar" id="userAvatar">U</span>
+      <div><b id="userNameNav">User</b><small>My learning space</small></div>
+      <span class="visually-hidden" id="userAvatar2">U</span><span class="visually-hidden" id="userNameMenu">User</span>
+    </div>
+    <nav class="lm-menu-links">
+      <button type="button" onclick="navigateFromAppMenu('home')"><span>01</span><div><b>Home</b><small>Your daily starting point</small></div></button>
+      <button type="button" onclick="navigateFromAppMenu('grades')"><span>02</span><div><b>Grade library</b><small>Pre-K through Grade 10</small></div></button>
+      <button type="button" onclick="navigateFromAppMenu('reading')"><span>03</span><div><b>Reading room</b><small>Passages and practice</small></div></button>
+      <button type="button" onclick="navigateFromAppMenu('analysis')"><span>04</span><div><b>Progress</b><small>Goals, streaks, and accuracy</small></div></button>
+      <button type="button" onclick="navigateFromAppMenu('settings')"><span>05</span><div><b>Settings</b><small>Profile and learning preferences</small></div></button>
+      <button type="button" onclick="showPaywall();toggleAppNavigation(false)"><span>06</span><div><b>Subscription</b><small>Plans and family access</small></div></button>
+      <button type="button" class="is-disabled" onclick="navigateFromAppMenu('playground')"><span>07</span><div><b>Playground</b><small>Coming soon</small></div></button>
     </nav>
-    <div class="app-nav-section">
-      <span class="app-nav-label">JUMP TO A GRADE</span>
-      <div class="app-grade-jump">
-        <button type="button" onclick="navigateFromAppMenu('prek')">Pre-K</button><button type="button" onclick="navigateFromAppMenu('kinder')">K</button><button type="button" onclick="navigateFromAppMenu('grade1')">1</button>
-        <button type="button" onclick="navigateFromAppMenu('grade2')">2</button><button type="button" onclick="navigateFromAppMenu('grade3')">3</button><button type="button" onclick="navigateFromAppMenu('grade4')">4</button>
-        <button type="button" onclick="navigateFromAppMenu('grade5')">5</button><button type="button" onclick="navigateFromAppMenu('grade6')">6</button><button type="button" onclick="navigateFromAppMenu('grade7')">7</button>
-        <button type="button" onclick="navigateFromAppMenu('grade8')">8</button><button type="button" onclick="navigateFromAppMenu('grade9')">9</button><button type="button" onclick="navigateFromAppMenu('grade10')">10</button>
-      </div>
+    <div class="lm-grade-jump">
+      <span>Jump to grade</span>
+      <div><button onclick="navigateFromAppMenu('prek')">PK</button><button onclick="navigateFromAppMenu('kinder')">K</button><button onclick="navigateFromAppMenu('grade1')">1</button><button onclick="navigateFromAppMenu('grade2')">2</button><button onclick="navigateFromAppMenu('grade3')">3</button><button onclick="navigateFromAppMenu('grade4')">4</button><button onclick="navigateFromAppMenu('grade5')">5</button><button onclick="navigateFromAppMenu('grade6')">6</button><button onclick="navigateFromAppMenu('grade7')">7</button><button onclick="navigateFromAppMenu('grade8')">8</button><button onclick="navigateFromAppMenu('grade9')">9</button><button onclick="navigateFromAppMenu('grade10')">10</button></div>
     </div>
-    <div class="app-nav-bottom">
+    <div class="lm-menu-preferences">
       <label for="languagePicker">Language</label>
-      <select id="languagePicker" class="language-picker" aria-label="Language" onchange="setLanguage(this.value)"><option value="en">English</option><option value="es">Español</option><option value="fr">Français</option><option value="zh">中文</option><option value="hi">हिन्दी</option></select>
-      <button type="button" onclick="navigateFromAppMenu('shop')">Rewards shop</button>
+      <select id="languagePicker" class="language-picker" onchange="setLanguage(this.value)"><option value="en">English</option><option value="es">Spanish</option><option value="fr">French</option><option value="zh">Chinese</option><option value="hi">Hindi</option></select>
+      <button type="button" onclick="toggleVoice()" id="voiceItem">Voice: On</button>
+      <button type="button" onclick="toggleMusic()" id="musicItem">Music: Off</button>
     </div>
+    <div class="lm-menu-footer"><span>Plan: <b id="planChip">NONE</b></span><span>Trial: <b id="trialChip">Off</b></span><span>Learners: <b id="menuLearners">0</b></span><div id="userListMenu" class="user-switch-list"></div><button type="button" onclick="logout()">Sign out</button></div>
   </aside>
 </div>`;
     }

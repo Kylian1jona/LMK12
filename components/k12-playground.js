@@ -92,6 +92,15 @@ function renderPlaygroundLock(panel){
 function renderPlayground(){
   const panel = $("playgroundPanel");
   if(!panel) return;
+  cancelPlaygroundLoop();
+  panel.innerHTML = `
+    <section class="lm-coming-soon">
+      <span>COMING SOON</span>
+      <h1>Playground is being built.</h1>
+      <p>New reward games and creative activities are on the way. Lessons, Reading, and the Rewards Shop are still ready to use.</p>
+      <div><button type="button" class="lm-primary" onclick="show('grades')">Keep learning</button><button type="button" class="lm-secondary" onclick="show('shop')">Open rewards</button></div>
+    </section>`;
+  return;
   if(typeof playgroundUnlocked === "function" && !playgroundUnlocked()){
     renderPlaygroundLock(panel);
     return;

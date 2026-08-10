@@ -6,15 +6,18 @@
       this.innerHTML = String.raw`
 <!-- HOME -->
   <div id="home" class="section">
-    <div class="learning-home-v2">
-      <section class="home-v2-hero"><div class="home-v2-copy"><span class="home-v2-kicker">A FRESH WAY TO LEARN</span><h1>Your next win starts here.</h1><p>Choose a level, finish a focused 25-question lesson, and watch your skills grow.</p><div class="home-v2-actions"><button type="button" onclick="show('grades')">Explore grades</button><button type="button" onclick="openLessonSearch()">Search lessons</button></div></div></section>
-      <section class="home-v2-launch" aria-labelledby="homeLaunchTitle"><div class="home-v2-heading"><span>CHOOSE A ZONE</span><h2 id="homeLaunchTitle">Start at the right level</h2></div><div class="home-v2-zones">
-        <button type="button" data-zone="early" onclick="show('prek')"><span>PK–1</span><div><b>First Steps</b><small>Letters, sounds, counting, and shapes</small></div><i>→</i></button>
-        <button type="button" data-zone="elementary" onclick="show('grade2')"><span>2–5</span><div><b>Core Skills</b><small>English, Math, Science, and History</small></div><i>→</i></button>
-        <button type="button" data-zone="middle" onclick="show('grade6')"><span>6–8</span><div><b>Skill Builder</b><small>Stronger reasoning and deeper practice</small></div><i>→</i></button>
-        <button type="button" data-zone="high" onclick="show('grade9')"><span>9–10</span><div><b>Advanced Track</b><small>High-school-ready concepts and analysis</small></div><i>→</i></button>
+    <div class="lm-home">
+      <section class="lm-home-hero">
+        <div class="lm-home-copy"><span>LEARN &bull; GROW &bull; SUCCEED</span><h1>Big learning,<br>one calm step at a time.</h1><p>Short, focused lessons for every learner from Pre-K through Grade 10.</p><div><button type="button" class="lm-primary" onclick="show('grades')">Choose a grade</button><button type="button" class="lm-secondary" onclick="showReading()">Visit Reading</button></div></div>
+        <aside class="lm-today-card"><span>TODAY'S GOAL</span><b>Complete one lesson</b><p>Every lesson has 25 questions and clear feedback.</p><button type="button" onclick="openLessonSearch()">Find a lesson</button></aside>
+      </section>
+      <section class="lm-home-paths" aria-labelledby="homeLaunchTitle"><header><span>START HERE</span><h2 id="homeLaunchTitle">Find your learning path</h2><p>Pick the group that feels right. You can change grades anytime.</p></header><div>
+        <button type="button" data-zone="early" onclick="show('prek')"><span>PK-1</span><b>Early learners</b><small>Letters, sounds, numbers, and shapes</small></button>
+        <button type="button" data-zone="elementary" onclick="show('grade2')"><span>2-5</span><b>Elementary</b><small>Build strong everyday skills</small></button>
+        <button type="button" data-zone="middle" onclick="show('grade6')"><span>6-8</span><b>Middle school</b><small>Think deeper and practice independently</small></button>
+        <button type="button" data-zone="high" onclick="show('grade9')"><span>9-10</span><b>High school</b><small>Advanced concepts and analysis</small></button>
       </div></section>
-      <section class="home-v2-strip"><button type="button" onclick="showReading()"><span>READ</span><b>Open the Reading Room</b><small>Grade-level passages across every subject</small></button><button type="button" onclick="show('analysis')"><span>TRACK</span><b>See your progress</b><small>Review completed lessons and growth</small></button><button type="button" onclick="show('playground')"><span>PLAY</span><b>Visit the Playground</b><small>Use rewards to unlock games</small></button></section>
+      <section class="lm-home-tools"><button type="button" onclick="showReading()"><span>Reading</span><b>Read, listen, and respond</b></button><button type="button" onclick="show('analysis')"><span>Progress</span><b>See goals and growth</b></button><button type="button" class="is-coming" onclick="show('playground')"><span>Playground</span><b>Coming soon</b></button></section>
     </div>
   </div>
 
@@ -356,7 +359,7 @@
   <!-- PLAYGROUND -->
   <div id="playground" class="section d-none">
     <div class="playground-shell">
-      <div id="playgroundPanel"></div>
+      <div id="playgroundPanel"><section class="lm-coming-soon"><span>COMING SOON</span><h1>Playground is being built.</h1><p>New reward games and creative activities are on the way. Lessons, Reading, and the Rewards Shop are still ready to use.</p><div><button type="button" class="lm-primary" onclick="show('grades')">Keep learning</button><button type="button" class="lm-secondary" onclick="show('shop')">Open rewards</button></div></section></div>
     </div>
   </div>
 

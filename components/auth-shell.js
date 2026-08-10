@@ -11,11 +11,8 @@
     <span id="authDialogHelp" class="visually-hidden">Sign in with an existing account or create a new family account.</span>
     <aside class="auth-intro">
       <div class="auth-brand-lockup">
-        <span class="auth-brand-mark" aria-hidden="true">LM</span>
-        <div>
-          <span>Learning platform</span>
-          <strong id="authBrandName">LearnMaster K-12</strong>
-        </div>
+        <img class="lm-auth-logo" src="images/learnmaster-logo-header-v2.png" alt="LearnMaster K12">
+        <strong id="authBrandName" class="visually-hidden">LearnMaster K12</strong>
       </div>
 
       <div class="auth-intro-copy">
@@ -36,8 +33,7 @@
 
     <section class="auth-form-shell" aria-label="Account access">
       <div class="auth-mobile-brand" aria-hidden="true">
-        <span class="auth-brand-mark">LM</span>
-        <strong>LearnMaster K-12</strong>
+        <img class="lm-auth-logo" src="images/learnmaster-logo-header-v2.png" alt="">
       </div>
 
       <div id="loginMsg" class="loginmsg" role="status" aria-live="polite" aria-atomic="true"></div>
@@ -105,6 +101,7 @@
 <!-- PROFILE CHOOSER (shown after account login) -->
 <div id="profileChooser" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="profileChooserTitle">
   <div class="profile-chooser-card">
+    <img class="lm-dialog-logo" src="images/learnmaster-logo-header-v2.png" alt="LearnMaster K12">
     <span class="profile-chooser-kicker">Your subscription</span>
     <h2 id="profileChooserTitle">Who is learning today?</h2>
     <p>Choose a learner, or enter the parent area.</p>
@@ -118,12 +115,13 @@
     <button type="button" class="payclose" onclick="hidePaywall()" aria-label="Close paywall">x</button>
     <div class="paygrid">
       <div class="payhead">
-        <h1 style="font-family:'Baloo 2',cursive;font-weight:800;margin:0;">LearnMaster K-12</h1>
-        <div class="small-note">Choose a plan (or start a 5-minute trial) to use the website.</div>
-        <div class="paypill mt-2">🎁 New accounts include one month free</div>
+        <img class="lm-dialog-logo" src="images/learnmaster-logo-header-v2.png" alt="LearnMaster K12">
+        <h1 class="visually-hidden">LearnMaster K12 subscription</h1>
+        <div class="small-note">Simple family plans with clear grade and subject access.</div>
+        <div class="paypill mt-2">New families include one month free</div>
         <div class="paytopline">
-          <span class="paypill">🔒 Locked until plan</span>
-          <span class="paypill" id="trialTimerPill">⏳ Trial left: <span id="trialLeft">05:00</span></span>
+          <span class="paypill">Family learning access</span>
+          <span class="paypill" id="trialTimerPill">Trial left: <span id="trialLeft">05:00</span></span>
         </div>
       </div>
 
@@ -132,8 +130,8 @@
         <div class="price">$5</div>
         <ul>
           <li>Pre-K lessons</li>
-          <li>Earn ⭐ and convert to <span class="learner-icon" role="img" aria-label="Learner"></span></li>
-          <li>Shop locked</li>
+          <li>English and Math foundations</li>
+          <li>Progress and reading goals</li>
         </ul>
         <button type="button" class="btn btn-main w-100" onclick="openCheckout('elf')">Choose Starter</button>
       </div>
@@ -143,8 +141,8 @@
         <div class="price">$12</div>
         <ul>
           <li>Pre-K + Kindergarten</li>
-          <li>Shop unlocked</li>
-          <li>Rewards + toys</li>
+          <li>Reading and progress tools</li>
+          <li>Rewards Shop access</li>
         </ul>
         <button type="button" class="btn btn-main w-100" onclick="openCheckout('santa')">Choose Plus</button>
       </div>
@@ -154,8 +152,8 @@
         <div class="price">$20</div>
         <ul>
           <li>All grades (included)</li>
-          <li>Shop unlocked</li>
           <li>All subjects included</li>
+          <li>Family progress overview</li>
         </ul>
         <button type="button" class="btn btn-main w-100" onclick="openCheckout('reindeer')">Choose Max</button>
       </div>

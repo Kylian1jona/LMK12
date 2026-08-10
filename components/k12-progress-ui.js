@@ -1146,8 +1146,9 @@ function renderSettings(){
   panel.innerHTML = `
     <div class="settings-head">
       <div>
-        <h1>Settings</h1>
-        <p class="small-note">Update the active learner profile and quick preferences.</p>
+        <span class="lm-page-kicker">MY LEARNING SPACE</span>
+        <h1>Settings & profile</h1>
+        <p class="small-note">Keep your profile, goals, sound, and account choices in one calm place.</p>
       </div>
       <div class="avatar avatar-preview-lg" id="settingsAvatarPreview">${htmlSafe(avatar)}</div>
     </div>
@@ -1421,8 +1422,9 @@ function renderAnalysis(){
   panel.innerHTML = `
     <div class="analysis-head">
       <div>
-        <h1>Progress Analysis</h1>
-        <p class="small-note">A quick snapshot for the active learner.</p>
+        <span class="lm-page-kicker">YOUR GROWTH</span>
+        <h1>Progress</h1>
+        <p class="small-note">A clear look at goals, accuracy, completed lessons, and reading time.</p>
       </div>
       <button type="button" class="btn btn-main" onclick="show('settings')">Settings</button>
     </div>
@@ -1455,12 +1457,33 @@ function renderAnalysis(){
 /* ===========================
    Scoring rules
 =========================== */
+let correctFeedbackTimer = null;
+let correctFeedbackHideTimer = null;
+function showCorrectFeedbackOverlay(){
+  let overlay=$("correctFeedbackOverlay");
+  if(!overlay){
+    overlay=document.createElement("div");
+    overlay.id="correctFeedbackOverlay";
+    overlay.className="correct-feedback-overlay";
+    overlay.setAttribute("role","status");
+    overlay.setAttribute("aria-live","assertive");
+    overlay.innerHTML=`<div class="correct-feedback-card"><span class="correct-check" aria-hidden="true">&#10003;</span><h2>CORRECT!</h2><p>You earned 2 points!</p></div>`;
+    document.body.appendChild(overlay);
+  }
+  clearTimeout(correctFeedbackTimer);
+  clearTimeout(correctFeedbackHideTimer);
+  overlay.classList.remove("is-fading");
+  overlay.classList.add("is-visible");
+  correctFeedbackTimer=setTimeout(()=>overlay.classList.add("is-fading"),2100);
+  correctFeedbackHideTimer=setTimeout(()=>overlay.classList.remove("is-visible","is-fading"),2500);
+}
 function correctReward(msg="Correct!"){
   safePlay($("correct"));
   addPoints(+2);
   recordLearningStat("correct");
   if(Math.random() < 0.2) launchConfetti(45);
   speakGlobal(msg);
+  showCorrectFeedbackOverlay();
 }
 function wrongPenalty(msg="Try again!"){
   safePlay($("wrong"));
