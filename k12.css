@@ -5806,6 +5806,46 @@ body #lessonRunner>.lesson-quiz-shell{background-image:linear-gradient(rgba(255,
   .section[id^="g"][id*="-"],#reading,#settings,#analysis,#addUserPage,#shop,#parentPortal,#adminPortal,#curriculumStandards,#playground{background-attachment:scroll}
 }
 
+/* Theme bridge: make every Settings theme recolor the current LearnMaster UI. */
+body[data-theme]{
+  --lm2-teal:var(--orange);
+  --lm2-dark-teal:var(--orange-dark);
+  --lm2-navy:var(--orange-dark);
+  --lm2-ink:var(--ink);
+  --lm2-muted:var(--muted);
+  --lm2-gold:var(--yellow);
+  --lm2-paper:var(--card,#fff);
+  background-color:var(--bg);
+  transition:background-color .25s ease,color .25s ease;
+}
+body[data-theme] .lm-topbar{border-bottom-color:color-mix(in srgb,var(--orange) 24%,transparent);background:color-mix(in srgb,var(--card,#fff) 91%,var(--orange-light));}
+body[data-theme] .lm-logo-button,body[data-theme] .lm-topbar button,body[data-theme] .lm-menu-drawer{color:var(--ink)}
+body[data-theme] .lm-desktop-nav button:hover,body[data-theme] .lm-menu-links button:hover{background:var(--orange-light);color:var(--orange-dark)}
+body[data-theme] .lm-points span,body[data-theme] .lm-page-kicker,body[data-theme] .lm-home-copy>span,body[data-theme] .lm-home-paths header>span,body[data-theme] .lm-today-card>span{color:var(--orange)}
+body[data-theme] .lm-home-copy h1,body[data-theme] .lm-home-paths h2,body[data-theme] .settings-head h1,body[data-theme] .analysis-head h1,body[data-theme] .parent-portal-head h1{color:var(--orange-dark)}
+body[data-theme] .lm-primary,body[data-theme] .btn-main,body[data-theme] button.btn-main{border-color:var(--orange-dark)!important;background:var(--orange-dark)!important;color:#fff!important}
+body[data-theme] .lm-secondary{border-color:color-mix(in srgb,var(--orange) 35%,#fff);background:var(--card,#fff);color:var(--orange-dark)}
+body[data-theme] .settings-block,body[data-theme] .analysis-panel,body[data-theme] .metric-card,body[data-theme] .grade-card,body[data-theme] .lesson-column,body[data-theme] .early-subject,body[data-theme] .early-lesson-card,body[data-theme] .lm-today-card,body[data-theme] .lm-home-paths button,body[data-theme] .lm-home-tools button{border-color:color-mix(in srgb,var(--orange) 24%,#dceaea);background:color-mix(in srgb,var(--card,#fff) 94%,var(--orange-light));color:var(--ink)}
+body[data-theme] .cardish,body[data-theme] .reading-box,body[data-theme] .parent-portal-shell,body[data-theme] .playground-shell,body[data-theme] .lm-home-hero{border-color:color-mix(in srgb,var(--orange) 24%,#dceaea);background-color:color-mix(in srgb,var(--card,#fff) 94%,var(--orange-light));color:var(--ink)}
+body[data-theme] #home,body[data-theme] #grades,body[data-theme] #prek,body[data-theme] #prek-add,body[data-theme] #prek-count,body[data-theme] #prek-shapes,body[data-theme] #kinder,body[data-theme] #k-syll-count,body[data-theme] #k-syll-build,body[data-theme] #k-rhymes,body[data-theme] #grade1,body[data-theme] #g1-addsub,body[data-theme] #g1-graphs,body[data-theme] #g1-money,body[data-theme] #early-bank,body[data-theme] #grade2,body[data-theme] #grade3,body[data-theme] #grade4,body[data-theme] #grade5,body[data-theme] #grade6,body[data-theme] #grade7,body[data-theme] #grade8,body[data-theme] #grade9,body[data-theme] #grade10,body[data-theme] .section[id^="g"][id*="-"],body[data-theme] #reading,body[data-theme] #settings,body[data-theme] #analysis,body[data-theme] #shop,body[data-theme] #parentPortal{background-color:var(--orange-light)!important;background-blend-mode:soft-light}
+body[data-theme="night"] #home,body[data-theme="night"] #grades,body[data-theme="night"] #reading,body[data-theme="night"] #settings,body[data-theme="night"] #analysis,body[data-theme="night"] #shop,body[data-theme="night"] #parentPortal{background-blend-mode:multiply}
+body[data-theme="night"] .lm-topbar,body[data-theme="night"] .lm-menu-drawer{background:#182235!important}
+body[data-theme="night"] .lm-topbar button,body[data-theme="night"] .lm-menu-drawer,body[data-theme="night"] .lm-menu-drawer button{color:#f8fafc}
+
+.theme-choice-btn{display:grid;grid-template-columns:28px 1fr;align-items:center;gap:10px;text-align:left}
+.theme-choice-btn::before{content:"";width:28px;height:28px;border:2px solid rgba(255,255,255,.85);border-radius:50%;background:linear-gradient(135deg,var(--swatch-a,#129b98),var(--swatch-b,#f4b928));box-shadow:0 0 0 1px rgba(11,45,89,.15)}
+.theme-choice-btn[data-theme="warm"]{--swatch-a:#f6a15d;--swatch-b:#ffd978}.theme-choice-btn[data-theme="ocean"]{--swatch-a:#38bdf8;--swatch-b:#a7f3d0}.theme-choice-btn[data-theme="forest"]{--swatch-a:#22c55e;--swatch-b:#fde68a}.theme-choice-btn[data-theme="berry"]{--swatch-a:#ec4899;--swatch-b:#facc15}.theme-choice-btn[data-theme="sunset"]{--swatch-a:#ff8a65;--swatch-b:#ffe082}.theme-choice-btn[data-theme="galaxy"]{--swatch-a:#7c3aed;--swatch-b:#fcd34d}.theme-choice-btn[data-theme="lavender"]{--swatch-a:#8b5cf6;--swatch-b:#f9a8d4}.theme-choice-btn[data-theme="mint"]{--swatch-a:#14b8a6;--swatch-b:#fde68a}.theme-choice-btn[data-theme="school"]{--swatch-a:#2563eb;--swatch-b:#fbbf24}.theme-choice-btn[data-theme="night"]{--swatch-a:#182235;--swatch-b:#818cf8}.theme-choice-btn[data-theme="contrast"]{--swatch-a:#000;--swatch-b:#fff}.theme-choice-btn[data-theme="candy"]{--swatch-a:#d7266d;--swatch-b:#ffe45e}.theme-choice-btn[data-theme="arctic"]{--swatch-a:#00a6c7;--swatch-b:#4f46e5}.theme-choice-btn[data-theme="sunshine"]{--swatch-a:#ffd43b;--swatch-b:#2563eb}.theme-choice-btn[data-theme="coral"]{--swatch-a:#f05d5e;--swatch-b:#173f5f}.theme-choice-btn[data-theme="emerald"]{--swatch-a:#006b4f;--swatch-b:#c89b3c}.theme-choice-btn[data-theme="grape"]{--swatch-a:#672a72;--swatch-b:#a8c936}.theme-choice-btn[data-theme="slate"]{--swatch-a:#3f4a52;--swatch-b:#c4773d}
+
+/* Friendlier learning-tool cards and clear unavailable states. */
+.lm-home-tools button{position:relative;min-height:128px;padding-right:74px;overflow:hidden}
+.lm-home-tools button::after{position:absolute;right:18px;bottom:16px;font-size:38px;filter:drop-shadow(0 5px 8px rgba(11,45,89,.12))}
+.lm-home-tools button:nth-child(1)::after{content:"📚"}.lm-home-tools button:nth-child(2)::after{content:"🏆"}.lm-home-tools button:nth-child(3)::after{content:"🚀"}.lm-home-tools button:nth-child(4)::after{content:"🤖"}.lm-home-tools button:nth-child(5)::after{content:"📝"}.lm-home-tools button:nth-child(6)::after{content:"🏅"}
+.lm-home-tools .is-coming{border-style:dashed;background:color-mix(in srgb,var(--card,#fff) 88%,var(--yellow-light));cursor:not-allowed}
+.lm-menu-links .is-disabled{cursor:not-allowed}
+
+body #lessonRunner .lesson-image-frame{padding:10px;border-radius:20px;background:color-mix(in srgb,var(--card,#fff) 92%,var(--orange-light))}
+body #lessonRunner .lesson-image-frame img{width:100%;max-height:255px;object-fit:contain;border-radius:14px}
+
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }

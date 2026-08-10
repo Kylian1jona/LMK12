@@ -1315,6 +1315,8 @@ function renderSettings(){
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "theme-choice-btn" + (getTheme() === themeId ? " active" : "");
+      btn.dataset.theme = themeId;
+      btn.setAttribute("aria-pressed", String(getTheme() === themeId));
       btn.textContent = THEMES[themeId];
       btn.onclick = ()=>setTheme(themeId);
       themes.appendChild(btn);
