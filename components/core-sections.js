@@ -6,42 +6,15 @@
       this.innerHTML = String.raw`
 <!-- HOME -->
   <div id="home" class="section">
-    <div class="home-dashboard">
-      <section class="home-hero home-hero-revamp">
-        <div class="home-hero-copy">
-          <span class="home-eyebrow">LEARN • PRACTICE • GROW</span>
-          <h1>Big learning starts with one great lesson.</h1>
-          <p>Explore 15,000+ guided questions across English, Math, Science, and History—from Pre-K through Grade 10.</p>
-          <div class="home-actions">
-            <button type="button" class="btn btn-main btn-lg" onclick="show('grades')">Choose a grade</button>
-            <button type="button" class="btn btn-outline-primary btn-lg" onclick="openLessonSearch()">Find a lesson</button>
-          </div>
-          <div class="home-trust-row">
-            <span>✓ 25 questions per lesson</span>
-            <span>✓ Instant feedback</span>
-            <span>✓ Progress rewards</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="home-paths" aria-labelledby="homePathsTitle">
-        <div class="home-section-heading">
-          <div><span>START HERE</span><h2 id="homePathsTitle">Choose your learning path</h2></div>
-          <button type="button" class="home-text-button" onclick="show('grades')">View every grade →</button>
-        </div>
-        <div class="home-path-grid">
-          <button type="button" class="home-path-card home-path-early" onclick="show('prek')"><span class="home-path-icon">🧩</span><span><strong>Early Learners</strong><small>Pre-K–Grade 1 • English & Math</small></span></button>
-          <button type="button" class="home-path-card home-path-elementary" onclick="show('grade2')"><span class="home-path-icon">📚</span><span><strong>Elementary</strong><small>Grades 2–5 • Core subjects</small></span></button>
-          <button type="button" class="home-path-card home-path-middle" onclick="show('grade6')"><span class="home-path-icon">🔬</span><span><strong>Middle School</strong><small>Grades 6–8 • Skills & reasoning</small></span></button>
-          <button type="button" class="home-path-card home-path-high" onclick="show('grade9')"><span class="home-path-icon">🚀</span><span><strong>High School</strong><small>Grades 9–10 • Advanced practice</small></span></button>
-        </div>
-      </section>
-
-      <section class="home-value-grid">
-        <article><span>⏱</span><div><strong>Active lesson timer</strong><p>See exactly how long each focused practice session lasts.</p></div></article>
-        <article><span>✍️</span><div><strong>Show your thinking</strong><p>Work through ideas, receive feedback, and learn from every answer.</p></div></article>
-        <article><span>🏅</span><div><strong>Motivation built in</strong><p>Earn points, collect rewards, and celebrate completed lessons.</p></div></article>
-      </section>
+    <div class="learning-home-v2">
+      <section class="home-v2-hero"><div class="home-v2-copy"><span class="home-v2-kicker">A FRESH WAY TO LEARN</span><h1>Your next win starts here.</h1><p>Choose a level, finish a focused 25-question lesson, and watch your skills grow.</p><div class="home-v2-actions"><button type="button" onclick="show('grades')">Explore grades</button><button type="button" onclick="openLessonSearch()">Search lessons</button></div></div></section>
+      <section class="home-v2-launch" aria-labelledby="homeLaunchTitle"><div class="home-v2-heading"><span>CHOOSE A ZONE</span><h2 id="homeLaunchTitle">Start at the right level</h2></div><div class="home-v2-zones">
+        <button type="button" data-zone="early" onclick="show('prek')"><span>PK–1</span><div><b>First Steps</b><small>Letters, sounds, counting, and shapes</small></div><i>→</i></button>
+        <button type="button" data-zone="elementary" onclick="show('grade2')"><span>2–5</span><div><b>Core Skills</b><small>English, Math, Science, and History</small></div><i>→</i></button>
+        <button type="button" data-zone="middle" onclick="show('grade6')"><span>6–8</span><div><b>Skill Builder</b><small>Stronger reasoning and deeper practice</small></div><i>→</i></button>
+        <button type="button" data-zone="high" onclick="show('grade9')"><span>9–10</span><div><b>Advanced Track</b><small>High-school-ready concepts and analysis</small></div><i>→</i></button>
+      </div></section>
+      <section class="home-v2-strip"><button type="button" onclick="showReading()"><span>READ</span><b>Open the Reading Room</b><small>Grade-level passages across every subject</small></button><button type="button" onclick="show('analysis')"><span>TRACK</span><b>See your progress</b><small>Review completed lessons and growth</small></button><button type="button" onclick="show('playground')"><span>PLAY</span><b>Visit the Playground</b><small>Use rewards to unlock games</small></button></section>
     </div>
   </div>
 
@@ -67,17 +40,11 @@
 
   <!-- GRADES -->
   <div id="grades" class="section d-none grades-background">
-    <div class="cardish grades-panel">
-      <header class="grade-selector-hero">
-        <div class="grade-selector-copy">
-          <span class="selector-eyebrow">YOUR LEARNING JOURNEY</span>
-          <h1>Where should we start?</h1>
-          <p>Choose your grade to discover lessons made for your level. Every path includes instant feedback, revision practice, and a celebration at the finish.</p>
-        </div>
-        <div class="grade-selector-badge" aria-hidden="true">
-          <span>12</span>
-          <small>learning<br>levels</small>
-        </div>
+    <div class="grade-library-v2">
+      <header class="grade-library-head">
+        <button type="button" onclick="show('home')">← Today</button>
+        <div><span>GRADE LIBRARY</span><h1>Find your learning space.</h1><p>Every grade has its own subjects, lessons, progress, and quiz experience.</p></div>
+        <aside><b>12</b><small>grade levels</small></aside>
       </header>
 
       <section class="suggested-lessons" aria-labelledby="suggestedLessonsTitle">
@@ -91,7 +58,7 @@
         <div id="suggestedLessonsGrid" class="suggested-lessons-grid"></div>
       </section>
 
-      <div class="grade-grid" aria-label="Grade levels">
+      <div class="grade-grid grade-library-grid" aria-label="Grade levels">
         <div class="grade-card" id="cardPrek">
           <div class="grade-title">🍎 Pre-K</div>
           <p class="grade-sub">Addition • Counting • Shapes</p>

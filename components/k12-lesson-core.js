@@ -475,6 +475,36 @@ function getLessonPack(grade, subj, lesson){
 }
 
 /* ---------- Start lesson ---------- */
+function launchLessonPack(grade, subj, lesson, pack, backSection){
+  if(!pack){ toast("Lesson missing"); return; }
+  const group=CURR?.[grade]?.[subj];
+  if(!group){ toast("Lesson group missing"); return; }
+  LR.grade = grade;
+  LR.subj = subj;
+  LR.lesson = lesson;
+  LR.title = `${group.showName} — ${pack.name}`;
+  LR.image = pack.image || null;
+  LR.total = Math.min(25,Array.isArray(pack.questions)&&pack.questions.length?pack.questions.length:25);
+  LR.round = 1;
+  LR.score = 0;
+  LR.phase = "lesson";
+  LR.revisionQueue = [];
+  LR.revisionTotal = 0;
+  LR.revisionIndex = 0;
+
+  LR.backSection = backSection || `${grade}-${subj}`;
+
+  $("lrDone").classList.add("d-none");
+  $("lrQuestionCard")?.classList.remove("d-none");
+  $("lrLessonActions")?.classList.remove("d-none");
+  $("lrTitle").textContent = LR.title;
+  const runner=$("lessonRunner");
+  if(runner) runner.dataset.gradeBand=["prek","k","g1"].includes(grade)?"early":"upper";
+
+  show("lessonRunner");
+  lrLoadQuestion();
+}
+
 async function startLesson(grade, subj, lesson){
   safeClick();
   try{
@@ -485,34 +515,31 @@ async function startLesson(grade, subj, lesson){
     toast("The lesson questions could not be loaded. Please try again.");
     return;
   }
-  const pack = getLessonPack(grade, subj, lesson);
-  if(!pack){ toast("Lesson missing"); return; }
+  launchLessonPack(grade,subj,lesson,getLessonPack(grade,subj,lesson),`${grade}-${subj}`);
+}
 
-  LR.grade = grade;
-  LR.subj = subj;
-  LR.lesson = lesson;
-  LR.title = `${CURR[grade][subj].showName} — ${pack.name}`;
-  LR.image = pack.image || null;
-  LR.total = 25;
-  LR.round = 1;
-  LR.score = 0;
-  LR.phase = "lesson";
-  LR.revisionQueue = [];
-  LR.revisionTotal = 0;
-  LR.revisionIndex = 0;
-
-  // back goes to subject page (g2-eng etc)
-  LR.backSection = `${grade}-${subj}`.replace("g","g"); // just builds g2-eng style
-  // But our sections are like "g2-eng" not "g2-eng"?? yes.
-  LR.backSection = `${grade}-${subj}`; // grade is "g2", subj "eng" => "g2-eng"
-
-  $("lrDone").classList.add("d-none");
-  $("lrQuestionCard")?.classList.remove("d-none");
-  $("lrLessonActions")?.classList.remove("d-none");
-  $("lrTitle").textContent = LR.title;
-
-  show("lessonRunner");
-  lrLoadQuestion();
+function startUnifiedEarlyLesson(key,backSection){
+  safeClick();
+  const record=window.K12_EARLY_BANKS?.[key];
+  if(!record||!Array.isArray(record.questions)||record.questions.length!==25){
+    console.error("Invalid early-grade lesson bank",key,record);
+    toast("This lesson is still loading. Please try again.");
+    return;
+  }
+  const [gradeToken,subj,lessonToken]=key.split(":");
+  const grade=gradeToken;
+  const gradeLabel=grade==="prek"?"Pre-K":grade==="k"?"Kindergarten":"Grade 1";
+  if(!CURR[grade]) CURR[grade]={};
+  if(!CURR[grade][subj]) CURR[grade][subj]={showName:`${gradeLabel} ${SUBJECT_LABELS[subj]||subj}`};
+  const lesson=`EARLY_${lessonToken.replace(/[^a-z0-9]/gi,"_").toUpperCase()}`;
+  const questions=record.questions.map(question=>({
+    type:"mc",q:String(question.q||"Choose the best answer."),answer:String(question.a),
+    choices:[String(question.a),...(question.w||[]).map(String)],audio:String(question.audio||question.q||"")
+  }));
+  const pack={name:record.name,questions,generatorSource:"early-unified-25"};
+  pack.gen=()=>cloneRevisionQuestion(questions[Math.max(0,Math.min(24,Number(LR.round||1)-1))]);
+  CURR[grade][subj][lesson]=pack;
+  launchLessonPack(grade,subj,lesson,pack,backSection||"grades");
 }
 
 /* ---------- Render runner ---------- */

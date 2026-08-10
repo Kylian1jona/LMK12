@@ -89,6 +89,10 @@ function renderEarlyBankQuestion(){
 function startEarlyBank(key,backId){
   const record=window.K12_EARLY_BANKS[key];
   if(!record||record.questions?.length!==25) throw new Error(`${key} must contain exactly 25 questions.`);
+  if(typeof startUnifiedEarlyLesson==="function"){
+    startUnifiedEarlyLesson(key,backId||"grades");
+    return;
+  }
   earlyBankKey=key;
   earlyBankBackId=backId||"grades";
   earlyBankRound=0;

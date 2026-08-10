@@ -193,7 +193,18 @@ function krReset(){ safeClick(); prepareSpecialLesson("k-rhymes"); krRound = 1; 
   ];
   const patterns=patternRows.map(([sequence,answer],index)=>({q:`What comes next: ${sequence}, ___?`,a:answer,w:["stop","different",index%2?"blue":"4"].filter(value=>value!==answer).slice(0,3)}));
   patterns.forEach((question,index)=>{ while(question.w.length<3) question.w.push(["square","9","jump"][question.w.length]); });
+  const syllableRows=[["cat",1],["apple",2],["banana",3],["sun",1],["rabbit",2],["elephant",3],["fish",1],["tiger",2],["computer",3],["book",1],["pencil",2],["dinosaur",3],["hat",1],["flower",2],["umbrella",3],["dog",1],["table",2],["butterfly",3],["star",1],["window",2],["octopus",3],["tree",1],["rocket",2],["potato",3],["moon",1]];
+  const syllables=syllableRows.map(([word,a])=>({q:`How many syllables are in ${word}?`,a:String(a),w:["1","2","3","4"].filter(value=>value!==String(a)).slice(0,3)}));
+  const wordRows=[["cat","CAT"],["dog","DOG"],["sun","SUN"],["map","MAP"],["pig","PIG"],["hat","HAT"],["fish","FISH"],["book","BOOK"],["tree","TREE"],["ball","BALL"],["star","STAR"],["moon","MOON"],["frog","FROG"],["duck","DUCK"],["cake","CAKE"],["kite","KITE"],["boat","BOAT"],["rain","RAIN"],["shoe","SHOE"],["milk","MILK"],["nest","NEST"],["lamp","LAMP"],["ring","RING"],["goat","GOAT"],["bear","BEAR"]];
+  const wordPool=wordRows.map(([,word])=>word);
+  const words=wordRows.map(([clue,a],index)=>({q:`Which word spells ${clue}?`,a,w:[wordPool[(index+4)%25],wordPool[(index+9)%25],wordPool[(index+14)%25]]}));
+  const rhymeRows=[...["cat:hat","dog:log","sun:fun","bee:tree","cake:lake","mouse:house","star:car","boat:goat","pig:wig","ring:sing","fox:box","bear:chair","moon:spoon","duck:truck","light:kite","frog:log","snail:pail","sock:rock","bug:rug","hen:pen","corn:horn","blue:shoe","fish:dish","king:wing","jam:ham"]].map(pair=>pair.split(":"));
+  const rhymeFillers=["book","leaf","desk","milk","jump"];
+  const rhymes=rhymeRows.map(([word,a],index)=>({q:`Which word rhymes with ${word}?`,a,w:[rhymeFillers[index%5],rhymeFillers[(index+1)%5],rhymeFillers[(index+2)%5]]}));
   Object.assign(window.K12_EARLY_BANKS,{
+    "k:eng:syllables":{name:"Syllable Count",questions:syllables},
+    "k:eng:words":{name:"Build the Word",questions:words},
+    "k:eng:rhymes":{name:"Rhyming Words",questions:rhymes},
     "k:math:counting":{name:"Counting to 30",questions:counting},
     "k:math:addition":{name:"Addition Within 10",questions:addition},
     "k:math:patterns":{name:"Shapes and Patterns",questions:patterns}

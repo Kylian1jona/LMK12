@@ -269,9 +269,25 @@ function g1mReset(){ safeClick(); prepareSpecialLesson("g1-money"); g1mRound = 1
     ["Choose the best ending punctuation: I love this game___","!","?",",",":"]
   ];
   const sentences=sentenceRows.map(([q,a,...w])=>({q,a,w}));
+  const addSub=Array.from({length:25},(_,index)=>{
+    const add=index%2===0, left=12+index*3, right=2+index%9, answer=add?left+right:left-right;
+    return {q:`What is ${left} ${add?"+":"−"} ${right}?`,a:String(answer),w:[String(answer+1),String(Math.max(0,answer-1)),String(answer+2)]};
+  });
+  const graphRows=Array.from({length:25},(_,index)=>{
+    const apples=index%7+2, bananas=(index*2)%7+1, more=apples>bananas?"apples":bananas>apples?"bananas":"the same number";
+    return {q:`A picture graph shows ${apples} apples and ${bananas} bananas. Which group has more?`,a:more,w:["apples","bananas","the same number","not enough information"].filter(value=>value!==more).slice(0,3)};
+  });
+  const coinValues=[1,5,10,25];
+  const money=Array.from({length:25},(_,index)=>{
+    const first=coinValues[index%4], second=coinValues[(index+1)%4], answer=first+second;
+    return {q:`A ${first}-cent coin and a ${second}-cent coin are worth how many cents altogether?`,a:String(answer),w:[String(answer+1),String(Math.max(1,answer-1)),String(answer+5)]};
+  });
   Object.assign(window.K12_EARLY_BANKS,{
     "g1:eng:vowels":{name:"Vowel Sounds",questions:vowels},
     "g1:eng:sight":{name:"Sight Words",questions:sight},
-    "g1:eng:sentences":{name:"Sentence Basics",questions:sentences}
+    "g1:eng:sentences":{name:"Sentence Basics",questions:sentences},
+    "g1:math:addsub":{name:"Addition and Subtraction",questions:addSub},
+    "g1:math:graphs":{name:"Data and Graphs",questions:graphRows},
+    "g1:math:money":{name:"Money Counting",questions:money}
   });
 })();

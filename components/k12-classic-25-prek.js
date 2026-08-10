@@ -187,9 +187,29 @@ function pksReset(){ safeClick(); prepareSpecialLesson("prek-shapes"); pksRound 
   const rhymeRows=[["cat","hat"],["dog","log"],["sun","fun"],["cake","lake"],["bee","tree"],["mouse","house"],["star","car"],["boat","goat"],["pig","wig"],["ring","sing"],["fox","box"],["bear","chair"],["moon","spoon"],["duck","truck"],["light","kite"],["frog","log"],["snail","pail"],["sock","rock"],["bug","rug"],["hen","pen"],["corn","horn"],["blue","shoe"],["fish","dish"],["king","wing"],["jam","ham"]];
   const rhymeDistractors=["leaf","book","desk","milk","jump"];
   const rhymeQuestions=rhymeRows.map(([word,answer],index)=>({q:`Which word rhymes with ${word}?`,a:answer,w:[rhymeDistractors[index%5],rhymeDistractors[(index+1)%5],rhymeDistractors[(index+2)%5]]}));
+  const additionQuestions=Array.from({length:25},(_,index)=>{
+    const left=index%5+1, right=Math.floor(index/5)+1, answer=left+right;
+    return {q:`What is ${left} + ${right}?`,a:String(answer),w:[String(Math.max(1,answer-1)),String(answer+1),String(answer+2)]};
+  });
+  const countingQuestions=Array.from({length:25},(_,index)=>{
+    const amount=index%20+1, item=["stars","apples","blocks","balls","flowers"][index%5];
+    return {q:`Count ${amount} ${item}. Which number shows the total?`,a:String(amount),w:[String(Math.max(0,amount-1)),String(amount+1),String(amount+2)]};
+  });
+  const shapeRows=[
+    ["Which shape is round with no corners?","circle"],["Which shape has three sides?","triangle"],["Which shape has four equal sides?","square"],["Which shape looks like a stretched circle?","oval"],["Which shape has five points?","star"],
+    ["A clock is usually shaped like a...","circle"],["A slice of pizza often looks like a...","triangle"],["A floor tile can look like a...","square"],["An egg is shaped like an...","oval"],["Which shape has four sides, with two long and two short?","rectangle"],
+    ["Which shape can roll most easily?","circle"],["Which shape has exactly three corners?","triangle"],["Which shape has four corners and equal sides?","square"],["Which shape has no straight sides?","circle"],["Which shape looks like a door?","rectangle"],
+    ["Which shape looks like a ball from the front?","circle"],["Which shape looks like a party hat?","triangle"],["Which shape looks like a picture frame?","rectangle"],["Which shape looks like an egg?","oval"],["Which shape has points that shine in the sky?","star"],
+    ["Which shape has zero corners?","circle"],["Which shape has 3 sides and 3 corners?","triangle"],["Which shape has 4 equal sides and 4 corners?","square"],["Which shape is longer than it is wide and has 4 corners?","rectangle"],["Which shape is curved and longer than a circle?","oval"]
+  ];
+  const shapePool=["circle","triangle","square","rectangle","oval","star"];
+  const shapeQuestions=shapeRows.map(([q,a],index)=>({q,a,w:shapePool.filter(shape=>shape!==a).slice(index%3,index%3+3)}));
   Object.assign(window.K12_EARLY_BANKS,{
     "prek:eng:letters":{name:"Letter Names",questions:letterQuestions},
     "prek:eng:sounds":{name:"Beginning Sounds",questions:soundQuestions},
-    "prek:eng:rhymes":{name:"Rhyming Words",questions:rhymeQuestions}
+    "prek:eng:rhymes":{name:"Rhyming Words",questions:rhymeQuestions},
+    "prek:math:addition":{name:"Picture Addition",questions:additionQuestions},
+    "prek:math:counting":{name:"Counting to 20",questions:countingQuestions},
+    "prek:math:shapes":{name:"Shape Match",questions:shapeQuestions}
   });
 })();
