@@ -6,3 +6,19 @@ node_modules/
 
 # Local Netlify folder
 .netlify
+.netlify-deploy-*/
+
+# Original lesson artwork is kept locally; optimized WebP copies are published.
+components/Communities*.png
+components/Leaders*.png
+components/Maps&Globes*.png
+components/Timeline*.png
+images/ImportantPeople*.png
+images/Maps*.png
+images/Needsandwants*.png
+images/Rules*.png
+images/Then vs now*.png
+images/pfpcar.png
+images/pfpsoccer.png
+images/pfpsportscar.png
+images/pfptennis.png

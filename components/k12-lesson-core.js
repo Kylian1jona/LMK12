@@ -30,6 +30,7 @@ const LR = {
   lesson:"",
   title:"",
   image:null,
+  video:null,
   total:25,
   round:1,
   score:0,
@@ -505,6 +506,7 @@ function launchLessonPack(grade, subj, lesson, pack, backSection){
   LR.lesson = lesson;
   LR.title = `${group.showName} — ${pack.name}`;
   LR.image = pack.image || null;
+  LR.video = pack.video || null;
   LR.total = Math.min(25,Array.isArray(pack.questions)&&pack.questions.length?pack.questions.length:25);
   LR.round = 1;
   LR.score = 0;
@@ -519,6 +521,7 @@ function launchLessonPack(grade, subj, lesson, pack, backSection){
   $("lrQuestionCard")?.classList.remove("d-none");
   $("lrLessonActions")?.classList.remove("d-none");
   $("lrTitle").textContent = LR.title;
+  renderLessonVideo(LR.video);
   const runner=$("lessonRunner");
   if(runner) runner.dataset.gradeBand=["prek","k","g1"].includes(grade)?"early":"upper";
 
@@ -557,7 +560,7 @@ function startUnifiedEarlyLesson(key,backSection){
     type:"mc",q:String(question.q||"Choose the best answer."),answer:String(question.a),
     choices:[String(question.a),...(question.w||[]).map(String)],audio:String(question.audio||question.q||"")
   }));
-  const pack={name:record.name,questions,generatorSource:"early-unified-25"};
+  const pack={name:record.name,questions,video:record.video||null,generatorSource:"early-unified-25"};
   pack.gen=()=>cloneRevisionQuestion(questions[Math.max(0,Math.min(24,Number(LR.round||1)-1))]);
   CURR[grade][subj][lesson]=pack;
   launchLessonPack(grade,subj,lesson,pack,backSection||"grades");
@@ -854,6 +857,7 @@ function lrRestart(){
 function lrBack(){
   safeClick();
   clearLessonAdvanceTimers();
+  $("lrVideo")?.pause();
   if(typeof hideCorrectFeedbackOverlay==="function") hideCorrectFeedbackOverlay();
   show(LR.backSection || "grades");
 }
@@ -928,6 +932,28 @@ function renderLessonImage(image){
   img.alt = image?.alt || "Lesson image";
   img.style.display = "block";
   frame?.classList.remove("d-none");
+}
+
+function renderLessonVideo(video){
+  const player = $("lrVideo");
+  const empty = $("lrVideoEmpty");
+  const title = $("lrVideoTitle");
+  if(!player || !empty) return;
+  const src = typeof video === "string" ? video : video?.src;
+  player.pause();
+  player.removeAttribute("src");
+  player.load();
+  if(!src){
+    player.classList.add("d-none");
+    empty.classList.remove("d-none");
+    if(title) title.textContent = "Lesson video";
+    return;
+  }
+  player.src = src;
+  player.setAttribute("aria-label", video?.title || "Lesson video");
+  player.classList.remove("d-none");
+  empty.classList.add("d-none");
+  if(title) title.textContent = video?.title || "Lesson video";
 }
 
 function lrRender(){

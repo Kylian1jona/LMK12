@@ -214,274 +214,49 @@
   <button class="btn btn-main" onclick="startLesson('g3','eng','L14')">Diphthongs</button>
   <button class="btn btn-main" onclick="startLesson('g3','eng','L15')">R-Controlled Vowels</button>
   <button class="btn btn-main" onclick="startLesson('g3','eng','L16')">Vowel Patterns</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L17')">R-Vowel Words</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L18')">Review</button>
 </div>
 
 <!-- MULTISYLLABIC WORDS -->
-<div class="lesson-column">
-  <h3>📚 Multisyllabic Words</h3>
-  <p>Break words into syllables.</p>
-
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L19')">Multisyllabic Words</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L20')">Syllable Parts</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L21')">Open Syllables</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L22')">Closed Syllables</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L23')">Divide Syllables</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L24')">Review</button>
-</div>
 
 <!-- IRREGULAR WORDS -->
-<div class="lesson-column">
-  <h3>📖 Irregular Words</h3>
-  <p>Read and spell tricky words.</p>
-
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L25')">Irregular Words</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L26')">Tricky Words</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L27')">High-Frequency Words</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L28')">Irregular Spelling</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L29')">Word Reading</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L30')">Review</button>
-</div>
 
 <!-- MAIN IDEA -->
-<div class="lesson-column">
-  <h3>💡 Main Idea</h3>
-  <p>Find what a text is mostly about.</p>
-
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L31')">Main Idea</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L32')">Supporting Details</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L33')">Find Main Idea</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L34')">Key Details</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L35')">Practice</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L36')">Review</button>
-</div>
 
 <!-- INFERENCE & THEME -->
-<div class="lesson-column">
-  <h3>🔎 Inference & Theme</h3>
-  <p>Read between the lines.</p>
-
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L37')">Inference</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L38')">Text Clues</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L39')">Theme</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L40')">Infer Feelings</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L41')">Infer Meaning</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L42')">Review</button>
-</div>
 
 <!-- AUTHOR'S PURPOSE -->
-<div class="lesson-column">
-  <h3>✍️ Author's Purpose</h3>
-  <p>Why did the author write it?</p>
-
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L43')">Author's Purpose</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L44')">Persuade</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L45')">Inform</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L46')">Entertain</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L47')">Practice</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L48')">Review</button>
-</div>
 
 <!-- TEXT STRUCTURE -->
-<div class="lesson-column">
-  <h3>🏗️ Text Structure</h3>
-  <p>Learn how texts are organized.</p>
-
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L49')">Text Structure</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L50')">Sequence</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L51')">Compare & Contrast</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L52')">Cause & Effect</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L53')">Problem & Solution</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L54')">Review</button>
-</div>
 
 <!-- SENSORY DETAILS -->
-<div class="lesson-column">
-  <h3>🌈 Sensory Details</h3>
-  <p>Make writing vivid and interesting.</p>
-
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L55')">Sensory Details</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L56')">Sight Details</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L57')">Sound Details</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L58')">Smell & Taste</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L59')">Touch Details</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L60')">Review</button>
-</div>
 <!-- TOPIC SENTENCES -->
-<div class="lesson-column">
-  <h3>🧾 Topic Sentences</h3>
-  <p>Write strong opening sentences.</p>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L61')">Topic Sentences</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L62')">Strong Topic Sentences</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L63')">Paragraph Main Idea</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L64')">Choose Topic Sentence</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L65')">Fix Topic Sentence</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L66')">Review</button>
-</div>
 
 <!-- LINKING WORDS -->
-<div class="lesson-column">
-  <h3>🔗 Linking Words</h3>
-  <p>Connect ideas clearly.</p>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L67')">Linking Words</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L68')">Sequence Words</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L69')">Compare Words</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L70')">Cause Words</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L71')">Transition Words</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L72')">Review</button>
-</div>
 
 <!-- EDITING AND REVISING -->
-<div class="lesson-column">
-  <h3>✏️ Editing & Revising</h3>
-  <p>Improve sentences and writing.</p>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L73')">Editing</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L74')">Revising</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L75')">Capitalization</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L76')">Punctuation</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L77')">Sentence Fixes</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L78')">Review</button>
-</div>
 
 <!-- DESCRIPTIVE DETAILS -->
-<div class="lesson-column">
-  <h3>🌟 Descriptive Details</h3>
-  <p>Add details that make writing stronger.</p>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L79')">Descriptive Details</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L80')">Add Details</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L81')">Describe Characters</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L82')">Describe Settings</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L83')">Strong Details</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L84')">Review</button>
-</div>
 
 <!-- PREFIXES AND SUFFIXES -->
-<div class="lesson-column">
-  <h3>🧩 Prefixes & Suffixes</h3>
-  <p>Use word parts to find meaning.</p>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L85')">Prefixes</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L86')">Suffixes</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L87')">Word Parts</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L88')">Prefix Meanings</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L89')">Suffix Meanings</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L90')">Review</button>
-</div>
 
 <!-- COMPOUND WORDS -->
-<div class="lesson-column">
-  <h3>🏠 Compound Words</h3>
-  <p>Build words from two smaller words.</p>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L91')">Compound Words</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L92')">Build Compound Words</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L93')">Split Compound Words</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L94')">Compound Meanings</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L95')">Practice</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L96')">Review</button>
-</div>
 
 <!-- HOMOPHONES AND HOMONYMS -->
-<div class="lesson-column">
-  <h3>👂 Homophones & Homonyms</h3>
-  <p>Learn words that sound or look alike.</p>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L97')">Homophones</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L98')">Homonyms</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L99')">There Their They're</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L100')">To Two Too</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L101')">Meaning Clues</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L102')">Review</button>
-</div>
 
 <!-- GREEK AND LATIN ROOTS -->
-<div class="lesson-column">
-  <h3>🏛️ Greek & Latin Roots</h3>
-  <p>Use roots to understand words.</p>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L103')">Greek Roots</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L104')">Latin Roots</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L105')">Root Meanings</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L106')">Root Practice</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L107')">Build Words</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L108')">Review</button>
-</div>
 
 <!-- SPELLING -->
-<div class="lesson-column">
-  <h3>🔡 Spelling</h3>
-  <p>Practice common spelling patterns.</p>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L109')">Spelling</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L110')">Spelling Patterns</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L111')">Word Families</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L112')">Spelling Rules</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L113')">Correct Spelling</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L114')">Review</button>
-</div>
 
 <!-- PREPOSITIONS -->
-<div class="lesson-column">
-  <h3>📍 Prepositions</h3>
-  <p>Show location, direction, and time.</p>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L115')">Prepositions</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L116')">Prepositional Phrases</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L117')">Location Words</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L118')">Time Words</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L119')">Choose Preposition</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L120')">Review</button>
-</div>
 
 <!-- VERB TENSE -->
-<div class="lesson-column">
-  <h3>⏰ Verb Tense</h3>
-  <p>Use past, present, and future verbs.</p>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L121')">Verb Tense</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L122')">Past Tense</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L123')">Present Tense</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L124')">Future Tense</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L125')">Fix Verb Tense</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L126')">Review</button>
-</div>
 
 <!-- VERB TYPES -->
-<div class="lesson-column">
-  <h3>🏃 Verb Types</h3>
-  <p>Learn action, linking, and helping verbs.</p>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L127')">Verb Types</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L128')">Action Verbs</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L129')">Linking Verbs</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L130')">Helping Verbs</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L131')">Choose the Verb</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L132')">Review</button>
-</div>
 
 <!-- CONTRACTIONS -->
-<div class="lesson-column">
-  <h3>📎 Contractions</h3>
-  <p>Combine words using apostrophes.</p>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L133')">Contractions</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L134')">Apostrophes</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L135')">Make Contractions</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L136')">Expand Contractions</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L137')">Practice</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L138')">Review</button>
-</div>
 
 <!-- CONJUNCTIONS -->
-<div class="lesson-column">
-  <h3>🔀 Conjunctions</h3>
-  <p>Join words and sentences.</p>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L139')">Conjunctions</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L140')">And But Or</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L141')">Join Sentences</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L142')">Choose Conjunction</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L143')">Fix Conjunctions</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L144')">Review</button>
-</div>
 
-<div class="lesson-column">
-  <h3>Spelling Practice</h3>
-  <p>Fix common words and spelling patterns.</p>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L145')">Spelling Drag</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L146')">Spelling Patterns</button>
-</div>
 
     </div>
 
@@ -535,100 +310,21 @@
   <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L14')">Nearest Hundred</button>
   <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L15')">Rounding Rules</button>
   <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L16')">Number Line Rounding</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L17')">Real-Life Rounding</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L18')">Rounding Review</button>
 </div>
 
 <!-- ESTIMATE SUMS -->
-<div class="lesson-column">
-  <h3>➕ Estimate Sums</h3>
-  <p>Use rounding to estimate answers.</p>
-
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L19')">Estimate 2-Digit Sums</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L20')">Estimate 3-Digit Sums</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L21')">Round Then Add</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L22')">Mental Estimation</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L23')">Check Reasonableness</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L24')">Estimate Sums Review</button>
-</div>
 
 <!-- ESTIMATE DIFFERENCES -->
-<div class="lesson-column">
-  <h3>➖ Estimate Differences</h3>
-  <p>Estimate subtraction answers.</p>
-
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L25')">Estimate 2-Digit Differences</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L26')">Estimate 3-Digit Differences</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L27')">Round Then Subtract</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L28')">Mental Estimation</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L29')">Check Reasonableness</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L30')">Estimate Differences Review</button>
-</div>
 
 <!-- ADDITION: THREE DIGITS -->
-<div class="lesson-column">
-  <h3>➕ Three-Digit Addition</h3>
-  <p>Add larger numbers accurately.</p>
-
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L31')">Add Without Regrouping</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L32')">Add With Regrouping</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L33')">Column Addition</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L34')">Word Problems</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L35')">Missing Addends</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L36')">Addition Review</button>
-</div>
 
 <!-- SUBTRACTION: THREE DIGITS -->
-<div class="lesson-column">
-  <h3>➖ Three-Digit Subtraction</h3>
-  <p>Subtract larger numbers accurately.</p>
-
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L37')">Subtract Without Borrowing</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L38')">Subtract With Borrowing</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L39')">Column Subtraction</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L40')">Word Problems</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L41')">Missing Numbers</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L42')">Subtraction Review</button>
-</div>
 
 <!-- FINANCIAL LITERACY -->
-<div class="lesson-column">
-  <h3>💵 Financial Literacy</h3>
-  <p>Learn about money and spending.</p>
-
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L43')">Counting Coins</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L44')">Dollar Amounts</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L45')">Making Change</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L46')">Budget Basics</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L47')">Needs vs Wants</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L48')">Money Review</button>
-</div>
 
 <!-- MIXED OPERATIONS -->
-<div class="lesson-column">
-  <h3>🧮 Mixed Operations</h3>
-  <p>Practice addition, subtraction, multiplication, and division.</p>
-
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L49')">Add & Subtract</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L50')">Multiply & Divide</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L51')">Operation Choice</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L52')">Mixed Word Problems</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L53')">Challenge Problems</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L54')">Mixed Operations Review</button>
-</div>
 
 <!-- DIVISION WORD PROBLEMS -->
-<div class="lesson-column">
-  <h3>➗ Division Word Problems</h3>
-  <p>Solve real-world division situations.</p>
-
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L55')">Equal Groups</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L56')">Sharing Objects</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L57')">Division Stories</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L58')">Find the Missing Number</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L59')">Multi-Step Problems</button>
-  <button type="button" class="btn btn-main" onclick="startLesson('g3','math','L60')">Division Review</button>
-</div>
 
     </div>
 
@@ -799,39 +495,9 @@
     Point of View
   </button>
 
-  <button type="button" class="btn btn-main" onclick="startLesson('g4','eng','L17')">
-    Cause and Effect
-  </button>
 
-  <button type="button" class="btn btn-main" onclick="startLesson('g4','eng','L18')">
-    Sequence of Events
-  </button>
 </div>
 
-<div class="lesson-column">
-  <h3>✏️ Grammar & Writing</h3>
-  <p>Practice correct words and sentences.</p>
-
-  <button type="button" class="btn btn-main" onclick="startLesson('g4','eng','L19')">
-    Homophones
-  </button>
-
-  <button type="button" class="btn btn-main" onclick="startLesson('g4','eng','L20')">
-    Complete Sentences
-  </button>
-
-  <button type="button" class="btn btn-main" onclick="startLesson('g4','eng','L21')">
-    Punctuation
-  </button>
-
-  <button type="button" class="btn btn-main" onclick="startLesson('g4','eng','L22')">
-    Spelling: Prefixes
-  </button>
-
-  <button type="button" class="btn btn-main" onclick="startLesson('g4','eng','L23')">
-    Spelling Drag
-  </button>
-</div>
 
     </div>
 
@@ -939,27 +605,9 @@
     Comparing Fractions
   </button>
 
-  <button type="button" class="btn btn-main" onclick="startLesson('g4','math','L17')">
-    Mixed Numbers
-  </button>
 
-  <button type="button" class="btn btn-main" onclick="startLesson('g4','math','L18')">
-    Decimal Place Value
-  </button>
 </div>
 
-<div class="lesson-column">
-  <h3>📐 Geometry</h3>
-  <p>Explore shapes and measurements.</p>
-
-  <button type="button" class="btn btn-main" onclick="startLesson('g4','math','L19')">
-    Angles
-  </button>
-
-  <button type="button" class="btn btn-main" onclick="startLesson('g4','math','L20')">
-    Area and Perimeter
-  </button>
-</div>
 
     </div>
 
@@ -1061,76 +709,11 @@
         </button>
       </div>
 
-      <div class="lesson-column">
-        <h3>🌎 Earth & Space</h3>
-        <p>Study weather, planets, and the Moon.</p>
-
-        <button type="button" class="btn btn-main" onclick="startLesson('g4','sci','L17')">
-          The Water Cycle
-        </button>
-
-        <button type="button" class="btn btn-main" onclick="startLesson('g4','sci','L18')">
-          Weather Patterns
-        </button>
-
-        <button type="button" class="btn btn-main" onclick="startLesson('g4','sci','L19')">
-          The Solar System
-        </button>
-
-        <button type="button" class="btn btn-main" onclick="startLesson('g4','sci','L20')">
-          Moon Phases
-        </button>
-      </div>
-
       
       <!-- NEW GRADE 4 SCIENCE LESSONS -->
 
-<div class="lesson-column">
-  <h3>🐾 Living Things</h3>
-  <p>Learn how organisms survive and grow.</p>
 
-  <button type="button" class="btn btn-main" onclick="startLesson('g4','sci','L21')">
-    Animal Adaptations
-  </button>
 
-  <button type="button" class="btn btn-main" onclick="startLesson('g4','sci','L22')">
-    Habitats
-  </button>
-</div>
-
-<div class="lesson-column">
-  <h3>🌍 Earth Science</h3>
-  <p>Explore Earth's history and resources.</p>
-
-  <button type="button" class="btn btn-main" onclick="startLesson('g4','sci','L23')">
-    Fossils
-  </button>
-
-  <button type="button" class="btn btn-main" onclick="startLesson('g4','sci','L24')">
-    Earth's Layers
-  </button>
-
-  <button type="button" class="btn btn-main" onclick="startLesson('g4','sci','L25')">
-    Natural Resources
-  </button>
-</div>
-
-<div class="lesson-column">
-  <h3>🧲 Forces & Investigation</h3>
-  <p>Discover energy, magnets, and experiments.</p>
-
-  <button type="button" class="btn btn-main" onclick="startLesson('g4','sci','L26')">
-    Magnetism
-  </button>
-
-  <button type="button" class="btn btn-main" onclick="startLesson('g4','sci','L27')">
-    Sound Energy
-  </button>
-
-  <button type="button" class="btn btn-main" onclick="startLesson('g4','sci','L28')">
-    Scientific Investigation
-  </button>
-</div>
 
     </div>
 

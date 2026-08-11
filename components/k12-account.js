@@ -678,8 +678,12 @@ const AVATAR_PRESETS = [
   { id:"game", type:"text", value:"\ud83c\udfae", label:"Game" },
   { id:"art", type:"text", value:"\ud83c\udfa8", label:"Art" },
   { id:"grad", type:"text", value:"\ud83c\udf93", label:"Graduate" },
-  { id:"cat", type:"image", src:"images/pfpcat.png", label:"Cat" },
+  { id:"cat", type:"image", src:"images/pfpcat.webp", label:"Cat" },
   { id:"dog", type:"image", src:"images/pfpdog.png", label:"Dog" },
+  { id:"car", type:"image", src:"images/pfpcar.webp", label:"Car" },
+  { id:"soccer", type:"image", src:"images/pfpsoccer.webp", label:"Soccer" },
+  { id:"sportsCar", type:"image", src:"images/pfpsportscar.webp", label:"Sports car" },
+  { id:"tennis", type:"image", src:"images/pfptennis.webp", label:"Tennis" },
   { id:"mountainLake", type:"image", src:"images/pfpmountain.png", label:"Mountain Lake" },
   { id:"mountainSunset", type:"image", src:"images/pfpmountain1.png", label:"Mountain Sunset" }
 

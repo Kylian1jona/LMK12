@@ -285,7 +285,11 @@ function g1mReset(){ safeClick(); prepareSpecialLesson("g1-money"); g1mRound = 1
   Object.assign(window.K12_EARLY_BANKS,{
     "g1:eng:vowels":{name:"Vowel Sounds",questions:vowels},
     "g1:eng:sight":{name:"Sight Words",questions:sight},
-    "g1:eng:sentences":{name:"Sentence Basics",questions:sentences},
+    "g1:eng:sentences":{
+      name:"Sentence Basics",
+      questions:sentences,
+      video:{src:"components/days_of_the_week_kids.mp4",title:"Days of the Week"}
+    },
     "g1:math:addsub":{name:"Addition and Subtraction",questions:addSub},
     "g1:math:graphs":{name:"Data and Graphs",questions:graphRows},
     "g1:math:money":{name:"Money Counting",questions:money}
