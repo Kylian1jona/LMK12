@@ -5894,6 +5894,22 @@ body .section[id^="grade"]:not(#grades)>.cardish>.d-flex.mt-3 .btn:last-child::b
   .lesson-video-panel{padding:17px;border-radius:20px}
 }
 
+/* Let lesson artwork keep its natural shape while using the card well. */
+body #lessonRunner .lesson-image-frame{
+  width:min(820px,100%);min-height:0;max-height:none;margin:0 auto 24px;padding:12px;
+  overflow:hidden;border-radius:22px;
+}
+body #lessonRunner .lesson-image-frame img,
+body #lessonRunner .lesson-img{
+  display:block;width:auto;height:auto;max-width:100%;max-height:clamp(280px,48vw,460px);
+  margin:auto;object-fit:contain;object-position:center;border-radius:15px;
+}
+@media(max-width:650px){
+  body #lessonRunner .lesson-image-frame{padding:8px;margin-bottom:18px;border-radius:17px}
+  body #lessonRunner .lesson-image-frame img,
+  body #lessonRunner .lesson-img{width:100%;height:auto;max-height:330px;border-radius:12px}
+}
+
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
