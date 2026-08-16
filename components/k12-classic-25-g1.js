@@ -270,17 +270,21 @@ function g1mReset(){ safeClick(); prepareSpecialLesson("g1-money"); g1mRound = 1
   ];
   const sentences=sentenceRows.map(([q,a,...w])=>({q,a,w}));
   const addSub=Array.from({length:25},(_,index)=>{
-    const add=index%2===0, left=12+index*3, right=2+index%9, answer=add?left+right:left-right;
-    return {q:`What is ${left} ${add?"+":"−"} ${right}?`,a:String(answer),w:[String(answer+1),String(Math.max(0,answer-1)),String(answer+2)]};
+    const add=index%2===0;
+    const left=5+Math.floor(index/2);
+    const right=1+(index%3);
+    const answer=add?left+right:left-right;
+    const shownLeft=add?answer-right:left;
+    return {q:`What is ${shownLeft} ${add?"+":"−"} ${right}?`,a:String(answer),w:[String(answer+1),String(Math.max(0,answer-1)),String(answer+2)]};
   });
   const graphRows=Array.from({length:25},(_,index)=>{
-    const apples=index%7+2, bananas=(index*2)%7+1, more=apples>bananas?"apples":bananas>apples?"bananas":"the same number";
+    const apples=index%7+2, bananas=1+Math.floor(index/7)*2+(index%2), more=apples>bananas?"apples":bananas>apples?"bananas":"the same number";
     return {q:`A picture graph shows ${apples} apples and ${bananas} bananas. Which group has more?`,a:more,w:["apples","bananas","the same number","not enough information"].filter(value=>value!==more).slice(0,3)};
   });
   const coinValues=[1,5,10,25];
   const money=Array.from({length:25},(_,index)=>{
-    const first=coinValues[index%4], second=coinValues[(index+1)%4], answer=first+second;
-    return {q:`A ${first}-cent coin and a ${second}-cent coin are worth how many cents altogether?`,a:String(answer),w:[String(answer+1),String(Math.max(1,answer-1)),String(answer+5)]};
+    const first=coinValues[index%4], second=coinValues[Math.floor(index/4)%4], firstCount=1+Math.floor(index/16), answer=first*firstCount+second;
+    return {q:`${firstCount} ${first}-cent coin${firstCount>1?"s":""} and 1 ${second}-cent coin are worth how many cents altogether?`,a:String(answer),w:[String(answer+1),String(Math.max(1,answer-1)),String(answer+5)]};
   });
   Object.assign(window.K12_EARLY_BANKS,{
     "g1:eng:vowels":{name:"Vowel Sounds",questions:vowels},

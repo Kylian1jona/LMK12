@@ -189,11 +189,14 @@ function pksReset(){ safeClick(); prepareSpecialLesson("prek-shapes"); pksRound 
   const rhymeQuestions=rhymeRows.map(([word,answer],index)=>({q:`Which word rhymes with ${word}?`,a:answer,w:[rhymeDistractors[index%5],rhymeDistractors[(index+1)%5],rhymeDistractors[(index+2)%5]]}));
   const additionQuestions=Array.from({length:25},(_,index)=>{
     const left=index%5+1, right=Math.floor(index/5)+1, answer=left+right;
-    return {q:`What is ${left} + ${right}?`,a:String(answer),w:[String(Math.max(1,answer-1)),String(answer+1),String(answer+2)]};
+    const firstGroup="●".repeat(left), secondGroup="●".repeat(right);
+    return {q:`Count the dots: ${firstGroup} + ${secondGroup}. How many altogether?`,a:String(answer),w:[String(Math.max(1,answer-1)),String(answer+1),String(answer+2)]};
   });
   const countingQuestions=Array.from({length:25},(_,index)=>{
-    const amount=index%20+1, item=["stars","apples","blocks","balls","flowers"][index%5];
-    return {q:`Count ${amount} ${item}. Which number shows the total?`,a:String(amount),w:[String(Math.max(0,amount-1)),String(amount+1),String(amount+2)]};
+    const amount=index%20+1;
+    const item=["stars","apples","blocks","balls","flowers","dots","hearts","moons","kites","books","cars","fish","birds","cups","hats","trees","rings","shells","bears","drums","boats","keys","socks","leaves","flags"][index];
+    const marks="●".repeat(amount);
+    return {q:`Count the ${item}: ${marks}`,a:String(amount),w:[String(Math.max(0,amount-1)),String(amount+1),String(amount+2)]};
   });
   const shapeRows=[
     ["Which shape is round with no corners?","circle"],["Which shape has three sides?","triangle"],["Which shape has four equal sides?","square"],["Which shape looks like a stretched circle?","oval"],["Which shape has five points?","star"],

@@ -83,7 +83,7 @@ function cloneRevisionQuestion(question){
 }
 
 function queueRevisionQuestion(){
-  if(LR.phase !== "lesson" || !LR.current) return;
+  if(LR.phase !== "lesson" || !LR.current || ["prek","k","g1"].includes(LR.grade)) return;
   LR.revisionQueue.push(cloneRevisionQuestion(LR.current));
 }
 
@@ -145,18 +145,19 @@ function fallbackWrongChoice(answerText, used, index){
   return `Choice ${index + 1}`;
 }
 
-function fourChoices(answer, wrongs){
+function fourChoices(answer, wrongs, requestedCount = 4){
   const answerText = String(answer);
+  const choiceCount = Math.max(2, Math.min(4, Number(requestedCount) || 4));
   const used = new Set([answerText]);
   const choices = [answerText];
   shuffle(wrongs || []).forEach(choice=>{
     const text = String(choice);
-    if(text && !used.has(text) && choices.length < 4){
+    if(text && !used.has(text) && choices.length < choiceCount){
       used.add(text);
       choices.push(text);
     }
   });
-  while(choices.length < 4){
+  while(choices.length < choiceCount){
     const fallback = fallbackWrongChoice(answerText, used, choices.length);
     used.add(fallback);
     choices.push(fallback);
@@ -523,7 +524,10 @@ function launchLessonPack(grade, subj, lesson, pack, backSection){
   $("lrTitle").textContent = LR.title;
   renderLessonVideo(LR.video);
   const runner=$("lessonRunner");
-  if(runner) runner.dataset.gradeBand=["prek","k","g1"].includes(grade)?"early":"upper";
+  if(runner){
+    runner.dataset.gradeBand=["prek","k","g1"].includes(grade)?"early":"upper";
+    runner.dataset.choiceCount=String(pack.choiceCount||4);
+  }
 
   show("lessonRunner");
   lrLoadQuestion();
@@ -556,11 +560,12 @@ function startUnifiedEarlyLesson(key,backSection){
   if(!CURR[grade]) CURR[grade]={};
   if(!CURR[grade][subj]) CURR[grade][subj]={showName:`${gradeLabel} ${SUBJECT_LABELS[subj]||subj}`};
   const lesson=`EARLY_${lessonToken.replace(/[^a-z0-9]/gi,"_").toUpperCase()}`;
+  const choiceCount=grade==="g1"?4:3;
   const questions=record.questions.map(question=>({
     type:"mc",q:String(question.q||"Choose the best answer."),answer:String(question.a),
-    choices:[String(question.a),...(question.w||[]).map(String)],audio:String(question.audio||question.q||"")
+    choices:[String(question.a),...(question.w||[]).slice(0,choiceCount-1).map(String)],audio:String(question.audio||question.q||"")
   }));
-  const pack={name:record.name,questions,video:record.video||null,generatorSource:"early-unified-25"};
+  const pack={name:record.name,questions,video:record.video||null,choiceCount,generatorSource:"early-linear-25"};
   pack.gen=()=>cloneRevisionQuestion(questions[Math.max(0,Math.min(24,Number(LR.round||1)-1))]);
   CURR[grade][subj][lesson]=pack;
   launchLessonPack(grade,subj,lesson,pack,backSection||"grades");
@@ -767,9 +772,10 @@ function normalizeLessonQuestion(q, pack){
     const isTrueFalse = normalizedChoices.length === 2
       && normalizedChoices.includes("True")
       && normalizedChoices.includes("False");
+    const choiceCount=Number(pack?.choiceCount)||4;
     q.choices = isTrueFalse
       ? ["True", "False"]
-      : fourChoices(q.answer, normalizedChoices.filter(choice=>choice !== q.answer));
+      : fourChoices(q.answer, normalizedChoices.filter(choice=>choice !== q.answer),choiceCount);
   }
   if((q.type === "input" || q.type === "fill" || q.type === "edit") && (q.answer === undefined || q.answer === null)){
     q.answer = "";
@@ -938,8 +944,10 @@ function renderLessonVideo(video){
   const player = $("lrVideo");
   const empty = $("lrVideoEmpty");
   const title = $("lrVideoTitle");
+  const panel = $("lrVideoPanel");
   if(!player || !empty) return;
   const src = typeof video === "string" ? video : video?.src;
+  panel?.classList.toggle("d-none",["prek","k","g1"].includes(LR.grade)&&!src);
   player.pause();
   player.removeAttribute("src");
   player.load();

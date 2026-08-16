@@ -1,0 +1,46 @@
+const fs=require("node:fs");
+const path=require("node:path");
+const vm=require("node:vm");
+
+const root=path.resolve(__dirname,"..");
+const context=vm.createContext({window:{K12_EARLY_BANKS:Object.create(null)}});
+for(const file of [
+  "k12-classic-25-prek.js",
+  "k12-classic-25-kindergarten.js",
+  "k12-classic-25-g1.js"
+]){
+  vm.runInContext(fs.readFileSync(path.join(root,"components",file),"utf8"),context,{filename:file});
+}
+
+const banks=context.window.K12_EARLY_BANKS;
+const failures=[];
+for(const [key,record] of Object.entries(banks)){
+  if(!record.name) failures.push(`${key} has no lesson name.`);
+  if(!Array.isArray(record.questions)||record.questions.length!==25){
+    failures.push(`${key} does not contain exactly 25 questions.`);
+    continue;
+  }
+  const prompts=new Set();
+  record.questions.forEach((question,index)=>{
+    const label=`${key} question ${index+1}`;
+    const prompt=String(question.q||"").trim();
+    const answer=String(question.a??"").trim();
+    const wrongs=(question.w||[]).map(String);
+    if(!prompt) failures.push(`${label} has no prompt.`);
+    if(!answer) failures.push(`${label} has no answer.`);
+    if(prompts.has(prompt.toLowerCase())) failures.push(`${label} repeats an earlier prompt.`);
+    prompts.add(prompt.toLowerCase());
+    if(new Set([answer,...wrongs]).size!==1+wrongs.length) failures.push(`${label} repeats an answer choice.`);
+    if(wrongs.length<3) failures.push(`${label} needs at least three wrong choices.`);
+  });
+}
+
+const expectedLessons=18;
+const report={
+  lessons:Object.keys(banks).length,
+  questions:Object.values(banks).reduce((sum,record)=>sum+(record.questions?.length||0),0),
+  failures
+};
+if(report.lessons!==expectedLessons) failures.push(`Expected ${expectedLessons} lessons, found ${report.lessons}.`);
+console.log(JSON.stringify(report,null,2));
+if(failures.length) process.exitCode=1;
