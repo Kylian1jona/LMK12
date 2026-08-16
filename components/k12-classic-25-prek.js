@@ -1,218 +1,185 @@
-/* Pre-K interactive lesson source. */
-/* ===========================
-   Pre-K: Emoji Addition
-=========================== */
-const PKA_EMOJIS = ["🍎","🍌","🍒","⭐","🧸","🚗","🧡","🎁","🟠","🍉"];
-let pkaQ = 1, pkaCorrect = 0, pkaScore = 0;
-const PKA_TOTAL = 20;
-
-function pkaGen(){
-  $("pkaReport").classList.add("d-none");
-  $("pkaNextBtn").disabled = true;
-  $("pkaFb").textContent = "";
-
-  const a = randInt(1,5);
-  const b = randInt(1,5);
-  pkaCorrect = a+b;
-
-  const e = PKA_EMOJIS[Math.floor(Math.random()*PKA_EMOJIS.length)];
-  $("pkaObj1").innerHTML = e.repeat(a);
-  $("pkaObj2").innerHTML = e.repeat(b);
-  $("pkaQ").textContent = `${a} + ${b} = ?`;
-  $("pkaProg").textContent = `Exercise ${pkaQ} of ${PKA_TOTAL}`;
-
-  const arr = make3Choices(pkaCorrect, 1, 12);
-  setChoiceButtons("pka", arr);
-
-  speakQuestionWithChoices(`What is ${a} plus ${b}?`, arr);
-}
-function pkaAnswer(i){
-  safeClick();
-  const chosen = Number($("pka"+i).textContent);
-  if(chosen === pkaCorrect){
-    pkaScore++;
-    $("pkaFb").textContent = "🎉 Correct!";
-    correctReward("Correct!");
-    $("pkaNextBtn").disabled = false;
-  }else{
-    $("pkaFb").textContent = "❌ Try again";
-    const msg = `Not quite. The correct answer is ${pkaCorrect}. Count both groups together.`;
-    $("pkaFb").textContent = msg;
-    wrongPenalty(msg);
-  }
-}
-function pkaNext(){
-  safeClick();
-  if($("pkaNextBtn").disabled) return;
-  if(pkaQ < PKA_TOTAL){ pkaQ++; pkaGen(); }
-  else pkaFinish();
-}
-function pkaFinish(){
-  if(typeof pauseUniversalLessonTimer==="function") pauseUniversalLessonTimer();
-  $("prek-add")?.querySelector(":scope > .cardish > .quiz-card")?.classList.add("d-none");
-  $("pkaReport").classList.remove("d-none");
-  $("pkaScoreLine").textContent = `You got ${pkaScore} out of ${PKA_TOTAL}!`;
-  const stars = clamp(Math.round((pkaScore/PKA_TOTAL)*5), 1, 5);
-  $("pkaStars").textContent = "⭐".repeat(stars);
-  recordLearningStat("lesson", {title:"Emoji Addition", lessonId:"special:prek-add"});
-  launchConfetti(220);
-  speakGlobal("Great job!");
-}
-function pkaRestart(){ safeClick(); prepareSpecialLesson("prek-add"); pkaQ = 1; pkaScore = 0; pkaGen(); }
-
-/* ===========================
-   Pre-K: Counting
-=========================== */
-const PKC_PICS = ["🍎","⭐","🧸","🟠","🚗","🐶","🍌","🎁","🍉","🦁","🐱","🐸"];
-let pkcRound = 1, pkcAnswer = 0;
-const PKC_TOTAL = 10;
-
-function pkcGen(){
-  $("pkcReward").classList.add("d-none");
-  $("pkcFb").textContent = "";
-  $("pkcNextBtn").disabled = true;
-
-  pkcAnswer = randInt(1,20);
-  const em = PKC_PICS[Math.floor(Math.random()*PKC_PICS.length)];
-  $("pkcObjs").textContent = em.repeat(pkcAnswer);
-  $("pkcProg").textContent = `Round ${pkcRound} of ${PKC_TOTAL}`;
-
-  const choices = make3Choices(pkcAnswer, 1, 20);
-  setChoiceButtons("pkc", choices);
-
-  speakQuestionWithChoices("Count the pictures. How many do you see?", choices);
-}
-function pkcPick(i){
-  safeClick();
-  const chosen = Number($("pkc"+i).textContent);
-  if(chosen === pkcAnswer){
-    $("pkcFb").textContent = "🎉 Correct!";
-    correctReward("Correct!");
-    $("pkcNextBtn").disabled = false;
-  }else{
-    $("pkcFb").textContent = "❌ Try again!";
-    const msg = `Not quite. There are ${pkcAnswer} pictures. Count each picture one time.`;
-    $("pkcFb").textContent = msg;
-    wrongPenalty(msg);
-  }
-}
-function pkcNext(){
-  safeClick();
-  if($("pkcNextBtn").disabled) return;
-  if(pkcRound < PKC_TOTAL){ pkcRound++; pkcGen(); }
-  else pkcFinish();
-}
-function pkcFinish(){
-  if(typeof pauseUniversalLessonTimer==="function") pauseUniversalLessonTimer();
-  $("prek-count")?.querySelector(":scope > .cardish > .quiz-card")?.classList.add("d-none");
-  safePlay($("rewardSfx"));
-  $("pkcReward").classList.remove("d-none");
-  $("pkcStars").textContent = "⭐".repeat(5);
-  $("pkcSummary").textContent = `Nice counting! Keep earning ⭐ points and convert to 💎 Learners.`;
-  recordLearningStat("lesson", {title:"Count the Objects", lessonId:"special:prek-count"});
-  launchConfetti(180);
-  speakGlobal("Amazing counting!");
-}
-function pkcReset(){ safeClick(); prepareSpecialLesson("prek-count"); pkcRound = 1; pkcGen(); }
-
-/* ===========================
-   Pre-K: Shapes
-=========================== */
-const SHAPES = [
-  {name:"CIRCLE", emoji:"🔴"},
-  {name:"SQUARE", emoji:"🟥"},
-  {name:"TRIANGLE", emoji:"🔺"}
-];
-const EXTRA_SHAPE = {name:"DIAMOND", emoji:"◆"};
-let pksRound = 1;
-const PKS_TOTAL = 10;
-let pksCorrectEmoji = "";
-let pksCorrectName = "";
-
-function pksGen(){
-  $("pksDone").classList.add("d-none");
-  $("pksFb").textContent = "";
-  $("pksNextBtn").disabled = true;
-  $("pksProg").textContent = `Round ${pksRound} of ${PKS_TOTAL}`;
-
-  const target = SHAPES[randInt(0, SHAPES.length-1)];
-  $("pksQ").textContent = `Tap the ${target.name}`;
-  pksCorrectEmoji = target.emoji;
-  pksCorrectName = target.name;
-
-  const opts = [...SHAPES, EXTRA_SHAPE].sort(()=>Math.random()-0.5);
-  ["pks0","pks1","pks2","pks3"].forEach((id, idx)=>{
-    $(id).textContent = opts[idx].emoji;
-    $(id).dataset.correct = (opts[idx].emoji === pksCorrectEmoji) ? "1" : "0";
-  });
-
-  speakQuestionWithChoices(`Tap the ${target.name.toLowerCase()}.`, opts.map(item=>item.name.toLowerCase()));
-}
-function pksPick(i){
-  safeClick();
-  const btn = $("pks"+i);
-  const isCorrect = btn.dataset.correct === "1";
-  if(isCorrect){
-    $("pksFb").textContent = "🎉 Correct!";
-    correctReward("Correct!");
-    $("pksNextBtn").disabled = false;
-  }else{
-    $("pksFb").textContent = "❌ Try again!";
-    const msg = `Not quite. Look for the ${pksCorrectName.toLowerCase()}.`;
-    $("pksFb").textContent = msg;
-    wrongPenalty(msg);
-  }
-}
-function pksNext(){
-  safeClick();
-  if($("pksNextBtn").disabled) return;
-  if(pksRound < PKS_TOTAL){ pksRound++; pksGen(); }
-  else{
-    if(typeof pauseUniversalLessonTimer==="function") pauseUniversalLessonTimer();
-    $("prek-shapes")?.querySelector(":scope > .cardish > .quiz-card")?.classList.add("d-none");
-    $("pksDone").classList.remove("d-none");
-    $("pksStars").textContent = "⭐".repeat(5);
-    recordLearningStat("lesson", {title:"Shapes Match", lessonId:"special:prek-shapes"});
-    launchConfetti(170);
-    speakGlobal("Great shapes!");
-  }
-}
-function pksReset(){ safeClick(); prepareSpecialLesson("prek-shapes"); pksRound = 1; pksGen(); }
-
+/* Pre-K explicit 25-question lesson banks. */
 (function(){
-  const letters="ABCDEFGHIJKLMNOPQRSTUVWXY".split("");
-  const letterQuestions=letters.map((letter,index)=>({q:`Which is the letter ${letter}?`,a:letter,w:[letters[(index+1)%25],letters[(index+5)%25],letters[(index+11)%25]]}));
-  const soundWords=["apple","ball","cat","dog","egg","fish","goat","hat","igloo","jam","kite","lion","moon","nest","octopus","pig","queen","rabbit","sun","turtle","umbrella","van","wagon","x-ray","yarn"];
-  const soundQuestions=soundWords.map((word,index)=>({q:`What sound does ${word} begin with?`,a:word[0].toUpperCase(),w:[soundWords[(index+3)%25][0].toUpperCase(),soundWords[(index+7)%25][0].toUpperCase(),soundWords[(index+13)%25][0].toUpperCase()]}));
-  const rhymeRows=[["cat","hat"],["dog","log"],["sun","fun"],["cake","lake"],["bee","tree"],["mouse","house"],["star","car"],["boat","goat"],["pig","wig"],["ring","sing"],["fox","box"],["bear","chair"],["moon","spoon"],["duck","truck"],["light","kite"],["frog","log"],["snail","pail"],["sock","rock"],["bug","rug"],["hen","pen"],["corn","horn"],["blue","shoe"],["fish","dish"],["king","wing"],["jam","ham"]];
-  const rhymeDistractors=["leaf","book","desk","milk","jump"];
-  const rhymeQuestions=rhymeRows.map(([word,answer],index)=>({q:`Which word rhymes with ${word}?`,a:answer,w:[rhymeDistractors[index%5],rhymeDistractors[(index+1)%5],rhymeDistractors[(index+2)%5]]}));
-  const additionQuestions=Array.from({length:25},(_,index)=>{
-    const left=index%5+1, right=Math.floor(index/5)+1, answer=left+right;
-    const firstGroup="●".repeat(left), secondGroup="●".repeat(right);
-    return {q:`Count the dots: ${firstGroup} + ${secondGroup}. How many altogether?`,a:String(answer),w:[String(Math.max(1,answer-1)),String(answer+1),String(answer+2)]};
-  });
-  const countingQuestions=Array.from({length:25},(_,index)=>{
-    const amount=index%20+1;
-    const item=["stars","apples","blocks","balls","flowers","dots","hearts","moons","kites","books","cars","fish","birds","cups","hats","trees","rings","shells","bears","drums","boats","keys","socks","leaves","flags"][index];
-    const marks="●".repeat(amount);
-    return {q:`Count the ${item}: ${marks}`,a:String(amount),w:[String(Math.max(0,amount-1)),String(amount+1),String(amount+2)]};
-  });
-  const shapeRows=[
-    ["Which shape is round with no corners?","circle"],["Which shape has three sides?","triangle"],["Which shape has four equal sides?","square"],["Which shape looks like a stretched circle?","oval"],["Which shape has five points?","star"],
-    ["A clock is usually shaped like a...","circle"],["A slice of pizza often looks like a...","triangle"],["A floor tile can look like a...","square"],["An egg is shaped like an...","oval"],["Which shape has four sides, with two long and two short?","rectangle"],
-    ["Which shape can roll most easily?","circle"],["Which shape has exactly three corners?","triangle"],["Which shape has four corners and equal sides?","square"],["Which shape has no straight sides?","circle"],["Which shape looks like a door?","rectangle"],
-    ["Which shape looks like a ball from the front?","circle"],["Which shape looks like a party hat?","triangle"],["Which shape looks like a picture frame?","rectangle"],["Which shape looks like an egg?","oval"],["Which shape has points that shine in the sky?","star"],
-    ["Which shape has zero corners?","circle"],["Which shape has 3 sides and 3 corners?","triangle"],["Which shape has 4 equal sides and 4 corners?","square"],["Which shape is longer than it is wide and has 4 corners?","rectangle"],["Which shape is curved and longer than a circle?","oval"]
-  ];
-  const shapePool=["circle","triangle","square","rectangle","oval","star"];
-  const shapeQuestions=shapeRows.map(([q,a],index)=>({q,a,w:shapePool.filter(shape=>shape!==a).slice(index%3,index%3+3)}));
   Object.assign(window.K12_EARLY_BANKS,{
-    "prek:eng:letters":{name:"Letter Names",questions:letterQuestions},
-    "prek:eng:sounds":{name:"Beginning Sounds",questions:soundQuestions},
-    "prek:eng:rhymes":{name:"Rhyming Words",questions:rhymeQuestions},
-    "prek:math:addition":{name:"Picture Addition",questions:additionQuestions},
-    "prek:math:counting":{name:"Counting to 20",questions:countingQuestions},
-    "prek:math:shapes":{name:"Shape Match",questions:shapeQuestions}
+    "prek:eng:letters":{
+      name:"Letter Names",
+      questions:[
+        {"type":"mc","q":"Which is the letter A?","choices":["A","B","F","L"],"answer":"A","audio":"Which is the letter A?"},
+        {"type":"mc","q":"Which is the letter B?","choices":["B","C","G","M"],"answer":"B","audio":"Which is the letter B?"},
+        {"type":"mc","q":"Which is the letter C?","choices":["C","D","H","N"],"answer":"C","audio":"Which is the letter C?"},
+        {"type":"mc","q":"Which is the letter D?","choices":["D","E","I","O"],"answer":"D","audio":"Which is the letter D?"},
+        {"type":"mc","q":"Which is the letter E?","choices":["E","F","J","P"],"answer":"E","audio":"Which is the letter E?"},
+        {"type":"mc","q":"Which is the letter F?","choices":["F","G","K","Q"],"answer":"F","audio":"Which is the letter F?"},
+        {"type":"mc","q":"Which is the letter G?","choices":["G","H","L","R"],"answer":"G","audio":"Which is the letter G?"},
+        {"type":"mc","q":"Which is the letter H?","choices":["H","I","M","S"],"answer":"H","audio":"Which is the letter H?"},
+        {"type":"mc","q":"Which is the letter I?","choices":["I","J","N","T"],"answer":"I","audio":"Which is the letter I?"},
+        {"type":"mc","q":"Which is the letter J?","choices":["J","K","O","U"],"answer":"J","audio":"Which is the letter J?"},
+        {"type":"mc","q":"Which is the letter K?","choices":["K","L","P","V"],"answer":"K","audio":"Which is the letter K?"},
+        {"type":"mc","q":"Which is the letter L?","choices":["L","M","Q","W"],"answer":"L","audio":"Which is the letter L?"},
+        {"type":"mc","q":"Which is the letter M?","choices":["M","N","R","X"],"answer":"M","audio":"Which is the letter M?"},
+        {"type":"mc","q":"Which is the letter N?","choices":["N","O","S","Y"],"answer":"N","audio":"Which is the letter N?"},
+        {"type":"mc","q":"Which is the letter O?","choices":["O","P","T","A"],"answer":"O","audio":"Which is the letter O?"},
+        {"type":"mc","q":"Which is the letter P?","choices":["P","Q","U","B"],"answer":"P","audio":"Which is the letter P?"},
+        {"type":"mc","q":"Which is the letter Q?","choices":["Q","R","V","C"],"answer":"Q","audio":"Which is the letter Q?"},
+        {"type":"mc","q":"Which is the letter R?","choices":["R","S","W","D"],"answer":"R","audio":"Which is the letter R?"},
+        {"type":"mc","q":"Which is the letter S?","choices":["S","T","X","E"],"answer":"S","audio":"Which is the letter S?"},
+        {"type":"mc","q":"Which is the letter T?","choices":["T","U","Y","F"],"answer":"T","audio":"Which is the letter T?"},
+        {"type":"mc","q":"Which is the letter U?","choices":["U","V","A","G"],"answer":"U","audio":"Which is the letter U?"},
+        {"type":"mc","q":"Which is the letter V?","choices":["V","W","B","H"],"answer":"V","audio":"Which is the letter V?"},
+        {"type":"mc","q":"Which is the letter W?","choices":["W","X","C","I"],"answer":"W","audio":"Which is the letter W?"},
+        {"type":"mc","q":"Which is the letter X?","choices":["X","Y","D","J"],"answer":"X","audio":"Which is the letter X?"},
+        {"type":"mc","q":"Which is the letter Y?","choices":["Y","A","E","K"],"answer":"Y","audio":"Which is the letter Y?"}
+      ]
+    },
+    "prek:eng:sounds":{
+      name:"Beginning Sounds",
+      questions:[
+        {"type":"mc","q":"What sound does apple begin with?","choices":["A","D","H","N"],"answer":"A","audio":"What sound does apple begin with?"},
+        {"type":"mc","q":"What sound does ball begin with?","choices":["B","E","I","O"],"answer":"B","audio":"What sound does ball begin with?"},
+        {"type":"mc","q":"What sound does cat begin with?","choices":["C","F","J","P"],"answer":"C","audio":"What sound does cat begin with?"},
+        {"type":"mc","q":"What sound does dog begin with?","choices":["D","G","K","Q"],"answer":"D","audio":"What sound does dog begin with?"},
+        {"type":"mc","q":"What sound does egg begin with?","choices":["E","H","L","R"],"answer":"E","audio":"What sound does egg begin with?"},
+        {"type":"mc","q":"What sound does fish begin with?","choices":["F","I","M","S"],"answer":"F","audio":"What sound does fish begin with?"},
+        {"type":"mc","q":"What sound does goat begin with?","choices":["G","J","N","T"],"answer":"G","audio":"What sound does goat begin with?"},
+        {"type":"mc","q":"What sound does hat begin with?","choices":["H","K","O","U"],"answer":"H","audio":"What sound does hat begin with?"},
+        {"type":"mc","q":"What sound does igloo begin with?","choices":["I","L","P","V"],"answer":"I","audio":"What sound does igloo begin with?"},
+        {"type":"mc","q":"What sound does jam begin with?","choices":["J","M","Q","W"],"answer":"J","audio":"What sound does jam begin with?"},
+        {"type":"mc","q":"What sound does kite begin with?","choices":["K","N","R","X"],"answer":"K","audio":"What sound does kite begin with?"},
+        {"type":"mc","q":"What sound does lion begin with?","choices":["L","O","S","Y"],"answer":"L","audio":"What sound does lion begin with?"},
+        {"type":"mc","q":"What sound does moon begin with?","choices":["M","P","T","A"],"answer":"M","audio":"What sound does moon begin with?"},
+        {"type":"mc","q":"What sound does nest begin with?","choices":["N","Q","U","B"],"answer":"N","audio":"What sound does nest begin with?"},
+        {"type":"mc","q":"What sound does octopus begin with?","choices":["O","R","V","C"],"answer":"O","audio":"What sound does octopus begin with?"},
+        {"type":"mc","q":"What sound does pig begin with?","choices":["P","S","W","D"],"answer":"P","audio":"What sound does pig begin with?"},
+        {"type":"mc","q":"What sound does queen begin with?","choices":["Q","T","X","E"],"answer":"Q","audio":"What sound does queen begin with?"},
+        {"type":"mc","q":"What sound does rabbit begin with?","choices":["R","U","Y","F"],"answer":"R","audio":"What sound does rabbit begin with?"},
+        {"type":"mc","q":"What sound does sun begin with?","choices":["S","V","A","G"],"answer":"S","audio":"What sound does sun begin with?"},
+        {"type":"mc","q":"What sound does turtle begin with?","choices":["T","W","B","H"],"answer":"T","audio":"What sound does turtle begin with?"},
+        {"type":"mc","q":"What sound does umbrella begin with?","choices":["U","X","C","I"],"answer":"U","audio":"What sound does umbrella begin with?"},
+        {"type":"mc","q":"What sound does van begin with?","choices":["V","Y","D","J"],"answer":"V","audio":"What sound does van begin with?"},
+        {"type":"mc","q":"What sound does wagon begin with?","choices":["W","A","E","K"],"answer":"W","audio":"What sound does wagon begin with?"},
+        {"type":"mc","q":"What sound does x-ray begin with?","choices":["X","B","F","L"],"answer":"X","audio":"What sound does x-ray begin with?"},
+        {"type":"mc","q":"What sound does yarn begin with?","choices":["Y","C","G","M"],"answer":"Y","audio":"What sound does yarn begin with?"}
+      ]
+    },
+    "prek:eng:rhymes":{
+      name:"Rhyming Words",
+      questions:[
+        {"type":"mc","q":"Which word rhymes with cat?","choices":["hat","leaf","book","desk"],"answer":"hat","audio":"Which word rhymes with cat?"},
+        {"type":"mc","q":"Which word rhymes with dog?","choices":["log","book","desk","milk"],"answer":"log","audio":"Which word rhymes with dog?"},
+        {"type":"mc","q":"Which word rhymes with sun?","choices":["fun","desk","milk","jump"],"answer":"fun","audio":"Which word rhymes with sun?"},
+        {"type":"mc","q":"Which word rhymes with cake?","choices":["lake","milk","jump","leaf"],"answer":"lake","audio":"Which word rhymes with cake?"},
+        {"type":"mc","q":"Which word rhymes with bee?","choices":["tree","jump","leaf","book"],"answer":"tree","audio":"Which word rhymes with bee?"},
+        {"type":"mc","q":"Which word rhymes with mouse?","choices":["house","leaf","book","desk"],"answer":"house","audio":"Which word rhymes with mouse?"},
+        {"type":"mc","q":"Which word rhymes with star?","choices":["car","book","desk","milk"],"answer":"car","audio":"Which word rhymes with star?"},
+        {"type":"mc","q":"Which word rhymes with boat?","choices":["goat","desk","milk","jump"],"answer":"goat","audio":"Which word rhymes with boat?"},
+        {"type":"mc","q":"Which word rhymes with pig?","choices":["wig","milk","jump","leaf"],"answer":"wig","audio":"Which word rhymes with pig?"},
+        {"type":"mc","q":"Which word rhymes with ring?","choices":["sing","jump","leaf","book"],"answer":"sing","audio":"Which word rhymes with ring?"},
+        {"type":"mc","q":"Which word rhymes with fox?","choices":["box","leaf","book","desk"],"answer":"box","audio":"Which word rhymes with fox?"},
+        {"type":"mc","q":"Which word rhymes with bear?","choices":["chair","book","desk","milk"],"answer":"chair","audio":"Which word rhymes with bear?"},
+        {"type":"mc","q":"Which word rhymes with moon?","choices":["spoon","desk","milk","jump"],"answer":"spoon","audio":"Which word rhymes with moon?"},
+        {"type":"mc","q":"Which word rhymes with duck?","choices":["truck","milk","jump","leaf"],"answer":"truck","audio":"Which word rhymes with duck?"},
+        {"type":"mc","q":"Which word rhymes with light?","choices":["kite","jump","leaf","book"],"answer":"kite","audio":"Which word rhymes with light?"},
+        {"type":"mc","q":"Which word rhymes with frog?","choices":["log","leaf","book","desk"],"answer":"log","audio":"Which word rhymes with frog?"},
+        {"type":"mc","q":"Which word rhymes with snail?","choices":["pail","book","desk","milk"],"answer":"pail","audio":"Which word rhymes with snail?"},
+        {"type":"mc","q":"Which word rhymes with sock?","choices":["rock","desk","milk","jump"],"answer":"rock","audio":"Which word rhymes with sock?"},
+        {"type":"mc","q":"Which word rhymes with bug?","choices":["rug","milk","jump","leaf"],"answer":"rug","audio":"Which word rhymes with bug?"},
+        {"type":"mc","q":"Which word rhymes with hen?","choices":["pen","jump","leaf","book"],"answer":"pen","audio":"Which word rhymes with hen?"},
+        {"type":"mc","q":"Which word rhymes with corn?","choices":["horn","leaf","book","desk"],"answer":"horn","audio":"Which word rhymes with corn?"},
+        {"type":"mc","q":"Which word rhymes with blue?","choices":["shoe","book","desk","milk"],"answer":"shoe","audio":"Which word rhymes with blue?"},
+        {"type":"mc","q":"Which word rhymes with fish?","choices":["dish","desk","milk","jump"],"answer":"dish","audio":"Which word rhymes with fish?"},
+        {"type":"mc","q":"Which word rhymes with king?","choices":["wing","milk","jump","leaf"],"answer":"wing","audio":"Which word rhymes with king?"},
+        {"type":"mc","q":"Which word rhymes with jam?","choices":["ham","jump","leaf","book"],"answer":"ham","audio":"Which word rhymes with jam?"}
+      ]
+    },
+    "prek:math:addition":{
+      name:"Picture Addition",
+      questions:[
+        {"type":"mc","q":"Count the dots: ● + ●. How many altogether?","choices":["2","1","3","4"],"answer":"2","audio":"Count the dots: ● + ●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ●● + ●. How many altogether?","choices":["3","2","4","5"],"answer":"3","audio":"Count the dots: ●● + ●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ●●● + ●. How many altogether?","choices":["4","3","5","6"],"answer":"4","audio":"Count the dots: ●●● + ●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ●●●● + ●. How many altogether?","choices":["5","4","6","7"],"answer":"5","audio":"Count the dots: ●●●● + ●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ●●●●● + ●. How many altogether?","choices":["6","5","7","8"],"answer":"6","audio":"Count the dots: ●●●●● + ●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ● + ●●. How many altogether?","choices":["3","2","4","5"],"answer":"3","audio":"Count the dots: ● + ●●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ●● + ●●. How many altogether?","choices":["4","3","5","6"],"answer":"4","audio":"Count the dots: ●● + ●●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ●●● + ●●. How many altogether?","choices":["5","4","6","7"],"answer":"5","audio":"Count the dots: ●●● + ●●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ●●●● + ●●. How many altogether?","choices":["6","5","7","8"],"answer":"6","audio":"Count the dots: ●●●● + ●●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ●●●●● + ●●. How many altogether?","choices":["7","6","8","9"],"answer":"7","audio":"Count the dots: ●●●●● + ●●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ● + ●●●. How many altogether?","choices":["4","3","5","6"],"answer":"4","audio":"Count the dots: ● + ●●●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ●● + ●●●. How many altogether?","choices":["5","4","6","7"],"answer":"5","audio":"Count the dots: ●● + ●●●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ●●● + ●●●. How many altogether?","choices":["6","5","7","8"],"answer":"6","audio":"Count the dots: ●●● + ●●●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ●●●● + ●●●. How many altogether?","choices":["7","6","8","9"],"answer":"7","audio":"Count the dots: ●●●● + ●●●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ●●●●● + ●●●. How many altogether?","choices":["8","7","9","10"],"answer":"8","audio":"Count the dots: ●●●●● + ●●●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ● + ●●●●. How many altogether?","choices":["5","4","6","7"],"answer":"5","audio":"Count the dots: ● + ●●●●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ●● + ●●●●. How many altogether?","choices":["6","5","7","8"],"answer":"6","audio":"Count the dots: ●● + ●●●●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ●●● + ●●●●. How many altogether?","choices":["7","6","8","9"],"answer":"7","audio":"Count the dots: ●●● + ●●●●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ●●●● + ●●●●. How many altogether?","choices":["8","7","9","10"],"answer":"8","audio":"Count the dots: ●●●● + ●●●●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ●●●●● + ●●●●. How many altogether?","choices":["9","8","10","11"],"answer":"9","audio":"Count the dots: ●●●●● + ●●●●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ● + ●●●●●. How many altogether?","choices":["6","5","7","8"],"answer":"6","audio":"Count the dots: ● + ●●●●●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ●● + ●●●●●. How many altogether?","choices":["7","6","8","9"],"answer":"7","audio":"Count the dots: ●● + ●●●●●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ●●● + ●●●●●. How many altogether?","choices":["8","7","9","10"],"answer":"8","audio":"Count the dots: ●●● + ●●●●●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ●●●● + ●●●●●. How many altogether?","choices":["9","8","10","11"],"answer":"9","audio":"Count the dots: ●●●● + ●●●●●. How many altogether?"},
+        {"type":"mc","q":"Count the dots: ●●●●● + ●●●●●. How many altogether?","choices":["10","9","11","12"],"answer":"10","audio":"Count the dots: ●●●●● + ●●●●●. How many altogether?"}
+      ]
+    },
+    "prek:math:counting":{
+      name:"Counting to 20",
+      questions:[
+        {"type":"mc","q":"Count the stars: ●","choices":["1","0","2","3"],"answer":"1","audio":"Count the stars: ●"},
+        {"type":"mc","q":"Count the apples: ●●","choices":["2","1","3","4"],"answer":"2","audio":"Count the apples: ●●"},
+        {"type":"mc","q":"Count the blocks: ●●●","choices":["3","2","4","5"],"answer":"3","audio":"Count the blocks: ●●●"},
+        {"type":"mc","q":"Count the balls: ●●●●","choices":["4","3","5","6"],"answer":"4","audio":"Count the balls: ●●●●"},
+        {"type":"mc","q":"Count the flowers: ●●●●●","choices":["5","4","6","7"],"answer":"5","audio":"Count the flowers: ●●●●●"},
+        {"type":"mc","q":"Count the dots: ●●●●●●","choices":["6","5","7","8"],"answer":"6","audio":"Count the dots: ●●●●●●"},
+        {"type":"mc","q":"Count the hearts: ●●●●●●●","choices":["7","6","8","9"],"answer":"7","audio":"Count the hearts: ●●●●●●●"},
+        {"type":"mc","q":"Count the moons: ●●●●●●●●","choices":["8","7","9","10"],"answer":"8","audio":"Count the moons: ●●●●●●●●"},
+        {"type":"mc","q":"Count the kites: ●●●●●●●●●","choices":["9","8","10","11"],"answer":"9","audio":"Count the kites: ●●●●●●●●●"},
+        {"type":"mc","q":"Count the books: ●●●●●●●●●●","choices":["10","9","11","12"],"answer":"10","audio":"Count the books: ●●●●●●●●●●"},
+        {"type":"mc","q":"Count the cars: ●●●●●●●●●●●","choices":["11","10","12","13"],"answer":"11","audio":"Count the cars: ●●●●●●●●●●●"},
+        {"type":"mc","q":"Count the fish: ●●●●●●●●●●●●","choices":["12","11","13","14"],"answer":"12","audio":"Count the fish: ●●●●●●●●●●●●"},
+        {"type":"mc","q":"Count the birds: ●●●●●●●●●●●●●","choices":["13","12","14","15"],"answer":"13","audio":"Count the birds: ●●●●●●●●●●●●●"},
+        {"type":"mc","q":"Count the cups: ●●●●●●●●●●●●●●","choices":["14","13","15","16"],"answer":"14","audio":"Count the cups: ●●●●●●●●●●●●●●"},
+        {"type":"mc","q":"Count the hats: ●●●●●●●●●●●●●●●","choices":["15","14","16","17"],"answer":"15","audio":"Count the hats: ●●●●●●●●●●●●●●●"},
+        {"type":"mc","q":"Count the trees: ●●●●●●●●●●●●●●●●","choices":["16","15","17","18"],"answer":"16","audio":"Count the trees: ●●●●●●●●●●●●●●●●"},
+        {"type":"mc","q":"Count the rings: ●●●●●●●●●●●●●●●●●","choices":["17","16","18","19"],"answer":"17","audio":"Count the rings: ●●●●●●●●●●●●●●●●●"},
+        {"type":"mc","q":"Count the shells: ●●●●●●●●●●●●●●●●●●","choices":["18","17","19","20"],"answer":"18","audio":"Count the shells: ●●●●●●●●●●●●●●●●●●"},
+        {"type":"mc","q":"Count the bears: ●●●●●●●●●●●●●●●●●●●","choices":["19","18","20","21"],"answer":"19","audio":"Count the bears: ●●●●●●●●●●●●●●●●●●●"},
+        {"type":"mc","q":"Count the drums: ●●●●●●●●●●●●●●●●●●●●","choices":["20","19","21","22"],"answer":"20","audio":"Count the drums: ●●●●●●●●●●●●●●●●●●●●"},
+        {"type":"mc","q":"Count the boats: ●","choices":["1","0","2","3"],"answer":"1","audio":"Count the boats: ●"},
+        {"type":"mc","q":"Count the keys: ●●","choices":["2","1","3","4"],"answer":"2","audio":"Count the keys: ●●"},
+        {"type":"mc","q":"Count the socks: ●●●","choices":["3","2","4","5"],"answer":"3","audio":"Count the socks: ●●●"},
+        {"type":"mc","q":"Count the leaves: ●●●●","choices":["4","3","5","6"],"answer":"4","audio":"Count the leaves: ●●●●"},
+        {"type":"mc","q":"Count the flags: ●●●●●","choices":["5","4","6","7"],"answer":"5","audio":"Count the flags: ●●●●●"}
+      ]
+    },
+    "prek:math:shapes":{
+      name:"Shape Match",
+      questions:[
+        {"type":"mc","q":"Which shape is round with no corners?","choices":["circle","triangle","square","rectangle"],"answer":"circle","audio":"Which shape is round with no corners?"},
+        {"type":"mc","q":"Which shape has three sides?","choices":["triangle","square","rectangle","oval"],"answer":"triangle","audio":"Which shape has three sides?"},
+        {"type":"mc","q":"Which shape has four equal sides?","choices":["square","rectangle","oval","star"],"answer":"square","audio":"Which shape has four equal sides?"},
+        {"type":"mc","q":"Which shape looks like a stretched circle?","choices":["oval","circle","triangle","square"],"answer":"oval","audio":"Which shape looks like a stretched circle?"},
+        {"type":"mc","q":"Which shape has five points?","choices":["star","triangle","square","rectangle"],"answer":"star","audio":"Which shape has five points?"},
+        {"type":"mc","q":"A clock is usually shaped like a...","choices":["circle","rectangle","oval","star"],"answer":"circle","audio":"A clock is usually shaped like a..."},
+        {"type":"mc","q":"A slice of pizza often looks like a...","choices":["triangle","circle","square","rectangle"],"answer":"triangle","audio":"A slice of pizza often looks like a..."},
+        {"type":"mc","q":"A floor tile can look like a...","choices":["square","triangle","rectangle","oval"],"answer":"square","audio":"A floor tile can look like a..."},
+        {"type":"mc","q":"An egg is shaped like an...","choices":["oval","square","rectangle","star"],"answer":"oval","audio":"An egg is shaped like an..."},
+        {"type":"mc","q":"Which shape has four sides, with two long and two short?","choices":["rectangle","circle","triangle","square"],"answer":"rectangle","audio":"Which shape has four sides, with two long and two short?"},
+        {"type":"mc","q":"Which shape can roll most easily?","choices":["circle","square","rectangle","oval"],"answer":"circle","audio":"Which shape can roll most easily?"},
+        {"type":"mc","q":"Which shape has exactly three corners?","choices":["triangle","rectangle","oval","star"],"answer":"triangle","audio":"Which shape has exactly three corners?"},
+        {"type":"mc","q":"Which shape has four corners and equal sides?","choices":["square","circle","triangle","rectangle"],"answer":"square","audio":"Which shape has four corners and equal sides?"},
+        {"type":"mc","q":"Which shape has no straight sides?","choices":["circle","square","rectangle","oval"],"answer":"circle","audio":"Which shape has no straight sides?"},
+        {"type":"mc","q":"Which shape looks like a door?","choices":["rectangle","square","oval","star"],"answer":"rectangle","audio":"Which shape looks like a door?"},
+        {"type":"mc","q":"Which shape looks like a ball from the front?","choices":["circle","triangle","square","rectangle"],"answer":"circle","audio":"Which shape looks like a ball from the front?"},
+        {"type":"mc","q":"Which shape looks like a party hat?","choices":["triangle","square","rectangle","oval"],"answer":"triangle","audio":"Which shape looks like a party hat?"},
+        {"type":"mc","q":"Which shape looks like a picture frame?","choices":["rectangle","square","oval","star"],"answer":"rectangle","audio":"Which shape looks like a picture frame?"},
+        {"type":"mc","q":"Which shape looks like an egg?","choices":["oval","circle","triangle","square"],"answer":"oval","audio":"Which shape looks like an egg?"},
+        {"type":"mc","q":"Which shape has points that shine in the sky?","choices":["star","triangle","square","rectangle"],"answer":"star","audio":"Which shape has points that shine in the sky?"},
+        {"type":"mc","q":"Which shape has zero corners?","choices":["circle","rectangle","oval","star"],"answer":"circle","audio":"Which shape has zero corners?"},
+        {"type":"mc","q":"Which shape has 3 sides and 3 corners?","choices":["triangle","circle","square","rectangle"],"answer":"triangle","audio":"Which shape has 3 sides and 3 corners?"},
+        {"type":"mc","q":"Which shape has 4 equal sides and 4 corners?","choices":["square","triangle","rectangle","oval"],"answer":"square","audio":"Which shape has 4 equal sides and 4 corners?"},
+        {"type":"mc","q":"Which shape is longer than it is wide and has 4 corners?","choices":["rectangle","square","oval","star"],"answer":"rectangle","audio":"Which shape is longer than it is wide and has 4 corners?"},
+        {"type":"mc","q":"Which shape is curved and longer than a circle?","choices":["oval","circle","triangle","square"],"answer":"oval","audio":"Which shape is curved and longer than a circle?"}
+      ]
+    }
   });
 })();

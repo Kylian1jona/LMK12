@@ -52,7 +52,7 @@ function earlyBankRecord(){
 }
 
 function earlyBankChoices(question){
-  const choices=[String(question.a),...(question.w||[]).map(String)];
+  const choices=(question.choices||[]).map(String);
   const shift=earlyBankRound%choices.length;
   return choices.slice(shift).concat(choices.slice(0,shift));
 }
@@ -104,7 +104,7 @@ function startEarlyBank(key,backId){
 function earlyBankPick(choice){
   if(earlyBankAnswered) return;
   const question=earlyBankRecord().questions[earlyBankRound];
-  if(String(choice)===String(question.a)){
+  if(String(choice)===String(question.answer)){
     earlyBankAnswered=true;
     $("earlyBankFeedback").textContent="Correct!";
     $("earlyBankNext").disabled=false;

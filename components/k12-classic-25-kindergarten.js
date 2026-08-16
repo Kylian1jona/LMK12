@@ -1,212 +1,185 @@
-/* Kindergarten interactive lesson source. */
-/* ===========================
-   Kindergarten lessons (3)
-=========================== */
-const SYLLABLE_WORDS = [
-  {word:"banana", syl:["ba","na","na"], count:3, pic:"🍌"},
-  {word:"pizza", syl:["pi","zza"], count:2, pic:"🍕"},
-  {word:"pencil", syl:["pen","cil"], count:2, pic:"✏️"},
-  {word:"rainbow", syl:["rain","bow"], count:2, pic:"🌈"},
-  {word:"monkey", syl:["mon","key"], count:2, pic:"🐵"},
-  {word:"tiger", syl:["ti","ger"], count:2, pic:"🐯"},
-  {word:"apple", syl:["ap","ple"], count:2, pic:"🍎"},
-  {word:"cookie", syl:["coo","kie"], count:2, pic:"🍪"},
-  {word:"elephant", syl:["el","e","phant"], count:3, pic:"🐘"},
-  {word:"computer", syl:["com","pu","ter"], count:3, pic:"💻"},
-  {word:"music", syl:["mu","sic"], count:2, pic:"🎵"},
-  {word:"sunshine", syl:["sun","shine"], count:2, pic:"🌞"},
-];
-let kscIdx = 0, kscRound = 1;
-const KSC_TOTAL = 12;
-
-function kscLoad(){
-  const item = SYLLABLE_WORDS[kscIdx % SYLLABLE_WORDS.length];
-  $("kscPic").textContent = item.pic;
-  $("kscWord").textContent = item.word.toUpperCase();
-  $("kscFb").textContent = "";
-  $("kscProg").textContent = `Round ${kscRound} of ${KSC_TOTAL}`;
-  $("kscNextBtn").disabled = true;
-  $("kscWord").onclick = () => { safeClick(); speakGlobal(item.word); };
-  speakQuestionWithChoices(`How many syllables in ${item.word}?`, ["1", "2", "3", "4"]);
-}
-function kscPick(n){
-  safeClick();
-  const item = SYLLABLE_WORDS[kscIdx % SYLLABLE_WORDS.length];
-  if(n === item.count){
-    $("kscFb").textContent = "🎉 Correct!";
-    correctReward("Great job!");
-    $("kscNextBtn").disabled = false;
-  }else{
-    $("kscFb").textContent = "❌ Try again!";
-    const msg = `Not quite. ${item.word} has ${item.count} syllables. Clap each part of the word.`;
-    $("kscFb").textContent = msg;
-    wrongPenalty(msg);
-  }
-}
-function kscNext(){
-  safeClick();
-  if($("kscNextBtn").disabled) return;
-  if(kscRound < KSC_TOTAL){ kscRound++; kscIdx = (kscIdx + 1) % SYLLABLE_WORDS.length; kscLoad(); }
-  else finishSpecialLesson("k-syll-count", "Awesome syllables!", "k-syll-count");
-}
-function kscReset(){ safeClick(); prepareSpecialLesson("k-syll-count"); kscRound = 1; kscIdx = 0; kscLoad(); }
-
-/* Build the Word */
-let ksbIdx = 8, ksbRound = 1;
-const KSB_TOTAL = 10;
-let ksbBuild = [];
-
-function ksbLoad(){
-  const item = SYLLABLE_WORDS[ksbIdx % SYLLABLE_WORDS.length];
-  $("ksbPic").textContent = item.pic;
-  $("ksbWord").textContent = item.word.toUpperCase();
-  $("ksbProg").textContent = `Round ${ksbRound} of ${KSB_TOTAL}`;
-  $("ksbFb").textContent = "";
-  $("ksbBuild").textContent = "";
-  $("ksbNextBtn").disabled = true;
-  ksbBuild = [];
-
-  const tiles = [...item.syl].sort(()=>Math.random()-0.5);
-  const wrap = $("ksbTiles");
-  wrap.innerHTML = "";
-  tiles.forEach(s=>{
-    const b = document.createElement("button");
-    b.type = "button";
-    b.className = "btn btn-main";
-    b.style.borderRadius = "14px";
-    b.style.fontSize = "22px";
-    b.textContent = s.toUpperCase();
-    b.onclick = () => {
-      safeClick();
-      ksbBuild.push(s);
-      $("ksbBuild").textContent = ksbBuild.map(x=>x.toUpperCase()).join(" - ");
-      speakGlobal(s);
-    };
-    wrap.appendChild(b);
-  });
-
-  speakGlobal("Build the word using syllables.");
-}
-function ksbClear(){ safeClick(); ksbBuild = []; $("ksbBuild").textContent = ""; $("ksbFb").textContent = ""; }
-function ksbCheck(){
-  safeClick();
-  const item = SYLLABLE_WORDS[ksbIdx % SYLLABLE_WORDS.length];
-  if(ksbBuild.length !== item.syl.length){ $("ksbFb").textContent = "Tap all syllables first!"; speakGlobal("Tap all syllables first."); return; }
-  const ok = item.syl.join("|") === ksbBuild.join("|");
-  if(ok){
-    $("ksbFb").textContent = "🎉 Correct!";
-    correctReward("Great job!");
-    $("ksbNextBtn").disabled = false;
-    speakGlobal(item.word);
-    launchConfetti(90);
-  }else{
-    $("ksbFb").textContent = "❌ Not yet! Try again";
-    const msg = `Not quite. Build ${item.word} in this order: ${item.syl.join(", ")}.`;
-    $("ksbFb").textContent = msg;
-    wrongPenalty(msg);
-  }
-}
-function ksbNext(){
-  safeClick();
-  if($("ksbNextBtn").disabled) return;
-  if(ksbRound < KSB_TOTAL){ ksbRound++; ksbIdx = (ksbIdx + 1) % SYLLABLE_WORDS.length; ksbLoad(); }
-  else finishSpecialLesson("k-syll-build", "Amazing word building!", "k-syll-build");
-}
-function ksbReset(){ safeClick(); prepareSpecialLesson("k-syll-build"); ksbRound = 1; ksbIdx = 8; ksbLoad(); }
-
-/* Rhymes */
-const RHYMES = [
-  {word:"cat", pic:"🐱", good:"hat", bad:["dog","sun"]},
-  {word:"ball", pic:"⚽", good:"tall", bad:["fish","cup"]},
-  {word:"cake", pic:"🎂", good:"snake", bad:["tree","sock"]},
-  {word:"star", pic:"⭐", good:"car", bad:["book","moon"]},
-  {word:"fish", pic:"🐟", good:"dish", bad:["rain","shoe"]},
-  {word:"bed", pic:"🛏️", good:"red", bad:["blue","toy"]},
-  {word:"frog", pic:"🐸", good:"log", bad:["map","pen"]},
-  {word:"boat", pic:"⛵", good:"goat", bad:["ring","cake"]},
-  {word:"kite", pic:"🪁", good:"night", bad:["day","sun"]},
-  {word:"tree", pic:"🌳", good:"bee", bad:["cat","car"]},
-  {word:"sock", pic:"🧦", good:"rock", bad:["hat","bed"]},
-  {word:"moon", pic:"🌙", good:"spoon", bad:["ball","frog"]},
-];
-let krRound = 1, krIdx = 0;
-const KR_TOTAL = 12;
-let krCorrect = "";
-let krChoices = [];
-
-function krGen(){
-  $("krFb").textContent = "";
-  $("krNextBtn").disabled = true;
-  $("krProg").textContent = `Round ${krRound} of ${KR_TOTAL}`;
-
-  const item = RHYMES[krIdx % RHYMES.length];
-  $("krPic").textContent = item.pic;
-  $("krWord").textContent = item.word.toUpperCase();
-
-  krCorrect = item.good.toUpperCase();
-  const opts = padTextChoices([item.good, ...item.bad].map(x=>x.toUpperCase()), ["MAP", "PEN", "TOY", "SUN", "BOOK"]);
-  krChoices = opts;
-  setChoiceButtons("kr", opts);
-
-  speakQuestionWithChoices(`Pick the word that rhymes with ${item.word}.`, opts);
-}
-function krPick(i){
-  safeClick();
-  const item = RHYMES[krIdx % RHYMES.length];
-  const chosen = $("kr"+i).textContent;
-  if(chosen === krCorrect){
-    $("krFb").textContent = "🎉 Correct!";
-    correctReward("Nice rhyming!");
-    $("krNextBtn").disabled = false;
-  }else{
-    $("krFb").textContent = "❌ Try again!";
-    const msg = `Not quite. ${krCorrect} rhymes with ${item.word}. Listen for the ending sound.`;
-    $("krFb").textContent = msg;
-    wrongPenalty(msg);
-  }
-}
-function krNext(){
-  safeClick();
-  if($("krNextBtn").disabled) return;
-  if(krRound < KR_TOTAL){ krRound++; krIdx++; krGen(); }
-  else finishSpecialLesson("k-rhymes", "Great rhyming!", "k-rhymes");
-}
-function krReset(){ safeClick(); prepareSpecialLesson("k-rhymes"); krRound = 1; krIdx = 0; krGen(); }
-
+/* Kindergarten explicit 25-question lesson banks. */
 (function(){
-  const counting=Array.from({length:25},(_,index)=>{
-    const number=index+1;
-    return {q:`What number comes after ${number}?`,a:String(number+1),w:[String(number),String(number+2),String(Math.max(0,number-1))]};
-  });
-  const addition=Array.from({length:25},(_,index)=>{
-    const left=index%6, right=Math.floor(index/6)+1, answer=left+right;
-    return {q:`What is ${left} + ${right}?`,a:String(answer),w:[String(Math.max(0,answer-1)),String(answer+1),String(answer+2)]};
-  });
-  const patternRows=[
-    ["circle, square, circle, square","circle"],["red, blue, red, blue","red"],["1, 2, 1, 2","1"],["triangle, triangle, star, triangle, triangle, star","triangle"],
-    ["small, big, small, big","small"],["yellow, green, yellow, green","yellow"],["A, B, A, B","A"],["square, circle, triangle, square, circle, triangle","square"],
-    ["2, 4, 2, 4","2"],["clap, stomp, clap, stomp","clap"],["star, heart, star, heart","star"],["up, down, up, down","up"],
-    ["red, red, blue, red, red, blue","red"],["1, 1, 3, 1, 1, 3","1"],["circle, star, star, circle, star, star","circle"],
-    ["left, right, left, right","left"],["big, small, small, big, small, small","big"],["A, A, B, A, A, B","A"],
-    ["triangle, square, square, triangle, square, square","triangle"],["5, 6, 5, 6","5"],["sun, moon, sun, moon","sun"],
-    ["green, purple, purple, green, purple, purple","green"],["tap, tap, clap, tap, tap, clap","tap"],["oval, diamond, oval, diamond","oval"],["1, 2, 3, 1, 2, 3","1"]
-  ];
-  const patterns=patternRows.map(([sequence,answer],index)=>({q:`What comes next: ${sequence}, ___?`,a:answer,w:["stop","different",index%2?"blue":"4"].filter(value=>value!==answer).slice(0,3)}));
-  patterns.forEach((question,index)=>{ while(question.w.length<3) question.w.push(["square","9","jump"][question.w.length]); });
-  const syllableRows=[["cat",1],["apple",2],["banana",3],["sun",1],["rabbit",2],["elephant",3],["fish",1],["tiger",2],["computer",3],["book",1],["pencil",2],["dinosaur",3],["hat",1],["flower",2],["umbrella",3],["dog",1],["table",2],["butterfly",3],["star",1],["window",2],["octopus",3],["tree",1],["rocket",2],["potato",3],["moon",1]];
-  const syllables=syllableRows.map(([word,a])=>({q:`How many syllables are in ${word}?`,a:String(a),w:["1","2","3","4"].filter(value=>value!==String(a)).slice(0,3)}));
-  const wordRows=[["cat","CAT"],["dog","DOG"],["sun","SUN"],["map","MAP"],["pig","PIG"],["hat","HAT"],["fish","FISH"],["book","BOOK"],["tree","TREE"],["ball","BALL"],["star","STAR"],["moon","MOON"],["frog","FROG"],["duck","DUCK"],["cake","CAKE"],["kite","KITE"],["boat","BOAT"],["rain","RAIN"],["shoe","SHOE"],["milk","MILK"],["nest","NEST"],["lamp","LAMP"],["ring","RING"],["goat","GOAT"],["bear","BEAR"]];
-  const wordPool=wordRows.map(([,word])=>word);
-  const words=wordRows.map(([clue,a],index)=>({q:`Which word spells ${clue}?`,a,w:[wordPool[(index+4)%25],wordPool[(index+9)%25],wordPool[(index+14)%25]]}));
-  const rhymeRows=[...["cat:hat","dog:log","sun:fun","bee:tree","cake:lake","mouse:house","star:car","boat:goat","pig:wig","ring:sing","fox:box","bear:chair","moon:spoon","duck:truck","light:kite","frog:log","snail:pail","sock:rock","bug:rug","hen:pen","corn:horn","blue:shoe","fish:dish","king:wing","jam:ham"]].map(pair=>pair.split(":"));
-  const rhymeFillers=["book","leaf","desk","milk","jump"];
-  const rhymes=rhymeRows.map(([word,a],index)=>({q:`Which word rhymes with ${word}?`,a,w:[rhymeFillers[index%5],rhymeFillers[(index+1)%5],rhymeFillers[(index+2)%5]]}));
   Object.assign(window.K12_EARLY_BANKS,{
-    "k:eng:syllables":{name:"Syllable Count",questions:syllables},
-    "k:eng:words":{name:"Build the Word",questions:words},
-    "k:eng:rhymes":{name:"Rhyming Words",questions:rhymes},
-    "k:math:counting":{name:"Counting to 30",questions:counting},
-    "k:math:addition":{name:"Addition Within 10",questions:addition},
-    "k:math:patterns":{name:"Shapes and Patterns",questions:patterns}
+    "k:eng:syllables":{
+      name:"Syllable Count",
+      questions:[
+        {"type":"mc","q":"How many syllables are in cat?","choices":["1","2","3","4"],"answer":"1","audio":"How many syllables are in cat?"},
+        {"type":"mc","q":"How many syllables are in apple?","choices":["2","1","3","4"],"answer":"2","audio":"How many syllables are in apple?"},
+        {"type":"mc","q":"How many syllables are in banana?","choices":["3","1","2","4"],"answer":"3","audio":"How many syllables are in banana?"},
+        {"type":"mc","q":"How many syllables are in sun?","choices":["1","2","3","4"],"answer":"1","audio":"How many syllables are in sun?"},
+        {"type":"mc","q":"How many syllables are in rabbit?","choices":["2","1","3","4"],"answer":"2","audio":"How many syllables are in rabbit?"},
+        {"type":"mc","q":"How many syllables are in elephant?","choices":["3","1","2","4"],"answer":"3","audio":"How many syllables are in elephant?"},
+        {"type":"mc","q":"How many syllables are in fish?","choices":["1","2","3","4"],"answer":"1","audio":"How many syllables are in fish?"},
+        {"type":"mc","q":"How many syllables are in tiger?","choices":["2","1","3","4"],"answer":"2","audio":"How many syllables are in tiger?"},
+        {"type":"mc","q":"How many syllables are in computer?","choices":["3","1","2","4"],"answer":"3","audio":"How many syllables are in computer?"},
+        {"type":"mc","q":"How many syllables are in book?","choices":["1","2","3","4"],"answer":"1","audio":"How many syllables are in book?"},
+        {"type":"mc","q":"How many syllables are in pencil?","choices":["2","1","3","4"],"answer":"2","audio":"How many syllables are in pencil?"},
+        {"type":"mc","q":"How many syllables are in dinosaur?","choices":["3","1","2","4"],"answer":"3","audio":"How many syllables are in dinosaur?"},
+        {"type":"mc","q":"How many syllables are in hat?","choices":["1","2","3","4"],"answer":"1","audio":"How many syllables are in hat?"},
+        {"type":"mc","q":"How many syllables are in flower?","choices":["2","1","3","4"],"answer":"2","audio":"How many syllables are in flower?"},
+        {"type":"mc","q":"How many syllables are in umbrella?","choices":["3","1","2","4"],"answer":"3","audio":"How many syllables are in umbrella?"},
+        {"type":"mc","q":"How many syllables are in dog?","choices":["1","2","3","4"],"answer":"1","audio":"How many syllables are in dog?"},
+        {"type":"mc","q":"How many syllables are in table?","choices":["2","1","3","4"],"answer":"2","audio":"How many syllables are in table?"},
+        {"type":"mc","q":"How many syllables are in butterfly?","choices":["3","1","2","4"],"answer":"3","audio":"How many syllables are in butterfly?"},
+        {"type":"mc","q":"How many syllables are in star?","choices":["1","2","3","4"],"answer":"1","audio":"How many syllables are in star?"},
+        {"type":"mc","q":"How many syllables are in window?","choices":["2","1","3","4"],"answer":"2","audio":"How many syllables are in window?"},
+        {"type":"mc","q":"How many syllables are in octopus?","choices":["3","1","2","4"],"answer":"3","audio":"How many syllables are in octopus?"},
+        {"type":"mc","q":"How many syllables are in tree?","choices":["1","2","3","4"],"answer":"1","audio":"How many syllables are in tree?"},
+        {"type":"mc","q":"How many syllables are in rocket?","choices":["2","1","3","4"],"answer":"2","audio":"How many syllables are in rocket?"},
+        {"type":"mc","q":"How many syllables are in potato?","choices":["3","1","2","4"],"answer":"3","audio":"How many syllables are in potato?"},
+        {"type":"mc","q":"How many syllables are in moon?","choices":["1","2","3","4"],"answer":"1","audio":"How many syllables are in moon?"}
+      ]
+    },
+    "k:eng:words":{
+      name:"Build the Word",
+      questions:[
+        {"type":"mc","q":"Which word spells cat?","choices":["CAT","PIG","BALL","CAKE"],"answer":"CAT","audio":"Which word spells cat?"},
+        {"type":"mc","q":"Which word spells dog?","choices":["DOG","HAT","STAR","KITE"],"answer":"DOG","audio":"Which word spells dog?"},
+        {"type":"mc","q":"Which word spells sun?","choices":["SUN","FISH","MOON","BOAT"],"answer":"SUN","audio":"Which word spells sun?"},
+        {"type":"mc","q":"Which word spells map?","choices":["MAP","BOOK","FROG","RAIN"],"answer":"MAP","audio":"Which word spells map?"},
+        {"type":"mc","q":"Which word spells pig?","choices":["PIG","TREE","DUCK","SHOE"],"answer":"PIG","audio":"Which word spells pig?"},
+        {"type":"mc","q":"Which word spells hat?","choices":["HAT","BALL","CAKE","MILK"],"answer":"HAT","audio":"Which word spells hat?"},
+        {"type":"mc","q":"Which word spells fish?","choices":["FISH","STAR","KITE","NEST"],"answer":"FISH","audio":"Which word spells fish?"},
+        {"type":"mc","q":"Which word spells book?","choices":["BOOK","MOON","BOAT","LAMP"],"answer":"BOOK","audio":"Which word spells book?"},
+        {"type":"mc","q":"Which word spells tree?","choices":["TREE","FROG","RAIN","RING"],"answer":"TREE","audio":"Which word spells tree?"},
+        {"type":"mc","q":"Which word spells ball?","choices":["BALL","DUCK","SHOE","GOAT"],"answer":"BALL","audio":"Which word spells ball?"},
+        {"type":"mc","q":"Which word spells star?","choices":["STAR","CAKE","MILK","BEAR"],"answer":"STAR","audio":"Which word spells star?"},
+        {"type":"mc","q":"Which word spells moon?","choices":["MOON","KITE","NEST","CAT"],"answer":"MOON","audio":"Which word spells moon?"},
+        {"type":"mc","q":"Which word spells frog?","choices":["FROG","BOAT","LAMP","DOG"],"answer":"FROG","audio":"Which word spells frog?"},
+        {"type":"mc","q":"Which word spells duck?","choices":["DUCK","RAIN","RING","SUN"],"answer":"DUCK","audio":"Which word spells duck?"},
+        {"type":"mc","q":"Which word spells cake?","choices":["CAKE","SHOE","GOAT","MAP"],"answer":"CAKE","audio":"Which word spells cake?"},
+        {"type":"mc","q":"Which word spells kite?","choices":["KITE","MILK","BEAR","PIG"],"answer":"KITE","audio":"Which word spells kite?"},
+        {"type":"mc","q":"Which word spells boat?","choices":["BOAT","NEST","CAT","HAT"],"answer":"BOAT","audio":"Which word spells boat?"},
+        {"type":"mc","q":"Which word spells rain?","choices":["RAIN","LAMP","DOG","FISH"],"answer":"RAIN","audio":"Which word spells rain?"},
+        {"type":"mc","q":"Which word spells shoe?","choices":["SHOE","RING","SUN","BOOK"],"answer":"SHOE","audio":"Which word spells shoe?"},
+        {"type":"mc","q":"Which word spells milk?","choices":["MILK","GOAT","MAP","TREE"],"answer":"MILK","audio":"Which word spells milk?"},
+        {"type":"mc","q":"Which word spells nest?","choices":["NEST","BEAR","PIG","BALL"],"answer":"NEST","audio":"Which word spells nest?"},
+        {"type":"mc","q":"Which word spells lamp?","choices":["LAMP","CAT","HAT","STAR"],"answer":"LAMP","audio":"Which word spells lamp?"},
+        {"type":"mc","q":"Which word spells ring?","choices":["RING","DOG","FISH","MOON"],"answer":"RING","audio":"Which word spells ring?"},
+        {"type":"mc","q":"Which word spells goat?","choices":["GOAT","SUN","BOOK","FROG"],"answer":"GOAT","audio":"Which word spells goat?"},
+        {"type":"mc","q":"Which word spells bear?","choices":["BEAR","MAP","TREE","DUCK"],"answer":"BEAR","audio":"Which word spells bear?"}
+      ]
+    },
+    "k:eng:rhymes":{
+      name:"Rhyming Words",
+      questions:[
+        {"type":"mc","q":"Which word rhymes with cat?","choices":["hat","book","leaf","desk"],"answer":"hat","audio":"Which word rhymes with cat?"},
+        {"type":"mc","q":"Which word rhymes with dog?","choices":["log","leaf","desk","milk"],"answer":"log","audio":"Which word rhymes with dog?"},
+        {"type":"mc","q":"Which word rhymes with sun?","choices":["fun","desk","milk","jump"],"answer":"fun","audio":"Which word rhymes with sun?"},
+        {"type":"mc","q":"Which word rhymes with bee?","choices":["tree","milk","jump","book"],"answer":"tree","audio":"Which word rhymes with bee?"},
+        {"type":"mc","q":"Which word rhymes with cake?","choices":["lake","jump","book","leaf"],"answer":"lake","audio":"Which word rhymes with cake?"},
+        {"type":"mc","q":"Which word rhymes with mouse?","choices":["house","book","leaf","desk"],"answer":"house","audio":"Which word rhymes with mouse?"},
+        {"type":"mc","q":"Which word rhymes with star?","choices":["car","leaf","desk","milk"],"answer":"car","audio":"Which word rhymes with star?"},
+        {"type":"mc","q":"Which word rhymes with boat?","choices":["goat","desk","milk","jump"],"answer":"goat","audio":"Which word rhymes with boat?"},
+        {"type":"mc","q":"Which word rhymes with pig?","choices":["wig","milk","jump","book"],"answer":"wig","audio":"Which word rhymes with pig?"},
+        {"type":"mc","q":"Which word rhymes with ring?","choices":["sing","jump","book","leaf"],"answer":"sing","audio":"Which word rhymes with ring?"},
+        {"type":"mc","q":"Which word rhymes with fox?","choices":["box","book","leaf","desk"],"answer":"box","audio":"Which word rhymes with fox?"},
+        {"type":"mc","q":"Which word rhymes with bear?","choices":["chair","leaf","desk","milk"],"answer":"chair","audio":"Which word rhymes with bear?"},
+        {"type":"mc","q":"Which word rhymes with moon?","choices":["spoon","desk","milk","jump"],"answer":"spoon","audio":"Which word rhymes with moon?"},
+        {"type":"mc","q":"Which word rhymes with duck?","choices":["truck","milk","jump","book"],"answer":"truck","audio":"Which word rhymes with duck?"},
+        {"type":"mc","q":"Which word rhymes with light?","choices":["kite","jump","book","leaf"],"answer":"kite","audio":"Which word rhymes with light?"},
+        {"type":"mc","q":"Which word rhymes with frog?","choices":["log","book","leaf","desk"],"answer":"log","audio":"Which word rhymes with frog?"},
+        {"type":"mc","q":"Which word rhymes with snail?","choices":["pail","leaf","desk","milk"],"answer":"pail","audio":"Which word rhymes with snail?"},
+        {"type":"mc","q":"Which word rhymes with sock?","choices":["rock","desk","milk","jump"],"answer":"rock","audio":"Which word rhymes with sock?"},
+        {"type":"mc","q":"Which word rhymes with bug?","choices":["rug","milk","jump","book"],"answer":"rug","audio":"Which word rhymes with bug?"},
+        {"type":"mc","q":"Which word rhymes with hen?","choices":["pen","jump","book","leaf"],"answer":"pen","audio":"Which word rhymes with hen?"},
+        {"type":"mc","q":"Which word rhymes with corn?","choices":["horn","book","leaf","desk"],"answer":"horn","audio":"Which word rhymes with corn?"},
+        {"type":"mc","q":"Which word rhymes with blue?","choices":["shoe","leaf","desk","milk"],"answer":"shoe","audio":"Which word rhymes with blue?"},
+        {"type":"mc","q":"Which word rhymes with fish?","choices":["dish","desk","milk","jump"],"answer":"dish","audio":"Which word rhymes with fish?"},
+        {"type":"mc","q":"Which word rhymes with king?","choices":["wing","milk","jump","book"],"answer":"wing","audio":"Which word rhymes with king?"},
+        {"type":"mc","q":"Which word rhymes with jam?","choices":["ham","jump","book","leaf"],"answer":"ham","audio":"Which word rhymes with jam?"}
+      ]
+    },
+    "k:math:counting":{
+      name:"Counting to 30",
+      questions:[
+        {"type":"mc","q":"What number comes after 1?","choices":["2","1","3","0"],"answer":"2","audio":"What number comes after 1?"},
+        {"type":"mc","q":"What number comes after 2?","choices":["3","2","4","1"],"answer":"3","audio":"What number comes after 2?"},
+        {"type":"mc","q":"What number comes after 3?","choices":["4","3","5","2"],"answer":"4","audio":"What number comes after 3?"},
+        {"type":"mc","q":"What number comes after 4?","choices":["5","4","6","3"],"answer":"5","audio":"What number comes after 4?"},
+        {"type":"mc","q":"What number comes after 5?","choices":["6","5","7","4"],"answer":"6","audio":"What number comes after 5?"},
+        {"type":"mc","q":"What number comes after 6?","choices":["7","6","8","5"],"answer":"7","audio":"What number comes after 6?"},
+        {"type":"mc","q":"What number comes after 7?","choices":["8","7","9","6"],"answer":"8","audio":"What number comes after 7?"},
+        {"type":"mc","q":"What number comes after 8?","choices":["9","8","10","7"],"answer":"9","audio":"What number comes after 8?"},
+        {"type":"mc","q":"What number comes after 9?","choices":["10","9","11","8"],"answer":"10","audio":"What number comes after 9?"},
+        {"type":"mc","q":"What number comes after 10?","choices":["11","10","12","9"],"answer":"11","audio":"What number comes after 10?"},
+        {"type":"mc","q":"What number comes after 11?","choices":["12","11","13","10"],"answer":"12","audio":"What number comes after 11?"},
+        {"type":"mc","q":"What number comes after 12?","choices":["13","12","14","11"],"answer":"13","audio":"What number comes after 12?"},
+        {"type":"mc","q":"What number comes after 13?","choices":["14","13","15","12"],"answer":"14","audio":"What number comes after 13?"},
+        {"type":"mc","q":"What number comes after 14?","choices":["15","14","16","13"],"answer":"15","audio":"What number comes after 14?"},
+        {"type":"mc","q":"What number comes after 15?","choices":["16","15","17","14"],"answer":"16","audio":"What number comes after 15?"},
+        {"type":"mc","q":"What number comes after 16?","choices":["17","16","18","15"],"answer":"17","audio":"What number comes after 16?"},
+        {"type":"mc","q":"What number comes after 17?","choices":["18","17","19","16"],"answer":"18","audio":"What number comes after 17?"},
+        {"type":"mc","q":"What number comes after 18?","choices":["19","18","20","17"],"answer":"19","audio":"What number comes after 18?"},
+        {"type":"mc","q":"What number comes after 19?","choices":["20","19","21","18"],"answer":"20","audio":"What number comes after 19?"},
+        {"type":"mc","q":"What number comes after 20?","choices":["21","20","22","19"],"answer":"21","audio":"What number comes after 20?"},
+        {"type":"mc","q":"What number comes after 21?","choices":["22","21","23","20"],"answer":"22","audio":"What number comes after 21?"},
+        {"type":"mc","q":"What number comes after 22?","choices":["23","22","24","21"],"answer":"23","audio":"What number comes after 22?"},
+        {"type":"mc","q":"What number comes after 23?","choices":["24","23","25","22"],"answer":"24","audio":"What number comes after 23?"},
+        {"type":"mc","q":"What number comes after 24?","choices":["25","24","26","23"],"answer":"25","audio":"What number comes after 24?"},
+        {"type":"mc","q":"What number comes after 25?","choices":["26","25","27","24"],"answer":"26","audio":"What number comes after 25?"}
+      ]
+    },
+    "k:math:addition":{
+      name:"Addition Within 10",
+      questions:[
+        {"type":"mc","q":"What is 0 + 1?","choices":["1","0","2","3"],"answer":"1","audio":"What is 0 + 1?"},
+        {"type":"mc","q":"What is 1 + 1?","choices":["2","1","3","4"],"answer":"2","audio":"What is 1 + 1?"},
+        {"type":"mc","q":"What is 2 + 1?","choices":["3","2","4","5"],"answer":"3","audio":"What is 2 + 1?"},
+        {"type":"mc","q":"What is 3 + 1?","choices":["4","3","5","6"],"answer":"4","audio":"What is 3 + 1?"},
+        {"type":"mc","q":"What is 4 + 1?","choices":["5","4","6","7"],"answer":"5","audio":"What is 4 + 1?"},
+        {"type":"mc","q":"What is 5 + 1?","choices":["6","5","7","8"],"answer":"6","audio":"What is 5 + 1?"},
+        {"type":"mc","q":"What is 0 + 2?","choices":["2","1","3","4"],"answer":"2","audio":"What is 0 + 2?"},
+        {"type":"mc","q":"What is 1 + 2?","choices":["3","2","4","5"],"answer":"3","audio":"What is 1 + 2?"},
+        {"type":"mc","q":"What is 2 + 2?","choices":["4","3","5","6"],"answer":"4","audio":"What is 2 + 2?"},
+        {"type":"mc","q":"What is 3 + 2?","choices":["5","4","6","7"],"answer":"5","audio":"What is 3 + 2?"},
+        {"type":"mc","q":"What is 4 + 2?","choices":["6","5","7","8"],"answer":"6","audio":"What is 4 + 2?"},
+        {"type":"mc","q":"What is 5 + 2?","choices":["7","6","8","9"],"answer":"7","audio":"What is 5 + 2?"},
+        {"type":"mc","q":"What is 0 + 3?","choices":["3","2","4","5"],"answer":"3","audio":"What is 0 + 3?"},
+        {"type":"mc","q":"What is 1 + 3?","choices":["4","3","5","6"],"answer":"4","audio":"What is 1 + 3?"},
+        {"type":"mc","q":"What is 2 + 3?","choices":["5","4","6","7"],"answer":"5","audio":"What is 2 + 3?"},
+        {"type":"mc","q":"What is 3 + 3?","choices":["6","5","7","8"],"answer":"6","audio":"What is 3 + 3?"},
+        {"type":"mc","q":"What is 4 + 3?","choices":["7","6","8","9"],"answer":"7","audio":"What is 4 + 3?"},
+        {"type":"mc","q":"What is 5 + 3?","choices":["8","7","9","10"],"answer":"8","audio":"What is 5 + 3?"},
+        {"type":"mc","q":"What is 0 + 4?","choices":["4","3","5","6"],"answer":"4","audio":"What is 0 + 4?"},
+        {"type":"mc","q":"What is 1 + 4?","choices":["5","4","6","7"],"answer":"5","audio":"What is 1 + 4?"},
+        {"type":"mc","q":"What is 2 + 4?","choices":["6","5","7","8"],"answer":"6","audio":"What is 2 + 4?"},
+        {"type":"mc","q":"What is 3 + 4?","choices":["7","6","8","9"],"answer":"7","audio":"What is 3 + 4?"},
+        {"type":"mc","q":"What is 4 + 4?","choices":["8","7","9","10"],"answer":"8","audio":"What is 4 + 4?"},
+        {"type":"mc","q":"What is 5 + 4?","choices":["9","8","10","11"],"answer":"9","audio":"What is 5 + 4?"},
+        {"type":"mc","q":"What is 0 + 5?","choices":["5","4","6","7"],"answer":"5","audio":"What is 0 + 5?"}
+      ]
+    },
+    "k:math:patterns":{
+      name:"Shapes and Patterns",
+      questions:[
+        {"type":"mc","q":"What comes next: circle, square, circle, square, ___?","choices":["circle","stop","different","4"],"answer":"circle","audio":"What comes next: circle, square, circle, square, ___?"},
+        {"type":"mc","q":"What comes next: red, blue, red, blue, ___?","choices":["red","stop","different","blue"],"answer":"red","audio":"What comes next: red, blue, red, blue, ___?"},
+        {"type":"mc","q":"What comes next: 1, 2, 1, 2, ___?","choices":["1","stop","different","4"],"answer":"1","audio":"What comes next: 1, 2, 1, 2, ___?"},
+        {"type":"mc","q":"What comes next: triangle, triangle, star, triangle, triangle, star, ___?","choices":["triangle","stop","different","blue"],"answer":"triangle","audio":"What comes next: triangle, triangle, star, triangle, triangle, star, ___?"},
+        {"type":"mc","q":"What comes next: small, big, small, big, ___?","choices":["small","stop","different","4"],"answer":"small","audio":"What comes next: small, big, small, big, ___?"},
+        {"type":"mc","q":"What comes next: yellow, green, yellow, green, ___?","choices":["yellow","stop","different","blue"],"answer":"yellow","audio":"What comes next: yellow, green, yellow, green, ___?"},
+        {"type":"mc","q":"What comes next: A, B, A, B, ___?","choices":["A","stop","different","4"],"answer":"A","audio":"What comes next: A, B, A, B, ___?"},
+        {"type":"mc","q":"What comes next: square, circle, triangle, square, circle, triangle, ___?","choices":["square","stop","different","blue"],"answer":"square","audio":"What comes next: square, circle, triangle, square, circle, triangle, ___?"},
+        {"type":"mc","q":"What comes next: 2, 4, 2, 4, ___?","choices":["2","stop","different","4"],"answer":"2","audio":"What comes next: 2, 4, 2, 4, ___?"},
+        {"type":"mc","q":"What comes next: clap, stomp, clap, stomp, ___?","choices":["clap","stop","different","blue"],"answer":"clap","audio":"What comes next: clap, stomp, clap, stomp, ___?"},
+        {"type":"mc","q":"What comes next: star, heart, star, heart, ___?","choices":["star","stop","different","4"],"answer":"star","audio":"What comes next: star, heart, star, heart, ___?"},
+        {"type":"mc","q":"What comes next: up, down, up, down, ___?","choices":["up","stop","different","blue"],"answer":"up","audio":"What comes next: up, down, up, down, ___?"},
+        {"type":"mc","q":"What comes next: red, red, blue, red, red, blue, ___?","choices":["red","stop","different","4"],"answer":"red","audio":"What comes next: red, red, blue, red, red, blue, ___?"},
+        {"type":"mc","q":"What comes next: 1, 1, 3, 1, 1, 3, ___?","choices":["1","stop","different","blue"],"answer":"1","audio":"What comes next: 1, 1, 3, 1, 1, 3, ___?"},
+        {"type":"mc","q":"What comes next: circle, star, star, circle, star, star, ___?","choices":["circle","stop","different","4"],"answer":"circle","audio":"What comes next: circle, star, star, circle, star, star, ___?"},
+        {"type":"mc","q":"What comes next: left, right, left, right, ___?","choices":["left","stop","different","blue"],"answer":"left","audio":"What comes next: left, right, left, right, ___?"},
+        {"type":"mc","q":"What comes next: big, small, small, big, small, small, ___?","choices":["big","stop","different","4"],"answer":"big","audio":"What comes next: big, small, small, big, small, small, ___?"},
+        {"type":"mc","q":"What comes next: A, A, B, A, A, B, ___?","choices":["A","stop","different","blue"],"answer":"A","audio":"What comes next: A, A, B, A, A, B, ___?"},
+        {"type":"mc","q":"What comes next: triangle, square, square, triangle, square, square, ___?","choices":["triangle","stop","different","4"],"answer":"triangle","audio":"What comes next: triangle, square, square, triangle, square, square, ___?"},
+        {"type":"mc","q":"What comes next: 5, 6, 5, 6, ___?","choices":["5","stop","different","blue"],"answer":"5","audio":"What comes next: 5, 6, 5, 6, ___?"},
+        {"type":"mc","q":"What comes next: sun, moon, sun, moon, ___?","choices":["sun","stop","different","4"],"answer":"sun","audio":"What comes next: sun, moon, sun, moon, ___?"},
+        {"type":"mc","q":"What comes next: green, purple, purple, green, purple, purple, ___?","choices":["green","stop","different","blue"],"answer":"green","audio":"What comes next: green, purple, purple, green, purple, purple, ___?"},
+        {"type":"mc","q":"What comes next: tap, tap, clap, tap, tap, clap, ___?","choices":["tap","stop","different","4"],"answer":"tap","audio":"What comes next: tap, tap, clap, tap, tap, clap, ___?"},
+        {"type":"mc","q":"What comes next: oval, diamond, oval, diamond, ___?","choices":["oval","stop","different","blue"],"answer":"oval","audio":"What comes next: oval, diamond, oval, diamond, ___?"},
+        {"type":"mc","q":"What comes next: 1, 2, 3, 1, 2, 3, ___?","choices":["1","stop","different","4"],"answer":"1","audio":"What comes next: 1, 2, 3, 1, 2, 3, ___?"}
+      ]
+    }
   });
 })();

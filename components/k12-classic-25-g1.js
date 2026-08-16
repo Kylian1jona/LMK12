@@ -1,301 +1,186 @@
-/* Grade 1 interactive lesson source. */
-/* ===========================
-   Grade 1 lessons (3)
-=========================== */
-let g1asRound = 1;
-const G1AS_TOTAL = 15;
-let g1asA=0,g1asB=0,g1asOp="+";
-let g1asSolved=false;
-
-function g1asGen(){
-  $("g1asFb").textContent = "";
-  $("g1asNextBtn").disabled = true;
-  g1asSolved = false;
-  $("g1asInput").value = "";
-  $("g1asProg").textContent = `Round ${g1asRound} of ${G1AS_TOTAL}`;
-
-  const threeDigit = Math.random() < 0.55;
-  const min = threeDigit ? 100 : 10;
-  const max = threeDigit ? 299 : 99;
-  g1asOp = Math.random() < 0.5 ? "+" : "−";
-
-  if(g1asOp === "+"){
-    g1asA = randInt(min, max);
-    g1asB = randInt(10, threeDigit ? 199 : 99);
-  }else{
-    g1asA = randInt(min, max);
-    g1asB = randInt(10, Math.min(g1asA, threeDigit ? 199 : 99));
-    if(g1asB > g1asA) [g1asA,g1asB] = [g1asB,g1asA];
-  }
-
-  $("g1asA").textContent = g1asA;
-  $("g1asB").textContent = g1asB;
-  $("g1asOp").textContent = " " + g1asOp + " ";
-  $("g1asBlocks").innerHTML = renderBlocks(g1asA) + "<br>" + renderBlocks(g1asB);
-  g1asSpeak();
-}
-function renderBlocks(n){
-  const h = Math.floor(n/100);
-  const t = Math.floor((n%100)/10);
-  const o = n%10;
-  const H = h ? ("🟥".repeat(h) + ` <span class="small-note">(${h} hundreds)</span>`) : "";
-  const T = t ? ("🟥".repeat(t) + ` <span class="small-note">(${t} tens)</span>`) : "";
-  const O = o ? ("🟥".repeat(o) + ` <span class="small-note">(${o} ones)</span>`) : "";
-  return `<span style="font-size:20px">${H} ${T} ${O}</span>`;
-}
-function g1asAns(){ return g1asOp==="+" ? (g1asA+g1asB) : (g1asA-g1asB); }
-function g1asSpeak(){
-  const opWord = g1asOp==="+" ? "plus" : "minus";
-  speakGlobal(`What is ${g1asA} ${opWord} ${g1asB}?`);
-}
-function g1asCheck(){
-  safeClick();
-  if(g1asSolved) return;
-  const raw = $("g1asInput").value;
-  if(raw === ""){ $("g1asFb").textContent = "Type an answer!"; speakGlobal("Type an answer."); return; }
-  const val = Number(raw);
-  if(!Number.isFinite(val)){ $("g1asFb").textContent = "Type an answer!"; speakGlobal("Type an answer."); return; }
-  const correct = g1asAns();
-  if(val === correct){
-    $("g1asFb").textContent = "🎉 Correct!";
-    correctReward("Correct!");
-    $("g1asNextBtn").disabled = false;
-    g1asSolved = true;
-    launchConfetti(80);
-  }else{
-    $("g1asFb").textContent = "❌ Try again!";
-    const msg = `Not quite. The correct answer is ${correct}. Check the ${g1asOp === "+" ? "addition" : "subtraction"} again.`;
-    $("g1asFb").textContent = msg;
-    wrongPenalty(msg);
-  }
-}
-function g1asNext(){
-  safeClick();
-  if($("g1asNextBtn").disabled) return;
-  if(g1asRound < G1AS_TOTAL){ g1asRound++; g1asGen(); }
-  else finishSpecialLesson("g1-addsub", "Amazing math!", "g1-addsub");
-}
-function g1asReset(){ safeClick(); prepareSpecialLesson("g1-addsub"); g1asRound = 1; g1asGen(); }
-
-/* Graphs */
-const GRAPH_SETS = [
-  { title:"Favorite Fruits", items:[{name:"Apples", emoji:"🍎"},{name:"Bananas", emoji:"🍌"},{name:"Grapes", emoji:"🍇"}] },
-  { title:"Pets at Home", items:[{name:"Dogs", emoji:"🐶"},{name:"Cats", emoji:"🐱"},{name:"Fish", emoji:"🐟"}] },
-  { title:"Favorite Toys", items:[{name:"Balls", emoji:"⚽"},{name:"Cars", emoji:"🚗"},{name:"Teddies", emoji:"🧸"}] },
-];
-let g1gRound = 1;
-const G1G_TOTAL = 12;
-let g1gCorrectChoice = "";
-let g1gQType = "more";
-let g1gPickName = "";
-let g1gSet = null;
-let g1gChoices = [];
-
-function g1gGen(){
-  $("g1gFb").textContent = "";
-  $("g1gNextBtn").disabled = true;
-  $("g1gProg").textContent = `Round ${g1gRound} of ${G1G_TOTAL}`;
-
-  const base = GRAPH_SETS[Math.floor(Math.random()*GRAPH_SETS.length)];
-  g1gSet = { title: base.title, items: base.items.map(x=>({ ...x, count: randInt(2,6) })) };
-  $("g1gTitle").textContent = g1gSet.title;
-
-  const g = $("g1gGraph");
-  g.innerHTML = "";
-  g1gSet.items.forEach(it=>{
-    const line = document.createElement("div");
-    line.style.fontSize = "22px";
-    line.style.margin = "6px 0";
-    line.innerHTML = `<strong>${it.name}:</strong> <span style="font-size:28px">${it.emoji.repeat(it.count)}</span> <span class="small-note">(${it.count})</span>`;
-    g.appendChild(line);
-  });
-
-  g1gQType = Math.random() < 0.5 ? "more" : "howmany";
-  if(g1gQType === "more"){
-    $("g1gQ").textContent = "Which has the MOST?";
-    const max = Math.max(...g1gSet.items.map(i=>i.count));
-    const winners = g1gSet.items.filter(i=>i.count===max);
-    g1gCorrectChoice = winners[Math.floor(Math.random()*winners.length)].name;
-    g1gPickName = "";
-  }else{
-    const pick = g1gSet.items[Math.floor(Math.random()*g1gSet.items.length)];
-    g1gPickName = pick.name;
-    $("g1gQ").textContent = `How many ${pick.name}?`;
-    g1gCorrectChoice = String(pick.count);
-  }
-
-  let choices;
-  if(g1gQType === "more") choices = padTextChoices(g1gSet.items.map(i=>i.name), ["None", "All the same", "Not shown"]);
-  else choices = make3Choices(Number(g1gCorrectChoice), 1, 10).map(String);
-  g1gChoices = choices;
-
-  setChoiceButtons("g1g", choices);
-
-  g1gSpeak();
-}
-function g1gSpeak(){
-  if(g1gQType === "more") speakQuestionWithChoices("Which one has the most?", g1gChoices);
-  else speakQuestionWithChoices(`How many ${g1gPickName}?`, g1gChoices);
-}
-function g1gPick(i){
-  safeClick();
-  const chosen = $("g1g"+i).textContent;
-  if(chosen === g1gCorrectChoice){
-    $("g1gFb").textContent = "🎉 Correct!";
-    correctReward("Correct!");
-    $("g1gNextBtn").disabled = false;
-    launchConfetti(60);
-  }else{
-    $("g1gFb").textContent = "❌ Try again!";
-    const msg = `Not quite. The correct choice is ${g1gCorrectChoice}. Compare the graph counts before picking.`;
-    $("g1gFb").textContent = msg;
-    wrongPenalty(msg);
-  }
-}
-function g1gNext(){
-  safeClick();
-  if($("g1gNextBtn").disabled) return;
-  if(g1gRound < G1G_TOTAL){ g1gRound++; g1gGen(); }
-  else finishSpecialLesson("g1-graphs", "Great graph work!", "g1-graphs");
-}
-function g1gReset(){ safeClick(); prepareSpecialLesson("g1-graphs"); g1gRound = 1; g1gGen(); }
-
-/* Money */
-let g1mRound = 1;
-const G1M_TOTAL = 12;
-let g1mCorrect = 0;
-let g1mChoices = [];
-
-function coinLine(label, emoji, count, valueEach){
-  if(count<=0) return "";
-  return `<div>${label} (${valueEach}¢): <span style="font-size:28px">${emoji.repeat(count)}</span> <span class="small-note">x${count}</span></div>`;
-}
-function g1mGen(){
-  $("g1mFb").textContent = "";
-  $("g1mNextBtn").disabled = true;
-  $("g1mProg").textContent = `Round ${g1mRound} of ${G1M_TOTAL}`;
-
-  let q = randInt(0,2), d = randInt(0,3), n = randInt(0,3), p = randInt(0,6);
-  g1mCorrect = q*25 + d*10 + n*5 + p*1;
-  if(g1mCorrect === 0){ p = 3; g1mCorrect = 3; }
-
-  while(g1mCorrect > 60){
-    if(q>0) q--;
-    else if(d>0) d--;
-    else if(n>0) n--;
-    else if(p>0) p--;
-    g1mCorrect = q*25 + d*10 + n*5 + p*1;
-  }
-
-  const html =
-    coinLine("Quarters", "🟡", q, 25) +
-    coinLine("Dimes", "🔘", d, 10) +
-    coinLine("Nickels", "⚪", n, 5) +
-    coinLine("Pennies", "🟤", p, 1);
-
-  $("g1mCoins").innerHTML = html || `<div>Pennies (1¢): <span style="font-size:28px">🟤🟤🟤</span></div>`;
-
-  const opts = make3Choices(g1mCorrect, 1, 60);
-  g1mChoices = opts;
-  setChoiceButtons("g1m", opts);
-
-  speakQuestionWithChoices("How many cents in all?", opts);
-}
-function g1mPick(i){
-  safeClick();
-  const chosen = Number($("g1m"+i).textContent);
-  if(chosen === g1mCorrect){
-    $("g1mFb").textContent = "🎉 Correct!";
-    correctReward("Correct!");
-    $("g1mNextBtn").disabled = false;
-  }else{
-    $("g1mFb").textContent = "❌ Try again!";
-    const msg = `Not quite. The coins total ${g1mCorrect} cents. Add each coin value together.`;
-    $("g1mFb").textContent = msg;
-    wrongPenalty(msg);
-  }
-}
-function g1mNext(){
-  safeClick();
-  if($("g1mNextBtn").disabled) return;
-  if(g1mRound < G1M_TOTAL){ g1mRound++; g1mGen(); }
-  else finishSpecialLesson("g1-money", "Great money counting!", "g1-money");
-}
-function g1mReset(){ safeClick(); prepareSpecialLesson("g1-money"); g1mRound = 1; g1mGen(); }
-
+/* Grade 1 explicit 25-question lesson banks. */
 (function(){
-  const vowelRows=[
-    ["cat","short a"],["map","short a"],["cake","long a"],["rain","long a"],["bed","short e"],["hen","short e"],["feet","long e"],["tree","long e"],
-    ["pig","short i"],["sit","short i"],["kite","long i"],["light","long i"],["hot","short o"],["fox","short o"],["home","long o"],["boat","long o"],
-    ["sun","short u"],["cup","short u"],["cube","long u"],["mule","long u"],["cap","short a"],["seed","long e"],["fin","short i"],["rope","long o"],["tub","short u"]
-  ];
-  const vowels=vowelRows.map(([word,answer])=>({q:`Which vowel sound is heard in ${word}?`,a:answer,w:["short a","long e","short o","long i"].filter(value=>value!==answer).slice(0,3)}));
-  vowels.forEach(question=>{while(question.w.length<3) question.w.push(["short e","long o","long u"].find(value=>value!==question.a&&!question.w.includes(value)));});
-  const sightRows=[
-    ["I ___ a red ball.","see"],["We ___ to school.","go"],["The dog is ___ the table.","under"],["She ___ my friend.","is"],["___ are two birds.","There"],
-    ["Can ___ help me?","you"],["I ___ like apples.","do"],["He ___ a blue hat.","has"],["We play ___ the park.","at"],["This gift is ___ you.","for"],
-    ["___ cat is sleeping.","The"],["I want ___ read.","to"],["They ___ happy.","are"],["Please come ___ me.","with"],["I ___ my family.","love"],
-    ["___ is your name?","What"],["The book is ___ the desk.","on"],["I can ___ the music.","hear"],["We ___ lunch at noon.","eat"],["She ___ run fast.","can"],
-    ["Look ___ the bright moon.","at"],["___ went home after class.","We"],["The puppy is ___ little.","very"],["I ___ a yellow flower.","see"],["Please ___ the door.","open"]
-  ];
-  const sightPool=["see","go","under","is","There","you","do","has","at","for","The","to","are","with","love","What","on","hear","eat","can","We","very","open"];
-  const sight=sightRows.map(([q,a],index)=>({q,a,w:[sightPool[(index+3)%sightPool.length],sightPool[(index+8)%sightPool.length],sightPool[(index+14)%sightPool.length]].filter(value=>value!==a)}));
-  sight.forEach((question,index)=>{while(question.w.length<3){const candidate=sightPool[(index+question.w.length+17)%sightPool.length];if(candidate!==question.a&&!question.w.includes(candidate))question.w.push(candidate);}});
-  const sentenceRows=[
-    ["Which is a complete sentence?","The bird sings.","On the tall tree","Running very fast","The yellow"],
-    ["Which sentence begins with a capital letter?","My dog can swim.","my dog can swim.","my Dog can swim.","MY dog can swim."],
-    ["Which sentence ends correctly?","We went home.","We went home","We went home,","We went home!."],
-    ["Which sentence asks a question?","Where is my book?","My book is here.","Find my book.","What a good book!"],
-    ["Which sentence shows excitement?","That was amazing!","That was amazing.","Was that amazing?","that was amazing"],
-    ["Choose the correct sentence.","Sam and Mia play.","sam and Mia play.","Sam and Mia play","Sam And Mia play."],
-    ["Which words form a complete thought?","The frog jumps.","The green frog","Across the pond","Jumping quickly"],
-    ["Choose the sentence with the correct noun.","The teacher reads.","The quickly reads.","The happy reads.","The under reads."],
-    ["Choose the sentence with the correct verb.","Birds fly south.","Birds blue south.","Birds soft south.","Birds nest south."],
-    ["Which sentence uses I correctly?","Mia and I draw.","Mia and me draws.","mia and I draw","Mia And I draw."],
-    ["Which sentence is about one cat?","The cat sleeps.","The cats sleep.","The dogs sleep.","The cat sleep are."],
-    ["Which sentence is about more than one dog?","The dogs bark.","The dog barks.","The dog bark.","A dogs barks."],
-    ["Choose the correct word order.","We read books.","Read we books.","Books we read the.","We books read a."],
-    ["Which sentence has a naming part and an action part?","The baby laughs.","The little baby","Laughing loudly","In the room"],
-    ["Which sentence uses a period correctly?","It is raining.","It is raining?","It is raining!","It is raining,"],
-    ["Which sentence uses a question mark correctly?","Can you help me?","Can you help me.","Can you help me!","Can you help me,"],
-    ["Which sentence uses an exclamation mark correctly?","Watch out!","Watch out.","Watch out?","Watch out,"],
-    ["Choose the correctly capitalized name.","Ava has a kite.","ava has a kite.","Ava Has a kite.","AVA has a Kite."],
-    ["Choose the correctly capitalized day.","We play on Monday.","We play on monday.","we play on Monday.","We Play on monday."],
-    ["Which sentence uses and correctly?","Ben and Leo run.","Ben but Leo run.","Ben or Leo both run.","Ben and Leo runs is."],
-    ["Which sentence tells something?","The sun is warm.","Is the sun warm?","How warm is it?","Wow, it is warm!"],
-    ["Which group is not a complete sentence?","Under the table","The mouse hides.","We found it.","It ran away."],
-    ["Choose the sentence with a describing word.","The fluffy cat sleeps.","The cat sleeps.","Cats sleep.","The cat is."],
-    ["Which sentence makes sense?","The fish swims in water.","The fish flies to the moon.","The water reads a fish.","Swims the in fish."],
-    ["Choose the best ending punctuation: I love this game___","!","?",",",":"]
-  ];
-  const sentences=sentenceRows.map(([q,a,...w])=>({q,a,w}));
-  const addSub=Array.from({length:25},(_,index)=>{
-    const add=index%2===0;
-    const left=5+Math.floor(index/2);
-    const right=1+(index%3);
-    const answer=add?left+right:left-right;
-    const shownLeft=add?answer-right:left;
-    return {q:`What is ${shownLeft} ${add?"+":"−"} ${right}?`,a:String(answer),w:[String(answer+1),String(Math.max(0,answer-1)),String(answer+2)]};
-  });
-  const graphRows=Array.from({length:25},(_,index)=>{
-    const apples=index%7+2, bananas=1+Math.floor(index/7)*2+(index%2), more=apples>bananas?"apples":bananas>apples?"bananas":"the same number";
-    return {q:`A picture graph shows ${apples} apples and ${bananas} bananas. Which group has more?`,a:more,w:["apples","bananas","the same number","not enough information"].filter(value=>value!==more).slice(0,3)};
-  });
-  const coinValues=[1,5,10,25];
-  const money=Array.from({length:25},(_,index)=>{
-    const first=coinValues[index%4], second=coinValues[Math.floor(index/4)%4], firstCount=1+Math.floor(index/16), answer=first*firstCount+second;
-    return {q:`${firstCount} ${first}-cent coin${firstCount>1?"s":""} and 1 ${second}-cent coin are worth how many cents altogether?`,a:String(answer),w:[String(answer+1),String(Math.max(1,answer-1)),String(answer+5)]};
-  });
   Object.assign(window.K12_EARLY_BANKS,{
-    "g1:eng:vowels":{name:"Vowel Sounds",questions:vowels},
-    "g1:eng:sight":{name:"Sight Words",questions:sight},
+    "g1:eng:vowels":{
+      name:"Vowel Sounds",
+      questions:[
+        {"type":"mc","q":"Which vowel sound is heard in cat?","choices":["short a","long e","short o","long i"],"answer":"short a","audio":"Which vowel sound is heard in cat?"},
+        {"type":"mc","q":"Which vowel sound is heard in map?","choices":["short a","long e","short o","long i"],"answer":"short a","audio":"Which vowel sound is heard in map?"},
+        {"type":"mc","q":"Which vowel sound is heard in cake?","choices":["long a","short a","long e","short o"],"answer":"long a","audio":"Which vowel sound is heard in cake?"},
+        {"type":"mc","q":"Which vowel sound is heard in rain?","choices":["long a","short a","long e","short o"],"answer":"long a","audio":"Which vowel sound is heard in rain?"},
+        {"type":"mc","q":"Which vowel sound is heard in bed?","choices":["short e","short a","long e","short o"],"answer":"short e","audio":"Which vowel sound is heard in bed?"},
+        {"type":"mc","q":"Which vowel sound is heard in hen?","choices":["short e","short a","long e","short o"],"answer":"short e","audio":"Which vowel sound is heard in hen?"},
+        {"type":"mc","q":"Which vowel sound is heard in feet?","choices":["long e","short a","short o","long i"],"answer":"long e","audio":"Which vowel sound is heard in feet?"},
+        {"type":"mc","q":"Which vowel sound is heard in tree?","choices":["long e","short a","short o","long i"],"answer":"long e","audio":"Which vowel sound is heard in tree?"},
+        {"type":"mc","q":"Which vowel sound is heard in pig?","choices":["short i","short a","long e","short o"],"answer":"short i","audio":"Which vowel sound is heard in pig?"},
+        {"type":"mc","q":"Which vowel sound is heard in sit?","choices":["short i","short a","long e","short o"],"answer":"short i","audio":"Which vowel sound is heard in sit?"},
+        {"type":"mc","q":"Which vowel sound is heard in kite?","choices":["long i","short a","long e","short o"],"answer":"long i","audio":"Which vowel sound is heard in kite?"},
+        {"type":"mc","q":"Which vowel sound is heard in light?","choices":["long i","short a","long e","short o"],"answer":"long i","audio":"Which vowel sound is heard in light?"},
+        {"type":"mc","q":"Which vowel sound is heard in hot?","choices":["short o","short a","long e","long i"],"answer":"short o","audio":"Which vowel sound is heard in hot?"},
+        {"type":"mc","q":"Which vowel sound is heard in fox?","choices":["short o","short a","long e","long i"],"answer":"short o","audio":"Which vowel sound is heard in fox?"},
+        {"type":"mc","q":"Which vowel sound is heard in home?","choices":["long o","short a","long e","short o"],"answer":"long o","audio":"Which vowel sound is heard in home?"},
+        {"type":"mc","q":"Which vowel sound is heard in boat?","choices":["long o","short a","long e","short o"],"answer":"long o","audio":"Which vowel sound is heard in boat?"},
+        {"type":"mc","q":"Which vowel sound is heard in sun?","choices":["short u","short a","long e","short o"],"answer":"short u","audio":"Which vowel sound is heard in sun?"},
+        {"type":"mc","q":"Which vowel sound is heard in cup?","choices":["short u","short a","long e","short o"],"answer":"short u","audio":"Which vowel sound is heard in cup?"},
+        {"type":"mc","q":"Which vowel sound is heard in cube?","choices":["long u","short a","long e","short o"],"answer":"long u","audio":"Which vowel sound is heard in cube?"},
+        {"type":"mc","q":"Which vowel sound is heard in mule?","choices":["long u","short a","long e","short o"],"answer":"long u","audio":"Which vowel sound is heard in mule?"},
+        {"type":"mc","q":"Which vowel sound is heard in cap?","choices":["short a","long e","short o","long i"],"answer":"short a","audio":"Which vowel sound is heard in cap?"},
+        {"type":"mc","q":"Which vowel sound is heard in seed?","choices":["long e","short a","short o","long i"],"answer":"long e","audio":"Which vowel sound is heard in seed?"},
+        {"type":"mc","q":"Which vowel sound is heard in fin?","choices":["short i","short a","long e","short o"],"answer":"short i","audio":"Which vowel sound is heard in fin?"},
+        {"type":"mc","q":"Which vowel sound is heard in rope?","choices":["long o","short a","long e","short o"],"answer":"long o","audio":"Which vowel sound is heard in rope?"},
+        {"type":"mc","q":"Which vowel sound is heard in tub?","choices":["short u","short a","long e","short o"],"answer":"short u","audio":"Which vowel sound is heard in tub?"}
+      ]
+    },
+    "g1:eng:sight":{
+      name:"Sight Words",
+      questions:[
+        {"type":"mc","q":"I ___ a red ball.","choices":["see","is","at","love"],"answer":"see","audio":"I ___ a red ball."},
+        {"type":"mc","q":"We ___ to school.","choices":["go","There","for","What"],"answer":"go","audio":"We ___ to school."},
+        {"type":"mc","q":"The dog is ___ the table.","choices":["under","you","The","on"],"answer":"under","audio":"The dog is ___ the table."},
+        {"type":"mc","q":"She ___ my friend.","choices":["is","do","to","hear"],"answer":"is","audio":"She ___ my friend."},
+        {"type":"mc","q":"___ are two birds.","choices":["There","has","are","eat"],"answer":"There","audio":"___ are two birds."},
+        {"type":"mc","q":"Can ___ help me?","choices":["you","at","with","can"],"answer":"you","audio":"Can ___ help me?"},
+        {"type":"mc","q":"I ___ like apples.","choices":["do","for","love","We"],"answer":"do","audio":"I ___ like apples."},
+        {"type":"mc","q":"He ___ a blue hat.","choices":["has","The","What","very"],"answer":"has","audio":"He ___ a blue hat."},
+        {"type":"mc","q":"We play ___ the park.","choices":["at","to","on","open"],"answer":"at","audio":"We play ___ the park."},
+        {"type":"mc","q":"This gift is ___ you.","choices":["for","are","hear","see"],"answer":"for","audio":"This gift is ___ you."},
+        {"type":"mc","q":"___ cat is sleeping.","choices":["The","with","eat","go"],"answer":"The","audio":"___ cat is sleeping."},
+        {"type":"mc","q":"I want ___ read.","choices":["to","love","can","under"],"answer":"to","audio":"I want ___ read."},
+        {"type":"mc","q":"They ___ happy.","choices":["are","What","We","is"],"answer":"are","audio":"They ___ happy."},
+        {"type":"mc","q":"Please come ___ me.","choices":["with","on","very","There"],"answer":"with","audio":"Please come ___ me."},
+        {"type":"mc","q":"I ___ my family.","choices":["love","hear","open","you"],"answer":"love","audio":"I ___ my family."},
+        {"type":"mc","q":"___ is your name?","choices":["What","eat","see","do"],"answer":"What","audio":"___ is your name?"},
+        {"type":"mc","q":"The book is ___ the desk.","choices":["on","can","go","has"],"answer":"on","audio":"The book is ___ the desk."},
+        {"type":"mc","q":"I can ___ the music.","choices":["hear","We","under","at"],"answer":"hear","audio":"I can ___ the music."},
+        {"type":"mc","q":"We ___ lunch at noon.","choices":["eat","very","is","for"],"answer":"eat","audio":"We ___ lunch at noon."},
+        {"type":"mc","q":"She ___ run fast.","choices":["can","open","There","The"],"answer":"can","audio":"She ___ run fast."},
+        {"type":"mc","q":"Look ___ the bright moon.","choices":["at","see","you","to"],"answer":"at","audio":"Look ___ the bright moon."},
+        {"type":"mc","q":"___ went home after class.","choices":["We","go","do","are"],"answer":"We","audio":"___ went home after class."},
+        {"type":"mc","q":"The puppy is ___ little.","choices":["very","under","has","with"],"answer":"very","audio":"The puppy is ___ little."},
+        {"type":"mc","q":"I ___ a yellow flower.","choices":["see","is","at","love"],"answer":"see","audio":"I ___ a yellow flower."},
+        {"type":"mc","q":"Please ___ the door.","choices":["open","There","for","What"],"answer":"open","audio":"Please ___ the door."}
+      ]
+    },
     "g1:eng:sentences":{
       name:"Sentence Basics",
-      questions:sentences,
-      video:{src:"components/days_of_the_week_kids.mp4",title:"Days of the Week"}
+      questions:[
+        {"type":"mc","q":"Which is a complete sentence?","choices":["The bird sings.","On the tall tree","Running very fast","The yellow"],"answer":"The bird sings.","audio":"Which is a complete sentence?"},
+        {"type":"mc","q":"Which sentence begins with a capital letter?","choices":["My dog can swim.","my dog can swim.","my Dog can swim.","MY dog can swim."],"answer":"My dog can swim.","audio":"Which sentence begins with a capital letter?"},
+        {"type":"mc","q":"Which sentence ends correctly?","choices":["We went home.","We went home","We went home,","We went home!."],"answer":"We went home.","audio":"Which sentence ends correctly?"},
+        {"type":"mc","q":"Which sentence asks a question?","choices":["Where is my book?","My book is here.","Find my book.","What a good book!"],"answer":"Where is my book?","audio":"Which sentence asks a question?"},
+        {"type":"mc","q":"Which sentence shows excitement?","choices":["That was amazing!","That was amazing.","Was that amazing?","that was amazing"],"answer":"That was amazing!","audio":"Which sentence shows excitement?"},
+        {"type":"mc","q":"Choose the correct sentence.","choices":["Sam and Mia play.","sam and Mia play.","Sam and Mia play","Sam And Mia play."],"answer":"Sam and Mia play.","audio":"Choose the correct sentence."},
+        {"type":"mc","q":"Which words form a complete thought?","choices":["The frog jumps.","The green frog","Across the pond","Jumping quickly"],"answer":"The frog jumps.","audio":"Which words form a complete thought?"},
+        {"type":"mc","q":"Choose the sentence with the correct noun.","choices":["The teacher reads.","The quickly reads.","The happy reads.","The under reads."],"answer":"The teacher reads.","audio":"Choose the sentence with the correct noun."},
+        {"type":"mc","q":"Choose the sentence with the correct verb.","choices":["Birds fly south.","Birds blue south.","Birds soft south.","Birds nest south."],"answer":"Birds fly south.","audio":"Choose the sentence with the correct verb."},
+        {"type":"mc","q":"Which sentence uses I correctly?","choices":["Mia and I draw.","Mia and me draws.","mia and I draw","Mia And I draw."],"answer":"Mia and I draw.","audio":"Which sentence uses I correctly?"},
+        {"type":"mc","q":"Which sentence is about one cat?","choices":["The cat sleeps.","The cats sleep.","The dogs sleep.","The cat sleep are."],"answer":"The cat sleeps.","audio":"Which sentence is about one cat?"},
+        {"type":"mc","q":"Which sentence is about more than one dog?","choices":["The dogs bark.","The dog barks.","The dog bark.","A dogs barks."],"answer":"The dogs bark.","audio":"Which sentence is about more than one dog?"},
+        {"type":"mc","q":"Choose the correct word order.","choices":["We read books.","Read we books.","Books we read the.","We books read a."],"answer":"We read books.","audio":"Choose the correct word order."},
+        {"type":"mc","q":"Which sentence has a naming part and an action part?","choices":["The baby laughs.","The little baby","Laughing loudly","In the room"],"answer":"The baby laughs.","audio":"Which sentence has a naming part and an action part?"},
+        {"type":"mc","q":"Which sentence uses a period correctly?","choices":["It is raining.","It is raining?","It is raining!","It is raining,"],"answer":"It is raining.","audio":"Which sentence uses a period correctly?"},
+        {"type":"mc","q":"Which sentence uses a question mark correctly?","choices":["Can you help me?","Can you help me.","Can you help me!","Can you help me,"],"answer":"Can you help me?","audio":"Which sentence uses a question mark correctly?"},
+        {"type":"mc","q":"Which sentence uses an exclamation mark correctly?","choices":["Watch out!","Watch out.","Watch out?","Watch out,"],"answer":"Watch out!","audio":"Which sentence uses an exclamation mark correctly?"},
+        {"type":"mc","q":"Choose the correctly capitalized name.","choices":["Ava has a kite.","ava has a kite.","Ava Has a kite.","AVA has a Kite."],"answer":"Ava has a kite.","audio":"Choose the correctly capitalized name."},
+        {"type":"mc","q":"Choose the correctly capitalized day.","choices":["We play on Monday.","We play on monday.","we play on Monday.","We Play on monday."],"answer":"We play on Monday.","audio":"Choose the correctly capitalized day."},
+        {"type":"mc","q":"Which sentence uses and correctly?","choices":["Ben and Leo run.","Ben but Leo run.","Ben or Leo both run.","Ben and Leo runs is."],"answer":"Ben and Leo run.","audio":"Which sentence uses and correctly?"},
+        {"type":"mc","q":"Which sentence tells something?","choices":["The sun is warm.","Is the sun warm?","How warm is it?","Wow, it is warm!"],"answer":"The sun is warm.","audio":"Which sentence tells something?"},
+        {"type":"mc","q":"Which group is not a complete sentence?","choices":["Under the table","The mouse hides.","We found it.","It ran away."],"answer":"Under the table","audio":"Which group is not a complete sentence?"},
+        {"type":"mc","q":"Choose the sentence with a describing word.","choices":["The fluffy cat sleeps.","The cat sleeps.","Cats sleep.","The cat is."],"answer":"The fluffy cat sleeps.","audio":"Choose the sentence with a describing word."},
+        {"type":"mc","q":"Which sentence makes sense?","choices":["The fish swims in water.","The fish flies to the moon.","The water reads a fish.","Swims the in fish."],"answer":"The fish swims in water.","audio":"Which sentence makes sense?"},
+        {"type":"mc","q":"Choose the best ending punctuation: I love this game___","choices":["!","?",",",":"],"answer":"!","audio":"Choose the best ending punctuation: I love this game___"}
+      ],
+      video:{"src":"components/days_of_the_week_kids.mp4","title":"Days of the Week"}
     },
-    "g1:math:addsub":{name:"Addition and Subtraction",questions:addSub},
-    "g1:math:graphs":{name:"Data and Graphs",questions:graphRows},
-    "g1:math:money":{name:"Money Counting",questions:money}
+    "g1:math:addsub":{
+      name:"Addition and Subtraction",
+      questions:[
+        {"type":"mc","q":"What is 5 + 1?","choices":["6","7","5","8"],"answer":"6","audio":"What is 5 + 1?"},
+        {"type":"mc","q":"What is 5 − 2?","choices":["3","4","2","5"],"answer":"3","audio":"What is 5 − 2?"},
+        {"type":"mc","q":"What is 6 + 3?","choices":["9","10","8","11"],"answer":"9","audio":"What is 6 + 3?"},
+        {"type":"mc","q":"What is 6 − 1?","choices":["5","6","4","7"],"answer":"5","audio":"What is 6 − 1?"},
+        {"type":"mc","q":"What is 7 + 2?","choices":["9","10","8","11"],"answer":"9","audio":"What is 7 + 2?"},
+        {"type":"mc","q":"What is 7 − 3?","choices":["4","5","3","6"],"answer":"4","audio":"What is 7 − 3?"},
+        {"type":"mc","q":"What is 8 + 1?","choices":["9","10","8","11"],"answer":"9","audio":"What is 8 + 1?"},
+        {"type":"mc","q":"What is 8 − 2?","choices":["6","7","5","8"],"answer":"6","audio":"What is 8 − 2?"},
+        {"type":"mc","q":"What is 9 + 3?","choices":["12","13","11","14"],"answer":"12","audio":"What is 9 + 3?"},
+        {"type":"mc","q":"What is 9 − 1?","choices":["8","9","7","10"],"answer":"8","audio":"What is 9 − 1?"},
+        {"type":"mc","q":"What is 10 + 2?","choices":["12","13","11","14"],"answer":"12","audio":"What is 10 + 2?"},
+        {"type":"mc","q":"What is 10 − 3?","choices":["7","8","6","9"],"answer":"7","audio":"What is 10 − 3?"},
+        {"type":"mc","q":"What is 11 + 1?","choices":["12","13","11","14"],"answer":"12","audio":"What is 11 + 1?"},
+        {"type":"mc","q":"What is 11 − 2?","choices":["9","10","8","11"],"answer":"9","audio":"What is 11 − 2?"},
+        {"type":"mc","q":"What is 12 + 3?","choices":["15","16","14","17"],"answer":"15","audio":"What is 12 + 3?"},
+        {"type":"mc","q":"What is 12 − 1?","choices":["11","12","10","13"],"answer":"11","audio":"What is 12 − 1?"},
+        {"type":"mc","q":"What is 13 + 2?","choices":["15","16","14","17"],"answer":"15","audio":"What is 13 + 2?"},
+        {"type":"mc","q":"What is 13 − 3?","choices":["10","11","9","12"],"answer":"10","audio":"What is 13 − 3?"},
+        {"type":"mc","q":"What is 14 + 1?","choices":["15","16","14","17"],"answer":"15","audio":"What is 14 + 1?"},
+        {"type":"mc","q":"What is 14 − 2?","choices":["12","13","11","14"],"answer":"12","audio":"What is 14 − 2?"},
+        {"type":"mc","q":"What is 15 + 3?","choices":["18","19","17","20"],"answer":"18","audio":"What is 15 + 3?"},
+        {"type":"mc","q":"What is 15 − 1?","choices":["14","15","13","16"],"answer":"14","audio":"What is 15 − 1?"},
+        {"type":"mc","q":"What is 16 + 2?","choices":["18","19","17","20"],"answer":"18","audio":"What is 16 + 2?"},
+        {"type":"mc","q":"What is 16 − 3?","choices":["13","14","12","15"],"answer":"13","audio":"What is 16 − 3?"},
+        {"type":"mc","q":"What is 17 + 1?","choices":["18","19","17","20"],"answer":"18","audio":"What is 17 + 1?"}
+      ]
+    },
+    "g1:math:graphs":{
+      name:"Data and Graphs",
+      questions:[
+        {"type":"mc","q":"A picture graph shows 2 apples and 1 bananas. Which group has more?","choices":["apples","bananas","the same number","not enough information"],"answer":"apples","audio":"A picture graph shows 2 apples and 1 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 3 apples and 2 bananas. Which group has more?","choices":["apples","bananas","the same number","not enough information"],"answer":"apples","audio":"A picture graph shows 3 apples and 2 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 4 apples and 1 bananas. Which group has more?","choices":["apples","bananas","the same number","not enough information"],"answer":"apples","audio":"A picture graph shows 4 apples and 1 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 5 apples and 2 bananas. Which group has more?","choices":["apples","bananas","the same number","not enough information"],"answer":"apples","audio":"A picture graph shows 5 apples and 2 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 6 apples and 1 bananas. Which group has more?","choices":["apples","bananas","the same number","not enough information"],"answer":"apples","audio":"A picture graph shows 6 apples and 1 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 7 apples and 2 bananas. Which group has more?","choices":["apples","bananas","the same number","not enough information"],"answer":"apples","audio":"A picture graph shows 7 apples and 2 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 8 apples and 1 bananas. Which group has more?","choices":["apples","bananas","the same number","not enough information"],"answer":"apples","audio":"A picture graph shows 8 apples and 1 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 2 apples and 4 bananas. Which group has more?","choices":["bananas","apples","the same number","not enough information"],"answer":"bananas","audio":"A picture graph shows 2 apples and 4 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 3 apples and 3 bananas. Which group has more?","choices":["the same number","apples","bananas","not enough information"],"answer":"the same number","audio":"A picture graph shows 3 apples and 3 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 4 apples and 4 bananas. Which group has more?","choices":["the same number","apples","bananas","not enough information"],"answer":"the same number","audio":"A picture graph shows 4 apples and 4 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 5 apples and 3 bananas. Which group has more?","choices":["apples","bananas","the same number","not enough information"],"answer":"apples","audio":"A picture graph shows 5 apples and 3 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 6 apples and 4 bananas. Which group has more?","choices":["apples","bananas","the same number","not enough information"],"answer":"apples","audio":"A picture graph shows 6 apples and 4 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 7 apples and 3 bananas. Which group has more?","choices":["apples","bananas","the same number","not enough information"],"answer":"apples","audio":"A picture graph shows 7 apples and 3 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 8 apples and 4 bananas. Which group has more?","choices":["apples","bananas","the same number","not enough information"],"answer":"apples","audio":"A picture graph shows 8 apples and 4 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 2 apples and 5 bananas. Which group has more?","choices":["bananas","apples","the same number","not enough information"],"answer":"bananas","audio":"A picture graph shows 2 apples and 5 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 3 apples and 6 bananas. Which group has more?","choices":["bananas","apples","the same number","not enough information"],"answer":"bananas","audio":"A picture graph shows 3 apples and 6 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 4 apples and 5 bananas. Which group has more?","choices":["bananas","apples","the same number","not enough information"],"answer":"bananas","audio":"A picture graph shows 4 apples and 5 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 5 apples and 6 bananas. Which group has more?","choices":["bananas","apples","the same number","not enough information"],"answer":"bananas","audio":"A picture graph shows 5 apples and 6 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 6 apples and 5 bananas. Which group has more?","choices":["apples","bananas","the same number","not enough information"],"answer":"apples","audio":"A picture graph shows 6 apples and 5 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 7 apples and 6 bananas. Which group has more?","choices":["apples","bananas","the same number","not enough information"],"answer":"apples","audio":"A picture graph shows 7 apples and 6 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 8 apples and 5 bananas. Which group has more?","choices":["apples","bananas","the same number","not enough information"],"answer":"apples","audio":"A picture graph shows 8 apples and 5 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 2 apples and 8 bananas. Which group has more?","choices":["bananas","apples","the same number","not enough information"],"answer":"bananas","audio":"A picture graph shows 2 apples and 8 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 3 apples and 7 bananas. Which group has more?","choices":["bananas","apples","the same number","not enough information"],"answer":"bananas","audio":"A picture graph shows 3 apples and 7 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 4 apples and 8 bananas. Which group has more?","choices":["bananas","apples","the same number","not enough information"],"answer":"bananas","audio":"A picture graph shows 4 apples and 8 bananas. Which group has more?"},
+        {"type":"mc","q":"A picture graph shows 5 apples and 7 bananas. Which group has more?","choices":["bananas","apples","the same number","not enough information"],"answer":"bananas","audio":"A picture graph shows 5 apples and 7 bananas. Which group has more?"}
+      ]
+    },
+    "g1:math:money":{
+      name:"Money Counting",
+      questions:[
+        {"type":"mc","q":"1 1-cent coin and 1 1-cent coin are worth how many cents altogether?","choices":["2","3","1","7"],"answer":"2","audio":"1 1-cent coin and 1 1-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"1 5-cent coin and 1 1-cent coin are worth how many cents altogether?","choices":["6","7","5","11"],"answer":"6","audio":"1 5-cent coin and 1 1-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"1 10-cent coin and 1 1-cent coin are worth how many cents altogether?","choices":["11","12","10","16"],"answer":"11","audio":"1 10-cent coin and 1 1-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"1 25-cent coin and 1 1-cent coin are worth how many cents altogether?","choices":["26","27","25","31"],"answer":"26","audio":"1 25-cent coin and 1 1-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"1 1-cent coin and 1 5-cent coin are worth how many cents altogether?","choices":["6","7","5","11"],"answer":"6","audio":"1 1-cent coin and 1 5-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"1 5-cent coin and 1 5-cent coin are worth how many cents altogether?","choices":["10","11","9","15"],"answer":"10","audio":"1 5-cent coin and 1 5-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"1 10-cent coin and 1 5-cent coin are worth how many cents altogether?","choices":["15","16","14","20"],"answer":"15","audio":"1 10-cent coin and 1 5-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"1 25-cent coin and 1 5-cent coin are worth how many cents altogether?","choices":["30","31","29","35"],"answer":"30","audio":"1 25-cent coin and 1 5-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"1 1-cent coin and 1 10-cent coin are worth how many cents altogether?","choices":["11","12","10","16"],"answer":"11","audio":"1 1-cent coin and 1 10-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"1 5-cent coin and 1 10-cent coin are worth how many cents altogether?","choices":["15","16","14","20"],"answer":"15","audio":"1 5-cent coin and 1 10-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"1 10-cent coin and 1 10-cent coin are worth how many cents altogether?","choices":["20","21","19","25"],"answer":"20","audio":"1 10-cent coin and 1 10-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"1 25-cent coin and 1 10-cent coin are worth how many cents altogether?","choices":["35","36","34","40"],"answer":"35","audio":"1 25-cent coin and 1 10-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"1 1-cent coin and 1 25-cent coin are worth how many cents altogether?","choices":["26","27","25","31"],"answer":"26","audio":"1 1-cent coin and 1 25-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"1 5-cent coin and 1 25-cent coin are worth how many cents altogether?","choices":["30","31","29","35"],"answer":"30","audio":"1 5-cent coin and 1 25-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"1 10-cent coin and 1 25-cent coin are worth how many cents altogether?","choices":["35","36","34","40"],"answer":"35","audio":"1 10-cent coin and 1 25-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"1 25-cent coin and 1 25-cent coin are worth how many cents altogether?","choices":["50","51","49","55"],"answer":"50","audio":"1 25-cent coin and 1 25-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"2 1-cent coins and 1 1-cent coin are worth how many cents altogether?","choices":["3","4","2","8"],"answer":"3","audio":"2 1-cent coins and 1 1-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"2 5-cent coins and 1 1-cent coin are worth how many cents altogether?","choices":["11","12","10","16"],"answer":"11","audio":"2 5-cent coins and 1 1-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"2 10-cent coins and 1 1-cent coin are worth how many cents altogether?","choices":["21","22","20","26"],"answer":"21","audio":"2 10-cent coins and 1 1-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"2 25-cent coins and 1 1-cent coin are worth how many cents altogether?","choices":["51","52","50","56"],"answer":"51","audio":"2 25-cent coins and 1 1-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"2 1-cent coins and 1 5-cent coin are worth how many cents altogether?","choices":["7","8","6","12"],"answer":"7","audio":"2 1-cent coins and 1 5-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"2 5-cent coins and 1 5-cent coin are worth how many cents altogether?","choices":["15","16","14","20"],"answer":"15","audio":"2 5-cent coins and 1 5-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"2 10-cent coins and 1 5-cent coin are worth how many cents altogether?","choices":["25","26","24","30"],"answer":"25","audio":"2 10-cent coins and 1 5-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"2 25-cent coins and 1 5-cent coin are worth how many cents altogether?","choices":["55","56","54","60"],"answer":"55","audio":"2 25-cent coins and 1 5-cent coin are worth how many cents altogether?"},
+        {"type":"mc","q":"2 1-cent coins and 1 10-cent coin are worth how many cents altogether?","choices":["12","13","11","17"],"answer":"12","audio":"2 1-cent coins and 1 10-cent coin are worth how many cents altogether?"}
+      ]
+    }
   });
 })();
