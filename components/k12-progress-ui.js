@@ -303,12 +303,7 @@ window.addEventListener("pagehide",cancelLessonVoice);
 /* ===========================
    Navigation
 =========================== */
-const TIMED_LESSON_SECTIONS=new Set([
-  "prek-add","prek-count","prek-shapes",
-  "k-syll-count","k-syll-build","k-rhymes",
-  "g1-addsub","g1-graphs","g1-money",
-  "early-bank","lessonRunner"
-]);
+const TIMED_LESSON_SECTIONS=new Set(["lessonRunner"]);
 let universalLessonTimerSection="", universalLessonElapsedMs=0;
 let universalLessonActiveSince=0, universalLessonTimerHandle=0;
 let visibleAppSection="home";
@@ -321,12 +316,10 @@ function formatUniversalLessonTime(milliseconds){
 }
 
 function universalLessonTimerDisplay(){
-  if(universalLessonTimerSection==="early-bank") return $("earlyBankTimer");
   return $("universalLessonTimer");
 }
 
 function ensureUniversalLessonTimer(sectionId){
-  if(sectionId==="early-bank") return $("earlyBankTimer");
   const section=$(sectionId);
   if(!section) return null;
   document.querySelectorAll(".universal-lesson-timer").forEach(timer=>timer.remove());
@@ -408,9 +401,7 @@ function show(id){
   const sections = [
     "home","grades","reading","settings","addUserPage","analysis","shop","playground",
     "parentPortal","adminPortal","curriculumStandards",
-    "prek","prek-add","prek-count","prek-shapes",
-    "kinder","k-syll-count","k-syll-build","k-rhymes",
-    "grade1","g1-addsub","g1-graphs","g1-money","early-bank",
+    "prek","kinder","grade1",
     "grade2","g2-eng","g2-math","g2-sci","g2-hist",
 "grade3","g3-eng","g3-math","g3-sci","g3-hist",
 "grade4","g4-eng","g4-math","g4-sci","g4-hist",
@@ -1460,6 +1451,7 @@ function recordLearningStat(type, extra={}){
   const stats = ensureStats();
   if(type === "correct") stats.correct++;
   if(type === "wrong") stats.wrong++;
+  if(type === "reading") stats.readingMinutes += Math.max(0, Math.round(Number(extra.minutes) || 0));
   if(type === "lesson"){
     stats.lessonsCompleted++;
     updateLessonStreak(stats);
@@ -1469,6 +1461,18 @@ function recordLearningStat(type, extra={}){
   if($("settingsPanel")) renderSettings();
   if($("analysisPanel")) renderAnalysis();
   if($("shopGrid")) renderShop();
+}
+
+function logReadingMinutes(minutes=20){
+  safeClick();
+  const amount = Math.round(Number(minutes));
+  if(!Number.isFinite(amount) || amount <= 0){
+    toast("Enter a valid number of reading minutes.");
+    return;
+  }
+  recordLearningStat("reading",{minutes:clamp(amount,1,180)});
+  toast(`${clamp(amount,1,180)} reading minutes added!`);
+  speakGlobal("Reading minutes added.");
 }
 
 function renderAnalysis(){

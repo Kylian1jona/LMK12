@@ -1,7 +1,8 @@
 {
   "scripts": {
     "lessons:audit": "node scripts/audit-classic-25.js",
-    "lessons:audit:early": "node scripts/audit-early-25.js"
+    "lessons:audit:early": "node scripts/audit-early-25.js",
+    "ui:audit": "node scripts/audit-ui-runtime.js"
   },
   "dependencies": {
     "@supabase/server": "^1.4.0"

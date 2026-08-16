@@ -1049,7 +1049,7 @@ function gateAllowedSection(sectionId){
   if(trial) return true;
   if(["home","grades","reading"].includes(sectionId)) return anySubjectAllowed();
   if(sectionId === "shop" || sectionId === "playground") return anySubjectAllowed();
-  if(["prek","prek-add","prek-count","prek-shapes","kinder","k-syll-count","k-syll-build","k-rhymes","grade1","g1-addsub","g1-graphs","g1-money"].includes(sectionId)){
+  if(["prek","kinder","grade1"].includes(sectionId)){
     return subjectAllowed("all");
   }
   if(/^grade\d+$/.test(sectionId)) return anySubjectAllowed();
