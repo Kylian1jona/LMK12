@@ -37,14 +37,39 @@ for(const character of css){
 }
 if(cssDepth!==0) failures.push("Stylesheet braces are unbalanced.");
 
-const requiredIds=["home","grades","reading","settings","analysis","shop","playground","lessonRunner","lrQuestion","lrChoices","lrNextBtn"];
+function sourceDeclaresId(id){
+  const escaped=id.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+  const literalId=new RegExp(`\\bid=["']${escaped}["']`);
+  const dynamicSubjectPage=new RegExp(`\\bsubjectPage\\(\\s*["']${escaped}["']`);
+  return literalId.test(source)||dynamicSubjectPage.test(source);
+}
+
+const newSectionIds=["prek-eng","prek-math","kinder-eng","kinder-math","g1-eng","g1-math","paymentStatus"];
+const requiredIds=["home","grades","reading","settings","analysis","shop","playground","lessonRunner","lrQuestion","lrChoices","lrNextBtn",...newSectionIds];
 for(const id of requiredIds){
-  if(!new RegExp(`\\bid=["']${id}["']`).test(source)) failures.push(`Required UI element #${id} is missing.`);
+  if(!sourceDeclaresId(id)) failures.push(`Required UI element #${id} is missing.`);
 }
 
 const progressSource=fs.readFileSync(path.join(root,"components","k12-progress-ui.js"),"utf8");
+const visibleSectionsMatch=progressSource.match(/\bconst\s+sections\s*=\s*\[([\s\S]*?)\]\s*;/);
+if(!visibleSectionsMatch){
+  failures.push("Visible-section navigation list could not be found.");
+}else{
+  const visibleSectionIds=new Set(
+    [...visibleSectionsMatch[1].matchAll(/["']([^"']+)["']/g)].map(match=>match[1])
+  );
+  for(const id of newSectionIds){
+    if(!visibleSectionIds.has(id)) failures.push(`Required UI section #${id} is not registered for navigation.`);
+  }
+}
+
 for(const legacyId of ["early-bank","prek-add","prek-count","prek-shapes","k-syll-count","k-syll-build","k-rhymes","g1-addsub","g1-graphs","g1-money"]){
   if(progressSource.includes(`"${legacyId}"`)) failures.push(`Legacy navigation target ${legacyId} is still active.`);
+}
+
+const requiredHandlers=["openPaymentStatusPage","renderPaymentStatusPage","saveAdminPaymentStatus"];
+for(const handler of requiredHandlers){
+  if(!definitions.has(handler)) failures.push(`Required UI handler ${handler} is not defined.`);
 }
 
 const report={
@@ -52,6 +77,8 @@ const report={
   inlineHandlers:new Set(handlers).size,
   localAssets:assets.length,
   requiredIds:requiredIds.length,
+  requiredSections:newSectionIds.length,
+  requiredHandlers:requiredHandlers.length,
   failures
 };
 console.log(JSON.stringify(report,null,2));

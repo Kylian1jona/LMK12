@@ -8,7 +8,7 @@
   <div id="home" class="section">
     <div class="lm-home">
       <section class="lm-home-hero">
-        <div class="lm-home-copy"><span>LEARN &bull; GROW &bull; SUCCEED</span><h1>Big learning,<br>one calm step at a time.</h1><p>Short, focused lessons for every learner from Pre-K through Grade 10.</p><div><button type="button" class="lm-primary" onclick="show('grades')">Choose a grade</button><button type="button" class="lm-secondary" onclick="showReading()">Visit Reading</button></div></div>
+        <div class="lm-home-copy"><span>LEARN &bull; GROW &bull; SHINE</span><h1>Big learning,<br>bright adventures.</h1><p>Colorful, focused lessons that help every learner from Pre-K through Grade 10 feel confident.</p><div><button type="button" class="lm-primary" onclick="show('grades')">Choose a grade</button><button type="button" class="lm-secondary" onclick="showReading()">Visit Reading</button></div></div>
         <aside class="lm-today-card"><span>TODAY'S GOAL</span><b>Complete one lesson</b><p>Every lesson has 25 questions and clear feedback.</p><button type="button" onclick="openLessonSearch()">Find a lesson</button></aside>
       </section>
       <section class="lm-home-paths" aria-labelledby="homeLaunchTitle"><header><span>START HERE</span><h2 id="homeLaunchTitle">Find your learning path</h2><p>Pick the group that feels right. You can change grades anytime.</p></header><div>
@@ -38,6 +38,18 @@
     <div class="parent-portal-shell admin-portal-shell">
       <div class="parent-portal-head"><span>Authorized administrators only</span><h1>Administrator overview</h1><p>Account operations, privacy readiness, and curriculum review in one place.</p></div>
       <div id="adminPortalContent"></div>
+    </div>
+  </div>
+
+  <!-- PAYMENT STATUS -->
+  <div id="paymentStatus" class="section d-none">
+    <div class="parent-portal-shell payment-status-shell">
+      <div class="parent-portal-head payment-status-head">
+        <span>Authorized administrators only</span>
+        <h1>Payment status</h1>
+        <p>Review account names, due dates, current standing, and how long an account has been overdue.</p>
+      </div>
+      <div id="paymentStatusContent"></div>
     </div>
   </div>
 

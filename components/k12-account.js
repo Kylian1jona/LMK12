@@ -119,11 +119,11 @@ function showSignup(){
     $("loginMsg").textContent = "";
     $("loginMsg").className = "loginmsg";
   }
-  ["signupUser","signupName","signupPass"].forEach(id=>{
+  ["signupFirstName","signupLastName","signupUser","signupName","signupPass"].forEach(id=>{
     const el = $(id);
     if(el) el.value = "";
   });
-  setTimeout(()=>{ try{$("signupUser").focus();}catch(e){} }, 50);
+  setTimeout(()=>{ try{$("signupFirstName")?.focus();}catch(e){} }, 50);
 }
 
 function validateNewUserFields(username, pass, kids){
@@ -167,16 +167,31 @@ function upsertLocalSupabaseKid(user, username, name){
   return kid;
 }
 
-async function syncSupabaseProfile(user, username, name){
+async function syncSupabaseProfile(user, username, name, firstName="", lastName=""){
   const client = window.learnMasterSupabase;
   if(!client || !user?.id) return false;
+  const metadata = user.user_metadata || {};
+  const safeFirstName = String(firstName || metadata.first_name || "").trim();
+  const safeLastName = String(lastName || metadata.last_name || "").trim();
+  const displayName = String(name || metadata.display_name || [safeFirstName,safeLastName].filter(Boolean).join(" ") || username || user.email?.split("@")[0] || "Learner").trim();
   const profile = {
     user_id:user.id,
     email:user.email || null,
     username:username || user.email?.split("@")[0] || "learner",
-    display_name:name || username || user.email?.split("@")[0] || "Learner"
+    display_name:displayName,
+    first_name:safeFirstName,
+    last_name:safeLastName
   };
-  const { error } = await client.from("learnmaster_profiles").upsert(profile, { onConflict:"user_id" });
+  let { error } = await client.from("learnmaster_profiles").upsert(profile, { onConflict:"user_id" });
+  if(error && /first_name|last_name|schema cache/i.test(error.message || "")){
+    const legacyProfile = {
+      user_id:profile.user_id,
+      email:profile.email,
+      username:profile.username,
+      display_name:profile.display_name
+    };
+    ({error} = await client.from("learnmaster_profiles").upsert(legacyProfile, {onConflict:"user_id"}));
+  }
   if(error){
     console.warn("Supabase profile sync is waiting for the learnmaster_profiles schema:", error.message);
     return false;
@@ -189,14 +204,20 @@ async function createSignupUser(){
   const client = window.learnMasterSupabase;
   if(!client){ loginMsg("Supabase is unavailable. Check your connection and try again.", true); return; }
   const kids = loadKids();
+  const firstName = ($("signupFirstName")?.value || "").trim();
+  const lastName = ($("signupLastName")?.value || "").trim();
   const email = ($("signupUser")?.value || "").trim().toLowerCase();
   const username = ($("signupName")?.value || "").trim().toLowerCase();
-  const name = username;
+  const name = [firstName,lastName].filter(Boolean).join(" ");
   const pass = $("signupPass")?.value || "";
   const usernameError = validateNewUserFields(username, pass, kids);
-  const error = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-    ? "Enter a valid email address."
-    : (usernameError || (!pass || pass.length < 6 ? "Password must be 6 or more characters." : ""));
+  const error = !firstName
+    ? "Enter your first name."
+    : (!lastName
+      ? "Enter your last name."
+      : (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+        ? "Enter a valid email address."
+        : (usernameError || (!pass || pass.length < 6 ? "Password must be 6 or more characters." : ""))));
   if(error){ loginMsg(error, true); return; }
   loginMsg("Creating account…");
   const { data, error: authError } = await client.auth.signUp({
@@ -204,12 +225,12 @@ async function createSignupUser(){
     password: pass,
     options: {
       emailRedirectTo:"https://k12-learning.netlify.app",
-      data: { username, display_name: name, free_month_eligible: true }
+      data: { username, display_name: name, first_name:firstName, last_name:lastName, free_month_eligible: true }
     }
   });
   if(authError){ loginMsg(authError.message, true); return; }
   if(!data.user){ loginMsg("Supabase did not create the account.", true); return; }
-  await syncSupabaseProfile(data.user, username, name);
+  await syncSupabaseProfile(data.user, username, name, firstName, lastName);
   if(!data.session){
     showLoginForm();
     if($("loginUser")) $("loginUser").value = username;
@@ -256,8 +277,9 @@ async function doLogin(){
   await window.learnMasterStore.hydrate(data.user);
   const metadata = data.user?.user_metadata || {};
   const username = metadata.username || email.split("@")[0];
-  await syncSupabaseProfile(data.user, username, metadata.display_name || username);
-  const kid = upsertLocalSupabaseKid(data.user, username, metadata.display_name || username);
+  const accountName = metadata.display_name || [metadata.first_name,metadata.last_name].filter(Boolean).join(" ") || username;
+  await syncSupabaseProfile(data.user, username, accountName, metadata.first_name, metadata.last_name);
+  const kid = upsertLocalSupabaseKid(data.user, username, accountName);
   const startsFreeMonth = metadata.free_month_eligible && !getTrialEnds() && !getPlan();
   if(startsFreeMonth){
     setTrialEnds(Date.now() + 30*24*60*60*1000);
@@ -1040,7 +1062,7 @@ function updateTrialUI(){
 function gateAllowedSection(sectionId){
   if(!loggedIn) return false;
   if(sectionId === "parentPortal") return currentPortalRole === "parent";
-  if(sectionId === "adminPortal") return currentPortalRole === "parent" && currentAccountIsAdmin;
+  if(["adminPortal","paymentStatus"].includes(sectionId)) return currentPortalRole === "parent" && currentAccountIsAdmin;
   if(sectionId === "curriculumStandards") return true;
   if(["settings","analysis","addUserPage"].includes(sectionId)) return true;
   const plan = getPlan();
@@ -1049,9 +1071,9 @@ function gateAllowedSection(sectionId){
   if(trial) return true;
   if(["home","grades","reading"].includes(sectionId)) return anySubjectAllowed();
   if(sectionId === "shop" || sectionId === "playground") return anySubjectAllowed();
-  if(["prek","kinder","grade1"].includes(sectionId)){
-    return subjectAllowed("all");
-  }
+  if(["prek","kinder","grade1"].includes(sectionId)) return anySubjectAllowed();
+  const earlySubjectMatch = sectionId.match(/^(?:prek|kinder|g1)-(eng|math)$/);
+  if(earlySubjectMatch) return subjectAllowed(earlySubjectMatch[1]);
   if(/^grade\d+$/.test(sectionId)) return anySubjectAllowed();
   const subjectMatch = sectionId.match(/^g\d+-(eng|math|sci|hist)$/);
   if(subjectMatch) return subjectAllowed(subjectMatch[1]);
@@ -1079,7 +1101,13 @@ function applyAccessUI(){
 
   const hasAny = anySubjectAllowed();
   ["cardGrade2","cardGrade3","cardGrade4","cardGrade5","cardGrade6","cardGrade7","cardGrade8","cardGrade9","cardGrade10"].forEach(id=>lockCard(id, !hasAny));
-  ["cardPrek","cardKinder","cardGrade1"].forEach(id=>lockCard(id, !subjectAllowed("all")));
+  ["cardPrek","cardKinder","cardGrade1"].forEach(id=>lockCard(id, !hasAny));
+  document.querySelectorAll(".grade-subject-option[data-subject]").forEach(button=>{
+    const allowed = subjectAllowed(button.dataset.subject);
+    button.classList.toggle("is-locked", !allowed);
+    button.disabled = !allowed;
+    button.setAttribute("aria-disabled", String(!allowed));
+  });
   lockCard("cardShop", !hasAny);
   lockCard("cardPlayground", !hasAny);
 

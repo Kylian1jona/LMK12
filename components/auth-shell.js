@@ -66,8 +66,20 @@
         <header class="auth-form-header">
           <span class="auth-eyebrow">New family account</span>
           <h2>Create your account</h2>
-          <p>Use an email you can access, then choose a unique username.</p>
+          <p>Add the account holder's name, an email you can access, and a unique username.</p>
         </header>
+
+        <div class="auth-name-row">
+          <div class="auth-field">
+            <label for="signupFirstName">First name</label>
+            <input id="signupFirstName" name="given-name" type="text" class="form-control rounded-xl" autocomplete="given-name" maxlength="80" required placeholder="First name">
+          </div>
+
+          <div class="auth-field">
+            <label for="signupLastName">Last name</label>
+            <input id="signupLastName" name="family-name" type="text" class="form-control rounded-xl" autocomplete="family-name" maxlength="80" required placeholder="Last name">
+          </div>
+        </div>
 
         <div class="auth-field">
           <label for="signupUser">Email address</label>

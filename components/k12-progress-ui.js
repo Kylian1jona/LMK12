@@ -389,7 +389,7 @@ function show(id){
   }
   if(typeof hideCorrectFeedbackOverlay==="function") hideCorrectFeedbackOverlay();
   if(id!=="lessonRunner" && typeof clearLessonAdvanceTimers==="function") clearLessonAdvanceTimers();
-  if(["settings","analysis","addUserPage"].includes(id)) hidePaywall();
+  if(["settings","analysis","addUserPage","parentPortal","adminPortal","paymentStatus"].includes(id)) hidePaywall();
   cancelLessonVoice();
   if(TIMED_LESSON_SECTIONS.has(id)){
     if(universalLessonTimerSection!==id||visibleAppSection!==id) startUniversalLessonTimer(id);
@@ -400,8 +400,8 @@ function show(id){
   visibleAppSection=id;
   const sections = [
     "home","grades","reading","settings","addUserPage","analysis","shop","playground",
-    "parentPortal","adminPortal","curriculumStandards",
-    "prek","kinder","grade1",
+    "parentPortal","adminPortal","paymentStatus","curriculumStandards",
+    "prek","prek-eng","prek-math","kinder","kinder-eng","kinder-math","grade1","g1-eng","g1-math",
     "grade2","g2-eng","g2-math","g2-sci","g2-hist",
 "grade3","g3-eng","g3-math","g3-sci","g3-hist",
 "grade4","g4-eng","g4-math","g4-sci","g4-hist",

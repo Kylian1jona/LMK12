@@ -1,15 +1,39 @@
 (function(){
-  const lessonCard=(key,back,title,description,tag)=>`<button type="button" class="early-lesson-card" onclick="startEarlyBank('${key}','${back}')"><span>${tag}</span><div><strong>${title}</strong><small>${description}</small></div><b>Start &rarr;</b></button>`;
-  const subject=(name,icon,cards)=>`<section class="early-subject"><header><span>${icon}</span><div><small>SUBJECT</small><h2>${name}</h2></div></header><div class="early-lesson-list">${cards}</div></section>`;
-  const gradePage=(id,level,title,copy,pointsId,learnersId,subjects)=>`
-    <div id="${id}" class="section d-none early-grade-page" data-early-grade="${level}">
-      <div class="early-grade-shell">
-        <header class="early-grade-head">
-          <button type="button" class="early-back-link" onclick="show('grades')">&larr; All grades</button>
-          <div class="early-grade-title"><span>${level}</span><div><small>EARLY LEARNING</small><h1>${title}</h1><p>${copy}</p></div></div>
-          <div class="early-grade-stats"><span>&#9733; <b id="${pointsId}">0</b> points</span><span><b id="${learnersId}">0</b> learners</span></div>
-        </header>
-        <div class="early-subject-grid">${subjects}</div>
+  const lessonCard=(key,back,title,description,tag)=>`<button type="button" class="early-lesson-card" data-lesson-key="${key}" onclick="startEarlyBank('${key}','${back}')"><span>${tag}</span><div><strong>${title}</strong><small>${description}</small></div><b>Start &rarr;</b></button>`;
+  const gradeMenu=(id,level,title,copy,pointsId,learnersId)=>`
+    <div id="${id}" class="section d-none early-grade-page grade-menu" data-early-grade="${level}" data-grade="${id}">
+      <div class="cardish text-center kid-font early-grade-menu-card">
+        <div class="early-grade-menu-heading">
+          <span class="early-grade-level" aria-hidden="true">${level}</span>
+          <h1>${title}</h1>
+          <p class="small-note">Choose a subject</p>
+          <p class="early-grade-copy">${copy}</p>
+        </div>
+
+        <div class="scorebar">
+          <div class="badge-pill">&#9733; Points: <span id="${pointsId}">0</span></div>
+          <div class="badge-pill"><span class="learner-icon" role="img" aria-label="Learner"></span> Learners: <span id="${learnersId}">0</span></div>
+        </div>
+
+        <div class="d-flex justify-content-center gap-3 flex-wrap mt-3 early-subject-picker grade-subject-picker" aria-label="${title} subjects">
+          <button type="button" class="btn btn-main early-subject-choice grade-subject-option" data-subject="eng" onclick="show('${id}-eng')">English</button>
+          <button type="button" class="btn btn-main early-subject-choice grade-subject-option" data-subject="math" onclick="show('${id}-math')">Math</button>
+          <button type="button" class="btn btn-main early-grade-back" onclick="show('grades')">Back</button>
+        </div>
+      </div>
+    </div>`;
+  const subjectPage=(id,gradeId,gradeTitle,name,icon,cards)=>`
+    <div id="${id}" class="section d-none early-subject-page subject-screen" data-grade="${gradeId}" data-subject="${id.endsWith("-math")?"math":"eng"}">
+      <div class="cardish text-center kid-font early-subject-shell">
+        <h1>${gradeTitle} ${name}</h1>
+        <p class="small-note">Choose a lesson</p>
+        <section class="early-subject" data-subject="${id.endsWith("-math")?"math":"eng"}">
+          <header><span>${icon}</span><div><small>SUBJECT</small><h2>${name}</h2></div></header>
+          <div class="early-lesson-list">${cards}</div>
+        </section>
+        <div class="lesson-back-row">
+          <button type="button" class="btn btn-main px-4" onclick="show('${gradeId}')">Back to ${gradeTitle}</button>
+        </div>
       </div>
     </div>`;
 
@@ -18,40 +42,46 @@
       if(this.dataset.rendered==="true") return;
       this.dataset.rendered="true";
       const prekEnglish=[
-        lessonCard("prek:eng:letters","prek","Letter Names","Recognize uppercase letters.","ABC"),
-        lessonCard("prek:eng:sounds","prek","Beginning Sounds","Match words to their first sound.","Aa"),
-        lessonCard("prek:eng:rhymes","prek","Rhyming Words","Find words that sound alike.","&#9834;")
+        lessonCard("prek:eng:letters","prek-eng","Letter Names","Recognize uppercase letters.","ABC"),
+        lessonCard("prek:eng:sounds","prek-eng","Beginning Sounds","Match words to their first sound.","Aa"),
+        lessonCard("prek:eng:rhymes","prek-eng","Rhyming Words","Find words that sound alike.","&#9834;")
       ].join("");
       const prekMath=[
-        lessonCard("prek:math:addition","prek","Picture Addition","Add small groups up to ten.","+"),
-        lessonCard("prek:math:counting","prek","Counting to 20","Count objects and choose the total.","123"),
-        lessonCard("prek:math:shapes","prek","Shape Match","Recognize everyday shapes.","O")
+        lessonCard("prek:math:addition","prek-math","Picture Addition","Add small groups up to ten.","+"),
+        lessonCard("prek:math:counting","prek-math","Counting to 20","Count objects and choose the total.","123"),
+        lessonCard("prek:math:shapes","prek-math","Shape Match","Recognize everyday shapes.","O")
       ].join("");
       const kinderEnglish=[
-        lessonCard("k:eng:syllables","kinder","Syllable Count","Clap and count word parts.","CLAP"),
-        lessonCard("k:eng:words","kinder","Build the Word","Connect pictures, sounds, and words.","CAT"),
-        lessonCard("k:eng:rhymes","kinder","Rhyming Words","Choose matching word endings.","&#9834;")
+        lessonCard("k:eng:syllables","kinder-eng","Syllable Count","Clap and count word parts.","CLAP"),
+        lessonCard("k:eng:words","kinder-eng","Build the Word","Connect pictures, sounds, and words.","CAT"),
+        lessonCard("k:eng:rhymes","kinder-eng","Rhyming Words","Choose matching word endings.","&#9834;")
       ].join("");
       const kinderMath=[
-        lessonCard("k:math:counting","kinder","Counting to 30","Build confident number sense.","123"),
-        lessonCard("k:math:addition","kinder","Addition Within 10","Combine two small groups.","+"),
-        lessonCard("k:math:patterns","kinder","Shapes & Patterns","Find what comes next.","PAT")
+        lessonCard("k:math:counting","kinder-math","Counting to 30","Build confident number sense.","123"),
+        lessonCard("k:math:addition","kinder-math","Addition Within 10","Combine two small groups.","+"),
+        lessonCard("k:math:patterns","kinder-math","Shapes & Patterns","Find what comes next.","PAT")
       ].join("");
       const g1English=[
-        lessonCard("g1:eng:vowels","grade1","Vowel Sounds","Practice short and long vowels.","AEI"),
-        lessonCard("g1:eng:sight","grade1","Sight Words","Read high-frequency words quickly.","SEE"),
-        lessonCard("g1:eng:sentences","grade1","Sentence Basics","Build complete sentences.","Aa")
+        lessonCard("g1:eng:vowels","g1-eng","Vowel Sounds","Practice short and long vowels.","AEI"),
+        lessonCard("g1:eng:sight","g1-eng","Sight Words","Read high-frequency words quickly.","SEE"),
+        lessonCard("g1:eng:sentences","g1-eng","Sentence Basics","Build complete sentences.","Aa")
       ].join("");
       const g1Math=[
-        lessonCard("g1:math:addsub","grade1","Addition & Subtraction","Solve two-digit number problems.","+/-"),
-        lessonCard("g1:math:graphs","grade1","Data & Graphs","Compare simple picture data.","BAR"),
-        lessonCard("g1:math:money","grade1","Money Counting","Count coins and find totals.","&#162;")
+        lessonCard("g1:math:addsub","g1-math","Addition & Subtraction","Solve two-digit number problems.","+/-"),
+        lessonCard("g1:math:graphs","g1-math","Data & Graphs","Compare simple picture data.","BAR"),
+        lessonCard("g1:math:money","g1-math","Money Counting","Count coins and find totals.","&#162;")
       ].join("");
 
       this.innerHTML=
-        gradePage("prek","PK","Pre-K","Playful, picture-first practice built for first learners.","prekPoints","prekLearners",subject("English","A",prekEnglish)+subject("Math","+",prekMath))+
-        gradePage("kinder","K","Kindergarten","Short lessons that turn early skills into confidence.","kPoints","kLearners",subject("English","A",kinderEnglish)+subject("Math","+",kinderMath))+
-        gradePage("grade1","1","Grade 1","Independent practice across reading foundations and math.","g1Points","g1Learners",subject("English","A",g1English)+subject("Math","+",g1Math));
+        gradeMenu("prek","PK","Pre-K","Playful, picture-first practice built for first learners.","prekPoints","prekLearners")+
+        subjectPage("prek-eng","prek","Pre-K","English","A",prekEnglish)+
+        subjectPage("prek-math","prek","Pre-K","Math","+",prekMath)+
+        gradeMenu("kinder","K","Kindergarten","Short lessons that turn early skills into confidence.","kPoints","kLearners")+
+        subjectPage("kinder-eng","kinder","Kindergarten","English","A",kinderEnglish)+
+        subjectPage("kinder-math","kinder","Kindergarten","Math","+",kinderMath)+
+        gradeMenu("grade1","1","Grade 1","Independent practice across reading foundations and math.","g1Points","g1Learners")+
+        subjectPage("g1-eng","grade1","Grade 1","English","A",g1English)+
+        subjectPage("g1-math","grade1","Grade 1","Math","+",g1Math);
     }
   }
   customElements.define("k12-early-sections",K12EarlySections);

@@ -5913,3 +5913,253 @@ body #lessonRunner .lesson-img{
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+/* =========================================================
+   COHESIVE KID-FRIENDLY COLOR SYSTEM - AUGUST 2026
+========================================================= */
+:root{
+  --kid-purple:#6f52ed;
+  --kid-purple-dark:#5135c8;
+  --kid-blue:#2f80ed;
+  --kid-aqua:#12a99d;
+  --kid-coral:#f45f72;
+  --kid-amber:#f2a900;
+  --kid-green:#2da66f;
+  --kid-ink:#17324d;
+  --kid-muted:#65798d;
+  --kid-paper:#fffefa;
+  --kid-line:#dde7f2;
+  --kid-shadow:0 18px 46px rgba(35,48,93,.12);
+}
+
+body{
+  color:var(--kid-ink);
+  background-color:var(--bg,#f7f8ff)!important;
+  background-image:
+    radial-gradient(circle at 7% 16%,rgba(111,82,237,.14) 0 9%,transparent 24%),
+    radial-gradient(circle at 94% 22%,rgba(244,95,114,.12) 0 8%,transparent 23%),
+    radial-gradient(circle at 88% 86%,rgba(18,169,157,.13) 0 10%,transparent 28%),
+    url("images/learnmaster-page-bg-v2.png")!important;
+  background-position:center,center,center,center top!important;
+  background-size:auto,auto,auto,cover!important;
+  background-attachment:fixed!important;
+}
+
+body[data-theme="night"]{
+  --kid-ink:#f6f8ff;
+  --kid-muted:#c4cee0;
+  --kid-paper:#202c40;
+  --kid-line:#3a4961;
+  background-blend-mode:screen,screen,screen,multiply;
+}
+
+.lm-topbar{
+  border-bottom:0;
+  background:color-mix(in srgb,var(--card,#fff) 94%,#f2efff)!important;
+  box-shadow:0 10px 34px rgba(56,42,119,.11);
+}
+.lm-topbar::after{
+  content:"";position:absolute;right:0;bottom:0;left:0;height:4px;
+  background:linear-gradient(90deg,var(--kid-purple),var(--kid-blue),var(--kid-aqua),var(--kid-amber),var(--kid-coral));
+}
+.lm-desktop-nav button:nth-child(1):hover{color:var(--kid-purple);background:#f0edff}
+.lm-desktop-nav button:nth-child(2):hover{color:var(--kid-blue);background:#ebf4ff}
+.lm-desktop-nav button:nth-child(3):hover{color:var(--kid-aqua);background:#e9fbf8}
+.lm-desktop-nav button:nth-child(4):hover{color:var(--kid-coral);background:#fff0f2}
+.lm-desktop-nav button:nth-child(5):hover{color:#9a6800;background:#fff7dc}
+.lm-points span{color:var(--kid-amber)!important}
+.lm-menu-button{border-color:#dcd4ff;background:#f4f1ff;color:var(--kid-purple-dark)}
+.lm-menu-button span{background:currentColor}
+
+body[data-theme] .lm-primary,
+body[data-theme] button.lm-primary{
+  border-color:var(--kid-purple-dark)!important;
+  background:linear-gradient(135deg,var(--kid-purple),var(--kid-blue))!important;
+  color:#fff!important;
+  box-shadow:0 10px 22px rgba(90,67,205,.22)!important;
+}
+body[data-theme] .lm-secondary{
+  border-color:#cfc6ff!important;background:color-mix(in srgb,var(--card,#fff) 95%,#ede9ff)!important;color:var(--kid-purple-dark)!important;
+}
+
+.lm-home-hero{
+  position:relative;isolation:isolate;overflow:hidden;
+  border:2px solid rgba(111,82,237,.18)!important;
+  background:
+    linear-gradient(128deg,rgba(255,255,255,.96),rgba(243,239,255,.95) 52%,rgba(230,251,247,.94))!important;
+  box-shadow:0 28px 72px rgba(65,45,139,.14)!important;
+}
+.lm-home-hero::before,.lm-home-hero::after{content:"";position:absolute;z-index:-1;border-radius:50%;pointer-events:none}
+.lm-home-hero::before{width:260px;height:260px;right:-80px;top:-100px;background:linear-gradient(145deg,rgba(244,95,114,.23),rgba(242,169,0,.18))}
+.lm-home-hero::after{width:190px;height:190px;left:45%;bottom:-125px;background:linear-gradient(145deg,rgba(47,128,237,.2),rgba(18,169,157,.18))}
+.lm-home-copy h1{
+  color:var(--kid-purple-dark);
+  background:linear-gradient(110deg,var(--kid-purple-dark),var(--kid-blue) 54%,var(--kid-aqua));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.lm-home-copy>span{color:var(--kid-coral)!important}
+.lm-today-card{
+  border:2px solid rgba(242,169,0,.25);
+  background:linear-gradient(155deg,#fffefa,#fff6d8)!important;
+  box-shadow:0 18px 42px rgba(139,94,0,.12);
+}
+.lm-today-card>span{color:#a36d00!important}.lm-today-card button{background:#fff0b9;color:#714c00}
+
+.lm-home-paths>div{gap:18px}
+.lm-home-paths button,.lm-home-tools button{border-width:2px!important;box-shadow:0 12px 30px rgba(35,48,93,.08)!important;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.lm-home-paths button:hover,.lm-home-tools button:hover{transform:translateY(-5px);box-shadow:0 20px 42px rgba(35,48,93,.14)!important}
+.lm-home-paths button:nth-child(1){border-color:#d8ceff;background:linear-gradient(145deg,#fff,#f1edff)}
+.lm-home-paths button:nth-child(2){border-color:#bfeee7;background:linear-gradient(145deg,#fff,#eafbf8)}
+.lm-home-paths button:nth-child(3){border-color:#ffe0a1;background:linear-gradient(145deg,#fff,#fff7df)}
+.lm-home-paths button:nth-child(4){border-color:#ffc9d1;background:linear-gradient(145deg,#fff,#fff0f3)}
+.lm-home-paths button:nth-child(1)>span{background:#e7e0ff;color:var(--kid-purple-dark)}
+.lm-home-paths button:nth-child(2)>span{background:#d8f7f1;color:#087a71}
+.lm-home-paths button:nth-child(3)>span{background:#ffedbd;color:#916100}
+.lm-home-paths button:nth-child(4)>span{background:#ffe0e5;color:#b53b4c}
+.lm-home-tools button:nth-child(4n+1){border-color:#cfe3ff;background:linear-gradient(145deg,#fff,#eef6ff)}
+.lm-home-tools button:nth-child(4n+2){border-color:#ffe0a1;background:linear-gradient(145deg,#fff,#fff7df)}
+.lm-home-tools button:nth-child(4n+3){border-color:#c8eee8;background:linear-gradient(145deg,#fff,#ebfaf7)}
+.lm-home-tools button:nth-child(4n+4){border-color:#ffd0d7;background:linear-gradient(145deg,#fff,#fff1f3)}
+
+body #grades.grades-background{background:transparent!important}
+body #grades .grade-library-v2{
+  border:2px solid rgba(111,82,237,.16);background:rgba(255,254,250,.96)!important;box-shadow:var(--kid-shadow)!important;
+}
+.grade-library-head{
+  overflow:hidden;border:0!important;border-radius:28px!important;
+  background:linear-gradient(120deg,#f0ebff,#e8f5ff 48%,#e6faf6)!important;
+}
+.grade-library-head>div>span{color:var(--kid-coral)!important}.grade-library-head h1{color:var(--kid-purple-dark)!important}
+.grade-library-head aside{border-color:#d5ccff!important;background:#fff!important}.grade-library-head aside b{color:var(--kid-purple)!important}
+body #grades .grade-library-grid .grade-card{
+  --grade-color:var(--kid-purple);--grade-tint:#f3efff;
+  border:2px solid color-mix(in srgb,var(--grade-color) 26%,#fff)!important;
+  background:linear-gradient(150deg,#fff 34%,var(--grade-tint))!important;
+  box-shadow:0 10px 24px rgba(35,48,93,.07)!important;
+}
+body #grades .grade-library-grid .grade-card:nth-child(5n+2){--grade-color:var(--kid-blue);--grade-tint:#edf6ff}
+body #grades .grade-library-grid .grade-card:nth-child(5n+3){--grade-color:var(--kid-aqua);--grade-tint:#eafaf6}
+body #grades .grade-library-grid .grade-card:nth-child(5n+4){--grade-color:var(--kid-amber);--grade-tint:#fff8df}
+body #grades .grade-library-grid .grade-card:nth-child(5n+5){--grade-color:var(--kid-coral);--grade-tint:#fff0f3}
+body #grades .grade-library-grid .grade-card::before{background:var(--grade-color)!important}
+body #grades .grade-library-grid .grade-card:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(35,48,93,.13)!important}
+body #grades .grade-library-grid .grade-card .btn{background:var(--grade-color)!important;border-color:var(--grade-color)!important}
+
+/* Early grades now follow the same subject-first flow as Grades 2-10. */
+.grade-menu,.subject-screen,#paymentStatus{
+  min-height:calc(100vh - 82px);padding:clamp(30px,5vw,72px) clamp(15px,4vw,50px) 90px;
+  background:
+    radial-gradient(circle at 12% 18%,rgba(242,169,0,.15),transparent 25%),
+    radial-gradient(circle at 88% 24%,rgba(111,82,237,.14),transparent 27%),
+    linear-gradient(180deg,rgba(244,250,255,.88),rgba(255,250,243,.9))!important;
+}
+body .section.grade-menu>.cardish.early-grade-menu-card,
+body .section.subject-screen>.cardish.early-subject-shell{
+  position:relative;max-width:980px;margin:auto;padding:clamp(30px,5vw,62px)!important;
+  border:2px solid rgba(111,82,237,.17)!important;border-radius:34px!important;
+  background:rgba(255,254,250,.96)!important;box-shadow:var(--kid-shadow)!important;color:var(--kid-ink)!important;
+}
+.early-grade-menu-heading{text-align:center}.early-grade-menu-heading h1,.early-subject-shell>h1{margin:8px 0;color:var(--kid-purple-dark);font:800 clamp(44px,7vw,72px)/1 "Baloo 2",cursive}
+.early-grade-level{display:grid;width:78px;height:78px;place-items:center;margin:0 auto;border-radius:25px;background:linear-gradient(145deg,var(--kid-purple),var(--kid-blue));color:#fff;font:800 30px/1 "Baloo 2",cursive;box-shadow:0 14px 28px rgba(85,59,198,.24)}
+.early-grade-copy{max-width:620px;margin:0 auto 24px;color:var(--kid-muted);font-size:17px}
+body .section.grade-menu>.early-grade-menu-card>.scorebar{justify-content:center;margin:20px auto 30px}
+.early-grade-menu-card .badge-pill{border-color:#ded7ff;background:#f8f6ff;color:var(--kid-purple-dark)}
+.grade-subject-picker{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  max-width:820px!important;margin:0 auto!important;gap:18px!important;
+}
+body .grade-subject-picker .grade-subject-option{
+  --subject-color:var(--kid-purple);--subject-bg:#f2eeff;
+  min-height:132px!important;display:grid!important;grid-template-columns:66px 1fr;align-items:center!important;
+  justify-content:stretch!important;gap:18px;padding:22px!important;border:2px solid color-mix(in srgb,var(--subject-color) 35%,#fff)!important;
+  border-radius:24px!important;background:linear-gradient(145deg,#fff,var(--subject-bg))!important;color:var(--kid-ink)!important;
+  box-shadow:0 12px 26px rgba(35,48,93,.08)!important;text-align:left;font:800 24px/1.1 "Baloo 2",cursive!important;
+}
+body .grade-subject-picker .grade-subject-option::before{display:grid;place-items:center;width:66px;height:66px;border-radius:19px;background:var(--subject-bg);color:var(--subject-color);content:"ABC";font:900 16px/1 "Baloo 2",cursive}
+body .grade-subject-picker .grade-subject-option[data-subject="math"]{--subject-color:var(--kid-amber);--subject-bg:#fff5d4}
+body .grade-subject-picker .grade-subject-option[data-subject="math"]::before{content:"123"}
+body .grade-subject-picker .grade-subject-option:hover{transform:translateY(-4px);box-shadow:0 18px 34px rgba(35,48,93,.14)!important}
+body .grade-subject-picker .grade-subject-option.is-locked{opacity:.48;filter:grayscale(.7)}
+body .grade-subject-picker .early-grade-back{grid-column:1/-1;min-height:52px!important;border:0!important;border-radius:16px!important;background:#263e63!important;color:#fff!important}
+
+/* Add the same friendly color coding to the existing Grade 2-10 selector buttons. */
+body .section[id^="grade"]:not(#grades)>.cardish>.d-flex.mt-3 .btn:nth-child(1):not(:last-child){border-color:#cfc5ff!important;background:linear-gradient(145deg,#fff,#f1edff)!important}
+body .section[id^="grade"]:not(#grades)>.cardish>.d-flex.mt-3 .btn:nth-child(2):not(:last-child){border-color:#ffe0a0!important;background:linear-gradient(145deg,#fff,#fff6d8)!important}
+body .section[id^="grade"]:not(#grades)>.cardish>.d-flex.mt-3 .btn:nth-child(3):not(:last-child){border-color:#bfe9e2!important;background:linear-gradient(145deg,#fff,#eaf9f5)!important}
+body .section[id^="grade"]:not(#grades)>.cardish>.d-flex.mt-3 .btn:nth-child(4):not(:last-child){border-color:#ffc8d1!important;background:linear-gradient(145deg,#fff,#ffeff2)!important}
+
+body .section.subject-screen>.early-subject-shell>h1{text-align:center;color:var(--kid-purple-dark)}
+body .section.subject-screen>.early-subject-shell>.small-note{text-align:center;color:var(--kid-muted)}
+.early-subject-shell .early-subject{max-width:780px;margin:30px auto 0;padding:28px;border:2px solid #d8d0ff;border-radius:26px;background:linear-gradient(145deg,#fff,#f3f0ff);box-shadow:none}
+.early-subject-shell .early-subject[data-subject="math"]{border-color:#ffe0a0;background:linear-gradient(145deg,#fff,#fff7dd)}
+.early-subject-shell .early-subject>header>span{background:#e6dfff;color:var(--kid-purple-dark)}
+.early-subject-shell .early-subject[data-subject="math"]>header>span{background:#ffe9aa;color:#8a5d00}
+.early-subject-shell .early-lesson-list{gap:12px}
+.early-subject-shell .early-lesson-card{min-height:92px;border:2px solid #e1e5f0;background:#fff;box-shadow:0 8px 18px rgba(35,48,93,.06)}
+.early-subject-shell .early-lesson-card:nth-child(3n+1)>span{background:#e5dfff;color:var(--kid-purple-dark)}
+.early-subject-shell .early-lesson-card:nth-child(3n+2)>span{background:#dff6f2;color:#08786f}
+.early-subject-shell .early-lesson-card:nth-child(3n+3)>span{background:#ffe5e9;color:#b23d4e}
+.early-subject-shell .early-lesson-card:hover{border-color:var(--kid-purple);transform:translateY(-2px)}
+.early-subject-shell .lesson-back-row{margin-top:26px}
+
+/* Keep lesson workspaces bright and focused while adding cheerful accents. */
+body #lessonRunner>.lesson-quiz-shell{border:2px solid rgba(111,82,237,.15);box-shadow:0 28px 68px rgba(46,51,104,.15)}
+body #lessonRunner .lesson-progress-track span{background:linear-gradient(90deg,var(--kid-purple),var(--kid-blue),var(--kid-aqua))}
+body #lessonRunner .lesson-question-banner{background:linear-gradient(135deg,var(--kid-purple),var(--kid-blue));box-shadow:0 10px 24px rgba(82,63,188,.2)}
+body #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong):nth-child(4n+1){border-color:#b9aaff!important;background:#f7f4ff!important}
+body #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong):nth-child(4n+2){border-color:#8edbd2!important;background:#f0fcfa!important}
+body #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong):nth-child(4n+3){border-color:#86b9f7!important;background:#f1f7ff!important}
+body #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong):nth-child(4n+4){border-color:#ff9aaa!important;background:#fff3f5!important}
+
+/* Account name fields and secure payment administration. */
+.auth-name-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.payment-status-shell{max-width:1320px!important}
+.payment-status-head{border-bottom-color:#ded7ff!important}
+.payment-status-head>span{color:var(--kid-coral)!important}.payment-status-head h1{color:var(--kid-purple-dark)!important}
+.admin-summary-grid,.payment-summary-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.admin-summary-grid article,.payment-summary-card{border:2px solid #dfe5ef!important;background:#fff!important}
+.admin-summary-grid .summary-active,.payment-summary-card.status-active{border-color:#a7dfc2!important;background:#effbf5!important}
+.admin-summary-grid .summary-late,.payment-summary-card.status-late{border-color:#ffc2ca!important;background:#fff1f3!important}
+.admin-summary-grid .summary-suspended,.payment-summary-card.status-suspended{border-color:#cfc5e8!important;background:#f3f0f8!important}
+.payment-summary-card{padding:22px;border-radius:20px;text-align:center;text-transform:capitalize}
+.payment-summary-card span{display:block;color:var(--kid-muted);font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.payment-summary-card strong{display:block;margin-top:5px;color:var(--kid-ink);font:800 38px/1 "Baloo 2",cursive}
+.payment-summary-card.status-pending{border-color:#ffe09d!important;background:#fff8df!important}
+.payment-toolbar{display:grid;grid-template-columns:minmax(250px,1fr) minmax(180px,260px);gap:16px;margin:24px 0;padding:18px;border:2px solid #e2def7;border-radius:22px;background:#f9f7ff}
+.payment-toolbar label{display:grid;gap:7px;color:var(--kid-ink);font-weight:800}
+.payment-toolbar label span{font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.payment-toolbar input,.payment-toolbar select,.payment-status-select,.payment-due-input{min-height:46px;padding:9px 12px;border:1px solid #ccd7e6;border-radius:12px;background:#fff;color:#17324d}
+.payment-table-wrap{overflow-x:auto;border:2px solid #e1e6ef;border-radius:24px;background:#fff;box-shadow:0 12px 32px rgba(35,48,93,.07)}
+.payment-table{width:100%;border-collapse:collapse;min-width:980px}
+.payment-table th{padding:15px;background:#eeeaff;color:var(--kid-purple-dark);font-size:12px;letter-spacing:.06em;text-align:left;text-transform:uppercase}
+.payment-table td{padding:16px 14px;border-top:1px solid #e7ebf2;vertical-align:middle;color:#294158}
+.payment-table td:first-child strong,.payment-table td:first-child span{display:block}.payment-table td:first-child span{margin-top:3px;color:#718397;font-size:12px}
+.payment-account-row[hidden]{display:none!important}
+.payment-status-badge{display:inline-flex;align-items:center;min-height:34px;padding:7px 11px;border-radius:999px;background:#eef2f7;color:#52657a;font-size:12px;font-weight:800;white-space:nowrap}
+.payment-status-badge.status-active{background:#dcf5e7;color:#17633e}.payment-status-badge.status-pending{background:#fff0bd;color:#805800}.payment-status-badge.status-late{background:#ffe0e5;color:#9e3041}.payment-status-badge.status-suspended{background:#e8e3f1;color:#51426b}
+.payment-save-button{min-height:42px!important;padding:9px 16px!important;border-color:var(--kid-purple-dark)!important;background:var(--kid-purple)!important}
+.payment-empty,.payment-setup-note{padding:34px;border:2px dashed #d6cff4;border-radius:22px;background:#faf8ff;text-align:center}
+.payment-empty strong,.payment-setup-note strong{color:var(--kid-purple-dark);font:800 25px/1.1 "Baloo 2",cursive}
+
+@media(max-width:900px){
+  .admin-summary-grid,.payment-summary-grid{grid-template-columns:1fr 1fr}
+  .payment-toolbar{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  body{background-attachment:scroll!important}
+  .lm-home-hero{border-radius:26px!important}
+  .grade-subject-picker{grid-template-columns:1fr!important}
+  body .grade-subject-picker .grade-subject-option{min-height:102px!important;grid-template-columns:54px 1fr;padding:16px!important;font-size:21px!important}
+  body .grade-subject-picker .grade-subject-option::before{width:54px;height:54px;border-radius:16px}
+  .early-grade-menu-card,.early-subject-shell{padding:25px 16px!important;border-radius:25px!important}
+  .early-grade-level{width:64px;height:64px;border-radius:20px;font-size:25px}
+  .early-subject-shell .early-subject{padding:18px 12px}
+  .auth-name-row{grid-template-columns:1fr;gap:0}
+  .admin-summary-grid,.payment-summary-grid{grid-template-columns:1fr 1fr}
+  .payment-table-wrap{overflow:visible;border:0;background:transparent;box-shadow:none}
+  .payment-table{min-width:0}.payment-table thead{display:none}.payment-table tbody{display:grid;gap:16px}
+  .payment-table tr{display:block;padding:17px;border:2px solid #e2def7;border-radius:20px;background:#fff;box-shadow:0 10px 24px rgba(35,48,93,.07)}
+  .payment-table td{display:grid;grid-template-columns:115px 1fr;align-items:center;gap:10px;padding:9px 0;border:0}
+  .payment-table td::before{content:attr(data-label);color:#6d7890;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+  .payment-status-select,.payment-due-input,.payment-save-button{width:100%}
+}

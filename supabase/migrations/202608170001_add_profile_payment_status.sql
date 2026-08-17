@@ -1,47 +1,3 @@
-create table if not exists public.learnmaster_user_data (
-  user_id uuid primary key references auth.users(id) on delete cascade,
-  data jsonb not null default '{}'::jsonb,
-  updated_at timestamptz not null default now()
-);
-
-alter table public.learnmaster_user_data enable row level security;
-
-drop policy if exists "Users read their LearnMaster data" on public.learnmaster_user_data;
-create policy "Users read their LearnMaster data"
-on public.learnmaster_user_data for select
-using (auth.uid() = user_id);
-
-drop policy if exists "Users create their LearnMaster data" on public.learnmaster_user_data;
-create policy "Users create their LearnMaster data"
-on public.learnmaster_user_data for insert
-with check (auth.uid() = user_id);
-
-drop policy if exists "Users update their LearnMaster data" on public.learnmaster_user_data;
-create policy "Users update their LearnMaster data"
-on public.learnmaster_user_data for update
-using (auth.uid() = user_id)
-with check (auth.uid() = user_id);
-
-drop policy if exists "Users delete their LearnMaster data" on public.learnmaster_user_data;
-create policy "Users delete their LearnMaster data"
-on public.learnmaster_user_data for delete
-using (auth.uid() = user_id);
-
-create table if not exists public.learnmaster_profiles (
-  user_id uuid primary key references auth.users(id) on delete cascade,
-  email text,
-  username text not null,
-  display_name text not null,
-  first_name text not null default '',
-  last_name text not null default '',
-  payment_status text not null default 'pending',
-  payment_due_on date,
-  payment_status_updated_at timestamptz not null default now(),
-  created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now()
-);
-
-alter table public.learnmaster_profiles add column if not exists is_admin boolean not null default false;
 alter table public.learnmaster_profiles add column if not exists first_name text not null default '';
 alter table public.learnmaster_profiles add column if not exists last_name text not null default '';
 alter table public.learnmaster_profiles add column if not exists payment_status text not null default 'pending';
@@ -109,23 +65,11 @@ begin
   return new;
 end;
 $$;
+
 drop trigger if exists protect_learnmaster_admin_role on public.learnmaster_profiles;
-create trigger protect_learnmaster_admin_role before insert or update on public.learnmaster_profiles
+create trigger protect_learnmaster_admin_role
+before insert or update on public.learnmaster_profiles
 for each row execute procedure public.protect_learnmaster_admin_role();
-
-create table if not exists public.learnmaster_parent_consents (
-  user_id uuid primary key references auth.users(id) on delete cascade,
-  privacy_version text not null,
-  consented_at timestamptz not null default now()
-);
-
-alter table public.learnmaster_parent_consents enable row level security;
-drop policy if exists "Parents read their consent" on public.learnmaster_parent_consents;
-create policy "Parents read their consent" on public.learnmaster_parent_consents for select using (auth.uid() = user_id);
-drop policy if exists "Parents create their consent" on public.learnmaster_parent_consents;
-create policy "Parents create their consent" on public.learnmaster_parent_consents for insert with check (auth.uid() = user_id);
-drop policy if exists "Parents update their consent" on public.learnmaster_parent_consents;
-create policy "Parents update their consent" on public.learnmaster_parent_consents for update using (auth.uid() = user_id) with check (auth.uid() = user_id);
 
 create or replace function public.learnmaster_admin_summary()
 returns jsonb
@@ -279,47 +223,11 @@ $$;
 revoke all on function public.learnmaster_admin_update_payment(uuid, text, date) from public;
 grant execute on function public.learnmaster_admin_update_payment(uuid, text, date) to authenticated;
 
-alter table public.learnmaster_profiles enable row level security;
-
-create unique index if not exists learnmaster_profiles_username_lower_key
-on public.learnmaster_profiles (lower(username));
-
-create or replace function public.learnmaster_login_email(login_username text)
-returns text
-language sql
-stable
-security definer
-set search_path = ''
-as $$
-  select profiles.email
-  from public.learnmaster_profiles as profiles
-  where lower(profiles.username) = lower(trim(login_username))
-  limit 1;
-$$;
-
-revoke all on function public.learnmaster_login_email(text) from public;
-grant execute on function public.learnmaster_login_email(text) to anon, authenticated;
-
-drop policy if exists "Users read their LearnMaster profile" on public.learnmaster_profiles;
-create policy "Users read their LearnMaster profile"
-on public.learnmaster_profiles for select
-using (auth.uid() = user_id);
-
-drop policy if exists "Users create their LearnMaster profile" on public.learnmaster_profiles;
-create policy "Users create their LearnMaster profile"
-on public.learnmaster_profiles for insert
-with check (auth.uid() = user_id);
-
-drop policy if exists "Users update their LearnMaster profile" on public.learnmaster_profiles;
-create policy "Users update their LearnMaster profile"
-on public.learnmaster_profiles for update
-using (auth.uid() = user_id)
-with check (auth.uid() = user_id);
-
 create or replace function public.create_learnmaster_profile()
 returns trigger
 language plpgsql
-security definer set search_path = ''
+security definer
+set search_path = ''
 as $$
 declare
   profile_username text;
