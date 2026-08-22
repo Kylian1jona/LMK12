@@ -59,17 +59,17 @@
       const kinderMath=[
         lessonCard("k:math:counting","kinder-math","Counting to 30","Build confident number sense.","123"),
         lessonCard("k:math:addition","kinder-math","Addition Within 10","Combine two small groups.","+"),
-        lessonCard("k:math:patterns","kinder-math","Shapes & Patterns","Find what comes next.","PAT")
+        lessonCard("k:math:patterns","kinder-math","Shapes and Patterns","Find what comes next.","PAT")
       ].join("");
       const g1English=[
-        lessonCard("g1:eng:vowels","g1-eng","Vowel Sounds","Practice short and long vowels.","AEI"),
-        lessonCard("g1:eng:sight","g1-eng","Sight Words","Read high-frequency words quickly.","SEE"),
-        lessonCard("g1:eng:sentences","g1-eng","Sentence Basics","Build complete sentences.","Aa")
+        lessonCard("g1:eng:vowels","g1-eng","Short and Long Vowel Sounds","Practice short and long vowels.","AEI"),
+        lessonCard("g1:eng:sight","g1-eng","Sight Words in Sentences","Choose words that complete each sentence.","SEE"),
+        lessonCard("g1:eng:sentences","g1-eng","Building Complete Sentences","Practice complete sentences and punctuation.","Aa")
       ].join("");
       const g1Math=[
-        lessonCard("g1:math:addsub","g1-math","Addition & Subtraction","Solve two-digit number problems.","+/-"),
-        lessonCard("g1:math:graphs","g1-math","Data & Graphs","Compare simple picture data.","BAR"),
-        lessonCard("g1:math:money","g1-math","Money Counting","Count coins and find totals.","&#162;")
+        lessonCard("g1:math:addsub","g1-math","Addition and Subtraction Within 20","Solve addition and subtraction stories.","+/-"),
+        lessonCard("g1:math:graphs","g1-math","Reading Picture Graphs and Data","Compare simple picture data.","BAR"),
+        lessonCard("g1:math:money","g1-math","Coins and Counting Money","Count coins and find totals.","&#162;")
       ].join("");
 
       this.innerHTML=
