@@ -384,7 +384,7 @@ function show(id){
     if(typeof hideCorrectFeedbackOverlay==="function") hideCorrectFeedbackOverlay();
     if(typeof clearLessonAdvanceTimers==="function") clearLessonAdvanceTimers();
     showPaywall();
-    toast("Choose a plan to unlock this.");
+    toast(typeof subscriptionActionMessage==="function" ? subscriptionActionMessage() : "Choose a plan to unlock this.");
     return;
   }
   if(typeof hideCorrectFeedbackOverlay==="function") hideCorrectFeedbackOverlay();
@@ -1187,7 +1187,7 @@ function renderSettings(){
   const kids = loadKids();
   const stats = ensureStats();
   const learnerTotal = learnerCount(kids);
-  const subjects = getPurchasedSubjects();
+  const subjects = typeof authoritativeSubscriptionSubjects==="function" ? authoritativeSubscriptionSubjects() : [];
   const planLabel = subjects.includes("all") ? "All subjects" : (subjects.length ? subjects.map(s=>s.toUpperCase()).join(", ") : "No subject plan");
   panel.innerHTML = `
     <div class="settings-head">

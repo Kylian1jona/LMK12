@@ -39,7 +39,7 @@ async function renderAdminPortal(){
   const wrap=$("adminPortalContent"); if(!wrap) return;
   wrap.innerHTML='<div class="admin-loading">Checking secure administrator access...</div>';
   if(!await refreshAccountAuthority()){ wrap.innerHTML='<div class="standards-note"><strong>Access denied</strong><p>This account is not an authorized administrator.</p></div>'; return; }
-  let summary={accounts:"-",learners:"-",consents:"-",active_accounts:"-",late_accounts:"-",suspended_accounts:"-"};
+  let summary={accounts:"-",learners:"-",consents:"-",active_accounts:"-",pending_accounts:"-",late_accounts:"-",suspended_accounts:"-"};
   const client=window.learnMasterSupabase;
   const {data,error}=await client.rpc("learnmaster_admin_summary");
   if(!error && data) summary=data;
@@ -47,11 +47,12 @@ async function renderAdminPortal(){
     <div class="parent-summary-grid admin-summary-grid">
       <article><span>Accounts</span><strong>${summary.accounts ?? "-"}</strong></article>
       <article class="summary-active"><span>Active</span><strong>${summary.active_accounts ?? "-"}</strong></article>
+      <article class="summary-pending"><span>Pending</span><strong>${summary.pending_accounts ?? "-"}</strong></article>
       <article class="summary-late"><span>Late</span><strong>${summary.late_accounts ?? "-"}</strong></article>
       <article class="summary-suspended"><span>Suspended</span><strong>${summary.suspended_accounts ?? "-"}</strong></article>
     </div>
     <div class="admin-grid">
-      <article><h2>Payment status</h2><p>Review account holder names, due dates, standing, and overdue time.</p><button type="button" class="btn btn-main" onclick="openPaymentStatusPage()">Open payment status</button></article>
+      <article><h2>Payment status</h2><p>Review plans, due dates, standing, and overdue time. Only active accounts keep lesson access.</p><button type="button" class="btn btn-main" onclick="openPaymentStatusPage()">Open payment status</button></article>
       <article><h2>Account readiness</h2><p>Supabase authentication, row-level access, profile records, and a three-hour inactivity logout are enabled.</p></article>
       <article><h2>Privacy controls</h2><p>${summary.consents ?? "-"} parent consent record(s) are available for review.</p></article>
     </div>
@@ -59,10 +60,19 @@ async function renderAdminPortal(){
 }
 
 const ADMIN_PAYMENT_STATUSES = Object.freeze(["active","pending","late","suspended"]);
+const ADMIN_SUBSCRIPTION_PLANS = Object.freeze(["elf","santa","reindeer","eng","math","sci","hist","all"]);
 
 function paymentStatusOptions(selected){
   const current=ADMIN_PAYMENT_STATUSES.includes(selected)?selected:"pending";
   return ADMIN_PAYMENT_STATUSES.map(status=>`<option value="${status}" ${status===current?"selected":""}>${status.charAt(0).toUpperCase()+status.slice(1)}</option>`).join("");
+}
+function subscriptionPlanOptions(selected){
+  const current=ADMIN_SUBSCRIPTION_PLANS.includes(selected)?selected:"";
+  const label=planId=>PLAN_CATALOG?.[planId]?.name || planId;
+  return `<option value="" ${!current?"selected":""}>No plan selected</option>${ADMIN_SUBSCRIPTION_PLANS.map(plan=>`<option value="${plan}" ${plan===current?"selected":""}>${htmlSafe(label(plan))}</option>`).join("")}`;
+}
+function paymentPlanLabel(planId){
+  return PLAN_CATALOG?.[planId]?.name || (planId ? String(planId) : "No plan selected");
 }
 
 function formatAdminOverdue(account){
@@ -89,7 +99,7 @@ function filterPaymentStatusRows(){
 function renderPaymentStatusRows(accounts){
   if(!accounts.length) return '<div class="payment-empty"><strong>No accounts yet</strong><p>New Supabase profiles will appear here.</p></div>';
   return `<div class="payment-table-wrap"><table class="payment-table">
-    <thead><tr><th>Account holder</th><th>Email</th><th>Status</th><th>Due date</th><th>Overdue</th><th>Update</th></tr></thead>
+    <thead><tr><th>Account holder</th><th>Email</th><th>Plan</th><th>Status</th><th>Due date</th><th>Overdue</th><th>Update</th></tr></thead>
     <tbody>${accounts.map(account=>{
       const userId=String(account.user_id||"");
       const first=String(account.first_name||"").trim();
@@ -98,11 +108,13 @@ function renderPaymentStatusRows(accounts){
       const username=String(account.username||"");
       const email=String(account.email||"");
       const status=ADMIN_PAYMENT_STATUSES.includes(account.payment_status)?account.payment_status:"pending";
+      const selectedPlan=ADMIN_SUBSCRIPTION_PLANS.includes(account.selected_plan)?account.selected_plan:"";
       const due=account.payment_due_on?String(account.payment_due_on).slice(0,10):"";
       const search=htmlSafe(`${fullName} ${username} ${email}`.toLowerCase());
       return `<tr class="payment-account-row" data-user-id="${htmlSafe(userId)}" data-status="${status}" data-search="${search}">
         <td data-label="Account holder"><strong>${htmlSafe(fullName)}</strong><span>@${htmlSafe(username||"account")}</span></td>
         <td data-label="Email">${htmlSafe(email||"No email")}</td>
+        <td data-label="Plan"><select class="payment-plan-select" aria-label="Subscription plan for ${htmlSafe(fullName)}">${subscriptionPlanOptions(selectedPlan)}</select></td>
         <td data-label="Status"><select class="payment-status-select" aria-label="Payment status for ${htmlSafe(fullName)}">${paymentStatusOptions(status)}</select></td>
         <td data-label="Due date"><input class="payment-due-input" type="date" value="${htmlSafe(due)}" aria-label="Payment due date for ${htmlSafe(fullName)}"></td>
         <td data-label="Overdue"><span class="payment-status-badge status-${status}">${htmlSafe(formatAdminOverdue(account))}</span></td>
@@ -131,7 +143,7 @@ async function renderPaymentStatusPage(){
   const {data,error}=await client.rpc("learnmaster_admin_payment_accounts");
   if(error){
     console.warn("Payment status RPC is unavailable:",error.message);
-    wrap.innerHTML='<div class="standards-note payment-setup-note"><strong>Payment database update needed</strong><p>The secure payment-status migration must be applied to this Supabase project before account records can load.</p><button type="button" class="btn btn-main" onclick="openAdminPortal()">Back to administrator overview</button></div>';
+    wrap.innerHTML='<div class="standards-note payment-setup-note"><strong>Subscription database update needed</strong><p>Apply the protected payment and plan migrations before accounts can be reviewed or activated here.</p><button type="button" class="btn btn-main" onclick="openAdminPortal()">Back to administrator overview</button></div>';
     return;
   }
   const accounts=Array.isArray(data)?data:[];
@@ -153,13 +165,16 @@ async function saveAdminPaymentStatus(userId){
   const row=Array.from(document.querySelectorAll(".payment-account-row")).find(item=>item.dataset.userId===userId);
   if(!row) return;
   const status=String(row.querySelector(".payment-status-select")?.value||"");
+  const selectedPlan=String(row.querySelector(".payment-plan-select")?.value||"");
   const dueOn=String(row.querySelector(".payment-due-input")?.value||"");
   if(!ADMIN_PAYMENT_STATUSES.includes(status)){ toast("Choose a valid payment status."); return; }
+  if(status==="active"&&!selectedPlan){ toast("Choose a plan before activating this account."); return; }
+  if(status==="active"&&!dueOn){ toast("Add the next payment due date before activating this account."); return; }
   if(["late","suspended"].includes(status)&&!dueOn){ toast("Add a due date to calculate overdue time."); return; }
   const button=row.querySelector(".payment-save-button");
   if(button){ button.disabled=true; button.textContent="Saving..."; }
   const client=window.learnMasterSupabase;
-  const {error}=await client.rpc("learnmaster_admin_update_payment",{account_user_id:userId,new_status:status,new_due_on:dueOn||null});
+  const {error}=await client.rpc("learnmaster_admin_update_subscription",{account_user_id:userId,new_status:status,new_due_on:dueOn||null,new_plan:selectedPlan});
   if(error){
     console.warn("Payment status could not be updated:",error.message);
     if(button){ button.disabled=false; button.textContent="Save"; }

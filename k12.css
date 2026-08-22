@@ -6163,3 +6163,68 @@ body #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong
   .payment-table td::before{content:attr(data-label);color:#6d7890;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
   .payment-status-select,.payment-due-input,.payment-save-button{width:100%}
 }
+
+/* =========================================================
+   LIVE COLOR + ARTWORK FINISH - AUGUST 2026
+   Existing LearnMaster illustrations are used as quiet page scenery so the
+   navigation and learning controls stay easy to read.
+========================================================= */
+.lm-topbar{
+  border-bottom:0!important;
+  background:linear-gradient(110deg,#5031bc 0%,#326bd3 47%,#008d93 100%)!important;
+  box-shadow:0 12px 34px rgba(42,42,115,.24)!important;
+}
+.lm-topbar::after{height:5px;background:linear-gradient(90deg,#ffd24d,#ff7b91,#a98bff,#74dcd2,#ffd24d)!important}
+.lm-logo-button{width:220px!important;height:60px!important;padding:4px 12px!important;border-radius:17px!important;background:rgba(255,255,255,.98)!important;box-shadow:0 7px 17px rgba(23,31,92,.16)!important}
+.lm-desktop-nav button{color:rgba(255,255,255,.93)!important}
+.lm-desktop-nav button:hover,.lm-desktop-nav button:focus-visible{background:rgba(255,255,255,.18)!important;color:#fff!important}
+.lm-desktop-nav .is-coming small{color:#ffe894!important}
+.lm-round-button,.lm-points,.lm-menu-button{border-color:rgba(255,255,255,.35)!important;background:rgba(255,255,255,.14)!important;color:#fff!important;box-shadow:none!important}
+.lm-round-button:hover,.lm-points:hover,.lm-menu-button:hover{background:rgba(255,255,255,.25)!important}
+.lm-menu-button span{background:#fff!important}.lm-points span{color:#ffe16b!important}
+
+.lm-home-hero{
+  background:
+    linear-gradient(96deg,rgba(255,255,255,.98) 0%,rgba(249,247,255,.94) 42%,rgba(244,252,255,.76) 61%,rgba(244,252,255,.08) 100%),
+    url("images/home-learning-hero.png") center/cover no-repeat!important;
+}
+.lm-home-hero::before{background:linear-gradient(145deg,rgba(255,126,151,.15),rgba(255,210,77,.13))!important}
+.lm-home-hero::after{background:linear-gradient(145deg,rgba(87,111,231,.13),rgba(63,203,185,.12))!important}
+.grade-library-head{
+  background:
+    linear-gradient(105deg,rgba(255,252,243,.94),rgba(250,247,255,.84) 56%,rgba(255,255,255,.16)),
+    url("images/grade-selector-hero-bg.png") center/cover no-repeat!important;
+}
+#reading .reading-box{
+  background:
+    linear-gradient(104deg,rgba(255,254,250,.97),rgba(255,254,250,.88) 58%,rgba(255,254,250,.23)),
+    url("images/reading-center-hero-bg.png") center/cover no-repeat!important;
+}
+body #lessonRunner{
+  background:
+    linear-gradient(rgba(241,249,255,.78),rgba(255,252,244,.8)),
+    url("images/quiz-meadow-bg.png") center/cover fixed no-repeat!important;
+}
+#parentPortal,#adminPortal,#paymentStatus{
+  background:
+    linear-gradient(rgba(249,247,255,.88),rgba(255,252,245,.88)),
+    url("images/learnmaster-city-bg-v2.png") center/cover fixed no-repeat!important;
+}
+
+.subscription-paywall-status{
+  display:grid;gap:4px;max-width:720px;margin:18px auto 0;padding:14px 18px;border:2px solid #dccfff;border-radius:18px;background:linear-gradient(135deg,#fbf9ff,#f1edff);color:#493395;text-align:left;
+}
+.subscription-paywall-status strong{font:800 18px/1.1 "Baloo 2",cursive}.subscription-paywall-status span{color:#566778;font-size:14px}
+.subscription-paywall-status.status-active{border-color:#a2dbbb;background:#effbf5;color:#216443}.subscription-paywall-status.status-late{border-color:#ffbac4;background:#fff1f3;color:#9d3243}.subscription-paywall-status.status-suspended{border-color:#d1c9e8;background:#f2eff8;color:#504166}
+.checkout-request-explainer{padding:18px;border:2px solid #d9d0ff;border-radius:18px;background:linear-gradient(145deg,#fbf9ff,#f0edff);color:#31465e}.checkout-request-explainer strong{display:block;color:var(--kid-purple-dark);font-size:18px}.checkout-request-explainer p{margin:7px 0 10px}.checkout-request-explainer ol{margin:0;padding-left:21px}.checkout-request-explainer li+li{margin-top:4px}
+.parent-subscription-card small{display:block;margin-top:7px;color:#65798d;line-height:1.38}.parent-subscription-card.status-active{border-color:#a7dfc2!important;background:#effbf5!important}.parent-subscription-card.status-late{border-color:#ffc2ca!important;background:#fff1f3!important}.parent-subscription-card.status-suspended{border-color:#cfc5e8!important;background:#f3f0f8!important}.parent-subscription-card.status-pending{border-color:#ffe09d!important;background:#fff8df!important}
+.admin-summary-grid{grid-template-columns:repeat(auto-fit,minmax(145px,1fr))!important}.admin-summary-grid .summary-pending{border-color:#ffe09d!important;background:#fff8df!important}
+.payment-plan-select{min-height:46px;padding:9px 12px;border:1px solid #ccd7e6;border-radius:12px;background:#fff;color:#17324d}
+.payment-plan-select:focus,.payment-status-select:focus,.payment-due-input:focus{outline:3px solid rgba(111,82,237,.19);outline-offset:1px}
+
+@media(max-width:760px){
+  .lm-topbar{grid-template-columns:minmax(130px,1fr) auto!important;gap:10px!important}.lm-logo-button{width:min(192px,55vw)!important;height:52px!important}.lm-desktop-nav{display:none!important}
+  .lm-home-hero{background-position:56% center!important}.lm-home-copy{position:relative;z-index:1}
+  body #lessonRunner,#parentPortal,#adminPortal,#paymentStatus{background-attachment:scroll!important}
+  .payment-plan-select{width:100%}
+}

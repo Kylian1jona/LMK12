@@ -228,6 +228,8 @@ async function restoreActiveSession(){
   const kids = loadKids();
   if(!kids.some(kid=>kid.id === getActiveKidId())) setActiveKidId(accountKid.id);
 
+  await refreshSubscriptionAccess();
+  await refreshAccountAuthority();
   hideLogin();
   return true;
 }
@@ -242,9 +244,8 @@ async function bootLearnMaster(){
     return;
   }
 
-  if(!getPlan() && !trialActive()) learnMasterStore.setItem(REQUIRED_PLAN_KEY, "1");
   applyAccessUI();
-  if(planChoiceRequired()) showPaywall(true);
+  if(!subscriptionAccessAllowed()&&!currentAccountIsAdmin) showPaywall(true);
   else showProfileChooser();
 }
 

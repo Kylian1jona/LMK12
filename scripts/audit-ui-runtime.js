@@ -45,7 +45,7 @@ function sourceDeclaresId(id){
 }
 
 const newSectionIds=["prek-eng","prek-math","kinder-eng","kinder-math","g1-eng","g1-math","paymentStatus"];
-const requiredIds=["home","grades","reading","settings","analysis","shop","playground","lessonRunner","lrQuestion","lrChoices","lrNextBtn",...newSectionIds];
+const requiredIds=["home","grades","reading","settings","analysis","shop","playground","lessonRunner","lrQuestion","lrChoices","lrNextBtn","subscriptionPaywallStatus","checkoutConfirmButton",...newSectionIds];
 for(const id of requiredIds){
   if(!sourceDeclaresId(id)) failures.push(`Required UI element #${id} is missing.`);
 }
@@ -67,9 +67,24 @@ for(const legacyId of ["early-bank","prek-add","prek-count","prek-shapes","k-syl
   if(progressSource.includes(`"${legacyId}"`)) failures.push(`Legacy navigation target ${legacyId} is still active.`);
 }
 
-const requiredHandlers=["openPaymentStatusPage","renderPaymentStatusPage","saveAdminPaymentStatus"];
+const requiredHandlers=["openPaymentStatusPage","renderPaymentStatusPage","saveAdminPaymentStatus","requestSubscriptionPlan","refreshSubscriptionAccess","enforceSubscriptionAccess"];
 for(const handler of requiredHandlers){
   if(!definitions.has(handler)) failures.push(`Required UI handler ${handler} is not defined.`);
+}
+
+const authShell=fs.readFileSync(path.join(root,"components","auth-shell.js"),"utf8");
+for(const legacyCardId of ["cardNumber","cardExpiry","cardCVC","cardZip"]){
+  if(new RegExp(`\\bid=["']${legacyCardId}["']`).test(authShell)) failures.push(`Legacy card entry field #${legacyCardId} is still rendered.`);
+}
+
+const accountSource=fs.readFileSync(path.join(root,"components","k12-account.js"),"utf8");
+const lessonCoreSource=fs.readFileSync(path.join(root,"components","k12-lesson-core.js"),"utf8");
+if(!/function\s+requireLessonSubjectAccess\s*\(/.test(lessonCoreSource)) failures.push("Lesson entry is missing its subscription guard.");
+if(!/function\s+launchLessonPack\s*\([^)]*\)\s*\{\s*if\s*\(\s*!requireLessonSubjectAccess\(subj\)\s*\)/.test(lessonCoreSource)) failures.push("Lesson launch does not enforce subject access.");
+if(!/sectionId\s*===\s*["']lessonRunner["'][\s\S]{0,240}subjectAllowed\(activeLessonSubject\)/.test(accountSource)) failures.push("Lesson runner navigation is not tied to the active paid subject.");
+if(!/function\s+subjectAllowed\s*\([^)]*\)\s*\{\s*const\s+subjects\s*=\s*authoritativeSubscriptionSubjects\(\)/.test(accountSource)) failures.push("Subject access is not derived from the server-authoritative plan.");
+for(const legacyPaymentToken of ["learnmaster_last_payment_v1","validCardLike","PROMO_CODES","pendingNewKid","finishPaidKidAdd","openCheckout(\"member\")"]){
+  if(accountSource.includes(legacyPaymentToken)) failures.push(`Legacy local-payment code ${legacyPaymentToken} is still present.`);
 }
 
 const report={

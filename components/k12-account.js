@@ -7,6 +7,7 @@ const INACTIVITY_LIMIT_MS = 3 * 60 * 60 * 1000;
 const INACTIVITY_KEY = "learnmaster_last_activity_v1";
 let INACTIVITY_TIMER = null;
 let LAST_ACTIVITY_WRITE = 0;
+let SUBSCRIPTION_WATCH_TIMER = null;
 
 function stopInactivityTimer(clearSaved=false){
   clearTimeout(INACTIVITY_TIMER);
@@ -43,13 +44,17 @@ async function handleInactivityLogout(){
   window.addEventListener(eventName, recordUserActivity, {passive:true});
 });
 document.addEventListener("visibilitychange", ()=>{
-  if(document.visibilityState === "visible") recordUserActivity();
+  if(document.visibilityState !== "visible") return;
+  recordUserActivity();
+  if(loggedIn) enforceSubscriptionAccess();
 });
 
 function showLogin(prefillUser=""){
   loggedIn = false;
   stopInactivityTimer();
+  stopSubscriptionAccessWatch();
   currentPortalRole = "kid";
+  currentAccountIsAdmin = false;
   hidePaywall(true);
   hideProfileChooser();
   const wall = $("loginWall");
@@ -75,6 +80,7 @@ function hideLogin(){
   document.body.classList.remove("login-open");
   localStorage.setItem(INACTIVITY_KEY, String(Date.now()));
   scheduleInactivityLogout();
+  startSubscriptionAccessWatch();
 }
 function loginMsg(text, bad=false){
   const el = $("loginMsg");
@@ -239,7 +245,8 @@ async function createSignupUser(){
   }
   await window.learnMasterStore.hydrate(data.user);
   const kid = upsertLocalSupabaseKid(data.user, username, name);
-  setTrialEnds(Date.now() + 30*24*60*60*1000);
+  await refreshSubscriptionAccess();
+  clearTrial();
   learnMasterStore.setItem(REQUIRED_PLAN_KEY, "1");
   await finishLoginForKid(kid.id, "Account created — choose a plan to continue.", false);
   showPaywall(true);
@@ -280,15 +287,10 @@ async function doLogin(){
   const accountName = metadata.display_name || [metadata.first_name,metadata.last_name].filter(Boolean).join(" ") || username;
   await syncSupabaseProfile(data.user, username, accountName, metadata.first_name, metadata.last_name);
   const kid = upsertLocalSupabaseKid(data.user, username, accountName);
-  const startsFreeMonth = metadata.free_month_eligible && !getTrialEnds() && !getPlan();
-  if(startsFreeMonth){
-    setTrialEnds(Date.now() + 30*24*60*60*1000);
-    learnMasterStore.setItem(REQUIRED_PLAN_KEY, "1");
-  }
-  const needsPlan = planChoiceRequired() || (!getPlan() && !trialActive());
-  if(needsPlan) learnMasterStore.setItem(REQUIRED_PLAN_KEY, "1");
-  await finishLoginForKid(kid.id, "Logged in!", !needsPlan);
-  if(needsPlan) showPaywall(true);
+  const hasLearningAccess = await refreshSubscriptionAccess();
+  const isAdmin=await refreshAccountAuthority();
+  await finishLoginForKid(kid.id, hasLearningAccess ? "Logged in!" : subscriptionActionMessage(), hasLearningAccess || isAdmin);
+  if(!hasLearningAccess&&!isAdmin) showPaywall(true);
 }
 async function logout(){
   safeClick();
@@ -297,6 +299,7 @@ async function logout(){
   window.learnMasterStore?.clearUser();
   stopInactivityTimer(true);
   currentPortalRole = "kid";
+  currentAccountIsAdmin = false;
   showLogin("");
 }
 async function resetLoginPassword(){
@@ -361,8 +364,6 @@ const ACTIVE_KID_KEY = "learnmaster_active_kid_v1";
 const REQUIRED_PLAN_KEY = "learnmaster_required_plan_v1";
 const THEME_KEY = "learnmaster_theme_v1";
 const MAX_KIDS_PER_ACCOUNT = 3;
-const EXTRA_KID_PRICE = 5;
-let pendingNewKid = null;
 
 const THEMES = {
   warm: "Warm",
@@ -400,6 +401,131 @@ function setTheme(themeId){
   toast("Theme updated.");
 }
 
+/* The profile record is the authority for subscription access. Local storage
+   keeps lesson progress only; it can never turn a pending/late account active. */
+let subscriptionAuthority = {
+  mode:"checking",
+  status:"pending",
+  selectedPlan:"",
+  dueOn:null,
+  accessAllowed:false,
+  error:""
+};
+
+function supportedSubscriptionPlan(planId){
+  const id=String(planId||"").trim().toLowerCase();
+  return PLAN_CATALOG?.[id] && !PLAN_CATALOG[id].addon ? id : "";
+}
+function subscriptionAccessAllowed(){
+  return subscriptionAuthority.mode==="server" && subscriptionAuthority.accessAllowed===true;
+}
+function subscriptionStatusLabel(status=subscriptionAuthority.status){
+  const normalized=String(status||"pending").toLowerCase();
+  return normalized ? normalized.charAt(0).toUpperCase()+normalized.slice(1) : "Pending";
+}
+function subscriptionActionMessage(){
+  if(subscriptionAuthority.mode==="setup") return "Subscription setup is not installed yet. Please contact the site administrator.";
+  if(subscriptionAuthority.status==="late") return "Your subscription is late. Renew it to continue learning.";
+  if(subscriptionAuthority.status==="suspended") return "Your subscription is suspended. Choose a plan or contact the administrator.";
+  if(subscriptionAuthority.selectedPlan) return "Your plan request is pending payment confirmation.";
+  return "Choose a plan to request learning access.";
+}
+function storeAuthoritativeSubscription(record){
+  const planId=supportedSubscriptionPlan(record?.selected_plan || record?.selectedPlan);
+  const active=record?.access_allowed===true || record?.accessAllowed===true;
+  subscriptionAuthority={
+    mode:"server",
+    status:String(record?.payment_status || record?.paymentStatus || "pending").toLowerCase(),
+    selectedPlan:planId,
+    dueOn:record?.payment_due_on || record?.paymentDueOn || null,
+    accessAllowed:Boolean(active && planId),
+    error:""
+  };
+  clearTrial();
+  if(subscriptionAuthority.accessAllowed){
+    setPlan(planId);
+    setPurchasedSubjects(PLAN_CATALOG[planId].subjects || []);
+    learnMasterStore.removeItem(REQUIRED_PLAN_KEY);
+  }else{
+    clearPlan();
+    learnMasterStore.setItem(REQUIRED_PLAN_KEY,"1");
+  }
+  return subscriptionAuthority.accessAllowed;
+}
+function lockSubscriptionForSetup(errorMessage=""){
+  subscriptionAuthority={
+    mode:"setup",
+    status:"pending",
+    selectedPlan:"",
+    dueOn:null,
+    accessAllowed:false,
+    error:String(errorMessage||"")
+  };
+  clearPlan();
+  clearTrial();
+  learnMasterStore.setItem(REQUIRED_PLAN_KEY,"1");
+  return false;
+}
+async function refreshSubscriptionAccess(){
+  const client=window.learnMasterSupabase;
+  if(!client) return lockSubscriptionForSetup("Supabase is unavailable.");
+  try{
+    const {data,error}=await client.rpc("learnmaster_current_subscription");
+    if(error){
+      console.warn("Secure subscription access is waiting for its database migration:",error.message);
+      return lockSubscriptionForSetup(error.message);
+    }
+    const record=Array.isArray(data)?data[0]:data;
+    if(!record) return lockSubscriptionForSetup("No secure subscription profile was returned.");
+    return storeAuthoritativeSubscription(record);
+  }catch(error){
+    console.warn("Secure subscription access could not be checked:",error?.message || error);
+    return lockSubscriptionForSetup(error?.message || "The subscription service could not be reached.");
+  }
+}
+async function requestSubscriptionPlan(planId){
+  const normalized=supportedSubscriptionPlan(planId);
+  if(!normalized) return {ok:false,message:"Choose a valid learning plan."};
+  const client=window.learnMasterSupabase;
+  if(!client) return {ok:false,message:"Supabase is unavailable. Try again when the account service is online."};
+  try{
+    const {data,error}=await client.rpc("learnmaster_request_subscription_plan",{new_plan:normalized});
+    if(error){
+      console.warn("Subscription plan request could not be saved:",error.message);
+      lockSubscriptionForSetup(error.message);
+      return {ok:false,message:"The secure subscription setup is not ready yet. Please contact the site administrator."};
+    }
+    storeAuthoritativeSubscription(data || {selected_plan:normalized,payment_status:"pending",access_allowed:false});
+    return {ok:true,data};
+  }catch(error){
+    console.warn("Subscription plan request could not be completed:",error?.message || error);
+    lockSubscriptionForSetup(error?.message || "The subscription service could not be reached.");
+    return {ok:false,message:"The subscription service could not be reached. Please try again."};
+  }
+}
+async function enforceSubscriptionAccess(){
+  if(!loggedIn) return false;
+  const hadAccess=subscriptionAccessAllowed();
+  const hasAccess=await refreshSubscriptionAccess();
+  applyAccessUI();
+  if(hadAccess&&!hasAccess){
+    toast(subscriptionActionMessage());
+    showPaywall(true);
+  }
+  return hasAccess;
+}
+function startSubscriptionAccessWatch(){
+  clearInterval(SUBSCRIPTION_WATCH_TIMER);
+  if(!loggedIn) return;
+  SUBSCRIPTION_WATCH_TIMER=setInterval(()=>{
+    enforceSubscriptionAccess().catch(error=>console.warn("Subscription access check failed:",error));
+  },5*60*1000);
+}
+function stopSubscriptionAccessWatch(){
+  clearInterval(SUBSCRIPTION_WATCH_TIMER);
+  SUBSCRIPTION_WATCH_TIMER=null;
+}
+
 function getPlan(){ return learnMasterStore.getItem(PLAN_KEY) || ""; }
 function setPlan(p){ learnMasterStore.setItem(PLAN_KEY, p); }
 function getPurchasedSubjects(){
@@ -420,34 +546,29 @@ function clearPlan(){
   learnMasterStore.removeItem(PLAN_KEY);
   learnMasterStore.removeItem(SUBJECT_ACCESS_KEY);
 }
+function authoritativeSubscriptionSubjects(){
+  if(!subscriptionAccessAllowed()) return [];
+  const planId=supportedSubscriptionPlan(subscriptionAuthority.selectedPlan);
+  return Array.isArray(PLAN_CATALOG?.[planId]?.subjects) ? [...PLAN_CATALOG[planId].subjects] : [];
+}
 function subjectAllowed(subj){
-  if(trialActive()) return true;
-  const subjects = getPurchasedSubjects();
-  const planSubjects = PLAN_CATALOG[getPlan()]?.subjects || [];
-  return subjects.includes("all") || subjects.includes(subj) || planSubjects.includes("all") || planSubjects.includes(subj);
+  const subjects=authoritativeSubscriptionSubjects();
+  return subjects.includes("all") || subjects.includes(subj);
 }
 function anySubjectAllowed(){
-  return trialActive() || getPurchasedSubjects().length > 0 || !!getPlan();
+  return authoritativeSubscriptionSubjects().length > 0;
 }
 
 function nowMs(){ return Date.now(); }
 function getTrialEnds(){ return Number(learnMasterStore.getItem(TRIAL_KEY) || 0); }
 function setTrialEnds(t){ learnMasterStore.setItem(TRIAL_KEY, String(t)); }
 function clearTrial(){ learnMasterStore.removeItem(TRIAL_KEY); }
-function trialActive(){ return getTrialEnds() > nowMs(); }
+function trialActive(){ return false; }
 
 function startTrial(){
   safeClick();
-  if(getPlan()){ toast("You already have a plan."); return; }
-  const existingTrialEnd = getTrialEnds();
-  if(existingTrialEnd <= nowMs()) setTrialEnds(nowMs() + 5*60*1000);
-  learnMasterStore.removeItem(REQUIRED_PLAN_KEY);
-  hidePaywall();
-  applyAccessUI();
-  showProfileChooser();
-  const hasFreeMonth = existingTrialEnd > nowMs() + 5*60*1000;
-  toast(hasFreeMonth ? "Your free month is active!" : "Trial started! 5 minutes.");
-  speakGlobal(hasFreeMonth ? "Your free month is active. Have fun learning!" : "Trial started. Have fun learning!");
+  showPaywall(true);
+  toast("Choose a plan to request access. Lessons unlock after payment is confirmed.");
 }
 
 function ensurePin(){
@@ -487,24 +608,12 @@ Type 1-5`
   if(choice === "5") resetCurrentKidFlow();
 }
 function managePlanFlow(){
-  const cur = getPlan() || (trialActive() ? "trial" : "none");
-  const ans = prompt(`Manage Plan (current: ${cur})\nType:\neng / math / sci / hist / all / none`);
-  if(!ans) return;
-  if(ans === "none"){ clearPlan(); clearTrial(); showPaywall(); applyAccessUI(); return; }
-  if(["eng","math","sci","hist","all"].includes(ans)){
-    setPlan(ans);
-    setPurchasedSubjects(PLAN_CATALOG[ans].subjects);
-    clearTrial();
-    hidePaywall();
-    applyAccessUI();
-    toast("Plan updated.");
-    updateUserUI();
-  }
-  else alert("Invalid.");
+  showPaywall(true);
+  toast("Choose a plan below. An administrator confirms payment before lessons unlock.");
 }
 
 /* ===========================
-   Checkout (Payment + Promo Codes)
+   Subscription plan requests
 =========================== */
 const PLAN_CATALOG = {
   eng:     { name: "English Plan", price: 5, subjects:["eng"] },
@@ -512,44 +621,29 @@ const PLAN_CATALOG = {
   sci:     { name: "Science Plan", price: 5, subjects:["sci"] },
   hist:    { name: "History Plan", price: 5, subjects:["hist"] },
   all:     { name: "All Subjects", price: 20, subjects:["all"] },
-  member:  { name: "Extra Learner Account", price: EXTRA_KID_PRICE, addon:"member" },
   elf:      { name: "English Plan", price: 5, subjects:["eng"] },
   santa:    { name: "Math + English Plan", price: 10, subjects:["eng","math"] },
   reindeer: { name: "All Subjects", price: 20, subjects:["all"] },
 };
-const PROMO_CODES = {
-  SAVE10:   { percent: 10 },
-  SAVE20:   { percent: 20 },
-  FIVE:     { amount: 5 },
-  MAX50:    { percent: 50, plan: "reindeer"}
-};
-let checkout = { planId:"", base:0, discount:0, promo:"" };
+let checkout = { planId:"", base:0 };
 
 function money(n){ return "$" + (Math.max(0, Number(n) || 0)).toFixed(2); }
 
 function openCheckout(planId){
   safeClick();
   checkout.planId = planId;
-  checkout.promo = "";
-  checkout.discount = 0;
 
   const plan = PLAN_CATALOG[planId];
   if(!plan){ toast("Unknown plan."); return; }
   checkout.base = plan.price;
 
-  $("promoInput").value = "";
-  $("cardNumber").value = "";
-  $("cardExpiry").value = "";
-  $("cardCVC").value = "";
-  $("cardZip").value = "";
   $("payErr").textContent = "";
-  $("checkoutPromoMsg").textContent = "";
+  const requestButton=$("checkoutConfirmButton");
+  if(requestButton){ requestButton.disabled=false; requestButton.textContent="Send plan request"; }
 
-  $("checkoutTitle").textContent = `Checkout – ${plan.name}`;
   $("checkoutPlanName").textContent = plan.name;
-  if($("checkoutDesc")) $("checkoutDesc").textContent = plan.addon === "member"
-    ? "Add one learner account to this device."
-    : "Complete payment to activate your plan.";
+  $("checkoutTitle").textContent = `Plan request: ${plan.name}`;
+  if($("checkoutDesc")) $("checkoutDesc").textContent = "Choose this plan now. An administrator confirms payment before learning access turns on.";
 
   updateCheckoutUI();
 
@@ -558,106 +652,30 @@ function openCheckout(planId){
   modal.show();
 }
 function updateCheckoutUI(){
-  const total = Math.max(0, checkout.base - checkout.discount);
-  $("checkoutPrice").textContent = money(checkout.base);
-  $("checkoutDiscount").textContent = "- " + money(checkout.discount);
-  $("checkoutTotal").textContent = money(total);
+  if($("checkoutPrice")) $("checkoutPrice").textContent = money(checkout.base);
 }
-function applyPromo(){
+async function confirmPayment(){
   safeClick();
-  const raw = ($("promoInput").value || "").trim().toUpperCase();
-  $("checkoutPromoMsg").textContent = "";
-  $("payErr").textContent = "";
+  const errorBox=$("payErr");
+  if(errorBox) errorBox.textContent = "";
 
-  if(!raw){
-    checkout.promo = "";
-    checkout.discount = 0;
-    $("checkoutPromoMsg").textContent = "Promo cleared.";
-    updateCheckoutUI();
-    return;
-  }
+  const requestedPlan=PLAN_CATALOG[checkout.planId];
+  if(!requestedPlan){ if(errorBox) errorBox.textContent="Plan missing."; return; }
 
-  const rule = PROMO_CODES[raw];
-  if(!rule){
-    checkout.promo = "";
-    checkout.discount = 0;
-    $("checkoutPromoMsg").textContent = "❌ Invalid code.";
-    updateCheckoutUI();
-    return;
-  }
-  if(rule.plan && rule.plan !== checkout.planId){
-    checkout.promo = "";
-    checkout.discount = 0;
-    $("checkoutPromoMsg").textContent = `❌ Code only works for ${PLAN_CATALOG[rule.plan]?.name || rule.plan}.`;
-    updateCheckoutUI();
-    return;
-  }
+  const submit=$("checkoutConfirmButton");
+  if(submit){ submit.disabled=true; submit.textContent="Sending request..."; }
+  const request=await requestSubscriptionPlan(checkout.planId);
+  if(submit){ submit.disabled=false; submit.textContent="Send plan request"; }
+  if(!request.ok){ if(errorBox) errorBox.textContent=request.message; return; }
 
-  let disc = 0;
-  if(rule.percent) disc = checkout.base * (rule.percent / 100);
-  else if(rule.amount) disc = rule.amount;
-
-  disc = Math.min(checkout.base, disc);
-  checkout.promo = raw;
-  checkout.discount = disc;
-
-  $("checkoutPromoMsg").textContent = `✅ Code applied: ${raw}`;
-  updateCheckoutUI();
-}
-function validCardLike(){
-  const num = ($("cardNumber").value || "").replace(/\s+/g,"");
-  const exp = ($("cardExpiry").value || "").trim();
-  const cvc = ($("cardCVC").value || "").trim();
-  const zip = ($("cardZip").value || "").trim();
-
-  if(num.length < 12) return "Enter a valid card number.";
-  if(!/^\d+$/.test(num)) return "Card number must be digits only.";
-  if(!/^\d{2}\/\d{2}$/.test(exp)) return "Expiry must be MM/YY.";
-  if(cvc.length < 3) return "CVC must be 3+ digits.";
-  if(!/^\d+$/.test(cvc)) return "CVC must be digits only.";
-  if(zip.length < 4) return "Enter billing ZIP.";
-  return "";
-}
-function confirmPayment(){
-  safeClick();
-  $("payErr").textContent = "";
-
-  const planId = checkout.planId;
-  const plan = PLAN_CATALOG[planId];
-  if(!plan){ $("payErr").textContent = "Plan missing."; return; }
-
-  const err = validCardLike();
-  if(err){ $("payErr").textContent = err; return; }
-
-  const total = Math.max(0, checkout.base - checkout.discount);
-
-  learnMasterStore.setItem("learnmaster_last_payment_v1", JSON.stringify({
-    planId, planName: plan.name, base: checkout.base, discount: checkout.discount,
-    promo: checkout.promo || "", total, ts: Date.now()
-  }));
-
-  const modalEl = document.getElementById("checkoutModal");
-  const instance = bootstrap.Modal.getInstance(modalEl);
+  const modalEl=document.getElementById("checkoutModal");
+  const instance=bootstrap.Modal.getInstance(modalEl);
   if(instance) instance.hide();
-
-  if(plan.addon === "member"){
-    finishPaidKidAdd();
-    updateUserUI();
-    toast("Extra learner account added.");
-    speakGlobal("Extra learner account added.");
-    return;
-  }
-
-  setPlan(planId);
-  if(plan.subjects) addPurchasedSubjects(plan.subjects);
-  clearTrial();
-  learnMasterStore.removeItem(REQUIRED_PLAN_KEY);
-  hidePaywall();
   applyAccessUI();
   updateUserUI();
-  showProfileChooser();
-  toast(`✅ Activated ${plan.name}!`);
-  speakGlobal("Payment accepted. Plan activated!");
+  showPaywall(true);
+  toast("Plan request sent. Learning access starts after payment is confirmed.");
+  speakGlobal("Your plan request was sent. Learning access starts after payment is confirmed.");
 }
 
 /* ===========================
@@ -758,6 +776,11 @@ function showAddUserPage(parentVerified=false){
     showProfileChooser();
     return;
   }
+  if(!subscriptionAccessAllowed()){
+    toast(subscriptionActionMessage());
+    showPaywall(true);
+    return;
+  }
   const kids = loadKids();
   if(learnerCount(kids) >= MAX_KIDS_PER_ACCOUNT){
     hideLogin();
@@ -770,9 +793,12 @@ function showAddUserPage(parentVerified=false){
   hideLogin();
   hidePaywall();
   show("addUserPage");
-  setAddUserMessage("");
-  if($("addUserPriceNote")) $("addUserPriceNote").textContent = "Each extra learner account costs $5.";
-  if($("addUserSubmitBtn")) $("addUserSubmitBtn").textContent = "Continue to $5 checkout";
+  setAddUserMessage("Contact an administrator to arrange the $5 extra-learner add-on. This page does not charge you or create a learner.");
+  if($("addUserPriceNote")) $("addUserPriceNote").textContent = "No charge or learner profile is created here. Contact an administrator to arrange the $5 add-on securely.";
+  if($("addUserSubmitBtn")){
+    $("addUserSubmitBtn").textContent = "$5 extra learner — contact administrator";
+    $("addUserSubmitBtn").disabled = true;
+  }
   if($("addUserCount")) $("addUserCount").textContent = String(learnerCount(kids));
   ["addUserName","addUserDisplayName","addUserPass"].forEach(id=>{
     const el = $(id);
@@ -782,41 +808,7 @@ function showAddUserPage(parentVerified=false){
 }
 function submitAddUserPage(){
   safeClick();
-  const kids = loadKids();
-  if(learnerCount(kids) >= MAX_KIDS_PER_ACCOUNT){
-    setAddUserMessage(`This account can have up to ${MAX_KIDS_PER_ACCOUNT} learners.`, true);
-    return;
-  }
-  const username = ($("addUserName")?.value || "").trim().toLowerCase();
-  const name = ($("addUserDisplayName")?.value || "").trim() || username;
-  const pass = $("addUserPass")?.value || "";
-  const error = validateNewUserFields(username, pass, kids);
-  if(error){ setAddUserMessage(error, true); return; }
-  pendingNewKid = { name, username, pass };
-  setAddUserMessage("Ready. Continue through checkout to finish.", false);
-  openCheckout("member");
-}
-function finishPaidKidAdd(){
-  if(!pendingNewKid) return;
-  const kids = loadKids();
-  if(learnerCount(kids) >= MAX_KIDS_PER_ACCOUNT){
-    pendingNewKid = null;
-    setAddUserMessage(`This account can have up to ${MAX_KIDS_PER_ACCOUNT} learners.`, true);
-    return;
-  }
-  const id = "kid" + String(Math.floor(Math.random()*999999));
-  kids.push({id, ...pendingNewKid});
-  pendingNewKid = null;
-  saveKids(kids);
-  setActiveKidId(id);
-  loadState();
-  renderAllBadges();
-  renderConvertButtons();
-  renderShop();
-  updateUserUI();
-  hidePaywall();
-  show("home");
-  toast("User added.");
+  setAddUserMessage("Contact an administrator to arrange the $5 extra-learner add-on. This page does not charge you or create a learner.", true);
 }
 function renameKidFlow(){
   const kids = loadKids();
@@ -902,7 +894,8 @@ function hideProfileChooser(){
 }
 
 function showProfileChooser(){
-  if(!loggedIn || planChoiceRequired()){ if(loggedIn) showPaywall(true); return; }
+  if(!loggedIn) return;
+  if(planChoiceRequired()&&!currentAccountIsAdmin){ showPaywall(true); return; }
   const chooser = $("profileChooser");
   const grid = $("profileChooserGrid");
   if(!chooser || !grid) return;
@@ -952,6 +945,11 @@ document.addEventListener("keydown", event=>{
 });
 
 function chooseSubscriptionProfile(kidId){
+  if(!subscriptionAccessAllowed()){
+    showPaywall(true);
+    toast(subscriptionActionMessage());
+    return;
+  }
   setActiveKidId(kidId);
   currentPortalRole = "kid";
   loadState();
@@ -980,7 +978,9 @@ async function enterParentPortal(){
 async function renderParentPortal(){
   const wrap = $("parentPortalContent");
   if(!wrap) return;
-  const plan = PLAN_CATALOG[getPlan()];
+  const plan = PLAN_CATALOG[subscriptionAuthority.selectedPlan];
+  const subscriptionStatus=subscriptionStatusLabel();
+  const subscriptionClass=`status-${String(subscriptionAuthority.status||"pending").toLowerCase()}`;
   const kids = loadKids();
   const client = window.learnMasterSupabase;
   let accountEmail = "Account email unavailable";
@@ -995,8 +995,9 @@ async function renderParentPortal(){
   wrap.innerHTML = `
     <div class="parent-summary-grid">
       <article><span>Current plan</span><strong>${htmlSafe(plan?.name || (trialActive() ? "Free trial" : "No plan"))}</strong></article>
+      <article class="parent-subscription-card ${htmlSafe(subscriptionClass)}"><span>Subscription status</span><strong>${htmlSafe(subscriptionStatus)}</strong><small>${htmlSafe(subscriptionAccessAllowed() ? "Learning access is on" : subscriptionActionMessage())}</small></article>
       <article><span>Learners</span><strong>${kids.length} / ${MAX_KIDS_PER_ACCOUNT}</strong></article>
-      <article><span>Subjects</span><strong>${htmlSafe(getPurchasedSubjects().includes("all") ? "All" : (getPurchasedSubjects().join(", ") || "Plan access"))}</strong></article>
+      <article><span>Subjects</span><strong>${htmlSafe(authoritativeSubscriptionSubjects().includes("all") ? "All" : (authoritativeSubscriptionSubjects().join(", ") || "Plan access"))}</strong></article>
     </div>
     <div class="parent-learner-list">
       ${kids.map(kid=>{ const p=getProgressForKid(kid.id), s=p.stats||{}; const attempts=(Number(s.correct)||0)+(Number(s.wrong)||0); const accuracy=attempts?Math.round((Number(s.correct)||0)/attempts*100):0; return `<article class="parent-learner-report"><div><strong>${htmlSafe(kid.name || kid.username || "Learner")}</strong><span>@${htmlSafe(kid.username || "learner")}</span></div><div class="learner-metrics"><span><b>${Number(s.lessonsCompleted)||0}</b> lessons</span><span><b>${Number(s.medalsEarned)||0}</b> medals</span><span><b>${accuracy}%</b> accuracy</span><span><b>${p.points}</b> gems</span></div><button type="button" class="btn btn-main" onclick="chooseSubscriptionProfile('${htmlSafe(kid.id)}')">Open learner</button></article>`; }).join("")}
@@ -1016,12 +1017,30 @@ async function renderParentPortal(){
 /* ===========================
    Paywall + gating
 =========================== */
-function planChoiceRequired(){ return learnMasterStore.getItem(REQUIRED_PLAN_KEY) === "1" && !getPlan(); }
+function planChoiceRequired(){ return !subscriptionAccessAllowed(); }
+function renderSubscriptionPaywallStatus(){
+  const status=$('subscriptionPaywallStatus');
+  if(!status) return;
+  const requestedPlan=PLAN_CATALOG[subscriptionAuthority.selectedPlan];
+  const planText=requestedPlan ? requestedPlan.name : "No plan selected";
+  const statusText=subscriptionStatusLabel();
+  status.className=`subscription-paywall-status status-${String(subscriptionAuthority.status||"pending").toLowerCase()}`;
+  if(subscriptionAccessAllowed()){
+    status.innerHTML=`<strong>${htmlSafe(statusText)}</strong><span>${htmlSafe(planText)} is active.</span>`;
+  }else if(subscriptionAuthority.mode==="setup"){
+    status.innerHTML='<strong>Account setup required</strong><span>The secure payment database must be connected before plans can be submitted.</span>';
+  }else if(subscriptionAuthority.selectedPlan){
+    status.innerHTML=`<strong>${htmlSafe(statusText)}</strong><span>${htmlSafe(planText)} is selected. Payment confirmation is still needed.</span>`;
+  }else{
+    status.innerHTML='<strong>Choose a plan</strong><span>Select a plan to send a secure payment request.</span>';
+  }
+}
 function showPaywall(required=planChoiceRequired()){
   if(!loggedIn) return;
   const locked = required || planChoiceRequired();
   if(locked) learnMasterStore.setItem(REQUIRED_PLAN_KEY, "1");
   hideProfileChooser();
+  renderSubscriptionPaywallStatus();
   const wall = $("paywall");
   if(wall){
     wall.style.display = "flex";
@@ -1031,7 +1050,7 @@ function showPaywall(required=planChoiceRequired()){
   document.body.classList.toggle("plan-choice-required", locked);
 }
 function hidePaywall(force=false){
-  if(planChoiceRequired() && !force) return;
+  if(planChoiceRequired() && !force && !currentAccountIsAdmin) return;
   const p=$("paywall");
   if(p){
     p.style.display = "none";
@@ -1064,11 +1083,9 @@ function gateAllowedSection(sectionId){
   if(sectionId === "parentPortal") return currentPortalRole === "parent";
   if(["adminPortal","paymentStatus"].includes(sectionId)) return currentPortalRole === "parent" && currentAccountIsAdmin;
   if(sectionId === "curriculumStandards") return true;
-  if(["settings","analysis","addUserPage"].includes(sectionId)) return true;
-  const plan = getPlan();
-  const trial = trialActive();
-  if(!plan && !trial) return false;
-  if(trial) return true;
+  if(["settings","analysis"].includes(sectionId)) return true;
+  if(sectionId === "addUserPage") return currentPortalRole === "parent" && subscriptionAccessAllowed();
+  if(!subscriptionAccessAllowed()) return false;
   if(["home","grades","reading"].includes(sectionId)) return anySubjectAllowed();
   if(sectionId === "shop" || sectionId === "playground") return anySubjectAllowed();
   if(["prek","kinder","grade1"].includes(sectionId)) return anySubjectAllowed();
@@ -1077,16 +1094,18 @@ function gateAllowedSection(sectionId){
   if(/^grade\d+$/.test(sectionId)) return anySubjectAllowed();
   const subjectMatch = sectionId.match(/^g\d+-(eng|math|sci|hist)$/);
   if(subjectMatch) return subjectAllowed(subjectMatch[1]);
-  if(sectionId === "lessonRunner") return true;
+  if(sectionId === "lessonRunner"){
+    const activeLessonSubject=typeof LR!=="undefined" ? String(LR.subj||"") : "";
+    return Boolean(activeLessonSubject && subjectAllowed(activeLessonSubject));
+  }
   return subjectAllowed("all");
 }
 function applyAccessUI(){
   if(!loggedIn){ hidePaywall(); return; }
-  const trial = trialActive();
-  const subjects = getPurchasedSubjects();
-  const label = trial
-    ? "TRIAL"
-    : (subjects.includes("all") ? "ALL" : (subjects.length ? subjects.join("+").toUpperCase() : "NONE"));
+  const subjects = authoritativeSubscriptionSubjects();
+  const label = subscriptionAccessAllowed()
+    ? (subjects.includes("all") ? "ALL" : (subjects.length ? subjects.join("+").toUpperCase() : "ACTIVE"))
+    : subscriptionStatusLabel().toUpperCase();
 
   if($("planChip")) $("planChip").textContent = label;
   updateTrialUI();
@@ -1111,6 +1130,6 @@ function applyAccessUI(){
   lockCard("cardShop", !hasAny);
   lockCard("cardPlayground", !hasAny);
 
-  if(!hasAny) showPaywall();
+  if(!hasAny&&!currentAccountIsAdmin) showPaywall(true);
   else hidePaywall();
 }

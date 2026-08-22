@@ -496,7 +496,20 @@ function getLessonPack(grade, subj, lesson){
 }
 
 /* ---------- Start lesson ---------- */
+function requireLessonSubjectAccess(subj){
+  const hasSubscription=typeof subscriptionAccessAllowed==="function" && subscriptionAccessAllowed();
+  const hasSubject=typeof subjectAllowed==="function" && subjectAllowed(subj);
+  if(hasSubscription && hasSubject) return true;
+  if(typeof showPaywall==="function") showPaywall(true);
+  const message=hasSubscription
+    ? "This subject is not included in your active plan."
+    : (typeof subscriptionActionMessage==="function" ? subscriptionActionMessage() : "An active subscription is required for lessons.");
+  toast(message);
+  return false;
+}
+
 function launchLessonPack(grade, subj, lesson, pack, backSection){
+  if(!requireLessonSubjectAccess(subj)) return;
   if(!pack){ toast("Lesson missing"); return; }
   const group=CURR?.[grade]?.[subj];
   if(!group){ toast("Lesson group missing"); return; }
@@ -531,6 +544,7 @@ function launchLessonPack(grade, subj, lesson, pack, backSection){
 
 async function startLesson(grade, subj, lesson){
   safeClick();
+  if(!requireLessonSubjectAccess(subj)) return;
   try{
     if(!window.K12Classic25?.ensureGrade) throw new Error("The classic question bank loader is unavailable.");
     await window.K12Classic25.ensureGrade(grade);
@@ -544,13 +558,14 @@ async function startLesson(grade, subj, lesson){
 
 function startUnifiedEarlyLesson(key,backSection){
   safeClick();
+  const [gradeToken,subj,lessonToken]=key.split(":");
+  if(!requireLessonSubjectAccess(subj)) return;
   const record=window.K12_EARLY_BANKS?.[key];
   if(!record||!Array.isArray(record.questions)||record.questions.length!==25){
     console.error("Invalid early-grade lesson bank",key,record);
     toast("This lesson is still loading. Please try again.");
     return;
   }
-  const [gradeToken,subj,lessonToken]=key.split(":");
   const grade=gradeToken;
   const gradeLabel=grade==="prek"?"Pre-K":grade==="k"?"Kindergarten":"Grade 1";
   if(!CURR[grade]) CURR[grade]={};

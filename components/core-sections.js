@@ -47,7 +47,7 @@
       <div class="parent-portal-head payment-status-head">
         <span>Authorized administrators only</span>
         <h1>Payment status</h1>
-        <p>Review account names, due dates, current standing, and how long an account has been overdue.</p>
+        <p>Review account names, selected plans, due dates, current standing, and how long an account has been overdue. Active status is the only status that unlocks lessons.</p>
       </div>
       <div id="paymentStatusContent"></div>
     </div>
@@ -301,7 +301,7 @@
       <div class="settings-head">
         <div>
           <h1>Add Learner</h1>
-          <p class="small-note">Create one more learner profile, then finish the $5 account checkout.</p>
+          <p class="small-note">Extra learner access is $5 and must be confirmed by an administrator.</p>
         </div>
       </div>
 
@@ -311,16 +311,16 @@
         <div class="settings-block">
           <h3>Learner Info</h3>
           <label class="settings-label" for="addUserName">Username</label>
-          <input id="addUserName" class="form-control" autocomplete="off" placeholder="letters, numbers, underscore">
+          <input id="addUserName" class="form-control" autocomplete="off" placeholder="Available after administrator confirmation" disabled>
 
           <label class="settings-label" for="addUserDisplayName">Display name</label>
-          <input id="addUserDisplayName" class="form-control" autocomplete="off" placeholder="name shown in the app">
+          <input id="addUserDisplayName" class="form-control" autocomplete="off" placeholder="Available after administrator confirmation" disabled>
 
           <label class="settings-label" for="addUserPass">Password</label>
-          <input id="addUserPass" class="form-control" type="password" autocomplete="new-password" placeholder="4 or more characters">
+          <input id="addUserPass" class="form-control" type="password" autocomplete="new-password" placeholder="Available after administrator confirmation" disabled>
 
           <div class="d-flex flex-wrap gap-2 mt-3">
-            <button type="button" class="btn btn-main" id="addUserSubmitBtn" onclick="submitAddUserPage()">Continue to $5 checkout</button>
+            <button type="button" class="btn btn-main" id="addUserSubmitBtn" disabled>$5 extra learner — contact administrator</button>
             <button type="button" class="btn btn-main" onclick="show('settings')">Back to settings</button>
           </div>
         </div>
@@ -328,7 +328,7 @@
         <div class="settings-block">
           <h3>Account Limit</h3>
           <p class="small-note">Learners: <span id="addUserCount">0</span> / 3</p>
-          <p class="small-note" id="addUserPriceNote">Each extra learner account costs $5.</p>
+          <p class="small-note" id="addUserPriceNote">No charge or learner profile is created here. Contact an administrator to arrange the $5 add-on securely.</p>
         </div>
       </div>
     </div>

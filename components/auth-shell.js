@@ -129,12 +129,13 @@
       <div class="payhead">
         <img class="lm-dialog-logo" src="images/learnmaster-logo-header-v2.png" alt="LearnMaster K12">
         <h1 class="visually-hidden">LearnMaster K12 subscription</h1>
-        <div class="small-note">Simple family plans with clear grade and subject access.</div>
-        <div class="paypill mt-2">New families include one month free</div>
+        <div class="small-note">Choose a family plan, then payment is confirmed securely before lessons unlock.</div>
+        <div class="paypill mt-2">Payment confirmation controls learning access</div>
         <div class="paytopline">
           <span class="paypill">Family learning access</span>
-          <span class="paypill" id="trialTimerPill">Trial left: <span id="trialLeft">05:00</span></span>
+          <span class="paypill" id="trialTimerPill" hidden>Trial left: <span id="trialLeft">00:00</span></span>
         </div>
+        <div id="subscriptionPaywallStatus" class="subscription-paywall-status status-pending"><strong>Choose a plan</strong><span>Select a plan to send a secure payment request.</span></div>
       </div>
 
       <div class="plan">
@@ -171,8 +172,7 @@
       </div>
 
       <div class="paynote">
-        <div class="small-note mb-2">No Stripe here (demo storage on this device only).</div>
-        <button type="button" class="btn btn-main fw-bold" onclick="startTrial()">Start 5-Minute Trial</button>
+        <div class="small-note mb-2">Selecting a plan does not charge a card here. An administrator confirms payment and turns on access.</div>
       </div>
     </div>
   </div>
@@ -187,7 +187,7 @@
         </div>
 
         <div class="modal-body">
-          <div class="small-note mb-2" id="checkoutDesc">Complete payment to activate your plan.</div>
+          <div class="small-note mb-2" id="checkoutDesc">Send a plan request for secure payment confirmation.</div>
 
           <div class="cardish" style="padding:14px;">
             <div class="d-flex justify-content-between align-items-center">
@@ -195,52 +195,20 @@
               <div class="fw-bold" id="checkoutPlanName">—</div>
             </div>
             <div class="d-flex justify-content-between align-items-center mt-1">
-              <div class="fw-bold">Price</div>
+              <div class="fw-bold">Monthly plan price</div>
               <div class="fw-bold" id="checkoutPrice">$0</div>
             </div>
-            <div class="d-flex justify-content-between align-items-center mt-1">
-              <div class="fw-bold">Discount</div>
-              <div class="fw-bold" id="checkoutDiscount">$0</div>
-            </div>
-            <hr class="my-2">
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="fw-bold">Total</div>
-              <div class="fw-bold" style="font-size:22px;color:var(--red)" id="checkoutTotal">$0</div>
-            </div>
-            <div class="small-note mt-1" id="checkoutPromoMsg"></div>
+            <div class="small-note mt-2">Pricing is shown for plan selection. Payment is handled outside this form.</div>
           </div>
 
-          <div class="mt-3">
-            <label class="fw-bold">Discount / Promo Code (optional)</label>
-            <div class="d-flex gap-2">
-              <input id="promoInput" class="form-control rounded-xl" placeholder="ex: SAVE20">
-              <button type="button" class="btn btn-main" onclick="applyPromo()">Apply</button>
-            </div>
-          </div>
-
-          <div class="mt-3">
-            <label class="fw-bold">Card Number</label>
-            <input id="cardNumber" class="form-control rounded-xl" inputmode="numeric" placeholder="4242 4242 4242 4242">
-          </div>
-
-          <div class="row g-2 mt-1">
-            <div class="col-6">
-              <label class="fw-bold">Expiry</label>
-              <input id="cardExpiry" class="form-control rounded-xl" placeholder="MM/YY">
-            </div>
-            <div class="col-6">
-              <label class="fw-bold">CVC</label>
-              <input id="cardCVC" class="form-control rounded-xl" inputmode="numeric" placeholder="123">
-            </div>
-          </div>
-
-          <div class="mt-3">
-            <label class="fw-bold">Billing ZIP</label>
-            <input id="cardZip" class="form-control rounded-xl" inputmode="numeric" placeholder="77001">
-          </div>
-
-          <div class="small-note mt-2">
-            Demo checkout (stores plan on this device). No real payments.
+          <div class="checkout-request-explainer mt-3">
+            <strong>What happens next</strong>
+            <p>This sends your selected plan to the secure payment dashboard. It does not collect card details or unlock lessons by itself.</p>
+            <ol>
+              <li>Choose the plan that fits your family.</li>
+              <li>Complete payment with your approved payment process.</li>
+              <li>An administrator marks the account active and learning access begins.</li>
+            </ol>
           </div>
 
           <div class="mt-2 fw-bold" id="payErr" style="color:#b91c1c;"></div>
@@ -248,7 +216,7 @@
 
         <div class="modal-footer">
           <button type="button" class="btn btn-main" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-main" onclick="confirmPayment()">Pay & Activate</button>
+          <button type="button" class="btn btn-main" id="checkoutConfirmButton" onclick="confirmPayment()">Send plan request</button>
         </div>
       </div>
     </div>
