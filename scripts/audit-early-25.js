@@ -24,14 +24,16 @@ for(const [key,record] of Object.entries(banks)){
   record.questions.forEach((question,index)=>{
     const label=`${key} question ${index+1}`;
     const prompt=String(question.q||"").trim();
+    const audio=String(question.audio||"").trim();
     const answer=String(question.answer??"").trim();
     const choices=(question.choices||[]).map(String);
     if(question.type!=="mc") failures.push(`${label} is not an explicit multiple-choice question.`);
     if(!prompt) failures.push(`${label} has no prompt.`);
     if(!answer) failures.push(`${label} has no answer.`);
-    if(!String(question.audio||"").trim()) failures.push(`${label} has no audio text.`);
-    if(prompts.has(prompt.toLowerCase())) failures.push(`${label} repeats an earlier prompt.`);
-    prompts.add(prompt.toLowerCase());
+    if(!audio) failures.push(`${label} has no audio text.`);
+    const promptKey=`${prompt.toLowerCase()}\u0000${audio.toLowerCase()}`;
+    if(prompts.has(promptKey)) failures.push(`${label} repeats an earlier prompt and audio cue.`);
+    prompts.add(promptKey);
     if(choices.length!==4) failures.push(`${label} must contain exactly four choices.`);
     if(!choices.includes(answer)) failures.push(`${label} does not include its answer among the choices.`);
     if(new Set(choices).size!==choices.length) failures.push(`${label} repeats an answer choice.`);
