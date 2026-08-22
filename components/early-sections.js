@@ -59,7 +59,12 @@
       const kinderMath=[
         lessonCard("k:math:counting","kinder-math","Counting to 30","Build confident number sense.","123"),
         lessonCard("k:math:addition","kinder-math","Addition Within 10","Combine two small groups.","+"),
-        lessonCard("k:math:patterns","kinder-math","Shapes and Patterns","Find what comes next.","PAT")
+        lessonCard("k:math:patterns","kinder-math","Shapes and Patterns","Find what comes next.","PAT"),
+        lessonCard("k:math:count20","kinder-math","Counting Up to 20","Practice number order and comparisons.","20"),
+        lessonCard("k:math:forwardback10","kinder-math","Counting Forward & Back to 10","Count forward and backward with confidence.","10"),
+        lessonCard("k:math:subtraction","kinder-math","Subtraction Within 10","Take away from small groups.","-"),
+        lessonCard("k:math:measurement","kinder-math","Measurement","Compare length, weight, and capacity.","RUL"),
+        lessonCard("k:math:time","kinder-math","Time","Learn daily order and times on the hour.","CLK")
       ].join("");
       const g1English=[
         lessonCard("g1:eng:vowels","g1-eng","Short and Long Vowel Sounds","Practice short and long vowels.","AEI"),
