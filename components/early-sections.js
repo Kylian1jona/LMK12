@@ -54,7 +54,15 @@
       const kinderEnglish=[
         lessonCard("k:eng:syllables","kinder-eng","Syllable Count","Clap and count word parts.","CLAP"),
         lessonCard("k:eng:words","kinder-eng","Build the Word","Connect pictures, sounds, and words.","CAT"),
-        lessonCard("k:eng:rhymes","kinder-eng","Rhyming Words","Choose matching word endings.","&#9834;")
+        lessonCard("k:eng:rhymes","kinder-eng","Rhyming Words","Choose matching word endings.","&#9834;"),
+        lessonCard("k:eng:short-a","kinder-eng","Read Short A Stories","Read stories and practice the short a sound.","Aa"),
+        lessonCard("k:eng:short-e","kinder-eng","Read Short E Stories","Read stories and practice the short e sound.","Ee"),
+        lessonCard("k:eng:short-i","kinder-eng","Read Short I Stories","Read stories and practice the short i sound.","Ii"),
+        lessonCard("k:eng:short-o","kinder-eng","Read Short O Stories","Read stories and practice the short o sound.","Oo"),
+        lessonCard("k:eng:short-u","kinder-eng","Read Short U Stories","Read stories and practice the short u sound.","Uu"),
+        lessonCard("k:eng:short-vowels","kinder-eng","Read Short Vowel Stories","Practice all five short vowel sounds.","AEI"),
+        lessonCard("k:eng:alphabet-upper","kinder-eng","Find the Letter: Uppercase","Find and order uppercase letters.","ABC"),
+        lessonCard("k:eng:alphabet-lower","kinder-eng","Find the Letter: Lowercase","Find and order lowercase letters.","abc")
       ].join("");
       const kinderMath=[
         lessonCard("k:math:counting","kinder-math","Counting to 30","Build confident number sense.","123"),

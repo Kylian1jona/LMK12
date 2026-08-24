@@ -40,7 +40,7 @@ for(const [key,record] of Object.entries(banks)){
   });
 }
 
-const expectedLessons=23;
+const expectedLessons=31;
 const report={
   lessons:Object.keys(banks).length,
   questions:Object.values(banks).reduce((sum,record)=>sum+(record.questions?.length||0),0),
