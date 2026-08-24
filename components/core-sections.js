@@ -348,7 +348,7 @@
         <div>
           <h2 style="font-weight:900;font-family:'Baloo 2',cursive;margin:0;">Toy Shop</h2>
           <div class="small-note">Earn ⭐ points → convert to <span class="learner-icon" role="img" aria-label="Learner"></span> Learners → buy toys.</div>
-          <div class="small-note" style="font-weight:900;">Shop opens with any active subject plan</div>
+          <div class="small-note" style="font-weight:900;">Open for every signed-in learner</div>
         </div>
         <div class="scorebar">
           <div class="badge-pill">⭐ Points: <span id="shopPoints">0</span></div>

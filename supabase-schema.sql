@@ -182,7 +182,7 @@ begin
     'active_accounts', (
       select count(*)
       from public.learnmaster_profiles
-      where payment_status = 'active'
+      where payment_status in ('active', 'late')
         and selected_plan is not null
         and payment_due_on >= current_date
     ),
@@ -190,19 +190,26 @@ begin
       select count(*)
       from public.learnmaster_profiles
       where payment_status = 'pending'
-         or (payment_status = 'active' and selected_plan is null)
+         or (payment_status in ('active', 'late') and selected_plan is null)
     ),
     'late_accounts', (
       select count(*)
       from public.learnmaster_profiles
-      where payment_status = 'late'
-         or (
-           payment_status = 'active'
-           and selected_plan is not null
-           and (payment_due_on is null or payment_due_on < current_date)
-         )
+      where payment_status in ('active', 'late')
+        and selected_plan is not null
+        and payment_due_on < current_date
+        and current_date <= payment_due_on + 14
     ),
-    'suspended_accounts', (select count(*) from public.learnmaster_profiles where payment_status = 'suspended')
+    'suspended_accounts', (
+      select count(*)
+      from public.learnmaster_profiles
+      where payment_status = 'suspended'
+         or (
+           payment_status in ('active', 'late')
+           and selected_plan is not null
+           and (payment_due_on is null or current_date > payment_due_on + 14)
+         )
+    )
   );
 end;
 $$;
@@ -249,12 +256,12 @@ begin
     profile.first_name,
     profile.last_name,
     case
-      when profile.payment_status = 'active'
-           and profile.selected_plan is null
-        then 'pending'
-      when profile.payment_status = 'active'
-           and (profile.payment_due_on is null or profile.payment_due_on < current_date)
-        then 'late'
+      when profile.payment_status = 'suspended' then 'suspended'
+      when profile.selected_plan is null then 'pending'
+      when profile.payment_status in ('active', 'late') and profile.payment_due_on is null then 'suspended'
+      when profile.payment_status in ('active', 'late') and current_date > profile.payment_due_on + 14 then 'suspended'
+      when profile.payment_status = 'late' then 'late'
+      when profile.payment_status = 'active' and profile.payment_due_on < current_date then 'late'
       else profile.payment_status
     end as payment_status,
     profile.selected_plan,
@@ -342,8 +349,57 @@ $$;
 revoke all on function public.learnmaster_admin_update_payment(uuid, text, date) from public;
 grant execute on function public.learnmaster_admin_update_payment(uuid, text, date) to authenticated;
 
--- A learner can select a plan, but cannot mark it paid or active. This RPC is
--- the only learner-facing subscription write path and always returns pending.
+-- Plan selection starts non-Stripe access automatically. Active or late plans
+-- remain accessible through 14 days after their due date.
+create or replace function public.learnmaster_effective_payment_status(
+  profile_status text,
+  profile_plan text,
+  profile_due_on date
+)
+returns text
+language sql
+stable
+set search_path = ''
+as $$
+  select case
+    when profile_status = 'suspended' then 'suspended'
+    when profile_plan is null then 'pending'
+    when profile_status in ('active', 'late') and profile_due_on is null then 'suspended'
+    when profile_status in ('active', 'late') and current_date > profile_due_on + 14 then 'suspended'
+    when profile_status = 'late' then 'late'
+    when profile_status = 'active' and profile_due_on < current_date then 'late'
+    else profile_status
+  end;
+$$;
+
+create or replace function public.learnmaster_subscription_access_allowed(
+  profile_status text,
+  profile_plan text,
+  profile_due_on date
+)
+returns boolean
+language sql
+stable
+set search_path = ''
+as $$
+  select
+    profile_plan is not null
+    and profile_due_on is not null
+    and profile_status in ('active', 'late')
+    and current_date <= profile_due_on + 14;
+$$;
+
+revoke all on function public.learnmaster_effective_payment_status(text, text, date) from public;
+revoke all on function public.learnmaster_subscription_access_allowed(text, text, date) from public;
+
+update public.learnmaster_profiles
+set payment_status = 'active',
+    payment_due_on = coalesce(payment_due_on, current_date + 30),
+    payment_status_updated_at = pg_catalog.now(),
+    updated_at = pg_catalog.now()
+where selected_plan is not null
+  and payment_status = 'pending';
+
 create or replace function public.learnmaster_request_subscription_plan(new_plan text)
 returns jsonb
 language plpgsql
@@ -364,8 +420,8 @@ begin
 
   update public.learnmaster_profiles
   set selected_plan = normalized_plan,
-      payment_status = 'pending',
-      payment_due_on = null,
+      payment_status = 'active',
+      payment_due_on = current_date + 30,
       payment_status_updated_at = pg_catalog.now(),
       updated_at = pg_catalog.now()
   where user_id = auth.uid()
@@ -378,10 +434,10 @@ begin
   return pg_catalog.jsonb_build_object(
     'user_id', updated_profile.user_id,
     'selected_plan', updated_profile.selected_plan,
-    'payment_status', updated_profile.payment_status,
+    'payment_status', 'active',
     'payment_due_on', updated_profile.payment_due_on,
     'payment_status_updated_at', updated_profile.payment_status_updated_at,
-    'access_allowed', false
+    'access_allowed', true
   );
 end;
 $$;
@@ -389,7 +445,7 @@ revoke all on function public.learnmaster_request_subscription_plan(text) from p
 grant execute on function public.learnmaster_request_subscription_plan(text) to authenticated;
 
 -- Client code calls this after authentication. The database remains the source
--- of truth: only an active, selected, non-overdue plan has learning access.
+-- of truth and includes the 14-day overdue grace window.
 create or replace function public.learnmaster_current_subscription()
 returns table (
   user_id uuid,
@@ -407,19 +463,10 @@ as $$
   select
     profile.user_id,
     profile.selected_plan,
-    case
-      when profile.payment_status = 'active'
-           and (profile.payment_due_on is null or profile.payment_due_on < current_date)
-        then 'late'
-      else profile.payment_status
-    end as payment_status,
+    public.learnmaster_effective_payment_status(profile.payment_status, profile.selected_plan, profile.payment_due_on) as payment_status,
     profile.payment_due_on,
     profile.payment_status_updated_at,
-    (
-      profile.payment_status = 'active'
-      and profile.selected_plan is not null
-      and profile.payment_due_on >= current_date
-    ) as access_allowed
+    public.learnmaster_subscription_access_allowed(profile.payment_status, profile.selected_plan, profile.payment_due_on) as access_allowed
   from public.learnmaster_profiles as profile
   where profile.user_id = auth.uid();
 $$;
@@ -478,11 +525,8 @@ begin
     end if;
   end if;
 
-  if normalized_status = 'active' and normalized_plan is null then
-    raise exception 'an active subscription requires a selected plan' using errcode = '22023';
-  end if;
-  if normalized_status = 'active' and new_due_on is null then
-    raise exception 'an active subscription requires a next payment due date' using errcode = '22023';
+  if normalized_status in ('active', 'late') and (normalized_plan is null or new_due_on is null) then
+    raise exception 'active and late subscriptions require a plan and due date' using errcode = '22023';
   end if;
 
   update public.learnmaster_profiles
@@ -504,21 +548,13 @@ begin
   return pg_catalog.jsonb_build_object(
     'user_id', updated_profile.user_id,
     'selected_plan', updated_profile.selected_plan,
-    'payment_status', case
-      when updated_profile.payment_status = 'active' and late_days > 0 then 'late'
-      else updated_profile.payment_status
-    end,
+    'payment_status', public.learnmaster_effective_payment_status(updated_profile.payment_status, updated_profile.selected_plan, updated_profile.payment_due_on),
     'payment_due_on', updated_profile.payment_due_on,
     'payment_status_updated_at', updated_profile.payment_status_updated_at,
     'total_days_late', late_days,
     'months_late', (late_days / 30)::integer,
     'remaining_days_late', (late_days % 30)::integer,
-    'access_allowed', (
-      updated_profile.payment_status = 'active'
-      and updated_profile.selected_plan is not null
-      and updated_profile.payment_due_on is not null
-      and late_days = 0
-    )
+    'access_allowed', public.learnmaster_subscription_access_allowed(updated_profile.payment_status, updated_profile.selected_plan, updated_profile.payment_due_on)
   );
 end;
 $$;

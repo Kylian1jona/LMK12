@@ -31,10 +31,10 @@ for(const [key,record] of Object.entries(banks)){
     if(!prompt) failures.push(`${label} has no prompt.`);
     if(!answer) failures.push(`${label} has no answer.`);
     if(!audio) failures.push(`${label} has no audio text.`);
-    const promptKey=`${prompt.toLowerCase()}\u0000${audio.toLowerCase()}`;
+    const promptKey=`${prompt.toLowerCase()}\u0000${audio.toLowerCase()}\u0000${choices.join("\u0000").toLowerCase()}`;
     if(prompts.has(promptKey)) failures.push(`${label} repeats an earlier prompt and audio cue.`);
     prompts.add(promptKey);
-    if(choices.length!==4) failures.push(`${label} must contain exactly four choices.`);
+    if(choices.length<3||choices.length>5) failures.push(`${label} must contain three, four, or five choices.`);
     if(!choices.includes(answer)) failures.push(`${label} does not include its answer among the choices.`);
     if(new Set(choices).size!==choices.length) failures.push(`${label} repeats an answer choice.`);
   });

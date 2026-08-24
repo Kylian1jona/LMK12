@@ -60,6 +60,9 @@ const DEFAULT_STATS = {
   lessonsCompleted:0,
   lastLesson:"",
   readingMinutes:0,
+  dailyDate:"",
+  dailyLessons:0,
+  dailyReadingMinutes:0,
   lessonStreak:0,
   bestLessonStreak:0,
   lastLessonDate:""
@@ -184,6 +187,8 @@ const VOICE_ENABLED_PREF_KEY = "learnmaster_voice_enabled_v1";
 let voiceOn = learnMasterStore.getItem(VOICE_ENABLED_PREF_KEY) !== "off";
 const VOICE_PREF_KEY = "learnmaster_voice_pref_v1";
 let voiceType = learnMasterStore.getItem(VOICE_PREF_KEY) || "female";
+const VOICE_NAME_PREF_KEY = "learnmaster_voice_name_v1";
+let preferredVoiceName = learnMasterStore.getItem(VOICE_NAME_PREF_KEY) || "";
 const MUSIC_PREF_KEY = "learnmaster_music_pref_v1";
 let musicOn = learnMasterStore.getItem(MUSIC_PREF_KEY) === "on";
 let MUSIC_TIMER = 0;
@@ -241,17 +246,64 @@ function getSpeechVoices(){
   }
 }
 
+function speechVoiceScore(voice){
+  const name=String(voice?.name||"").toLowerCase();
+  const language=String(voice?.lang||"").toLowerCase();
+  const wantMale=voiceType==="male";
+  let score=0;
+  if(language==="en-us") score+=35;
+  else if(language.startsWith("en")) score+=20;
+  if(/natural|neural|enhanced|premium|online/.test(name)) score+=70;
+  if(/microsoft (aria|jenny|ava|emma|michelle)|google us english|samantha|zira/.test(name)) score+=wantMale?-15:45;
+  if(/microsoft (andrew|brian|christopher|davis|eric|guy)|daniel|george|alex|fred/.test(name)) score+=wantMale?45:-15;
+  if(wantMale && /(male|andrew|brian|christopher|davis|daniel|eric|george|guy|alex|fred|mark)/.test(name)) score+=30;
+  if(!wantMale && /(female|aria|ava|emma|jenny|michelle|samantha|susan|zira|hazel|karen|victoria)/.test(name)) score+=30;
+  if(voice?.localService) score+=4;
+  return score;
+}
+
 function getPreferredSpeechVoice(){
   const voices = getSpeechVoices().filter(v=>/^en/i.test(v.lang || ""));
   if(!voices.length) return null;
-  const wantMale = voiceType === "male";
-  const nameMatch = voices.find(v=>{
-    const name = String(v.name || "").toLowerCase();
-    return wantMale
-      ? /(male|david|mark|daniel|george|guy|alex|fred)/.test(name)
-      : /(female|zira|samantha|susan|hazel|karen|victoria|ava|aria)/.test(name);
+  const saved=voices.find(voice=>voice.name===preferredVoiceName);
+  if(saved) return saved;
+  return [...voices].sort((a,b)=>speechVoiceScore(b)-speechVoiceScore(a))[0] || null;
+}
+
+function renderVoiceSelect(){
+  const select=$("settingsVoiceSelect");
+  if(!select) return;
+  const voices=getSpeechVoices().filter(voice=>/^en/i.test(voice.lang||""));
+  const selected=getPreferredSpeechVoice();
+  select.innerHTML="";
+  if(!voices.length){
+    const option=document.createElement("option");
+    option.value="";
+    option.textContent="Best available browser voice";
+    select.appendChild(option);
+    select.disabled=true;
+    return;
+  }
+  select.disabled=false;
+  [...voices].sort((a,b)=>speechVoiceScore(b)-speechVoiceScore(a)).forEach(voice=>{
+    const option=document.createElement("option");
+    option.value=voice.name;
+    option.textContent=`${voice.name} (${voice.lang})`;
+    option.selected=voice.name===selected?.name;
+    select.appendChild(option);
   });
-  return nameMatch || voices[0] || null;
+}
+
+function setVoiceName(name){
+  preferredVoiceName=String(name||"");
+  if(preferredVoiceName) learnMasterStore.setItem(VOICE_NAME_PREF_KEY,preferredVoiceName);
+  else learnMasterStore.removeItem(VOICE_NAME_PREF_KEY);
+  renderVoiceControls();
+  previewVoice();
+}
+
+function previewVoice(){
+  speakGlobal("Hi! I am ready to learn with you. Let us have a great lesson!");
 }
 
 function renderVoiceControls(){
@@ -261,6 +313,7 @@ function renderVoiceControls(){
   if($("settingsMusicBtn")) $("settingsMusicBtn").textContent = musicOn ? "Music: On" : "Music: Off";
   if($("voiceFemaleBtn")) $("voiceFemaleBtn").classList.toggle("active", voiceType === "female");
   if($("voiceMaleBtn")) $("voiceMaleBtn").classList.toggle("active", voiceType === "male");
+  renderVoiceSelect();
 }
 function toggleVoice(){
   safeClick();
@@ -273,23 +326,36 @@ function toggleVoice(){
 function setVoiceType(type){
   safeClick();
   voiceType = type === "male" ? "male" : "female";
+  preferredVoiceName = "";
   learnMasterStore.setItem(VOICE_PREF_KEY, voiceType);
+  learnMasterStore.removeItem(VOICE_NAME_PREF_KEY);
   renderVoiceControls();
-  speakGlobal(voiceType === "male" ? "Male voice selected." : "Female voice selected.");
+  previewVoice();
 }
 function speakGlobal(t){
   if(!voiceOn) return;
   try{
     speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(t);
+    const friendlyText=String(t||"")
+      .replace(/&/g," and ")
+      .replace(/\s*\/\s*/g," or ")
+      .replace(/\s+/g," ")
+      .trim();
+    if(!friendlyText) return;
+    const u = new SpeechSynthesisUtterance(friendlyText);
     const preferredVoice = getPreferredSpeechVoice();
     if(preferredVoice) u.voice = preferredVoice;
-    u.rate = 0.9;
-    u.pitch = voiceType === "male" ? 0.9 : 1.08;
-    u.lang = "en-US";
+    u.rate = 0.94;
+    u.pitch = voiceType === "male" ? 0.97 : 1.02;
+    u.volume = 1;
+    u.lang = preferredVoice?.lang || "en-US";
     speechSynthesis.speak(u);
   }catch(e){}
 }
+
+try{
+  if(typeof speechSynthesis!=="undefined") speechSynthesis.addEventListener("voiceschanged",renderVoiceControls);
+}catch(e){}
 
 function cancelLessonVoice(){
   try{ speechSynthesis.cancel(); }catch(e){}
@@ -389,7 +455,7 @@ function show(id){
   }
   if(typeof hideCorrectFeedbackOverlay==="function") hideCorrectFeedbackOverlay();
   if(id!=="lessonRunner" && typeof clearLessonAdvanceTimers==="function") clearLessonAdvanceTimers();
-  if(["settings","analysis","addUserPage","parentPortal","adminPortal","paymentStatus"].includes(id)) hidePaywall();
+  if(["settings","analysis","shop","curriculumStandards","parentPortal","adminPortal","paymentStatus"].includes(id)) hidePaywall(true);
   cancelLessonVoice();
   if(TIMED_LESSON_SECTIONS.has(id)){
     if(universalLessonTimerSection!==id||visibleAppSection!==id) startUniversalLessonTimer(id);
@@ -593,7 +659,7 @@ cost:130
 
 ];
 function shopAllowed(){
-  return anySubjectAllowed();
+  return Boolean(loggedIn);
 }
 
 const ACTIVITY_REWARDS = [
@@ -678,8 +744,7 @@ function renderShop(){
     grid.innerHTML = `
       <div class="quiz-card">
         <h2 style="font-weight:900;font-family:'Baloo 2',cursive;">Shop Locked</h2>
-        <p class="small-note">Choose a subject plan to use the shop and claim activity rewards.</p>
-        <button type="button" class="btn btn-main" onclick="showPaywall()">View Plans</button>
+        <p class="small-note">Sign in to use the shop and claim activity rewards.</p>
       </div>
     `;
     if($("ownedLine")) $("ownedLine").textContent = "";
@@ -725,7 +790,7 @@ ${
 }
 function buyToy(id){
   safeClick();
-  if(!shopAllowed()){ toast("Shop is locked. Choose a subject plan."); showPaywall(); return; }
+  if(!shopAllowed()){ toast("Sign in to use the Shop."); return; }
   const toy = TOYS.find(t=>t.id===id);
   if(!toy) return;
   if(state.owned.includes(id)){ toast("Already owned!"); return; }
@@ -1191,17 +1256,22 @@ function renderSettings(){
   const planLabel = subjects.includes("all") ? "All subjects" : (subjects.length ? subjects.map(s=>s.toUpperCase()).join(", ") : "No subject plan");
   panel.innerHTML = `
     <div class="settings-head">
-      <div>
+      <div class="settings-hero-copy">
         <span class="lm-page-kicker">MY LEARNING SPACE</span>
         <h1>Settings & profile</h1>
-        <p class="small-note">Keep your profile, goals, sound, and account choices in one calm place.</p>
+        <p>Make LearnMaster feel like your space. Update your learner, goals, colors, and sound here.</p>
+        <div class="settings-summary-chips">
+          <span>${htmlSafe(planLabel)}</span>
+          <span>${stats.lessonStreak || 0}-day streak</span>
+          <span>${stats.lessonsCompleted} lessons finished</span>
+        </div>
       </div>
-      <div class="avatar avatar-preview-lg" id="settingsAvatarPreview">${htmlSafe(avatar)}</div>
+      <div class="settings-avatar-orbit"><div class="avatar avatar-preview-lg" id="settingsAvatarPreview">${htmlSafe(avatar)}</div><small>YOUR AVATAR</small></div>
     </div>
 
     <div class="settings-grid">
       <div class="settings-block settings-profile-block">
-        <h3>Profile</h3>
+        <div class="settings-card-heading"><span>01</span><div><h3>Profile</h3><p>Your name, avatar, and daily targets.</p></div></div>
         <label class="settings-label" for="settingsDisplayName">Display name</label>
         <input id="settingsDisplayName" class="form-control" value="${htmlSafe(name)}">
 
@@ -1226,40 +1296,46 @@ function renderSettings(){
       </div>
 
       <div class="settings-block settings-learning-block">
-        <h3>Learning</h3>
-        <button type="button" class="btn btn-main" onclick="toggleVoice()" id="settingsVoiceBtn">${voiceOn ? "Voice: On" : "Voice: Off"}</button>
-        <button type="button" class="btn btn-main" onclick="toggleMusic()" id="settingsMusicBtn">${musicOn ? "Music: On" : "Music: Off"}</button>
-        <div class="settings-label">Voice type</div>
-        <div class="voice-choice-row">
-          <button type="button" class="btn btn-main" id="voiceFemaleBtn" onclick="setVoiceType('female')">Female voice</button>
-          <button type="button" class="btn btn-main" id="voiceMaleBtn" onclick="setVoiceType('male')">Male voice</button>
+        <div class="settings-card-heading"><span>02</span><div><h3>Sound & learning</h3><p>Choose a warm read-aloud voice and helpful sounds.</p></div></div>
+        <div class="settings-toggle-row">
+          <button type="button" class="btn btn-main" onclick="toggleVoice()" id="settingsVoiceBtn">${voiceOn ? "Voice: On" : "Voice: Off"}</button>
+          <button type="button" class="btn btn-main" onclick="toggleMusic()" id="settingsMusicBtn">${musicOn ? "Music: On" : "Music: Off"}</button>
         </div>
-        <button type="button" class="btn btn-main" onclick="logReadingMinutes(20)">Log 20 reading minutes</button>
-        <button type="button" class="btn btn-main" onclick="show('shop')">Activity rewards</button>
-        <button type="button" class="btn btn-main" onclick="showPaywall()">Subscription details</button>
-        <button type="button" class="btn btn-main" onclick="resetProgress()">Reset progress</button>
+        <div class="settings-label">Voice style</div>
+        <div class="voice-choice-row">
+          <button type="button" class="btn btn-main" id="voiceFemaleBtn" onclick="setVoiceType('female')">Warm voice</button>
+          <button type="button" class="btn btn-main" id="voiceMaleBtn" onclick="setVoiceType('male')">Calm voice</button>
+        </div>
+        <label class="settings-label" for="settingsVoiceSelect">Available voices on this device</label>
+        <select id="settingsVoiceSelect" class="form-control" onchange="setVoiceName(this.value)"></select>
+        <button type="button" class="btn btn-main settings-preview-voice" onclick="previewVoice()">Hear a friendly sample</button>
+        <div class="settings-action-grid">
+          <button type="button" class="btn btn-main" onclick="logReadingMinutes(20)">Log 20 reading minutes</button>
+          <button type="button" class="btn btn-main" onclick="show('shop')">Open rewards shop</button>
+          <button type="button" class="btn btn-main" onclick="showPaywall()">Subscription details</button>
+          <button type="button" class="btn btn-main" onclick="resetProgress()">Reset progress</button>
+        </div>
       </div>
 
       <div class="settings-block settings-theme-block">
-        <h3>Theme</h3>
-        <p class="small-note">Choose the color style for this website.</p>
+        <div class="settings-card-heading"><span>03</span><div><h3>Theme</h3><p>Pick the color mood that feels best.</p></div></div>
         <div class="theme-choice-grid" id="themeChoices"></div>
       </div>
 
       <div class="settings-block settings-account-block">
-        <h3>Account</h3>
-        <p class="small-note">Learners: ${learnerTotal} / ${MAX_KIDS_PER_ACCOUNT}</p>
-        <p class="small-note">Active plan: ${htmlSafe(planLabel)}</p>
-        <p class="small-note">Reading minutes: ${stats.readingMinutes}</p>
-        <p class="small-note">Lessons finished: ${stats.lessonsCompleted}</p>
-        <p class="small-note">Lesson streak: ${stats.lessonStreak || 0} day${(stats.lessonStreak || 0) === 1 ? "" : "s"}</p>
+        <div class="settings-card-heading"><span>04</span><div><h3>Account</h3><p>Family access and learning totals.</p></div></div>
+        <div class="settings-account-stats">
+          <span><b>${learnerTotal} / ${MAX_KIDS_PER_ACCOUNT}</b>Learners</span>
+          <span><b>${htmlSafe(planLabel)}</b>Plan</span>
+          <span><b>${stats.readingMinutes}</b>Reading minutes</span>
+          <span><b>${stats.lessonsCompleted}</b>Lessons finished</span>
+        </div>
         <button type="button" class="btn btn-main" onclick="accountUnlock('addKid')" ${learnerTotal >= MAX_KIDS_PER_ACCOUNT ? "disabled" : ""}>Add learner ($5)</button>
         <button type="button" class="btn btn-main" onclick="show('analysis')">Open analysis</button>
       </div>
 
       <div class="settings-block settings-delete-block">
-        <h3>Delete user</h3>
-        <p class="small-note">Delete a learner and their saved progress on this device.</p>
+        <div class="settings-card-heading"><span>05</span><div><h3>Manage learners</h3><p>Remove a learner and their saved progress from this device.</p></div></div>
         <div class="user-delete-list" id="deleteUserList"></div>
       </div>
     </div>
@@ -1435,6 +1511,15 @@ function yesterdayKey(){
   return localDateKey(d);
 }
 
+function ensureDailyCounters(stats){
+  const today=localDateKey();
+  if(stats.dailyDate===today) return false;
+  stats.dailyDate=today;
+  stats.dailyLessons=0;
+  stats.dailyReadingMinutes=0;
+  return true;
+}
+
 function updateLessonStreak(stats){
   const today = localDateKey();
   if(stats.lastLessonDate === today) return;
@@ -1449,11 +1534,17 @@ function updateLessonStreak(stats){
 
 function recordLearningStat(type, extra={}){
   const stats = ensureStats();
+  ensureDailyCounters(stats);
   if(type === "correct") stats.correct++;
   if(type === "wrong") stats.wrong++;
-  if(type === "reading") stats.readingMinutes += Math.max(0, Math.round(Number(extra.minutes) || 0));
+  if(type === "reading"){
+    const minutes=Math.max(0,Math.round(Number(extra.minutes)||0));
+    stats.readingMinutes+=minutes;
+    stats.dailyReadingMinutes+=minutes;
+  }
   if(type === "lesson"){
     stats.lessonsCompleted++;
+    stats.dailyLessons++;
     updateLessonStreak(stats);
     if(extra.title) stats.lastLesson = String(extra.title);
   }
@@ -1480,44 +1571,64 @@ function renderAnalysis(){
   if(!panel) return;
   const stats = ensureStats();
   const kid = getActiveKid();
+  if(ensureDailyCounters(stats)) saveState();
   const attempts = stats.correct + stats.wrong;
   const accuracy = attempts ? Math.round((stats.correct / attempts) * 100) : 0;
   const owned = Array.isArray(state.owned) ? state.owned.length : 0;
+  const lessonGoal=clamp(Number(kid?.dailyLessonGoal||3),1,20);
+  const readingGoal=clamp(Number(kid?.readingGoal||20),5,180);
+  const dailyLessons=Math.max(0,Number(stats.dailyLessons)||0);
+  const dailyReading=Math.max(0,Number(stats.dailyReadingMinutes)||0);
+  const lessonGoalPercent=Math.min(100,Math.round((dailyLessons/lessonGoal)*100));
+  const readingGoalPercent=Math.min(100,Math.round((dailyReading/readingGoal)*100));
   const pointsToConvert = Math.max(0, 20 - state.points);
   const nextGoal = state.points >= 20
     ? "Ready to convert 20 points into 5 Learners."
     : `${pointsToConvert} more point${pointsToConvert === 1 ? "" : "s"} until the next conversion.`;
   panel.innerHTML = `
-    <div class="analysis-head">
-      <div>
+    <div class="analysis-head progress-hero">
+      <div class="progress-hero-copy">
         <span class="lm-page-kicker">YOUR GROWTH</span>
-        <h1>Progress</h1>
-        <p class="small-note">A clear look at goals, accuracy, completed lessons, and reading time.</p>
+        <h1>Keep growing!</h1>
+        <p>Every answer, story, and lesson moves you forward. Here is what you have built so far.</p>
+        <div class="progress-quick-actions">
+          <button type="button" class="btn btn-main" onclick="show('grades')">Continue learning</button>
+          <button type="button" class="btn btn-main" onclick="showReading()">Open reading</button>
+          <button type="button" class="btn btn-main" onclick="show('shop')">Visit shop</button>
+          <button type="button" class="btn btn-main" onclick="show('settings')">Settings</button>
+        </div>
       </div>
-      <button type="button" class="btn btn-main" onclick="show('settings')">Settings</button>
+      <div class="progress-accuracy-ring" style="--progress:${accuracy*3.6}deg"><div><strong>${attempts?accuracy+"%":"--"}</strong><span>Accuracy</span></div></div>
+    </div>
+
+    <div class="analysis-goal-grid">
+      <article class="progress-goal-card goal-lessons">
+        <div><span>TODAY'S LESSON GOAL</span><strong>${dailyLessons} / ${lessonGoal}</strong></div>
+        <div class="progress-track"><div style="width:${lessonGoalPercent}%"></div></div>
+        <p>${lessonGoalPercent>=100?"Goal complete—wonderful work!":`${Math.max(0,lessonGoal-dailyLessons)} lesson${Math.max(0,lessonGoal-dailyLessons)===1?"":"s"} to go today.`}</p>
+      </article>
+      <article class="progress-goal-card goal-reading">
+        <div><span>TODAY'S READING GOAL</span><strong>${dailyReading} / ${readingGoal} min</strong></div>
+        <div class="progress-track"><div style="width:${readingGoalPercent}%"></div></div>
+        <p>${readingGoalPercent>=100?"Reading goal complete—great focus!":`${Math.max(0,readingGoal-dailyReading)} reading minute${Math.max(0,readingGoal-dailyReading)===1?"":"s"} to go.`}</p>
+      </article>
     </div>
 
     <div class="analysis-grid">
-      <div class="metric-card"><b>${state.points}</b><span>Points</span></div>
-      <div class="metric-card"><b>${state.learners}</b><span>Learners</span></div>
-      <div class="metric-card"><b>${stats.correct}</b><span>Correct answers</span></div>
-      <div class="metric-card"><b>${stats.wrong}</b><span>Try-again answers</span></div>
-      <div class="metric-card"><b>${stats.lessonsCompleted}</b><span>Lessons finished</span></div>
-      <div class="metric-card"><b>${stats.lessonStreak || 0}</b><span>Lesson streak</span></div>
-      <div class="metric-card"><b>${stats.readingMinutes}</b><span>Reading minutes</span></div>
-      <div class="metric-card"><b>${owned}</b><span>Shop items owned</span></div>
+      <div class="metric-card metric-purple"><small>STAR POWER</small><b>${state.points}</b><span>Points</span></div>
+      <div class="metric-card metric-blue"><small>REWARD BALANCE</small><b>${state.learners}</b><span>Learners</span></div>
+      <div class="metric-card metric-green"><small>NICE WORK</small><b>${stats.correct}</b><span>Correct answers</span></div>
+      <div class="metric-card metric-coral"><small>KEEP TRYING</small><b>${stats.wrong}</b><span>Try-again answers</span></div>
+      <div class="metric-card metric-amber"><small>FINISHED</small><b>${stats.lessonsCompleted}</b><span>Lessons</span></div>
+      <div class="metric-card metric-purple"><small>ON A ROLL</small><b>${stats.lessonStreak||0}</b><span>Day streak</span></div>
+      <div class="metric-card metric-blue"><small>BOOK TIME</small><b>${stats.readingMinutes}</b><span>Reading minutes</span></div>
+      <div class="metric-card metric-green"><small>COLLECTION</small><b>${owned}</b><span>Shop items</span></div>
     </div>
 
-    <div class="analysis-panel">
-      <div class="analysis-row">
-        <span>Accuracy</span>
-        <strong>${attempts ? accuracy + "%" : "No answers yet"}</strong>
-      </div>
-      <div class="progress-track"><div style="width:${accuracy}%"></div></div>
-      <p>${htmlSafe(nextGoal)}</p>
-      <p>Daily goals: ${htmlSafe(kid?.dailyLessonGoal || 3)} lessons and ${htmlSafe(kid?.readingGoal || 20)} reading minutes.</p>
-      <p>Best lesson streak: ${stats.bestLessonStreak || 0} day${(stats.bestLessonStreak || 0) === 1 ? "" : "s"}.</p>
-      <p>${stats.lastLesson ? "Last finished lesson: " + htmlSafe(stats.lastLesson) : "Finish a lesson to begin building a history."}</p>
+    <div class="analysis-panel progress-insights">
+      <article><span>NEXT REWARD</span><strong>${htmlSafe(nextGoal)}</strong><button type="button" onclick="show('shop')">Open shop</button></article>
+      <article><span>BEST STREAK</span><strong>${stats.bestLessonStreak||0} day${(stats.bestLessonStreak||0)===1?"":"s"}</strong><p>Come back each day and finish a lesson to keep it growing.</p></article>
+      <article><span>LATEST LESSON</span><strong>${stats.lastLesson?htmlSafe(stats.lastLesson):"Your next lesson starts the story"}</strong><p>${stats.lastLesson?"Nice work finishing this one.":"Choose a grade to begin."}</p></article>
     </div>
   `;
 }

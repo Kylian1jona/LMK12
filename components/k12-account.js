@@ -401,8 +401,9 @@ function setTheme(themeId){
   toast("Theme updated.");
 }
 
-/* The profile record is the authority for subscription access. Local storage
-   keeps lesson progress only; it can never turn a pending/late account active. */
+/* The profile record is the authority for subscription access. Plan selection
+   starts non-Stripe access automatically; overdue accounts receive 14 days of
+   server-authorized grace before learning is paused. */
 let subscriptionAuthority = {
   mode:"checking",
   status:"pending",
@@ -423,12 +424,27 @@ function subscriptionStatusLabel(status=subscriptionAuthority.status){
   const normalized=String(status||"pending").toLowerCase();
   return normalized ? normalized.charAt(0).toUpperCase()+normalized.slice(1) : "Pending";
 }
+function subscriptionGraceDaysRemaining(){
+  if(!subscriptionAuthority.dueOn) return 0;
+  const due=new Date(`${subscriptionAuthority.dueOn}T00:00:00Z`);
+  if(Number.isNaN(due.getTime())) return 0;
+  const now=new Date();
+  const today=Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate());
+  const daysLate=Math.max(0,Math.floor((today-due.getTime())/86400000));
+  return Math.max(0,14-daysLate);
+}
 function subscriptionActionMessage(){
   if(subscriptionAuthority.mode==="setup") return "Subscription setup is not installed yet. Please contact the site administrator.";
-  if(subscriptionAuthority.status==="late") return "Your subscription is late. Renew it to continue learning.";
+  if(subscriptionAuthority.status==="late"&&subscriptionAccessAllowed()){
+    const days=subscriptionGraceDaysRemaining();
+    return days
+      ? `A payment needs attention. Learning stays open for ${days} more day${days===1?"":"s"}.`
+      : "A payment needs attention. The 14-day grace period ends today.";
+  }
+  if(subscriptionAuthority.status==="late") return "The 14-day payment grace period ended. Update the payment status to continue learning.";
   if(subscriptionAuthority.status==="suspended") return "Your subscription is suspended. Choose a plan or contact the administrator.";
-  if(subscriptionAuthority.selectedPlan) return "Your plan request is pending payment confirmation.";
-  return "Choose a plan to request learning access.";
+  if(subscriptionAuthority.selectedPlan) return "Your plan is being prepared. No card is charged in this version.";
+  return "Choose a plan to start learning access. No card is charged yet.";
 }
 function storeAuthoritativeSubscription(record){
   const planId=supportedSubscriptionPlan(record?.selected_plan || record?.selectedPlan);
@@ -568,7 +584,7 @@ function trialActive(){ return false; }
 function startTrial(){
   safeClick();
   showPaywall(true);
-  toast("Choose a plan to request access. Lessons unlock after payment is confirmed.");
+  toast("Choose a plan to start access. No card is charged yet.");
 }
 
 function ensurePin(){
@@ -609,11 +625,11 @@ Type 1-5`
 }
 function managePlanFlow(){
   showPaywall(true);
-  toast("Choose a plan below. An administrator confirms payment before lessons unlock.");
+  toast("Choose a plan below to start access. No card is charged yet.");
 }
 
 /* ===========================
-   Subscription plan requests
+   Non-Stripe plan access
 =========================== */
 const PLAN_CATALOG = {
   eng:     { name: "English Plan", price: 5, subjects:["eng"] },
@@ -639,11 +655,11 @@ function openCheckout(planId){
 
   $("payErr").textContent = "";
   const requestButton=$("checkoutConfirmButton");
-  if(requestButton){ requestButton.disabled=false; requestButton.textContent="Send plan request"; }
+  if(requestButton){ requestButton.disabled=false; requestButton.textContent="Start plan access"; }
 
   $("checkoutPlanName").textContent = plan.name;
-  $("checkoutTitle").textContent = `Plan request: ${plan.name}`;
-  if($("checkoutDesc")) $("checkoutDesc").textContent = "Choose this plan now. An administrator confirms payment before learning access turns on.";
+  $("checkoutTitle").textContent = `Start ${plan.name}`;
+  if($("checkoutDesc")) $("checkoutDesc").textContent = "Start this plan without entering card details. Stripe is not connected yet.";
 
   updateCheckoutUI();
 
@@ -663,9 +679,9 @@ async function confirmPayment(){
   if(!requestedPlan){ if(errorBox) errorBox.textContent="Plan missing."; return; }
 
   const submit=$("checkoutConfirmButton");
-  if(submit){ submit.disabled=true; submit.textContent="Sending request..."; }
+  if(submit){ submit.disabled=true; submit.textContent="Starting access..."; }
   const request=await requestSubscriptionPlan(checkout.planId);
-  if(submit){ submit.disabled=false; submit.textContent="Send plan request"; }
+  if(submit){ submit.disabled=false; submit.textContent="Start plan access"; }
   if(!request.ok){ if(errorBox) errorBox.textContent=request.message; return; }
 
   const modalEl=document.getElementById("checkoutModal");
@@ -673,9 +689,10 @@ async function confirmPayment(){
   if(instance) instance.hide();
   applyAccessUI();
   updateUserUI();
-  showPaywall(true);
-  toast("Plan request sent. Learning access starts after payment is confirmed.");
-  speakGlobal("Your plan request was sent. Learning access starts after payment is confirmed.");
+  hidePaywall(true);
+  show("home");
+  toast("Plan access started. No card was charged.");
+  speakGlobal("Your learning plan is ready. Let us start learning!");
 }
 
 /* ===========================
@@ -1026,13 +1043,16 @@ function renderSubscriptionPaywallStatus(){
   const statusText=subscriptionStatusLabel();
   status.className=`subscription-paywall-status status-${String(subscriptionAuthority.status||"pending").toLowerCase()}`;
   if(subscriptionAccessAllowed()){
-    status.innerHTML=`<strong>${htmlSafe(statusText)}</strong><span>${htmlSafe(planText)} is active.</span>`;
+    const detail=subscriptionAuthority.status==="late"
+      ? subscriptionActionMessage()
+      : `${planText} is active. No Stripe charge is made in this version.`;
+    status.innerHTML=`<strong>${htmlSafe(statusText)}</strong><span>${htmlSafe(detail)}</span>`;
   }else if(subscriptionAuthority.mode==="setup"){
     status.innerHTML='<strong>Account setup required</strong><span>The secure payment database must be connected before plans can be submitted.</span>';
   }else if(subscriptionAuthority.selectedPlan){
-    status.innerHTML=`<strong>${htmlSafe(statusText)}</strong><span>${htmlSafe(planText)} is selected. Payment confirmation is still needed.</span>`;
+    status.innerHTML=`<strong>${htmlSafe(statusText)}</strong><span>${htmlSafe(subscriptionActionMessage())}</span>`;
   }else{
-    status.innerHTML='<strong>Choose a plan</strong><span>Select a plan to send a secure payment request.</span>';
+    status.innerHTML='<strong>Choose a plan</strong><span>Start access now without entering card details. Stripe is not connected yet.</span>';
   }
 }
 function showPaywall(required=planChoiceRequired()){
@@ -1084,10 +1104,11 @@ function gateAllowedSection(sectionId){
   if(["adminPortal","paymentStatus"].includes(sectionId)) return currentPortalRole === "parent" && currentAccountIsAdmin;
   if(sectionId === "curriculumStandards") return true;
   if(["settings","analysis"].includes(sectionId)) return true;
+  if(sectionId === "shop") return true;
   if(sectionId === "addUserPage") return currentPortalRole === "parent" && subscriptionAccessAllowed();
   if(!subscriptionAccessAllowed()) return false;
   if(["home","grades","reading"].includes(sectionId)) return anySubjectAllowed();
-  if(sectionId === "shop" || sectionId === "playground") return anySubjectAllowed();
+  if(sectionId === "playground") return anySubjectAllowed();
   if(["prek","kinder","grade1"].includes(sectionId)) return anySubjectAllowed();
   const earlySubjectMatch = sectionId.match(/^(?:prek|kinder|g1)-(eng|math)$/);
   if(earlySubjectMatch) return subjectAllowed(earlySubjectMatch[1]);
@@ -1127,9 +1148,11 @@ function applyAccessUI(){
     button.disabled = !allowed;
     button.setAttribute("aria-disabled", String(!allowed));
   });
-  lockCard("cardShop", !hasAny);
+  lockCard("cardShop", false);
   lockCard("cardPlayground", !hasAny);
 
-  if(!hasAny&&!currentAccountIsAdmin) showPaywall(true);
-  else hidePaywall();
+  const freeSectionOpen=["settings","analysis","shop","curriculumStandards","parentPortal","adminPortal","paymentStatus"]
+    .some(id=>{ const section=$(id); return section&&!section.classList.contains("d-none"); });
+  if(!hasAny&&!currentAccountIsAdmin&&!freeSectionOpen) showPaywall(true);
+  else hidePaywall(true);
 }

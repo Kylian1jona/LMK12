@@ -77,13 +77,19 @@ function paymentPlanLabel(planId){
 
 function formatAdminOverdue(account){
   const total=Math.max(0,Number(account.total_days_late)||0);
-  if(!total) return account.payment_status==="late"||account.payment_status==="suspended" ? "Due today or date needed" : "On time";
+  if(!total) return account.payment_status==="late" ? "14 grace days left" : (account.payment_status==="suspended" ? "Grace period ended" : "On time");
   const months=Math.max(0,Number(account.months_late)||Math.floor(total/30));
   const days=Math.max(0,Number(account.remaining_days_late)||total%30);
   const parts=[];
   if(months) parts.push(`${months} month${months===1?"":"s"}`);
   if(days||!months) parts.push(`${days} day${days===1?"":"s"}`);
-  return `${parts.join(", ")} late`;
+  const lateText=`${parts.join(", ")} late`;
+  if(account.payment_status==="late"&&total<=14){
+    const remaining=14-total;
+    return `${lateText} - ${remaining} grace day${remaining===1?"":"s"} left`;
+  }
+  if(account.payment_status==="suspended") return `${lateText} - grace ended`;
+  return lateText;
 }
 
 function filterPaymentStatusRows(){
@@ -152,6 +158,7 @@ async function renderPaymentStatusPage(){
     <div class="payment-summary-grid">
       ${ADMIN_PAYMENT_STATUSES.map(status=>`<article class="payment-summary-card status-${status}"><span>${status}</span><strong>${counts[status]}</strong></article>`).join("")}
     </div>
+    <div class="payment-grace-note"><strong>Automatic access is on.</strong><span>New plan selections start without approval. Late payments keep learning open for 14 days; no Stripe charge is processed yet.</span></div>
     <div class="payment-toolbar">
       <label><span>Find an account</span><input id="paymentAccountSearch" type="search" placeholder="Name, username, or email" oninput="filterPaymentStatusRows()"></label>
       <label><span>Show status</span><select id="paymentStatusFilter" onchange="filterPaymentStatusRows()"><option value="all">All statuses</option>${paymentStatusOptions("__none__")}</select></label>

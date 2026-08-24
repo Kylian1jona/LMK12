@@ -67,7 +67,7 @@ for(const legacyId of ["early-bank","prek-add","prek-count","prek-shapes","k-syl
   if(progressSource.includes(`"${legacyId}"`)) failures.push(`Legacy navigation target ${legacyId} is still active.`);
 }
 
-const requiredHandlers=["openPaymentStatusPage","renderPaymentStatusPage","saveAdminPaymentStatus","requestSubscriptionPlan","refreshSubscriptionAccess","enforceSubscriptionAccess"];
+const requiredHandlers=["openPaymentStatusPage","renderPaymentStatusPage","saveAdminPaymentStatus","requestSubscriptionPlan","refreshSubscriptionAccess","enforceSubscriptionAccess","setVoiceName","previewVoice"];
 for(const handler of requiredHandlers){
   if(!definitions.has(handler)) failures.push(`Required UI handler ${handler} is not defined.`);
 }
@@ -78,6 +78,16 @@ for(const legacyCardId of ["cardNumber","cardExpiry","cardCVC","cardZip"]){
 }
 
 const accountSource=fs.readFileSync(path.join(root,"components","k12-account.js"),"utf8");
+const mainNav=fs.readFileSync(path.join(root,"components","main-nav.js"),"utf8");
+if((mainNav.match(/navigateFromAppMenu\(['"]shop['"]\)/g)||[]).length<2) failures.push("Shop is not restored in both desktop and drawer navigation.");
+if(/#grades[^{}]*#cardShop[^{}]*\{[^{}]*display\s*:\s*none/i.test(css)) failures.push("The Shop grade card is still hidden by CSS.");
+if(!/sectionId\s*===\s*["']shop["']\)\s*return\s+true/.test(accountSource)) failures.push("Signed-in learners cannot navigate to the restored Shop without a subject plan.");
+if(!/function\s+shopAllowed\s*\(\)\s*\{\s*return\s+Boolean\(loggedIn\)/.test(progressSource)) failures.push("The restored Shop is still tied to paid subject access.");
+
+const graceMigration=fs.readFileSync(path.join(root,"supabase","migrations","202608230001_add_automatic_access_grace.sql"),"utf8");
+if(!/payment_status\s*=\s*['"]active['"][\s\S]{0,180}payment_due_on\s*=\s*current_date\s*\+\s*30/.test(graceMigration)) failures.push("Plan selection does not start automatic non-Stripe access.");
+if(!/current_date\s*<=\s*profile_due_on\s*\+\s*14/.test(graceMigration)) failures.push("The subscription migration is missing its 14-day grace rule.");
+
 const lessonCoreSource=fs.readFileSync(path.join(root,"components","k12-lesson-core.js"),"utf8");
 if(!/function\s+requireLessonSubjectAccess\s*\(/.test(lessonCoreSource)) failures.push("Lesson entry is missing its subscription guard.");
 if(!/function\s+launchLessonPack\s*\([^)]*\)\s*\{\s*if\s*\(\s*!requireLessonSubjectAccess\(subj\)\s*\)/.test(lessonCoreSource)) failures.push("Lesson launch does not enforce subject access.");

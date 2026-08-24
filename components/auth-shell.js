@@ -129,13 +129,13 @@
       <div class="payhead">
         <img class="lm-dialog-logo" src="images/learnmaster-logo-header-v2.png" alt="LearnMaster K12">
         <h1 class="visually-hidden">LearnMaster K12 subscription</h1>
-        <div class="small-note">Choose a family plan, then payment is confirmed securely before lessons unlock.</div>
-        <div class="paypill mt-2">Payment confirmation controls learning access</div>
+        <div class="small-note">Choose a family plan and begin learning. Card processing will be connected later.</div>
+        <div class="paypill mt-2">No card is charged in this version</div>
         <div class="paytopline">
           <span class="paypill">Family learning access</span>
           <span class="paypill" id="trialTimerPill" hidden>Trial left: <span id="trialLeft">00:00</span></span>
         </div>
-        <div id="subscriptionPaywallStatus" class="subscription-paywall-status status-pending"><strong>Choose a plan</strong><span>Select a plan to send a secure payment request.</span></div>
+        <div id="subscriptionPaywallStatus" class="subscription-paywall-status status-pending"><strong>Choose a plan</strong><span>Start access now without entering card details.</span></div>
       </div>
 
       <div class="plan">
@@ -155,7 +155,7 @@
         <ul>
           <li>Pre-K + Kindergarten</li>
           <li>Reading and progress tools</li>
-          <li>Rewards Shop access</li>
+          <li>Family reading and progress tools</li>
         </ul>
         <button type="button" class="btn btn-main w-100" onclick="openCheckout('santa')">Choose Plus</button>
       </div>
@@ -172,7 +172,7 @@
       </div>
 
       <div class="paynote">
-        <div class="small-note mb-2">Selecting a plan does not charge a card here. An administrator confirms payment and turns on access.</div>
+        <div class="small-note mb-2">Selecting a plan starts access without charging a card. When billing is connected later, declined payments will receive a 14-day grace period.</div>
       </div>
     </div>
   </div>
@@ -187,7 +187,7 @@
         </div>
 
         <div class="modal-body">
-          <div class="small-note mb-2" id="checkoutDesc">Send a plan request for secure payment confirmation.</div>
+          <div class="small-note mb-2" id="checkoutDesc">Start plan access without entering card details.</div>
 
           <div class="cardish" style="padding:14px;">
             <div class="d-flex justify-content-between align-items-center">
@@ -198,16 +198,16 @@
               <div class="fw-bold">Monthly plan price</div>
               <div class="fw-bold" id="checkoutPrice">$0</div>
             </div>
-            <div class="small-note mt-2">Pricing is shown for plan selection. Payment is handled outside this form.</div>
+            <div class="small-note mt-2">Pricing previews the future monthly plan. This form does not process a payment.</div>
           </div>
 
           <div class="checkout-request-explainer mt-3">
             <strong>What happens next</strong>
-            <p>This sends your selected plan to the secure payment dashboard. It does not collect card details or unlock lessons by itself.</p>
+            <p>Your selected plan starts immediately. No card information is collected and Stripe is not connected yet.</p>
             <ol>
               <li>Choose the plan that fits your family.</li>
-              <li>Complete payment with your approved payment process.</li>
-              <li>An administrator marks the account active and learning access begins.</li>
+              <li>Begin learning without waiting for administrator approval.</li>
+              <li>Future declined payments will keep access open for 14 days.</li>
             </ol>
           </div>
 
@@ -216,7 +216,7 @@
 
         <div class="modal-footer">
           <button type="button" class="btn btn-main" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-main" id="checkoutConfirmButton" onclick="confirmPayment()">Send plan request</button>
+          <button type="button" class="btn btn-main" id="checkoutConfirmButton" onclick="confirmPayment()">Start plan access</button>
         </div>
       </div>
     </div>
