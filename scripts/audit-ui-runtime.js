@@ -95,7 +95,7 @@ if(!/sectionId\s*===\s*["']lessonRunner["'][\s\S]{0,240}subjectAllowed\(activeLe
 if(!/function\s+subjectAllowed\s*\([^)]*\)\s*\{\s*const\s+subjects\s*=\s*authoritativeSubscriptionSubjects\(\)/.test(accountSource)) failures.push("Subject access is not derived from the server-authoritative plan.");
 if(!/dataset\.choiceCount\s*=\s*Array\.isArray\(q\.choices\)/.test(lessonCoreSource)) failures.push("Lesson answers are missing their dynamic choice-count layout marker.");
 if(!/#lrChoices\[data-choice-count=["']3["']\][\s\S]{0,220}grid-column\s*:\s*1\s*\/\s*-1/.test(css)) failures.push("Three-choice lessons do not give the last answer a full-width row.");
-if(!/#lrChoices\[data-choice-count=["']5["']\][\s\S]{0,220}grid-column\s*:\s*1\s*\/\s*-1/.test(css)) failures.push("Five-choice lessons do not show the last answer on a full-width row.");
+if(!/#lrChoices\[data-choice-count=["']5["']\][^,{]*\.choice-btn:nth-child\(3\)[\s\S]{0,180}grid-column\s*:\s*1\s*\/\s*-1/.test(css)) failures.push("Five-choice lessons do not use the A/B, full-width C, D/E layout.");
 if(!/const\s+TEST_CHECKOUT_CARD\s*=\s*["']4242424242424242["']/.test(accountSource)) failures.push("The checkout is not restricted to the standard test card.");
 if(!/clearTestCheckoutCard\(\);[\s\S]{0,280}requestSubscriptionPlan\(checkout\.planId\)/.test(accountSource)) failures.push("Test-card fields are not cleared before the plan request.");
 if(/requestSubscriptionPlan\([^)]*(?:Card|Expiry|Cvc|Zip)/.test(accountSource)) failures.push("Card-field data is being passed into the subscription request.");

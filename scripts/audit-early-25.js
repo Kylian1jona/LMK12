@@ -35,6 +35,7 @@ for(const [key,record] of Object.entries(banks)){
     if(prompts.has(promptKey)) failures.push(`${label} repeats an earlier prompt and audio cue.`);
     prompts.add(promptKey);
     if(choices.length<3||choices.length>5) failures.push(`${label} must contain three, four, or five choices.`);
+    if(choices.some(choice=>/^(?:almost|placeholder|none of (?:these|the above))$/i.test(choice.trim()))) failures.push(`${label} contains a filler answer choice.`);
     if(!choices.includes(answer)) failures.push(`${label} does not include its answer among the choices.`);
     if(new Set(choices).size!==choices.length) failures.push(`${label} repeats an answer choice.`);
   });
