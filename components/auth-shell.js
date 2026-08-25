@@ -129,13 +129,13 @@
       <div class="payhead">
         <img class="lm-dialog-logo" src="images/learnmaster-logo-header-v2.png" alt="LearnMaster K12">
         <h1 class="visually-hidden">LearnMaster K12 subscription</h1>
-        <div class="small-note">Choose a family plan and begin learning. Card processing will be connected later.</div>
-        <div class="paypill mt-2">No card is charged in this version</div>
+        <div class="small-note">Choose a family plan, complete the test checkout, and begin learning right away.</div>
+        <div class="paypill mt-2">Test checkout · no real charge</div>
         <div class="paytopline">
           <span class="paypill">Family learning access</span>
           <span class="paypill" id="trialTimerPill" hidden>Trial left: <span id="trialLeft">00:00</span></span>
         </div>
-        <div id="subscriptionPaywallStatus" class="subscription-paywall-status status-pending"><strong>Choose a plan</strong><span>Start access now without entering card details.</span></div>
+        <div id="subscriptionPaywallStatus" class="subscription-paywall-status status-pending"><strong>Choose a plan</strong><span>Enter the test card in checkout and start immediately.</span></div>
       </div>
 
       <div class="plan">
@@ -172,7 +172,7 @@
       </div>
 
       <div class="paynote">
-        <div class="small-note mb-2">Selecting a plan starts access without charging a card. When billing is connected later, declined payments will receive a 14-day grace period.</div>
+        <div class="small-note mb-2">This is a no-Stripe test checkout. Real cards are not accepted or stored. When real billing is connected later, declined payments will receive a 14-day grace period.</div>
       </div>
     </div>
   </div>
@@ -187,7 +187,7 @@
         </div>
 
         <div class="modal-body">
-          <div class="small-note mb-2" id="checkoutDesc">Start plan access without entering card details.</div>
+          <div class="small-note mb-2" id="checkoutDesc">Enter the test card below to start your plan.</div>
 
           <div class="cardish" style="padding:14px;">
             <div class="d-flex justify-content-between align-items-center">
@@ -198,15 +198,41 @@
               <div class="fw-bold">Monthly plan price</div>
               <div class="fw-bold" id="checkoutPrice">$0</div>
             </div>
-            <div class="small-note mt-2">Pricing previews the future monthly plan. This form does not process a payment.</div>
+            <div class="small-note mt-2">Pricing previews the future monthly plan. No payment is processed.</div>
+          </div>
+
+          <div class="checkout-card-form mt-3" aria-labelledby="checkoutCardHeading">
+            <div class="checkout-card-heading">
+              <strong id="checkoutCardHeading">Card information</strong>
+              <span>Test checkout</span>
+            </div>
+            <label class="checkout-card-number">
+              <span>Card number</span>
+              <input id="checkoutCardNumber" type="text" inputmode="numeric" autocomplete="off" maxlength="23" placeholder="4242 4242 4242 4242">
+            </label>
+            <div class="checkout-card-row">
+              <label>
+                <span>Expiration</span>
+                <input id="checkoutExpiry" type="text" inputmode="numeric" autocomplete="off" maxlength="5" placeholder="12/30">
+              </label>
+              <label>
+                <span>CVC</span>
+                <input id="checkoutCvc" type="text" inputmode="numeric" autocomplete="off" maxlength="3" placeholder="123">
+              </label>
+              <label>
+                <span>ZIP</span>
+                <input id="checkoutZip" type="text" inputmode="numeric" autocomplete="off" maxlength="10" placeholder="12345">
+              </label>
+            </div>
+            <p class="checkout-test-notice">Use test card <strong>4242 4242 4242 4242</strong>, a future expiration date, any 3-digit CVC, and a ZIP code. Real card details are rejected. Nothing from these fields is saved or sent.</p>
           </div>
 
           <div class="checkout-request-explainer mt-3">
             <strong>What happens next</strong>
-            <p>Your selected plan starts immediately. No card information is collected and Stripe is not connected yet.</p>
+            <p>Your selected plan starts immediately after the test form is complete. Stripe is not connected.</p>
             <ol>
               <li>Choose the plan that fits your family.</li>
-              <li>Begin learning without waiting for administrator approval.</li>
+              <li>Enter the test card and begin without administrator approval.</li>
               <li>Future declined payments will keep access open for 14 days.</li>
             </ol>
           </div>
@@ -216,7 +242,7 @@
 
         <div class="modal-footer">
           <button type="button" class="btn btn-main" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-main" id="checkoutConfirmButton" onclick="confirmPayment()">Start plan access</button>
+          <button type="button" class="btn btn-main" id="checkoutConfirmButton" onclick="confirmPayment()">Start plan</button>
         </div>
       </div>
     </div>

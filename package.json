@@ -2,6 +2,7 @@
   "scripts": {
     "lessons:audit": "node scripts/audit-classic-25.js",
     "lessons:audit:early": "node scripts/audit-early-25.js",
+    "checkout:audit": "node scripts/audit-checkout-safety.js",
     "ui:audit": "node scripts/audit-ui-runtime.js"
   },
   "dependencies": {

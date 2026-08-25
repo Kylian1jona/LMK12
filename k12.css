@@ -6164,6 +6164,30 @@ body #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong
   .payment-status-select,.payment-due-input,.payment-save-button{width:100%}
 }
 
+/* Flexible lesson answers: intentional 3- and 5-choice questions finish with
+   one full-width answer instead of inventing or hiding a fourth choice. */
+body #lessonRunner #lrChoices[data-choice-count="3"] .choice-btn:last-child,
+body #lessonRunner #lrChoices[data-choice-count="5"] .choice-btn:last-child{
+  grid-column:1 / -1;
+  width:100%!important;
+  min-height:112px;
+}
+
+.checkout-card-form{display:grid;gap:13px;padding:18px;border:2px solid #cfe1ef;border-radius:19px;background:linear-gradient(145deg,#fff,#f3f9ff)}
+.checkout-card-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#243d59}
+.checkout-card-heading span{padding:6px 9px;border-radius:999px;background:#e8f5f4;color:#08796f;font-size:11px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+.checkout-card-form label{display:grid;gap:6px;margin:0;color:#53677d;font-size:11px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+.checkout-card-form input{width:100%;min-height:48px;padding:11px 13px;border:1px solid #bccdde;border-radius:12px;background:#fff;color:#18334f;font-size:16px;letter-spacing:.03em;text-transform:none}
+.checkout-card-form input:focus{outline:3px solid rgba(52,126,209,.18);border-color:#5a9bdd}
+.checkout-card-row{display:grid;grid-template-columns:1fr .75fr 1fr;gap:10px}
+.checkout-test-notice{margin:0;padding:12px;border-radius:12px;background:#fff8df;color:#69531b;font-size:12px;line-height:1.45}
+
+@media(max-width:680px){
+  body #lessonRunner #lrChoices[data-choice-count="3"] .choice-btn:last-child,
+  body #lessonRunner #lrChoices[data-choice-count="5"] .choice-btn:last-child{grid-column:auto;min-height:82px}
+  .checkout-card-row{grid-template-columns:1fr 1fr}.checkout-card-row label:last-child{grid-column:1 / -1}
+}
+
 /* =========================================================
    LIVE COLOR + ARTWORK FINISH - AUGUST 2026
    Existing LearnMaster illustrations are used as quiet page scenery so the

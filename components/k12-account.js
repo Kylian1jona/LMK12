@@ -362,6 +362,7 @@ const PIN_KEY  = "learnmaster_account_pin_v1";
 const KIDS_KEY = "learnmaster_kids_v2";
 const ACTIVE_KID_KEY = "learnmaster_active_kid_v1";
 const REQUIRED_PLAN_KEY = "learnmaster_required_plan_v1";
+const DEMO_SUBSCRIPTION_KEY = "learnmaster_demo_subscription_v1";
 const THEME_KEY = "learnmaster_theme_v1";
 const MAX_KIDS_PER_ACCOUNT = 3;
 
@@ -418,7 +419,7 @@ function supportedSubscriptionPlan(planId){
   return PLAN_CATALOG?.[id] && !PLAN_CATALOG[id].addon ? id : "";
 }
 function subscriptionAccessAllowed(){
-  return subscriptionAuthority.mode==="server" && subscriptionAuthority.accessAllowed===true;
+  return ["server","demo"].includes(subscriptionAuthority.mode) && subscriptionAuthority.accessAllowed===true;
 }
 function subscriptionStatusLabel(status=subscriptionAuthority.status){
   const normalized=String(status||"pending").toLowerCase();
@@ -434,7 +435,7 @@ function subscriptionGraceDaysRemaining(){
   return Math.max(0,14-daysLate);
 }
 function subscriptionActionMessage(){
-  if(subscriptionAuthority.mode==="setup") return "Subscription setup is not installed yet. Please contact the site administrator.";
+  if(subscriptionAuthority.mode==="setup") return "Choose a plan and use the test checkout to start learning.";
   if(subscriptionAuthority.status==="late"&&subscriptionAccessAllowed()){
     const days=subscriptionGraceDaysRemaining();
     return days
@@ -443,8 +444,37 @@ function subscriptionActionMessage(){
   }
   if(subscriptionAuthority.status==="late") return "The 14-day payment grace period ended. Update the payment status to continue learning.";
   if(subscriptionAuthority.status==="suspended") return "Your subscription is suspended. Choose a plan or contact the administrator.";
-  if(subscriptionAuthority.selectedPlan) return "Your plan is being prepared. No card is charged in this version.";
-  return "Choose a plan to start learning access. No card is charged yet.";
+  if(subscriptionAuthority.selectedPlan) return "Your plan is being prepared. No real card is charged in this version.";
+  return "Choose a plan and complete the test checkout to start learning access.";
+}
+function readDemoSubscription(){
+  try{
+    const record=JSON.parse(learnMasterStore.getItem(DEMO_SUBSCRIPTION_KEY)||"null");
+    const planId=supportedSubscriptionPlan(record?.selectedPlan);
+    return planId && record?.accessAllowed===true ? {...record,selectedPlan:planId} : null;
+  }catch(error){
+    return null;
+  }
+}
+function storeDemoSubscription(planId, existingRecord=null){
+  const normalized=supportedSubscriptionPlan(planId);
+  if(!normalized) return false;
+  const now=new Date();
+  const due=new Date(now.getTime()+30*86400000);
+  const record={
+    selectedPlan:normalized,
+    paymentStatus:"active",
+    dueOn:existingRecord?.dueOn || due.toISOString().slice(0,10),
+    accessAllowed:true,
+    startedAt:existingRecord?.startedAt || now.toISOString()
+  };
+  learnMasterStore.setItem(DEMO_SUBSCRIPTION_KEY,JSON.stringify(record));
+  subscriptionAuthority={mode:"demo",status:"active",selectedPlan:normalized,dueOn:record.dueOn,accessAllowed:true,error:""};
+  clearTrial();
+  setPlan(normalized);
+  setPurchasedSubjects(PLAN_CATALOG[normalized].subjects || []);
+  learnMasterStore.removeItem(REQUIRED_PLAN_KEY);
+  return true;
 }
 function storeAuthoritativeSubscription(record){
   const planId=supportedSubscriptionPlan(record?.selected_plan || record?.selectedPlan);
@@ -484,39 +514,48 @@ function lockSubscriptionForSetup(errorMessage=""){
 }
 async function refreshSubscriptionAccess(){
   const client=window.learnMasterSupabase;
-  if(!client) return lockSubscriptionForSetup("Supabase is unavailable.");
+  const demo=readDemoSubscription();
+  if(!client) return demo ? storeDemoSubscription(demo.selectedPlan,demo) : lockSubscriptionForSetup("Supabase is unavailable.");
   try{
     const {data,error}=await client.rpc("learnmaster_current_subscription");
     if(error){
       console.warn("Secure subscription access is waiting for its database migration:",error.message);
-      return lockSubscriptionForSetup(error.message);
+      return demo ? storeDemoSubscription(demo.selectedPlan,demo) : lockSubscriptionForSetup(error.message);
     }
     const record=Array.isArray(data)?data[0]:data;
-    if(!record) return lockSubscriptionForSetup("No secure subscription profile was returned.");
+    if(!record) return demo ? storeDemoSubscription(demo.selectedPlan,demo) : lockSubscriptionForSetup("No secure subscription profile was returned.");
+    const recordStatus=String(record?.payment_status || record?.paymentStatus || "pending").toLowerCase();
+    const recordAccess=record?.access_allowed===true || record?.accessAllowed===true;
+    if(demo&&!recordAccess&&recordStatus==="pending") return storeDemoSubscription(demo.selectedPlan,demo);
     return storeAuthoritativeSubscription(record);
   }catch(error){
     console.warn("Secure subscription access could not be checked:",error?.message || error);
-    return lockSubscriptionForSetup(error?.message || "The subscription service could not be reached.");
+    return demo ? storeDemoSubscription(demo.selectedPlan,demo) : lockSubscriptionForSetup(error?.message || "The subscription service could not be reached.");
   }
 }
 async function requestSubscriptionPlan(planId){
   const normalized=supportedSubscriptionPlan(planId);
   if(!normalized) return {ok:false,message:"Choose a valid learning plan."};
   const client=window.learnMasterSupabase;
-  if(!client) return {ok:false,message:"Supabase is unavailable. Try again when the account service is online."};
+  if(!client){
+    storeDemoSubscription(normalized);
+    return {ok:true,data:{selectedPlan:normalized,mode:"demo"}};
+  }
   try{
     const {data,error}=await client.rpc("learnmaster_request_subscription_plan",{new_plan:normalized});
     if(error){
       console.warn("Subscription plan request could not be saved:",error.message);
-      lockSubscriptionForSetup(error.message);
-      return {ok:false,message:"The secure subscription setup is not ready yet. Please contact the site administrator."};
+      storeDemoSubscription(normalized);
+      return {ok:true,data:{selectedPlan:normalized,mode:"demo"}};
     }
-    storeAuthoritativeSubscription(data || {selected_plan:normalized,payment_status:"pending",access_allowed:false});
+    const active=data?.access_allowed===true || data?.accessAllowed===true;
+    if(active) storeAuthoritativeSubscription(data);
+    else storeDemoSubscription(normalized);
     return {ok:true,data};
   }catch(error){
     console.warn("Subscription plan request could not be completed:",error?.message || error);
-    lockSubscriptionForSetup(error?.message || "The subscription service could not be reached.");
-    return {ok:false,message:"The subscription service could not be reached. Please try again."};
+    storeDemoSubscription(normalized);
+    return {ok:true,data:{selectedPlan:normalized,mode:"demo"}};
   }
 }
 async function enforceSubscriptionAccess(){
@@ -584,7 +623,7 @@ function trialActive(){ return false; }
 function startTrial(){
   safeClick();
   showPaywall(true);
-  toast("Choose a plan to start access. No card is charged yet.");
+  toast("Choose a plan, then complete the test checkout to start access.");
 }
 
 function ensurePin(){
@@ -625,7 +664,7 @@ Type 1-5`
 }
 function managePlanFlow(){
   showPaywall(true);
-  toast("Choose a plan below to start access. No card is charged yet.");
+  toast("Choose a plan below, then complete the test checkout.");
 }
 
 /* ===========================
@@ -642,6 +681,7 @@ const PLAN_CATALOG = {
   reindeer: { name: "All Subjects", price: 20, subjects:["all"] },
 };
 let checkout = { planId:"", base:0 };
+const TEST_CHECKOUT_CARD = "4242424242424242";
 
 function money(n){ return "$" + (Math.max(0, Number(n) || 0)).toFixed(2); }
 
@@ -655,11 +695,13 @@ function openCheckout(planId){
 
   $("payErr").textContent = "";
   const requestButton=$("checkoutConfirmButton");
-  if(requestButton){ requestButton.disabled=false; requestButton.textContent="Start plan access"; }
+  if(requestButton){ requestButton.disabled=false; requestButton.textContent="Start plan"; }
+
+  clearTestCheckoutCard();
 
   $("checkoutPlanName").textContent = plan.name;
   $("checkoutTitle").textContent = `Start ${plan.name}`;
-  if($("checkoutDesc")) $("checkoutDesc").textContent = "Start this plan without entering card details. Stripe is not connected yet.";
+  if($("checkoutDesc")) $("checkoutDesc").textContent = "Enter the test card below to start this plan immediately.";
 
   updateCheckoutUI();
 
@@ -670,6 +712,26 @@ function openCheckout(planId){
 function updateCheckoutUI(){
   if($("checkoutPrice")) $("checkoutPrice").textContent = money(checkout.base);
 }
+function clearTestCheckoutCard(){
+  ["checkoutCardNumber","checkoutExpiry","checkoutCvc","checkoutZip"].forEach(id=>{
+    const input=$(id);
+    if(input) input.value="";
+  });
+}
+function validateTestCheckoutCard(){
+  const card=String($("checkoutCardNumber")?.value||"").replace(/\D/g,"");
+  const expiry=String($("checkoutExpiry")?.value||"").trim();
+  const cvc=String($("checkoutCvc")?.value||"").trim();
+  const zip=String($("checkoutZip")?.value||"").trim();
+  if(card!==TEST_CHECKOUT_CARD) return "Use the test card 4242 4242 4242 4242. Real cards are not accepted.";
+  const match=expiry.match(/^(0[1-9]|1[0-2])\/(\d{2})$/);
+  if(!match) return "Enter a future expiration date as MM/YY.";
+  const expiryEnd=new Date(Date.UTC(2000+Number(match[2]),Number(match[1]),0,23,59,59));
+  if(expiryEnd<=new Date()) return "Use a future expiration date.";
+  if(!/^\d{3}$/.test(cvc)) return "Enter any 3-digit test CVC.";
+  if(!/^\d{5}(?:-\d{4})?$/.test(zip)) return "Enter a valid 5-digit ZIP code.";
+  return "";
+}
 async function confirmPayment(){
   safeClick();
   const errorBox=$("payErr");
@@ -677,11 +739,17 @@ async function confirmPayment(){
 
   const requestedPlan=PLAN_CATALOG[checkout.planId];
   if(!requestedPlan){ if(errorBox) errorBox.textContent="Plan missing."; return; }
+  const cardError=validateTestCheckoutCard();
+  if(cardError){ if(errorBox) errorBox.textContent=cardError; return; }
+
+  // The test fields are intentionally cleared before any network request. Card
+  // values are never passed to Supabase, stored locally, or written to logs.
+  clearTestCheckoutCard();
 
   const submit=$("checkoutConfirmButton");
   if(submit){ submit.disabled=true; submit.textContent="Starting access..."; }
   const request=await requestSubscriptionPlan(checkout.planId);
-  if(submit){ submit.disabled=false; submit.textContent="Start plan access"; }
+  if(submit){ submit.disabled=false; submit.textContent="Start plan"; }
   if(!request.ok){ if(errorBox) errorBox.textContent=request.message; return; }
 
   const modalEl=document.getElementById("checkoutModal");
@@ -691,7 +759,7 @@ async function confirmPayment(){
   updateUserUI();
   hidePaywall(true);
   show("home");
-  toast("Plan access started. No card was charged.");
+  toast("Plan access started. This was a test checkout; no card was charged.");
   speakGlobal("Your learning plan is ready. Let us start learning!");
 }
 
@@ -1048,11 +1116,11 @@ function renderSubscriptionPaywallStatus(){
       : `${planText} is active. No Stripe charge is made in this version.`;
     status.innerHTML=`<strong>${htmlSafe(statusText)}</strong><span>${htmlSafe(detail)}</span>`;
   }else if(subscriptionAuthority.mode==="setup"){
-    status.innerHTML='<strong>Account setup required</strong><span>The secure payment database must be connected before plans can be submitted.</span>';
+    status.innerHTML='<strong>Choose a plan</strong><span>Use the test checkout to start immediately. No administrator approval is needed.</span>';
   }else if(subscriptionAuthority.selectedPlan){
     status.innerHTML=`<strong>${htmlSafe(statusText)}</strong><span>${htmlSafe(subscriptionActionMessage())}</span>`;
   }else{
-    status.innerHTML='<strong>Choose a plan</strong><span>Start access now without entering card details. Stripe is not connected yet.</span>';
+    status.innerHTML='<strong>Choose a plan</strong><span>Enter the test card in checkout and start immediately. Stripe is not connected yet.</span>';
   }
 }
 function showPaywall(required=planChoiceRequired()){

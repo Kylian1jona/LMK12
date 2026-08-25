@@ -45,7 +45,7 @@ function sourceDeclaresId(id){
 }
 
 const newSectionIds=["prek-eng","prek-math","kinder-eng","kinder-math","g1-eng","g1-math","paymentStatus"];
-const requiredIds=["home","grades","reading","settings","analysis","shop","playground","lessonRunner","lrQuestion","lrChoices","lrNextBtn","subscriptionPaywallStatus","checkoutConfirmButton",...newSectionIds];
+const requiredIds=["home","grades","reading","settings","analysis","shop","playground","lessonRunner","lrQuestion","lrChoices","lrNextBtn","subscriptionPaywallStatus","checkoutConfirmButton","checkoutCardNumber","checkoutExpiry","checkoutCvc","checkoutZip",...newSectionIds];
 for(const id of requiredIds){
   if(!sourceDeclaresId(id)) failures.push(`Required UI element #${id} is missing.`);
 }
@@ -93,6 +93,12 @@ if(!/function\s+requireLessonSubjectAccess\s*\(/.test(lessonCoreSource)) failure
 if(!/function\s+launchLessonPack\s*\([^)]*\)\s*\{\s*if\s*\(\s*!requireLessonSubjectAccess\(subj\)\s*\)/.test(lessonCoreSource)) failures.push("Lesson launch does not enforce subject access.");
 if(!/sectionId\s*===\s*["']lessonRunner["'][\s\S]{0,240}subjectAllowed\(activeLessonSubject\)/.test(accountSource)) failures.push("Lesson runner navigation is not tied to the active paid subject.");
 if(!/function\s+subjectAllowed\s*\([^)]*\)\s*\{\s*const\s+subjects\s*=\s*authoritativeSubscriptionSubjects\(\)/.test(accountSource)) failures.push("Subject access is not derived from the server-authoritative plan.");
+if(!/dataset\.choiceCount\s*=\s*Array\.isArray\(q\.choices\)/.test(lessonCoreSource)) failures.push("Lesson answers are missing their dynamic choice-count layout marker.");
+if(!/#lrChoices\[data-choice-count=["']3["']\][\s\S]{0,220}grid-column\s*:\s*1\s*\/\s*-1/.test(css)) failures.push("Three-choice lessons do not give the last answer a full-width row.");
+if(!/#lrChoices\[data-choice-count=["']5["']\][\s\S]{0,220}grid-column\s*:\s*1\s*\/\s*-1/.test(css)) failures.push("Five-choice lessons do not show the last answer on a full-width row.");
+if(!/const\s+TEST_CHECKOUT_CARD\s*=\s*["']4242424242424242["']/.test(accountSource)) failures.push("The checkout is not restricted to the standard test card.");
+if(!/clearTestCheckoutCard\(\);[\s\S]{0,280}requestSubscriptionPlan\(checkout\.planId\)/.test(accountSource)) failures.push("Test-card fields are not cleared before the plan request.");
+if(/requestSubscriptionPlan\([^)]*(?:Card|Expiry|Cvc|Zip)/.test(accountSource)) failures.push("Card-field data is being passed into the subscription request.");
 for(const legacyPaymentToken of ["learnmaster_last_payment_v1","validCardLike","PROMO_CODES","pendingNewKid","finishPaidKidAdd","openCheckout(\"member\")"]){
   if(accountSource.includes(legacyPaymentToken)) failures.push(`Legacy local-payment code ${legacyPaymentToken} is still present.`);
 }

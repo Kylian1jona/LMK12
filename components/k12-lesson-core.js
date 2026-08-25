@@ -602,6 +602,7 @@ function lrRender(){
 
   // Reset everything
   choicesWrap.innerHTML = "";
+  choicesWrap.dataset.choiceCount = Array.isArray(q.choices) ? String(q.choices.length) : "0";
   dragWords.innerHTML = "";
   dropZones.innerHTML = "";
   $("lrInput").value = "";
@@ -1003,6 +1004,7 @@ function lrRender(){
   renderLessonImage(q.image || LR.image);
   $("lrQuestion").textContent = q.q || "";
   $("lrChoices").innerHTML = "";
+  $("lrChoices").dataset.choiceCount = Array.isArray(q.choices) ? String(q.choices.length) : "0";
   $("lessonExtra").innerHTML = "";
   if($("lrDragWords")) $("lrDragWords").innerHTML = "";
   if($("lrDropZones")) $("lrDropZones").innerHTML = "";
