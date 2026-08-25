@@ -129,22 +129,6 @@ function lrWrongMoveOn(feedback = "Not quite. Moving on.", penalty = "", delayMs
 function shuffle(arr){ return [...arr].sort(()=>Math.random()-0.5); }
 function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
 
-function fallbackWrongChoice(answerText, used, index){
-  const num = Number(answerText);
-  if(Number.isFinite(num) && String(answerText).trim() !== ""){
-    const offsets = [1, -1, 2, -2, 5, -5, 10, -10];
-    for(const offset of offsets){
-      const candidate = String(num + offset);
-      if(!used.has(candidate)) return candidate;
-    }
-  }
-  const generic = ["Almost", "Not this one", "Review the clue", "Try another answer", "Keep thinking"];
-  for(const candidate of generic){
-    if(!used.has(candidate)) return candidate;
-  }
-  return `Choice ${index + 1}`;
-}
-
 function fourChoices(answer, wrongs){
   const answerText = String(answer);
   const used = new Set([answerText]);
@@ -156,12 +140,22 @@ function fourChoices(answer, wrongs){
       choices.push(text);
     }
   });
-  while(choices.length < 4){
-    const fallback = fallbackWrongChoice(answerText, used, choices.length);
-    used.add(fallback);
-    choices.push(fallback);
-  }
   return shuffle(choices);
+}
+
+function preserveProvidedChoices(answer, providedChoices){
+  const answerText=String(answer);
+  const used=new Set();
+  const choices=[];
+  (providedChoices||[]).forEach(choice=>{
+    const text=String(choice).trim();
+    if(text&&!used.has(text)&&choices.length<5){
+      used.add(text);
+      choices.push(text);
+    }
+  });
+  if(!used.has(answerText)) choices.unshift(answerText);
+  return shuffle(choices.slice(0,5));
 }
 
 function mcQuestion(q, answer, wrongs, audioText){
@@ -781,7 +775,7 @@ function normalizeLessonQuestion(q, pack){
       && normalizedChoices.includes("False");
     q.choices = isTrueFalse
       ? ["True", "False"]
-      : fourChoices(q.answer, normalizedChoices.filter(choice=>choice !== q.answer));
+      : preserveProvidedChoices(q.answer, normalizedChoices);
   }
   if((q.type === "input" || q.type === "fill" || q.type === "edit") && (q.answer === undefined || q.answer === null)){
     q.answer = "";
@@ -801,7 +795,7 @@ function normalizeLessonQuestion(q, pack){
       && normalizedChoices.includes("False");
     q.choices = isTrueFalse
       ? ["True", "False"]
-      : fourChoices(q.answer, normalizedChoices.filter(choice=>choice !== q.answer));
+      : preserveProvidedChoices(q.answer, normalizedChoices);
   }
   if(q.type === "truefalse"){
     q.choices = ["True", "False"];

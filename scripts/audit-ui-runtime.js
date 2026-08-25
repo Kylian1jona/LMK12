@@ -94,6 +94,9 @@ if(!/function\s+launchLessonPack\s*\([^)]*\)\s*\{\s*if\s*\(\s*!requireLessonSubj
 if(!/sectionId\s*===\s*["']lessonRunner["'][\s\S]{0,240}subjectAllowed\(activeLessonSubject\)/.test(accountSource)) failures.push("Lesson runner navigation is not tied to the active paid subject.");
 if(!/function\s+subjectAllowed\s*\([^)]*\)\s*\{\s*const\s+subjects\s*=\s*authoritativeSubscriptionSubjects\(\)/.test(accountSource)) failures.push("Subject access is not derived from the server-authoritative plan.");
 if(!/dataset\.choiceCount\s*=\s*Array\.isArray\(q\.choices\)/.test(lessonCoreSource)) failures.push("Lesson answers are missing their dynamic choice-count layout marker.");
+if(/while\s*\(\s*choices\.length\s*<\s*4\s*\)/.test(lessonCoreSource)) failures.push("The lesson runner still pads short choice lists to four answers.");
+if(/const\s+generic\s*=\s*\[[^\]]*["']Almost["']/.test(lessonCoreSource)) failures.push("The lesson runner still contains the Almost filler answer.");
+if(!/preserveProvidedChoices\(q\.answer,\s*normalizedChoices\)/.test(lessonCoreSource)) failures.push("The lesson runner does not preserve explicit question choice counts.");
 if(!/#lrChoices\[data-choice-count=["']3["']\][\s\S]{0,220}grid-column\s*:\s*1\s*\/\s*-1/.test(css)) failures.push("Three-choice lessons do not give the last answer a full-width row.");
 if(!/#lrChoices\[data-choice-count=["']5["']\][^,{]*\.choice-btn:nth-child\(3\)[\s\S]{0,180}grid-column\s*:\s*1\s*\/\s*-1/.test(css)) failures.push("Five-choice lessons do not use the A/B, full-width C, D/E layout.");
 if(!/const\s+TEST_CHECKOUT_CARD\s*=\s*["']4242424242424242["']/.test(accountSource)) failures.push("The checkout is not restricted to the standard test card.");
