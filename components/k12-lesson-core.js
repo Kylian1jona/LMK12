@@ -158,6 +158,15 @@ function preserveProvidedChoices(answer, providedChoices){
   return shuffle(choices.slice(0,5));
 }
 
+function setLessonChoiceLayout(container, question){
+  if(!container) return;
+  const count=Array.isArray(question?.choices) ? question.choices.length : 0;
+  container.dataset.choiceCount=String(count);
+  container.dataset.choiceLayout=count===3
+    ? "two-one"
+    : (count===5 ? "two-one-two" : "standard");
+}
+
 function mcQuestion(q, answer, wrongs, audioText){
   const answerText = String(answer);
   return { type:"mc", q, choices:fourChoices(answerText, wrongs), answer:answerText, audio: audioText || q };
@@ -596,7 +605,7 @@ function lrRender(){
 
   // Reset everything
   choicesWrap.innerHTML = "";
-  choicesWrap.dataset.choiceCount = Array.isArray(q.choices) ? String(q.choices.length) : "0";
+  setLessonChoiceLayout(choicesWrap,q);
   dragWords.innerHTML = "";
   dropZones.innerHTML = "";
   $("lrInput").value = "";
@@ -998,7 +1007,7 @@ function lrRender(){
   renderLessonImage(q.image || LR.image);
   $("lrQuestion").textContent = q.q || "";
   $("lrChoices").innerHTML = "";
-  $("lrChoices").dataset.choiceCount = Array.isArray(q.choices) ? String(q.choices.length) : "0";
+  setLessonChoiceLayout($("lrChoices"),q);
   $("lessonExtra").innerHTML = "";
   if($("lrDragWords")) $("lrDragWords").innerHTML = "";
   if($("lrDropZones")) $("lrDropZones").innerHTML = "";

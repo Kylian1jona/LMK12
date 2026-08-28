@@ -6167,8 +6167,8 @@ body #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong
 /* Flexible lesson answers styled entirely in CSS, with no filler answers:
    3 choices = A/B then full-width C.
    5 choices = A/B, full-width C, then D/E. */
-body #lessonRunner #lrChoices[data-choice-count="3"] .choice-btn:nth-child(3),
-body #lessonRunner #lrChoices[data-choice-count="5"] .choice-btn:nth-child(3){
+body #lessonRunner #lrChoices[data-choice-layout="two-one"] .choice-btn:nth-child(3),
+body #lessonRunner #lrChoices[data-choice-layout="two-one-two"] .choice-btn:nth-child(3){
   grid-column:1 / -1;
   width:100%!important;
   min-height:112px;
@@ -6184,8 +6184,10 @@ body #lessonRunner #lrChoices[data-choice-count="5"] .choice-btn:nth-child(3){
 .checkout-test-notice{margin:0;padding:12px;border-radius:12px;background:#fff8df;color:#69531b;font-size:12px;line-height:1.45}
 
 @media(max-width:680px){
-  body #lessonRunner #lrChoices[data-choice-count="3"] .choice-btn:nth-child(3),
-  body #lessonRunner #lrChoices[data-choice-count="5"] .choice-btn:nth-child(3){grid-column:auto;min-height:82px}
+  body #lessonRunner #lrChoices[data-choice-layout="two-one"],
+  body #lessonRunner #lrChoices[data-choice-layout="two-one-two"]{grid-template-columns:repeat(2,minmax(0,1fr))}
+  body #lessonRunner #lrChoices[data-choice-layout="two-one"] .choice-btn:nth-child(3),
+  body #lessonRunner #lrChoices[data-choice-layout="two-one-two"] .choice-btn:nth-child(3){grid-column:1 / -1;min-height:82px}
   .checkout-card-row{grid-template-columns:1fr 1fr}.checkout-card-row label:last-child{grid-column:1 / -1}
 }
 
