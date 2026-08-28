@@ -251,14 +251,17 @@ function speechVoiceScore(voice){
   const language=String(voice?.lang||"").toLowerCase();
   const wantMale=voiceType==="male";
   let score=0;
-  if(language==="en-us") score+=35;
-  else if(language.startsWith("en")) score+=20;
-  if(/natural|neural|enhanced|premium|online/.test(name)) score+=70;
-  if(/microsoft (aria|jenny|ava|emma|michelle)|google us english|samantha|zira/.test(name)) score+=wantMale?-15:45;
-  if(/microsoft (andrew|brian|christopher|davis|eric|guy)|daniel|george|alex|fred/.test(name)) score+=wantMale?45:-15;
+  if(language==="en-us") score+=45;
+  else if(language.startsWith("en")) score+=25;
+  if(/natural|neural/.test(name)) score+=180;
+  else if(/enhanced|premium/.test(name)) score+=125;
+  else if(/online/.test(name)) score+=55;
+  if(/microsoft (aria|jenny|ava|emma|michelle)|google us english|samantha|susan|victoria/.test(name)) score+=wantMale?-15:55;
+  if(/microsoft (andrew|brian|christopher|davis|eric|guy)|daniel|george|alex|fred/.test(name)) score+=wantMale?55:-15;
   if(wantMale && /(male|andrew|brian|christopher|davis|daniel|eric|george|guy|alex|fred|mark)/.test(name)) score+=30;
   if(!wantMale && /(female|aria|ava|emma|jenny|michelle|samantha|susan|zira|hazel|karen|victoria)/.test(name)) score+=30;
-  if(voice?.localService) score+=4;
+  if(/compact|espeak|eloquence|festival|robot/.test(name)) score-=140;
+  if(voice?.default) score+=6;
   return score;
 }
 
@@ -332,22 +335,33 @@ function setVoiceType(type){
   renderVoiceControls();
   previewVoice();
 }
+
+function makeSpeechFriendly(text){
+  return String(text||"")
+    .replace(/&/g," and ")
+    .replace(/_{2,}/g," blank ")
+    .replace(/\s*\+\s*/g," plus ")
+    .replace(/\s*=\s*/g," equals ")
+    .replace(/(\d)\s*[-−]\s*(\d)/g,"$1 minus $2")
+    .replace(/(\d)\s*%/g,"$1 percent")
+    .replace(/\s*\/\s*/g," or ")
+    .replace(/\s*:\s*/g,", ")
+    .replace(/\s+/g," ")
+    .trim();
+}
+
 function speakGlobal(t){
   if(!voiceOn) return;
   try{
     speechSynthesis.cancel();
-    const friendlyText=String(t||"")
-      .replace(/&/g," and ")
-      .replace(/\s*\/\s*/g," or ")
-      .replace(/\s+/g," ")
-      .trim();
+    const friendlyText=makeSpeechFriendly(t);
     if(!friendlyText) return;
     const u = new SpeechSynthesisUtterance(friendlyText);
     const preferredVoice = getPreferredSpeechVoice();
     if(preferredVoice) u.voice = preferredVoice;
-    u.rate = 0.94;
-    u.pitch = voiceType === "male" ? 0.97 : 1.02;
-    u.volume = 1;
+    u.rate = 0.89;
+    u.pitch = voiceType === "male" ? 0.96 : 1;
+    u.volume = 0.96;
     u.lang = preferredVoice?.lang || "en-US";
     speechSynthesis.speak(u);
   }catch(e){}
