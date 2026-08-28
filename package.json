@@ -4,6 +4,7 @@
     "lessons:audit:early": "node scripts/audit-early-25.js",
     "choices:audit": "node scripts/audit-choice-normalization.js",
     "checkout:audit": "node scripts/audit-checkout-safety.js",
+    "deploy:netlify": "node scripts/deploy-netlify-api.mjs",
     "ui:audit": "node scripts/audit-ui-runtime.js"
   },
   "dependencies": {
