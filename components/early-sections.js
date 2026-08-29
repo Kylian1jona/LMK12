@@ -72,7 +72,8 @@
         lessonCard("k:math:forwardback10","kinder-math","Counting Forward & Back to 10","Count forward and backward with confidence.","10"),
         lessonCard("k:math:subtraction","kinder-math","Subtraction Within 10","Take away from small groups.","-"),
         lessonCard("k:math:measurement","kinder-math","Measurement","Compare length, weight, and capacity.","RUL"),
-        lessonCard("k:math:time","kinder-math","Time","Learn daily order and times on the hour.","CLK")
+        lessonCard("k:math:time","kinder-math","Time","Read times on analog clocks.","CLK"),
+        lessonCard("k:math:time-seasons","kinder-math","Time and Seasons","Explore daily routines and the four seasons.","SUN")
       ].join("");
       const g1English=[
         lessonCard("g1:eng:vowels","g1-eng","Short and Long Vowel Sounds","Practice short and long vowels.","AEI"),

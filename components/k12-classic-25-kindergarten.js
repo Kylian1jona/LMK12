@@ -750,6 +750,36 @@
       "image": {"src":"images/Time28.jpg","alt":"Analog clock showing 7:15"}
     }
              ]
+    },
+    "k:math:time-seasons":{
+      name:"Time and Seasons",
+      questions:[
+        {"type":"mc","q":"Which part of the day comes first?","choices":["morning","afternoon","evening","night"],"answer":"morning","audio":"Which part of the day comes first?"},
+        {"type":"mc","q":"Which part of the day comes after morning?","choices":["afternoon","night","yesterday","midnight"],"answer":"afternoon","audio":"Which part of the day comes after morning?"},
+        {"type":"mc","q":"Which part of the day comes after afternoon?","choices":["morning","evening","breakfast","yesterday"],"answer":"evening","audio":"Which part of the day comes after afternoon?"},
+        {"type":"mc","q":"Which part of the day usually comes after evening?","choices":["morning","night","afternoon","lunch"],"answer":"night","audio":"Which part of the day usually comes after evening?"},
+        {"type":"mc","q":"When do you usually eat breakfast?","choices":["morning","night","evening","midnight"],"answer":"morning","audio":"When do you usually eat breakfast?"},
+        {"type":"mc","q":"When do you usually eat dinner?","choices":["morning","evening","breakfast time","early morning"],"answer":"evening","audio":"When do you usually eat dinner?"},
+        {"type":"mc","q":"When do you usually go to bed?","choices":["morning","night","noon","breakfast time"],"answer":"night","audio":"When do you usually go to bed?"},
+        {"type":"mc","q":"Which happens first: breakfast or lunch?","choices":["breakfast","lunch","They happen at the same time","Neither"],"answer":"breakfast","audio":"Which happens first: breakfast or lunch?"},
+        {"type":"mc","q":"Which happens first: lunch or dinner?","choices":["lunch","dinner","They happen at the same time","Neither"],"answer":"lunch","audio":"Which happens first: lunch or dinner?"},
+        {"type":"mc","q":"Which happens later: morning or night?","choices":["morning","night","They are the same","Neither"],"answer":"night","audio":"Which happens later: morning or night?"},
+        {"type":"mc","q":"Which takes longer: clapping once or eating lunch?","choices":["clapping once","eating lunch","They take the same time","Neither"],"answer":"eating lunch","audio":"Which takes longer: clapping once or eating lunch?"},
+        {"type":"mc","q":"Which takes less time: blinking or taking a bath?","choices":["blinking","taking a bath","They take the same time","Neither"],"answer":"blinking","audio":"Which takes less time: blinking or taking a bath?"},
+        {"type":"mc","q":"Which list names all four seasons?","choices":["spring, summer, fall, winter","morning, noon, evening, night","rain, snow, wind, sun","Monday, Tuesday, Wednesday, Thursday"],"answer":"spring, summer, fall, winter","audio":"Which list names all four seasons?"},
+        {"type":"mc","q":"Which season comes after winter?","choices":["spring","summer","fall","winter"],"answer":"spring","audio":"Which season comes after winter?"},
+        {"type":"mc","q":"Which season comes after spring?","choices":["winter","summer","fall","spring"],"answer":"summer","audio":"Which season comes after spring?"},
+        {"type":"mc","q":"Which season comes after summer?","choices":["spring","winter","fall","summer"],"answer":"fall","audio":"Which season comes after summer?"},
+        {"type":"mc","q":"Which season comes after fall?","choices":["summer","spring","winter","fall"],"answer":"winter","audio":"Which season comes after fall?"},
+        {"type":"mc","q":"Which season is often the coldest and may bring snow?","choices":["winter","spring","summer","fall"],"answer":"winter","audio":"Which season is often the coldest and may bring snow?"},
+        {"type":"mc","q":"Which season usually has the hottest weather?","choices":["fall","summer","winter","spring"],"answer":"summer","audio":"Which season usually has the hottest weather?"},
+        {"type":"mc","q":"In which season do many leaves change color and fall?","choices":["spring","summer","fall","winter"],"answer":"fall","audio":"In which season do many leaves change color and fall?"},
+        {"type":"mc","q":"In which season do many flowers begin to grow?","choices":["winter","spring","fall","summer"],"answer":"spring","audio":"In which season do many flowers begin to grow?"},
+        {"type":"mc","q":"Which clothing is usually best for a cold winter day?","choices":["warm coat","swimsuit","sun hat","sandals"],"answer":"warm coat","audio":"Which clothing is usually best for a cold winter day?"},
+        {"type":"mc","q":"Which activity is often enjoyed on a warm summer day?","choices":["swimming","building a snowman","raking fall leaves","wearing a winter coat"],"answer":"swimming","audio":"Which activity is often enjoyed on a warm summer day?"},
+        {"type":"mc","q":"In most of the United States, which season includes December?","choices":["spring","summer","fall","winter"],"answer":"winter","audio":"In most of the United States, which season includes December?"},
+        {"type":"mc","q":"Which season order is correct?","choices":["spring, summer, fall, winter","winter, summer, spring, fall","summer, winter, fall, spring","fall, spring, winter, summer"],"answer":"spring, summer, fall, winter","audio":"Which season order is correct?"}
+      ]
     }
   });
 })();
