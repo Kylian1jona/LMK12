@@ -162,6 +162,7 @@ function setLessonChoiceLayout(container, question){
   if(!container) return;
   const count=Array.isArray(question?.choices) ? question.choices.length : 0;
   container.dataset.choiceCount=String(count);
+  container.dataset.choiceStyle=question?.choiceStyle==="emoji" ? "emoji" : "standard";
   container.dataset.choiceLayout=count===3
     ? "two-one"
     : (count===5 ? "two-one-two" : "standard");

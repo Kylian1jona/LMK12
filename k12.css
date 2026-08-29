@@ -6324,3 +6324,36 @@ body #grades #cardShop{display:flex!important;--grade-color:var(--kid-coral)!imp
 @media(max-width:680px){
   .settings-head,.analysis-head.progress-hero{padding:26px 18px!important}.settings-avatar-orbit{display:none}.progress-accuracy-ring{position:relative;right:auto;top:auto;width:128px;height:128px}.progress-hero-copy{padding-right:0}.analysis-goal-grid,#shop .shop-grid{grid-template-columns:1fr!important}.settings-toggle-row,.settings-action-grid,.settings-account-stats{grid-template-columns:1fr}.analysis-grid .metric-card{min-height:130px;padding:17px!important}.analysis-grid .metric-card b{font-size:34px!important}
 }
+
+/* Large visual answer tiles for early-grade emoji shape lessons. */
+body #lessonRunner #lrChoices[data-choice-style="emoji"]{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  max-width:760px;
+}
+body #lessonRunner #lrChoices[data-choice-style="emoji"] .choice-btn,
+body[data-theme] #lessonRunner #lrChoices[data-choice-style="emoji"] .choice-btn{
+  min-height:190px;
+  padding:20px!important;
+  font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;
+  font-size:clamp(70px,9vw,112px)!important;
+  line-height:1;
+  text-align:center!important;
+}
+body #lessonRunner #lrChoices[data-choice-style="emoji"] .choice-btn::before{
+  display:none;
+}
+body #lessonRunner #lrChoices[data-choice-style="emoji"] .choice-btn:nth-child(3){
+  grid-column:auto;
+}
+@media(max-width:680px){
+  body #lessonRunner #lrChoices[data-choice-style="emoji"]{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:8px;
+  }
+  body #lessonRunner #lrChoices[data-choice-style="emoji"] .choice-btn,
+  body[data-theme] #lessonRunner #lrChoices[data-choice-style="emoji"] .choice-btn{
+    min-height:118px;
+    padding:10px!important;
+    font-size:clamp(48px,16vw,72px)!important;
+  }
+}

@@ -1,4 +1,65 @@
 (function(){
+  const shapeQuestionTemplates=[
+    "Which shape is a {shape}?",
+    "Tap the {shape}.",
+    "Find the {shape}.",
+    "Choose the {shape}.",
+    "Which emoji shows a {shape}?",
+    "Point to the {shape}.",
+    "Select the {shape}.",
+    "Can you find the {shape}?",
+    "Pick the {shape}.",
+    "Which answer is a {shape}?",
+    "Look carefully. Where is the {shape}?",
+    "Choose the answer shaped like a {shape}.",
+    "Which symbol has the shape of a {shape}?",
+    "Find another {shape}.",
+    "Which colorful shape is a {shape}?",
+    "Tap the answer that is a {shape}.",
+    "Which option looks like a {shape}?",
+    "Show me the {shape}.",
+    "Where is the {shape} hiding?",
+    "Which one is shaped like a {shape}?",
+    "Pick out the {shape}.",
+    "Which answer belongs with the {shape}s?",
+    "Find the shape called a {shape}.",
+    "Which choice shows the correct {shape}?",
+    "Finish by choosing the {shape}."
+  ];
+  const shapeEmoji={
+    circle:["🔴","🟠","🟡","🟢","🔵","🟣"],
+    triangle:["🔺","🔻","🔼","🔽"],
+    square:["🟥","🟧","🟨","🟩","🟦","🟪"]
+  };
+  const shapeDistractors={
+    circle:["🔺","🟦","⭐","❤️","🔷","🔻"],
+    triangle:["🔴","🟩","⭐","❤️","🔵","🟪"],
+    square:["🔴","🔺","⭐","❤️","🟣","🔻"]
+  };
+  function emojiShapeQuestion(shape,index){
+    const prompt=shapeQuestionTemplates[index].replaceAll("{shape}",shape);
+    const targets=shapeEmoji[shape];
+    const distractors=shapeDistractors[shape];
+    const answer=targets[index%targets.length];
+    return {
+      type:"mc",
+      q:prompt,
+      choices:[answer,distractors[index%distractors.length],distractors[(index+2)%distractors.length]],
+      answer,
+      audio:prompt,
+      choiceStyle:"emoji"
+    };
+  }
+  function emojiShapeLesson(name,shape){
+    return {name,questions:shapeQuestionTemplates.map((_,index)=>emojiShapeQuestion(shape,index))};
+  }
+  function mixedEmojiShapeLesson(){
+    const shapes=["circle","triangle","square"];
+    return {
+      name:"All Shapes",
+      questions:shapeQuestionTemplates.map((_,index)=>emojiShapeQuestion(shapes[index%shapes.length],index))
+    };
+  }
   Object.assign(window.K12_EARLY_BANKS,{
         "k:eng:syllables":{
       name:"Syllable Count",
@@ -780,6 +841,10 @@
         {"type":"mc","q":"In most of the United States, which season includes December?","choices":["spring","summer","fall","winter"],"answer":"winter","audio":"In most of the United States, which season includes December?"},
         {"type":"mc","q":"Which season order is correct?","choices":["spring, summer, fall, winter","winter, summer, spring, fall","summer, winter, fall, spring","fall, spring, winter, summer"],"answer":"spring, summer, fall, winter","audio":"Which season order is correct?"}
       ]
-    }
+    },
+    "k:math:circles":emojiShapeLesson("Circles","circle"),
+    "k:math:triangles":emojiShapeLesson("Triangles","triangle"),
+    "k:math:squares":emojiShapeLesson("Squares","square"),
+    "k:math:all-shapes":mixedEmojiShapeLesson()
   });
 })();
