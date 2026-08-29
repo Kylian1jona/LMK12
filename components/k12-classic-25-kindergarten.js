@@ -60,6 +60,42 @@
       questions:shapeQuestionTemplates.map((_,index)=>emojiShapeQuestion(shapes[index%shapes.length],index))
     };
   }
+  function comparingTo20Lesson(){
+    const greaterPairs=[[12,8],[15,11],[19,14],[17,9],[20,16],[13,7],[18,10],[16,12]];
+    const lessPairs=[[6,14],[9,17],[12,20],[5,11],[13,18],[8,16],[10,15],[14,19]];
+    const symbolPairs=[[14,9],[7,13],[18,18],[20,12],[11,16],[15,15]];
+    const equalValues=[6,10,19];
+    const questions=[];
+    greaterPairs.forEach(([left,right])=>{
+      const q=`Which number is greater: ${left} or ${right}?`;
+      questions.push({type:"mc",q,choices:[String(left),String(right),"They are equal"],answer:String(Math.max(left,right)),audio:q});
+    });
+    lessPairs.forEach(([left,right])=>{
+      const q=`Which number is less: ${left} or ${right}?`;
+      questions.push({type:"mc",q,choices:[String(left),String(right),"They are equal"],answer:String(Math.min(left,right)),audio:q});
+    });
+    symbolPairs.forEach(([left,right])=>{
+      const q=`Which symbol makes ${left} __ ${right} true?`;
+      const answer=left>right?">":(left<right?"<":"=");
+      questions.push({type:"mc",q,choices:[">","<","="],answer,audio:`Compare ${left} and ${right}. Choose greater than, less than, or equal to.`});
+    });
+    equalValues.forEach(value=>{
+      const q=`How do ${value} and ${value} compare?`;
+      questions.push({type:"mc",q,choices:[`${value} is greater`,`${value} is less`,"They are equal"],answer:"They are equal",audio:q});
+    });
+    return {name:"Comparing Up to 20",questions};
+  }
+  function takingApartTo20Lesson(){
+    const numberBonds=[[5,2],[6,1],[7,4],[8,5],[9,6],[10,7],[11,5],[12,8],[13,6],[14,9],[15,7],[16,10],[17,8],[18,11],[19,9],[20,12],[10,4],[12,5],[14,6],[16,7],[18,8],[20,9],[15,5],[17,7],[20,5]];
+    return {
+      name:"Taking Apart Up to 20",
+      questions:numberBonds.map(([whole,known])=>{
+        const answer=whole-known;
+        const q=`${whole} can be taken apart into ${known} and what other part?`;
+        return {type:"mc",q,choices:[String(answer),String(answer-1),String(answer+1)],answer:String(answer),audio:q};
+      })
+    };
+  }
   Object.assign(window.K12_EARLY_BANKS,{
         "k:eng:syllables":{
       name:"Syllable Count",
@@ -845,6 +881,8 @@
     "k:math:circles":emojiShapeLesson("Circles","circle"),
     "k:math:triangles":emojiShapeLesson("Triangles","triangle"),
     "k:math:squares":emojiShapeLesson("Squares","square"),
-    "k:math:all-shapes":mixedEmojiShapeLesson()
+    "k:math:all-shapes":mixedEmojiShapeLesson(),
+    "k:math:compare20":comparingTo20Lesson(),
+    "k:math:take-apart20":takingApartTo20Lesson()
   });
 })();

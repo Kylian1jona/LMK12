@@ -69,6 +69,8 @@
         lessonCard("k:math:addition","kinder-math","Addition Within 10","Combine two small groups.","+"),
         lessonCard("k:math:patterns","kinder-math","Shapes and Patterns","Find what comes next.","PAT"),
         lessonCard("k:math:count20","kinder-math","Counting Up to 20","Practice number order and comparisons.","20"),
+        lessonCard("k:math:compare20","kinder-math","Comparing Up to 20","Compare numbers using greater than, less than, and equal.","<="),
+        lessonCard("k:math:take-apart20","kinder-math","Taking Apart Up to 20","Break numbers into two smaller parts.","10+"),
         lessonCard("k:math:forwardback10","kinder-math","Counting Forward & Back to 10","Count forward and backward with confidence.","10"),
         lessonCard("k:math:subtraction","kinder-math","Subtraction Within 10","Take away from small groups.","-"),
         lessonCard("k:math:measurement","kinder-math","Measurement","Compare length, weight, and capacity.","RUL"),
