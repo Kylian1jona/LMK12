@@ -543,32 +543,213 @@
     "k:math:time":{
       name:"Time",
       questions:[
-        {"type":"mc","q":"Which part of the day comes first?","choices":["morning","afternoon","evening","night"],"answer":"morning","audio":"Which part of the day comes first?"},
-        {"type":"mc","q":"Which part of the day comes after morning?","choices":["afternoon","night","yesterday","midnight"],"answer":"afternoon","audio":"Which part of the day comes after morning?"},
-        {"type":"mc","q":"Which part of the day comes after afternoon?","choices":["morning","evening","breakfast","yesterday"],"answer":"evening","audio":"Which part of the day comes after afternoon?"},
-        {"type":"mc","q":"Which part of the day usually comes after evening?","choices":["morning","night","afternoon","lunch"],"answer":"night","audio":"Which part of the day usually comes after evening?"},
-        {"type":"mc","q":"When do you usually eat breakfast?","choices":["morning","night","evening","midnight"],"answer":"morning","audio":"When do you usually eat breakfast?"},
-        {"type":"mc","q":"When do you usually eat dinner?","choices":["morning","evening","breakfast time","early morning"],"answer":"evening","audio":"When do you usually eat dinner?"},
-        {"type":"mc","q":"When do you usually go to bed?","choices":["morning","night","noon","breakfast time"],"answer":"night","audio":"When do you usually go to bed?"},
-        {"type":"mc","q":"Which happens first: breakfast or lunch?","choices":["breakfast","lunch","They happen at the same time","Neither"],"answer":"breakfast","audio":"Which happens first: breakfast or lunch?"},
-        {"type":"mc","q":"Which happens first: lunch or dinner?","choices":["lunch","dinner","They happen at the same time","Neither"],"answer":"lunch","audio":"Which happens first: lunch or dinner?"},
-        {"type":"mc","q":"Which happens later: morning or night?","choices":["morning","night","They are the same","Neither"],"answer":"night","audio":"Which happens later: morning or night?"},
-        {"type":"mc","q":"Which takes longer: clapping once or eating lunch?","choices":["clapping once","eating lunch","They take the same time","Neither"],"answer":"eating lunch","audio":"Which takes longer: clapping once or eating lunch?"},
-        {"type":"mc","q":"Which takes less time: blinking or taking a bath?","choices":["blinking","taking a bath","They take the same time","Neither"],"answer":"blinking","audio":"Which takes less time: blinking or taking a bath?"},
-        {"type":"mc","q":"If the hour hand points to 1 and the minute hand points to 12, what time is it?","choices":["1:00","12:00","1:30","2:00"],"answer":"1:00","audio":"If the hour hand points to 1 and the minute hand points to 12, what time is it?","image":{"src":"images/Time1.jpg","alt":"Analog clock with the hour hand pointing to 1 and the minute hand pointing to 12"}},
-        {"type":"mc","q":"If the hour hand points to 3 and the minute hand points to 12, what time is it?","choices":["2:00","3:00","3:30","12:00"],"answer":"3:00","audio":"If the hour hand points to 3 and the minute hand points to 12, what time is it?","image":{"src":"images/Time3.jpg","alt":"Analog clock with the hour hand pointing to 3 and the minute hand pointing to 12"}},
-        {"type":"mc","q":"If the hour hand points to 5 and the minute hand points to 12, what time is it?","choices":["4:00","5:00","5:30","6:00"],"answer":"5:00","audio":"If the hour hand points to 5 and the minute hand points to 12, what time is it?","image":{"src":"images/Time5.jpg","alt":"Analog clock with the hour hand pointing to 5 and the minute hand pointing to 12"}},
-        {"type":"mc","q":"If the hour hand points to 7 and the minute hand points to 12, what time is it?","choices":["6:00","7:00","7:30","8:00"],"answer":"7:00","audio":"If the hour hand points to 7 and the minute hand points to 12, what time is it?","image":{"src":"images/Time7.jpg","alt":"Analog clock with the hour hand pointing to 7 and the minute hand pointing to 12"}},
-        {"type":"mc","q":"If the hour hand points to 9 and the minute hand points to 12, what time is it?","choices":["8:00","9:00","9:30","10:00"],"answer":"9:00","audio":"If the hour hand points to 9 and the minute hand points to 12, what time is it?","image":{"src":"images/Time11.jpg","alt":"Analog clock with the hour hand pointing to 9 and the minute hand pointing to 12"}},
-        {"type":"mc","q":"At an o'clock time, where does the minute hand point?","choices":["12","3","6","9"],"answer":"12","audio":"At an o'clock time, where does the minute hand point?","image":{"src":"images/Time14.jpg","alt":"Analog clock showing an o'clock time with the minute hand pointing to 12"}},
-        {"type":"mc","q":"What time is one hour after 2:00?","choices":["1:00","3:00","4:00","2:30"],"answer":"3:00","audio":"What time is one hour after 2:00?","image":{"src":"images/Time2.jpg","alt":"Analog clock showing 2 o'clock"}},
-        {"type":"mc","q":"What time is one hour after 6:00?","choices":["5:00","7:00","8:00","6:30"],"answer":"7:00","audio":"What time is one hour after 6:00?","image":{"src":"images/Time6.jpg","alt":"Analog clock showing 6 o'clock"}},
-        {"type":"mc","q":"What time is one hour before 5:00?","choices":["3:00","4:00","5:30","6:00"],"answer":"4:00","audio":"What time is one hour before 5:00?","image":{"src":"images/Time5.jpg","alt":"Analog clock showing 5 o'clock"}},
-        {"type":"mc","q":"What time is one hour before 9:00?","choices":["7:00","8:00","9:30","10:00"],"answer":"8:00","audio":"What time is one hour before 9:00?","image":{"src":"images/Time11.jpg","alt":"Analog clock showing 9 o'clock"}},
-        {"type":"mc","q":"A lesson starts at 9:00 and ends at 10:00. How long is the lesson?","choices":["1 hour","2 hours","30 minutes","3 hours"],"answer":"1 hour","audio":"A lesson starts at 9:00 and ends at 10:00. How long is the lesson?","image":{"src":"images/Time11.jpg","alt":"Analog clock showing the lesson start time of 9 o'clock"}},
-        {"type":"mc","q":"If it is 4:00 now, what time will it be one hour later?","choices":["3:00","5:00","6:00","4:30"],"answer":"5:00","audio":"If it is 4:00 now, what time will it be one hour later?","image":{"src":"images/Time4.jpg","alt":"Analog clock showing 4 o'clock"}},
-        {"type":"mc","q":"If it is 8:00 now, what time was it one hour ago?","choices":["6:00","7:00","8:30","9:00"],"answer":"7:00","audio":"If it is 8:00 now, what time was it one hour ago?","image":{"src":"images/Time8.jpg","alt":"Analog clock showing 8 o'clock"}}
-      ]
+        {
+      "type": "mc",
+      "q": "Look at the clock. What time is it?",
+      "choices": ["1:00", "2:00", "3:00"],
+      "answer": "1:00",
+      "audio": "Look at the clock. What time is it?",
+      "image": {"src":"images/Time1.jpg","alt":"Analog clock showing 1:00"}
+    },
+    {
+      "type": "mc",
+      "q": "Which time matches the clock?",
+      "choices": ["2:00", "3:00", "4:00"],
+      "answer": "2:00",
+      "audio": "Which time matches the clock?",
+      "image": {"src":"images/Time2.jpg","alt":"Analog clock showing 2:00"}
+    },
+    {
+      "type": "mc",
+      "q": "Read the clock. Which answer is correct?",
+      "choices": ["3:00", "4:00", "5:00"],
+      "answer": "3:00",
+      "audio": "Read the clock. Which answer is correct?",
+      "image": {"src":"images/Time3.jpg","alt":"Analog clock showing 3:00"}
+    },
+    {
+      "type": "mc",
+      "q": "What time do the clock hands show?",
+      "choices": ["4:00", "5:00", "6:00"],
+      "answer": "4:00",
+      "audio": "What time do the clock hands show?",
+      "image": {"src":"images/Time4.jpg","alt":"Analog clock showing 4:00"}
+    },
+    {
+      "type": "mc",
+      "q": "Choose the time shown on the clock.",
+      "choices": ["5:00", "6:00", "7:00"],
+      "answer": "5:00",
+      "audio": "Choose the time shown on the clock.",
+      "image": {"src":"images/Time5.jpg","alt":"Analog clock showing 5:00"}
+    },
+
+    {
+      "type": "mc",
+      "q": "The minute hand is on 12. What time does the clock show?",
+      "choices": ["6:00", "7:00", "8:00"],
+      "answer": "6:00",
+      "audio": "The minute hand is on 12. What time does the clock show?",
+      "image": {"src":"images/Time6.jpg","alt":"Analog clock showing 6:00"}
+    },
+    {
+      "type": "mc",
+      "q": "Which of these times is shown?",
+      "choices": ["6:00", "7:00", "8:00"],
+      "answer": "7:00",
+      "audio": "Which of these times is shown?",
+      "image": {"src":"images/Time7.jpg","alt":"Analog clock showing 7:00"}
+    },
+    {
+      "type": "mc",
+      "q": "Look carefully at the hour hand. What time is it?",
+      "choices": ["7:00", "8:00", "9:00"],
+      "answer": "8:00",
+      "audio": "Look carefully at the hour hand. What time is it?",
+      "image": {"src":"images/Time8.jpg","alt":"Analog clock showing 8:00"}
+    },
+
+    {
+      "type": "mc",
+      "q": "What time is this clock showing?",
+      "choices": ["8:00", "9:00", "10:00", "9:30"],
+      "answer": "9:00",
+      "audio": "What time is this clock showing?",
+      "image": {"src":"images/Time11.jpg","alt":"Analog clock showing 9:00"}
+    },
+    {
+      "type": "mc",
+      "q": "Which time matches this clock?",
+      "choices": ["9:00", "10:00", "11:00", "10:30"],
+      "answer": "10:00",
+      "audio": "Which time matches this clock?",
+      "image": {"src":"images/Time12.jpg","alt":"Analog clock showing 10:00"}
+    },
+    {
+      "type": "mc",
+      "q": "Find the time shown on the clock.",
+      "choices": ["10:00", "11:00", "12:00", "11:30"],
+      "answer": "11:00",
+      "audio": "Find the time shown on the clock.",
+      "image": {"src":"images/Time13.jpg","alt":"Analog clock showing 11:00"}
+    },
+    {
+      "type": "mc",
+      "q": "The clock is pointing to a whole hour. Which one?",
+      "choices": ["11:00", "12:00", "1:00", "12:30"],
+      "answer": "12:00",
+      "audio": "The clock is pointing to a whole hour. Which one?",
+      "image": {"src":"images/Time14.jpg","alt":"Analog clock showing 12:00"}
+    },
+
+    {
+      "type": "mc",
+      "q": "The minute hand points to 6. What time is shown?",
+      "choices": ["1:00", "1:30", "2:00", "2:30"],
+      "answer": "1:30",
+      "audio": "The minute hand points to 6. What time is shown?",
+      "image": {"src":"images/Time15.jpg","alt":"Analog clock showing 1:30"}
+    },
+    {
+      "type": "mc",
+      "q": "Which time means half past 2?",
+      "choices": ["2:00", "2:30", "3:00", "3:30"],
+      "answer": "2:30",
+      "audio": "Which time means half past 2?",
+      "image": {"src":"images/Time16.jpg","alt":"Analog clock showing 2:30"}
+    },
+    {
+      "type": "mc",
+      "q": "Look at both hands. What time do they make?",
+      "choices": ["3:00", "3:30", "4:00", "4:30"],
+      "answer": "3:30",
+      "audio": "Look at both hands. What time do they make?",
+      "image": {"src":"images/Time18.jpg","alt":"Analog clock showing 3:30"}
+    },
+    {
+      "type": "mc",
+      "q": "Which answer shows the same time as the clock?",
+      "choices": ["4:00", "4:30", "5:00", "5:30"],
+      "answer": "4:30",
+      "audio": "Which answer shows the same time as the clock?",
+      "image": {"src":"images/Time19.jpg","alt":"Analog clock showing 4:30"}
+    },
+    {
+      "type": "mc",
+      "q": "The clock shows half past an hour. Which time is it?",
+      "choices": ["5:00", "5:30", "6:00", "6:30"],
+      "answer": "5:30",
+      "audio": "The clock shows half past an hour. Which time is it?",
+      "image": {"src":"images/Time20.jpg","alt":"Analog clock showing 5:30"}
+    },
+
+    {
+      "type": "mc",
+      "q": "The minute hand points to 3. What time does the clock show?",
+      "choices": ["2:00", "2:15", "2:30", "3:15"],
+      "answer": "2:15",
+      "audio": "The minute hand points to 3. What time does the clock show?",
+      "image": {"src":"images/Time21.jpg","alt":"Analog clock showing 2:15"}
+    },
+    {
+      "type": "mc",
+      "q": "Which time is quarter past 4?",
+      "choices": ["4:00", "4:15", "4:30", "4:45"],
+      "answer": "4:15",
+      "audio": "Which time is quarter past 4?",
+      "image": {"src":"images/Time22.jpg","alt":"Analog clock showing 4:15"}
+    },
+    {
+      "type": "mc",
+      "q": "Look at where the minute hand is pointing. What time is shown?",
+      "choices": ["6:00", "6:15", "6:30", "6:45"],
+      "answer": "6:15",
+      "audio": "Look at where the minute hand is pointing. What time is shown?",
+      "image": {"src":"images/Time23.jpg","alt":"Analog clock showing 6:15"}
+    },
+
+    {
+      "type": "mc",
+      "q": "The minute hand is on 9. Which time matches the clock?",
+      "choices": ["7:15", "7:30", "7:45", "8:00"],
+      "answer": "7:45",
+      "audio": "The minute hand is on 9. Which time matches the clock?",
+      "image": {"src":"images/Time24.jpg","alt":"Analog clock showing 7:45"}
+    },
+    {
+      "type": "mc",
+      "q": "Which time is quarter to 10?",
+      "choices": ["9:15", "9:30", "9:45", "10:15"],
+      "answer": "9:45",
+      "audio": "Which time is quarter to 10?",
+      "image": {"src":"images/Time25.jpg","alt":"Analog clock showing 9:45"}
+    },
+    {
+      "type": "mc",
+      "q": "The clock is almost at 12 o'clock. What time is it?",
+      "choices": ["11:15", "11:30", "11:45", "12:15"],
+      "answer": "11:45",
+      "audio": "The clock is almost at 12 o'clock. What time is it?",
+      "image": {"src":"images/Time26.jpg","alt":"Analog clock showing 11:45"}
+    },
+
+    {
+      "type": "mc",
+      "q": "One hour after 3:30, what time is shown on the clock?",
+      "choices": ["2:30", "3:00", "4:30", "5:30"],
+      "answer": "4:30",
+      "audio": "One hour after 3 thirty, what time is shown on the clock?",
+      "image": {"src":"images/Time27.jpg","alt":"Analog clock showing 4:30"}
+    },
+    {
+      "type": "mc",
+      "q": "One hour before 8:15, what time is shown on the clock?",
+      "choices": ["7:15", "7:45", "8:00", "9:15"],
+      "answer": "7:15",
+      "audio": "One hour before 8 fifteen, what time is shown on the clock?",
+      "image": {"src":"images/Time28.jpg","alt":"Analog clock showing 7:15"}
+    }
+             ]
     }
   });
 })();
