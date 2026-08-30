@@ -12,7 +12,7 @@
           <button type="button" onclick="show('tutorFinder')"><span aria-hidden="true">&#129489;&#8205;&#127979;</span><b>Find a Tutor</b><small>Search local or online support</small></button>
           <button type="button" onclick="showReading()"><span aria-hidden="true">&#128218;</span><b>Reading</b><small>Read, listen, and respond</small></button>
           <button type="button" onclick="show('grades')"><span aria-hidden="true">&#127979;</span><b>Grades</b><small>Choose a learning level</small></button>
-          <button type="button" onclick="show('analysis')"><span aria-hidden="true">&#127942;</span><b>Progress</b><small>See goals and growth</small></button>
+          <button type="button" onclick="show('worksheets')"><span aria-hidden="true">&#128221;</span><b>Worksheets</b><small>Printable practice is being built</small></button>
         </div>
         <aside class="lm-today-card"><span>TODAY'S GOAL</span><b>Complete one lesson</b><p>Every lesson has 25 questions and clear feedback.</p><button type="button" onclick="openLessonSearch(event)">Find a lesson</button></aside>
       </section>
@@ -22,7 +22,7 @@
         <button type="button" data-zone="middle" onclick="show('grade6')"><span>6-8</span><b>Middle school</b><small>Think deeper and practice independently</small></button>
         <button type="button" data-zone="high" onclick="show('grade9')"><span>9-10</span><b>High school</b><small>Advanced concepts and analysis</small></button>
       </div></section>
-      <section class="lm-home-tools" aria-label="Learning tools"><button type="button" class="is-coming" onclick="show('playground')"><span>Playground</span><b>Coming soon</b></button><button type="button" class="is-coming" aria-disabled="true" onclick="toast('Worksheets are coming soon!')"><span>Worksheets</span><b>Printable practice coming soon</b></button><button type="button" class="is-coming" aria-disabled="true" onclick="toast('Awards are coming soon!')"><span>Awards</span><b>Certificates and badges coming soon</b></button></section>
+      <section class="lm-home-tools" aria-label="Learning tools"><button type="button" class="is-coming" onclick="show('playground')"><span>Playground</span><b>Coming soon</b></button><button type="button" class="is-coming" aria-disabled="true" onclick="toast('Awards are coming soon!')"><span>Awards</span><b>Certificates and badges coming soon</b></button></section>
     </div>
   </div>
 
@@ -412,6 +412,13 @@
   <div id="playground" class="section d-none">
     <div class="playground-shell">
       <div id="playgroundPanel"><section class="lm-coming-soon"><span>COMING SOON</span><h1>Playground is being built.</h1><p>New reward games and creative activities are on the way. Lessons, Reading, and the Rewards Shop are still ready to use.</p><div><button type="button" class="lm-primary" onclick="show('grades')">Keep learning</button><button type="button" class="lm-secondary" onclick="show('shop')">Open rewards</button></div></section></div>
+    </div>
+  </div>
+
+  <!-- WORKSHEETS -->
+  <div id="worksheets" class="section d-none">
+    <div class="playground-shell">
+      <section class="lm-coming-soon"><span>COMING SOON</span><h1>Worksheets are being built.</h1><p>Printable English, Math, Science, and History practice is on the way. Lessons and Reading are ready to use now.</p><div><button type="button" class="lm-primary" onclick="show('grades')">Keep learning</button><button type="button" class="lm-secondary" onclick="showReading()">Open Reading</button></div></section>
     </div>
   </div>
 

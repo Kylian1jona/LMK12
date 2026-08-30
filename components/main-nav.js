@@ -39,6 +39,7 @@
     <button type="button" onclick="navigateFromAppMenu('grades')">Grades</button>
     <button type="button" onclick="navigateFromAppMenu('reading')">Reading</button>
     <button type="button" onclick="navigateFromAppMenu('analysis')">Progress</button>
+    <button type="button" class="is-coming" onclick="navigateFromAppMenu('worksheets')">Worksheets <small>Coming soon</small></button>
     <button type="button" onclick="navigateFromAppMenu('shop')">Shop</button>
     <button type="button" onclick="navigateFromAppMenu('settings')">Settings</button>
     <button type="button" class="is-coming" onclick="navigateFromAppMenu('playground')">Playground <small>Coming soon</small></button>
@@ -77,7 +78,7 @@
       <button type="button" onclick="navigateFromAppMenu('settings')"><span>06</span><div><b>Settings</b><small>Profile and learning preferences</small></div></button>
       <button type="button" onclick="showPaywall();toggleAppNavigation(false)"><span>07</span><div><b>Subscription</b><small>Plans and family access</small></div></button>
       <button type="button" class="is-disabled" onclick="navigateFromAppMenu('playground')"><span>08</span><div><b>Playground</b><small>Coming soon</small></div></button>
-      <button type="button" class="is-disabled" aria-disabled="true" onclick="toast('Worksheets are coming soon!')"><span>09</span><div><b>Worksheets</b><small>Coming soon</small></div></button>
+      <button type="button" onclick="navigateFromAppMenu('worksheets')"><span>09</span><div><b>Worksheets</b><small>Being built</small></div></button>
       <button type="button" class="is-disabled" aria-disabled="true" onclick="toast('Awards are coming soon!')"><span>10</span><div><b>Awards</b><small>Coming soon</small></div></button>
     </nav>
     <div class="lm-grade-jump">

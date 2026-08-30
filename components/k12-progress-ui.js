@@ -508,7 +508,7 @@ function show(id,options={}){
   visibleAppSection=id;
   syncAppSectionHistory(id,options.historyMode||"push");
   const sections = [
-    "home","grades","reading","settings","addUserPage","analysis","shop","playground","tutorFinder",
+    "home","grades","reading","settings","addUserPage","analysis","shop","playground","worksheets","tutorFinder",
     "parentPortal","adminPortal","paymentStatus","curriculumStandards",
     "prek","prek-eng","prek-math","kinder","kinder-eng","kinder-math","grade1","g1-eng","g1-math",
     "grade2","g2-eng","g2-math","g2-sci","g2-hist",

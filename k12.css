@@ -5844,8 +5844,8 @@ body[data-theme="night"] .lm-topbar button,body[data-theme="night"] .lm-menu-dra
 
 /* Tutor finder and corrected home-tool icons. */
 .lm-home-tools button:nth-child(1)::after{content:"🚀"}
-.lm-home-tools button:nth-child(2)::after{content:"📝"}
-.lm-home-tools button:nth-child(3)::after{content:"🏅"}
+.lm-home-tools button:nth-child(2)::after{content:"🏅"}
+.lm-home-tools button:nth-child(3)::after{content:none}
 .lm-home-tools button:nth-child(4)::after{content:"🚀"}
 .lm-home-tools button:nth-child(5)::after{content:"📝"}
 .lm-home-tools button:nth-child(6)::after{content:"🏅"}
