@@ -497,8 +497,7 @@
         {"type":"mc","q":"Which three days are in the correct order?","choices":["Tuesday, Wednesday, Thursday","Thursday, Tuesday, Wednesday","Wednesday, Friday, Thursday"],"answer":"Tuesday, Wednesday, Thursday","audio":"Which three days are in the correct order?"},
         {"type":"mc","q":"Which list shows all seven days in order, starting with Sunday?","choices":["Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday","Monday, Sunday, Tuesday, Thursday, Wednesday, Friday, Saturday","Sunday, Tuesday, Monday, Wednesday, Friday, Thursday, Saturday"],"answer":"Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday","audio":"Which list shows all seven days in order, starting with Sunday?"}
       ],
-      image:{"src":"images/kindergarten-days-of-week-reference.svg","alt":"The seven days of the week in order from Sunday through Saturday, with weekdays and weekend days labeled."},
-      video:{"src":"components/days_of_the_week_kids.mp4","title":"Days of the Week"}
+      image:{"src":"images/kindergarten-days-of-week-reference.svg","alt":"The seven days of the week in order from Sunday through Saturday, with weekdays and weekend days labeled."}
     },
     "k:math:counting":{
       name:"Counting to 30",
