@@ -108,11 +108,11 @@
   }
   function threeLetterBlendingLesson(){
     const soundSpeech={
-      a:"A says ah",b:"B says buh",c:"C says kuh",d:"D says duh",e:"E says eh",
-      f:"F says fff",g:"G says guh",h:"H says huh",i:"I says ih",j:"J says juh",
-      k:"K says kuh",l:"L says lll",m:"M says mmm",n:"N says nnn",o:"O says aw",
-      p:"P says puh",r:"R says rrr",s:"S says sss",t:"T says tuh",u:"U says uh",
-      v:"V says vvv",w:"W says wuh",x:"X says ks",z:"Z says zzz"
+      a:"ah",b:"buh",c:"kuh",d:"duh",e:"eh",
+      f:"fff",g:"guh",h:"huh",i:"ih",j:"juh",
+      k:"kuh",l:"lll",m:"mmm",n:"nnn",o:"aw",
+      p:"puh",r:"rrr",s:"sss",t:"tuh",u:"uh",
+      v:"vvv",w:"wuh",x:"ks",z:"zzz"
     };
     const words=[
       ["cat","cap","can"],["map","mat","man"],["dog","dig","dot"],["pig","pin","pit"],["sun","run","sit"],
