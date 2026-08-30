@@ -9,20 +9,23 @@
     <div class="lm-home">
       <section class="lm-home-hero">
         <div class="lm-home-quick-grid" aria-label="Quick links">
-          <button type="button" onclick="show('tutorFinder')"><span aria-hidden="true">&#129489;&#8205;&#127979;</span><b>Find a Tutor</b><small>Search local or online support</small></button>
+          <button type="button" onclick="show('grades')"><span aria-hidden="true">&#127979;</span><b>Select Grade</b><small>Choose a learning level</small></button>
           <button type="button" onclick="showReading()"><span aria-hidden="true">&#128218;</span><b>Reading</b><small>Read, listen, and respond</small></button>
-          <button type="button" onclick="show('grades')"><span aria-hidden="true">&#127979;</span><b>Grades</b><small>Choose a learning level</small></button>
+          <button type="button" onclick="show('tutorFinder')"><span aria-hidden="true">&#129489;&#8205;&#127979;</span><b>Find a Tutor</b><small>Search community or outside support</small></button>
           <button type="button" onclick="show('worksheets')"><span aria-hidden="true">&#128221;</span><b>Worksheets</b><small>Printable practice is being built</small></button>
         </div>
-        <aside class="lm-today-card"><span>TODAY'S GOAL</span><b>Complete one lesson</b><p>Every lesson has 25 questions and clear feedback.</p><button type="button" onclick="openLessonSearch(event)">Find a lesson</button></aside>
+        <div class="lm-home-side-stack">
+          <aside class="lm-today-card"><span>TODAY'S GOAL</span><b>Complete one lesson</b><p>Every lesson has 25 questions and clear feedback.</p><button type="button" onclick="openLessonSearch(event)">Find a lesson</button></aside>
+          <button type="button" class="lm-home-playground-link" onclick="show('playground')"><span>PLAYGROUND</span><b>Creative activities are being built</b></button>
+        </div>
       </section>
+      <section class="lm-home-tools" aria-label="Learning tools"><button type="button" onclick="show('analysis')"><span>Progress</span><b>See goals and growth</b></button><button type="button" class="is-coming" aria-disabled="true" onclick="toast('Awards are coming soon!')"><span>Awards</span><b>Certificates and badges coming soon</b></button></section>
       <section class="lm-home-paths" aria-labelledby="homeLaunchTitle"><header><span>START HERE</span><h2 id="homeLaunchTitle">Find your learning path</h2><p>Pick the group that feels right. You can change grades anytime.</p></header><div>
         <button type="button" data-zone="early" onclick="show('prek')"><span>PK-1</span><b>Early learners</b><small>Letters, sounds, numbers, and shapes</small></button>
         <button type="button" data-zone="elementary" onclick="show('grade2')"><span>2-5</span><b>Elementary</b><small>Build strong everyday skills</small></button>
         <button type="button" data-zone="middle" onclick="show('grade6')"><span>6-8</span><b>Middle school</b><small>Think deeper and practice independently</small></button>
         <button type="button" data-zone="high" onclick="show('grade9')"><span>9-10</span><b>High school</b><small>Advanced concepts and analysis</small></button>
       </div></section>
-      <section class="lm-home-tools" aria-label="Learning tools"><button type="button" class="is-coming" onclick="show('playground')"><span>Playground</span><b>Coming soon</b></button><button type="button" class="is-coming" aria-disabled="true" onclick="toast('Awards are coming soon!')"><span>Awards</span><b>Certificates and badges coming soon</b></button></section>
     </div>
   </div>
 
@@ -33,7 +36,7 @@
       <header class="tutor-finder-head">
         <span>PARENT &amp; GUARDIAN TOOL</span>
         <h1>Find a tutor</h1>
-        <p>Choose what your learner needs, then open a focused search for local or online tutoring options.</p>
+        <p>Choose what your learner needs, then search trusted LearnMaster community profiles or look outside the community.</p>
       </header>
       <form id="tutorFinderForm" class="tutor-finder-form" onsubmit="findTutorOptions(event)">
         <label>Grade level
@@ -54,7 +57,7 @@
         <label class="tutor-goal-label">What kind of help is needed? <span>Optional</span>
           <textarea id="tutorGoal" rows="3" maxlength="160" placeholder="Example: reading short words or practicing addition"></textarea>
         </label>
-        <button type="submit" class="btn btn-main tutor-search-button">Create tutor search</button>
+        <button type="submit" class="btn btn-main tutor-search-button">Show tutor search options</button>
       </form>
       <div id="tutorFinderResults" class="tutor-finder-results" hidden aria-live="polite"></div>
       <aside class="tutor-safety-note"><strong>Parent safety checklist</strong><span>Review qualifications and references, protect your child&rsquo;s personal information, and have an adult present for first meetings.</span></aside>

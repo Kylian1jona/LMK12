@@ -534,6 +534,19 @@ function show(id,options={}){
   if(id==="addUserPage" && $("addUserCount")) $("addUserCount").textContent = String(learnerCount());
 }
 
+const COMMUNITY_TUTOR_SAMPLES=[
+  {id:"11111111-1111-4111-8111-111111111111",name:"Alicia Morgan",qualification:"B.Ed. Elementary Education · 8 years teaching",photo_url:"images/tutors/alicia-morgan.svg",availability:"Mon–Thu, 4:00–7:00 PM",subjects:["English and reading","Math","Homework support"],grade_levels:["Pre-K","Kindergarten","Grade 1","Grade 2","Grade 3","Grade 4","Grade 5"],formats:["local","online"]},
+  {id:"22222222-2222-4222-8222-222222222222",name:"Marcus Reed",qualification:"M.A. Reading Education · Certified reading specialist",photo_url:"images/tutors/marcus-reed.svg",availability:"Tue, Thu, and Sat mornings",subjects:["English and reading","Homework support"],grade_levels:["Kindergarten","Grade 1","Grade 2","Grade 3","Grade 4","Grade 5","Grade 6","Grade 7","Grade 8","Grade 9","Grade 10"],formats:["online"]},
+  {id:"33333333-3333-4333-8333-333333333333",name:"Priya Shah",qualification:"B.S. Biology · STEM tutor and science coach",photo_url:"images/tutors/priya-shah.svg",availability:"Weekdays, 5:00–8:00 PM",subjects:["Math","Science","Homework support"],grade_levels:["Grade 3","Grade 4","Grade 5","Grade 6","Grade 7","Grade 8","Grade 9","Grade 10"],formats:["local","online"]},
+  {id:"44444444-4444-4444-8444-444444444444",name:"Elena Torres",qualification:"M.Ed. Curriculum & Instruction · Social studies teacher",photo_url:"images/tutors/elena-torres.svg",availability:"Mon, Wed, Fri, and Sunday afternoons",subjects:["History and social studies","English and reading","Homework support"],grade_levels:["Grade 2","Grade 3","Grade 4","Grade 5","Grade 6","Grade 7","Grade 8","Grade 9","Grade 10"],formats:["local","online"]}
+];
+let activeTutorSearch=null;
+
+function tutorOutsideSearchUrl(search){
+  const formatWords=search.format==="online"?"online":"near me";
+  return `https://www.google.com/search?q=${encodeURIComponent(`${search.grade} ${search.subject} tutor ${formatWords}`)}`;
+}
+
 function findTutorOptions(event){
   event?.preventDefault?.();
   const grade=String($("tutorGrade")?.value||"").trim();
@@ -542,35 +555,167 @@ function findTutorOptions(event){
   const goal=String($("tutorGoal")?.value||"").trim();
   const results=$("tutorFinderResults");
   if(!grade||!subject||!results) return;
-  const formatWords=format==="online"?"online":"near me";
-  const searchPhrase=`${grade} ${subject} tutor ${formatWords}`;
-  const generalUrl=`https://www.google.com/search?q=${encodeURIComponent(searchPhrase)}`;
-  const mapsUrl=`https://www.google.com/maps/search/${encodeURIComponent(`${grade} ${subject} tutor`)}`;
+  activeTutorSearch={grade,subject,format,goal};
   results.innerHTML="";
   const heading=document.createElement("h2");
   heading.textContent="Your tutor search is ready";
   const summary=document.createElement("p");
   summary.textContent=`${grade} · ${subject} · ${format==="online"?"Online":"In person"}${goal?` · Goal: ${goal}`:""}`;
   const actions=document.createElement("div");
-  const searchLink=document.createElement("a");
-  searchLink.className="btn btn-main";
-  searchLink.href=generalUrl;
-  searchLink.target="_blank";
-  searchLink.rel="noopener noreferrer";
-  searchLink.textContent=format==="online"?"Search online tutors":"Search tutor options";
-  actions.appendChild(searchLink);
-  if(format!=="online"){
-    const mapsLink=document.createElement("a");
-    mapsLink.className="btn btn-main";
-    mapsLink.href=mapsUrl;
-    mapsLink.target="_blank";
-    mapsLink.rel="noopener noreferrer";
-    mapsLink.textContent="View tutors on a map";
-    actions.appendChild(mapsLink);
-  }
-  results.append(heading,summary,actions);
+  actions.className="tutor-search-actions";
+  const communityButton=document.createElement("button");
+  communityButton.type="button";
+  communityButton.className="btn btn-main";
+  communityButton.textContent="Search within the community";
+  communityButton.onclick=()=>searchCommunityTutors(activeTutorSearch,communityButton);
+  const outsideLink=document.createElement("a");
+  outsideLink.className="btn tutor-outside-search";
+  outsideLink.href=tutorOutsideSearchUrl(activeTutorSearch);
+  outsideLink.target="_blank";
+  outsideLink.rel="noopener noreferrer";
+  outsideLink.textContent="Search outside the community";
+  const matches=document.createElement("div");
+  matches.id="communityTutorMatches";
+  matches.className="community-tutor-matches";
+  actions.append(communityButton,outsideLink);
+  results.append(heading,summary,actions,matches);
   results.hidden=false;
   results.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+function tutorMatchesSearch(tutor,search){
+  return tutor.subjects?.includes(search.subject)
+    && tutor.grade_levels?.includes(search.grade)
+    && tutor.formats?.includes(search.format);
+}
+
+async function loadCommunityTutors(search){
+  const client=window.learnMasterSupabase;
+  if(client){
+    try{
+      const {data,error}=await client.from("learnmaster_tutors")
+        .select("id,name,qualification,photo_url,availability,subjects,grade_levels,formats")
+        .eq("active",true)
+        .contains("subjects",[search.subject])
+        .contains("grade_levels",[search.grade])
+        .contains("formats",[search.format])
+        .order("name");
+      if(!error&&Array.isArray(data)) return data;
+      if(error) console.warn("Community tutor table is not ready; using sample profiles.",error.message);
+    }catch(error){
+      console.warn("Community tutor search could not connect; using sample profiles.",error?.message||error);
+    }
+  }
+  return COMMUNITY_TUTOR_SAMPLES.filter(tutor=>tutorMatchesSearch(tutor,search));
+}
+
+async function searchCommunityTutors(search,button){
+  const matches=$("communityTutorMatches");
+  if(!search||!matches) return;
+  if(button){ button.disabled=true; button.textContent="Searching community…"; }
+  const tutors=await loadCommunityTutors(search);
+  renderCommunityTutors(tutors,search,matches);
+  if(button){ button.disabled=false; button.textContent="Search within the community"; }
+}
+
+function renderCommunityTutors(tutors,search,matches){
+  matches.innerHTML="";
+  const heading=document.createElement("h3");
+  heading.textContent=tutors.length?`${tutors.length} community tutor${tutors.length===1?"":"s"} found`:"No community tutors match yet";
+  matches.appendChild(heading);
+  if(!tutors.length){
+    const empty=document.createElement("p");
+    empty.textContent="Try another format or use Search outside the community.";
+    matches.appendChild(empty);
+    return;
+  }
+  const grid=document.createElement("div");
+  grid.className="community-tutor-grid";
+  tutors.forEach(tutor=>grid.appendChild(createTutorCard(tutor,search)));
+  matches.appendChild(grid);
+  matches.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+function createTutorCard(tutor,search){
+  const card=document.createElement("article");
+  card.className="community-tutor-card";
+  const image=document.createElement("img");
+  image.src=tutor.photo_url||"images/learnmaster-logo-header-v2.png";
+  image.alt=`${tutor.name}, community tutor`;
+  const content=document.createElement("div");
+  const name=document.createElement("h4");
+  name.textContent=tutor.name;
+  const qualification=document.createElement("p");
+  qualification.className="tutor-qualification";
+  qualification.textContent=tutor.qualification;
+  const availability=document.createElement("p");
+  availability.className="tutor-availability";
+  availability.textContent=`Availability: ${tutor.availability}`;
+  const messageButton=document.createElement("button");
+  messageButton.type="button";
+  messageButton.className="btn btn-main tutor-message-toggle";
+  messageButton.textContent="Leave a message";
+  const form=document.createElement("form");
+  form.className="tutor-message-form";
+  form.hidden=true;
+  const label=document.createElement("label");
+  label.textContent=`Message for ${tutor.name}`;
+  const textarea=document.createElement("textarea");
+  textarea.required=true;
+  textarea.maxLength=500;
+  textarea.rows=4;
+  textarea.placeholder="Ask about availability or describe the learning support needed.";
+  const send=document.createElement("button");
+  send.type="submit";
+  send.className="btn btn-main";
+  send.textContent="Send message";
+  const status=document.createElement("p");
+  status.className="tutor-message-status";
+  status.setAttribute("aria-live","polite");
+  label.appendChild(textarea);
+  form.append(label,send,status);
+  messageButton.onclick=()=>{ form.hidden=!form.hidden; if(!form.hidden) textarea.focus(); };
+  form.onsubmit=event=>sendTutorMessage(event,tutor,search,textarea,send,status);
+  content.append(name,qualification,availability,messageButton,form);
+  card.append(image,content);
+  return card;
+}
+
+async function sendTutorMessage(event,tutor,search,textarea,send,status){
+  event.preventDefault();
+  const message=String(textarea.value||"").trim();
+  if(!message) return;
+  send.disabled=true;
+  send.textContent="Sending…";
+  let delivered=false;
+  const client=window.learnMasterSupabase;
+  if(client){
+    try{
+      const {data:userResult}=await client.auth.getUser();
+      const senderId=userResult?.user?.id;
+      if(senderId){
+        const {error}=await client.from("learnmaster_tutor_messages").insert({
+          tutor_id:tutor.id,sender_user_id:senderId,grade_level:search.grade,
+          subject:search.subject,message
+        });
+        delivered=!error;
+        if(error) console.warn("Tutor message table is not ready; saving the message locally.",error.message);
+      }
+    }catch(error){
+      console.warn("Tutor message could not connect; saving it locally.",error?.message||error);
+    }
+  }
+  if(!delivered){
+    const key="learnmaster_pending_tutor_messages";
+    let pending=[];
+    try{ pending=JSON.parse(window.learnMasterStore?.getItem(key)||"[]"); }catch(error){ pending=[]; }
+    pending.push({tutor_id:tutor.id,tutor_name:tutor.name,grade_level:search.grade,subject:search.subject,message,created_at:new Date().toISOString()});
+    window.learnMasterStore?.setItem(key,JSON.stringify(pending.slice(-20)));
+  }
+  textarea.value="";
+  status.textContent=delivered?`Message sent to ${tutor.name}.`:`Message saved for ${tutor.name} and will send when community messaging is connected.`;
+  send.disabled=false;
+  send.textContent="Send another message";
 }
 
 /* ===========================

@@ -36,10 +36,9 @@
   </button>
   <nav class="lm-desktop-nav" aria-label="Main navigation">
     <button type="button" onclick="navigateFromAppMenu('home')">Home</button>
-    <button type="button" onclick="navigateFromAppMenu('grades')">Grades</button>
+    <button type="button" onclick="navigateFromAppMenu('grades')">Select Grade</button>
     <button type="button" onclick="navigateFromAppMenu('reading')">Reading</button>
     <button type="button" onclick="navigateFromAppMenu('analysis')">Progress</button>
-    <button type="button" class="is-coming" onclick="navigateFromAppMenu('worksheets')">Worksheets <small>Coming soon</small></button>
     <button type="button" onclick="navigateFromAppMenu('shop')">Shop</button>
     <button type="button" onclick="navigateFromAppMenu('settings')">Settings</button>
     <button type="button" class="is-coming" onclick="navigateFromAppMenu('playground')">Playground <small>Coming soon</small></button>

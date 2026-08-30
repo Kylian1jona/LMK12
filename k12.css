@@ -5843,7 +5843,7 @@ body[data-theme="night"] .lm-topbar button,body[data-theme="night"] .lm-menu-dra
 .lm-home-tools .is-coming{border-style:dashed;background:color-mix(in srgb,var(--card,#fff) 88%,var(--yellow-light));cursor:not-allowed}
 
 /* Tutor finder and corrected home-tool icons. */
-.lm-home-tools button:nth-child(1)::after{content:"🚀"}
+.lm-home-tools button:nth-child(1)::after{content:"🏆"}
 .lm-home-tools button:nth-child(2)::after{content:"🏅"}
 .lm-home-tools button:nth-child(3)::after{content:none}
 .lm-home-tools button:nth-child(4)::after{content:"🚀"}
@@ -5859,9 +5859,16 @@ body[data-theme="night"] .lm-topbar button,body[data-theme="night"] .lm-menu-dra
 /* Four compact homepage destinations replace the large headline. */
 .lm-home-hero{grid-template-columns:minmax(0,1fr) minmax(280px,.55fr);min-height:280px;padding:clamp(24px,4vw,48px)}
 .lm-home-quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.lm-home-quick-grid button{display:grid;grid-template-columns:52px 1fr;grid-template-rows:auto auto;column-gap:14px;align-items:center;min-height:118px;padding:20px;border:2px solid rgba(47,128,237,.2);border-radius:22px;background:rgba(255,255,255,.94);text-align:left;box-shadow:0 12px 28px rgba(35,80,150,.1)}.lm-home-quick-grid button:hover{transform:translateY(-4px);border-color:var(--kid-blue,#2f80ed);box-shadow:0 18px 36px rgba(35,80,150,.16)}.lm-home-quick-grid button>span{grid-row:1/3;display:grid;width:52px;height:52px;place-items:center;border-radius:16px;background:#edf5ff;font-size:27px}.lm-home-quick-grid button:nth-child(2)>span{background:#fff3cd}.lm-home-quick-grid button:nth-child(3)>span{background:#e9faf6}.lm-home-quick-grid button:nth-child(4)>span{background:#f1edff}.lm-home-quick-grid b{align-self:end;color:var(--kid-purple-dark,#493395);font:800 21px/1.1 "Baloo 2",cursive}.lm-home-quick-grid small{align-self:start;margin-top:4px;color:var(--lm2-muted,#60778a);line-height:1.35}
+.lm-home-side-stack{display:grid;gap:14px}.lm-home-playground-link{display:grid;gap:4px;width:100%;padding:18px 21px;border:2px dashed #edc865;border-radius:20px;background:#fff8d9;text-align:left}.lm-home-playground-link span{color:#9a6900;font-size:11px;font-weight:900;letter-spacing:.12em}.lm-home-playground-link b{color:#654c12;font-size:16px}
+.lm-home-tools{grid-template-columns:repeat(2,minmax(0,1fr))}
 body #lessonRunner #lrImageFrame:not(.d-none){display:grid!important;visibility:visible!important;opacity:1!important}
 body #lessonRunner #lrImageFrame:not(.d-none) #lrImage{display:block!important;visibility:visible!important;opacity:1!important}
 @media(max-width:680px){.lm-home-hero{grid-template-columns:1fr;min-height:0}.lm-home-quick-grid{grid-template-columns:1fr}.lm-home-quick-grid button{min-height:100px}}
+
+/* Community tutor results and messaging. */
+.tutor-search-actions{display:flex;gap:12px;flex-wrap:wrap}.tutor-outside-search{border:2px solid var(--lm2-teal,#129b98);background:#fff;color:var(--lm2-dark-teal,#087a71);font-weight:800}.tutor-outside-search:hover{background:#e9faf7;color:var(--lm2-dark-teal,#087a71)}
+.tutor-finder-results>.community-tutor-matches{display:block;width:100%;margin-top:24px}.community-tutor-matches>h3{margin:0 0 14px;color:var(--lm2-navy,#17324d);font:800 25px/1.1 "Baloo 2",cursive}.community-tutor-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.community-tutor-card{display:grid;grid-template-columns:100px 1fr;gap:17px;padding:18px;border:1px solid #cfe4e1;border-radius:20px;background:#fff;box-shadow:0 10px 24px rgba(11,45,89,.08)}.community-tutor-card>img{width:100px;height:100px;border-radius:18px;object-fit:cover}.community-tutor-card h4{margin:2px 0 7px;color:var(--lm2-navy,#17324d);font:800 23px/1.05 "Baloo 2",cursive}.community-tutor-card p{margin:0 0 9px}.tutor-qualification{color:#526b7d;font-weight:700}.tutor-availability{color:#197066}.tutor-message-toggle{margin-top:3px}.tutor-message-form{grid-column:1/-1;margin-top:14px;padding-top:14px;border-top:1px solid #dce9e7}.tutor-message-form[hidden]{display:none}.tutor-message-form label{display:grid;gap:7px;color:var(--lm2-navy,#17324d);font-weight:800}.tutor-message-form textarea{width:100%;padding:11px 12px;border:1px solid #bfd6d4;border-radius:12px;font:500 15px/1.45 inherit}.tutor-message-form button{margin-top:10px}.tutor-message-status{margin-top:8px!important;color:#197066;font-weight:700}
+@media(max-width:760px){.community-tutor-grid{grid-template-columns:1fr}.community-tutor-card{grid-template-columns:78px 1fr}.community-tutor-card>img{width:78px;height:78px}.tutor-search-actions>*{width:100%;text-align:center}}
 .lm-menu-links .is-disabled{cursor:not-allowed}
 
 body #lessonRunner .lesson-image-frame{padding:10px;border-radius:20px;background:color-mix(in srgb,var(--card,#fff) 92%,var(--orange-light))}
