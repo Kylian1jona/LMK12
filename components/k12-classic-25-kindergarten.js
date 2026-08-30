@@ -96,6 +96,37 @@
       })
     };
   }
+  function threeLetterBlendingLesson(){
+    const soundSpeech={
+      a:"A says ah",b:"B says buh",c:"C says kuh",d:"D says duh",e:"E says eh",
+      f:"F says fff",g:"G says guh",h:"H says huh",i:"I says ih",j:"J says juh",
+      k:"K says kuh",l:"L says lll",m:"M says mmm",n:"N says nnn",o:"O says aw",
+      p:"P says puh",r:"R says rrr",s:"S says sss",t:"T says tuh",u:"U says uh",
+      v:"V says vvv",w:"W says wuh",x:"X says ks",z:"Z says zzz"
+    };
+    const words=[
+      ["cat","cap","can"],["map","mat","man"],["dog","dig","dot"],["pig","pin","pit"],["sun","run","sit"],
+      ["bed","bad","bid"],["fin","fan","fun"],["hop","hot","hip"],["rug","rag","rig"],["jam","jet","jog"],
+      ["van","vet","vine"],["lip","lap","log"],["fox","fix","fax"],["cup","cap","cop"],["hen","hat","hit"],
+      ["sit","sat","set"],["log","leg","lag"],["bus","bat","bed"],["red","rid","rod"],["top","tap","tip"],
+      ["man","men","mud"],["web","wig","wax"],["zip","zap","zig"],["mud","mad","mid"],["kid","kit","cap"]
+    ];
+    return {
+      name:"Three-Letter Sound Blending",
+      questions:words.map(([word,...wrongChoices])=>{
+        const letters=[...word];
+        const q=`Blend ${letters.join(" - ")}. Which word do the sounds make?`;
+        return {
+          type:"mc",
+          q,
+          choices:[word,...wrongChoices],
+          answer:word,
+          audio:q,
+          blend:{letters:letters.map(letter=>letter.toUpperCase()),sounds:letters.map(letter=>soundSpeech[letter]),word}
+        };
+      })
+    };
+  }
   Object.assign(window.K12_EARLY_BANKS,{
         "k:eng:syllables":{
       name:"Syllable Count",
@@ -883,6 +914,7 @@
     "k:math:squares":emojiShapeLesson("Squares","square"),
     "k:math:all-shapes":mixedEmojiShapeLesson(),
     "k:math:compare20":comparingTo20Lesson(),
-    "k:math:take-apart20":takingApartTo20Lesson()
+    "k:math:take-apart20":takingApartTo20Lesson(),
+    "k:eng:blend-cvc":threeLetterBlendingLesson()
   });
 })();

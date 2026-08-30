@@ -21,7 +21,120 @@ function setQAudio(text){
 }
 function lrReplay(){
   safeClick();
+  if(LR.current?.blend){
+    playBlendSequence(LR.current);
+    return;
+  }
   if(__lastQAudio) speakQ(__lastQAudio);
+}
+
+let BLEND_SEQUENCE_TOKEN = 0;
+let BLEND_SEQUENCE_TIMER = null;
+
+function cancelBlendSequence(cancelSpeech=false){
+  BLEND_SEQUENCE_TOKEN++;
+  clearTimeout(BLEND_SEQUENCE_TIMER);
+  BLEND_SEQUENCE_TIMER = null;
+  if(cancelSpeech){
+    try{ speechSynthesis.cancel(); }catch(error){}
+  }
+}
+
+function blendSpeechUtterance(text){
+  const utterance = new SpeechSynthesisUtterance(String(text || ""));
+  const preferredVoice = typeof getPreferredSpeechVoice === "function" ? getPreferredSpeechVoice() : null;
+  if(preferredVoice) utterance.voice = preferredVoice;
+  utterance.rate = 0.72;
+  utterance.pitch = typeof voiceType !== "undefined" && voiceType === "male" ? 0.96 : 1;
+  utterance.volume = 0.98;
+  utterance.lang = preferredVoice?.lang || "en-US";
+  return utterance;
+}
+
+function setBlendMeterStep(index,complete=false){
+  const meter=document.querySelector("#lessonExtra .blend-meter");
+  if(!meter) return;
+  const letters=[...meter.querySelectorAll(".blend-letter")];
+  const marker=meter.querySelector(".blend-meter-marker");
+  letters.forEach((letter,letterIndex)=>{
+    letter.classList.toggle("is-active",!complete&&letterIndex===index);
+    letter.classList.toggle("is-blended",complete);
+  });
+  if(!marker) return;
+  marker.classList.toggle("is-complete",complete);
+  marker.style.width=complete ? "100%" : `${100/Math.max(1,letters.length)}%`;
+  marker.style.transform=complete ? "translateX(0)" : `translateX(${Math.max(0,index)*100}%)`;
+}
+
+function renderBlendMeter(q){
+  const extra=$("lessonExtra");
+  const blend=q?.blend;
+  if(!extra||!Array.isArray(blend?.letters)||blend.letters.length!==3) return;
+  const meter=document.createElement("section");
+  meter.className="blend-meter";
+  meter.setAttribute("role","group");
+  meter.setAttribute("aria-label",`Sound blending meter for ${blend.letters.join(" ")}`);
+
+  const heading=document.createElement("div");
+  heading.className="blend-meter-heading";
+  heading.innerHTML='<span>Slide through each sound</span><button type="button" class="blend-replay-btn" aria-label="Replay the blending sounds">Replay sounds</button>';
+  heading.querySelector("button").onclick=lrReplay;
+
+  const letters=document.createElement("div");
+  letters.className="blend-letters";
+  blend.letters.forEach((value,index)=>{
+    const letter=document.createElement("span");
+    letter.className="blend-letter";
+    letter.dataset.blendIndex=String(index);
+    letter.textContent=String(value);
+    letters.appendChild(letter);
+  });
+
+  const rail=document.createElement("div");
+  rail.className="blend-meter-rail";
+  rail.setAttribute("aria-hidden","true");
+  const marker=document.createElement("span");
+  marker.className="blend-meter-marker";
+  rail.appendChild(marker);
+
+  meter.append(heading,letters,rail);
+  extra.appendChild(meter);
+  setBlendMeterStep(0,false);
+}
+
+function playBlendSequence(q){
+  const blend=q?.blend;
+  if(!blend||!Array.isArray(blend.sounds)) return;
+  cancelBlendSequence(true);
+  __lastQAudio=String(q.audio||q.q||"");
+  setBlendMeterStep(0,false);
+  if(typeof voiceOn!=="undefined"&&!voiceOn) return;
+  if(typeof speechSynthesis==="undefined"||typeof SpeechSynthesisUtterance==="undefined") return;
+  const token=BLEND_SEQUENCE_TOKEN;
+  let soundIndex=0;
+  const speakNext=()=>{
+    if(token!==BLEND_SEQUENCE_TOKEN||LR.current!==q) return;
+    if(soundIndex<blend.sounds.length){
+      const currentIndex=soundIndex++;
+      const utterance=blendSpeechUtterance(blend.sounds[currentIndex]);
+      utterance.onstart=()=>setBlendMeterStep(currentIndex,false);
+      let continued=false;
+      const continueSequence=()=>{
+        if(continued) return;
+        continued=true;
+        if(token!==BLEND_SEQUENCE_TOKEN) return;
+        BLEND_SEQUENCE_TIMER=setTimeout(speakNext,180);
+      };
+      utterance.onend=continueSequence;
+      utterance.onerror=continueSequence;
+      speechSynthesis.speak(utterance);
+      return;
+    }
+    setBlendMeterStep(0,true);
+    const blendedWord=blendSpeechUtterance(`Blend them together: ${blend.word}. Which word did you make?`);
+    speechSynthesis.speak(blendedWord);
+  };
+  BLEND_SEQUENCE_TIMER=setTimeout(speakNext,260);
 }
 
 const LR = {
@@ -45,6 +158,7 @@ let LR_WRONG_ADVANCE_TIMER = null;
 let LR_CORRECT_ADVANCE_TIMER = null;
 
 function clearLessonAdvanceTimers(){
+  cancelBlendSequence(true);
   clearTimeout(LR_WRONG_ADVANCE_TIMER);
   clearTimeout(LR_CORRECT_ADVANCE_TIMER);
   LR_WRONG_ADVANCE_TIMER = null;
@@ -1010,6 +1124,8 @@ function lrRender(){
   $("lrChoices").innerHTML = "";
   setLessonChoiceLayout($("lrChoices"),q);
   $("lessonExtra").innerHTML = "";
+  if(q.blend) $("lrChoices").before($("lessonExtra"));
+  else $("lrChoices").after($("lessonExtra"));
   if($("lrDragWords")) $("lrDragWords").innerHTML = "";
   if($("lrDropZones")) $("lrDropZones").innerHTML = "";
 
@@ -1024,6 +1140,8 @@ function lrRender(){
   $("lrCheckBtn").classList.add("d-none");
 
   clearInterval(SPEED_TIMER);
+
+  if(q.blend) renderBlendMeter(q);
 
   if(q.type === "mc"){
     q.choices.forEach(c=>{
@@ -1063,7 +1181,9 @@ function lrRender(){
     renderOrder(q);
   }
 
-  if(typeof setQAudio === "function"){
+  if(q.blend){
+    playBlendSequence(q);
+  }else if(typeof setQAudio === "function"){
     setQAudio(lessonQuestionSpeech(q));
   }
 }

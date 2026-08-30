@@ -6325,6 +6325,104 @@ body #grades #cardShop{display:flex!important;--grade-color:var(--kid-coral)!imp
   .settings-head,.analysis-head.progress-hero{padding:26px 18px!important}.settings-avatar-orbit{display:none}.progress-accuracy-ring{position:relative;right:auto;top:auto;width:128px;height:128px}.progress-hero-copy{padding-right:0}.analysis-goal-grid,#shop .shop-grid{grid-template-columns:1fr!important}.settings-toggle-row,.settings-action-grid,.settings-account-stats{grid-template-columns:1fr}.analysis-grid .metric-card{min-height:130px;padding:17px!important}.analysis-grid .metric-card b{font-size:34px!important}
 }
 
+/* Three-letter sound blending meter. */
+#lessonRunner .blend-meter{
+  width:min(620px,100%);
+  margin:8px auto 22px;
+  padding:20px 24px 24px;
+  border:2px solid #b9e5ee;
+  border-radius:24px;
+  background:linear-gradient(145deg,#f3fcff,#fff9e8);
+  box-shadow:0 12px 28px rgba(24,103,128,.1);
+}
+#lessonRunner .blend-meter-heading{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:14px;
+  color:#28677b;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+#lessonRunner .blend-replay-btn{
+  padding:8px 13px;
+  border:0;
+  border-radius:999px;
+  background:#e1f5f8;
+  color:#176579;
+  font:800 12px/1 "Baloo 2",cursive;
+  cursor:pointer;
+}
+#lessonRunner .blend-letters{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+#lessonRunner .blend-letter{
+  display:grid;
+  min-height:100px;
+  place-items:center;
+  border:3px solid #c9dce7;
+  border-radius:22px;
+  background:#fff;
+  color:#23415c;
+  font:900 clamp(54px,8vw,82px)/1 "Baloo 2",cursive;
+  text-transform:uppercase;
+  transition:transform .2s ease,border-color .2s ease,background .2s ease,color .2s ease,box-shadow .2s ease;
+}
+#lessonRunner .blend-letter.is-active{
+  border-color:#f3a900;
+  background:#fff5c9;
+  color:#9a5a00;
+  box-shadow:0 10px 22px rgba(243,169,0,.2);
+  transform:translateY(-5px) scale(1.04);
+}
+#lessonRunner .blend-letter.is-blended{
+  border-color:#25a994;
+  background:#eafbf6;
+  color:#087564;
+}
+#lessonRunner .blend-meter-rail{
+  position:relative;
+  overflow:hidden;
+  height:16px;
+  margin-top:15px;
+  border-radius:999px;
+  background:#dcecf1;
+}
+#lessonRunner .blend-meter-marker{
+  position:absolute;
+  inset:0 auto 0 0;
+  width:33.333%;
+  border-radius:999px;
+  background:linear-gradient(90deg,#32b6dc,#6f52ed);
+  box-shadow:0 0 14px rgba(76,103,218,.45);
+  transition:width .32s ease,transform .38s cubic-bezier(.22,.8,.32,1),background .25s ease;
+}
+#lessonRunner .blend-meter-marker::after{
+  position:absolute;
+  right:4px;
+  top:50%;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#fff;
+  content:"";
+  transform:translateY(-50%);
+}
+#lessonRunner .blend-meter-marker.is-complete{
+  background:linear-gradient(90deg,#25a994,#7bcf48);
+}
+@media(max-width:680px){
+  #lessonRunner .blend-meter{padding:16px 14px 19px;border-radius:20px}
+  #lessonRunner .blend-meter-heading{align-items:flex-start;font-size:10px}
+  #lessonRunner .blend-letters{gap:7px}
+  #lessonRunner .blend-letter{min-height:78px;border-radius:16px;font-size:clamp(46px,17vw,66px)}
+}
+
 /* Large visual answer tiles for early-grade emoji shape lessons. */
 body #lessonRunner #lrChoices[data-choice-style="emoji"]{
   grid-template-columns:repeat(3,minmax(0,1fr));

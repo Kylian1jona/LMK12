@@ -38,10 +38,15 @@ for(const [key,record] of Object.entries(banks)){
     if(choices.some(choice=>/^(?:almost|placeholder|none of (?:these|the above))$/i.test(choice.trim()))) failures.push(`${label} contains a filler answer choice.`);
     if(!choices.includes(answer)) failures.push(`${label} does not include its answer among the choices.`);
     if(new Set(choices).size!==choices.length) failures.push(`${label} repeats an answer choice.`);
+    if(question.blend){
+      if(!Array.isArray(question.blend.letters)||question.blend.letters.length!==3) failures.push(`${label} must contain exactly three blending letters.`);
+      if(!Array.isArray(question.blend.sounds)||question.blend.sounds.length!==3||question.blend.sounds.some(sound=>!String(sound||"").trim())) failures.push(`${label} must contain exactly three spoken sound cues.`);
+      if(String(question.blend.word||"")!==answer) failures.push(`${label} blending word does not match its answer.`);
+    }
   });
 }
 
-const expectedLessons=38;
+const expectedLessons=39;
 const report={
   lessons:Object.keys(banks).length,
   questions:Object.values(banks).reduce((sum,record)=>sum+(record.questions?.length||0),0),
