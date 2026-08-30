@@ -118,7 +118,9 @@ function setupLessonSearch(){
   renderLessonSearch("");
 }
 
-function openLessonSearch(){
+function openLessonSearch(event){
+  event?.preventDefault?.();
+  event?.stopPropagation?.();
   setupLessonSearch();
   const nav = $("lessonSearchNav");
   const panel = $("lessonSearchPanel");
