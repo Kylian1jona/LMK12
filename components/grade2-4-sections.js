@@ -53,10 +53,10 @@
       <button type="button" class="btn btn-main px-4" onclick="show('grade2')">
         Back to Grade 2
       </button>
+      </div>
     </div>
     </div>
-  </div>
-</div>
+  
 
 <div id="g2-math" class="section d-none">
   <div class="cardish text-center kid-font">
@@ -198,23 +198,7 @@
   <p>Recognize common letter combinations.</p>
 
   <button class="btn btn-main" onclick="startLesson('g3','eng','L7')">Blends</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L8')">Digraphs</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L9')">Trigraphs</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L10')">Beginning Blends</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L11')">Ending Blends</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L12')">Blends Review</button>
-</div>
 
-<!-- VARIANT / DIPHTHONG / R-CONTROLLED -->
-<div class="lesson-column">
-  <h3>🎵 Vowel Patterns</h3>
-  <p>Master advanced vowel sounds.</p>
-
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L13')">Variant Vowels</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L14')">Diphthongs</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L15')">R-Controlled Vowels</button>
-  <button class="btn btn-main" onclick="startLesson('g3','eng','L16')">Vowel Patterns</button>
-</div>
 
 <!-- MULTISYLLABIC WORDS -->
 

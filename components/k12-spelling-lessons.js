@@ -30,19 +30,7 @@ function addEnglishSpellingLessons(){
         {left:"big", right:"-ig family"}
       ]) }
     ],
-    g3:[
-      { id:"L145", name:"Spelling Drag: Fix the Word", gen:()=>spellingDragLesson("Drag each misspelled word to the correct spelling.", [
-        {left:"frend", right:"friend"},
-        {left:"becuz", right:"because"},
-        {left:"peple", right:"people"},
-        {left:"skool", right:"school"}
-      ]) },
-      { id:"L146", name:"Spelling Patterns", gen:()=>spellingTypeQuestion([
-        {prompt:"The word is f r i e n d.", answer:"friend"},
-        {prompt:"The word is b e c a u s e.", answer:"because"},
-        {prompt:"The word is p e o p l e.", answer:"people"}
-      ]) }
-    ],
+
     g4:[
       { id:"L22", name:"Spelling: Prefixes", gen:()=>spellingChoiceQuestion([
         {clue:"not fair", correct:"UNFAIR", wrong:["INFAIR","DISFAIR"]},

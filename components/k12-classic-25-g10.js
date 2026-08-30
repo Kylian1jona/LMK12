@@ -1,9 +1,8 @@
-/* Compact explicit 25-question banks for G10. One complete question per line. */
 (function(){
   window.K12_CLASSIC_25_DATA=window.K12_CLASSIC_25_DATA||Object.create(null);
   Object.assign(window.K12_CLASSIC_25_DATA,{
   "g10:eng:L1":{
-    name:"How Themes Develop",
+    name:"Theme Development in Literature",
     questions:[
       {"type":"mc","q":"What does theme development describe?","choices":["Only the title","How a theme is built throughout a text","The number of chapters","A message many people can relate to"],"answer":"How a theme is built throughout a text","audio":"Theme development."},
       {"type":"mc","q":"How can an author develop a theme?","choices":["Only punctuation","Only page numbers","Characters, conflict, and events","A math formula"],"answer":"Characters, conflict, and events","audio":"Theme development."},
@@ -33,7 +32,7 @@
     ]
   },
   "g10:eng:L2":{
-    name:"Adapting Rhetorical Appeals to an Audience",
+    name:"Rhetorical Appeals and Audience",
     questions:[
       {"type":"mc","q":"What does ethos appeal to?","choices":["Credibility","Logic","Emotion","Names"],"answer":"Credibility","audio":"Rhetorical appeals."},
       {"type":"mc","q":"What does pathos appeal to?","choices":["Emotion","Statistics only","Credibility","Logic"],"answer":"Emotion","audio":"Rhetorical appeals."},
@@ -63,7 +62,7 @@
     ]
   },
   "g10:eng:L3":{
-    name:"Research Questions, Sources, and Citations",
+    name:"Research Questions and Source Evaluation",
     questions:[
       {"type":"mc","q":"What should effective research writing use?","choices":["Guesses","Made-up facts","Credible sources","Only guesses"],"answer":"Credible sources","audio":"Research writing."},
       {"type":"mc","q":"What does a thesis statement present?","choices":["Only the author's birthday","Only the date","Birthday","The main argument or focus"],"answer":"The main argument or focus","audio":"Research writing."},
@@ -93,7 +92,7 @@
     ]
   },
   "g10:eng:L4":{
-    name:"Clauses, Phrases, and Word Functions",
+    name:"Clauses, Phrases, and Sentence Structure",
     questions:[
       {"type":"drag","q":"Drag each word to the correct answer.","pairs":[{"left":"credible","right":"Adjective"},{"left":"research","right":"Noun"},{"left":"argue","right":"Verb"},{"left":"effectively","right":"Adverb"}],"audio":"Drag the pairs to match them."},
       {"type":"mc","q":"Which statement best explains independent and dependent clauses?","choices":["An independent clause can stand alone; a dependent clause must be attached so its logical role is clear","A subordinating word makes a clause independent","Every long clause is independent","A dependent clause is corrected by deleting its subject"],"answer":"An independent clause can stand alone; a dependent clause must be attached so its logical role is clear","explain":"An independent clause can stand alone; a dependent clause must be attached so its logical role is clear This is the defining relationship for independent and dependent clauses."},
@@ -123,7 +122,7 @@
     ]
   },
   "g10:eng:L5":{
-    name:"How Syntax Shapes Meaning",
+    name:"Syntax, Style, and Meaning",
     questions:[
       {"type":"mc","q":"What is syntax?","choices":["Word meaning only","Sentence structure","Story setting","Style and meaning"],"answer":"Sentence structure","audio":"Syntax."},
       {"type":"mc","q":"What effect can a short sentence create?","choices":["Emphasis","A chemical reaction","A fraction","Pace depends only on plot"],"answer":"Emphasis","audio":"Syntax."},
@@ -153,7 +152,7 @@
     ]
   },
   "g10:eng:L6":{
-    name:"Analyzing Poetry",
+    name:"Poetry Analysis",
     questions:[
       {"type":"mc","q":"Which techniques are commonly used in poetry?","choices":["Variable","Imagery, rhythm, and figurative language","Only facts","Only equations"],"answer":"Imagery, rhythm, and figurative language","audio":"Poetry."},
       {"type":"mc","q":"How does a metaphor compare two things?","choices":["With a ruler","Compare and contrast","Using only numbers","Without using like or as"],"answer":"Without using like or as","audio":"Poetry."},
@@ -183,7 +182,7 @@
     ]
   },
   "g10:eng:L7":{
-    name:"Meaning Through Context and Word Choice",
+    name:"Context, Diction, and Meaning",
     questions:[
       {"type":"fill","q":"A thesis gives the main ___ of an essay.","answer":"argument","placeholder":"Fill in the blank","audio":"A thesis gives the main ___ of an essay."},
       {"type":"fill","q":"Pathos appeals to the audience's ___.","answer":"emotions","placeholder":"Fill in the blank","audio":"Pathos appeals to the audience's ___."},
@@ -213,7 +212,7 @@
     ]
   },
   "g10:eng:L8":{
-    name:"Revising for Precision and Cohesion",
+    name:"Revision for Clarity and Cohesion",
     questions:[
       {"type":"edit","q":"Fix this sentence:\ncredible sources make research stronger","answer":"Credible sources make research stronger.","placeholder":"Type the corrected sentence","audio":"Fix the sentence."},
       {"type":"edit","q":"Fix this sentence:\npathos appeals to emotion","answer":"Pathos appeals to emotion.","placeholder":"Type the corrected sentence","audio":"Fix the sentence."},
@@ -243,7 +242,7 @@
     ]
   },
   "g10:eng:L9":{
-    name:"Synthesizing Research Sources",
+    name:"Research Synthesis",
     questions:[
       {"type":"drag","q":"Drag each word to the correct answer.","pairs":[{"left":"Pathos","right":"Emotion"},{"left":"Ethos","right":"Credibility"},{"left":"Syntax","right":"Sentence structure"},{"left":"Thesis","right":"Main argument"}],"audio":"Drag the pairs to match them."},
       {"type":"mc","q":"Which statement best explains synthesis by concept?","choices":["Writers synthesize by organizing evidence around ideas and relationships, not by producing separate source summaries","Synthesis requires one paragraph per source","A source list is a conclusion","Texts must agree before synthesis is possible"],"answer":"Writers synthesize by organizing evidence around ideas and relationships, not by producing separate source summaries","explain":"Writers synthesize by organizing evidence around ideas and relationships, not by producing separate source summaries This is the defining relationship for synthesis by concept."},
@@ -273,7 +272,7 @@
     ]
   },
   "g10:eng:L10":{
-    name:"Rhetorical Analysis Challenge",
+    name:"Advanced Rhetorical Analysis",
     questions:[
       {"type":"speed","q":"What is ethos?","choices":["Credibility","Emotion","Weather","Logic"],"answer":"Credibility","seconds":10,"audio":"Ethos means..."},
       {"type":"speed","q":"What is pathos?","choices":["Emotion","Logic","Shape","Credibility"],"answer":"Emotion","seconds":10,"audio":"Pathos means..."},
@@ -303,7 +302,7 @@
     ]
   },
   "g10:eng:L11":{
-    name:"Rhetorical Terms Spelling",
+    name:"Rhetorical Vocabulary and Spelling",
     questions:[
       {"type":"mc","q":"Which is a complete sentence?","choices":["The student reads.","0","because the","reads student"],"answer":"The student reads.","audio":"Choose the complete sentence."},
       {"type":"input","q":"Type the missing word: A noun names a person, place, or ____.","answer":"thing","audio":"Complete the sentence."},
@@ -333,7 +332,7 @@
     ]
   },
   "g10:eng:L12":{
-    name:"Rhetorical Terms Review",
+    name:"Rhetorical Concepts Review",
     questions:[
       {"type":"input","q":"Type the missing word: A noun names a person, place, or ____.","answer":"thing","audio":"Complete the sentence."},
       {"type":"drag","q":"Match each reading word.","pairs":[{"left":"theme","right":"big message"},{"left":"evidence","right":"proof from the text"},{"left":"summary","right":"short retelling"}],"audio":"Match the reading vocabulary."},
@@ -363,7 +362,7 @@
     ]
   },
   "g10:math:L1":{
-    name:"Coordinate Geometry",
+    name:"Coordinate Geometry and Distance",
     questions:[
       {"type":"mc","q":"What does geometry study?","choices":["Only weather","Only spelling","Shapes, lines, and space","Area"],"answer":"Shapes, lines, and space","audio":"Geometry basics."},
       {"type":"mc","q":"How many sides does a triangle have?","choices":["Area","5 Sides","3 Sides","4 Sides"],"answer":"3 Sides","audio":"Geometry basics."},
@@ -393,7 +392,7 @@
     ]
   },
   "g10:math:L2":{
-    name:"Similarity and Scale",
+    name:"Similarity, Proportions, and Scale",
     questions:[
       {"type":"mc","q":"Which statement describes similar figures?","choices":["Same area always","Same shape, proportional sizes","Same color only","different shape, proportional sizes"],"answer":"Same shape, proportional sizes","audio":"Similarity."},
       {"type":"mc","q":"How are corresponding angles related in similar figures?","choices":["Equal","Area","Missing","Always different"],"answer":"Equal","audio":"Similarity."},
@@ -453,7 +452,7 @@
     ]
   },
   "g10:math:L4":{
-    name:"Triangle Congruence",
+    name:"Triangle Congruence and Proof",
     questions:[
       {"type":"drag","q":"Drag each word to the correct answer.","pairs":[{"left":"Triangle","right":"3 sides"},{"left":"Right angle","right":"90°"},{"left":"Triangle angle sum","right":"180°"},{"left":"Similar figures","right":"Same shape"}],"audio":"Drag the pairs to match them."},
       {"type":"mc","q":"Which statement best explains SSS congruence?","choices":["Three pairs of corresponding congruent sides prove triangle congruence by SSS","SSS proves only similarity","Two sides alone prove congruence","Equal perimeters prove SSS"],"answer":"Three pairs of corresponding congruent sides prove triangle congruence by SSS","explain":"Three pairs of corresponding congruent sides prove triangle congruence by SSS This is the defining relationship for SSS congruence."},
@@ -483,7 +482,7 @@
     ]
   },
   "g10:math:L5":{
-    name:"Polynomials and Transformations",
+    name:"Polynomial Operations and Transformations",
     questions:[
       {"type":"mc","q":"What can a polynomial contain?","choices":["Only one letter no matter what","No numbers","Friction","Variables and exponents"],"answer":"Variables and exponents","audio":"Polynomials."},
       {"type":"mc","q":"Simplify: 2x + 5x","choices":["3X","Simplify","10X","7X"],"answer":"7X","audio":"Polynomials."},
@@ -543,7 +542,7 @@
     ]
   },
   "g10:math:L7":{
-    name:"Conditional Logic and Geometric Proof",
+    name:"Logic and Geometric Proof",
     questions:[
       {"type":"fill","q":"The sum of triangle angles is ___ degrees.","answer":"180","placeholder":"Fill in the blank","audio":"The sum of triangle angles is ___ degrees."},
       {"type":"fill","q":"Sine, cosine, and tangent are trig ___.","answer":"ratios","placeholder":"Fill in the blank","audio":"Sine, cosine, and tangent are trig ___."},
@@ -573,7 +572,7 @@
     ]
   },
   "g10:math:L8":{
-    name:"Angle Relationships and Geometric Reasoning",
+    name:"Angle Relationships and Proof",
     questions:[
       {"type":"mc","q":"What is 8 + 1?","choices":["0","8","9","10"],"answer":"9","audio":"Solve the math problem."},
       {"type":"input","q":"Type 8 times 2.","answer":"16","audio":"Multiply by two."},
@@ -603,7 +602,7 @@
     ]
   },
   "g10:math:L9":{
-    name:"Volume and Dimensional Scaling",
+    name:"Volume and Scale Factors",
     questions:[
       {"type":"input","q":"Type 9 times 2.","answer":"18","audio":"Multiply by two."},
       {"type":"drag","q":"Match each math word.","pairs":[{"left":"sum","right":"answer to addition"},{"left":"difference","right":"answer to subtraction"},{"left":"product","right":"answer to multiplication"}],"audio":"Match the math vocabulary."},
@@ -633,7 +632,7 @@
     ]
   },
   "g10:math:L10":{
-    name:"Circle Theorems and Equations",
+    name:"Circle Theorems and Coordinate Equations",
     questions:[
       {"type":"drag","q":"Match each math word.","pairs":[{"left":"sum","right":"answer to addition"},{"left":"difference","right":"answer to subtraction"},{"left":"product","right":"answer to multiplication"}],"audio":"Match the math vocabulary."},
       {"type":"mc","q":"What is 10 + 2?","choices":["12","0","11","13"],"answer":"12","audio":"Solve the math problem."},
@@ -693,7 +692,7 @@
     ]
   },
   "g10:sci:L2":{
-    name:"Periodic Trends",
+    name:"Periodic Table Trends",
     questions:[
       {"type":"mc","q":"What does the periodic table organize?","choices":["Triangles","Sentences","Elements","Paragraphs"],"answer":"Elements","audio":"Periodic table."},
       {"type":"mc","q":"What do elements in the same periodic-table group often share?","choices":["Paragraphs","Book titles","Properties","Triangles"],"answer":"Properties","audio":"Periodic table."},
@@ -723,7 +722,7 @@
     ]
   },
   "g10:sci:L3":{
-    name:"Ionic and Covalent Bonding",
+    name:"Ionic and Covalent Bonds",
     questions:[
       {"type":"mc","q":"What happens when atoms form chemical bonds?","choices":["Form food chains","Write paragraphs","Share or transfer electrons","Malleability means bonds vanish"],"answer":"Share or transfer electrons","audio":"Chemical bonding."},
       {"type":"mc","q":"What is transferred when an ionic bond forms?","choices":["Sunlight","Water","Electrons","Rocks"],"answer":"Electrons","audio":"Chemical bonding."},
@@ -753,7 +752,7 @@
     ]
   },
   "g10:sci:L4":{
-    name:"Molecular Shapes and Chemical Names",
+    name:"Molecular Geometry and Chemical Naming",
     questions:[
       {"type":"drag","q":"Drag each word to the correct answer.","pairs":[{"left":"Element","right":"One type of atom"},{"left":"Proton","right":"Positive particle"},{"left":"Ionic bond","right":"Electron transfer"},{"left":"Covalent bond","right":"Electron sharing"}],"audio":"Drag the pairs to match them."},
       {"type":"mc","q":"Which statement best explains Lewis electron counting?","choices":["A valid Lewis structure accounts for total valence electrons, bonds, lone pairs, and formal-charge reasonableness","Count only bonding electrons","Hydrogen follows an octet","Formal charge is ignored in every structure"],"answer":"A valid Lewis structure accounts for total valence electrons, bonds, lone pairs, and formal-charge reasonableness","explain":"A valid Lewis structure accounts for total valence electrons, bonds, lone pairs, and formal-charge reasonableness This is the defining relationship for Lewis electron counting."},
@@ -783,7 +782,7 @@
     ]
   },
   "g10:sci:L5":{
-    name:"Stoichiometry",
+    name:"Stoichiometry and Reaction Quantities",
     questions:[
       {"type":"mc","q":"Which one is living?","choices":["plant","0","rock","pencil"],"answer":"plant","audio":"Choose the living thing."},
       {"type":"input","q":"water can be solid, liquid, or ____.","answer":"gas","audio":"Name the third state of water."},
@@ -813,7 +812,7 @@
     ]
   },
   "g10:sci:L6":{
-    name:"Solutions and Molarity",
+    name:"Solutions, Concentration, and Molarity",
     questions:[
       {"type":"input","q":"water can be solid, liquid, or ____.","answer":"gas","audio":"Name the third state of water."},
       {"type":"drag","q":"Match each science word.","pairs":[{"left":"habitat","right":"where something lives"},{"left":"force","right":"push or pull"},{"left":"energy","right":"ability to do work"}],"audio":"Match the science vocabulary."},
@@ -843,7 +842,7 @@
     ]
   },
   "g10:sci:L7":{
-    name:"Chemical Equations and Reaction Types",
+    name:"Chemical Reactions and Equations",
     questions:[
       {"type":"drag","q":"Match each science word.","pairs":[{"left":"habitat","right":"where something lives"},{"left":"force","right":"push or pull"},{"left":"energy","right":"ability to do work"}],"audio":"Match the science vocabulary."},
       {"type":"mc","q":"Which one is living?","choices":["pencil","0","rock","plant"],"answer":"plant","audio":"Choose the living thing."},
@@ -903,7 +902,7 @@
     ]
   },
   "g10:sci:L9":{
-    name:"Gas Laws",
+    name:"Gas Laws and Gas Behavior",
     questions:[
       {"type":"input","q":"water can be solid, liquid, or ____.","answer":"gas","audio":"Name the third state of water."},
       {"type":"drag","q":"Match each science word.","pairs":[{"left":"habitat","right":"where something lives"},{"left":"force","right":"push or pull"},{"left":"energy","right":"ability to do work"}],"audio":"Match the science vocabulary."},
@@ -933,7 +932,7 @@
     ]
   },
   "g10:sci:L10":{
-    name:"Heat and Thermochemistry",
+    name:"Thermochemistry and Heat Transfer",
     questions:[
       {"type":"drag","q":"Match each science word.","pairs":[{"left":"habitat","right":"where something lives"},{"left":"force","right":"push or pull"},{"left":"energy","right":"ability to do work"}],"audio":"Match the science vocabulary."},
       {"type":"mc","q":"Which one is living?","choices":["plant","rock","pencil","0"],"answer":"plant","audio":"Choose the living thing."},
@@ -963,7 +962,7 @@
     ]
   },
   "g10:hist:L1":{
-    name:"Early Civilizations",
+    name:"Origins of Early Civilizations",
     questions:[
       {"type":"mc","q":"What can historical evidence reveal about Modern World History?","choices":["THE PAST","A FUTURE PREDICTION ABOUT MODERN WORLD HISTORY","A FICTIONAL STORY WITH NO EVIDENCE ABOUT MODERN WORLD HISTORY","ONLY ONE PERSON'S FAVORITE MEMORY OF MODERN WORLD HISTORY"],"answer":"THE PAST","audio":"Modern World History history question."},
       {"type":"mc","q":"Which source would be a primary source from Modern World History?","choices":["A MODERN RETELLING WRITTEN LONG AFTER MODERN WORLD HISTORY","THE TIME BEING STUDIED","AN UNSOURCED CLAIM ABOUT MODERN WORLD HISTORY","A FICTIONAL ACCOUNT WITH NO DATE OR AUTHOR"],"answer":"THE TIME BEING STUDIED","audio":"Modern World History history question."},
@@ -993,7 +992,7 @@
     ]
   },
   "g10:hist:L2":{
-    name:"Classical Empires",
+    name:"Rise and Fall of Classical Empires",
     questions:[
       {"type":"mc","q":"What can historical evidence reveal about Imperialism?","choices":["A FUTURE PREDICTION ABOUT IMPERIALISM","A FICTIONAL STORY WITH NO EVIDENCE ABOUT IMPERIALISM","ONLY ONE PERSON'S FAVORITE MEMORY OF IMPERIALISM","THE PAST"],"answer":"THE PAST","audio":"Imperialism history question."},
       {"type":"mc","q":"Which source would be a primary source from Imperialism?","choices":["A MODERN RETELLING WRITTEN LONG AFTER IMPERIALISM","AN UNSOURCED CLAIM ABOUT IMPERIALISM","A FICTIONAL ACCOUNT WITH NO DATE OR AUTHOR","THE TIME BEING STUDIED"],"answer":"THE TIME BEING STUDIED","audio":"Imperialism history question."},
@@ -1023,7 +1022,7 @@
     ]
   },
   "g10:hist:L3":{
-    name:"Global Exchange",
+    name:"Global Trade and Cultural Exchange",
     questions:[
       {"type":"mc","q":"What can historical evidence reveal about World War I?","choices":["A FUTURE PREDICTION ABOUT WORLD WAR I","A FICTIONAL STORY WITH NO EVIDENCE ABOUT WORLD WAR I","ONLY ONE PERSON'S FAVORITE MEMORY OF WORLD WAR I","THE PAST"],"answer":"THE PAST","audio":"World War I history question."},
       {"type":"mc","q":"Which source would be a primary source from World War I?","choices":["A MODERN RETELLING WRITTEN LONG AFTER WORLD WAR I","THE TIME BEING STUDIED","AN UNSOURCED CLAIM ABOUT WORLD WAR I","A FICTIONAL ACCOUNT WITH NO DATE OR AUTHOR"],"answer":"THE TIME BEING STUDIED","audio":"World War I history question."},
@@ -1083,7 +1082,7 @@
     ]
   },
   "g10:hist:L5":{
-    name:"World Wars and the Cold War",
+    name:"World Wars and Cold War Conflict",
     questions:[
       {"type":"mc","q":"What can historical evidence reveal about Cold War?","choices":["A FUTURE PREDICTION ABOUT COLD WAR","A FICTIONAL STORY WITH NO EVIDENCE ABOUT COLD WAR","THE PAST","ONLY ONE PERSON'S FAVORITE MEMORY OF COLD WAR"],"answer":"THE PAST","audio":"Cold War history question."},
       {"type":"mc","q":"Which source would be a primary source from Cold War?","choices":["A MODERN RETELLING WRITTEN LONG AFTER COLD WAR","AN UNSOURCED CLAIM ABOUT COLD WAR","A FICTIONAL ACCOUNT WITH NO DATE OR AUTHOR","THE TIME BEING STUDIED"],"answer":"THE TIME BEING STUDIED","audio":"Cold War history question."},
