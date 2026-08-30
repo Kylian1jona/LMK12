@@ -62,6 +62,7 @@
         lessonCard("k:eng:short-u","kinder-eng","Read Short U Stories","Read stories and practice the short u sound.","Uu"),
         lessonCard("k:eng:short-vowels","kinder-eng","Read Short Vowel Stories","Practice all five short vowel sounds.","AEI"),
         lessonCard("k:eng:blend-cvc","kinder-eng","Three-Letter Sound Blending","Follow the sound meter and blend CVC words.","C-A-T"),
+        lessonCard("k:eng:days-week","kinder-eng","Days of the Week","Read, order, and name all seven days.","7 DAYS"),
         lessonCard("k:eng:alphabet-upper","kinder-eng","Find the Letter: Uppercase","Find and order uppercase letters.","ABC"),
         lessonCard("k:eng:alphabet-lower","kinder-eng","Find the Letter: Lowercase","Find and order lowercase letters.","abc")
       ].join("");

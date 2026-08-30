@@ -689,7 +689,7 @@ function startUnifiedEarlyLesson(key,backSection){
   if(!CURR[grade]) CURR[grade]={};
   if(!CURR[grade][subj]) CURR[grade][subj]={showName:`${gradeLabel} ${SUBJECT_LABELS[subj]||subj}`};
   const lesson=`EARLY_${lessonToken.replace(/[^a-z0-9]/gi,"_").toUpperCase()}`;
-  const pack={name:record.name,questions:record.questions,video:record.video||null,generatorSource:"explicit-25"};
+  const pack={name:record.name,questions:record.questions,image:record.image||null,video:record.video||null,generatorSource:"explicit-25"};
   pack.gen=()=>cloneRevisionQuestion(pack.questions[Math.max(0,Math.min(24,Number(LR.round||1)-1))]);
   CURR[grade][subj][lesson]=pack;
   launchLessonPack(grade,subj,lesson,pack,backSection||"grades");

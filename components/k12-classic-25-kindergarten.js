@@ -468,6 +468,38 @@
         {"type":"mc","q":"Which lowercase letter belongs in the blank? X, Y, __","choices":["w","z","v"],"answer":"z","audio":"Which lowercase letter belongs in the blank? X, Y, __"}
       ]
     },
+    "k:eng:days-week":{
+      name:"Days of the Week",
+      questions:[
+        {"type":"mc","q":"How many days are in one week?","choices":["5","6","7","8"],"answer":"7","audio":"How many days are in one week?"},
+        {"type":"mc","q":"Which day comes after Sunday?","choices":["Monday","Saturday","Friday"],"answer":"Monday","audio":"Which day comes after Sunday?"},
+        {"type":"mc","q":"Which day comes after Monday?","choices":["Sunday","Tuesday","Thursday"],"answer":"Tuesday","audio":"Which day comes after Monday?"},
+        {"type":"mc","q":"Which day comes after Tuesday?","choices":["Monday","Wednesday","Friday"],"answer":"Wednesday","audio":"Which day comes after Tuesday?"},
+        {"type":"mc","q":"Which day comes after Wednesday?","choices":["Thursday","Tuesday","Saturday"],"answer":"Thursday","audio":"Which day comes after Wednesday?"},
+        {"type":"mc","q":"Which day comes after Thursday?","choices":["Wednesday","Friday","Sunday"],"answer":"Friday","audio":"Which day comes after Thursday?"},
+        {"type":"mc","q":"Which day comes after Friday?","choices":["Thursday","Saturday","Monday"],"answer":"Saturday","audio":"Which day comes after Friday?"},
+        {"type":"mc","q":"Which day comes after Saturday?","choices":["Sunday","Friday","Tuesday"],"answer":"Sunday","audio":"Which day comes after Saturday?"},
+        {"type":"mc","q":"Which day comes before Monday?","choices":["Sunday","Tuesday","Friday"],"answer":"Sunday","audio":"Which day comes before Monday?"},
+        {"type":"mc","q":"Which day comes before Tuesday?","choices":["Wednesday","Monday","Saturday"],"answer":"Monday","audio":"Which day comes before Tuesday?"},
+        {"type":"mc","q":"Which day comes before Wednesday?","choices":["Tuesday","Thursday","Sunday"],"answer":"Tuesday","audio":"Which day comes before Wednesday?"},
+        {"type":"mc","q":"Which day comes before Thursday?","choices":["Friday","Wednesday","Monday"],"answer":"Wednesday","audio":"Which day comes before Thursday?"},
+        {"type":"mc","q":"Which day comes before Friday?","choices":["Thursday","Saturday","Tuesday"],"answer":"Thursday","audio":"Which day comes before Friday?"},
+        {"type":"mc","q":"Which day comes before Saturday?","choices":["Sunday","Friday","Wednesday"],"answer":"Friday","audio":"Which day comes before Saturday?"},
+        {"type":"mc","q":"Which day comes before Sunday?","choices":["Monday","Saturday","Thursday"],"answer":"Saturday","audio":"Which day comes before Sunday?"},
+        {"type":"mc","q":"Which day is missing? Sunday, Monday, __, Wednesday","choices":["Tuesday","Thursday","Friday"],"answer":"Tuesday","audio":"Which day is missing? Sunday, Monday, blank, Wednesday."},
+        {"type":"mc","q":"Which day is missing? Monday, Tuesday, Wednesday, __, Friday","choices":["Sunday","Thursday","Saturday"],"answer":"Thursday","audio":"Which day is missing? Monday, Tuesday, Wednesday, blank, Friday."},
+        {"type":"mc","q":"Which day is missing? Thursday, Friday, __, Sunday","choices":["Monday","Wednesday","Saturday"],"answer":"Saturday","audio":"Which day is missing? Thursday, Friday, blank, Sunday."},
+        {"type":"mc","q":"Which pair names the weekend days?","choices":["Saturday and Sunday","Monday and Tuesday","Wednesday and Thursday"],"answer":"Saturday and Sunday","audio":"Which pair names the weekend days?"},
+        {"type":"mc","q":"Which day is a weekday?","choices":["Wednesday","Saturday","Sunday"],"answer":"Wednesday","audio":"Which day is a weekday?"},
+        {"type":"mc","q":"Which day is NOT a weekday?","choices":["Tuesday","Thursday","Saturday"],"answer":"Saturday","audio":"Which day is not a weekday?"},
+        {"type":"mc","q":"If today is Monday, what day is tomorrow?","choices":["Sunday","Tuesday","Friday"],"answer":"Tuesday","audio":"If today is Monday, what day is tomorrow?"},
+        {"type":"mc","q":"If today is Friday, what day was yesterday?","choices":["Thursday","Saturday","Monday"],"answer":"Thursday","audio":"If today is Friday, what day was yesterday?"},
+        {"type":"mc","q":"Which three days are in the correct order?","choices":["Tuesday, Wednesday, Thursday","Thursday, Tuesday, Wednesday","Wednesday, Friday, Thursday"],"answer":"Tuesday, Wednesday, Thursday","audio":"Which three days are in the correct order?"},
+        {"type":"mc","q":"Which list shows all seven days in order, starting with Sunday?","choices":["Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday","Monday, Sunday, Tuesday, Thursday, Wednesday, Friday, Saturday","Sunday, Tuesday, Monday, Wednesday, Friday, Thursday, Saturday"],"answer":"Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday","audio":"Which list shows all seven days in order, starting with Sunday?"}
+      ],
+      image:{"src":"images/kindergarten-days-of-week-reference.svg","alt":"The seven days of the week in order from Sunday through Saturday, with weekdays and weekend days labeled."},
+      video:{"src":"components/days_of_the_week_kids.mp4","title":"Days of the Week"}
+    },
     "k:math:counting":{
       name:"Counting to 30",
       questions:[

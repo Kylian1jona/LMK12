@@ -89,8 +89,7 @@
         {"type":"mc","q":"Which sentence has the name capitalized correctly?","choices":["Ava has a kite.","ava has a kite.","Ava Has a kite.","AVA has a Kite."],"answer":"Ava has a kite.","audio":"Which sentence has the name capitalized correctly?"},
         {"type":"mc","q":"Which sentence makes the most sense?","choices":["The fish swims in water.","The fish reads a book.","The water swims a fish.","Swims the fish in."],"answer":"The fish swims in water.","audio":"Which sentence makes the most sense?"},
         {"type":"mc","q":"Choose the best punctuation: Where is Dad___","choices":["?",".","!",","],"answer":"?","audio":"Choose the best punctuation: Where is Dad___"}
-      ],
-      video:{"src":"components/days_of_the_week_kids.mp4","title":"Days of the Week"}
+      ]
     },
     "g1:math:addsub":{
       name:"Addition and Subtraction Within 20",
