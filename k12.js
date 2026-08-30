@@ -180,9 +180,16 @@ function renderInitialAppUI(){
 function preloadEarlyLessons(){
   if(earlyLessonsPreloaded) return;
   earlyLessonsPreloaded = true;
-  pkaGen(); pkcGen(); pksGen();
-  kscLoad(); ksbLoad(); krGen();
-  g1asGen(); g1gGen(); g1mGen();
+
+  if(typeof pkaGen === "function") pkaGen();
+  if(typeof pkcGen === "function") pkcGen();
+  if(typeof pksGen === "function") pksGen();
+  if(typeof kscLoad === "function") kscLoad();
+  if(typeof ksbLoad === "function") ksbLoad();
+  if(typeof krGen === "function") krGen();
+  if(typeof g1asGen === "function") g1asGen();
+  if(typeof g1gGen === "function") g1gGen();
+  if(typeof g1mGen === "function") g1mGen();
 }
 
 async function restoreActiveSession(){
