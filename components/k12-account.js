@@ -1175,7 +1175,7 @@ function gateAllowedSection(sectionId){
   if(sectionId === "shop") return true;
   if(sectionId === "addUserPage") return currentPortalRole === "parent" && subscriptionAccessAllowed();
   if(!subscriptionAccessAllowed()) return false;
-  if(["home","grades","reading"].includes(sectionId)) return anySubjectAllowed();
+  if(["home","grades","reading","tutorFinder"].includes(sectionId)) return anySubjectAllowed();
   if(sectionId === "playground") return anySubjectAllowed();
   if(["prek","kinder","grade1"].includes(sectionId)) return anySubjectAllowed();
   const earlySubjectMatch = sectionId.match(/^(?:prek|kinder|g1)-(eng|math)$/);

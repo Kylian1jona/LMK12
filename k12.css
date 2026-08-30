@@ -5841,6 +5841,28 @@ body[data-theme="night"] .lm-topbar button,body[data-theme="night"] .lm-menu-dra
 .lm-home-tools button::after{position:absolute;right:18px;bottom:16px;font-size:38px;filter:drop-shadow(0 5px 8px rgba(11,45,89,.12))}
 .lm-home-tools button:nth-child(1)::after{content:"📚"}.lm-home-tools button:nth-child(2)::after{content:"🏆"}.lm-home-tools button:nth-child(3)::after{content:"🚀"}.lm-home-tools button:nth-child(4)::after{content:"🤖"}.lm-home-tools button:nth-child(5)::after{content:"📝"}.lm-home-tools button:nth-child(6)::after{content:"🏅"}
 .lm-home-tools .is-coming{border-style:dashed;background:color-mix(in srgb,var(--card,#fff) 88%,var(--yellow-light));cursor:not-allowed}
+
+/* Tutor finder and corrected home-tool icons. */
+.lm-home-tools button:nth-child(1)::after{content:"🏆"}
+.lm-home-tools button:nth-child(2)::after{content:"🧑‍🏫"}
+.lm-home-tools button:nth-child(3)::after{content:"🚀"}
+.lm-home-tools button:nth-child(4)::after{content:"🚀"}
+.lm-home-tools button:nth-child(5)::after{content:"📝"}
+.lm-home-tools button:nth-child(6)::after{content:"🏅"}
+#tutorFinder{padding:32px 0 72px}
+.tutor-finder-shell{max-width:980px;margin:auto;padding:clamp(26px,5vw,58px);border:1px solid rgba(18,155,152,.22);border-radius:32px;background:rgba(255,253,248,.97);box-shadow:0 24px 64px rgba(11,45,89,.1)}
+.tutor-finder-back{margin-bottom:24px;padding:10px 17px;border:1px solid #cfe0e4;border-radius:999px;background:#fff;color:var(--lm2-navy);font-weight:800}
+.tutor-finder-head{max-width:700px;margin-bottom:28px}.tutor-finder-head>span{color:var(--lm2-teal);font-size:12px;font-weight:800;letter-spacing:.14em}.tutor-finder-head h1{margin:8px 0;color:var(--lm2-navy);font:800 clamp(42px,6vw,66px)/1 "Baloo 2",cursive}.tutor-finder-head p{color:var(--lm2-muted);font-size:17px;line-height:1.55}
+.tutor-finder-form{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:24px;border:1px solid #dce9e9;border-radius:24px;background:#f7fbfb}.tutor-finder-form>label{display:grid;gap:8px;color:var(--lm2-navy);font-weight:800}.tutor-finder-form select,.tutor-finder-form textarea{width:100%;padding:13px 14px;border:1px solid #cbdfe1;border-radius:13px;background:#fff;color:var(--lm2-navy);font:600 16px/1.4 inherit}.tutor-finder-form fieldset{display:flex;align-items:center;gap:18px;padding:14px;border:1px solid #d7e6e6;border-radius:14px}.tutor-finder-form legend{float:none;width:auto;margin:0 10px 0 0;color:var(--lm2-navy);font-size:15px;font-weight:800}.tutor-finder-form fieldset label{display:flex;align-items:center;gap:7px}.tutor-goal-label,.tutor-search-button{grid-column:1/-1}.tutor-goal-label span{color:var(--lm2-muted);font-size:12px;font-weight:600}.tutor-search-button{justify-self:start}.tutor-finder-results{margin-top:20px;padding:22px;border:2px solid #91d9ce;border-radius:20px;background:#edfdf9}.tutor-finder-results h2{color:var(--lm2-navy);font:800 28px/1.1 "Baloo 2",cursive}.tutor-finder-results p{color:var(--lm2-muted)}.tutor-finder-results>div{display:flex;gap:10px;flex-wrap:wrap}.tutor-safety-note{display:grid;gap:5px;margin-top:20px;padding:18px;border-radius:17px;background:#fff7df;color:#654c12}.tutor-safety-note span{line-height:1.5}
+@media(max-width:680px){.tutor-finder-form{grid-template-columns:1fr;padding:17px}.tutor-finder-form>*{grid-column:1!important}.tutor-finder-form fieldset{align-items:flex-start;flex-direction:column}.tutor-finder-shell{padding:24px 16px;border-radius:24px}}
+
+/* Compact homepage reading launch replaces the large headline. */
+.lm-home-hero{grid-template-columns:minmax(0,1fr) minmax(280px,.55fr);min-height:280px;padding:clamp(24px,4vw,48px)}
+.lm-home-reading-launch{display:grid;align-content:center;justify-items:start;min-height:190px;padding:clamp(25px,5vw,48px);border:2px solid rgba(47,128,237,.22);border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(235,246,255,.94));text-align:left;box-shadow:0 16px 38px rgba(35,80,150,.12)}
+.lm-home-reading-launch span{color:var(--kid-blue,#2f80ed);font-size:12px;font-weight:900;letter-spacing:.14em}.lm-home-reading-launch b{margin:8px 0 4px;color:var(--kid-purple-dark,#493395);font:800 clamp(32px,5vw,52px)/1 "Baloo 2",cursive}.lm-home-reading-launch small{max-width:440px;color:var(--lm2-muted,#60778a);font-size:16px;line-height:1.45}.lm-home-reading-launch:hover{transform:translateY(-4px);box-shadow:0 22px 46px rgba(35,80,150,.17)}
+body #lessonRunner #lrImageFrame:not(.d-none){display:grid!important;visibility:visible!important;opacity:1!important}
+body #lessonRunner #lrImageFrame:not(.d-none) #lrImage{display:block!important;visibility:visible!important;opacity:1!important}
+@media(max-width:680px){.lm-home-hero{grid-template-columns:1fr;min-height:0}.lm-home-reading-launch{min-height:160px}}
 .lm-menu-links .is-disabled{cursor:not-allowed}
 
 body #lessonRunner .lesson-image-frame{padding:10px;border-radius:20px;background:color-mix(in srgb,var(--card,#fff) 92%,var(--orange-light))}

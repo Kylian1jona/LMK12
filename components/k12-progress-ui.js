@@ -387,6 +387,34 @@ const TIMED_LESSON_SECTIONS=new Set(["lessonRunner"]);
 let universalLessonTimerSection="", universalLessonElapsedMs=0;
 let universalLessonActiveSince=0, universalLessonTimerHandle=0;
 let visibleAppSection="home";
+const APP_HISTORY_MARKER="learnMasterSection";
+
+function syncAppSectionHistory(id,mode="push"){
+  if(!window.history?.pushState||mode==="pop") return;
+  const current=window.history.state||{};
+  if(!current[APP_HISTORY_MARKER]){
+    window.history.replaceState({...current,[APP_HISTORY_MARKER]:id,learnMasterDepth:0},document.title);
+    return;
+  }
+  const depth=Math.max(0,Number(current.learnMasterDepth)||0);
+  const nextState={...current,[APP_HISTORY_MARKER]:id,learnMasterDepth:mode==="replace"?depth:depth+1};
+  if(mode==="replace") window.history.replaceState(nextState,document.title);
+  else if(current[APP_HISTORY_MARKER]!==id) window.history.pushState(nextState,document.title);
+}
+
+function appBack(fallback="home"){
+  const state=window.history?.state;
+  if(state?.[APP_HISTORY_MARKER]&&Number(state.learnMasterDepth)>0){
+    window.history.back();
+    return;
+  }
+  show(fallback,{historyMode:"replace"});
+}
+
+window.addEventListener("popstate",event=>{
+  const sectionId=event.state?.[APP_HISTORY_MARKER];
+  if(sectionId) show(sectionId,{historyMode:"pop"});
+});
 
 function formatUniversalLessonTime(milliseconds){
   const totalSeconds=Math.max(0,Math.floor(milliseconds/1000));
@@ -458,7 +486,7 @@ document.addEventListener("visibilitychange",()=>{
 });
 window.addEventListener("pagehide",pauseUniversalLessonTimer);
 
-function show(id){
+function show(id,options={}){
   if(!loggedIn){ showLogin(""); return; }
   if(!gateAllowedSection(id)){
     if(typeof hideCorrectFeedbackOverlay==="function") hideCorrectFeedbackOverlay();
@@ -478,8 +506,9 @@ function show(id){
     pauseUniversalLessonTimer();
   }
   visibleAppSection=id;
+  syncAppSectionHistory(id,options.historyMode||"push");
   const sections = [
-    "home","grades","reading","settings","addUserPage","analysis","shop","playground",
+    "home","grades","reading","settings","addUserPage","analysis","shop","playground","tutorFinder",
     "parentPortal","adminPortal","paymentStatus","curriculumStandards",
     "prek","prek-eng","prek-math","kinder","kinder-eng","kinder-math","grade1","g1-eng","g1-math",
     "grade2","g2-eng","g2-math","g2-sci","g2-hist",
@@ -503,6 +532,45 @@ function show(id){
   if(id==="settings") renderSettings();
   if(id==="analysis") renderAnalysis();
   if(id==="addUserPage" && $("addUserCount")) $("addUserCount").textContent = String(learnerCount());
+}
+
+function findTutorOptions(event){
+  event?.preventDefault?.();
+  const grade=String($("tutorGrade")?.value||"").trim();
+  const subject=String($("tutorSubject")?.value||"").trim();
+  const format=String(document.querySelector('input[name="tutorFormat"]:checked')?.value||"local");
+  const goal=String($("tutorGoal")?.value||"").trim();
+  const results=$("tutorFinderResults");
+  if(!grade||!subject||!results) return;
+  const formatWords=format==="online"?"online":"near me";
+  const searchPhrase=`${grade} ${subject} tutor ${formatWords}`;
+  const generalUrl=`https://www.google.com/search?q=${encodeURIComponent(searchPhrase)}`;
+  const mapsUrl=`https://www.google.com/maps/search/${encodeURIComponent(`${grade} ${subject} tutor`)}`;
+  results.innerHTML="";
+  const heading=document.createElement("h2");
+  heading.textContent="Your tutor search is ready";
+  const summary=document.createElement("p");
+  summary.textContent=`${grade} · ${subject} · ${format==="online"?"Online":"In person"}${goal?` · Goal: ${goal}`:""}`;
+  const actions=document.createElement("div");
+  const searchLink=document.createElement("a");
+  searchLink.className="btn btn-main";
+  searchLink.href=generalUrl;
+  searchLink.target="_blank";
+  searchLink.rel="noopener noreferrer";
+  searchLink.textContent=format==="online"?"Search online tutors":"Search tutor options";
+  actions.appendChild(searchLink);
+  if(format!=="online"){
+    const mapsLink=document.createElement("a");
+    mapsLink.className="btn btn-main";
+    mapsLink.href=mapsUrl;
+    mapsLink.target="_blank";
+    mapsLink.rel="noopener noreferrer";
+    mapsLink.textContent="View tutors on a map";
+    actions.appendChild(mapsLink);
+  }
+  results.append(heading,summary,actions);
+  results.hidden=false;
+  results.scrollIntoView({behavior:"smooth",block:"nearest"});
 }
 
 /* ===========================

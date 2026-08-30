@@ -8,7 +8,7 @@
   <div id="home" class="section">
     <div class="lm-home">
       <section class="lm-home-hero">
-        <div class="lm-home-copy"><span>LEARN &bull; GROW &bull; SHINE</span><h1>Big learning,<br>bright adventures.</h1><p>Colorful, focused lessons that help every learner from Pre-K through Grade 10 feel confident.</p><div><button type="button" class="lm-primary" onclick="show('grades')">Choose a grade</button><button type="button" class="lm-secondary" onclick="showReading()">Visit Reading</button></div></div>
+        <button type="button" class="lm-home-reading-launch" onclick="showReading()"><span>READING CENTER</span><b>Open Reading</b><small>Read, listen, and respond to stories and passages.</small></button>
         <aside class="lm-today-card"><span>TODAY'S GOAL</span><b>Complete one lesson</b><p>Every lesson has 25 questions and clear feedback.</p><button type="button" onclick="openLessonSearch()">Find a lesson</button></aside>
       </section>
       <section class="lm-home-paths" aria-labelledby="homeLaunchTitle"><header><span>START HERE</span><h2 id="homeLaunchTitle">Find your learning path</h2><p>Pick the group that feels right. You can change grades anytime.</p></header><div>
@@ -17,7 +17,42 @@
         <button type="button" data-zone="middle" onclick="show('grade6')"><span>6-8</span><b>Middle school</b><small>Think deeper and practice independently</small></button>
         <button type="button" data-zone="high" onclick="show('grade9')"><span>9-10</span><b>High school</b><small>Advanced concepts and analysis</small></button>
       </div></section>
-      <section class="lm-home-tools" aria-label="Learning tools"><button type="button" onclick="showReading()"><span>Reading</span><b>Read, listen, and respond</b></button><button type="button" onclick="show('analysis')"><span>Progress</span><b>See goals and growth</b></button><button type="button" class="is-coming" onclick="show('playground')"><span>Playground</span><b>Coming soon</b></button><button type="button" class="is-coming" aria-disabled="true" onclick="toast('Worksheets are coming soon!')"><span>Worksheets</span><b>Printable practice coming soon</b></button><button type="button" class="is-coming" aria-disabled="true" onclick="toast('Awards are coming soon!')"><span>Awards</span><b>Certificates and badges coming soon</b></button></section>
+      <section class="lm-home-tools" aria-label="Learning tools"><button type="button" onclick="show('analysis')"><span>Progress</span><b>See goals and growth</b></button><button type="button" onclick="show('tutorFinder')"><span>Find a Tutor</span><b>Search local or online support</b></button><button type="button" class="is-coming" onclick="show('playground')"><span>Playground</span><b>Coming soon</b></button><button type="button" class="is-coming" aria-disabled="true" onclick="toast('Worksheets are coming soon!')"><span>Worksheets</span><b>Printable practice coming soon</b></button><button type="button" class="is-coming" aria-disabled="true" onclick="toast('Awards are coming soon!')"><span>Awards</span><b>Certificates and badges coming soon</b></button></section>
+    </div>
+  </div>
+
+  <!-- TUTOR FINDER -->
+  <div id="tutorFinder" class="section d-none">
+    <div class="tutor-finder-shell">
+      <button type="button" class="tutor-finder-back" onclick="appBack('home')">&larr; Back</button>
+      <header class="tutor-finder-head">
+        <span>PARENT &amp; GUARDIAN TOOL</span>
+        <h1>Find a tutor</h1>
+        <p>Choose what your learner needs, then open a focused search for local or online tutoring options.</p>
+      </header>
+      <form id="tutorFinderForm" class="tutor-finder-form" onsubmit="findTutorOptions(event)">
+        <label>Grade level
+          <select id="tutorGrade" required>
+            <option value="">Choose a grade</option><option>Pre-K</option><option>Kindergarten</option><option>Grade 1</option><option>Grade 2</option><option>Grade 3</option><option>Grade 4</option><option>Grade 5</option><option>Grade 6</option><option>Grade 7</option><option>Grade 8</option><option>Grade 9</option><option>Grade 10</option>
+          </select>
+        </label>
+        <label>Subject
+          <select id="tutorSubject" required>
+            <option value="">Choose a subject</option><option>English and reading</option><option>Math</option><option>Science</option><option>History and social studies</option><option>Homework support</option>
+          </select>
+        </label>
+        <fieldset>
+          <legend>Preferred format</legend>
+          <label><input type="radio" name="tutorFormat" value="local" checked> In person</label>
+          <label><input type="radio" name="tutorFormat" value="online"> Online</label>
+        </fieldset>
+        <label class="tutor-goal-label">What kind of help is needed? <span>Optional</span>
+          <textarea id="tutorGoal" rows="3" maxlength="160" placeholder="Example: reading short words or practicing addition"></textarea>
+        </label>
+        <button type="submit" class="btn btn-main tutor-search-button">Create tutor search</button>
+      </form>
+      <div id="tutorFinderResults" class="tutor-finder-results" hidden aria-live="polite"></div>
+      <aside class="tutor-safety-note"><strong>Parent safety checklist</strong><span>Review qualifications and references, protect your child&rsquo;s personal information, and have an adult present for first meetings.</span></aside>
     </div>
   </div>
 
@@ -57,7 +92,7 @@
   <div id="grades" class="section d-none grades-background">
     <div class="grade-library-v2">
       <header class="grade-library-head">
-        <button type="button" onclick="show('home')">← Today</button>
+        <button type="button" onclick="appBack('home')">← Today</button>
         <div><span>GRADE LIBRARY</span><h1>Find your learning space.</h1><p>Every grade has its own subjects, lessons, progress, and quiz experience.</p></div>
         <aside><b>12</b><small>grade levels</small></aside>
       </header>
@@ -321,7 +356,7 @@
 
           <div class="d-flex flex-wrap gap-2 mt-3">
             <button type="button" class="btn btn-main" id="addUserSubmitBtn" disabled>$5 extra learner — contact administrator</button>
-            <button type="button" class="btn btn-main" onclick="show('settings')">Back to settings</button>
+            <button type="button" class="btn btn-main" onclick="appBack('settings')">Back to settings</button>
           </div>
         </div>
 
@@ -359,7 +394,7 @@
       <div class="mt-2 d-flex flex-wrap gap-2">
         <button type="button" class="btn btn-main" onclick="convertPoints()" id="convertBtn2">Convert 20⭐ → 5<span class="learner-icon" role="img" aria-label="Learner"></span></button>
         <button type="button" class="btn btn-main" onclick="show('playground')">Playground</button>
-        <button type="button" class="btn btn-main" onclick="show('grades')">Back</button>
+        <button type="button" class="btn btn-main" onclick="appBack('grades')">Back</button>
         <button type="button" class="btn btn-main" onclick="resetProgress()">Reset</button>
       </div>
       <div class="mt-3 small-note" id="ownedLine"></div>

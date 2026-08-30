@@ -989,7 +989,8 @@ function lrBack(){
   clearLessonAdvanceTimers();
   $("lrVideo")?.pause();
   if(typeof hideCorrectFeedbackOverlay==="function") hideCorrectFeedbackOverlay();
-  show(LR.backSection || "grades");
+  if(typeof appBack==="function") appBack(LR.backSection || "grades");
+  else show(LR.backSection || "grades");
 }
 function cleanAnswer(x){
   return String(x)
@@ -1058,10 +1059,13 @@ function renderLessonImage(image){
     img.alt = "";
     return;
   }
+  frame?.classList.remove("d-none");
+  if(frame) frame.hidden = false;
+  img.hidden = false;
+  img.style.removeProperty("display");
   img.src = src;
   img.alt = image?.alt || "Lesson image";
   img.style.display = "block";
-  frame?.classList.remove("d-none");
 }
 
 function renderLessonVideo(video){

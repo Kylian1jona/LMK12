@@ -18,7 +18,7 @@
         <div class="d-flex justify-content-center gap-3 flex-wrap mt-3 early-subject-picker grade-subject-picker" aria-label="${title} subjects">
           <button type="button" class="btn btn-main early-subject-choice grade-subject-option" data-subject="eng" onclick="show('${id}-eng')">English</button>
           <button type="button" class="btn btn-main early-subject-choice grade-subject-option" data-subject="math" onclick="show('${id}-math')">Math</button>
-          <button type="button" class="btn btn-main early-grade-back" onclick="show('grades')">Back</button>
+          <button type="button" class="btn btn-main early-grade-back" onclick="appBack('grades')">Back</button>
         </div>
       </div>
     </div>`;
@@ -32,7 +32,7 @@
           <div class="early-lesson-list">${cards}</div>
         </section>
         <div class="lesson-back-row">
-          <button type="button" class="btn btn-main px-4" onclick="show('${gradeId}')">Back to ${gradeTitle}</button>
+          <button type="button" class="btn btn-main px-4" onclick="appBack('${gradeId}')">Back to ${gradeTitle}</button>
         </div>
       </div>
     </div>`;
