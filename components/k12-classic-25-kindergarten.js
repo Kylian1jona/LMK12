@@ -92,7 +92,17 @@
       questions:numberBonds.map(([whole,known])=>{
         const answer=whole-known;
         const q=`${whole} can be taken apart into ${known} and what other part?`;
-        return {type:"mc",q,choices:[String(answer),String(answer-1),String(answer+1)],answer:String(answer),audio:q};
+        return {
+          type:"mc",
+          q,
+          choices:[String(answer),String(answer-1),String(answer+1)],
+          answer:String(answer),
+          audio:q,
+          image:{
+            src:`images/k-taking-apart-${whole}-${known}.svg`,
+            alt:`Number bond picture showing ${whole} counters split into a group of ${known} and another group to count.`
+          }
+        };
       })
     };
   }
