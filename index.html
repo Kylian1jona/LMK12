@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>LearnMaster K-12</title>
+<title>LearnMaster K-12 &amp; Tutor Studio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#6f52ed" />
 
@@ -10,13 +10,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<link href="k12.css?v=community-tutors-20260830.1" rel="stylesheet">
+<link href="k12.css?v=tutor-studio-grades12-20260830.1" rel="stylesheet">
 </head>
 
 <body>
 <canvas id="confettiCanvas"></canvas>
 
 <k12-auth-shell></k12-auth-shell>
+<k12-tutor-portal></k12-tutor-portal>
 <k12-main-nav></k12-main-nav>
 
 <div class="container">
@@ -25,6 +26,7 @@
   <k12-grade2-4-sections></k12-grade2-4-sections>
   <k12-grade5-6-sections></k12-grade5-6-sections>
   <k12-grade7-10-sections></k12-grade7-10-sections>
+  <k12-grade11-12-sections></k12-grade11-12-sections>
   <k12-history-runner></k12-history-runner>
 </div>
 
@@ -36,20 +38,23 @@
 <script src="components/supabase-config.js"></script>
 <script src="components/supabase-client.js"></script>
 <script src="components/supabase-store.js"></script>
-<script src="components/auth-shell.js?v=flexible-checkout-20260824.1"></script>
-<script src="components/main-nav.js?v=home-reorder-20260830.1"></script>
-<script src="components/core-sections.js?v=community-tutors-20260830.1"></script>
+<script src="components/auth-shell.js?v=tutor-signup-20260830.1"></script>
+<script src="components/main-nav.js?v=tutor-assignments-20260830.1"></script>
+<script src="components/core-sections.js?v=grades12-progress-20260830.1"></script>
 <script src="components/early-sections.js?v=back-controls-20260830.1"></script>
 <script src="components/grade2-4-sections.js?v=classic25-20260726.2"></script>
 <script src="components/grade5-6-sections.js?v=classic25-20260726.2"></script>
 <script src="components/grade7-10-sections.js?v=classic25-20260726.2"></script>
+<script src="components/grade11-12-sections.js?v=college-ready-20260830.1"></script>
 <script src="components/history-runner.js?v=quiz-meadow-20260808.1"></script>
 <script src="components/audio-assets.js"></script>
 <script src="components/site-footer.js?v=spacious-brand-20260810.2"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="components/k12-helpers.js"></script>
-<script src="components/k12-account.js?v=worksheets-20260830.1"></script>
-<script src="components/k12-progress-ui.js?v=community-tutors-20260830.1"></script>
+<script src="components/tutor-portal.js?v=isolated-workspace-20260830.1"></script>
+<script src="components/k12-account.js?v=tutor-role-20260830.1"></script>
+<script src="components/k12-reading-stories.js?v=stories-through-grade12-20260830.1"></script>
+<script src="components/k12-progress-ui.js?v=levels-assignments-20260830.1"></script>
 <script src="components/k12-governance.js?v=payment-grace-20260823.1"></script>
 <script src="components/k12-playground.js?v=spacious-brand-20260810.2"></script>
 <script src="components/k12-early-games-shared.js?v=ui-js-fixes-20260816.1"></script>
@@ -61,6 +66,6 @@
 <script src="components/k12-spelling-lessons.js?v=classic25-20260726.2"></script>
 <script src="components/k12-classic-25.js?v=grade8-refresh-20260827.1"></script>
 <script src="components/k12-i18n.js"></script>
-<script src="k12.js?v=lesson-search-fix-20260830.2"></script>
+<script src="k12.js?v=tutor-session-routing-20260830.1"></script>
 </body>
 </html>

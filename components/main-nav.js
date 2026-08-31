@@ -38,7 +38,7 @@
     <button type="button" onclick="navigateFromAppMenu('home')">Home</button>
     <button type="button" onclick="navigateFromAppMenu('grades')">Select Grade</button>
     <button type="button" onclick="navigateFromAppMenu('reading')">Reading</button>
-    <button type="button" onclick="navigateFromAppMenu('analysis')">Progress</button>
+    <button type="button" onclick="navigateFromAppMenu('tutorAssignments')">Tutor Assignments</button>
     <button type="button" onclick="navigateFromAppMenu('shop')">Shop</button>
     <button type="button" onclick="navigateFromAppMenu('settings')">Settings</button>
     <button type="button" class="is-coming" onclick="navigateFromAppMenu('playground')">Playground <small>Coming soon</small></button>
@@ -70,9 +70,9 @@
     </div>
     <nav class="lm-menu-links">
       <button type="button" onclick="navigateFromAppMenu('home')"><span>01</span><div><b>Home</b><small>Your daily starting point</small></div></button>
-      <button type="button" onclick="navigateFromAppMenu('grades')"><span>02</span><div><b>Grade library</b><small>Pre-K through Grade 10</small></div></button>
+      <button type="button" onclick="navigateFromAppMenu('grades')"><span>02</span><div><b>Grade library</b><small>Pre-K through Grade 12</small></div></button>
       <button type="button" onclick="navigateFromAppMenu('reading')"><span>03</span><div><b>Reading room</b><small>Passages and practice</small></div></button>
-      <button type="button" onclick="navigateFromAppMenu('analysis')"><span>04</span><div><b>Progress</b><small>Goals, streaks, and accuracy</small></div></button>
+      <button type="button" onclick="navigateFromAppMenu('tutorAssignments')"><span>04</span><div><b>Tutor assignments</b><small>Practice and tutor notes</small></div></button>
       <button type="button" onclick="navigateFromAppMenu('shop')"><span>05</span><div><b>Rewards shop</b><small>Spend Learners on toys</small></div></button>
       <button type="button" onclick="navigateFromAppMenu('settings')"><span>06</span><div><b>Settings</b><small>Profile and learning preferences</small></div></button>
       <button type="button" onclick="showPaywall();toggleAppNavigation(false)"><span>07</span><div><b>Subscription</b><small>Plans and family access</small></div></button>
@@ -82,7 +82,7 @@
     </nav>
     <div class="lm-grade-jump">
       <span>Jump to grade</span>
-      <div><button onclick="navigateFromAppMenu('prek')">PK</button><button onclick="navigateFromAppMenu('kinder')">K</button><button onclick="navigateFromAppMenu('grade1')">1</button><button onclick="navigateFromAppMenu('grade2')">2</button><button onclick="navigateFromAppMenu('grade3')">3</button><button onclick="navigateFromAppMenu('grade4')">4</button><button onclick="navigateFromAppMenu('grade5')">5</button><button onclick="navigateFromAppMenu('grade6')">6</button><button onclick="navigateFromAppMenu('grade7')">7</button><button onclick="navigateFromAppMenu('grade8')">8</button><button onclick="navigateFromAppMenu('grade9')">9</button><button onclick="navigateFromAppMenu('grade10')">10</button></div>
+      <div><button onclick="navigateFromAppMenu('prek')">PK</button><button onclick="navigateFromAppMenu('kinder')">K</button><button onclick="navigateFromAppMenu('grade1')">1</button><button onclick="navigateFromAppMenu('grade2')">2</button><button onclick="navigateFromAppMenu('grade3')">3</button><button onclick="navigateFromAppMenu('grade4')">4</button><button onclick="navigateFromAppMenu('grade5')">5</button><button onclick="navigateFromAppMenu('grade6')">6</button><button onclick="navigateFromAppMenu('grade7')">7</button><button onclick="navigateFromAppMenu('grade8')">8</button><button onclick="navigateFromAppMenu('grade9')">9</button><button onclick="navigateFromAppMenu('grade10')">10</button><button onclick="navigateFromAppMenu('grade11')">11</button><button onclick="navigateFromAppMenu('grade12')">12</button></div>
     </div>
     <div class="lm-menu-preferences">
       <label for="languagePicker">Language</label>

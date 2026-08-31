@@ -159,6 +159,7 @@ document.addEventListener("click", event=>{
 =========================== */
 let initialAppUIRendered = false;
 let earlyLessonsPreloaded = false;
+let restoredTutorUser = null;
 
 function renderInitialAppUI(){
   if(initialAppUIRendered) return;
@@ -230,6 +231,12 @@ async function restoreActiveSession(){
   }
 
   const metadata = session.user.user_metadata || {};
+  const restoredRole=typeof resolveAccountRole==="function"?await resolveAccountRole(session.user):(metadata.account_role==="tutor"?"tutor":"family");
+  if(restoredRole === "tutor"){
+    restoredTutorUser = session.user;
+    hideLogin();
+    return true;
+  }
   const emailName = String(session.user.email || "").split("@")[0] || "learner";
   const username = String(metadata.username || emailName).trim().toLowerCase() || "learner";
   const displayName = String(metadata.display_name || username).trim() || username;
@@ -250,6 +257,11 @@ async function bootLearnMaster(){
 
   if(!sessionRestored){
     showLogin("");
+    return;
+  }
+
+  if(restoredTutorUser){
+    await enterTutorWorkspace(restoredTutorUser);
     return;
   }
 

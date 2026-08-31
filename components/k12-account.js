@@ -3,6 +3,7 @@
 =========================== */
 let loggedIn = false;
 let currentPortalRole = "kid";
+let currentAuthAccountRole = "family";
 const INACTIVITY_LIMIT_MS = 3 * 60 * 60 * 1000;
 const INACTIVITY_KEY = "learnmaster_last_activity_v1";
 let INACTIVITY_TIMER = null;
@@ -129,7 +130,23 @@ function showSignup(){
     const el = $(id);
     if(el) el.value = "";
   });
+  const familyRole=document.querySelector('input[name="signupRole"][value="family"]');
+  if(familyRole) familyRole.checked=true;
+  setSignupRole("family");
   setTimeout(()=>{ try{$("signupFirstName")?.focus();}catch(e){} }, 50);
+}
+
+function setSignupRole(role){
+  currentAuthAccountRole=role==="tutor"?"tutor":"family";
+  const fields=$("tutorSignupFields");
+  if(fields){
+    fields.classList.toggle("d-none",currentAuthAccountRole!=="tutor");
+    fields.setAttribute("aria-hidden",currentAuthAccountRole==="tutor"?"false":"true");
+  }
+  ["signupTutorQualification","signupTutorSubjects","signupTutorAvailability"].forEach(id=>{
+    const input=$(id);
+    if(input) input.required=currentAuthAccountRole==="tutor";
+  });
 }
 
 function validateNewUserFields(username, pass, kids){
@@ -205,6 +222,17 @@ async function syncSupabaseProfile(user, username, name, firstName="", lastName=
   return true;
 }
 
+async function resolveAccountRole(user){
+  const fallback=user?.user_metadata?.account_role==="tutor"?"tutor":"family";
+  const client=window.learnMasterSupabase;
+  if(!client||!user?.id) return fallback;
+  try{
+    const {data,error}=await client.from("learnmaster_account_roles").select("account_role").eq("user_id",user.id).maybeSingle();
+    if(!error&&data?.account_role) return data.account_role==="tutor"?"tutor":"family";
+  }catch(error){}
+  return fallback;
+}
+
 async function createSignupUser(){
   safeClick();
   const client = window.learnMasterSupabase;
@@ -216,14 +244,20 @@ async function createSignupUser(){
   const username = ($("signupName")?.value || "").trim().toLowerCase();
   const name = [firstName,lastName].filter(Boolean).join(" ");
   const pass = $("signupPass")?.value || "";
+  const accountRole=String(document.querySelector('input[name="signupRole"]:checked')?.value||"family")==="tutor"?"tutor":"family";
+  const tutorQualification=String($("signupTutorQualification")?.value||"").trim();
+  const tutorSubjects=String($("signupTutorSubjects")?.value||"").trim();
+  const tutorAvailability=String($("signupTutorAvailability")?.value||"").trim();
   const usernameError = validateNewUserFields(username, pass, kids);
-  const error = !firstName
-    ? "Enter your first name."
-    : (!lastName
-      ? "Enter your last name."
-      : (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-        ? "Enter a valid email address."
-        : (usernameError || (!pass || pass.length < 6 ? "Password must be 6 or more characters." : ""))));
+  let error="";
+  if(!firstName) error="Enter your first name.";
+  else if(!lastName) error="Enter your last name.";
+  else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) error="Enter a valid email address.";
+  else if(usernameError) error=usernameError;
+  else if(!pass||pass.length<6) error="Password must be 6 or more characters.";
+  else if(accountRole==="tutor"&&!tutorQualification) error="Enter your tutoring qualification.";
+  else if(accountRole==="tutor"&&!tutorSubjects) error="Enter the subjects you tutor.";
+  else if(accountRole==="tutor"&&!tutorAvailability) error="Enter your general availability.";
   if(error){ loginMsg(error, true); return; }
   loginMsg("Creating account…");
   const { data, error: authError } = await client.auth.signUp({
@@ -231,7 +265,7 @@ async function createSignupUser(){
     password: pass,
     options: {
       emailRedirectTo:"https://k12-learning.netlify.app",
-      data: { username, display_name: name, first_name:firstName, last_name:lastName, free_month_eligible: true }
+      data: { username, display_name: name, first_name:firstName, last_name:lastName, account_role:accountRole, tutor_qualification:tutorQualification, tutor_subjects:tutorSubjects, tutor_availability:tutorAvailability, free_month_eligible: accountRole!=="tutor" }
     }
   });
   if(authError){ loginMsg(authError.message, true); return; }
@@ -244,6 +278,12 @@ async function createSignupUser(){
     return;
   }
   await window.learnMasterStore.hydrate(data.user);
+  if(accountRole==="tutor"){
+    clearTrial();
+    await enterTutorWorkspace(data.user);
+    toast("Tutor workspace created.");
+    return;
+  }
   const kid = upsertLocalSupabaseKid(data.user, username, name);
   await refreshSubscriptionAccess();
   clearTrial();
@@ -283,6 +323,13 @@ async function doLogin(){
   }
   await window.learnMasterStore.hydrate(data.user);
   const metadata = data.user?.user_metadata || {};
+  const accountRole=await resolveAccountRole(data.user);
+  if(accountRole==="tutor"){
+    clearTrial();
+    await enterTutorWorkspace(data.user);
+    toast("Welcome to Tutor Studio.");
+    return;
+  }
   const username = metadata.username || email.split("@")[0];
   const accountName = metadata.display_name || [metadata.first_name,metadata.last_name].filter(Boolean).join(" ") || username;
   await syncSupabaseProfile(data.user, username, accountName, metadata.first_name, metadata.last_name);
@@ -299,6 +346,8 @@ async function logout(){
   window.learnMasterStore?.clearUser();
   stopInactivityTimer(true);
   currentPortalRole = "kid";
+  currentAuthAccountRole = "family";
+  if(typeof leaveTutorWorkspace==="function") leaveTutorWorkspace();
   currentAccountIsAdmin = false;
   showLogin("");
 }
@@ -1168,10 +1217,11 @@ function updateTrialUI(){
 }
 function gateAllowedSection(sectionId){
   if(!loggedIn) return false;
+  if(currentPortalRole==="tutor") return sectionId==="tutorPortal";
   if(sectionId === "parentPortal") return currentPortalRole === "parent";
   if(["adminPortal","paymentStatus"].includes(sectionId)) return currentPortalRole === "parent" && currentAccountIsAdmin;
   if(sectionId === "curriculumStandards") return true;
-  if(["settings","analysis"].includes(sectionId)) return true;
+  if(["settings","analysis","tutorAssignments","testPrep"].includes(sectionId)) return true;
   if(sectionId === "shop") return true;
   if(sectionId === "addUserPage") return currentPortalRole === "parent" && subscriptionAccessAllowed();
   if(!subscriptionAccessAllowed()) return false;

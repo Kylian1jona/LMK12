@@ -18,7 +18,7 @@
       <div class="auth-intro-copy">
         <span class="auth-eyebrow">Learn at your pace</span>
         <h1>Build skills. See progress. Keep growing.</h1>
-        <p>Structured practice, clear feedback, and rewards for learners from Pre-K through Grade 10.</p>
+        <p>Structured practice, clear feedback, and rewards for learners from Pre-K through Grade 12.</p>
       </div>
 
       <div class="auth-highlights" aria-label="Platform highlights">
@@ -64,10 +64,16 @@
 
       <div id="signupFormPanel" class="d-none" aria-hidden="true">
         <header class="auth-form-header">
-          <span class="auth-eyebrow">New family account</span>
+          <span class="auth-eyebrow">New account</span>
           <h2>Create your account</h2>
-          <p>Add the account holder's name, an email you can access, and a unique username.</p>
+          <p>Choose the account type first. Tutor accounts open a separate professional workspace and cannot enter the student app.</p>
         </header>
+
+        <fieldset class="auth-role-picker">
+          <legend>I am signing up as</legend>
+          <label><input type="radio" name="signupRole" value="family" checked onchange="setSignupRole('family')"><span><b>Family or learner</b><small>Lessons, reading, progress, and rewards</small></span></label>
+          <label><input type="radio" name="signupRole" value="tutor" onchange="setSignupRole('tutor')"><span><b>Tutor</b><small>Schedule, lessons, learners, and messages</small></span></label>
+        </fieldset>
 
         <div class="auth-name-row">
           <div class="auth-field">
@@ -94,6 +100,12 @@
         <div class="auth-field">
           <label for="signupPass">Password</label>
           <input id="signupPass" name="new-password" type="password" class="form-control rounded-xl" autocomplete="new-password" minlength="6" required placeholder="6 or more characters">
+        </div>
+
+        <div id="tutorSignupFields" class="tutor-signup-fields d-none" aria-hidden="true">
+          <div class="auth-field"><label for="signupTutorQualification">Qualification</label><input id="signupTutorQualification" class="form-control rounded-xl" maxlength="180" placeholder="Example: B.Ed. and certified reading specialist"></div>
+          <div class="auth-field"><label for="signupTutorSubjects">Subjects</label><input id="signupTutorSubjects" class="form-control rounded-xl" maxlength="180" placeholder="Example: Math, Science, Homework support"></div>
+          <div class="auth-field"><label for="signupTutorAvailability">General availability</label><input id="signupTutorAvailability" class="form-control rounded-xl" maxlength="180" placeholder="Example: Monday–Thursday, 4–7 PM"></div>
         </div>
 
         <div class="auth-actions">
@@ -135,6 +147,7 @@
           <span class="paypill">Family learning access</span>
           <span class="paypill" id="trialTimerPill" hidden>Trial left: <span id="trialLeft">00:00</span></span>
         </div>
+
         <div id="subscriptionPaywallStatus" class="subscription-paywall-status status-pending"><strong>Choose a plan</strong><span>Enter the test card in checkout and start immediately.</span></div>
       </div>
 

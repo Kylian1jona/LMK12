@@ -36,12 +36,12 @@
       <header class="tutor-finder-head">
         <span>PARENT &amp; GUARDIAN TOOL</span>
         <h1>Find a tutor</h1>
-        <p>Choose what your learner needs, then search trusted LearnMaster community profiles or look outside the community.</p>
+        <p>Choose what your learner needs, then search available LearnMaster community tutor profiles.</p>
       </header>
       <form id="tutorFinderForm" class="tutor-finder-form" onsubmit="findTutorOptions(event)">
         <label>Grade level
           <select id="tutorGrade" required>
-            <option value="">Choose a grade</option><option>Pre-K</option><option>Kindergarten</option><option>Grade 1</option><option>Grade 2</option><option>Grade 3</option><option>Grade 4</option><option>Grade 5</option><option>Grade 6</option><option>Grade 7</option><option>Grade 8</option><option>Grade 9</option><option>Grade 10</option>
+            <option value="">Choose a grade</option><option>Pre-K</option><option>Kindergarten</option><option>Grade 1</option><option>Grade 2</option><option>Grade 3</option><option>Grade 4</option><option>Grade 5</option><option>Grade 6</option><option>Grade 7</option><option>Grade 8</option><option>Grade 9</option><option>Grade 10</option><option>Grade 11</option><option>Grade 12</option>
           </select>
         </label>
         <label>Subject
@@ -57,7 +57,7 @@
         <label class="tutor-goal-label">What kind of help is needed? <span>Optional</span>
           <textarea id="tutorGoal" rows="3" maxlength="160" placeholder="Example: reading short words or practicing addition"></textarea>
         </label>
-        <button type="submit" class="btn btn-main tutor-search-button">Show tutor search options</button>
+        <button type="submit" class="btn btn-main tutor-search-button">Start looking for tutors</button>
       </form>
       <div id="tutorFinderResults" class="tutor-finder-results" hidden aria-live="polite"></div>
       <aside class="tutor-safety-note"><strong>Parent safety checklist</strong><span>Review qualifications and references, protect your child&rsquo;s personal information, and have an adult present for first meetings.</span></aside>
@@ -102,18 +102,18 @@
       <header class="grade-library-head">
         <button type="button" onclick="appBack('home')">← Today</button>
         <div><span>GRADE LIBRARY</span><h1>Find your learning space.</h1><p>Every grade has its own subjects, lessons, progress, and quiz experience.</p></div>
-        <aside><b>12</b><small>grade levels</small></aside>
+        <aside><b>14</b><small>grade levels</small></aside>
       </header>
 
-      <section class="suggested-lessons" aria-labelledby="suggestedLessonsTitle">
+      <section class="suggested-lessons grade-progress-preview" aria-labelledby="gradeProgressTitle">
         <div class="suggested-lessons-head">
           <div>
-            <span>Picked for you</span>
-            <h2 id="suggestedLessonsTitle">Suggested lessons</h2>
+            <span>Your current levels</span>
+            <h2 id="gradeProgressTitle">Reading and Math progress</h2>
           </div>
-          <p>Based on lessons you have not completed yet.</p>
+          <button type="button" class="btn btn-main" onclick="show('analysis')">Open full progress</button>
         </div>
-        <div id="suggestedLessonsGrid" class="suggested-lessons-grid"></div>
+        <div id="gradeProgressSummary" class="suggested-lessons-grid"></div>
       </section>
 
       <div class="grade-grid grade-library-grid" aria-label="Grade levels">
@@ -186,6 +186,16 @@
   <div class="grade-title">🏫 Grade 10</div>
   <p class="grade-sub">English • Math • Science</p>
   <button type="button" class="btn btn-main w-100" onclick="show('grade10')">Open</button>
+</div>
+<div class="grade-card" id="cardGrade11">
+  <div class="grade-title">Grade 11</div>
+  <p class="grade-sub">College readiness · Advanced study · Test prep</p>
+  <button type="button" class="btn btn-main w-100" onclick="show('grade11')">Open</button>
+</div>
+<div class="grade-card" id="cardGrade12">
+  <div class="grade-title">Grade 12</div>
+  <p class="grade-sub">College planning · Capstone skills · Test prep</p>
+  <button type="button" class="btn btn-main w-100" onclick="show('grade12')">Open</button>
 </div>
         <div class="grade-card" id="cardShop">
           <div class="grade-title">🧸 Shop</div>
@@ -422,6 +432,14 @@
   <div id="worksheets" class="section d-none">
     <div class="playground-shell">
       <section class="lm-coming-soon"><span>COMING SOON</span><h1>Worksheets are being built.</h1><p>Printable English, Math, Science, and History practice is on the way. Lessons and Reading are ready to use now.</p><div><button type="button" class="lm-primary" onclick="show('grades')">Keep learning</button><button type="button" class="lm-secondary" onclick="showReading()">Open Reading</button></div></section>
+    </div>
+  </div>
+
+  <!-- TUTOR ASSIGNMENTS -->
+  <div id="tutorAssignments" class="section d-none">
+    <div class="cardish tutor-assignments-shell">
+      <div class="analysis-head"><div><span class="lm-page-kicker">TUTOR CONNECTION</span><h1>Tutor assignments</h1><p>Review practice and notes shared by a community tutor.</p></div><button type="button" class="btn btn-main" onclick="show('tutorFinder')">Find a tutor</button></div>
+      <div id="tutorAssignmentsPanel"></div>
     </div>
   </div>
 

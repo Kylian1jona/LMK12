@@ -488,6 +488,10 @@ window.addEventListener("pagehide",pauseUniversalLessonTimer);
 
 function show(id,options={}){
   if(!loggedIn){ showLogin(""); return; }
+  if(currentPortalRole==="tutor"){
+    if(typeof enterTutorWorkspace==="function") enterTutorWorkspace();
+    return;
+  }
   if(!gateAllowedSection(id)){
     if(typeof hideCorrectFeedbackOverlay==="function") hideCorrectFeedbackOverlay();
     if(typeof clearLessonAdvanceTimers==="function") clearLessonAdvanceTimers();
@@ -508,7 +512,7 @@ function show(id,options={}){
   visibleAppSection=id;
   syncAppSectionHistory(id,options.historyMode||"push");
   const sections = [
-    "home","grades","reading","settings","addUserPage","analysis","shop","playground","worksheets","tutorFinder",
+    "home","grades","reading","settings","addUserPage","analysis","shop","playground","worksheets","tutorFinder","tutorAssignments","testPrep",
     "parentPortal","adminPortal","paymentStatus","curriculumStandards",
     "prek","prek-eng","prek-math","kinder","kinder-eng","kinder-math","grade1","g1-eng","g1-math",
     "grade2","g2-eng","g2-math","g2-sci","g2-hist",
@@ -519,11 +523,15 @@ function show(id,options={}){
 "grade7","g7-eng","g7-math","g7-sci","g7-hist",
 "grade8","g8-eng","g8-math","g8-sci","g8-hist",
 "grade9","g9-eng","g9-math","g9-sci","g9-hist",
-"grade10","g10-eng","g10-math","g10-sci","g10-hist",
+"grade10","g10-eng","g10-math","g10-sci","g10-hist","grade11","grade12",
 "lessonRunner",
 
   ];
   sections.forEach(s=>{ const el = $(s); if(el) el.classList.toggle("d-none", s!==id); });
+  const selectedGradeMatch=id.match(/^grade(\d+)$/);
+  if(selectedGradeMatch) learnMasterStore?.setItem("learnmaster_selected_grade_v1",selectedGradeMatch[1]);
+  if(id==="prek") learnMasterStore?.setItem("learnmaster_selected_grade_v1","0");
+  if(id==="kinder") learnMasterStore?.setItem("learnmaster_selected_grade_v1","0");
   safeClick();
   window.scrollTo(0,0);
   if(id==="shop") renderShop();
@@ -531,21 +539,24 @@ function show(id,options={}){
   if(id==="reading" && !$("readingPanel")?.innerHTML.trim()) renderReadingHome();
   if(id==="settings") renderSettings();
   if(id==="analysis") renderAnalysis();
+  if(id==="grades") renderGradeProgressSummary();
+  if(id==="tutorAssignments") renderTutorAssignments();
   if(id==="addUserPage" && $("addUserCount")) $("addUserCount").textContent = String(learnerCount());
 }
 
 const COMMUNITY_TUTOR_SAMPLES=[
   {id:"11111111-1111-4111-8111-111111111111",name:"Alicia Morgan",qualification:"B.Ed. Elementary Education · 8 years teaching",photo_url:"images/tutors/alicia-morgan.svg",availability:"Mon–Thu, 4:00–7:00 PM",subjects:["English and reading","Math","Homework support"],grade_levels:["Pre-K","Kindergarten","Grade 1","Grade 2","Grade 3","Grade 4","Grade 5"],formats:["local","online"]},
-  {id:"22222222-2222-4222-8222-222222222222",name:"Marcus Reed",qualification:"M.A. Reading Education · Certified reading specialist",photo_url:"images/tutors/marcus-reed.svg",availability:"Tue, Thu, and Sat mornings",subjects:["English and reading","Homework support"],grade_levels:["Kindergarten","Grade 1","Grade 2","Grade 3","Grade 4","Grade 5","Grade 6","Grade 7","Grade 8","Grade 9","Grade 10"],formats:["online"]},
-  {id:"33333333-3333-4333-8333-333333333333",name:"Priya Shah",qualification:"B.S. Biology · STEM tutor and science coach",photo_url:"images/tutors/priya-shah.svg",availability:"Weekdays, 5:00–8:00 PM",subjects:["Math","Science","Homework support"],grade_levels:["Grade 3","Grade 4","Grade 5","Grade 6","Grade 7","Grade 8","Grade 9","Grade 10"],formats:["local","online"]},
-  {id:"44444444-4444-4444-8444-444444444444",name:"Elena Torres",qualification:"M.Ed. Curriculum & Instruction · Social studies teacher",photo_url:"images/tutors/elena-torres.svg",availability:"Mon, Wed, Fri, and Sunday afternoons",subjects:["History and social studies","English and reading","Homework support"],grade_levels:["Grade 2","Grade 3","Grade 4","Grade 5","Grade 6","Grade 7","Grade 8","Grade 9","Grade 10"],formats:["local","online"]}
+  {id:"22222222-2222-4222-8222-222222222222",name:"Marcus Reed",qualification:"M.A. Reading Education · Certified reading specialist",photo_url:"images/tutors/marcus-reed.svg",availability:"Tue, Thu, and Sat mornings",subjects:["English and reading","Homework support"],grade_levels:["Kindergarten","Grade 1","Grade 2","Grade 3","Grade 4","Grade 5","Grade 6","Grade 7","Grade 8","Grade 9","Grade 10","Grade 11","Grade 12"],formats:["online"]},
+  {id:"33333333-3333-4333-8333-333333333333",name:"Priya Shah",qualification:"B.S. Biology · STEM tutor and science coach",photo_url:"images/tutors/priya-shah.svg",availability:"Weekdays, 5:00–8:00 PM",subjects:["Math","Science","Homework support"],grade_levels:["Grade 3","Grade 4","Grade 5","Grade 6","Grade 7","Grade 8","Grade 9","Grade 10","Grade 11","Grade 12"],formats:["local","online"]},
+  {id:"44444444-4444-4444-8444-444444444444",name:"Elena Torres",qualification:"M.Ed. Curriculum & Instruction · Social studies teacher",photo_url:"images/tutors/elena-torres.svg",availability:"Mon, Wed, Fri, and Sunday afternoons",subjects:["History and social studies","English and reading","Homework support"],grade_levels:["Grade 2","Grade 3","Grade 4","Grade 5","Grade 6","Grade 7","Grade 8","Grade 9","Grade 10","Grade 11","Grade 12"],formats:["local","online"]},
+  {id:"55555555-5555-4555-8555-555555555555",name:"Daniel Kim",qualification:"M.S. Mathematics · SAT and ACT quantitative coach",photo_url:"",availability:"Evenings and Saturday afternoons",subjects:["Math","Homework support"],grade_levels:["Grade 6","Grade 7","Grade 8","Grade 9","Grade 10","Grade 11","Grade 12"],formats:["online"]},
+  {id:"66666666-6666-4666-8666-666666666666",name:"Nia Brooks",qualification:"B.A. English · Writing and college-readiness tutor",photo_url:"",availability:"Mon–Fri, 3:30–6:30 PM",subjects:["English and reading","Homework support"],grade_levels:["Grade 5","Grade 6","Grade 7","Grade 8","Grade 9","Grade 10","Grade 11","Grade 12"],formats:["local","online"]},
+  {id:"77777777-7777-4777-8777-777777777777",name:"Owen Patel",qualification:"M.S. Physics · Algebra, calculus, and physics tutor",photo_url:"",availability:"Tuesday, Thursday, and Sunday",subjects:["Math","Science"],grade_levels:["Grade 8","Grade 9","Grade 10","Grade 11","Grade 12"],formats:["online"]},
+  {id:"88888888-8888-4888-8888-888888888888",name:"Grace Okafor",qualification:"B.Ed. Early Childhood Education · Literacy specialist",photo_url:"",availability:"Weekday mornings and Saturday",subjects:["English and reading","Math","Homework support"],grade_levels:["Pre-K","Kindergarten","Grade 1","Grade 2","Grade 3"],formats:["local","online"]},
+  {id:"99999999-9999-4999-8999-999999999999",name:"Luis Hernandez",qualification:"M.A. History · Civics and essay-writing instructor",photo_url:"",availability:"Wednesday–Sunday evenings",subjects:["History and social studies","English and reading"],grade_levels:["Grade 6","Grade 7","Grade 8","Grade 9","Grade 10","Grade 11","Grade 12"],formats:["local","online"]},
+  {id:"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",name:"Sofia Bennett",qualification:"M.Ed. Special Education · Individual learning support",photo_url:"",availability:"Flexible weekday appointments",subjects:["English and reading","Math","Homework support"],grade_levels:["Kindergarten","Grade 1","Grade 2","Grade 3","Grade 4","Grade 5","Grade 6","Grade 7","Grade 8"],formats:["online"]}
 ];
 let activeTutorSearch=null;
-
-function tutorOutsideSearchUrl(search){
-  const formatWords=search.format==="online"?"online":"near me";
-  return `https://www.google.com/search?q=${encodeURIComponent(`${search.grade} ${search.subject} tutor ${formatWords}`)}`;
-}
 
 function findTutorOptions(event){
   event?.preventDefault?.();
@@ -555,32 +566,29 @@ function findTutorOptions(event){
   const goal=String($("tutorGoal")?.value||"").trim();
   const results=$("tutorFinderResults");
   if(!grade||!subject||!results) return;
-  activeTutorSearch={grade,subject,format,goal};
+  const requestedSearch={grade,subject,format,goal};
+  activeTutorSearch=requestedSearch;
   results.innerHTML="";
   const heading=document.createElement("h2");
-  heading.textContent="Your tutor search is ready";
+  heading.textContent="Looking for available tutors";
   const summary=document.createElement("p");
   summary.textContent=`${grade} · ${subject} · ${format==="online"?"Online":"In person"}${goal?` · Goal: ${goal}`:""}`;
-  const actions=document.createElement("div");
-  actions.className="tutor-search-actions";
-  const communityButton=document.createElement("button");
-  communityButton.type="button";
-  communityButton.className="btn btn-main";
-  communityButton.textContent="Search within the community";
-  communityButton.onclick=()=>searchCommunityTutors(activeTutorSearch,communityButton);
-  const outsideLink=document.createElement("a");
-  outsideLink.className="btn tutor-outside-search";
-  outsideLink.href=tutorOutsideSearchUrl(activeTutorSearch);
-  outsideLink.target="_blank";
-  outsideLink.rel="noopener noreferrer";
-  outsideLink.textContent="Search outside the community";
+  const loading=document.createElement("div");
+  loading.className="tutor-search-loading";
+  loading.innerHTML='<span aria-hidden="true"></span><b>Searching the LearnMaster community…</b><small>Matching subject, grade, format, and availability</small>';
   const matches=document.createElement("div");
   matches.id="communityTutorMatches";
   matches.className="community-tutor-matches";
-  actions.append(communityButton,outsideLink);
-  results.append(heading,summary,actions,matches);
+  results.append(heading,summary,loading,matches);
   results.hidden=false;
   results.scrollIntoView({behavior:"smooth",block:"nearest"});
+  setTimeout(async()=>{
+    if(activeTutorSearch!==requestedSearch) return;
+    const tutors=await loadCommunityTutors(requestedSearch);
+    loading.remove();
+    heading.textContent="Available community tutors";
+    renderCommunityTutors(tutors,requestedSearch,matches);
+  },3000);
 }
 
 function tutorMatchesSearch(tutor,search){
@@ -609,15 +617,6 @@ async function loadCommunityTutors(search){
   return COMMUNITY_TUTOR_SAMPLES.filter(tutor=>tutorMatchesSearch(tutor,search));
 }
 
-async function searchCommunityTutors(search,button){
-  const matches=$("communityTutorMatches");
-  if(!search||!matches) return;
-  if(button){ button.disabled=true; button.textContent="Searching community…"; }
-  const tutors=await loadCommunityTutors(search);
-  renderCommunityTutors(tutors,search,matches);
-  if(button){ button.disabled=false; button.textContent="Search within the community"; }
-}
-
 function renderCommunityTutors(tutors,search,matches){
   matches.innerHTML="";
   const heading=document.createElement("h3");
@@ -625,7 +624,7 @@ function renderCommunityTutors(tutors,search,matches){
   matches.appendChild(heading);
   if(!tutors.length){
     const empty=document.createElement("p");
-    empty.textContent="Try another format or use Search outside the community.";
+    empty.textContent="Try another grade, subject, or tutoring format.";
     matches.appendChild(empty);
     return;
   }
@@ -639,9 +638,9 @@ function renderCommunityTutors(tutors,search,matches){
 function createTutorCard(tutor,search){
   const card=document.createElement("article");
   card.className="community-tutor-card";
-  const image=document.createElement("img");
-  image.src=tutor.photo_url||"images/learnmaster-logo-header-v2.png";
-  image.alt=`${tutor.name}, community tutor`;
+  const image=tutor.photo_url?document.createElement("img"):document.createElement("span");
+  if(tutor.photo_url){ image.src=tutor.photo_url; image.alt=`${tutor.name}, community tutor`; }
+  else{ image.className="tutor-photo-placeholder"; image.textContent=String(tutor.name||"Tutor").split(/\s+/).map(part=>part[0]).slice(0,2).join(""); image.setAttribute("aria-label",`${tutor.name}, community tutor`); }
   const content=document.createElement("div");
   const name=document.createElement("h4");
   name.textContent=tutor.name;
@@ -1334,6 +1333,11 @@ g2:{
   }
 }
 
+Object.entries(window.LearnMasterOriginalStories||{}).forEach(([gradeId,storyGrade])=>{
+  if(!READING_LIBRARY[gradeId]) READING_LIBRARY[gradeId]={title:storyGrade.title,subjects:{}};
+  READING_LIBRARY[gradeId].subjects.stories=storyGrade.subjects.stories;
+});
+
 function readingButton(label, action){
   const b = document.createElement("button");
   b.type = "button";
@@ -1371,12 +1375,13 @@ function readingViewHeader(step, title, description, backLabel=""){
 function renderReadingHome(){
   const panel = $("readingPanel");
   if(!panel) return;
+  const readingGradeOrder=["prek","k",...Array.from({length:12},(_,index)=>`g${index+1}`)].filter(id=>READING_LIBRARY[id]);
   panel.innerHTML = `
-    ${readingViewHeader(1, "Choose your grade", `${Object.keys(READING_LIBRARY).length} grade levels available`)}
+    ${readingViewHeader(1, "Choose your grade", `${readingGradeOrder.length} grade levels available · 10 original stories in every grade`)}
     <div class="reading-grid" id="readingGrid"></div>
   `;
   const grid = $("readingGrid");
-  Object.keys(READING_LIBRARY).forEach(gradeId=>{
+  readingGradeOrder.forEach(gradeId=>{
     const grade = READING_LIBRARY[gradeId];
     const card = document.createElement("div");
     card.className = "reading-card reading-grade-card";
@@ -1812,6 +1817,14 @@ function renderAnalysis(){
   const nextGoal = state.points >= 20
     ? "Ready to convert 20 points into 5 Learners."
     : `${pointsToConvert} more point${pointsToConvert === 1 ? "" : "s"} until the next conversion.`;
+  const levels=estimateLearnerLevels(stats,accuracy);
+  const collegePossibilities=levels.currentGrade>=9?`
+    <section class="college-possibilities">
+      <span>HIGH SCHOOL PLANNING</span><h2>Colleges you <em>could</em> work toward</h2>
+      <p>This is an exploration—not an admission prediction. Actual decisions depend on courses, grades, test policies, activities, essays, recommendations, finances, and each college's current requirements.</p>
+      <div><article><b>Open-access pathways</b><small>Community colleges and transfer programs can offer flexible entry and strong career pathways.</small></article><article><b>Regional universities</b><small>Consistent coursework and a balanced application could support many public and private options.</small></article><article><b>More selective colleges</b><small>Strong grades, challenging courses, meaningful activities, and thoughtful applications could broaden possibilities.</small></article></div>
+      <button type="button" class="btn btn-main" onclick="show('testPrep')">Open SAT, ACT &amp; STAAR prep</button>
+    </section>`:"";
   panel.innerHTML = `
     <div class="analysis-head progress-hero">
       <div class="progress-hero-copy">
@@ -1841,6 +1854,13 @@ function renderAnalysis(){
       </article>
     </div>
 
+    <div class="learner-level-grid">
+      <article><span>READING LEVEL ESTIMATE</span><b>Grade ${levels.reading}</b><p>Based on reading activity and answer accuracy.</p></article>
+      <article><span>MATH LEVEL ESTIMATE</span><b>Grade ${levels.math}</b><p>Based on completed lessons and answer accuracy.</p></article>
+      <article><span>CURRENT SELECTED GRADE</span><b>Grade ${levels.currentGrade}</b><p>Change this by opening another grade from Select Grade.</p></article>
+    </div>
+    ${collegePossibilities}
+
     <div class="analysis-grid">
       <div class="metric-card metric-purple"><small>STAR POWER</small><b>${state.points}</b><span>Points</span></div>
       <div class="metric-card metric-blue"><small>REWARD BALANCE</small><b>${state.learners}</b><span>Learners</span></div>
@@ -1858,6 +1878,38 @@ function renderAnalysis(){
       <article><span>LATEST LESSON</span><strong>${stats.lastLesson?htmlSafe(stats.lastLesson):"Your next lesson starts the story"}</strong><p>${stats.lastLesson?"Nice work finishing this one.":"Choose a grade to begin."}</p></article>
     </div>
   `;
+}
+
+function estimateLearnerLevels(stats,accuracy){
+  const currentGrade=Math.max(1,Math.min(12,Number(learnMasterStore?.getItem("learnmaster_selected_grade_v1")||getActiveKid()?.gradeLevel||1)));
+  const readingBoost=stats.readingMinutes>=300&&accuracy>=85?1:(accuracy<55?-1:0);
+  const mathBoost=stats.lessonsCompleted>=20&&accuracy>=85?1:(accuracy<55?-1:0);
+  return {currentGrade,reading:Math.max(1,Math.min(12,currentGrade+readingBoost)),math:Math.max(1,Math.min(12,currentGrade+mathBoost))};
+}
+
+function renderGradeProgressSummary(){
+  const wrap=$("gradeProgressSummary");
+  if(!wrap) return;
+  const stats=ensureStats();
+  const attempts=stats.correct+stats.wrong;
+  const accuracy=attempts?Math.round(stats.correct/attempts*100):0;
+  const levels=estimateLearnerLevels(stats,accuracy);
+  wrap.innerHTML=`<article class="suggested-lesson-card"><span>READING</span><h3>Grade ${levels.reading} level</h3><p>${stats.readingMinutes} reading minutes recorded</p></article><article class="suggested-lesson-card"><span>MATH</span><h3>Grade ${levels.math} level</h3><p>${stats.lessonsCompleted} lessons completed</p></article><article class="suggested-lesson-card"><span>ACCURACY</span><h3>${attempts?accuracy+"%":"Start learning"}</h3><p>${attempts?attempts+" answers reviewed":"Complete a lesson to build your report"}</p></article>`;
+}
+
+async function renderTutorAssignments(){
+  const panel=$("tutorAssignmentsPanel");
+  if(!panel) return;
+  panel.innerHTML='<div class="tutor-assignment-loading">Checking for tutor assignments…</div>';
+  const client=window.learnMasterSupabase;
+  let assignments=[];
+  if(client){
+    try{
+      const {data,error}=await client.from("learnmaster_tutor_assignments").select("id,title,subject,instructions,due_on,status").order("created_at",{ascending:false});
+      if(!error&&Array.isArray(data)) assignments=data;
+    }catch(error){}
+  }
+  panel.innerHTML=assignments.length?`<div class="tutor-assignment-grid">${assignments.map(item=>`<article><span>${htmlSafe(item.subject)}</span><h2>${htmlSafe(item.title)}</h2><p>${htmlSafe(item.instructions)}</p><small>${item.due_on?`Due ${htmlSafe(item.due_on)}`:"No due date"}</small></article>`).join("")}</div>`:'<div class="empty-assignment-card"><span>NO ASSIGNMENTS YET</span><h2>Your tutor workspace is clear.</h2><p>When a connected tutor shares practice or a note, it will appear here.</p><button type="button" class="btn btn-main" onclick="show(\'tutorFinder\')">Find a community tutor</button></div>';
 }
 
 /* ===========================
