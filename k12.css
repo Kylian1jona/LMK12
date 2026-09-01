@@ -4949,6 +4949,7 @@ k12-main-nav{position:sticky;top:0;z-index:1035;display:block}
   gap:10px;
   margin-top:22px;
 }
+.auth-actions .auth-tutor-signup{grid-column:1/-1}
 
 #loginWall .auth-actions .btn{
   min-height:48px;
@@ -5876,6 +5877,8 @@ body #lessonRunner #lrImageFrame:not(.d-none) #lrImage{display:block!important;v
 
 /* Grades 11–12 and assessment preparation. */
 .senior-grade-shell,.test-prep-shell{max-width:1120px;margin:auto;padding:clamp(24px,5vw,56px)!important}.senior-grade-head>span,.test-prep-shell>header>span{color:#6f52ed;font-size:12px;font-weight:900;letter-spacing:.14em}.senior-grade-head h1,.test-prep-shell>header h1{margin:8px 0;color:#38267f;font:800 clamp(38px,6vw,62px)/1 "Baloo 2",cursive}.senior-path-grid,.test-prep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:30px}.senior-path-grid button,.test-prep-grid article{padding:24px;border:2px solid #ded7ff;border-radius:22px;background:#fbfaff;text-align:left}.senior-path-grid button{display:grid;gap:5px}.senior-path-grid span,.test-prep-grid article>span{color:#6f52ed;font-size:11px;font-weight:900;letter-spacing:.12em}.senior-path-grid b{color:#2d2354;font-size:22px}.test-prep-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.test-prep-grid h2{color:#2d2354;font:800 27px/1.05 "Baloo 2",cursive}.test-prep-grid li{margin:8px 0;color:#526476}.test-prep-grid button{min-height:44px;border:0;border-radius:12px;background:#6f52ed;color:#fff;font-weight:800}.prep-note{margin-top:20px;padding:18px;border-radius:16px;background:#fff5cf;color:#634e0d}
+.test-prep-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.reading-passage.is-poetry p{white-space:pre-line;text-align:center;font-style:italic;line-height:1.9}
 .learner-level-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin:20px 0}.learner-level-grid article{padding:22px;border:1px solid #d9e6e5;border-radius:20px;background:#fff}.learner-level-grid span,.college-possibilities>span{color:#6f52ed;font-size:11px;font-weight:900;letter-spacing:.12em}.learner-level-grid b{display:block;margin:8px 0;color:#17324d;font:800 31px/1 "Baloo 2",cursive}.college-possibilities{margin:22px 0;padding:28px;border:2px solid #dcd3ff;border-radius:24px;background:#f8f6ff}.college-possibilities h2{color:#38267f;font:800 34px/1.1 "Baloo 2",cursive}.college-possibilities h2 em{text-decoration:underline;text-decoration-color:#f2a900}.college-possibilities>div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}.college-possibilities article{display:grid;gap:6px;padding:17px;border-radius:15px;background:#fff}.college-possibilities small{color:#5d6d7d;line-height:1.45}
 
 /* Tutor Studio is deliberately separate from the K-12 visual system. */

@@ -5,61 +5,90 @@
     ["g7","Grade 7",8],["g8","Grade 8",9],["g9","Grade 9",10],["g10","Grade 10",11],
     ["g11","Grade 11",12],["g12","Grade 12",13]
   ];
-  const seeds=[
-    {title:"The Lantern in the Rain",hero:"Mina",place:"a rain-soaked neighborhood",goal:"return a lost lantern to its owner",challenge:"the street signs had blown sideways",choice:"ask neighbors to compare their memories of the block",result:"the lantern reached an elderly gardener who used it every evening",theme:"A careful question can light the way forward.",deeper:"Mina realized that solving the problem depended less on moving quickly than on listening closely. Each neighbor held only part of the route, but their accounts formed a reliable map when considered together."},
-    {title:"Theo and the Quiet Garden",hero:"Theo",place:"a crowded apartment courtyard",goal:"help a wilted community garden",challenge:"everyone offered a different explanation for the dry soil",choice:"record sunlight, water, and soil conditions for one week",result:"the neighbors changed the watering plan and the seedlings recovered",theme:"Observation turns guesses into useful evidence.",deeper:"The garden became a shared experiment. Rather than treating the first explanation as certain, Theo invited the group to revise its ideas as new evidence appeared."},
-    {title:"The Blue Kite Promise",hero:"Amara",place:"a windy hill above town",goal:"repair a kite she had promised to share",challenge:"the frame cracked just before the festival",choice:"use spare reeds and ask a younger child to test each knot",result:"the kite flew steadily and two new friends guided its string",theme:"Keeping a promise may require patience and cooperation.",deeper:"Amara's promise changed from a private obligation into a public act of trust. The repaired kite mattered, but the way she included others mattered more."},
-    {title:"A Map for Monday",hero:"Jonah",place:"a busy school",goal:"help a new student find every classroom",challenge:"the official map left out a recently opened hallway",choice:"walk the route, mark landmarks, and invite feedback",result:"the new map helped the whole school move more confidently",theme:"Useful designs improve when real people test them.",deeper:"Jonah learned that accuracy is not simply a feature of a document; it is a responsibility to the people who depend on it. Revision made the map more humane as well as more precise."},
-    {title:"The Clockmaker's Sparrow",hero:"Leila",place:"her grandfather's clock shop",goal:"discover why a wooden sparrow no longer appeared at noon",challenge:"every gear seemed correct when examined alone",choice:"study how the gears transferred motion as a system",result:"a tiny loose pin was secured and the sparrow returned",theme:"Small connections can shape an entire system.",deeper:"The repair showed Leila the limits of examining parts in isolation. Function emerged from relationships, timing, and the transfer of force across the mechanism."},
-    {title:"River of Paper Boats",hero:"Caleb",place:"a park beside a narrow creek",goal:"trace where litter entered the water",challenge:"the debris appeared after storms but had many possible sources",choice:"map drains, interview caretakers, and compare rainfall records",result:"the community installed filters and reduced waste upstream",theme:"Lasting solutions begin by finding causes, not hiding effects.",deeper:"Caleb's investigation revealed that visible pollution was the endpoint of decisions made throughout the watershed. The creek connected households that rarely thought of themselves as neighbors."},
-    {title:"The Library After Sunset",hero:"Sana",place:"a small coastal library",goal:"save books before a rising tide reached the lower shelves",challenge:"there was little time and no single person could move everything",choice:"organize volunteers by shelf, weight, and safe exit route",result:"the collection was moved and a stronger emergency plan followed",theme:"Clear plans help courage become effective action.",deeper:"Urgency could easily have produced confusion. Sana's calm division of labor turned individual concern into coordinated action without ignoring anyone's safety."},
-    {title:"The Robot That Asked Why",hero:"Eli",place:"a regional science fair",goal:"teach a robot to sort recyclable materials",challenge:"the robot repeated errors when objects were dirty or crushed",choice:"expand the examples and document uncertainty instead of hiding it",result:"the robot improved and the judges praised the honest explanation",theme:"Good inventions acknowledge limits and learn from mistakes.",deeper:"Eli rejected the temptation to present accuracy as perfection. By describing uncertainty, he made the project more trustworthy and created a clearer path for future improvement."},
-    {title:"Voices Across the Bridge",hero:"Rosa",place:"two neighborhoods divided by an old bridge",goal:"design a mural both communities would value",challenge:"each group remembered the bridge's history differently",choice:"collect oral histories and preserve disagreements alongside shared hopes",result:"the mural became a layered record rather than a single simple story",theme:"A community grows stronger when many perspectives remain visible.",deeper:"Rosa discovered that unity did not require erasing conflict. The mural could hold competing memories while still expressing a commitment to a shared future."},
-    {title:"The Last Seat on the Observatory Bus",hero:"Noah",place:"a mountain observatory",goal:"decide who should receive the final student research seat",challenge:"several candidates had different strengths and unequal access to prior opportunities",choice:"create transparent criteria and add remote roles for the full team",result:"the project gained a diverse crew and produced stronger observations",theme:"Fair decisions consider both standards and opportunity.",deeper:"The team distinguished equality from equity: identical treatment would not address unequal starting points. Transparent reasoning made the decision open to challenge and revision."}
+  const gradeWorlds=["Button Meadow","Sunbeam Lane","Acorn School","Willow Creek","Copper Hill","Juniper Harbor","Moonstone Park","Redwood Crossing","Glasswater City","Orchard Station","Northwind Province","Ashen Coast","Crown Vale","The Meridian Isles"];
+  const heroes=["Mina","Theo","Amara","Jonah","Leila","Caleb","Sana","Eli","Rosa","Noah","Imani","Mateo","Zara","Darius"];
+  const pieces=[
+    {genre:"Animal tale",base:"The Fox and the Firefly",goal:"guide a frightened fox cub home before nightfall",obstacle:"the familiar trail had disappeared beneath the rain",choice:"follow the patient flashes of a tiny firefly",ending:"happy"},
+    {genre:"Mystery",base:"The Door Without a Key",goal:"discover who kept leaving a blue door open at dawn",obstacle:"every clue pointed toward a different neighbor",choice:"compare footprints, weather records, and witness accounts",ending:"open"},
+    {genre:"Poetry",base:"Song for a Small Tomorrow",goal:"listen for hope after a difficult day",obstacle:"the sky seemed too gray for any promise",choice:"collect small sounds and turn them into a poem",ending:"hopeful",poem:true},
+    {genre:"Diary",base:"Pages from the Moving Train",goal:"say goodbye to a town that had always felt like home",obstacle:"every passing window held a memory",choice:"write honestly about excitement and grief together",ending:"bittersweet"},
+    {genre:"Historical tale",base:"The Bell of the Old Watch",goal:"carry a warning across an ancient walled town",obstacle:"the gatekeepers doubted a young messenger",choice:"speak with courage and present the seal entrusted to them",ending:"triumphant",archaic:true},
+    {genre:"Science fiction",base:"The Last Garden on Mars",goal:"protect the colony's final living apple tree",obstacle:"a broken seal was slowly draining the greenhouse air",choice:"use the last repair patch even though the return craft needed it",ending:"sad"},
+    {genre:"Comedy",base:"When the Principal Became a Penguin",goal:"keep school running during a very unusual Monday",obstacle:"the principal could only honk during morning announcements",choice:"let students solve each ridiculous problem as a team",ending:"happy"},
+    {genre:"Letter",base:"A Letter Left at Low Tide",goal:"answer a message found inside a weathered bottle",obstacle:"the writer might have lived many years ago",choice:"research the names in the letter and write back anyway",ending:"reflective"},
+    {genre:"Ballad",base:"The Ballad of the Empty Chair",goal:"remember a friend who would not return",obstacle:"the celebration felt incomplete without them",choice:"sing both the joy they gave and the sorrow they left",ending:"sad",poem:true,archaic:true},
+    {genre:"Realistic fiction",base:"The Vote at Cedar Hall",goal:"help a neighborhood decide what to build on an empty lot",obstacle:"every proposal helped someone while costing someone else",choice:"make the tradeoffs public and invite quieter voices to speak",ending:"uncertain"}
   ];
-  const enrichments=[
-    "The next morning, the hero wrote down what had happened so the lesson would not be forgotten.",
-    "A friend questioned the first plan, and that respectful disagreement revealed a detail everyone else had missed.",
-    "The group compared two possible solutions, considering time, safety, cost, and the people each choice would affect.",
-    "Evidence changed the direction of the work. Instead of defending an early guess, the team treated revision as a sign of stronger thinking.",
-    "The experience raised a broader question about responsibility: when a problem belongs to a whole community, who should act first and who should be heard?",
-    "Looking back, the hero recognized that the final outcome depended on a chain of decisions rather than one dramatic moment.",
-    "The story also exposes a tension between efficiency and inclusion. A faster choice might have produced an answer, but a more deliberate process produced trust.",
-    "From another perspective, the solution remained incomplete. Future leaders would need to test whether its benefits lasted and whether unexpected costs appeared.",
-    "The central conflict therefore operates on two levels: an immediate practical obstacle and a deeper challenge involving knowledge, power, and shared obligation.",
-    "The conclusion resists certainty. Progress is real, yet it depends on continued attention, transparent evidence, and a willingness to revise the systems people inherit."
+  const reflections=[
+    "The first answer proved incomplete, so the group revised its plan instead of hiding the mistake.",
+    "A respectful disagreement uncovered evidence that everyone had overlooked.",
+    "The decision affected people who were not in the room, and their absence became part of the moral problem.",
+    "Memory altered the way each witness described the same event, though none of them intended to lie.",
+    "What appeared efficient at first became less convincing when fairness and long-term consequences were considered.",
+    "No single person caused the crisis, yet each person still had some power to respond.",
+    "Later evidence complicated the victory and required the community to revise the story it told about itself.",
+    "The narrator recognized that uncertainty was not failure; it was an honest limit on what the evidence could prove.",
+    "The conflict joined a practical problem to a deeper question about loyalty, responsibility, and belonging.",
+    "Years later, people still disagreed about the choice, but they understood more clearly what had been at stake."
   ];
 
-  function earlyStory(seed,level){
-    const short=[
-      `${seed.hero} had a job. ${seed.hero} wanted to ${seed.goal}.`,
-      `A problem came. ${seed.challenge.charAt(0).toUpperCase()+seed.challenge.slice(1)}.`,
-      `${seed.hero} made a good choice. The friends helped.`,
-      `${seed.result.charAt(0).toUpperCase()+seed.result.slice(1)}. ${seed.theme}`
-    ];
-    return [short.slice(0,level===0?2:4).join(" ")];
+  function outcome(piece,hero){
+    const endings={
+      happy:`The plan worked. ${hero} returned to cheering friends, and the next morning felt brighter than the one before.`,
+      hopeful:`Nothing was perfect yet, but ${hero} noticed one clear reason to begin again.`,
+      open:`At sunset, one unexplained clue remained on the step. ${hero} closed the notebook, knowing the mystery was not finished.`,
+      bittersweet:`The new place offered wonder, but the old town slipped beyond the horizon. ${hero} smiled through tears and kept both feelings.`,
+      triumphant:`The warning arrived in time, and the bells answered from tower to tower until the danger had passed.`,
+      sad:`The people survived, but the little tree did not. They saved its seeds and named the silent greenhouse after it.`,
+      reflective:`No reply ever came. Still, the act of answering made the forgotten writer feel briefly present again.`,
+      uncertain:`The vote settled what would be built, not whether the choice was right. That question belonged to the years ahead.`
+    };
+    return endings[piece.ending];
   }
-  function storyFor(seed,level,index){
-    if(level<2) return {title:seed.title,body:earlyStory(seed,level)};
-    const opening=`${seed.hero} lived near ${seed.place} and hoped to ${seed.goal}. At first, the task seemed manageable, but ${seed.challenge}. The obstacle forced ${seed.hero} to slow down and notice details that had been easy to overlook.`;
-    const action=`After considering several ideas, ${seed.hero} chose to ${seed.choice}. The decision required patience, cooperation, and a willingness to change course when the evidence did not support the first plan.`;
-    const ending=`In the end, ${seed.result}. ${seed.theme} ${seed.deeper}`;
-    const extraCount=Math.max(0,Math.min(enrichments.length,level-3));
-    const extras=Array.from({length:extraCount},(_,offset)=>enrichments[(index+offset)%enrichments.length]);
-    const paragraphs=[opening];
-    if(level>=3) paragraphs.push(action);
-    if(extras.length){
-      const midpoint=Math.ceil(extras.length/2);
-      paragraphs.push(extras.slice(0,midpoint).join(" "));
-      if(extras.length>midpoint) paragraphs.push(extras.slice(midpoint).join(" "));
-    }
-    paragraphs.push(ending);
-    return {title:seed.title,body:paragraphs};
+
+  function poemFor(piece,level,hero,world,index){
+    const old=piece.archaic&&level>=10;
+    const lines=piece.ending==="sad"
+      ? ["One chair waits where laughter grew,","One cup keeps the evening dew,",old?"Though thou art gone beyond our sight,":"Though you are gone beyond our sight,","We bear your kindness through the night."]
+      : ["A sparrow taps the silver rain,","The daylight folds, then wakes again,",old?"Lift thou thy hope, though shadows stay,":"Hold one small hope through clouds of gray,","A quiet song can find the day."];
+    const stanzas=[`${hero} heard a poem in ${world}:\n${lines.join("\n")}`];
+    if(level>=4) stanzas.push(`The repeated images of light and absence gave the poem two emotions at once. Its rhyme made the words memorable, but its meaning depended on contrast rather than sound alone.`);
+    for(let i=0;i<Math.min(8,Math.max(0,level-5));i++) stanzas.push(reflections[(index+i)%reflections.length]);
+    return stanzas;
+  }
+
+  function earlyPiece(piece,hero){
+    if(piece.poem) return [`Rain can fall.\nBirds can sing.\n${hero} waits.\nHope takes wing.`];
+    const mood=piece.ending==="sad"?"The tree could not stay. They saved its seeds.":piece.ending==="happy"?"The friends helped. It ended well.":"They wondered what might happen next.";
+    return [`${hero} had a job. ${hero} wanted to ${piece.goal}. A problem came. ${piece.obstacle.charAt(0).toUpperCase()+piece.obstacle.slice(1)}. ${mood}`];
+  }
+
+  function proseFor(piece,level,hero,world,index){
+    if(level<2) return earlyPiece(piece,hero);
+    const old=piece.archaic&&level>=10;
+    const opening=old
+      ? `In the elder quarter of ${world}, ${hero} was charged to ${piece.goal}. “Thou hast little time,” warned the keeper, “and the road shall not bend merely because thy purpose is just.” Soon, ${piece.obstacle}.`
+      : `In ${world}, ${hero} hoped to ${piece.goal}. The task seemed possible until ${piece.obstacle}. That obstacle forced ${hero} to slow down and notice what an easier plan would have ignored.`;
+    const action=old
+      ? `${hero} answered, “If thou wilt hear me, judge not my years but the evidence I bear.” Then ${hero} chose to ${piece.choice}, accepting that courage could not guarantee a gentle ending.`
+      : `After weighing several possibilities, ${hero} chose to ${piece.choice}. The choice required patience, cooperation, and a willingness to change direction when new evidence appeared.`;
+    const paragraphs=[opening,action];
+    for(let i=0;i<Math.min(reflections.length,Math.max(0,level-3));i++) paragraphs.push(reflections[(index*2+i)%reflections.length]);
+    paragraphs.push(outcome(piece,hero));
+    return paragraphs;
+  }
+
+  function makePiece(piece,level,index,world){
+    const hero=heroes[(level*3+index)%heroes.length];
+    const title=`${piece.base} of ${world}`;
+    const body=piece.poem?poemFor(piece,level,hero,world,index):proseFor(piece,level,hero,world,index);
+    return {title,genre:piece.genre,endingTone:piece.ending,body};
   }
 
   const library={};
   grades.forEach(([id,title,level])=>{
-    library[id]={title,subjects:{stories:{title:"Original Stories",topics:seeds.map((seed,index)=>storyFor(seed,level,index))}}};
+    const world=gradeWorlds[level];
+    library[id]={title,subjects:{stories:{title:"Stories, Poems & More",topics:pieces.map((piece,index)=>makePiece(piece,level,index,world))}}};
   });
   window.LearnMasterOriginalStories=Object.freeze(library);
 })();

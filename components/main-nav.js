@@ -38,6 +38,7 @@
     <button type="button" onclick="navigateFromAppMenu('home')">Home</button>
     <button type="button" onclick="navigateFromAppMenu('grades')">Select Grade</button>
     <button type="button" onclick="navigateFromAppMenu('reading')">Reading</button>
+    <button type="button" onclick="navigateFromAppMenu('testPrep')">Test Prep</button>
     <button type="button" onclick="navigateFromAppMenu('tutorAssignments')">Tutor Assignments</button>
     <button type="button" onclick="navigateFromAppMenu('shop')">Shop</button>
     <button type="button" onclick="navigateFromAppMenu('settings')">Settings</button>
@@ -72,13 +73,14 @@
       <button type="button" onclick="navigateFromAppMenu('home')"><span>01</span><div><b>Home</b><small>Your daily starting point</small></div></button>
       <button type="button" onclick="navigateFromAppMenu('grades')"><span>02</span><div><b>Grade library</b><small>Pre-K through Grade 12</small></div></button>
       <button type="button" onclick="navigateFromAppMenu('reading')"><span>03</span><div><b>Reading room</b><small>Passages and practice</small></div></button>
-      <button type="button" onclick="navigateFromAppMenu('tutorAssignments')"><span>04</span><div><b>Tutor assignments</b><small>Practice and tutor notes</small></div></button>
-      <button type="button" onclick="navigateFromAppMenu('shop')"><span>05</span><div><b>Rewards shop</b><small>Spend Learners on toys</small></div></button>
-      <button type="button" onclick="navigateFromAppMenu('settings')"><span>06</span><div><b>Settings</b><small>Profile and learning preferences</small></div></button>
-      <button type="button" onclick="showPaywall();toggleAppNavigation(false)"><span>07</span><div><b>Subscription</b><small>Plans and family access</small></div></button>
-      <button type="button" class="is-disabled" onclick="navigateFromAppMenu('playground')"><span>08</span><div><b>Playground</b><small>Coming soon</small></div></button>
-      <button type="button" onclick="navigateFromAppMenu('worksheets')"><span>09</span><div><b>Worksheets</b><small>Being built</small></div></button>
-      <button type="button" class="is-disabled" aria-disabled="true" onclick="toast('Awards are coming soon!')"><span>10</span><div><b>Awards</b><small>Coming soon</small></div></button>
+      <button type="button" onclick="navigateFromAppMenu('testPrep')"><span>04</span><div><b>Test preparation</b><small>SAT, ACT, STAAR, and state testing</small></div></button>
+      <button type="button" onclick="navigateFromAppMenu('tutorAssignments')"><span>05</span><div><b>Tutor assignments</b><small>Practice and tutor notes</small></div></button>
+      <button type="button" onclick="navigateFromAppMenu('shop')"><span>06</span><div><b>Rewards shop</b><small>Spend Learners on toys</small></div></button>
+      <button type="button" onclick="navigateFromAppMenu('settings')"><span>07</span><div><b>Settings</b><small>Profile and learning preferences</small></div></button>
+      <button type="button" onclick="showPaywall();toggleAppNavigation(false)"><span>08</span><div><b>Subscription</b><small>Plans and family access</small></div></button>
+      <button type="button" class="is-disabled" onclick="navigateFromAppMenu('playground')"><span>09</span><div><b>Playground</b><small>Coming soon</small></div></button>
+      <button type="button" onclick="navigateFromAppMenu('worksheets')"><span>10</span><div><b>Worksheets</b><small>Being built</small></div></button>
+      <button type="button" class="is-disabled" aria-disabled="true" onclick="toast('Awards are coming soon!')"><span>11</span><div><b>Awards</b><small>Coming soon</small></div></button>
     </nav>
     <div class="lm-grade-jump">
       <span>Jump to grade</span>

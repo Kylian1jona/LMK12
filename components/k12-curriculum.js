@@ -755,6 +755,20 @@ g10: {
     L3: { name:"Chemical Bonding", gen: classicQuestionPending },
     L4: { name:"Climate Science", gen: classicQuestionPending }
   }
+},
+
+g11: {
+  eng:{showName:"Grade 11 English",L1:{name:"Literary Interpretation",gen:classicQuestionPending},L2:{name:"Argument & Research",gen:classicQuestionPending}},
+  math:{showName:"Grade 11 Math",L1:{name:"Functions & Modeling",gen:classicQuestionPending},L2:{name:"Statistics & Probability",gen:classicQuestionPending}},
+  sci:{showName:"Grade 11 Science",L1:{name:"Scientific Systems",gen:classicQuestionPending},L2:{name:"Evidence & Investigation",gen:classicQuestionPending}},
+  hist:{showName:"Grade 11 History",L1:{name:"Government & Civic Life",gen:classicQuestionPending},L2:{name:"Historical Change & Evidence",gen:classicQuestionPending}}
+},
+
+g12: {
+  eng:{showName:"Grade 12 English",L1:{name:"Literary Interpretation",gen:classicQuestionPending},L2:{name:"Argument & Research",gen:classicQuestionPending}},
+  math:{showName:"Grade 12 Math",L1:{name:"Functions & Modeling",gen:classicQuestionPending},L2:{name:"Statistics & Probability",gen:classicQuestionPending}},
+  sci:{showName:"Grade 12 Science",L1:{name:"Scientific Systems",gen:classicQuestionPending},L2:{name:"Evidence & Investigation",gen:classicQuestionPending}},
+  hist:{showName:"Grade 12 History",L1:{name:"Government & Civic Life",gen:classicQuestionPending},L2:{name:"Historical Change & Evidence",gen:classicQuestionPending}}
 }
 
  

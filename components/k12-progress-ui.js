@@ -161,6 +161,8 @@ function renderAllBadges(){
 "g8Points","g8Learners",
 "g9Points","g9Learners",
 "g10Points","g10Learners",
+"g11Points","g11Learners",
+"g12Points","g12Learners",
 "lrPoints","lrLearners",
 
     "menuPoints","menuLearners"
@@ -523,7 +525,9 @@ function show(id,options={}){
 "grade7","g7-eng","g7-math","g7-sci","g7-hist",
 "grade8","g8-eng","g8-math","g8-sci","g8-hist",
 "grade9","g9-eng","g9-math","g9-sci","g9-hist",
-"grade10","g10-eng","g10-math","g10-sci","g10-hist","grade11","grade12",
+"grade10","g10-eng","g10-math","g10-sci","g10-hist",
+"grade11","g11-eng","g11-math","g11-sci","g11-hist",
+"grade12","g12-eng","g12-math","g12-sci","g12-hist",
 "lessonRunner",
 
   ];
@@ -1424,7 +1428,7 @@ function renderReadingSubject(gradeId, subjId){
   subj.topics.forEach((topic, index)=>{
     const card = document.createElement("div");
     card.className = "reading-card reading-topic-card";
-    card.innerHTML = `<span class="reading-card-kicker">PASSAGE ${index + 1}</span><h3>${htmlSafe(topic.title)}</h3><p>${htmlSafe(topic.body[0]).slice(0, 88)}...</p>`;
+    card.innerHTML = `<span class="reading-card-kicker">${htmlSafe(topic.genre||"PASSAGE")} · ${index + 1}</span><h3>${htmlSafe(topic.title)}</h3><p>${htmlSafe(topic.body[0]).slice(0, 88)}...</p>`;
     card.appendChild(readingButton("Start reading", ()=>renderReadingTopic(gradeId, subjId, index)));
     grid.appendChild(card);
   });
@@ -1464,7 +1468,7 @@ function renderReadingTopic(gradeId, subjId, topicIndex){
         <button type="button" class="reading-stop-btn" id="readingStopBtn">Stop</button>
       </div>
     </div>
-    <article class="reading-passage">
+    <article class="reading-passage${topic.genre==="Poetry"||topic.genre==="Ballad"?" is-poetry":""}">
       <span class="reading-view-step">${htmlSafe(grade.title)} · ${htmlSafe(subj.title)}</span>
       <h2>${htmlSafe(topic.title)}</h2>
       ${topic.body.map(p=>`<p>${htmlSafe(p)}</p>`).join("")}
@@ -1823,7 +1827,7 @@ function renderAnalysis(){
       <span>HIGH SCHOOL PLANNING</span><h2>Colleges you <em>could</em> work toward</h2>
       <p>This is an exploration—not an admission prediction. Actual decisions depend on courses, grades, test policies, activities, essays, recommendations, finances, and each college's current requirements.</p>
       <div><article><b>Open-access pathways</b><small>Community colleges and transfer programs can offer flexible entry and strong career pathways.</small></article><article><b>Regional universities</b><small>Consistent coursework and a balanced application could support many public and private options.</small></article><article><b>More selective colleges</b><small>Strong grades, challenging courses, meaningful activities, and thoughtful applications could broaden possibilities.</small></article></div>
-      <button type="button" class="btn btn-main" onclick="show('testPrep')">Open SAT, ACT &amp; STAAR prep</button>
+      <button type="button" class="btn btn-main" onclick="show('testPrep')">Open SAT, ACT, STAAR &amp; state test prep</button>
     </section>`:"";
   panel.innerHTML = `
     <div class="analysis-head progress-hero">

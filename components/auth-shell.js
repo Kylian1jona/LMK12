@@ -58,6 +58,7 @@
         <div class="auth-actions">
           <button type="button" class="btn btn-main auth-primary" onclick="doLogin()">Log in</button>
           <button type="button" class="btn btn-main auth-secondary" onclick="showSignup()">Sign up</button>
+          <button type="button" class="btn btn-main auth-secondary auth-tutor-signup" onclick="showTutorSignup()">Sign up as a tutor</button>
         </div>
         <button type="button" class="btn btn-link auth-forgot" onclick="resetLoginPassword()">Forgot password?</button>
       </div>
@@ -109,7 +110,7 @@
         </div>
 
         <div class="auth-actions">
-          <button type="button" class="btn btn-main auth-primary" onclick="createSignupUser()">Create account</button>
+          <button type="button" id="signupSubmitButton" class="btn btn-main auth-primary" onclick="createSignupUser()">Create account</button>
           <button type="button" class="btn btn-main auth-secondary" onclick="showLoginForm()">Back to login</button>
         </div>
       </div>

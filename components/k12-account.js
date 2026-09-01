@@ -126,7 +126,7 @@ function showSignup(){
     $("loginMsg").textContent = "";
     $("loginMsg").className = "loginmsg";
   }
-  ["signupFirstName","signupLastName","signupUser","signupName","signupPass"].forEach(id=>{
+  ["signupFirstName","signupLastName","signupUser","signupName","signupPass","signupTutorQualification","signupTutorSubjects","signupTutorAvailability"].forEach(id=>{
     const el = $(id);
     if(el) el.value = "";
   });
@@ -147,6 +147,14 @@ function setSignupRole(role){
     const input=$(id);
     if(input) input.required=currentAuthAccountRole==="tutor";
   });
+}
+
+function showTutorSignup(){
+  showSignup();
+  const tutorRole=document.querySelector('input[name="signupRole"][value="tutor"]');
+  if(tutorRole) tutorRole.checked=true;
+  setSignupRole("tutor");
+  setTimeout(()=>{ try{$("signupFirstName")?.focus();}catch(error){} },50);
 }
 
 function validateNewUserFields(username, pass, kids){
@@ -259,24 +267,34 @@ async function createSignupUser(){
   else if(accountRole==="tutor"&&!tutorSubjects) error="Enter the subjects you tutor.";
   else if(accountRole==="tutor"&&!tutorAvailability) error="Enter your general availability.";
   if(error){ loginMsg(error, true); return; }
-  loginMsg("Creating account…");
-  const { data, error: authError } = await client.auth.signUp({
-    email,
-    password: pass,
-    options: {
-      emailRedirectTo:"https://k12-learning.netlify.app",
-      data: { username, display_name: name, first_name:firstName, last_name:lastName, account_role:accountRole, tutor_qualification:tutorQualification, tutor_subjects:tutorSubjects, tutor_availability:tutorAvailability, free_month_eligible: accountRole!=="tutor" }
-    }
-  });
+  const signupButton=$("signupSubmitButton");
+  if(signupButton){ signupButton.disabled=true; signupButton.textContent=accountRole==="tutor"?"Creating tutor workspace…":"Creating account…"; }
+  loginMsg(accountRole==="tutor"?"Creating your tutor workspace…":"Creating account…");
+  let data=null;
+  let authError=null;
+  try{
+    const result=await client.auth.signUp({
+      email,
+      password:pass,
+      options:{
+        emailRedirectTo:"https://k12-learning.netlify.app",
+        data:{username,display_name:name,first_name:firstName,last_name:lastName,account_role:accountRole,tutor_qualification:tutorQualification,tutor_subjects:tutorSubjects,tutor_availability:tutorAvailability,free_month_eligible:accountRole!=="tutor"}
+      }
+    });
+    data=result.data;
+    authError=result.error;
+  }catch(error){ authError=error; }
+  if(signupButton){ signupButton.disabled=false; signupButton.textContent="Create account"; }
   if(authError){ loginMsg(authError.message, true); return; }
   if(!data.user){ loginMsg("Supabase did not create the account.", true); return; }
-  await syncSupabaseProfile(data.user, username, name, firstName, lastName);
+  if(Array.isArray(data.user.identities)&&data.user.identities.length===0){ loginMsg("That email already has an account. Log in instead or reset the password.",true); return; }
   if(!data.session){
     showLoginForm();
-    if($("loginUser")) $("loginUser").value = username;
-    loginMsg("Account created. Check your email to confirm it, then log in with your username.");
+    if($("loginUser")) $("loginUser").value=email;
+    loginMsg(accountRole==="tutor"?"Tutor account created. Confirm the email we sent, then log in with this email to open Tutor Studio.":"Account created. Confirm the email we sent, then log in with this email.");
     return;
   }
+  await syncSupabaseProfile(data.user,username,name,firstName,lastName);
   await window.learnMasterStore.hydrate(data.user);
   if(accountRole==="tutor"){
     clearTrial();
@@ -325,6 +343,7 @@ async function doLogin(){
   const metadata = data.user?.user_metadata || {};
   const accountRole=await resolveAccountRole(data.user);
   if(accountRole==="tutor"){
+    await syncSupabaseProfile(data.user,metadata.username||email.split("@")[0],metadata.display_name||metadata.username||"Tutor",metadata.first_name,metadata.last_name);
     clearTrial();
     await enterTutorWorkspace(data.user);
     toast("Welcome to Tutor Studio.");

@@ -19,12 +19,12 @@
           <button type="button" class="lm-home-playground-link" onclick="show('playground')"><span>PLAYGROUND</span><b>Creative activities are being built</b></button>
         </div>
       </section>
-      <section class="lm-home-tools" aria-label="Learning tools"><button type="button" onclick="show('analysis')"><span>Progress</span><b>See goals and growth</b></button><button type="button" class="is-coming" aria-disabled="true" onclick="toast('Awards are coming soon!')"><span>Awards</span><b>Certificates and badges coming soon</b></button></section>
+      <section class="lm-home-tools" aria-label="Learning tools"><button type="button" onclick="show('analysis')"><span>Progress</span><b>See goals and growth</b></button><button type="button" class="is-coming" aria-disabled="true" onclick="toast('Awards are coming soon!')"><span>Awards</span><b>Certificates and badges coming soon</b></button><button type="button" onclick="show('testPrep')"><span>Test preparation</span><b>SAT, ACT, STAAR, and state testing</b></button></section>
       <section class="lm-home-paths" aria-labelledby="homeLaunchTitle"><header><span>START HERE</span><h2 id="homeLaunchTitle">Find your learning path</h2><p>Pick the group that feels right. You can change grades anytime.</p></header><div>
         <button type="button" data-zone="early" onclick="show('prek')"><span>PK-1</span><b>Early learners</b><small>Letters, sounds, numbers, and shapes</small></button>
         <button type="button" data-zone="elementary" onclick="show('grade2')"><span>2-5</span><b>Elementary</b><small>Build strong everyday skills</small></button>
         <button type="button" data-zone="middle" onclick="show('grade6')"><span>6-8</span><b>Middle school</b><small>Think deeper and practice independently</small></button>
-        <button type="button" data-zone="high" onclick="show('grade9')"><span>9-10</span><b>High school</b><small>Advanced concepts and analysis</small></button>
+        <button type="button" data-zone="high" onclick="show('grade9')"><span>9-12</span><b>High school</b><small>Advanced concepts and analysis</small></button>
       </div></section>
     </div>
   </div>
@@ -188,13 +188,13 @@
   <button type="button" class="btn btn-main w-100" onclick="show('grade10')">Open</button>
 </div>
 <div class="grade-card" id="cardGrade11">
-  <div class="grade-title">Grade 11</div>
-  <p class="grade-sub">College readiness · Advanced study · Test prep</p>
+  <div class="grade-title">📚 Grade 11</div>
+  <p class="grade-sub">English · Math · Science · History</p>
   <button type="button" class="btn btn-main w-100" onclick="show('grade11')">Open</button>
 </div>
 <div class="grade-card" id="cardGrade12">
-  <div class="grade-title">Grade 12</div>
-  <p class="grade-sub">College planning · Capstone skills · Test prep</p>
+  <div class="grade-title">🎓 Grade 12</div>
+  <p class="grade-sub">English · Math · Science · History</p>
   <button type="button" class="btn btn-main w-100" onclick="show('grade12')">Open</button>
 </div>
         <div class="grade-card" id="cardShop">

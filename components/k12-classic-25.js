@@ -3,7 +3,7 @@
 (function(){
   const loadedGrades=new Set();
   const pendingGrades=new Map();
-  const release="classic25-20260827.1";
+  const release="classic25-senior-20260831.1";
 
   function cloneQuestion(question){
     if(typeof structuredClone==="function") return structuredClone(question);
