@@ -844,3 +844,4 @@
   }
   });
 })();
+window.K12RepairClassicBank?.("g7");

@@ -602,6 +602,7 @@ function tutorMatchesSearch(tutor,search){
 }
 
 async function loadCommunityTutors(search){
+  await flushPendingTutorMessages();
   const client=window.learnMasterSupabase;
   if(client){
     try{
@@ -620,6 +621,34 @@ async function loadCommunityTutors(search){
   }
   return COMMUNITY_TUTOR_SAMPLES.filter(tutor=>tutorMatchesSearch(tutor,search));
 }
+
+async function flushPendingTutorMessages(){
+  const client=window.learnMasterSupabase;
+  const key="learnmaster_pending_tutor_messages";
+  if(!client) return 0;
+  let pending=[];
+  try{ pending=JSON.parse(window.learnMasterStore?.getItem(key)||"[]"); }catch(error){ pending=[]; }
+  if(!Array.isArray(pending)||!pending.length) return 0;
+  let senderId="";
+  try{ const {data}=await client.auth.getUser(); senderId=data?.user?.id||""; }catch(error){}
+  if(!senderId) return 0;
+  const remaining=[];
+  let sent=0;
+  for(let index=0;index<pending.length;index++){
+    const item=pending[index];
+    try{
+      const {error}=await client.from("learnmaster_tutor_messages").insert({
+        tutor_id:item.tutor_id,sender_user_id:senderId,grade_level:item.grade_level,subject:item.subject,message:item.message
+      });
+      if(error){ remaining.push(...pending.slice(index)); break; }
+      sent++;
+    }catch(error){ remaining.push(...pending.slice(index)); break; }
+  }
+  window.learnMasterStore?.setItem(key,JSON.stringify(remaining.slice(-20)));
+  if(sent&&typeof toast==="function") toast(`${sent} saved tutor message${sent===1?"":"s"} sent.`);
+  return sent;
+}
+window.flushPendingTutorMessages=flushPendingTutorMessages;
 
 function renderCommunityTutors(tutors,search,matches){
   matches.innerHTML="";
@@ -1907,11 +1936,17 @@ async function renderTutorAssignments(){
   panel.innerHTML='<div class="tutor-assignment-loading">Checking for tutor assignments…</div>';
   const client=window.learnMasterSupabase;
   let assignments=[];
+  let loadError=!client;
   if(client){
     try{
       const {data,error}=await client.from("learnmaster_tutor_assignments").select("id,title,subject,instructions,due_on,status").order("created_at",{ascending:false});
       if(!error&&Array.isArray(data)) assignments=data;
-    }catch(error){}
+      if(error) loadError=true;
+    }catch(error){ loadError=true; }
+  }
+  if(loadError){
+    panel.innerHTML='<div class="empty-assignment-card assignment-sync-warning"><span>CONNECTION NEEDED</span><h2>Tutor assignments cannot sync yet.</h2><p>The tutor database is not connected. This page will check again automatically the next time you open it.</p></div>';
+    return;
   }
   panel.innerHTML=assignments.length?`<div class="tutor-assignment-grid">${assignments.map(item=>`<article><span>${htmlSafe(item.subject)}</span><h2>${htmlSafe(item.title)}</h2><p>${htmlSafe(item.instructions)}</p><small>${item.due_on?`Due ${htmlSafe(item.due_on)}`:"No due date"}</small></article>`).join("")}</div>`:'<div class="empty-assignment-card"><span>NO ASSIGNMENTS YET</span><h2>Your tutor workspace is clear.</h2><p>When a connected tutor shares practice or a note, it will appear here.</p><button type="button" class="btn btn-main" onclick="show(\'tutorFinder\')">Find a community tutor</button></div>';
 }

@@ -3,9 +3,11 @@ const path=require("node:path");
 const vm=require("node:vm");
 
 const root=path.resolve(__dirname,"..");
-const grades=["g2","g3","g4","g5","g6","g7","g8","g9","g10"];
+const grades=["g2","g3","g4","g5","g6","g7","g8","g9","g10","g11","g12"];
 const context=vm.createContext({window:{}});
 context.window=context;
+const repairFile=path.join(root,"components","k12-classic-bank-repair.js");
+vm.runInContext(fs.readFileSync(repairFile,"utf8"),context,{filename:repairFile});
 for(const grade of grades){
   const file=path.join(root,"components",`k12-classic-25-${grade}.js`);
   vm.runInContext(fs.readFileSync(file,"utf8"),context,{filename:file});
@@ -27,6 +29,11 @@ const selectorKeys=new Set();
 for(const file of selectorFiles){
   const source=fs.readFileSync(path.join(root,file),"utf8");
   for(const match of source.matchAll(selectorPattern)) selectorKeys.add(`${match[1]}:${match[2]}:${match[3]}`);
+}
+for(const grade of ["g11","g12"]){
+  for(const subject of ["eng","math","sci","hist"]){
+    for(const lesson of ["L1","L2"]) selectorKeys.add(`${grade}:${subject}:${lesson}`);
+  }
 }
 
 for(const [key,record] of Object.entries(data)){

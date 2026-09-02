@@ -1270,3 +1270,4 @@
     });
   }
 })();
+window.K12RepairClassicBank?.("g3");

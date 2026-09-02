@@ -198,7 +198,21 @@
   <p>Recognize common letter combinations.</p>
 
   <button class="btn btn-main" onclick="startLesson('g3','eng','L7')">Blends</button>
+  <button class="btn btn-main" onclick="startLesson('g3','eng','L8')">Digraphs</button>
+  <button class="btn btn-main" onclick="startLesson('g3','eng','L9')">Trigraphs</button>
+  <button class="btn btn-main" onclick="startLesson('g3','eng','L10')">Beginning Blends</button>
+  <button class="btn btn-main" onclick="startLesson('g3','eng','L11')">Ending Blends</button>
+  <button class="btn btn-main" onclick="startLesson('g3','eng','L12')">Blends Review</button>
+</div>
 
+<div class="lesson-column">
+  <h3>🔊 Vowel Patterns</h3>
+  <p>Practice advanced vowel sounds and spelling patterns.</p>
+  <button class="btn btn-main" onclick="startLesson('g3','eng','L13')">Variant Vowels</button>
+  <button class="btn btn-main" onclick="startLesson('g3','eng','L14')">Diphthongs</button>
+  <button class="btn btn-main" onclick="startLesson('g3','eng','L15')">R-Controlled Vowels</button>
+  <button class="btn btn-main" onclick="startLesson('g3','eng','L16')">Vowel Patterns</button>
+</div>
 
 <!-- MULTISYLLABIC WORDS -->
 

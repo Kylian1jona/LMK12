@@ -175,6 +175,7 @@ async function finishLoginForKid(kidId, message="Logged in!", openChooser=true){
   renderShop();
   applyAccessUI();
   updateUserUI();
+  if(typeof flushPendingTutorMessages==="function") flushPendingTutorMessages();
   if(openChooser) showProfileChooser();
   else show("home");
   toast(message);

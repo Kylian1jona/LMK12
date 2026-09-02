@@ -1113,3 +1113,4 @@
   }
   });
 })();
+window.K12RepairClassicBank?.("g8");

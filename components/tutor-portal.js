@@ -1,5 +1,6 @@
 (function(){
   const WORKSPACE_KEY="learnmaster_tutor_workspace_v1";
+  const OUTBOX_KEY="learnmaster_tutor_outbox_v1";
   let tutorWorkspaceUser=null;
   let tutorWorkspaceState={schedule:[],lessons:[],assignments:[],learners:[]};
 
@@ -38,7 +39,7 @@
             <button type="button" class="tutor-signout" onclick="logout()">Sign out</button>
           </aside>
           <main class="tutor-main">
-            <header class="tutor-topline"><div><span>PRIVATE TUTOR OPERATIONS</span><h1 id="tutorWorkspaceGreeting">Good day</h1></div><div class="tutor-status"><i></i> Community profile active</div></header>
+            <header class="tutor-topline"><div><span>PRIVATE TUTOR OPERATIONS</span><h1 id="tutorWorkspaceGreeting">Good day</h1></div><div class="tutor-status" id="tutorCloudStatus"><i></i><span>Checking cloud connection</span></div></header>
 
             <section class="tutor-view is-active" data-tutor-panel="overview">
               <div class="tutor-stat-grid"><article><span>Upcoming blocks</span><b id="tutorScheduleCount">0</b></article><article><span>Lesson plans</span><b id="tutorLessonCount">0</b></article><article><span>Learners</span><b id="tutorLearnerCount">0</b></article><article><span>Unread messages</span><b id="tutorMessageCount">0</b></article></div>
@@ -80,19 +81,64 @@
 
   async function syncTutorProfile(user){
     const client=window.learnMasterSupabase;
-    if(!client||!user?.id) return;
+    if(!client||!user?.id){ setTutorCloudStatus("Saved on this device — cloud sync unavailable",false); return false; }
     const metadata=user.user_metadata||{};
     const subjects=String(metadata.tutor_subjects||"Homework support").split(",").map(value=>value.trim()).filter(Boolean);
     const qualification=String(metadata.tutor_qualification||"Tutor profile pending qualification review");
     const availability=String(metadata.tutor_availability||"Contact tutor for availability");
     const name=String(metadata.display_name||user.email?.split("@")[0]||"Community tutor");
     try{
-      await client.from("learnmaster_tutors").upsert({
+      const {error}=await client.from("learnmaster_tutors").upsert({
         tutor_user_id:user.id,name,qualification,availability,subjects,
         grade_levels:["Pre-K","Kindergarten",...Array.from({length:12},(_,index)=>`Grade ${index+1}`)],
         formats:["online"],active:true
       },{onConflict:"tutor_user_id"});
-    }catch(error){ console.warn("Tutor community profile is waiting for its database migration.",error?.message||error); }
+      if(error) throw error;
+      setTutorCloudStatus("Community profile connected",true);
+      return true;
+    }catch(error){
+      setTutorCloudStatus("Saved on this device — cloud sync unavailable",false);
+      console.warn("Tutor community profile is waiting for its database migration.",error?.message||error);
+      return false;
+    }
+  }
+
+  function setTutorCloudStatus(message,connected){
+    const status=$("tutorCloudStatus");
+    if(!status) return;
+    status.classList.toggle("is-offline",!connected);
+    const text=status.querySelector("span");
+    if(text) text.textContent=message;
+  }
+
+  function readTutorOutbox(){
+    try{ const records=JSON.parse(window.learnMasterStore?.getItem(OUTBOX_KEY)||"[]"); return Array.isArray(records)?records:[]; }
+    catch(error){ return []; }
+  }
+  function writeTutorOutbox(records){ window.learnMasterStore?.setItem(OUTBOX_KEY,JSON.stringify(records.slice(-100))); }
+  function queueTutorRecord(table,payload){
+    const records=readTutorOutbox();
+    records.push({id:globalThis.crypto?.randomUUID?.()||`${Date.now()}_${Math.random()}`,table,payload,created_at:new Date().toISOString()});
+    writeTutorOutbox(records);
+  }
+  async function flushTutorRecordOutbox(){
+    const client=window.learnMasterSupabase;
+    if(!client||!tutorWorkspaceUser?.id) return 0;
+    const records=readTutorOutbox();
+    if(!records.length) return 0;
+    const remaining=[];
+    let sent=0;
+    for(let index=0;index<records.length;index++){
+      const record=records[index];
+      try{
+        const {error}=await client.from(record.table).insert({...record.payload,tutor_user_id:tutorWorkspaceUser.id});
+        if(error){ remaining.push(...records.slice(index)); break; }
+        sent++;
+      }catch(error){ remaining.push(...records.slice(index)); break; }
+    }
+    writeTutorOutbox(remaining);
+    if(sent&&remaining.length===0) setTutorCloudStatus("All tutor records synced",true);
+    return sent;
   }
 
   async function enterTutorWorkspace(user){
@@ -112,6 +158,7 @@
     readState();
     renderTutorWorkspace();
     await syncTutorProfile(tutorWorkspaceUser);
+    await flushTutorRecordOutbox();
     await loadTutorWorkspaceData();
     await loadTutorWorkspaceMessages();
   }
@@ -155,13 +202,26 @@
       if(!lessonResult.error) tutorWorkspaceState.lessons=lessonResult.data||[];
       if(!assignmentResult.error) tutorWorkspaceState.assignments=(assignmentResult.data||[]).map(item=>({email:item.recipient_email,title:item.title,subject:item.subject,instructions:item.instructions,due:item.due_on}));
       if(!learnerResult.error) tutorWorkspaceState.learners=(learnerResult.data||[]).map(item=>({name:item.learner_display_name,grade:item.grade_level,goal:item.learning_goal}));
+      const errors=[scheduleResult.error,lessonResult.error,assignmentResult.error,learnerResult.error].filter(Boolean);
+      if(errors.length) setTutorCloudStatus("Saved on this device — cloud sync unavailable",false);
+      else setTutorCloudStatus("Tutor records synced",true);
       writeState(); renderTutorWorkspace();
-    }catch(error){}
+    }catch(error){ setTutorCloudStatus("Saved on this device — cloud sync unavailable",false); }
   }
   async function saveRemoteTutorRecord(table,payload){
     const client=window.learnMasterSupabase;
-    if(!client||!tutorWorkspaceUser?.id) return;
-    try{ await client.from(table).insert({...payload,tutor_user_id:tutorWorkspaceUser.id}); }catch(error){}
+    if(!client||!tutorWorkspaceUser?.id){ queueTutorRecord(table,payload); setTutorCloudStatus("Saved on this device — cloud sync unavailable",false); return false; }
+    try{
+      const {error}=await client.from(table).insert({...payload,tutor_user_id:tutorWorkspaceUser.id});
+      if(error) throw error;
+      setTutorCloudStatus("Tutor records synced",true);
+      return true;
+    }catch(error){
+      queueTutorRecord(table,payload);
+      setTutorCloudStatus("Saved on this device — cloud sync unavailable",false);
+      if(typeof toast==="function") toast("Saved on this device. Cloud sync is not connected yet.");
+      return false;
+    }
   }
   async function saveTutorSchedule(event){ event.preventDefault(); const item={day:$("tutorScheduleDay").value,start:$("tutorScheduleStart").value,end:$("tutorScheduleEnd").value,format:$("tutorScheduleFormat").value}; tutorWorkspaceState.schedule.push(item); writeState(); event.target.reset(); renderTutorWorkspace(); await saveRemoteTutorRecord("learnmaster_tutor_schedule",{day_name:item.day,starts_at:item.start,ends_at:item.end,format:item.format}); }
   async function saveTutorLesson(event){ event.preventDefault(); const item={title:$("tutorLessonTitle").value.trim(),subject:$("tutorLessonSubject").value,plan:$("tutorLessonPlan").value.trim()}; tutorWorkspaceState.lessons.push(item); writeState(); event.target.reset(); renderTutorWorkspace(); await saveRemoteTutorRecord("learnmaster_tutor_lessons",item); }
@@ -188,5 +248,6 @@
   window.saveTutorLesson=saveTutorLesson;
   window.saveTutorAssignment=saveTutorAssignment;
   window.saveTutorLearner=saveTutorLearner;
+  window.flushTutorRecordOutbox=flushTutorRecordOutbox;
   customElements.define("k12-tutor-portal",K12TutorPortal);
 })();
