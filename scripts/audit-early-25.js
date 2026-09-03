@@ -7,13 +7,24 @@ const context=vm.createContext({window:{K12_EARLY_BANKS:Object.create(null)}});
 for(const file of [
   "k12-classic-25-prek.js",
   "k12-classic-25-kindergarten.js",
-  "k12-classic-25-g1.js"
+  "k12-classic-25-g1.js",
+  "k12-early-expanded-lessons.js"
 ]){
   vm.runInContext(fs.readFileSync(path.join(root,"components",file),"utf8"),context,{filename:file});
 }
 
 const banks=context.window.K12_EARLY_BANKS;
 const failures=[];
+const menuSource=fs.readFileSync(path.join(root,"components","early-sections.js"),"utf8");
+const lessonButtons=[...menuSource.matchAll(/lessonCard\("([^"]+)"/g)].map(match=>match[1]);
+for(const key of lessonButtons){
+  if(!banks[key]) failures.push(`${key} has a lesson button but no question bank.`);
+}
+for(const prefix of ["prek:","g1:"]){
+  const visible=lessonButtons.filter(key=>key.startsWith(prefix));
+  if(visible.length!==20) failures.push(`${prefix.slice(0,-1)} should show 20 requested lessons, found ${visible.length}.`);
+  if(new Set(visible).size!==visible.length) failures.push(`${prefix.slice(0,-1)} repeats a lesson button.`);
+}
 for(const [key,record] of Object.entries(banks)){
   if(!record.name) failures.push(`${key} has no lesson name.`);
   if(!Array.isArray(record.questions)||record.questions.length!==25){
@@ -46,7 +57,7 @@ for(const [key,record] of Object.entries(banks)){
   });
 }
 
-const expectedLessons=40;
+const expectedLessons=73;
 const report={
   lessons:Object.keys(banks).length,
   questions:Object.values(banks).reduce((sum,record)=>sum+(record.questions?.length||0),0),

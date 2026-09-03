@@ -42,14 +42,28 @@
       if(this.dataset.rendered==="true") return;
       this.dataset.rendered="true";
       const prekEnglish=[
-        lessonCard("prek:eng:letters","prek-eng","Letter Names","Recognize uppercase letters.","ABC"),
-        lessonCard("prek:eng:sounds","prek-eng","Beginning Sounds","Match words to their first sound.","Aa"),
-        lessonCard("prek:eng:rhymes","prek-eng","Rhyming Words","Find words that sound alike.","&#9834;")
+        lessonCard("prek:general:colors","prek-eng","Identify Colors","Match everyday objects with their colors.","CLR"),
+        lessonCard("prek:general:same-different","prek-eng","Same or Different","Compare two objects and tell how they match.","S=D"),
+        lessonCard("prek:general:big-small","prek-eng","Big and Small","Use size words to compare familiar things.","BIG"),
+        lessonCard("prek:general:above-below","prek-eng","Above and Below","Practice simple position words.","UP"),
+        lessonCard("prek:eng:letters","prek-eng","Identify Uppercase Letters","Find and name capital letters.","ABC"),
+        lessonCard("prek:eng:lowercase","prek-eng","Identify Lowercase Letters","Find and name lowercase letters.","abc"),
+        lessonCard("prek:eng:match-case","prek-eng","Match Uppercase and Lowercase Letters","Connect each capital letter to its lowercase partner.","Aa"),
+        lessonCard("prek:eng:sounds","prek-eng","Beginning Letter Sounds","Match words to their first sound.","SND"),
+        lessonCard("prek:eng:rhymes","prek-eng","Rhyming Words","Find words that sound alike.","&#9834;"),
+        lessonCard("prek:general:animals","prek-eng","Identify Animals","Use simple clues to name familiar animals.","PET"),
+        lessonCard("prek:general:body-parts","prek-eng","Identify Body Parts","Connect body parts with what they do.","ME"),
+        lessonCard("prek:general:weather","prek-eng","Weather","Recognize sunny, rainy, snowy, windy, and cloudy days.","SUN"),
+        lessonCard("prek:general:days-week","prek-eng","Days of the Week","Put the seven days in order.","7"),
+        lessonCard("prek:general:day-parts","prek-eng","Morning, Afternoon, Evening, and Night","Match daily routines to each part of the day.","DAY")
       ].join("");
       const prekMath=[
-        lessonCard("prek:math:addition","prek-math","Picture Addition","Add small groups up to ten.","+"),
-        lessonCard("prek:math:counting","prek-math","Counting to 20","Count objects and choose the total.","123"),
-        lessonCard("prek:math:shapes","prek-math","Shape Match","Recognize everyday shapes.","O")
+        lessonCard("prek:math:shapes","prek-math","Identify Basic Shapes","Recognize circles, squares, triangles, and more.","O"),
+        lessonCard("prek:math:count5","prek-math","Count to 5","Practice number order from one to five.","5"),
+        lessonCard("prek:math:count10","prek-math","Count to 10","Practice number order from one to ten.","10"),
+        lessonCard("prek:math:number-objects","prek-math","Match Numbers to Objects","Count a group and choose its number.","1:1"),
+        lessonCard("prek:math:more-less","prek-math","More or Less","Compare two small numbers.","< >"),
+        lessonCard("prek:math:patterns","prek-math","Patterns","Find what comes next in a repeating pattern.","AB")
       ].join("");
       const kinderEnglish=[
         lessonCard("k:eng:syllables","kinder-eng","Syllable Count","Clap and count word parts.","CLAP"),
@@ -84,14 +98,28 @@
         lessonCard("k:math:time-seasons","kinder-math","Time and Seasons","Explore daily routines and the four seasons.","SUN")
       ].join("");
       const g1English=[
-        lessonCard("g1:eng:vowels","g1-eng","Short and Long Vowel Sounds","Practice short and long vowels.","AEI"),
+        lessonCard("g1:eng:short-vowels","g1-eng","Short Vowel Sounds","Find the short vowel sound in simple words.","CAT"),
+        lessonCard("g1:eng:long-vowels","g1-eng","Long Vowel Sounds","Find vowels that say their names.","CAKE"),
         lessonCard("g1:eng:sight","g1-eng","Sight Words in Sentences","Choose words that complete each sentence.","SEE"),
-        lessonCard("g1:eng:sentences","g1-eng","Building Complete Sentences","Practice complete sentences and punctuation.","Aa")
+        lessonCard("g1:eng:sentences","g1-eng","Build and Read Simple Sentences","Practice complete sentences and punctuation.","Aa"),
+        lessonCard("g1:eng:parts-speech","g1-eng","Nouns, Verbs, and Adjectives","Tell whether a word names, acts, or describes.","NVA"),
+        lessonCard("g1:eng:story-questions","g1-eng","Read a Short Story and Answer Questions","Read short passages and recall key details.","READ")
       ].join("");
       const g1Math=[
-        lessonCard("g1:math:addsub","g1-math","Addition and Subtraction Within 20","Solve addition and subtraction stories.","+/-"),
-        lessonCard("g1:math:graphs","g1-math","Reading Picture Graphs and Data","Compare simple picture data.","BAR"),
-        lessonCard("g1:math:money","g1-math","Coins and Counting Money","Count coins and find totals.","&#162;")
+        lessonCard("g1:math:count100","g1-math","Count to 100","Read number sequences through one hundred.","100"),
+        lessonCard("g1:math:skip2","g1-math","Skip Count by 2s","Build number patterns by twos.","2s"),
+        lessonCard("g1:math:skip5","g1-math","Skip Count by 5s","Build number patterns by fives.","5s"),
+        lessonCard("g1:math:skip10","g1-math","Skip Count by 10s","Build number patterns by tens.","10s"),
+        lessonCard("g1:math:add10","g1-math","Addition Within 10","Add numbers with sums up to ten.","+10"),
+        lessonCard("g1:math:add20","g1-math","Addition Within 20","Add numbers with sums up to twenty.","+20"),
+        lessonCard("g1:math:sub10","g1-math","Subtraction Within 10","Subtract from numbers through ten.","-10"),
+        lessonCard("g1:math:sub20","g1-math","Subtraction Within 20","Subtract from numbers through twenty.","-20"),
+        lessonCard("g1:math:compare","g1-math","Compare Numbers","Use greater than, less than, and equal to.","<=>"),
+        lessonCard("g1:math:place-value","g1-math","Place Value — Tens and Ones","Break two-digit numbers into tens and ones.","10+1"),
+        lessonCard("g1:math:shape-properties","g1-math","Basic Shapes and Their Properties","Compare sides, corners, faces, and curves.","SHAPE"),
+        lessonCard("g1:math:measurement","g1-math","Simple Measurement","Compare length, weight, height, and capacity.","RUL"),
+        lessonCard("g1:math:time","g1-math","Tell Time to the Hour and Half Hour","Read clocks at whole and half hours.","CLK"),
+        lessonCard("g1:math:money","g1-math","Identify Coins","Recognize pennies, nickels, dimes, and quarters.","&#162;")
       ].join("");
 
       this.innerHTML=
