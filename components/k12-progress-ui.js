@@ -1410,7 +1410,7 @@ function renderReadingHome(){
   if(!panel) return;
   const readingGradeOrder=["prek","k",...Array.from({length:12},(_,index)=>`g${index+1}`)].filter(id=>READING_LIBRARY[id]);
   panel.innerHTML = `
-    ${readingViewHeader(1, "Choose your grade", `${readingGradeOrder.length} grade levels available · 10 original stories in every grade`)}
+    ${readingViewHeader(1, "Choose your grade", `${readingGradeOrder.length} grade levels available · 10 stories in every grade`)}
     <div class="reading-grid" id="readingGrid"></div>
   `;
   const grid = $("readingGrid");
@@ -1457,7 +1457,8 @@ function renderReadingSubject(gradeId, subjId){
   subj.topics.forEach((topic, index)=>{
     const card = document.createElement("div");
     card.className = "reading-card reading-topic-card";
-    card.innerHTML = `<span class="reading-card-kicker">${htmlSafe(topic.genre||"PASSAGE")} · ${index + 1}</span><h3>${htmlSafe(topic.title)}</h3><p>${htmlSafe(topic.body[0]).slice(0, 88)}...</p>`;
+    const focus=topic.decodableFocus?` · CVC focus: ${htmlSafe(topic.decodableFocus)}`:"";
+    card.innerHTML = `<span class="reading-card-kicker">${htmlSafe(topic.genre||"PASSAGE")} · ${index + 1}${focus}</span><h3>${htmlSafe(topic.title)}</h3><p>${htmlSafe(topic.body[0]).slice(0, 88)}...</p>`;
     card.appendChild(readingButton("Start reading", ()=>renderReadingTopic(gradeId, subjId, index)));
     grid.appendChild(card);
   });
@@ -1498,7 +1499,7 @@ function renderReadingTopic(gradeId, subjId, topicIndex){
       </div>
     </div>
     <article class="reading-passage${topic.genre==="Poetry"||topic.genre==="Ballad"?" is-poetry":""}">
-      <span class="reading-view-step">${htmlSafe(grade.title)} · ${htmlSafe(subj.title)}</span>
+      <span class="reading-view-step">${htmlSafe(grade.title)} · ${htmlSafe(subj.title)}${topic.decodableFocus?` · CVC focus: ${htmlSafe(topic.decodableFocus)}`:""}</span>
       <h2>${htmlSafe(topic.title)}</h2>
       ${topic.body.map(p=>`<p>${htmlSafe(p)}</p>`).join("")}
     </article>
