@@ -7,108 +7,44 @@
   ];
   const gradeWorlds=["Button Meadow","Sunbeam Lane","Acorn School","Willow Creek","Copper Hill","Juniper Harbor","Moonstone Park","Redwood Crossing","Glasswater City","Orchard Station","Northwind Province","Ashen Coast","Crown Vale","The Meridian Isles"];
   const heroes=["Mina","Theo","Amara","Jonah","Leila","Caleb","Sana","Eli","Rosa","Noah","Imani","Mateo","Zara","Darius"];
-  const earlyClassics=[
-    {
-      title:"Cinderella",
-      genre:"Fairy tale",
-      focus:"short a and short i",
-      versions:[
-        ["A kind girl had a sad day. She did each job. A pal came to help. The girl went to the ball. At last, she had hope."],
-        ["A kind girl had to do each hard job. She was sad, but she did not quit. A kind helper gave her a dress for the ball. The girl had fun and ran home on time. Her lost shoe helped a prince find her."],
-        ["Cinderella was a kind girl who worked from sunup to bedtime. Even when life felt unfair, she did not let go of hope. A magical helper sent her to a royal ball, but she had to leave before midnight. One small glass shoe helped the prince find her again, and Cinderella began a happier life." ]
-      ]
-    },
-    {
-      title:"Jack and the Beanstalk",
-      genre:"Fairy tale",
-      focus:"short a",
-      versions:[
-        ["Jack had a bag of beans. The beans fell in the mud. A big stem went up. Jack went up and met a giant. Jack ran back and was safe."],
-        ["Jack got a bag of magic beans. A tall green stem grew from the dirt. Jack went up and found a giant in a big home. He had to be quick and brave. Jack came back down and kept his family safe."],
-        ["Jack traded for a handful of magic beans. By morning, a huge beanstalk rose above his home. At the top, Jack entered a giant's castle and found treasure that could help his family. He escaped the angry giant by thinking fast. Jack returned safely and learned to use courage with care." ]
-      ]
-    },
-    {
-      title:"The Three Little Pigs",
-      genre:"Folk tale",
-      focus:"short i",
-      versions:[
-        ["Three pigs had to fix a hut. One hut was soft. One hut was thin. The last pig made a brick hut. The big bad wolf did not get in."],
-        ["Three little pigs each made a home. The first used straw, and the next used sticks. The wolf blew both homes down. The last pig made a strong brick home. All three pigs got in, and the wolf could not win."],
-        ["Three little pigs set out to build homes of their own. Two pigs rushed, using straw and sticks, but the third worked hard on a brick house. A hungry wolf easily blew down the first two homes. The pigs ran to the brick house, where they were safe. Their careful work and teamwork defeated the wolf." ]
-      ]
-    },
-    {
-      title:"Little Red Riding Hood",
-      genre:"Cautionary tale",
-      focus:"short e",
-      versions:[
-        ["Red had a red cap. She went on a path to see Gran. A sly wolf ran off. Red did not go with him. Red got help and was safe."],
-        ["Red put on her red hood and went to see Gran. Her mom told her to stay on the path. A sly wolf tried to trick her in the woods. Red called for help. A kind adult came, and Red and Gran were safe."],
-        ["Little Red Riding Hood carried a basket to her grandmother's cottage. Her mother warned her to stay on the path and not trust strangers. A sly wolf tried to learn where she was going. Red sensed danger and called for help. With a trusted adult beside her, she reached Gran safely and remembered the warning." ]
-      ]
-    },
-    {
-      title:"Goldilocks and the Three Bears",
-      genre:"Fairy tale",
-      focus:"short o",
-      versions:[
-        ["A girl saw a hut. She got in, had a sip, and sat on a bed. Then three bears got back. The girl said she was sorry and ran home."],
-        ["Goldilocks saw a small home in the woods. She went in, ate from a pot, and sat in a chair. Then the three bears came back. Goldilocks knew she had made a bad choice. She said she was sorry and went home."],
-        ["Goldilocks entered the bears' cottage without asking. She tasted their food, sat in their chairs, and fell asleep in a bed. When the bear family returned, she woke with a shock. Goldilocks apologized for touching things that were not hers. She went home determined to ask permission next time." ]
-      ]
-    },
-    {
-      title:"The Gingerbread Man",
-      genre:"Folk tale",
-      focus:"short a",
-      versions:[
-        ["A pan had a tan man. The man got up and ran. A hen ran. A pig ran. The man met a fox. He had to stop and plan."],
-        ["A little gingerbread man sprang from a pan. He ran past a hen, a pig, and a cow. At the river, a fox said he could help. The man did not hop on the fox. He made a safe plan and went back home."],
-        ["A gingerbread man leaped from the baking pan and dashed away. He bragged as a hen, a pig, and a cow tried to catch him. At a wide river, a clever fox offered him a ride. The gingerbread man recalled that a kind offer is not always a safe one. He stopped, made another plan, and hurried home wiser than before." ]
-      ]
-    },
-    {
-      title:"The Little Red Hen",
-      genre:"Fable",
-      focus:"short e",
-      versions:[
-        ["A red hen had a seed. She dug and set it in. Her pals did not help. The hen did each job. At last, she had a bun to eat."],
-        ["The little red hen found a seed. She asked her pals to help her plant it, but they said no. The hen did each job until the wheat was ready. She made a warm loaf. Her hard work gave her food to share."],
-        ["The Little Red Hen found a grain of wheat and asked her friends to help plant it. Each friend refused, so she planted, cut, ground, and baked by herself. When the warm bread was ready, everyone wanted a bite. The hen explained that sharing the work matters too. Her friends promised to help with the next loaf." ]
-      ]
-    },
-    {
-      title:"The Lion and the Mouse",
-      genre:"Fable",
-      focus:"short i",
-      versions:[
-        ["A big lion met a wee mouse. The lion let him go. Then the lion got in a net. The mouse bit the net. His small pal set him free."],
-        ["A lion let a small mouse go free. Soon, the lion got stuck in a net. The mouse came back and bit the rope. Snip, snip, snip! The lion was free. A small pal can be a big help."],
-        ["A lion laughed when a tiny mouse promised to help him someday. Still, the lion kindly let the mouse go. Later, hunters trapped the lion in a strong net. The mouse heard his roar and gnawed through the ropes. The grateful lion learned that even the smallest friend can offer great help." ]
-      ]
-    },
-    {
-      title:"The Tortoise and the Hare",
-      genre:"Fable",
-      focus:"short o",
-      versions:[
-        ["A fast hare ran with a slow pal. The hare had a nap. The slow pal did not stop. Step by step, he got to the end and won."],
-        ["A fast hare said a slow tortoise could not win a race. The hare ran far, then took a nap. The tortoise kept on at a calm pace. Step by step, he got to the end first. Slow and steady won the race."],
-        ["A proud hare challenged a steady tortoise to a race. Certain that he would win, the hare stopped for a long nap. The tortoise kept moving, one careful step at a time. He crossed the finish line before the hare woke. The race showed that patient effort can beat careless speed." ]
-      ]
-    },
-    {
-      title:"The Ugly Duckling",
-      genre:"Fairy tale",
-      focus:"short u",
-      versions:[
-        ["A young bird did not fit in. He felt sad and hid. He did not give up. The bird got big. At last, he saw he was a fine swan."],
-        ["A young bird did not look like the ducks near him. They were unkind, so he felt sad and left. He kept going through the cold days. When spring came, he saw his face in the pond. He had grown into a fine swan."],
-        ["A young bird was mocked because he looked different from the ducklings around him. Lonely and sad, he searched for a place where he might belong. He endured a hard winter without giving up. In spring, he discovered that he had grown into a graceful swan. At last, he found friendship and learned that being different did not make him less worthy." ]
-      ]
-    }
-  ];
+  const earlyOriginalStories={
+    0:[
+      {title:"Sam and the Red Cap",genre:"Friendship",body:["Sam had a red cap. The cap sat on his bed. Sam put it on and ran to see his pal, Max.","A gust hit the cap. Up it went, then down it fell in a mud pit. Sam felt sad, but Max had a plan.","Max got a long net. Sam held the net, and Max got the cap. They had to rub and scrub, but the cap was red again."]},
+      {title:"Pam's Jam",genre:"Family story",body:["Pam had a big red pot. Dad had a bag of figs. Pam put the figs in the pot to make jam.","The jam got hot. Plop! A bit hit the top of the pot. Pam and Dad set the lid on it.","At last, the jam was set. Pam put it on a bun. She had one bite and gave Dad a big hug."]},
+      {title:"The Pup in the Mud",genre:"Animal story",body:["A tan pup ran in the sun. He saw a bug and dug by a log. Then he fell in wet mud.","The pup sat in the mud and let out a sad yip. Kim got a tub, a rag, and a cup.","Kim gave the pup a bath. The pup was glad. He did not dig by the wet log again."]},
+      {title:"Ben and the Hen",genre:"Farm story",body:["Ben fed a red hen. The hen pecked at corn, then ran past the pen. Ben ran to get her.","The hen hid by a hay bag. Ben did not grab or tug. He sat with a bit of corn in his hand.","The hen came to Ben. He led her back to the pen. Ben shut the gate and gave her one last pat."]},
+      {title:"Kit and the Tin Bell",genre:"Mystery",body:["Kit had a tin bell. It had a soft ring. One day, the bell was not in its box.","Kit saw the cat run by. Ding, ding! The cat had the bell on a red bit of yarn.","Kit did not get mad. She made the cat a safe bell tag. Now Kit and the cat each had a bell."]},
+      {title:"Dot's Hot Pot",genre:"Helping story",body:["Dot had a hot pot of yam and veg. She set it on a mat to let it sit.","A kid came in with wet socks and a sad look. Dot got a dry rug and a warm cup.","The kid had a sip and a bit of yam. Soon he felt warm. Dot was glad she had a lot to give."]},
+      {title:"Gus Misses the Bus",genre:"School story",body:["Gus had his bag and cap. He ran to the bus stop, but the bus had just left.","Gus felt bad. Mom did not fuss. She got the map and said they could walk on the safe path.","Gus and Mom got to class on time. The next day, Gus got up when the sun came in."]},
+      {title:"The Fox in the Box",genre:"Animal story",body:["A red fox cub hid in a box by the shed. The cub was wet and had a cut on one leg.","Mia sat by the box. She did not pet the fox. She got Dad, and Dad rang the wildlife vet.","The vet came with a safe crate. The cub got help and went back to its den when it was well."]},
+      {title:"Meg Helps the Pet Vet",genre:"Community story",body:["Meg went to the pet vet with her old dog, Pip. Pip had a bad limp and did not hop.","The vet had Meg sit by Pip. Meg gave Pip a pat as the vet felt his leg.","Pip had to rest on his bed. In a week, he could jog. Meg sent the vet a thank-you card."]},
+      {title:"Tim and the Lost Pin",genre:"Tiny mystery",body:["Tim had a pin with a sun on it. He put it on his bag, but the pin fell off.","Tim and Liv went back to the rug, the desk, and the art bin. No pin was in them.","At last, Liv saw a glint by Tim's shoe. The pin was in his cuff. Tim grinned and put it in a safe box."]}
+    ],
+    1:[
+      {title:"Nell's Wet Tent",genre:"Camping story",body:["Nell and her dad set a tent by a hill. The sky was dim, but Nell said one bit of rain would be fun. She put her red bag in the tent.","A big gust bent one tent peg. Rain ran in and made Nell's bed wet. Nell did not quit. She got a rock, a dry mat, and a long bit of cord.","Dad held the tent as Nell fixed the peg. Soon the tent was snug and dry. They sat in it, had hot soup, and sang as the rain fell."]},
+      {title:"The Map in the Sand",genre:"Adventure",body:["Jay found a map in a tin can by the sand. A red X sat next to a bent palm. Jay asked his pal, Ren, to help him hunt.","They went past a log and up a small hill. At the red X, they dug and hit a box. It held no gold, just seeds and a note.","The note asked them to plant a spot for bees. Jay and Ren made a bed in the sun. By spring, the bare sand had pink and red buds."]},
+      {title:"Milo's Lost Sock",genre:"Home mystery",body:["Milo had one green sock, but its mate was gone. He checked the bed, the rug, and the big wash bin. It was not in any spot.","His cat, Pip, ran past with a lump under her chin. Milo saw a bit of green stick out from Pip's soft bed.","The lost sock was in the cat bed with a toy and a red cap. Milo got it back, then gave Pip an old sock of her own."]},
+      {title:"The Duck at Sunset Pond",genre:"Animal story",body:["At sunset, Ana saw a duck sit still by the pond. The rest of the flock had gone. One webbed foot was stuck in a bit of net.","Ana did not step into the pond. She ran to get the park guide. The guide had a pole, thick gloves, and a calm voice.","Snip went the net, and the duck was free. It flapped to its flock. Ana put the old net in a bin so no pet or bird got stuck."]},
+      {title:"The Best Nest",genre:"Nature tale",body:["A small bird made a nest on a low branch. A gust made the nest tip, and one twig fell. The bird tried to fix it with dry grass.","Sol saw the bird but did not touch the nest. He set bits of safe yarn and grass on the lawn, then went back inside.","The bird took one bit, then six. Soon the nest sat firm. Sol saw three eggs in it and felt glad he had helped from far away."]},
+      {title:"A Gift for Nan",genre:"Family story",body:["Nan had a bad cold, so she had to rest. Inez wished she had a grand gift to make Nan grin. Her coin jar held just ten cents.","Inez got a pen, a pad, and a bit of red yarn. She made a book of fun notes about Nan, then tied the yarn in a bow.","Nan read each note in bed. She said the book was the best gift she had ever had. Inez learned that love did not need a big cost."]},
+      {title:"The Wind and the Red Kite",genre:"Outdoor adventure",body:["Omar had a red kite with a long tail. He ran up a hill, but the wind sent the kite into a tall pine. The string went slack.","Omar did not climb the tree. He got the park worker, who had a long pole. A bird sat near the kite, so they had to go slow.","The pole set the kite free, and the bird did not flee its nest. Omar fixed the small rip. Then his red kite went up in the sky once more."]},
+      {title:"The Crab in the Cup",genre:"Beach story",body:["Luz found a small crab in a cup left on the sand. The hot sun made the cup warm. The crab dug at the side but could not get out.","Luz did not grab it. She tipped the cup near a wet rock and let the crab step out. It hid in a gap with one quick hop.","Luz put the cup in a trash bin. Then she and her mom picked up six more bits of trash. The clean sand was safe for each crab and fish."]},
+      {title:"The Wish on Top of the Hill",genre:"Gentle fantasy",body:["Bea went up a hill to make a wish at dusk. She wished for a pet, a big cake, and a gold ring. Yet none of the wishes felt quite right.","On the path, Bea saw a kid who had lost his map. She helped him find his camp at the base of the hill.","When Bea got back to the top, she knew her best wish. She wished to spot a way to help each day. A star lit up as if it had heard."]},
+      {title:"The Small Drum Club",genre:"Music story",body:["Vic had a small drum, but he did not like to play for a crowd. His hands felt stiff, and each tap came out too fast.","His pals sat with him in the gym. One pal clapped a slow beat. Vic took a deep breath and let his drum match the clap.","Tap, tap, rest. The beat grew strong. At the school show, Vic still felt shy, but his pals played by him, and the crowd clapped along."]}
+    ],
+    2:[
+      {title:"The Lantern in the Shed",genre:"Mystery",body:["Tess saw a soft glow in the old shed at the end of the yard. The lamp in the shed had no plug, and Dad said its last bulb had gone bad. Still, each night, a pale dot of light blinked near the locked door.","Tess asked her pal Dev to help her check the shed in the sun. They found a gap by the step and a set of tiny tracks in the dust. Inside, a glass jar sat on its side. A nest of fireflies had slipped in through the gap and become trapped.","Tess and Dev took the jar to the damp grass and let each bug fly out. That night, the yard was dark, but dots of light danced over the pond. The mystery was solved, and the bugs were back where they belonged."]},
+      {title:"Maya and the Moon Seed",genre:"Gentle fantasy",body:["Maya found a flat white seed on the path behind her home. It gave off a dim glow, like a bit of moon had fallen into the mud. She set it in a pot and gave it one sip of water each night.","A pale stem came up, but it bent when the sun was high. Maya moved the pot to her room and let it rest by the window. At dusk, the stem stood tall and made one round bud that shone on her wall.","On the next full moon, the bud popped and cast soft light across the room. Maya did not pick it. She set the pot outside, where moths and bats came to visit. By dawn, ten new seeds sat in the grass."]},
+      {title:"The Day the Pond Went Still",genre:"Nature mystery",body:["Cal liked to sit by the pond and hear frogs hum, ducks quack, and bugs buzz. One warm day, the pond was still. Not one frog sat on a log, and no duck came to the bank.","Cal did not step into the deep mud. He walked around the rim with a park guide and saw a thin film on top of the water. A tipped jug had let soap run down the hill after the rain.","The guide had the spill cleaned up, and Cal made signs that said, Keep Soap Off the Hill. It took time, but the pond grew clear. One night, Cal heard a frog call, then a whole wet band joined in."]},
+      {title:"The Pocket-Sized Robot",genre:"Science fiction",body:["Jin built a small robot from a tin box, a bent clip, and an old toy kit. The bot could roll, nod, and pick up one sock at a time. Jin named it Dot and made a soft bed for it on his desk.","Dot tried to help with every job, but it mixed up the tasks. It put a wet rag in Jin's bag and fed a red pen to the pet dish. Jin felt mad at first, then saw that his code had one bad step.","Jin fixed the code and ran a new test. Dot put the rag in the tub, the pen in the bin, and the sock on the bed. Jin learned that a bad test was not the end; it was a hint for the next fix."]},
+      {title:"The Last Muffin at Camp",genre:"Friendship",body:["At camp, Rosa and Beck came back from a long hike. One warm jam muffin sat in the pan. Both kids were hungry, and each had hoped to get the last one.","Beck said he had led the hike, so the muffin should be his. Rosa said she had held the map when the path split. Their fun day began to feel sour as they tugged at the same napkin.","The camp cook set down a small knife. Rosa and Beck cut the muffin in half and swapped bits of fruit from their packs. The snack was not big, but sharing it made the end of the day feel full."]},
+      {title:"A Map for the Lost Pup",genre:"Animal adventure",body:["Lena found a wet pup under a park bench. Its tag had a name, Pip, but no phone number. Lena gave Pip a dry mat and asked an adult to help find its home.","They made a map of each spot where a lost dog sign might be seen. At the vet, they learned Pip had a chip. The chip led them to an address near the red barn past the hill.","Pip's owner ran out with tears in his eyes. He had looked all night and had begun to lose hope. Lena gave him their map, and he gave Pip a hug. One calm plan had led the pup home."]},
+      {title:"The Storm at Pine Hill",genre:"Family adventure",body:["Noah and his aunt hiked up Pine Hill under a blue sky. At the top, a dark cloud rose fast. Wind bent the grass, and a low rumble rolled across the ridge.","Noah wanted to run to the car, but the open path was not safe. His aunt led him to a marked hut below the hilltop. They sat far from the glass and used the camp radio to call the park desk.","Rain hit the roof in hard taps, then the storm moved on. Noah was glad they had stayed calm and used the safe plan. When the sun came back, each wet pine gave off a fresh, sharp smell."]},
+      {title:"The Secret Under the Steps",genre:"Mystery",body:["Ava heard a soft tap under the front steps each time the wind blew. Her brother said it was just a loose board, but Ava saw bits of blue yarn near a small gap.","With Mom beside her, Ava shone a lamp into the gap. A thin tin box sat in the dirt. Inside were six old pins, a faded class photo, and a note from a kid named Sal.","The note said Sal had lived in the home long ago and hid the box for a kind child to find. Ava put in one new pin and a note of her own. Then she set the box back for the next kid."]},
+      {title:"The Wish Tree's Last Leaf",genre:"Fantasy",body:["In Mina's town, kids tied small wish tags to an old tree. By fall, the tree had just one leaf left. Mina's tag asked for the town fair to be the best one yet.","A hard gust tore down the tents the night before the fair. Mina felt her wish had failed. Then she saw one man lift a bent pole, one kid mend a sign, and one mom hand out hot buns.","Mina took down her wish tag and got to work. By noon, the fair was set again. The last leaf fell into her hand, and Mina knew a wish can start as hope but may need many hands to come true."]},
+      {title:"Nico's Brave New Song",genre:"Music story",body:["Nico wrote a song for the class show, but he hid it in his desk. The tune was soft, and its last line did not rhyme. He feared the other kids might laugh.","His friend Emi found him humming by the art room. She did not ask to see the song. She sat down, tapped a calm beat, and let Nico sing just one line when he felt ready.","At the show, Nico's legs shook, but Emi kept the beat beside him. The room was still until his last note, then the class clapped. The song was not loud or perfect, but it was his, and he had let it be heard."]}
+    ]
+  };
   const pieces=[
     {genre:"Animal tale",base:"The Fox and the Firefly",goal:"guide a frightened fox cub home before nightfall",obstacle:"the familiar trail had disappeared beneath the rain",choice:"follow the patient flashes of a tiny firefly",ending:"happy"},
     {genre:"Mystery",base:"The Door Without a Key",goal:"discover who kept leaving a blue door open at dawn",obstacle:"every clue pointed toward a different neighbor",choice:"compare footprints, weather records, and witness accounts",ending:"open"},
@@ -187,16 +123,12 @@
     return {title,genre:piece.genre,endingTone:piece.ending,body};
   }
 
-  function makeEarlyClassic(piece,level){
-    return {title:piece.title,genre:piece.genre,endingTone:"gentle",decodableFocus:piece.focus,body:piece.versions[level]};
-  }
-
   const library={};
   grades.forEach(([id,title,level])=>{
     const world=gradeWorlds[level];
     const isEarlyReader=level<=2;
-    const topics=isEarlyReader?earlyClassics.map(piece=>makeEarlyClassic(piece,level)):pieces.map((piece,index)=>makePiece(piece,level,index,world));
-    const subjectTitle=isEarlyReader?"CVC Stories & Familiar Tales":"Stories, Poems & More";
+    const topics=isEarlyReader?earlyOriginalStories[level]:pieces.map((piece,index)=>makePiece(piece,level,index,world));
+    const subjectTitle=isEarlyReader?"Read-Aloud Stories":"Stories, Poems & More";
     library[id]={title,subjects:{stories:{title:subjectTitle,topics}}};
   });
   window.LearnMasterOriginalStories=Object.freeze(library);
