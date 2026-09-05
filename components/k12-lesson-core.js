@@ -156,6 +156,8 @@ const LR = {
   answerCorrect:false,
   savedResponse:null,
   lastAnswer:"",
+  questionHistory:[],
+  historyIndex:-1,
   backSection:"grades"
 };
 let LR_WRONG_ADVANCE_TIMER = null;
@@ -167,8 +169,53 @@ function lessonCheckpointKey(kidIdOverride=""){
   return `learnmaster_lesson_checkpoint_v${LESSON_CHECKPOINT_VERSION}_${kidId || "default"}`;
 }
 
+function currentQuestionSnapshot(){
+  return {
+    round:LR.round,
+    phase:LR.phase,
+    revisionIndex:LR.revisionIndex,
+    current:cloneRevisionQuestion(LR.current),
+    answered:LR.answered,
+    answerCorrect:LR.answerCorrect,
+    savedResponse:cloneRevisionQuestion(LR.savedResponse),
+    lastAnswer:LR.lastAnswer
+  };
+}
+
+function syncCurrentQuestionHistory(){
+  if(!LR.current) return;
+  const snapshot=currentQuestionSnapshot();
+  if(LR.historyIndex<0){
+    LR.questionHistory=[snapshot];
+    LR.historyIndex=0;
+  }else{
+    LR.questionHistory[LR.historyIndex]=snapshot;
+  }
+}
+
+function restoreQuestionSnapshot(snapshot){
+  if(!snapshot?.current) return false;
+  LR.round=Math.max(1,Number(snapshot.round)||1);
+  LR.phase=snapshot.phase==="revision"?"revision":"lesson";
+  LR.revisionIndex=Math.max(0,Number(snapshot.revisionIndex)||0);
+  LR.current=cloneRevisionQuestion(snapshot.current);
+  LR.answered=!!snapshot.answered;
+  LR.answerCorrect=!!snapshot.answerCorrect;
+  LR.savedResponse=cloneRevisionQuestion(snapshot.savedResponse);
+  LR.lastAnswer=String(snapshot.lastAnswer||"");
+  return true;
+}
+
+function appendCurrentQuestionHistory(){
+  if(!LR.current) return;
+  LR.questionHistory=LR.questionHistory.slice(0,LR.historyIndex+1);
+  LR.questionHistory.push(currentQuestionSnapshot());
+  LR.historyIndex=LR.questionHistory.length-1;
+}
+
 function saveLessonCheckpoint(){
   if(!LR.grade||!LR.subj||!LR.lesson||!LR.current) return;
+  syncCurrentQuestionHistory();
   const checkpoint={
     version:LESSON_CHECKPOINT_VERSION,
     grade:LR.grade,
@@ -187,6 +234,8 @@ function saveLessonCheckpoint(){
     answerCorrect:LR.answerCorrect,
     savedResponse:LR.savedResponse,
     lastAnswer:LR.lastAnswer,
+    questionHistory:LR.questionHistory,
+    historyIndex:LR.historyIndex,
     backSection:LR.backSection,
     updatedAt:Date.now()
   };
@@ -229,6 +278,13 @@ function restoreLessonCheckpoint(saved){
   LR.answerCorrect=!!saved.answerCorrect;
   LR.savedResponse=saved.savedResponse??null;
   LR.lastAnswer=String(saved.lastAnswer||"");
+  LR.questionHistory=Array.isArray(saved.questionHistory)&&saved.questionHistory.length?saved.questionHistory:[];
+  const savedHistoryIndex=Number(saved.historyIndex);
+  LR.historyIndex=Number.isInteger(savedHistoryIndex)?Math.min(LR.questionHistory.length-1,Math.max(0,savedHistoryIndex)):LR.questionHistory.length-1;
+  if(!LR.questionHistory.length){
+    LR.questionHistory=[currentQuestionSnapshot()];
+    LR.historyIndex=0;
+  }
   LR.backSection=saved.backSection||LR.backSection;
 }
 
@@ -244,6 +300,14 @@ function clearLessonAdvanceTimers(){
 
 function lrAdvanceQuestion(){
   clearLessonAdvanceTimers();
+  syncCurrentQuestionHistory();
+  if(LR.historyIndex<LR.questionHistory.length-1){
+    LR.historyIndex++;
+    restoreQuestionSnapshot(LR.questionHistory[LR.historyIndex]);
+    lrRender();
+    saveLessonCheckpoint();
+    return;
+  }
   if(LR.phase === "revision"){
     if(LR.revisionQueue.length){
       lrLoadQuestion();
@@ -735,6 +799,8 @@ function launchLessonPack(grade, subj, lesson, pack, backSection){
   LR.answerCorrect = false;
   LR.savedResponse = null;
   LR.lastAnswer = "";
+  LR.questionHistory = [];
+  LR.historyIndex = -1;
 
   LR.backSection = backSection || `${grade}-${subj}`;
   const savedCheckpoint=readLessonCheckpoint(grade,subj,lesson);
@@ -957,6 +1023,7 @@ function lrLoadQuestion(){
   if(LR.phase === "revision"){
     LR.current = LR.revisionQueue.shift();
     LR.revisionIndex++;
+    appendCurrentQuestionHistory();
     lrRender();
     saveLessonCheckpoint();
     return;
@@ -970,6 +1037,7 @@ function lrLoadQuestion(){
     console.error("Lesson generator failed", LR.grade, LR.subj, LR.lesson, err);
     LR.current = fallbackLessonQuestion(pack);
   }
+  appendCurrentQuestionHistory();
   lrRender();
   saveLessonCheckpoint();
 }
@@ -1048,6 +1116,16 @@ function lrNext(){
   if($("lrNextBtn").disabled) return;
   lrAdvanceQuestion();
 }
+function lrPrevious(){
+  safeClick();
+  if(LR.historyIndex<=0) return;
+  clearLessonAdvanceTimers();
+  syncCurrentQuestionHistory();
+  LR.historyIndex--;
+  if(!restoreQuestionSnapshot(LR.questionHistory[LR.historyIndex])) return;
+  lrRender();
+  saveLessonCheckpoint();
+}
 function lrFinish(){
   clearLessonAdvanceTimers();
   clearLessonCheckpoint();
@@ -1096,6 +1174,8 @@ function lrRestart(){
   LR.answerCorrect = false;
   LR.savedResponse = null;
   LR.lastAnswer = "";
+  LR.questionHistory = [];
+  LR.historyIndex = -1;
   lrLoadQuestion();
 }
 function lrBack(){
@@ -1276,6 +1356,7 @@ function lrRender(){
   }
   $("lrFb").textContent = "";
   $("lrNextBtn").disabled = true;
+  if($("lrPrevBtn")) $("lrPrevBtn").disabled=LR.historyIndex<=0;
   if(!LR.answered) LR.lastAnswer = "";
   closeAnswerExplanation();
 

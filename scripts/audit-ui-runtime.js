@@ -45,7 +45,7 @@ function sourceDeclaresId(id){
 }
 
 const newSectionIds=["prek-eng","prek-math","kinder-eng","kinder-math","g1-eng","g1-math","paymentStatus"];
-const requiredIds=["home","grades","reading","settings","analysis","shop","playground","lessonRunner","lrQuestion","lrChoices","lrNextBtn","subscriptionPaywallStatus","checkoutConfirmButton","checkoutCardNumber","checkoutExpiry","checkoutCvc","checkoutZip",...newSectionIds];
+const requiredIds=["home","grades","reading","settings","analysis","shop","playground","lessonRunner","lrQuestion","lrChoices","lrPrevBtn","lrNextBtn","subscriptionPaywallStatus","checkoutConfirmButton","checkoutCardNumber","checkoutExpiry","checkoutCvc","checkoutZip",...newSectionIds];
 for(const id of requiredIds){
   if(!sourceDeclaresId(id)) failures.push(`Required UI element #${id} is missing.`);
 }
@@ -67,7 +67,7 @@ for(const legacyId of ["early-bank","prek-add","prek-count","prek-shapes","k-syl
   if(progressSource.includes(`"${legacyId}"`)) failures.push(`Legacy navigation target ${legacyId} is still active.`);
 }
 
-const requiredHandlers=["openPaymentStatusPage","renderPaymentStatusPage","saveAdminPaymentStatus","requestSubscriptionPlan","refreshSubscriptionAccess","enforceSubscriptionAccess","setVoiceName","previewVoice"];
+const requiredHandlers=["openPaymentStatusPage","renderPaymentStatusPage","saveAdminPaymentStatus","requestSubscriptionPlan","refreshSubscriptionAccess","enforceSubscriptionAccess","setVoiceName","previewVoice","lrPrevious"];
 for(const handler of requiredHandlers){
   if(!definitions.has(handler)) failures.push(`Required UI handler ${handler} is not defined.`);
 }

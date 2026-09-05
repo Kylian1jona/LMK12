@@ -263,6 +263,7 @@
 
       <div class="d-flex justify-content-center gap-2 flex-wrap mt-3">
         <button type="button" class="btn btn-main" onclick="lrReplay()">🔊 Replay</button>
+        <button type="button" class="btn btn-main" onclick="lrPrevious()" id="lrPrevBtn" disabled>Previous Question</button>
         <button type="button" class="btn btn-main" onclick="lrCheck()" id="lrCheckBtn">Check</button>
         <button type="button" class="btn btn-main" onclick="lrNext()" id="lrNextBtn" disabled>Next</button>
       </div>
