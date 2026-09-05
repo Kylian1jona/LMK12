@@ -152,10 +152,87 @@ const LR = {
   revisionTotal:0,
   revisionIndex:0,
   current:null, // {type, q, choices, answer}
+  answered:false,
+  answerCorrect:false,
+  savedResponse:null,
+  lastAnswer:"",
   backSection:"grades"
 };
 let LR_WRONG_ADVANCE_TIMER = null;
 let LR_CORRECT_ADVANCE_TIMER = null;
+const LESSON_CHECKPOINT_VERSION = 1;
+
+function lessonCheckpointKey(kidIdOverride=""){
+  const kidId=kidIdOverride||(typeof getActiveKidId==="function" ? getActiveKidId() : "default");
+  return `learnmaster_lesson_checkpoint_v${LESSON_CHECKPOINT_VERSION}_${kidId || "default"}`;
+}
+
+function saveLessonCheckpoint(){
+  if(!LR.grade||!LR.subj||!LR.lesson||!LR.current) return;
+  const checkpoint={
+    version:LESSON_CHECKPOINT_VERSION,
+    grade:LR.grade,
+    subj:LR.subj,
+    lesson:LR.lesson,
+    title:LR.title,
+    total:LR.total,
+    round:LR.round,
+    score:LR.score,
+    phase:LR.phase,
+    revisionQueue:LR.revisionQueue,
+    revisionTotal:LR.revisionTotal,
+    revisionIndex:LR.revisionIndex,
+    current:LR.current,
+    answered:LR.answered,
+    answerCorrect:LR.answerCorrect,
+    savedResponse:LR.savedResponse,
+    lastAnswer:LR.lastAnswer,
+    backSection:LR.backSection,
+    updatedAt:Date.now()
+  };
+  try{
+    const key=lessonCheckpointKey(),value=JSON.stringify(checkpoint);
+    window.localStorage?.setItem(key,value);
+    window.learnMasterStore?.setItem(key,value);
+  }catch(error){ console.warn("Lesson progress could not be saved.",error); }
+}
+
+function readLessonCheckpoint(grade,subj,lesson){
+  try{
+    const key=lessonCheckpointKey();
+    const raw=window.learnMasterStore?.getItem(key)||window.localStorage?.getItem(key);
+    const saved=raw?JSON.parse(raw):null;
+    if(saved?.version!==LESSON_CHECKPOINT_VERSION||saved.grade!==grade||saved.subj!==subj||saved.lesson!==lesson||!saved.current) return null;
+    if(!Number.isInteger(saved.round)||saved.round<1||saved.round>Number(saved.total||25)) return null;
+    return saved;
+  }catch(error){ return null; }
+}
+
+function clearLessonCheckpoint(kidId=""){
+  try{
+    const key=lessonCheckpointKey(kidId);
+    window.localStorage?.removeItem(key);
+    window.learnMasterStore?.removeItem(key);
+  }catch(error){}
+}
+
+function restoreLessonCheckpoint(saved){
+  LR.total=Math.min(25,Math.max(1,Number(saved.total)||25));
+  LR.round=Math.min(LR.total,Math.max(1,Number(saved.round)||1));
+  LR.score=Math.max(0,Number(saved.score)||0);
+  LR.phase=saved.phase==="revision"?"revision":"lesson";
+  LR.revisionQueue=Array.isArray(saved.revisionQueue)?saved.revisionQueue:[];
+  LR.revisionTotal=Math.max(0,Number(saved.revisionTotal)||0);
+  LR.revisionIndex=Math.max(0,Number(saved.revisionIndex)||0);
+  LR.current=saved.current;
+  LR.answered=!!saved.answered;
+  LR.answerCorrect=!!saved.answerCorrect;
+  LR.savedResponse=saved.savedResponse??null;
+  LR.lastAnswer=String(saved.lastAnswer||"");
+  LR.backSection=saved.backSection||LR.backSection;
+}
+
+if(typeof window!=="undefined") window.addEventListener("pagehide",saveLessonCheckpoint);
 
 function clearLessonAdvanceTimers(){
   cancelBlendSequence(true);
@@ -202,7 +279,10 @@ function queueRevisionQuestion(){
 }
 
 function lessonCorrect(feedback, rewardMessage){
+  if(LR.answered) return;
   const answeredQuestion=LR.current;
+  LR.answered=true;
+  LR.answerCorrect=true;
   if(LR.phase === "lesson"){
     LR.score++;
     correctReward(rewardMessage || feedback);
@@ -212,6 +292,7 @@ function lessonCorrect(feedback, rewardMessage){
     if(typeof showCorrectFeedbackOverlay==="function") showCorrectFeedbackOverlay("Practice complete!");
   }
   $("lrNextBtn").disabled = true;
+  saveLessonCheckpoint();
   clearTimeout(LR_CORRECT_ADVANCE_TIMER);
   let didAutoAdvance=false;
   LR_CORRECT_ADVANCE_TIMER=setTimeout(()=>{
@@ -225,7 +306,10 @@ function lessonCorrect(feedback, rewardMessage){
 }
 
 function lrWrongMoveOn(feedback = "Not quite. Moving on.", penalty = "", delayMs = 2600){
+  if(LR.answered) return;
   clearInterval(SPEED_TIMER);
+  LR.answered=true;
+  LR.answerCorrect=false;
   if(LR.phase === "lesson"){
     queueRevisionQuestion();
     $("lrFb").textContent = feedback;
@@ -237,6 +321,7 @@ function lrWrongMoveOn(feedback = "Not quite. Moving on.", penalty = "", delayMs
   clearTimeout(LR_WRONG_ADVANCE_TIMER);
   highlightLessonAnswers(LR.current, LR.lastAnswer);
   showAnswerExplanation(LR.current, LR.lastAnswer);
+  saveLessonCheckpoint();
 }
 
 /* ---------- Question helpers ---------- */
@@ -645,8 +730,15 @@ function launchLessonPack(grade, subj, lesson, pack, backSection){
   LR.revisionQueue = [];
   LR.revisionTotal = 0;
   LR.revisionIndex = 0;
+  LR.current = null;
+  LR.answered = false;
+  LR.answerCorrect = false;
+  LR.savedResponse = null;
+  LR.lastAnswer = "";
 
   LR.backSection = backSection || `${grade}-${subj}`;
+  const savedCheckpoint=readLessonCheckpoint(grade,subj,lesson);
+  if(savedCheckpoint) restoreLessonCheckpoint(savedCheckpoint);
 
   $("lrDone").classList.add("d-none");
   $("lrQuestionCard")?.classList.remove("d-none");
@@ -657,7 +749,8 @@ function launchLessonPack(grade, subj, lesson, pack, backSection){
   if(runner) runner.dataset.gradeBand=["prek","k","g1"].includes(grade)?"early":"upper";
 
   show("lessonRunner");
-  lrLoadQuestion();
+  if(savedCheckpoint) lrRender();
+  else lrLoadQuestion();
 }
 
 async function startLesson(grade, subj, lesson){
@@ -802,10 +895,12 @@ function lrRender(){
 }
 function lrPick(choice){
   safeClick();
+  if(LR.answered) return;
   if(!$("lrNextBtn").disabled) return;
 
   const q = LR.current;
   LR.lastAnswer = String(choice);
+  LR.savedResponse = String(choice);
   if(String(choice) === String(q.answer)){
     lessonCorrect("🎉 Correct!", "Correct!");
   }else{
@@ -855,10 +950,15 @@ function lrCheck(){
 
 function lrLoadQuestion(){
   clearLessonAdvanceTimers();
+  LR.answered=false;
+  LR.answerCorrect=false;
+  LR.savedResponse=null;
+  LR.lastAnswer="";
   if(LR.phase === "revision"){
     LR.current = LR.revisionQueue.shift();
     LR.revisionIndex++;
     lrRender();
+    saveLessonCheckpoint();
     return;
   }
   const pack = getLessonPack(LR.grade, LR.subj, LR.lesson);
@@ -871,6 +971,7 @@ function lrLoadQuestion(){
     LR.current = fallbackLessonQuestion(pack);
   }
   lrRender();
+  saveLessonCheckpoint();
 }
 
 function fallbackLessonQuestion(pack){
@@ -882,10 +983,17 @@ function fallbackLessonQuestion(pack){
   );
 }
 
+const LESSON_PROMPT_LEAD=/^(?:(?:analyze this example|apply the lesson|check the key detail|choose the precise answer|use what you know|reason through this|study the evidence|solve this carefully|find the best-supported answer|review this case|connect the ideas|test your understanding|examine this new example|make the strongest choice|think one step further|use the relevant rule|evaluate each option|work from the information given|identify the accurate conclusion|focus on the central skill|select the defensible response|check your reasoning|consider the context|complete this challenge|demonstrate mastery|choose the best answer|select the correct answer|read carefully and answer|pick the best response|think about the lesson and answer|choose the correct response|look closely and answer|select the best response|answer this question)\s*:\s*)+/i;
+function removeLessonPromptLead(value){
+  return String(value||"").replace(LESSON_PROMPT_LEAD,"").trim();
+}
+
 function normalizeLessonQuestion(q, pack){
   if(!q || typeof q !== "object") return fallbackLessonQuestion(pack);
   if(!q.type) q.type = Array.isArray(q.choices) ? "mc" : "input";
   if(!q.q) q.q = `${pack?.name || "Lesson"} question`;
+  q.q=removeLessonPromptLead(q.q);
+  if(q.audio) q.audio=removeLessonPromptLead(q.audio);
   if(q.type === "mc"){
     if(!Array.isArray(q.choices) || !q.choices.length){
       q.answer = q.answer || "Correct";
@@ -942,6 +1050,7 @@ function lrNext(){
 }
 function lrFinish(){
   clearLessonAdvanceTimers();
+  clearLessonCheckpoint();
   if(typeof pauseUniversalLessonTimer==="function") pauseUniversalLessonTimer();
   $("lrQuestionCard")?.classList.add("d-none");
   $("lrDone").classList.remove("d-none");
@@ -970,6 +1079,7 @@ function lrFinish(){
 }
 function lrRestart(){
   safeClick();
+  clearLessonCheckpoint();
   if(typeof restartUniversalLessonTimer==="function") restartUniversalLessonTimer();
   clearLessonAdvanceTimers();
   $("lrDone").classList.add("d-none");
@@ -982,10 +1092,15 @@ function lrRestart(){
   LR.revisionQueue = [];
   LR.revisionTotal = 0;
   LR.revisionIndex = 0;
+  LR.answered = false;
+  LR.answerCorrect = false;
+  LR.savedResponse = null;
+  LR.lastAnswer = "";
   lrLoadQuestion();
 }
 function lrBack(){
   safeClick();
+  saveLessonCheckpoint();
   clearLessonAdvanceTimers();
   $("lrVideo")?.pause();
   if(typeof hideCorrectFeedbackOverlay==="function") hideCorrectFeedbackOverlay();
@@ -1092,6 +1207,49 @@ function renderLessonVideo(video){
   if(title) title.textContent = video?.title || "Lesson video";
 }
 
+function restoreSavedAnswerView(){
+  if(!LR.answered||!LR.current) return;
+  const q=LR.current,response=LR.savedResponse;
+  clearInterval(SPEED_TIMER);
+  if(q.type==="input"||q.type==="fill"||q.type==="edit"){
+    const input=$("lrInput");
+    if(input){
+      input.value=String(response??LR.lastAnswer??"");
+      input.disabled=true;
+      input.classList.toggle("answer-input-wrong",!LR.answerCorrect);
+      input.classList.toggle("answer-input-correct",LR.answerCorrect);
+    }
+  }else if(q.type==="selectall"&&Array.isArray(response)){
+    const selected=new Set(response.map(String));
+    document.querySelectorAll("#lrChoices .selectall-choice").forEach(input=>{ input.checked=selected.has(input.value); });
+    highlightLessonAnswers(q,LR.lastAnswer);
+  }else if(q.type==="order"&&Array.isArray(response)){
+    document.querySelectorAll("#lrChoices .order-choice").forEach(button=>{
+      const position=response.map(String).indexOf(String(button.dataset.value));
+      button.disabled=true;
+      if(position>=0){
+        button.classList.add("picked");
+        button.textContent=`${position+1}. ${button.dataset.value}`;
+        button.classList.toggle("answer-correct",String(q.items?.[position])===String(button.dataset.value));
+        button.classList.toggle("answer-wrong",String(q.items?.[position])!==String(button.dataset.value));
+      }
+    });
+  }else if(q.type==="drag"&&Array.isArray(response)){
+    response.forEach(saved=>{
+      const zone=[...document.querySelectorAll("#lrDropZones .drop-zone")].find(item=>item.dataset.answer===String(saved.answer));
+      if(zone&&saved.dropped){ zone.dataset.dropped=String(saved.dropped); zone.querySelector(".drop-slot").textContent=String(saved.dropped); }
+    });
+    showDragCorrections(q);
+  }else{
+    highlightLessonAnswers(q,response??LR.lastAnswer);
+  }
+  $("lrCheckBtn")?.classList.add("d-none");
+  $("lrNextBtn").disabled=false;
+  $("lrFb").textContent=LR.answerCorrect
+    ? `Saved answer: ${LR.lastAnswer||"Completed"} — Correct.`
+    : `Saved answer: ${LR.lastAnswer||"No answer"}. The correct answer is shown.`;
+}
+
 function lrRender(){
   renderAllBadges();
 
@@ -1118,7 +1276,7 @@ function lrRender(){
   }
   $("lrFb").textContent = "";
   $("lrNextBtn").disabled = true;
-  LR.lastAnswer = "";
+  if(!LR.answered) LR.lastAnswer = "";
   closeAnswerExplanation();
 
   const q = LR.current;
@@ -1137,6 +1295,7 @@ function lrRender(){
   if($("lrInput")){
     $("lrInput").disabled = false;
     $("lrInput").classList.remove("answer-input-wrong");
+    $("lrInput").classList.remove("answer-input-correct");
   }
 
   $("lrInputWrap").classList.add("d-none");
@@ -1185,7 +1344,10 @@ function lrRender(){
     renderOrder(q);
   }
 
-  if(q.blend){
+  if(LR.answered){
+    restoreSavedAnswerView();
+    if(typeof setQAudio === "function") setQAudio(lessonQuestionSpeech(q));
+  }else if(q.blend){
     playBlendSequence(q);
   }else if(typeof setQAudio === "function"){
     setQAudio(lessonQuestionSpeech(q));
@@ -1199,6 +1361,8 @@ function lrCheck(){
   const q = LR.current;
   if(q.type === "drag"){
     const zones = document.querySelectorAll("#lrDropZones .drop-zone");
+    LR.savedResponse=[...zones].map(zone=>({answer:zone.dataset.answer||"",dropped:zone.dataset.dropped||""}));
+    LR.lastAnswer=LR.savedResponse.filter(item=>item.dropped).map(item=>`${item.dropped} → ${item.answer}`).join(", ")||"No matches selected";
     let ok = zones.length > 0;
     zones.forEach(zone=>{
       if(zone.dataset.dropped !== zone.dataset.answer) ok = false;
@@ -1206,7 +1370,6 @@ function lrCheck(){
     if(ok){
       lessonCorrect("Correct!", "Great matching!");
     }else{
-      LR.lastAnswer = "the current matches";
       showDragCorrections(q);
       lrWrongMoveOn(wrongExplanation(q), "Review the red corrections.", 4500);
     }
@@ -1215,6 +1378,8 @@ function lrCheck(){
 
   if(q.type === "selectall"){
     const picked = [...document.querySelectorAll("#lrChoices .selectall-choice:checked")].map(el=>el.value).sort();
+    LR.savedResponse=[...picked];
+    LR.lastAnswer=picked.join(", ")||"No choices selected";
     const answers = [...q.answers].map(String).sort();
     const ok = picked.length === answers.length && picked.every((v,i)=>v === answers[i]);
     if(ok){
@@ -1228,6 +1393,8 @@ function lrCheck(){
 
   if(q.type === "order"){
     const picked = [...document.querySelectorAll("#lrChoices .order-choice")].filter(b=>b.classList.contains("picked")).map(b=>b.dataset.value);
+    LR.savedResponse=[...picked];
+    LR.lastAnswer=picked.join(", ")||"No order selected";
     const ok = picked.length === q.items.length && picked.every((v,i)=>v === String(q.items[i]));
     if(ok){
       lessonCorrect("Correct order!", "Correct order!");
@@ -1241,6 +1408,7 @@ function lrCheck(){
 
   const user = $("lrInput").value.trim();
   LR.lastAnswer = user || "No answer";
+  LR.savedResponse=user;
 
   let ok = false;
 
@@ -1291,10 +1459,13 @@ function renderMatch(q){
         MATCH_PICK = null;
 
         if(document.querySelectorAll("#lessonExtra .done").length === q.pairs.length * 2){
+          LR.savedResponse=q.pairs.map(pair=>({left:pair.left,right:pair.right}));
+          LR.lastAnswer="All pairs matched";
           lessonCorrect("🎉 All matched!", "Great match!");
         }
       }else{
         LR.lastAnswer = `${MATCH_PICK.textContent} with ${b.textContent}`;
+        LR.savedResponse=LR.lastAnswer;
         MATCH_PICK.classList.add("answer-wrong");
         b.classList.add("answer-wrong");
         document.querySelectorAll("#lessonExtra .match-card").forEach(card=>{
@@ -1401,6 +1572,7 @@ function renderSpeed(q){
     if(SPEED_LEFT <= 0){
       clearInterval(SPEED_TIMER);
       LR.lastAnswer = "Time expired before an answer was selected";
+      LR.savedResponse="";
       lrWrongMoveOn(`Time is up. ${wrongExplanation(q)}`, "Too slow.", 3500);
     }
   },1000);

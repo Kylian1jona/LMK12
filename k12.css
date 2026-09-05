@@ -3594,6 +3594,12 @@ body[data-theme] #lrChoices .choice-btn.answer-wrong,
   color:#7f1d1d !important;
 }
 
+.answer-input-correct{
+  background:#dcfce7 !important;
+  border:3px solid #16a34a !important;
+  color:#14532d !important;
+}
+
 .answer-explanation-screen{
   position:fixed;
   inset:0;

@@ -996,6 +996,7 @@ function deleteKidById(id, parentVerified=false){
   if(!confirm(`Delete ${kid.name || kid.username}? This removes their saved progress.`)) return;
   try{ learnMasterStore.removeItem(getStoreKeyForKid(id)); }catch(e){}
   try{ if(typeof getPlaygroundUnlockKey === "function") learnMasterStore.removeItem(getPlaygroundUnlockKey(id)); }catch(e){}
+  try{ if(typeof clearLessonCheckpoint === "function") clearLessonCheckpoint(id); }catch(e){}
   kids = kids.filter(k=>k.id!==id);
   saveKids(kids);
   if(getActiveKidId() === id){
@@ -1008,6 +1009,7 @@ function deleteKidById(id, parentVerified=false){
 }
 function resetCurrentKidFlow(){
   if(!confirm("Reset ONLY this user's points/learners/owned?")) return;
+  if(typeof clearLessonCheckpoint === "function") clearLessonCheckpoint();
   state = blankState();
   saveState();
   renderAllBadges(); renderConvertButtons(); renderShop(); updateUserUI();
