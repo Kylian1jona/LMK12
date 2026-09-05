@@ -12,6 +12,11 @@ for(const grade of grades){
   const file=path.join(root,"components",`k12-classic-25-${grade}.js`);
   vm.runInContext(fs.readFileSync(file,"utf8"),context,{filename:file});
 }
+const curriculumFile=path.join(root,"components","k12-curriculum.js");
+vm.runInContext(fs.readFileSync(curriculumFile,"utf8"),context,{filename:curriculumFile});
+const numberSenseFile=path.join(root,"components","k12-g2-number-sense-lessons.js");
+context.document={readyState:"loading",addEventListener(){},querySelector(){return null;}};
+vm.runInContext(fs.readFileSync(numberSenseFile,"utf8"),context,{filename:numberSenseFile});
 
 const data=context.K12_CLASSIC_25_DATA||{};
 const failures=[];
@@ -35,6 +40,7 @@ for(const grade of ["g11","g12"]){
     for(const lesson of ["L1","L2"]) selectorKeys.add(`${grade}:${subject}:${lesson}`);
   }
 }
+for(let lesson=8;lesson<=32;lesson++) selectorKeys.add(`g2:math:L${lesson}`);
 
 for(const [key,record] of Object.entries(data)){
   if(!selectorKeys.has(key)) failures.push(`${key} has no lesson button.`);
