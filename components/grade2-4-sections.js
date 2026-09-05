@@ -63,7 +63,7 @@
     <h1>Grade 2 Math</h1>
     <p class="small-note">Choose a math topic.</p>
 
-    <div class="lesson-columns">
+    <div class="lesson-columns" data-number-sense-added="true">
 
       <div class="lesson-column">
         <h3>🔢 Numbers & Operations</h3>
@@ -95,6 +95,56 @@
         </button>
         <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L6')">Memory Match</button>
 <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L7')">Speed Challenge</button>
+      </div>
+
+      <div class="lesson-column">
+        <h3>Place Value</h3>
+        <p>Practice with 25 focused questions.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L8')">Place Value Names up to Ten Thousands</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L9')">Value of a Digit up to Ten Thousands</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L10')">Convert To and From a Number</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L11')">Convert Between Place Values</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L12')">Standard and Expanded Form</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L13')">Regroup Thousands, Hundreds, Tens, and Ones</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L14')">Place Value Word Problems</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L15')">Even or Odd</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L16')">Guess the Number</button>
+      </div>
+
+      <div class="lesson-column">
+        <h3>Comparing and Ordering</h3>
+        <p>Practice with 25 focused questions.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L17')">Compare and Order Numbers Using Number Lines</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L18')">Compare Numbers</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L19')">Greatest or Least Number</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L20')">Order Numbers</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L21')">Make the Largest or Smallest Number</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L22')">Ordering Puzzles</button>
+      </div>
+
+      <div class="lesson-column">
+        <h3>Rounding</h3>
+        <p>Practice with 25 focused questions.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L23')">Round Using a Number Line</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L24')">Round to the Nearest Ten or Hundred</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L25')">Round Numbers in a Table</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L26')">Rounding Puzzles</button>
+      </div>
+
+      <div class="lesson-column">
+        <h3>Estimate Sums</h3>
+        <p>Practice with 25 focused questions.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L27')">Estimate Sums by Rounding up to 1,000</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L28')">Estimate Sums Using Compatible Numbers</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L29')">Estimate Sums in Word Problems</button>
+      </div>
+
+      <div class="lesson-column">
+        <h3>Estimate Differences</h3>
+        <p>Practice with 25 focused questions.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L30')">Estimate Differences by Rounding up to 1,000</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L31')">Estimate Differences Using Compatible Numbers</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g2','math','L32')">Estimate Differences in Word Problems</button>
       </div>
 
     </div>
