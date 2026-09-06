@@ -3,7 +3,13 @@
 (function(){
   const loadedGrades=new Set();
   const pendingGrades=new Map();
-  const release="classic25-dedup-20260901.1";
+  const release="expanded-grades-20260905.1";
+  const courseNameOverrides={
+    "g11:math:L1":"Algebra 2 Functions and Modeling",
+    "g11:math:L2":"Algebra 2 Statistics and Probability",
+    "g12:math:L1":"Precalculus Functions and Modeling",
+    "g12:math:L2":"Calculus, Statistics, and Probability"
+  };
 
   function cloneQuestion(question){
     if(typeof structuredClone==="function") return structuredClone(question);
@@ -11,6 +17,7 @@
   }
 
   function installGrade(grade){
+    if(typeof window.K12RepairClassicBank==="function") window.K12RepairClassicBank(grade);
     const data=window.K12_CLASSIC_25_DATA||{};
     const entries=Object.entries(data).filter(([key])=>key.startsWith(`${grade}:`));
     if(!entries.length) throw new Error(`No classic question banks loaded for ${grade}.`);
@@ -26,7 +33,7 @@
         return;
       }
       const lessonQuestions=questions.slice(0,25);
-      pack.name=record.name||pack.name;
+      pack.name=courseNameOverrides[key]||record.name||pack.name;
       pack.questions=lessonQuestions;
       pack.gen=()=>cloneQuestion(lessonQuestions[Math.max(0,Math.min(24,Number(LR.round||1)-1))]);
       pack.generatorSource="classic-explicit-25";

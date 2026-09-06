@@ -277,7 +277,10 @@
     </div>
 
     <div class="quiz-card mt-3 d-none special-complete-card" id="lrDone">
-      <img class="lesson-complete-medal" src="images/lesson-gold-medal.png" alt="Gold star medal earned for completing the lesson">
+      <div class="lesson-complete-icon-row">
+        <img class="lesson-complete-medal" src="images/lesson-gold-medal.png" alt="Gold star medal earned for completing the lesson">
+        <span class="lesson-complete-medal-count" id="lrMedalCount">1 medal earned</span>
+      </div>
       <div class="lesson-complete-kicker">Lesson complete</div>
       <h2 style="font-weight:900;">You did it!</h2>
       <div class="stars" id="lrStars"></div>

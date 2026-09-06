@@ -1152,6 +1152,8 @@ function lrFinish(){
     <span>${verdict}</span>
     <small>Revision questions were practice only and did not change this result.</small>`;
   recordLearningStat("lesson", { title:LR.title });
+  const medals=typeof ensureStats==="function"?(Number(ensureStats().medalsEarned)||1):1;
+  if($("lrMedalCount")) $("lrMedalCount").textContent=`${medals} medal${medals===1?"":"s"} earned`;
   launchConfetti(200);
   speakQ("Great job! You finished the lesson!");
 }

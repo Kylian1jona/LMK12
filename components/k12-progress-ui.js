@@ -58,6 +58,7 @@ const DEFAULT_STATS = {
   correct:0,
   wrong:0,
   lessonsCompleted:0,
+  medalsEarned:0,
   lastLesson:"",
   readingMinutes:0,
   dailyDate:"",
@@ -1809,6 +1810,7 @@ function recordLearningStat(type, extra={}){
   }
   if(type === "lesson"){
     stats.lessonsCompleted++;
+    stats.medalsEarned=(Number(stats.medalsEarned)||0)+1;
     stats.dailyLessons++;
     updateLessonStreak(stats);
     if(extra.title) stats.lastLesson = String(extra.title);

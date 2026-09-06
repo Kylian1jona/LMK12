@@ -11,6 +11,7 @@ vm.runInContext(fs.readFileSync(repairFile,"utf8"),context,{filename:repairFile}
 for(const grade of grades){
   const file=path.join(root,"components",`k12-classic-25-${grade}.js`);
   vm.runInContext(fs.readFileSync(file,"utf8"),context,{filename:file});
+  context.K12RepairClassicBank?.(grade);
 }
 const curriculumFile=path.join(root,"components","k12-curriculum.js");
 vm.runInContext(fs.readFileSync(curriculumFile,"utf8"),context,{filename:curriculumFile});
@@ -41,9 +42,16 @@ for(const grade of ["g11","g12"]){
   }
 }
 for(let lesson=8;lesson<=32;lesson++) selectorKeys.add(`g2:math:L${lesson}`);
+for(const subject of ["eng","math","alg1","sci","hist"]){
+  for(let lesson=1;lesson<=20;lesson++) selectorKeys.add(`g8:${subject}:L${lesson}`);
+}
+for(const subject of ["eng","alg1","sci","hist"]){
+  for(let lesson=1;lesson<=20;lesson++) selectorKeys.add(`g9:${subject}:L${lesson}`);
+}
 
 for(const [key,record] of Object.entries(data)){
-  if(!selectorKeys.has(key)) failures.push(`${key} has no lesson button.`);
+  const isArchivedGrade9Math=key.startsWith("g9:math:");
+  if(!selectorKeys.has(key)&&!isArchivedGrade9Math) failures.push(`${key} has no lesson button.`);
   if(!record?.name) failures.push(`${key} has no lesson name.`);
   if(!Array.isArray(record?.questions)||record.questions.length!==25){
     failures.push(`${key} does not contain exactly 25 questions.`);

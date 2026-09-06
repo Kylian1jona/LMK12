@@ -3743,14 +3743,34 @@ body[data-theme] #lrChoices .choice-btn.answer-wrong,
   position:relative;
   z-index:1;
   display:block;
-  width:clamp(150px, 28vw, 230px);
+  width:64px;
   aspect-ratio:1;
   object-fit:cover;
-  margin:0 auto 8px;
-  border-radius:28px;
+  margin:0;
+  border-radius:14px;
   cursor:default;
   transform:none;
-  filter:drop-shadow(0 18px 18px rgba(180,83,9,.24));
+  filter:drop-shadow(0 8px 9px rgba(180,83,9,.22));
+}
+
+.lesson-complete-icon-row{
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin:0 auto 10px;
+}
+
+.lesson-complete-medal-count{
+  padding:7px 11px;
+  border:1px solid rgba(180,83,9,.22);
+  border-radius:999px;
+  background:#fff9df;
+  color:#92400e;
+  font-size:.86rem;
+  font-weight:900;
 }
 
 .lesson-complete-kicker{
