@@ -56,6 +56,7 @@
       </div>
     </div>
     </div>
+  </div>
   
 
 <div id="g2-math" class="section d-none">
