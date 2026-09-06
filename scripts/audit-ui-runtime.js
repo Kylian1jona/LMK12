@@ -45,6 +45,7 @@ function sourceDeclaresId(id){
 }
 
 const newSectionIds=["prek-eng","prek-math","kinder-eng","kinder-math","g1-eng","g1-math","paymentStatus"];
+const expandedCourseSectionIds=["g8-alg1","g9-alg1"];
 const requiredIds=["home","grades","reading","settings","analysis","shop","playground","lessonRunner","lrQuestion","lrChoices","lrPrevBtn","lrNextBtn","subscriptionPaywallStatus","checkoutConfirmButton","checkoutCardNumber","checkoutExpiry","checkoutCvc","checkoutZip",...newSectionIds];
 for(const id of requiredIds){
   if(!sourceDeclaresId(id)) failures.push(`Required UI element #${id} is missing.`);
@@ -58,9 +59,14 @@ if(!visibleSectionsMatch){
   const visibleSectionIds=new Set(
     [...visibleSectionsMatch[1].matchAll(/["']([^"']+)["']/g)].map(match=>match[1])
   );
-  for(const id of newSectionIds){
+  for(const id of [...newSectionIds,...expandedCourseSectionIds]){
     if(!visibleSectionIds.has(id)) failures.push(`Required UI section #${id} is not registered for navigation.`);
   }
+}
+
+const expandedMenus=fs.readFileSync(path.join(root,"components","k12-expanded-grade-menus.js"),"utf8");
+for(const grade of ["g8","g9"]){
+  if(!expandedMenus.includes(`["alg1","Algebra 1"`)) failures.push(`${grade} Algebra 1 is missing from the expanded course menu.`);
 }
 
 for(const legacyId of ["early-bank","prek-add","prek-count","prek-shapes","k-syll-count","k-syll-build","k-rhymes","g1-addsub","g1-graphs","g1-money"]){
