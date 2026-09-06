@@ -45,7 +45,7 @@ function sourceDeclaresId(id){
 }
 
 const newSectionIds=["prek-eng","prek-math","kinder-eng","kinder-math","g1-eng","g1-math","paymentStatus"];
-const expandedCourseSectionIds=["g8-alg1","g9-alg1"];
+const expandedCourseSectionIds=["g8-alg1","g9-alg1","g10-alg1"];
 const requiredIds=["home","grades","reading","settings","analysis","shop","playground","lessonRunner","lrQuestion","lrChoices","lrPrevBtn","lrNextBtn","subscriptionPaywallStatus","checkoutConfirmButton","checkoutCardNumber","checkoutExpiry","checkoutCvc","checkoutZip",...newSectionIds];
 for(const id of requiredIds){
   if(!sourceDeclaresId(id)) failures.push(`Required UI element #${id} is missing.`);
@@ -65,7 +65,7 @@ if(!visibleSectionsMatch){
 }
 
 const expandedMenus=fs.readFileSync(path.join(root,"components","k12-expanded-grade-menus.js"),"utf8");
-for(const grade of ["g8","g9"]){
+for(const grade of ["g8","g9","g10"]){
   if(!expandedMenus.includes(`["alg1","Algebra 1"`)) failures.push(`${grade} Algebra 1 is missing from the expanded course menu.`);
 }
 

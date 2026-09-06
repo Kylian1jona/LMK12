@@ -3,7 +3,7 @@
 (function(){
   const loadedGrades=new Set();
   const pendingGrades=new Map();
-  const release="expanded-grades-20260905.2";
+  const release="expanded-grade10-20260906.1";
   const courseNameOverrides={
     "g11:math:L1":"Algebra 2 Functions and Modeling",
     "g11:math:L2":"Algebra 2 Equations, Systems, and Sequences",

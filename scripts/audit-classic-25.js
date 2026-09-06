@@ -48,6 +48,9 @@ for(const subject of ["eng","math","alg1","sci","hist"]){
 for(const subject of ["eng","alg1","sci","hist"]){
   for(let lesson=1;lesson<=20;lesson++) selectorKeys.add(`g9:${subject}:L${lesson}`);
 }
+for(const subject of ["eng","math","alg1","sci","hist"]){
+  for(let lesson=1;lesson<=20;lesson++) selectorKeys.add(`g10:${subject}:L${lesson}`);
+}
 
 for(const [key,record] of Object.entries(data)){
   const isArchivedGrade9Math=key.startsWith("g9:math:");

@@ -526,7 +526,7 @@ function show(id,options={}){
 "grade7","g7-eng","g7-math","g7-sci","g7-hist",
 "grade8","g8-eng","g8-math","g8-alg1","g8-sci","g8-hist",
 "grade9","g9-eng","g9-math","g9-alg1","g9-sci","g9-hist",
-"grade10","g10-eng","g10-math","g10-sci","g10-hist",
+"grade10","g10-eng","g10-math","g10-alg1","g10-sci","g10-hist",
 "grade11","g11-eng","g11-math","g11-sci","g11-hist",
 "grade12","g12-eng","g12-math","g12-sci","g12-hist",
 "lessonRunner",

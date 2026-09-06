@@ -1,4 +1,4 @@
-/* Topic-driven Grade 8 and Grade 9 menus for the expanded lesson banks. */
+/* Topic-driven menus for the expanded lesson banks. */
 (function(){
   const CONFIG={
     g8:{
@@ -13,6 +13,15 @@
     g9:{
       subjects:[
         ["eng","English","📖"],
+        ["alg1","Algebra 1","🧮"],
+        ["sci","Science","🔬"],
+        ["hist","History","🌍"]
+      ]
+    },
+    g10:{
+      subjects:[
+        ["eng","English","📖"],
+        ["math","Geometry","📐"],
         ["alg1","Algebra 1","🧮"],
         ["sci","Science","🔬"],
         ["hist","History","🌍"]
@@ -53,8 +62,10 @@
     if(typeof CURR!=="object") return;
     CURR.g8=CURR.g8||{};
     CURR.g9=CURR.g9||{};
+    CURR.g10=CURR.g10||{};
     CURR.g8.alg1=CURR.g8.alg1||{showName:"Grade 8 Algebra 1"};
     CURR.g9.alg1=CURR.g9.alg1||{showName:"Grade 9 Algebra 1"};
+    CURR.g10.alg1=CURR.g10.alg1||{showName:"Grade 10 Algebra 1"};
   }
 
   function ensureSection(grade,subject){
