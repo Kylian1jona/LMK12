@@ -37,9 +37,9 @@
   };
   const DISPLAY_OVERRIDES={
     "g11:math:L1":"Algebra 2 Functions and Modeling",
-    "g11:math:L2":"Algebra 2 Statistics and Probability",
-    "g12:math:L1":"Precalculus Functions and Modeling",
-    "g12:math:L2":"Calculus, Statistics, and Probability"
+    "g11:math:L2":"Algebra 2 Equations, Systems, and Sequences",
+    "g12:math:L1":"Precalculus Functions and Trigonometry",
+    "g12:math:L2":"Calculus Foundations"
   };
   const FALLBACK_TOPICS={
     eng:["Reading and Literature","Vocabulary and Language","Grammar and Writing","Research and Synthesis"],
@@ -142,11 +142,11 @@
       const lessonButtons=[...document.querySelectorAll(`#g${number}-math .lesson-column:first-child button`)].filter(button=>button.getAttribute("onclick")?.includes("startLesson"));
       if(number==="11"){
         if(lessonButtons[0]) lessonButtons[0].textContent="Algebra 2 Functions and Modeling";
-        if(lessonButtons[1]) lessonButtons[1].textContent="Algebra 2 Statistics and Probability";
+        if(lessonButtons[1]) lessonButtons[1].textContent="Algebra 2 Equations, Systems, and Sequences";
       }
       if(number==="12"){
-        if(lessonButtons[0]) lessonButtons[0].textContent="Precalculus Functions and Modeling";
-        if(lessonButtons[1]) lessonButtons[1].textContent="Calculus, Statistics, and Probability";
+        if(lessonButtons[0]) lessonButtons[0].textContent="Precalculus Functions and Trigonometry";
+        if(lessonButtons[1]) lessonButtons[1].textContent="Calculus Foundations";
       }
     });
   }
