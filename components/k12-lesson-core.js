@@ -218,6 +218,7 @@ function saveLessonCheckpoint(){
   syncCurrentQuestionHistory();
   const checkpoint={
     version:LESSON_CHECKPOINT_VERSION,
+    contentVersion:window.K12_CLASSIC_25_DATA?.[`${LR.grade}:${LR.subj}:${LR.lesson}`]?.contentVersion||null,
     grade:LR.grade,
     subj:LR.subj,
     lesson:LR.lesson,
@@ -252,6 +253,8 @@ function readLessonCheckpoint(grade,subj,lesson){
     const raw=window.learnMasterStore?.getItem(key)||window.localStorage?.getItem(key);
     const saved=raw?JSON.parse(raw):null;
     if(saved?.version!==LESSON_CHECKPOINT_VERSION||saved.grade!==grade||saved.subj!==subj||saved.lesson!==lesson||!saved.current) return null;
+    const contentVersion=window.K12_CLASSIC_25_DATA?.[`${grade}:${subj}:${lesson}`]?.contentVersion||null;
+    if((saved.contentVersion||null)!==contentVersion) return null;
     if(!Number.isInteger(saved.round)||saved.round<1||saved.round>Number(saved.total||25)) return null;
     return saved;
   }catch(error){ return null; }
@@ -668,6 +671,7 @@ function lessonQuestionSpeech(q){
 const SUBJECT_LABELS = {
   eng:"English",
   math:"Math",
+  alg1:"Algebra 1",
   sci:"Science",
   hist:"History"
 };

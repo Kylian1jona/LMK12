@@ -45,16 +45,18 @@ for(let lesson=8;lesson<=32;lesson++) selectorKeys.add(`g2:math:L${lesson}`);
 for(const subject of ["eng","math","alg1","sci","hist"]){
   for(let lesson=1;lesson<=20;lesson++) selectorKeys.add(`g8:${subject}:L${lesson}`);
 }
-for(const subject of ["eng","alg1","sci","hist"]){
+for(const subject of ["eng","math","sci","hist"]){
   for(let lesson=1;lesson<=20;lesson++) selectorKeys.add(`g9:${subject}:L${lesson}`);
 }
-for(const subject of ["eng","math","alg1","sci","hist"]){
+for(const subject of ["eng","math","sci","hist"]){
   for(let lesson=1;lesson<=20;lesson++) selectorKeys.add(`g10:${subject}:L${lesson}`);
+}
+for(const grade of ["g11","g12"]){
+  for(let lesson=1;lesson<=8;lesson++) selectorKeys.add(`${grade}:math:L${lesson}`);
 }
 
 for(const [key,record] of Object.entries(data)){
-  const isArchivedGrade9Math=key.startsWith("g9:math:");
-  if(!selectorKeys.has(key)&&!isArchivedGrade9Math) failures.push(`${key} has no lesson button.`);
+  if(!selectorKeys.has(key)) failures.push(`${key} has no lesson button.`);
   if(!record?.name) failures.push(`${key} has no lesson name.`);
   if(!Array.isArray(record?.questions)||record.questions.length!==25){
     failures.push(`${key} does not contain exactly 25 questions.`);

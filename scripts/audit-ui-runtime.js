@@ -45,7 +45,7 @@ function sourceDeclaresId(id){
 }
 
 const newSectionIds=["prek-eng","prek-math","kinder-eng","kinder-math","g1-eng","g1-math","paymentStatus"];
-const expandedCourseSectionIds=["g8-alg1","g9-alg1","g10-alg1"];
+const expandedCourseSectionIds=["g8-alg1","g1-handwriting","g2-handwriting","g3-handwriting"];
 const requiredIds=["home","grades","reading","settings","analysis","shop","playground","lessonRunner","lrQuestion","lrChoices","lrPrevBtn","lrNextBtn","subscriptionPaywallStatus","checkoutConfirmButton","checkoutCardNumber","checkoutExpiry","checkoutCvc","checkoutZip",...newSectionIds];
 for(const id of requiredIds){
   if(!sourceDeclaresId(id)) failures.push(`Required UI element #${id} is missing.`);
@@ -65,8 +65,9 @@ if(!visibleSectionsMatch){
 }
 
 const expandedMenus=fs.readFileSync(path.join(root,"components","k12-expanded-grade-menus.js"),"utf8");
-for(const grade of ["g8","g9","g10"]){
-  if(!expandedMenus.includes(`["alg1","Algebra 1"`)) failures.push(`${grade} Algebra 1 is missing from the expanded course menu.`);
+for(const [grade,label] of [["g8","Math"],["g8","Algebra 1"],["g9","Geometry"],["g10","Algebra 2"],["g11","Precalculus"],["g12","Calculus"]]){
+  const config=expandedMenus.match(new RegExp(`${grade}:\\{([\\s\\S]*?)\\n    \\}`))?.[1]||"";
+  if(!config.includes(`"${label}"`)) failures.push(`${grade} ${label} is missing from the expanded course menu.`);
 }
 
 for(const legacyId of ["early-bank","prek-add","prek-count","prek-shapes","k-syll-count","k-syll-build","k-rhymes","g1-addsub","g1-graphs","g1-money"]){

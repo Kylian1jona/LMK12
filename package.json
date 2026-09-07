@@ -2,6 +2,8 @@
   "scripts": {
     "lessons:audit": "node scripts/audit-classic-25.js",
     "lessons:audit:early": "node scripts/audit-early-25.js",
+    "courses:audit": "node scripts/audit-course-update.js",
+    "courses:build": "node scripts/build-course-banks.js",
     "choices:audit": "node scripts/audit-choice-normalization.js",
     "checkout:audit": "node scripts/audit-checkout-safety.js",
     "deploy:netlify": "node scripts/deploy-netlify-api.mjs",

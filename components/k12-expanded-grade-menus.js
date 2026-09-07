@@ -13,7 +13,7 @@
     g9:{
       subjects:[
         ["eng","English","📖"],
-        ["alg1","Algebra 1","🧮"],
+        ["math","Geometry","📐"],
         ["sci","Science","🔬"],
         ["hist","History","🌍"]
       ]
@@ -21,8 +21,7 @@
     g10:{
       subjects:[
         ["eng","English","📖"],
-        ["math","Geometry","📐"],
-        ["alg1","Algebra 1","🧮"],
+        ["math","Algebra 2","🧮"],
         ["sci","Science","🔬"],
         ["hist","History","🌍"]
       ]
@@ -30,7 +29,7 @@
     g11:{
       subjects:[
         ["eng","English","📖"],
-        ["math","Algebra 2","🧮"],
+        ["math","Precalculus","🧮"],
         ["sci","Science","🔬"],
         ["hist","History","🌍"]
       ]
@@ -38,17 +37,11 @@
     g12:{
       subjects:[
         ["eng","English","📖"],
-        ["math","Precalculus & Calculus","📐"],
+        ["math","Calculus","📐"],
         ["sci","Science","🔬"],
         ["hist","History","🌍"]
       ]
     }
-  };
-  const DISPLAY_OVERRIDES={
-    "g11:math:L1":"Algebra 2 Functions and Modeling",
-    "g11:math:L2":"Algebra 2 Equations, Systems, and Sequences",
-    "g12:math:L1":"Precalculus Functions and Trigonometry",
-    "g12:math:L2":"Calculus Foundations"
   };
   const FALLBACK_TOPICS={
     eng:["Reading and Literature","Vocabulary and Language","Grammar and Writing","Research and Synthesis"],
@@ -64,8 +57,13 @@
     CURR.g9=CURR.g9||{};
     CURR.g10=CURR.g10||{};
     CURR.g8.alg1=CURR.g8.alg1||{showName:"Grade 8 Algebra 1"};
-    CURR.g9.alg1=CURR.g9.alg1||{showName:"Grade 9 Algebra 1"};
-    CURR.g10.alg1=CURR.g10.alg1||{showName:"Grade 10 Algebra 1"};
+    for(const [grade,config] of Object.entries(CONFIG)){
+      CURR[grade]=CURR[grade]||{};
+      for(const [subject,label] of config.subjects){
+        CURR[grade][subject]=CURR[grade][subject]||{};
+        CURR[grade][subject].showName=`Grade ${grade.slice(1)} ${label}`;
+      }
+    }
   }
 
   function ensureSection(grade,subject){
@@ -87,7 +85,7 @@
     const prefix=`${grade}:${subject}:`;
     return Object.entries(window.K12_CLASSIC_25_DATA||{})
       .filter(([key])=>key.startsWith(prefix))
-      .map(([key,record])=>({key,lesson:key.split(":")[2],name:DISPLAY_OVERRIDES[key]||record.name||key}))
+      .map(([key,record])=>({key,lesson:key.split(":")[2],name:record.name||key}))
       .sort((a,b)=>Number(a.lesson.slice(1))-Number(b.lesson.slice(1)));
   }
 
@@ -139,34 +137,17 @@
     menu.innerHTML=CONFIG[grade].subjects.map(([,label])=>`<button type="button" class="btn btn-main" onclick="openExpandedSubject('${grade}','${CONFIG[grade].subjects.find(item=>item[1]===label)[0]}')">${label}</button>`).join("")+`<button type="button" class="btn btn-main" onclick="show('grades')">Back</button>`;
   }
 
-  function labelLaterMathCourses(){
-    const mappings=[
-      ["10","Geometry"],
-      ["11","Algebra 2"],
-      ["12","Precalculus & Calculus"]
-    ];
-    mappings.forEach(([number,label])=>{
-      const menuButton=[...document.querySelectorAll(`#grade${number} button`)].find(button=>button.getAttribute("onclick")===`show('g${number}-math')`);
-      if(menuButton) menuButton.textContent=label;
-      const heading=document.querySelector(`#g${number}-math h1`);
-      if(heading) heading.textContent=`📐 Grade ${number} ${label}`;
-      const lessonButtons=[...document.querySelectorAll(`#g${number}-math .lesson-column:first-child button`)].filter(button=>button.getAttribute("onclick")?.includes("startLesson"));
-      if(number==="11"){
-        if(lessonButtons[0]) lessonButtons[0].textContent="Algebra 2 Functions and Modeling";
-        if(lessonButtons[1]) lessonButtons[1].textContent="Algebra 2 Equations, Systems, and Sequences";
-      }
-      if(number==="12"){
-        if(lessonButtons[0]) lessonButtons[0].textContent="Precalculus Functions and Trigonometry";
-        if(lessonButtons[1]) lessonButtons[1].textContent="Calculus Foundations";
-      }
-    });
-  }
-
   ensureCourseGroups();
   window.openExpandedSubject=openExpandedSubject;
   function init(){
     Object.keys(CONFIG).forEach(renderGradeMenu);
-    labelLaterMathCourses();
+    for(const [grade,config] of Object.entries(CONFIG)){
+      for(const [subject,label,icon] of config.subjects){
+        const section=ensureSection(grade,subject);
+        section.innerHTML=`<div class="cardish text-center kid-font"><h1>${icon} Grade ${grade.slice(1)} ${label}</h1><p>Explore named lessons with 25 questions each.</p><button type="button" class="btn btn-main" onclick="openExpandedSubject('${grade}','${subject}')">View ${label} lessons</button><button type="button" class="btn btn-main" onclick="show('grade${grade.slice(1)}')">Back to Grade ${grade.slice(1)}</button></div>`;
+      }
+    }
+
   }
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init,{once:true});
   else init();
