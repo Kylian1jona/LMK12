@@ -45,7 +45,7 @@ function sourceDeclaresId(id){
 }
 
 const newSectionIds=["prek-eng","prek-math","kinder-eng","kinder-math","g1-eng","g1-math","paymentStatus"];
-const expandedCourseSectionIds=["g8-alg1","g1-handwriting","g2-handwriting","g3-handwriting"];
+const expandedCourseSectionIds=["g8-alg1","g1-handwriting","g2-handwriting","g3-handwriting","g8-handwriting","g9-handwriting","g10-handwriting","g11-handwriting","g12-handwriting"];
 const requiredIds=["home","grades","reading","settings","analysis","shop","playground","lessonRunner","lrQuestion","lrChoices","lrPrevBtn","lrNextBtn","subscriptionPaywallStatus","checkoutConfirmButton","checkoutCardNumber","checkoutExpiry","checkoutCvc","checkoutZip",...newSectionIds];
 for(const id of requiredIds){
   if(!sourceDeclaresId(id)) failures.push(`Required UI element #${id} is missing.`);

@@ -536,7 +536,7 @@ function show(id,options={}){
 "grade10","g10-eng","g10-math","g10-sci","g10-hist",
 "grade11","g11-eng","g11-math","g11-sci","g11-hist",
 "grade12","g12-eng","g12-math","g12-sci","g12-hist",
-"g1-handwriting","g2-handwriting","g3-handwriting",
+"g1-handwriting","g2-handwriting","g3-handwriting","g8-handwriting","g9-handwriting","g10-handwriting","g11-handwriting","g12-handwriting",
 "lessonRunner",
 
   ];

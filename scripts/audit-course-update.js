@@ -59,6 +59,7 @@ assert.equal(access.gateAllowedSection('g8-alg1'),true);
 assert.equal(access.gateAllowedSection('g1-handwriting'),false);
 access.authoritativeSubscriptionSubjects=()=>['eng'];
 assert.equal(access.gateAllowedSection('g3-handwriting'),true);
+assert.equal(access.gateAllowedSection('g12-handwriting'),true);
 assert.equal(access.subjectAllowed('alg1'),false);
 
 const navigationSource=read('components/k12-progress-ui.js');
@@ -124,19 +125,19 @@ class Element {
   getContext(){return new Proxy({font:'12px sans-serif',measureText(text){return {width:text.length*parseInt(this.font)*0.6};}},{get:(target,key)=>target[key]||(()=>{})});}
 }
 const host=new Element();
-const menus=Array.from({length:6},()=>new Element());
+const menus=Array.from({length:16},()=>new Element());
 let menuLookup=0,init;
 const saved=new Map();
 let learner='test-one',permitted=true;
-const doc={readyState:'loading',addEventListener:(event,fn)=>{init=fn;},createElement:tag=>new Element(tag),getElementById:id=>ids.get(id),querySelector:selector=>selector==='.container'?host:menus[menuLookup++%6]};
+const doc={readyState:'loading',addEventListener:(event,fn)=>{init=fn;},createElement:tag=>new Element(tag),getElementById:id=>ids.get(id),querySelector:selector=>selector==='.container'?host:menus[menuLookup++%16]};
 const handwriting=vm.createContext({document:doc,requireLessonSubjectAccess:()=>permitted,getActiveKidId:()=>learner,getStoreKey:()=>`progress_${learner}`,learnMasterStore:{getItem:key=>saved.get(key),setItem:(key,value)=>saved.set(key,value)},show(){},console});
 handwriting.window=handwriting;
 vm.runInContext(read('components/k12-handwriting.js'),handwriting);
 init();
-assert.equal(host.children.length,3,'Three registered handwriting sections');
+assert.equal(host.children.length,8,'Eight registered handwriting sections');
 assert.ok(menus.every(menu=>menu.children.length===1),'Each grade and English menu has a handwriting button');
 for(const records of Object.values(handwriting.K12HandwritingLessons)){
-  assert.equal(records.length,3);
+  assert.equal(records.length,5);
   for(const record of records){assert.equal(record.targets.length,25);assert.ok(record.targets.every(Boolean));}
 }
 handwriting.openHandwriting('g1');
@@ -163,6 +164,7 @@ section.querySelector('[data-handwriting-lesson="capitals"]').emit('click');
 assert.ok(section.innerHTML.includes('Step 2 of 25'),'Saved practice resumes at the next step');
 section.querySelector('[value="paper"]').emit('change');
 for(let i=1;i<25;i++){
+  section.querySelector('[value="paper"]').emit('change');
   ids.get('handwritingReview').checked=true;ids.get('handwritingReview').emit('change');ids.get('handwritingNext').emit('click');
 }
 assert.ok(section.innerHTML.includes('Practice complete!'));
@@ -170,7 +172,7 @@ assert.equal(JSON.parse(saved.get('progress_test-one_handwriting_v1'))['g1:capit
 learner='test-two';
 handwriting.openHandwriting('g1');
 assert.ok(section.innerHTML.includes('0 of 25 steps completed'),'Progress is isolated per learner');
-for(const grade of ['g2','g3']){
+for(const grade of ['g2','g3','g8','g9','g10','g11','g12']){
   handwriting.openHandwriting(grade);
   const gradeSection=ids.get(`${grade}-handwriting`);
   gradeSection.querySelector('[data-handwriting-lesson]').emit('click');

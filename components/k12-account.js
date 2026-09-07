@@ -1254,7 +1254,7 @@ function gateAllowedSection(sectionId){
   if(earlySubjectMatch) return subjectAllowed(earlySubjectMatch[1]);
   if(/^grade\d+$/.test(sectionId)) return anySubjectAllowed();
   if(sectionId === "g8-alg1") return subjectAllowed("math");
-  if(/^g[123]-handwriting$/.test(sectionId)) return subjectAllowed("eng");
+  if(/^g(?:[123]|8|9|10|11|12)-handwriting$/.test(sectionId)) return subjectAllowed("eng");
   const subjectMatch = sectionId.match(/^g\d+-(eng|math|sci|hist)$/);
   if(subjectMatch) return subjectAllowed(subjectMatch[1]);
   if(sectionId === "lessonRunner"){

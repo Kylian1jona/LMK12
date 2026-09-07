@@ -6541,7 +6541,20 @@ body #lessonRunner #lrChoices[data-choice-style="emoji"] .choice-btn:nth-child(3
 .handwriting-mode input, .handwriting-check input { width: 22px; height: 22px; flex-shrink: 0; accent-color: #6f52ed; }
 #handwritingCanvas { display: block; width: 100%; height: auto; touch-action: none; border: 2px solid #b8b1d6; border-radius: 12px; cursor: crosshair; background: white; }
 .handwriting-tools { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+.handwriting-settings { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin: 12px 0; padding: 12px 14px; background: #f6f4ff; border: 1px solid #dcd5f4; border-radius: 12px; }
+.handwriting-settings label { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+.handwriting-settings input[type="color"] { width: 44px; height: 36px; padding: 2px; border: 1px solid #aaa3ca; border-radius: 8px; }
+.handwriting-settings input[type="range"] { width: 130px; accent-color: #6f52ed; }
+.handwriting-settings input[type="checkbox"] { width: 20px; height: 20px; accent-color: #6f52ed; }
 .handwriting-check { font-weight: 600; }
 #handwritingStatus { min-height: 1.5em; }
 .handwriting-shell button:disabled { opacity: .5; cursor: not-allowed; }
 .handwriting-shell [hidden] { display: none !important; }
+@media print {
+  body * { visibility: hidden; }
+  .handwriting-shell, .handwriting-shell * { visibility: visible; }
+  .handwriting-shell { position: absolute; inset: 0; max-width: none; box-shadow: none; }
+  .handwriting-mode, .handwriting-settings, .handwriting-tools, .handwriting-check, #handwritingStatus, progress { display: none !important; }
+  #handwritingScreen, #handwritingCanvas { display: block !important; }
+  #handwritingCanvas { border: 1px solid #777; }
+}
