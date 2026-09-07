@@ -233,7 +233,8 @@
         button.className='btn btn-main';
         button.textContent='Handwriting';
         button.addEventListener('click',()=>openHandwriting(grade));
-        target.appendChild(button);
+        if(target===menu&&target.lastElementChild) target.insertBefore(button,target.lastElementChild);
+        else target.appendChild(button);
       }
     }
   }

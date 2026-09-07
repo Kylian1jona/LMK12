@@ -3,6 +3,7 @@
   const OUTBOX_KEY="learnmaster_tutor_outbox_v1";
   let tutorWorkspaceUser=null;
   let tutorWorkspaceState={schedule:[],lessons:[],assignments:[],learners:[]};
+  let tutorDatabaseAvailable=null;
 
   function safe(value){
     return String(value??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;");
@@ -19,6 +20,10 @@
     }catch(error){ tutorWorkspaceState={schedule:[],lessons:[],assignments:[],learners:[]}; }
   }
   function writeState(){ window.learnMasterStore?.setItem(WORKSPACE_KEY,JSON.stringify(tutorWorkspaceState)); }
+  function tutorAccountBackupStatus(){ setTutorCloudStatus("Tutor account backup active",true); }
+  function missingTutorTable(error){
+    return /PGRST205|schema cache|could not find the table|relation .* does not exist/i.test(`${error?.code||""} ${error?.message||error||""}`);
+  }
 
   class K12TutorPortal extends HTMLElement{
     connectedCallback(){
@@ -94,11 +99,14 @@
         formats:["online"],active:true
       },{onConflict:"tutor_user_id"});
       if(error) throw error;
+      tutorDatabaseAvailable=true;
       setTutorCloudStatus("Community profile connected",true);
       return true;
     }catch(error){
       setTutorCloudStatus("Saved on this device — cloud sync unavailable",false);
       console.warn("Tutor community profile is waiting for its database migration.",error?.message||error);
+      if(missingTutorTable(error)) tutorDatabaseAvailable=false;
+      tutorAccountBackupStatus();
       return false;
     }
   }
@@ -123,7 +131,7 @@
   }
   async function flushTutorRecordOutbox(){
     const client=window.learnMasterSupabase;
-    if(!client||!tutorWorkspaceUser?.id) return 0;
+    if(!client||!tutorWorkspaceUser?.id||tutorDatabaseAvailable===false) return 0;
     const records=readTutorOutbox();
     if(!records.length) return 0;
     const remaining=[];
@@ -132,12 +140,16 @@
       const record=records[index];
       try{
         const {error}=await client.from(record.table).insert({...record.payload,tutor_user_id:tutorWorkspaceUser.id});
-        if(error){ remaining.push(...records.slice(index)); break; }
+        if(error){
+          if(missingTutorTable(error)) tutorDatabaseAvailable=false;
+          remaining.push(...records.slice(index)); break;
+        }
         sent++;
       }catch(error){ remaining.push(...records.slice(index)); break; }
     }
     writeTutorOutbox(remaining);
     if(sent&&remaining.length===0) setTutorCloudStatus("All tutor records synced",true);
+    else if(tutorDatabaseAvailable===false) tutorAccountBackupStatus();
     return sent;
   }
 
@@ -190,7 +202,7 @@
   function renderTutorRecords(id,items,template){ const wrap=$(id); if(wrap) wrap.innerHTML=items.length?items.map(template).join(""):'<article><b>Nothing here yet</b><p>Add your first record above.</p></article>'; }
   async function loadTutorWorkspaceData(){
     const client=window.learnMasterSupabase;
-    if(!client||!tutorWorkspaceUser?.id) return;
+    if(!client||!tutorWorkspaceUser?.id||tutorDatabaseAvailable===false){ tutorAccountBackupStatus(); return; }
     try{
       const [scheduleResult,lessonResult,assignmentResult,learnerResult]=await Promise.all([
         client.from("learnmaster_tutor_schedule").select("day_name,starts_at,ends_at,format").order("created_at"),
@@ -203,13 +215,17 @@
       if(!assignmentResult.error) tutorWorkspaceState.assignments=(assignmentResult.data||[]).map(item=>({email:item.recipient_email,title:item.title,subject:item.subject,instructions:item.instructions,due:item.due_on}));
       if(!learnerResult.error) tutorWorkspaceState.learners=(learnerResult.data||[]).map(item=>({name:item.learner_display_name,grade:item.grade_level,goal:item.learning_goal}));
       const errors=[scheduleResult.error,lessonResult.error,assignmentResult.error,learnerResult.error].filter(Boolean);
+      if(errors.some(missingTutorTable)) tutorDatabaseAvailable=false;
+      else if(!errors.length) tutorDatabaseAvailable=true;
       if(errors.length) setTutorCloudStatus("Saved on this device — cloud sync unavailable",false);
       else setTutorCloudStatus("Tutor records synced",true);
+      if(tutorDatabaseAvailable===false) tutorAccountBackupStatus();
       writeState(); renderTutorWorkspace();
     }catch(error){ setTutorCloudStatus("Saved on this device — cloud sync unavailable",false); }
   }
   async function saveRemoteTutorRecord(table,payload){
     const client=window.learnMasterSupabase;
+    if(tutorDatabaseAvailable===false){ tutorAccountBackupStatus(); if(typeof toast==="function") toast("Saved to your tutor account."); return false; }
     if(!client||!tutorWorkspaceUser?.id){ queueTutorRecord(table,payload); setTutorCloudStatus("Saved on this device — cloud sync unavailable",false); return false; }
     try{
       const {error}=await client.from(table).insert({...payload,tutor_user_id:tutorWorkspaceUser.id});

@@ -61,6 +61,15 @@ access.authoritativeSubscriptionSubjects=()=>['eng'];
 assert.equal(access.gateAllowedSection('g3-handwriting'),true);
 assert.equal(access.subjectAllowed('alg1'),false);
 
+const navigationSource=read('components/k12-progress-ui.js');
+const navigationStart=navigationSource.indexOf('function normalizeAppSection(');
+const navigationEnd=navigationSource.indexOf('\nfunction show(',navigationStart);
+const navigation=vm.createContext({document:{getElementById:id=>['home','g9-math','g10-math'].includes(id)?{id}:null}});
+vm.runInContext(navigationSource.slice(navigationStart,navigationEnd),navigation);
+assert.equal(navigation.normalizeAppSection('g9-alg1'),'g9-math','Old Grade 9 Algebra route opens Geometry');
+assert.equal(navigation.normalizeAppSection('g10-alg1'),'g10-math','Old Grade 10 Algebra route opens Algebra 2');
+assert.equal(navigation.normalizeAppSection('missing-section'),'home','Invalid routes cannot leave a blank page');
+
 // Content changes must reject old checkpoints without discarding unrelated work.
 const core=read('components/k12-lesson-core.js');
 let checkpoint={version:1,grade:'g11',subj:'math',lesson:'L1',current:{q:'Old algebra question'},round:3,total:25};
@@ -96,6 +105,8 @@ class Element {
   }
   get innerHTML(){return this.html||'';}
   appendChild(child){this.children.push(child);}
+  get lastElementChild(){return this.children[this.children.length-1]||null;}
+  insertBefore(child,before){const index=this.children.indexOf(before);if(index<0)this.children.push(child);else this.children.splice(index,0,child);}
   addEventListener(type,fn){this.events[type]=fn;}
   emit(type,extra={}){return this.events[type]?.({target:this,preventDefault(){},...extra});}
   querySelectorAll(selector){

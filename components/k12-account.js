@@ -292,7 +292,7 @@ async function createSignupUser(){
   if(!data.session){
     showLoginForm();
     if($("loginUser")) $("loginUser").value=email;
-    loginMsg(accountRole==="tutor"?"Tutor account created. Confirm the email we sent, then log in with this email to open Tutor Studio.":"Account created. Confirm the email we sent, then log in with this email.");
+    loginMsg(accountRole==="tutor"?"Tutor account created. Confirm the email we sent, then sign in to open Tutor Studio. Your tutor profile and workspace will be backed up to this account.":"Account created. Confirm the email we sent, then log in with this email.");
     return;
   }
   await syncSupabaseProfile(data.user,username,name,firstName,lastName);

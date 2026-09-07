@@ -52,6 +52,7 @@ for(const id of requiredIds){
 }
 
 const progressSource=fs.readFileSync(path.join(root,"components","k12-progress-ui.js"),"utf8");
+if(!/function\s+normalizeAppSection\s*\([^)]*\)[\s\S]{0,260}["']g9-alg1["']\s*:\s*["']g9-math["'][\s\S]{0,180}return\s+document\.getElementById\(requested\)\?requested:["']home["']/.test(progressSource)) failures.push("Stale or invalid app routes can still leave a blank page.");
 const visibleSectionsMatch=progressSource.match(/\bconst\s+sections\s*=\s*\[([\s\S]*?)\]\s*;/);
 if(!visibleSectionsMatch){
   failures.push("Visible-section navigation list could not be found.");
@@ -85,6 +86,9 @@ for(const legacyCardId of ["cardNumber","cardExpiry","cardCVC","cardZip"]){
 }
 
 const accountSource=fs.readFileSync(path.join(root,"components","k12-account.js"),"utf8");
+const tutorSource=fs.readFileSync(path.join(root,"components","tutor-portal.js"),"utf8");
+if(!/function\s+showTutorSignup\s*\(/.test(accountSource)||!/account_role:accountRole/.test(accountSource)) failures.push("Tutor signup does not preserve the tutor account role.");
+if(!/Tutor account backup active/.test(tutorSource)||!/tutorDatabaseAvailable===false/.test(tutorSource)) failures.push("Tutor workspace does not fall back to the account backup when community tables are unavailable.");
 const mainNav=fs.readFileSync(path.join(root,"components","main-nav.js"),"utf8");
 if((mainNav.match(/navigateFromAppMenu\(['"]shop['"]\)/g)||[]).length<2) failures.push("Shop is not restored in both desktop and drawer navigation.");
 if(/#grades[^{}]*#cardShop[^{}]*\{[^{}]*display\s*:\s*none/i.test(css)) failures.push("The Shop grade card is still hidden by CSS.");
