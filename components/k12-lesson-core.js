@@ -1451,6 +1451,10 @@ function lrRender(){
     renderJeopardy(q);
   }
 
+  else if(q.type === "math-grid"){
+    renderMathGrid(q);
+  }
+
   else if(["block-add","number-line","fraction-build"].includes(q.type)){
     renderMathManipulative(q);
   }
@@ -1822,14 +1826,15 @@ function renderJeopardy(q){
   $("lrCheckBtn").classList.add("d-none");
   const board=document.createElement("section");
   board.className="jeopardy-board";
+  const target=Number(q.targetScore||3000);
   let score=0;
   let active=null;
   const solved=new Set();
-  board.innerHTML=`<header><span>GRADE 8 CHALLENGE</span><h3>Jeopardy</h3><strong class="jeopardy-score">$0 / $300</strong></header><p class="jeopardy-status">Choose a clue. Earn 300 points to unlock Next.</p><div class="jeopardy-cards"></div><div class="jeopardy-clue" aria-live="polite"></div>`;
+  board.innerHTML=`<header><span>GRADE 8 CHALLENGE</span><h3>Jeopardy</h3><strong class="jeopardy-score">\u00240 / \u0024${target.toLocaleString()}</strong></header><p class="jeopardy-status">Choose a clue. Earn \u0024${target.toLocaleString()} to unlock Next.</p><div class="jeopardy-cards"></div><div class="jeopardy-clue" aria-live="polite"></div>`;
   const cards=board.querySelector(".jeopardy-cards");
   const cluePanel=board.querySelector(".jeopardy-clue");
   function draw(){
-    board.querySelector(".jeopardy-score").textContent=`$${score} / $300`;
+    board.querySelector(".jeopardy-score").textContent=`\u0024${score.toLocaleString()} / \u0024${target.toLocaleString()}`;
     cards.innerHTML="";
     q.clues.forEach((clue,index)=>{
       const button=document.createElement("button");
@@ -1860,10 +1865,10 @@ function renderJeopardy(q){
         board.querySelector(".jeopardy-status").textContent=`Correct! You earned $${clue.value}.`;
         cluePanel.innerHTML=`<p class="jeopardy-correct">Correct — ${htmlSafe(clue.answer)}</p>`;
         draw();
-        if(score>=300){
+        if(score>=target){
           LR.savedResponse={score,solved:[...solved]};
-          LR.lastAnswer="$300";
-          lessonCorrect("Jeopardy complete — you reached $300!","$300 earned!");
+          LR.lastAnswer=`\u0024${target.toLocaleString()}`;
+          lessonCorrect(`Jeopardy complete - you reached \u0024${target.toLocaleString()}!`,`\u0024${target.toLocaleString()} earned!`);
           clearTimeout(LR_CORRECT_ADVANCE_TIMER);
           LR_CORRECT_ADVANCE_TIMER=null;
           $("lrNextBtn").disabled=false;
@@ -1874,6 +1879,27 @@ function renderJeopardy(q){
   }
   $("lrChoices").appendChild(board);
   draw();
+}
+
+
+function renderMathGrid(q){
+  $("lrCheckBtn").classList.add("d-none");
+  const grid=document.createElement("section");
+  grid.className="math-grid-challenge";
+  const solved=new Set();
+  let active=null;
+  grid.innerHTML=`<header><span>GRADE 8 MATH CHALLENGE</span><h3>Equation Grid</h3><strong class="math-grid-count">0 / ${q.tiles.length}</strong></header><p class="math-grid-status">Choose a tile, solve it, and unlock the whole grid.</p><div class="math-grid-tiles"></div><div class="math-grid-work" aria-live="polite"></div>`;
+  const tiles=grid.querySelector(".math-grid-tiles"), work=grid.querySelector(".math-grid-work");
+  function draw(){
+    grid.querySelector(".math-grid-count").textContent=`${solved.size} / ${q.tiles.length}`;
+    tiles.innerHTML="";
+    q.tiles.forEach((tile,index)=>{const button=document.createElement("button");button.type="button";button.className=`math-grid-tile ${solved.has(index)?"solved":""}`;button.disabled=solved.has(index);button.innerHTML=solved.has(index)?`<span>Unlocked</span><strong>${htmlSafe(tile.answer)}</strong>`:`<span>Tile ${index+1}</span><strong>${htmlSafe(tile.question)}</strong>`;button.onclick=()=>{active=index;showTile();};tiles.appendChild(button);});
+  }
+  function showTile(){
+    const tile=q.tiles[active];work.innerHTML=`<p>Solve: <strong>${htmlSafe(tile.question)}</strong></p><div class="math-grid-answers"></div>`;const answers=work.querySelector(".math-grid-answers");
+    tile.choices.forEach(choice=>{const button=document.createElement("button");button.type="button";button.textContent=choice;button.onclick=()=>{if(choice!==tile.answer){grid.querySelector(".math-grid-status").textContent="Check the equation and try again.";button.classList.add("answer-wrong");return;}solved.add(active);grid.querySelector(".math-grid-status").textContent=`Tile ${active+1} unlocked!`;work.innerHTML=`<p class="math-grid-correct">Correct - ${htmlSafe(tile.answer)}</p>`;draw();if(solved.size===q.tiles.length){LR.savedResponse={solved:[...solved]};LR.lastAnswer=`${solved.size} equations solved`;lessonCorrect("Grid unlocked - every equation is solved!","Equation grid complete!");clearTimeout(LR_CORRECT_ADVANCE_TIMER);LR_CORRECT_ADVANCE_TIMER=null;$("lrNextBtn").disabled=false;}};answers.appendChild(button);});
+  }
+  $("lrChoices").appendChild(grid);draw();
 }
 
 let ATOM_BUILD_COUNTS={};

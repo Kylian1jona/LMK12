@@ -40,7 +40,12 @@ assert.ok(moleculeLab.questions.every(question=>question.type==='atom-build'&&qu
 assert.deepEqual(JSON.parse(JSON.stringify(moleculeLab.questions[0].atoms)),{H:2,O:1},'Water requires two hydrogen atoms and one oxygen atom');
 const lessonCoreSource=read('components/k12-lesson-core.js');
 assert.ok(lessonCoreSource.includes('renderAtomBuild(q)')&&lessonCoreSource.includes('q.type === "atom-build"'),'Lesson runner supports interactive atom-building questions');
-assert.ok(lessonCoreSource.includes('renderJeopardy(q)')&&lessonCoreSource.includes('score>=300'),'Lesson runner supports 300-point Jeopardy challenges');
+assert.ok(lessonCoreSource.includes('renderJeopardy(q)')&&lessonCoreSource.includes('score>=target'),'Lesson runner supports $3,000 Jeopardy challenges');
+assert.ok(lessonCoreSource.includes('renderMathGrid(q)')&&lessonCoreSource.includes('q.type === "math-grid"'),'Lesson runner supports Equation Grid math challenges');
+const historyJeopardy=context.K12_CLASSIC_25_DATA['g8:hist:L26'];
+const mathGrid=context.K12_CLASSIC_25_DATA['g8:math:L26'];
+assert.ok(historyJeopardy.questions.every(question=>question.type==='jeopardy'&&question.targetScore===3000),'History Jeopardy requires $3,000');
+assert.ok(mathGrid.questions.every(question=>question.type==='math-grid'&&question.tiles.length===3),'Math uses three-tile Equation Grid challenges');
 assert.ok(lessonCoreSource.includes('if(level>3) return;'),'Question voice is limited to Pre-K through Grade 3');
 const readingSource=read('components/k12-progress-ui.js');
 assert.ok(readingSource.includes('const canReadAloud=readingLevel<=3;'),'Reading voice controls are limited to Pre-K through Grade 3');

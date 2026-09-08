@@ -133,16 +133,21 @@
       const clues=[0,1,2].map(offset=>{
         const fact=facts[(round*3+offset)%facts.length];
         const wrongs=facts.filter(item=>item.answer!==fact.answer).slice(offset,offset+3).map(item=>item.answer);
-        return {value:100,question:fact.question,choices:[fact.answer,...wrongs].slice(0,4),answer:fact.answer};
+        return {value:1000,question:fact.question,choices:[fact.answer,...wrongs].slice(0,4),answer:fact.answer};
       });
-      return {type:"jeopardy",q:`Jeopardy round ${round+1}: earn 300 points by solving all three clues.`,clues,answer:"300",audio:`Jeopardy round ${round+1}. Earn three hundred points.`};
+      return {type:"jeopardy",targetScore:3000,q:`Jeopardy round ${round+1}: earn $3,000 by solving all three clues.`,clues,answer:"3000",audio:`Jeopardy round ${round+1}. Earn three thousand points.`};
     });
-    data[`g8:${subject}:L${number}`]={name,topic,topicNumber:6,lessonInTopic:1,difficulty:"Mastery",contentVersion:"20260907.4",questions};
+    data[`g8:${subject}:L${number}`]={name,topic,topicNumber:6,lessonInTopic:1,difficulty:"Mastery",contentVersion:"20260907.5",questions};
   }
-  jeopardyLesson("math",26,"Math Jeopardy: Reach 300","Jeopardy Challenge",[
-    {question:"Solve: 3x + 8 = 23.",answer:"x = 5"},{question:"What is the slope through (2, 3) and (4, 7)?",answer:"2"},{question:"What is 15% of 80?",answer:"12"},{question:"Solve: 5(y - 2) = 20.",answer:"y = 6"},{question:"What is the square root of 144?",answer:"12"},{question:"Evaluate: 2³ × 2².",answer:"32"},{question:"A right triangle has legs 6 and 8. What is its hypotenuse?",answer:"10"},{question:"What is the y-intercept of y = 4x - 9?",answer:"-9"}
-  ]);
-  jeopardyLesson("hist",26,"History Jeopardy: Reach 300","Jeopardy Challenge",[
+  function mathGridLesson(){
+    const equations=[
+      {question:"Solve: 3x + 8 = 23.",answer:"x = 5",choices:["x = 5","x = 3","x = 7","x = 15"]},{question:"Solve: 5(y - 2) = 20.",answer:"y = 6",choices:["y = 6","y = 2","y = 4","y = 22"]},{question:"Solve: 4a - 9 = 19.",answer:"a = 7",choices:["a = 7","a = 5","a = 10","a = 28"]},{question:"What is 15% of 80?",answer:"12",choices:["12","8","15","20"]},{question:"What is the slope through (2, 3) and (4, 7)?",answer:"2",choices:["2","1/2","4","-2"]},{question:"What is the square root of 144?",answer:"12",choices:["12","14","72","24"]},{question:"Evaluate: 2^3 x 2^2.",answer:"32",choices:["32","16","64","8"]},{question:"A right triangle has legs 6 and 8. What is its hypotenuse?",answer:"10",choices:["10","14","48","7"]},{question:"What is the y-intercept of y = 4x - 9?",answer:"-9",choices:["-9","4","9","-4"]}
+    ];
+    const questions=Array.from({length:25},(_,round)=>{const tiles=[0,1,2].map(offset=>equations[(round*3+offset)%equations.length]);return {type:"math-grid",q:`Equation grid ${round+1}: solve every tile to unlock the next round.`,tiles,answer:"3",audio:`Equation grid ${round+1}. Solve all three tiles.`};});
+    data["g8:math:L26"]={name:"Equation Grid Challenge",topic:"Math Challenge",topicNumber:6,lessonInTopic:1,difficulty:"Mastery",contentVersion:"20260907.5",questions};
+  }
+  mathGridLesson();
+  jeopardyLesson("hist",26,"History Jeopardy: Reach $3,000","Jeopardy Challenge",[
     {question:"Which amendment abolished slavery in the United States?",answer:"Thirteenth Amendment"},{question:"What document established the framework of the U.S. national government?",answer:"The Constitution"},{question:"What movement fought for women's voting rights?",answer:"Women's suffrage movement"},{question:"Which branch interprets laws?",answer:"Judicial branch"},{question:"What is a primary source?",answer:"Evidence created during the time being studied"},{question:"What does federalism divide?",answer:"Power between national and state governments"},{question:"What was the purpose of the Bill of Rights?",answer:"To protect individual liberties"},{question:"What is a historian's use of multiple sources called?",answer:"Corroboration"}
   ]);
 })();
