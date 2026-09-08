@@ -1447,6 +1447,10 @@ function lrRender(){
     renderAtomBuild(q);
   }
 
+  else if(["block-add","number-line","fraction-build"].includes(q.type)){
+    renderMathManipulative(q);
+  }
+
   if(LR.answered){
     restoreSavedAnswerView();
     if(typeof setQAudio === "function") setQAudio(lessonQuestionSpeech(q));
@@ -1462,6 +1466,23 @@ function lrCheck(){
   if(!$("lrNextBtn").disabled) return;
 
   const q = LR.current;
+  if(["block-add","number-line","fraction-build"].includes(q.type)){
+    const result=checkMathManipulative(q);
+    LR.savedResponse=cloneRevisionQuestion(MATH_MANIPULATIVE_STATE);
+    LR.lastAnswer=result.response;
+    if(result.correct){
+      lessonCorrect(result.message,result.message);
+      clearTimeout(LR_CORRECT_ADVANCE_TIMER);
+      LR_CORRECT_ADVANCE_TIMER=null;
+      $("lrNextBtn").disabled=false;
+      document.querySelector(".math-manipulative")?.classList.add("is-correct");
+      saveLessonCheckpoint();
+    }else{
+      $("lrFb").textContent=result.message;
+      document.querySelector(".math-manipulative")?.classList.add("needs-review");
+    }
+    return;
+  }
   if(q.type === "atom-build"){
     const expected=q.atoms||{};
     const symbols=new Set([...Object.keys(expected),...Object.keys(ATOM_BUILD_COUNTS)]);
@@ -1733,6 +1754,66 @@ function renderOrder(q){
   });
 }
 
+let MATH_MANIPULATIVE_STATE={};
+function renderMathManipulative(q){
+  $("lrCheckBtn").classList.remove("d-none");
+  $("lrCheckBtn").textContent="Check my work";
+  const wrap=document.createElement("section");
+  wrap.className=`math-manipulative ${q.type}`;
+  if(q.type==="block-add"){
+    MATH_MANIPULATIVE_STATE={left:0,right:0};
+    wrap.innerHTML=`<div class="manipulative-heading"><span>Block Builder</span><strong>${q.left} + ${q.right} = ?</strong></div><p>Build the first number with blue blocks and the second number with gold blocks.</p><div class="block-groups"><div><h3>First group: ${q.left}</h3><div class="block-tray" data-block-tray="left"></div><div class="mini-controls"><button type="button" data-block-add="left">+ Blue block</button><button type="button" data-block-remove="left">− Remove</button></div></div><div class="math-symbol">+</div><div><h3>Second group: ${q.right}</h3><div class="block-tray" data-block-tray="right"></div><div class="mini-controls"><button type="button" data-block-add="right">+ Gold block</button><button type="button" data-block-remove="right">− Remove</button></div></div></div><div class="manipulative-result" aria-live="polite"></div>`;
+    const draw=()=>{
+      for(const side of ["left","right"]){
+        const tray=wrap.querySelector(`[data-block-tray="${side}"]`);
+        tray.innerHTML=Array.from({length:MATH_MANIPULATIVE_STATE[side]},()=>`<span class="build-block ${side}"></span>`).join("")||'<span class="tray-help">Add blocks</span>';
+      }
+      wrap.querySelector(".manipulative-result").textContent=`Total blocks: ${MATH_MANIPULATIVE_STATE.left+MATH_MANIPULATIVE_STATE.right}`;
+      wrap.classList.remove("needs-review");
+    };
+    wrap.querySelectorAll("[data-block-add]").forEach(button=>button.onclick=()=>{const side=button.dataset.blockAdd;if(MATH_MANIPULATIVE_STATE[side]<20)MATH_MANIPULATIVE_STATE[side]++;draw();});
+    wrap.querySelectorAll("[data-block-remove]").forEach(button=>button.onclick=()=>{const side=button.dataset.blockRemove;MATH_MANIPULATIVE_STATE[side]=Math.max(0,MATH_MANIPULATIVE_STATE[side]-1);draw();});
+    draw();
+  }else if(q.type==="number-line"){
+    MATH_MANIPULATIVE_STATE={position:Number(q.start)};
+    wrap.innerHTML=`<div class="manipulative-heading"><span>Number Line Lab</span><strong>Start: ${q.start}</strong></div><p>Move one space at a time. Count your jumps, then check your landing point.</p><div class="number-line-track" role="group" aria-label="Number line"></div><div class="number-line-controls"><button type="button" data-line-move="-1">← Jump back</button><button type="button" data-line-reset>Reset to ${q.start}</button><button type="button" data-line-move="1">Jump forward →</button></div><div class="manipulative-result" aria-live="polite"></div>`;
+    const draw=()=>{
+      wrap.querySelector(".number-line-track").innerHTML=Array.from({length:Number(q.max||20)+1},(_,number)=>`<button type="button" class="number-point ${number===MATH_MANIPULATIVE_STATE.position?'active':''}" data-line-point="${number}"><span>${number}</span></button>`).join("");
+      wrap.querySelector(".manipulative-result").textContent=`Current position: ${MATH_MANIPULATIVE_STATE.position}`;
+      wrap.querySelectorAll("[data-line-point]").forEach(button=>button.onclick=()=>{MATH_MANIPULATIVE_STATE.position=Number(button.dataset.linePoint);draw();});
+      wrap.classList.remove("needs-review");
+    };
+    wrap.querySelectorAll("[data-line-move]").forEach(button=>button.onclick=()=>{MATH_MANIPULATIVE_STATE.position=Math.max(0,Math.min(Number(q.max||20),MATH_MANIPULATIVE_STATE.position+Number(button.dataset.lineMove)));draw();});
+    wrap.querySelector("[data-line-reset]").onclick=()=>{MATH_MANIPULATIVE_STATE.position=Number(q.start);draw();};
+    draw();
+  }else{
+    MATH_MANIPULATIVE_STATE={selected:[]};
+    wrap.innerHTML=`<div class="manipulative-heading"><span>Fraction Builder</span><strong>Build ${q.numerator}/${q.denominator}</strong></div><p>Click equal parts to shade or unshade them.</p><div class="fraction-shape" style="--fraction-parts:${q.denominator}" role="group" aria-label="${q.denominator} equal parts"></div><div class="manipulative-result" aria-live="polite"></div>`;
+    const draw=()=>{
+      const selected=new Set(MATH_MANIPULATIVE_STATE.selected);
+      wrap.querySelector(".fraction-shape").innerHTML=Array.from({length:q.denominator},(_,index)=>`<button type="button" class="fraction-part ${selected.has(index)?'selected':''}" data-fraction-part="${index}" aria-pressed="${selected.has(index)}"><span>Part ${index+1}</span></button>`).join("");
+      wrap.querySelector(".manipulative-result").textContent=`Shaded: ${selected.size} of ${q.denominator}`;
+      wrap.querySelectorAll("[data-fraction-part]").forEach(button=>button.onclick=()=>{const index=Number(button.dataset.fractionPart);MATH_MANIPULATIVE_STATE.selected=selected.has(index)?MATH_MANIPULATIVE_STATE.selected.filter(value=>value!==index):[...MATH_MANIPULATIVE_STATE.selected,index];draw();});
+      wrap.classList.remove("needs-review");
+    };
+    draw();
+  }
+  $("lrChoices").appendChild(wrap);
+}
+function checkMathManipulative(q){
+  if(q.type==="block-add"){
+    const correct=MATH_MANIPULATIVE_STATE.left===Number(q.left)&&MATH_MANIPULATIVE_STATE.right===Number(q.right);
+    return {correct,response:`${MATH_MANIPULATIVE_STATE.left} + ${MATH_MANIPULATIVE_STATE.right}`,message:correct?`Correct! ${q.left} + ${q.right} = ${q.answer}.`:`Build exactly ${q.left} blue blocks and ${q.right} gold blocks, then check again.`};
+  }
+  if(q.type==="number-line"){
+    const correct=MATH_MANIPULATIVE_STATE.position===Number(q.answer);
+    return {correct,response:String(MATH_MANIPULATIVE_STATE.position),message:correct?`Correct! You landed on ${q.answer}.`:`You are on ${MATH_MANIPULATIVE_STATE.position}. Count ${q.jump} jumps ${q.direction} from ${q.start}.`};
+  }
+  const shaded=(MATH_MANIPULATIVE_STATE.selected||[]).length;
+  const correct=shaded===Number(q.numerator);
+  return {correct,response:`${shaded}/${q.denominator}`,message:correct?`Correct! You built ${q.answer}.`:`You shaded ${shaded} parts. Shade exactly ${q.numerator} of the ${q.denominator} equal parts.`};
+}
+
 let ATOM_BUILD_COUNTS={};
 let ATOM_BUILD_REDRAW=null;
 const ATOM_DETAILS={
@@ -1740,11 +1821,12 @@ const ATOM_DETAILS={
 };
 function renderAtomBuild(q){
   ATOM_BUILD_COUNTS={};
+  const atomHistory=[];
   $("lrCheckBtn").classList.remove("d-none");
   $("lrCheckBtn").textContent="Check molecule";
   const lab=document.createElement("section");
   lab.className="atom-lab";
-  lab.innerHTML=`<div class="atom-lab-heading"><div><span class="atom-lab-kicker">Interactive chemistry</span><h3>Reaction Tray</h3><p>Click or drag elements into the tray. Click an atom in the tray to remove it.</p></div><strong class="atom-formula-goal">Goal: ${htmlSafe(q.formula||"")}</strong></div><div class="atom-tray" tabindex="0" role="group" aria-label="Selected atoms"><span class="atom-tray-empty">Add atoms here</span></div><div class="atom-lab-actions"><button type="button" class="btn btn-main atom-clear">Clear tray</button><span class="atom-count" aria-live="polite">0 atoms selected</span></div><div class="atom-palette" role="list" aria-label="Elements"></div>`;
+  lab.innerHTML=`<div class="atom-lab-heading"><div><span class="atom-lab-kicker">Interactive chemistry</span><h3>Reaction Tray</h3><p>Click or drag elements into the tray. Click an atom in the tray to remove it.</p></div><strong class="atom-formula-goal">Goal: ${htmlSafe(q.formula||"")}</strong></div><div class="atom-tray" tabindex="0" role="group" aria-label="Selected atoms"><span class="atom-tray-empty">Add atoms here</span></div><div class="atom-formula-preview" aria-live="polite">Your formula: —</div><div class="atom-lab-actions"><button type="button" class="btn btn-main atom-undo">Undo atom</button><button type="button" class="btn btn-main atom-clear">Clear tray</button><button type="button" class="btn btn-main atom-hint">Show hint</button><span class="atom-count">0 / 24 atoms</span></div><p class="atom-hint-copy" hidden></p><div class="atom-palette" role="list" aria-label="Elements"></div>`;
   const tray=lab.querySelector(".atom-tray");
   const palette=lab.querySelector(".atom-palette");
   const symbols=[...new Set([...Object.keys(q.atoms||{}),"H","C","N","O","Na","Cl","S","Ca"])].slice(0,10);
@@ -1757,15 +1839,20 @@ function renderAtomBuild(q){
         const atom=document.createElement("button");
         atom.type="button";atom.className=`atom-chip atom-${symbol.toLowerCase()}`;
         atom.textContent=symbol;atom.setAttribute("aria-label",`Remove one ${ATOM_DETAILS[symbol]?.[1]||symbol} atom`);
-        atom.onclick=()=>{ATOM_BUILD_COUNTS[symbol]--;drawTray();};
+        atom.onclick=()=>{ATOM_BUILD_COUNTS[symbol]--;atomHistory.push({symbol,action:"remove"});drawTray();};
         tray.appendChild(atom);
       }
     });
     if(!total) tray.innerHTML='<span class="atom-tray-empty">Add atoms here</span>';
-    lab.querySelector(".atom-count").textContent=`${total} atom${total===1?'':'s'} selected`;
+    lab.querySelector(".atom-count").textContent=`${total} / 24 atoms`;
+    lab.querySelector(".atom-formula-preview").textContent=`Your formula: ${Object.entries(ATOM_BUILD_COUNTS).filter(([,count])=>count).map(([symbol,count])=>symbol+(count>1?String(count).replace(/0/g,'₀').replace(/1/g,'₁').replace(/2/g,'₂').replace(/3/g,'₃').replace(/4/g,'₄').replace(/5/g,'₅').replace(/6/g,'₆').replace(/7/g,'₇').replace(/8/g,'₈').replace(/9/g,'₉'):'')).join('')||'—'}`;
     lab.classList.remove("needs-review");
   }
-  function add(symbol){ATOM_BUILD_COUNTS[symbol]=Number(ATOM_BUILD_COUNTS[symbol]||0)+1;drawTray();}
+  function add(symbol){
+    const total=Object.values(ATOM_BUILD_COUNTS).reduce((sum,count)=>sum+count,0);
+    if(total>=24)return;
+    ATOM_BUILD_COUNTS[symbol]=Number(ATOM_BUILD_COUNTS[symbol]||0)+1;atomHistory.push({symbol,action:"add"});drawTray();
+  }
   ATOM_BUILD_REDRAW=drawTray;
   symbols.forEach(symbol=>{
     const detail=ATOM_DETAILS[symbol]||["?",symbol];
@@ -1778,7 +1865,9 @@ function renderAtomBuild(q){
   });
   tray.addEventListener("dragover",event=>event.preventDefault());
   tray.addEventListener("drop",event=>{event.preventDefault();const symbol=event.dataTransfer.getData("text/plain");if(symbols.includes(symbol))add(symbol);});
-  lab.querySelector(".atom-clear").onclick=()=>{ATOM_BUILD_COUNTS={};drawTray();};
+  lab.querySelector(".atom-undo").onclick=()=>{const last=atomHistory.pop();if(!last)return;ATOM_BUILD_COUNTS[last.symbol]=Math.max(0,Number(ATOM_BUILD_COUNTS[last.symbol]||0)+(last.action==="add"?-1:1));drawTray();};
+  lab.querySelector(".atom-clear").onclick=()=>{ATOM_BUILD_COUNTS={};atomHistory.length=0;drawTray();};
+  lab.querySelector(".atom-hint").onclick=()=>{const hint=lab.querySelector(".atom-hint-copy");hint.hidden=!hint.hidden;hint.textContent=`Hint: ${q.formula} needs ${Object.values(q.atoms||{}).reduce((sum,count)=>sum+count,0)} atoms total. Read each subscript carefully.`;};
   $("lrChoices").appendChild(lab);
   drawTray();
 }

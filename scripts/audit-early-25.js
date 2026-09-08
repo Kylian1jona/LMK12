@@ -8,7 +8,8 @@ for(const file of [
   "k12-classic-25-prek.js",
   "k12-classic-25-kindergarten.js",
   "k12-classic-25-g1.js",
-  "k12-early-expanded-lessons.js"
+  "k12-early-expanded-lessons.js",
+  "k12-interactive-math-lessons.js"
 ]){
   vm.runInContext(fs.readFileSync(path.join(root,"components",file),"utf8"),context,{filename:file});
 }
@@ -22,7 +23,8 @@ for(const key of lessonButtons){
 }
 for(const prefix of ["prek:","g1:"]){
   const visible=lessonButtons.filter(key=>key.startsWith(prefix));
-  if(visible.length!==20) failures.push(`${prefix.slice(0,-1)} should show 20 requested lessons, found ${visible.length}.`);
+  const expectedVisible=prefix==="g1:"?23:20;
+  if(visible.length!==expectedVisible) failures.push(`${prefix.slice(0,-1)} should show ${expectedVisible} requested lessons, found ${visible.length}.`);
   if(new Set(visible).size!==visible.length) failures.push(`${prefix.slice(0,-1)} repeats a lesson button.`);
 }
 for(const [key,record] of Object.entries(banks)){
@@ -38,16 +40,17 @@ for(const [key,record] of Object.entries(banks)){
     const audio=String(question.audio||"").trim();
     const answer=String(question.answer??"").trim();
     const choices=(question.choices||[]).map(String);
-    if(question.type!=="mc") failures.push(`${label} is not an explicit multiple-choice question.`);
+    const interactive=["block-add","number-line","fraction-build"].includes(question.type);
+    if(question.type!=="mc"&&!interactive) failures.push(`${label} has an unsupported question type.`);
     if(!prompt) failures.push(`${label} has no prompt.`);
     if(!answer) failures.push(`${label} has no answer.`);
     if(!audio) failures.push(`${label} has no audio text.`);
     const promptKey=`${prompt.toLowerCase()}\u0000${audio.toLowerCase()}\u0000${choices.join("\u0000").toLowerCase()}`;
     if(prompts.has(promptKey)) failures.push(`${label} repeats an earlier prompt and audio cue.`);
     prompts.add(promptKey);
-    if(choices.length<3||choices.length>5) failures.push(`${label} must contain three, four, or five choices.`);
+    if(!interactive&&(choices.length<3||choices.length>5)) failures.push(`${label} must contain three, four, or five choices.`);
     if(choices.some(choice=>/^(?:almost|placeholder|none of (?:these|the above))$/i.test(choice.trim()))) failures.push(`${label} contains a filler answer choice.`);
-    if(!choices.includes(answer)) failures.push(`${label} does not include its answer among the choices.`);
+    if(!interactive&&!choices.includes(answer)) failures.push(`${label} does not include its answer among the choices.`);
     if(new Set(choices).size!==choices.length) failures.push(`${label} repeats an answer choice.`);
     if(question.blend){
       if(!Array.isArray(question.blend.letters)||question.blend.letters.length!==3) failures.push(`${label} must contain exactly three blending letters.`);
@@ -57,7 +60,7 @@ for(const [key,record] of Object.entries(banks)){
   });
 }
 
-const expectedLessons=73;
+const expectedLessons=76;
 const report={
   lessons:Object.keys(banks).length,
   questions:Object.values(banks).reduce((sum,record)=>sum+(record.questions?.length||0),0),

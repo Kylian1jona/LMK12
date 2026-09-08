@@ -106,6 +106,9 @@
         lessonCard("g1:eng:story-questions","g1-eng","Read a Short Story and Answer Questions","Read short passages and recall key details.","READ")
       ].join("");
       const g1Math=[
+        lessonCard("g1:math:block-add","g1-math","Addition Block Builder","Move colored blocks into two groups and combine them.","BLOCKS"),
+        lessonCard("g1:math:number-line-lab","g1-math","Number Line Jump Lab","Move along a number line to solve each problem.","0→20"),
+        lessonCard("g1:math:fraction-builder","g1-math","Fraction Shape Builder","Shade equal parts to build simple fractions.","1/2"),
         lessonCard("g1:math:count100","g1-math","Count to 100","Read number sequences through one hundred.","100"),
         lessonCard("g1:math:skip2","g1-math","Skip Count by 2s","Build number patterns by twos.","2s"),
         lessonCard("g1:math:skip5","g1-math","Skip Count by 5s","Build number patterns by fives.","5s"),
