@@ -45,7 +45,7 @@ for(const grade of ["g11","g12"]){
 }
 for(let lesson=8;lesson<=32;lesson++) selectorKeys.add(`g2:math:L${lesson}`);
 for(const subject of ["eng","math","alg1","sci","hist"]){
-  const finalLesson=subject==="alg1"?20:25;
+  const finalLesson=subject==="alg1"?20:["math","hist"].includes(subject)?26:25;
   for(let lesson=1;lesson<=finalLesson;lesson++) selectorKeys.add(`g8:${subject}:L${lesson}`);
 }
 for(const subject of ["eng","math","sci","hist"]){

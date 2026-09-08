@@ -128,4 +128,21 @@
   lesson("hist",25,"Evidence-Based Historical Argument","Historical Inquiry and Civics",[
     c("historical context","Place a source within the conditions of its time.","Context helps explain the choices and assumptions visible in a source."),c("sourcing","Ask who created evidence, when, and for what purpose.","Sourcing helps evaluate perspective, knowledge, and possible limitations."),c("causation","Distinguish long-term conditions from immediate triggers.","Historical causes often interact and differ in relative importance."),c("continuity and change","Identify what changed as well as what persisted.","A balanced account compares change with ongoing patterns across a period."),c("a qualified thesis","Make a defensible claim without overstating evidence.","A qualified thesis states the main conclusion and recognizes meaningful limits.")
   ]);
+  function jeopardyLesson(subject,number,name,topic,facts){
+    const questions=Array.from({length:25},(_,round)=>{
+      const clues=[0,1,2].map(offset=>{
+        const fact=facts[(round*3+offset)%facts.length];
+        const wrongs=facts.filter(item=>item.answer!==fact.answer).slice(offset,offset+3).map(item=>item.answer);
+        return {value:100,question:fact.question,choices:[fact.answer,...wrongs].slice(0,4),answer:fact.answer};
+      });
+      return {type:"jeopardy",q:`Jeopardy round ${round+1}: earn 300 points by solving all three clues.`,clues,answer:"300",audio:`Jeopardy round ${round+1}. Earn three hundred points.`};
+    });
+    data[`g8:${subject}:L${number}`]={name,topic,topicNumber:6,lessonInTopic:1,difficulty:"Mastery",contentVersion:"20260907.4",questions};
+  }
+  jeopardyLesson("math",26,"Math Jeopardy: Reach 300","Jeopardy Challenge",[
+    {question:"Solve: 3x + 8 = 23.",answer:"x = 5"},{question:"What is the slope through (2, 3) and (4, 7)?",answer:"2"},{question:"What is 15% of 80?",answer:"12"},{question:"Solve: 5(y - 2) = 20.",answer:"y = 6"},{question:"What is the square root of 144?",answer:"12"},{question:"Evaluate: 2³ × 2².",answer:"32"},{question:"A right triangle has legs 6 and 8. What is its hypotenuse?",answer:"10"},{question:"What is the y-intercept of y = 4x - 9?",answer:"-9"}
+  ]);
+  jeopardyLesson("hist",26,"History Jeopardy: Reach 300","Jeopardy Challenge",[
+    {question:"Which amendment abolished slavery in the United States?",answer:"Thirteenth Amendment"},{question:"What document established the framework of the U.S. national government?",answer:"The Constitution"},{question:"What movement fought for women's voting rights?",answer:"Women's suffrage movement"},{question:"Which branch interprets laws?",answer:"Judicial branch"},{question:"What is a primary source?",answer:"Evidence created during the time being studied"},{question:"What does federalism divide?",answer:"Power between national and state governments"},{question:"What was the purpose of the Bill of Rights?",answer:"To protect individual liberties"},{question:"What is a historian's use of multiple sources called?",answer:"Corroboration"}
+  ]);
 })();

@@ -1447,6 +1447,10 @@ function lrRender(){
     renderAtomBuild(q);
   }
 
+  else if(q.type === "jeopardy"){
+    renderJeopardy(q);
+  }
+
   else if(["block-add","number-line","fraction-build"].includes(q.type)){
     renderMathManipulative(q);
   }
@@ -1812,6 +1816,64 @@ function checkMathManipulative(q){
   const shaded=(MATH_MANIPULATIVE_STATE.selected||[]).length;
   const correct=shaded===Number(q.numerator);
   return {correct,response:`${shaded}/${q.denominator}`,message:correct?`Correct! You built ${q.answer}.`:`You shaded ${shaded} parts. Shade exactly ${q.numerator} of the ${q.denominator} equal parts.`};
+}
+
+function renderJeopardy(q){
+  $("lrCheckBtn").classList.add("d-none");
+  const board=document.createElement("section");
+  board.className="jeopardy-board";
+  let score=0;
+  let active=null;
+  const solved=new Set();
+  board.innerHTML=`<header><span>GRADE 8 CHALLENGE</span><h3>Jeopardy</h3><strong class="jeopardy-score">$0 / $300</strong></header><p class="jeopardy-status">Choose a clue. Earn 300 points to unlock Next.</p><div class="jeopardy-cards"></div><div class="jeopardy-clue" aria-live="polite"></div>`;
+  const cards=board.querySelector(".jeopardy-cards");
+  const cluePanel=board.querySelector(".jeopardy-clue");
+  function draw(){
+    board.querySelector(".jeopardy-score").textContent=`$${score} / $300`;
+    cards.innerHTML="";
+    q.clues.forEach((clue,index)=>{
+      const button=document.createElement("button");
+      button.type="button";
+      button.className=`jeopardy-card ${solved.has(index)?"solved":""}`;
+      button.textContent=solved.has(index)?"Solved":`$${clue.value}`;
+      button.disabled=solved.has(index);
+      button.onclick=()=>{active=index;showClue();};
+      cards.appendChild(button);
+    });
+  }
+  function showClue(){
+    const clue=q.clues[active];
+    cluePanel.innerHTML=`<p>${htmlSafe(clue.question)}</p><div class="jeopardy-answers"></div>`;
+    const answers=cluePanel.querySelector(".jeopardy-answers");
+    clue.choices.forEach(choice=>{
+      const button=document.createElement("button");
+      button.type="button";
+      button.textContent=choice;
+      button.onclick=()=>{
+        if(choice!==clue.answer){
+          board.querySelector(".jeopardy-status").textContent="Not that one. Try the clue again.";
+          button.classList.add("answer-wrong");
+          return;
+        }
+        score+=clue.value;
+        solved.add(active);
+        board.querySelector(".jeopardy-status").textContent=`Correct! You earned $${clue.value}.`;
+        cluePanel.innerHTML=`<p class="jeopardy-correct">Correct — ${htmlSafe(clue.answer)}</p>`;
+        draw();
+        if(score>=300){
+          LR.savedResponse={score,solved:[...solved]};
+          LR.lastAnswer="$300";
+          lessonCorrect("Jeopardy complete — you reached $300!","$300 earned!");
+          clearTimeout(LR_CORRECT_ADVANCE_TIMER);
+          LR_CORRECT_ADVANCE_TIMER=null;
+          $("lrNextBtn").disabled=false;
+        }
+      };
+      answers.appendChild(button);
+    });
+  }
+  $("lrChoices").appendChild(board);
+  draw();
 }
 
 let ATOM_BUILD_COUNTS={};

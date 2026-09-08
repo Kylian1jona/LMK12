@@ -11,7 +11,7 @@ for(const file of ['k12-curriculum.js','k12-expanded-grade-menus.js',...['g8','g
   vm.runInContext(read(`components/${file}`),context,{filename:file});
 }
 const curriculum=vm.runInContext('CURR',context);
-for(const [grade,subject,count] of [['g8','eng',25],['g8','math',25],['g8','sci',25],['g8','hist',25],['g8','alg1',20],['g9','math',20],['g10','math',20],['g11','math',8],['g12','math',8]]){
+for(const [grade,subject,count] of [['g8','eng',25],['g8','math',26],['g8','sci',25],['g8','hist',26],['g8','alg1',20],['g9','math',20],['g10','math',20],['g11','math',8],['g12','math',8]]){
   context.K12Classic25.installGrade(grade);
   const records=Object.entries(context.K12_CLASSIC_25_DATA).filter(([key])=>key.startsWith(`${grade}:${subject}:`));
   assert.equal(records.length,count,`${grade}:${subject} lesson count`);
@@ -40,6 +40,7 @@ assert.ok(moleculeLab.questions.every(question=>question.type==='atom-build'&&qu
 assert.deepEqual(JSON.parse(JSON.stringify(moleculeLab.questions[0].atoms)),{H:2,O:1},'Water requires two hydrogen atoms and one oxygen atom');
 const lessonCoreSource=read('components/k12-lesson-core.js');
 assert.ok(lessonCoreSource.includes('renderAtomBuild(q)')&&lessonCoreSource.includes('q.type === "atom-build"'),'Lesson runner supports interactive atom-building questions');
+assert.ok(lessonCoreSource.includes('renderJeopardy(q)')&&lessonCoreSource.includes('score>=300'),'Lesson runner supports 300-point Jeopardy challenges');
 assert.ok(lessonCoreSource.includes('if(level>3) return;'),'Question voice is limited to Pre-K through Grade 3');
 const readingSource=read('components/k12-progress-ui.js');
 assert.ok(readingSource.includes('const canReadAloud=readingLevel<=3;'),'Reading voice controls are limited to Pre-K through Grade 3');

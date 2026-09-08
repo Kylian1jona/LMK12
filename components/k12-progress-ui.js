@@ -490,7 +490,7 @@ document.addEventListener("visibilitychange",()=>{
 window.addEventListener("pagehide",pauseUniversalLessonTimer);
 
 function normalizeAppSection(id){
-  const aliases={"g9-alg1":"g9-math","g10-alg1":"g10-math"};
+  const aliases={"g1":"grade1","1":"grade1","g9-alg1":"g9-math","g10-alg1":"g10-math"};
   const requested=aliases[String(id||"")]||String(id||"");
   return document.getElementById(requested)?requested:"home";
 }
