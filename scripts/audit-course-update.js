@@ -20,14 +20,14 @@ for(const [grade,subject,count] of [['g8','eng',25],['g8','math',26],['g8','sci'
   for(const [key,record] of records){
     const pack=curriculum[grade][subject][key.split(':')[2]];
     assert.equal(pack.name,record.name,'Loader must preserve bank names');
-    for(let i=0;i<25;i++){
+    for(let i=0;i<record.questions.length;i++){
       context.LR.round=i+1;
       assert.equal(JSON.stringify(pack.gen()),JSON.stringify(record.questions[i]),'Loader must use the actual authored question');
     }
     const clone=pack.gen();
     if(Array.isArray(clone.choices)){
       clone.choices.push('test mutation');
-      assert.ok(!record.questions[24].choices.includes('test mutation'),'Question copies must be independent');
+      assert.ok(!record.questions.at(-1).choices.includes('test mutation'),'Question copies must be independent');
     }
   }
 }
@@ -40,12 +40,19 @@ assert.ok(moleculeLab.questions.every(question=>question.type==='atom-build'&&qu
 assert.deepEqual(JSON.parse(JSON.stringify(moleculeLab.questions[0].atoms)),{H:2,O:1},'Water requires two hydrogen atoms and one oxygen atom');
 const lessonCoreSource=read('components/k12-lesson-core.js');
 assert.ok(lessonCoreSource.includes('renderAtomBuild(q)')&&lessonCoreSource.includes('q.type === "atom-build"'),'Lesson runner supports interactive atom-building questions');
-assert.ok(lessonCoreSource.includes('renderJeopardy(q)')&&lessonCoreSource.includes('score>=target'),'Lesson runner supports $3,000 Jeopardy challenges');
-assert.ok(lessonCoreSource.includes('renderMathGrid(q)')&&lessonCoreSource.includes('q.type === "math-grid"'),'Lesson runner supports Equation Grid math challenges');
+assert.ok(lessonCoreSource.includes('renderJeopardy(q)')&&lessonCoreSource.includes('score>=target'),'Lesson runner supports Jeopardy challenges');
+assert.ok(lessonCoreSource.includes('renderMathGrid(q)')&&lessonCoreSource.includes('renderMathRelay(q)'),'Lesson runner supports Math Arcade games');
 const historyJeopardy=context.K12_CLASSIC_25_DATA['g8:hist:L26'];
 const mathGrid=context.K12_CLASSIC_25_DATA['g8:math:L26'];
-assert.ok(historyJeopardy.questions.every(question=>question.type==='jeopardy'&&question.targetScore===3000),'History Jeopardy requires $3,000');
-assert.ok(mathGrid.questions.every(question=>question.type==='math-grid'&&question.tiles.length===3),'Math uses three-tile Equation Grid challenges');
+assert.equal(historyJeopardy.questions.length,1,'History Jeopardy is one complete board');
+const jeopardyBoard=historyJeopardy.questions[0];
+assert.equal(jeopardyBoard.type,'jeopardy');
+assert.equal(jeopardyBoard.targetScore,7000,'History Jeopardy requires $7,000');
+assert.equal(jeopardyBoard.clues.reduce((total,clue)=>total+clue.value,0),7000,'Every Jeopardy dollar value totals $7,000');
+assert.deepEqual(Object.fromEntries([100,300,500,600].map(value=>[value,jeopardyBoard.clues.filter(clue=>clue.value===value).length])),{100:1,300:3,500:6,600:5},'Jeopardy board has the requested values');
+assert.ok(!/one question|three clues|round/i.test(jeopardyBoard.q),'Jeopardy does not describe its question count');
+assert.ok(mathGrid.questions.some(question=>question.type==='math-grid'&&question.tiles.length===3&&question.bonus),'Math Arcade includes Equation Grid bonus vaults');
+assert.ok(mathGrid.questions.some(question=>question.type==='math-relay'&&question.problems.length===5),'Math Arcade includes Math Relay games');
 assert.ok(lessonCoreSource.includes('if(level>3) return;'),'Question voice is limited to Pre-K through Grade 3');
 const readingSource=read('components/k12-progress-ui.js');
 assert.ok(readingSource.includes('const canReadAloud=readingLevel<=3;'),'Reading voice controls are limited to Pre-K through Grade 3');

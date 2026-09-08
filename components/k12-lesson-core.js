@@ -1474,6 +1474,10 @@ function lrCheck(){
   if(!$("lrNextBtn").disabled) return;
 
   const q = LR.current;
+  if(LR.phase!=="revision"&&LR.total===1&&q.type==="jeopardy"){
+    $("lrProg").textContent="Board challenge";
+    if($("lrQuestionBanner")) $("lrQuestionBanner").textContent="History Jeopardy";
+  }
   if(["block-add","number-line","fraction-build"].includes(q.type)){
     const result=checkMathManipulative(q);
     LR.savedResponse=cloneRevisionQuestion(MATH_MANIPULATIVE_STATE);
@@ -1823,84 +1827,12 @@ function checkMathManipulative(q){
 }
 
 function renderJeopardy(q){
-  $("lrCheckBtn").classList.add("d-none");
-  const board=document.createElement("section");
-  board.className="jeopardy-board";
-  const target=Number(q.targetScore||3000);
-  let score=0;
-  let active=null;
-  const solved=new Set();
-  board.innerHTML=`<header><span>GRADE 8 CHALLENGE</span><h3>Jeopardy</h3><strong class="jeopardy-score">\u00240 / \u0024${target.toLocaleString()}</strong></header><p class="jeopardy-status">Choose a clue. Earn \u0024${target.toLocaleString()} to unlock Next.</p><div class="jeopardy-cards"></div><div class="jeopardy-clue" aria-live="polite"></div>`;
-  const cards=board.querySelector(".jeopardy-cards");
-  const cluePanel=board.querySelector(".jeopardy-clue");
-  function draw(){
-    board.querySelector(".jeopardy-score").textContent=`\u0024${score.toLocaleString()} / \u0024${target.toLocaleString()}`;
-    cards.innerHTML="";
-    q.clues.forEach((clue,index)=>{
-      const button=document.createElement("button");
-      button.type="button";
-      button.className=`jeopardy-card ${solved.has(index)?"solved":""}`;
-      button.textContent=solved.has(index)?"Solved":`$${clue.value}`;
-      button.disabled=solved.has(index);
-      button.onclick=()=>{active=index;showClue();};
-      cards.appendChild(button);
-    });
-  }
-  function showClue(){
-    const clue=q.clues[active];
-    cluePanel.innerHTML=`<p>${htmlSafe(clue.question)}</p><div class="jeopardy-answers"></div>`;
-    const answers=cluePanel.querySelector(".jeopardy-answers");
-    clue.choices.forEach(choice=>{
-      const button=document.createElement("button");
-      button.type="button";
-      button.textContent=choice;
-      button.onclick=()=>{
-        if(choice!==clue.answer){
-          board.querySelector(".jeopardy-status").textContent="Not that one. Try the clue again.";
-          button.classList.add("answer-wrong");
-          return;
-        }
-        score+=clue.value;
-        solved.add(active);
-        board.querySelector(".jeopardy-status").textContent=`Correct! You earned $${clue.value}.`;
-        cluePanel.innerHTML=`<p class="jeopardy-correct">Correct — ${htmlSafe(clue.answer)}</p>`;
-        draw();
-        if(score>=target){
-          LR.savedResponse={score,solved:[...solved]};
-          LR.lastAnswer=`\u0024${target.toLocaleString()}`;
-          lessonCorrect(`Jeopardy complete - you reached \u0024${target.toLocaleString()}!`,`\u0024${target.toLocaleString()} earned!`);
-          clearTimeout(LR_CORRECT_ADVANCE_TIMER);
-          LR_CORRECT_ADVANCE_TIMER=null;
-          $("lrNextBtn").disabled=false;
-        }
-      };
-      answers.appendChild(button);
-    });
-  }
-  $("lrChoices").appendChild(board);
-  draw();
+  $("lrCheckBtn").classList.add("d-none");const board=document.createElement("section");board.className="jeopardy-board";const target=Number(q.targetScore||7000),solved=new Set();let score=0,active=null;const categories=q.categories||[];
+  board.innerHTML=`<header><span>GRADE 8 HISTORY CHALLENGE</span><h3>Jeopardy</h3><strong class="jeopardy-score">$0 / $${target.toLocaleString()}</strong></header><p class="jeopardy-status">Clear the board to win $${target.toLocaleString()}.</p><div class="jeopardy-categories">${categories.map(category=>`<span>${htmlSafe(category)}</span>`).join("")}</div><div class="jeopardy-cards"></div><div class="jeopardy-clue"></div>`;
+  const cards=board.querySelector(".jeopardy-cards"),panel=board.querySelector(".jeopardy-clue");function draw(){board.querySelector(".jeopardy-score").textContent=`$${score.toLocaleString()} / $${target.toLocaleString()}`;cards.innerHTML="";q.clues.forEach((clue,index)=>{const button=document.createElement("button");button.type="button";button.className=`jeopardy-card ${solved.has(index)?"solved":""}`;button.textContent=solved.has(index)?"Solved":`$${clue.value}`;button.disabled=solved.has(index);button.onclick=()=>{active=index;show();};cards.appendChild(button);});}function show(){const clue=q.clues[active];panel.innerHTML=`<p>${htmlSafe(clue.question)}</p><div class="jeopardy-answers"></div>`;const answers=panel.querySelector(".jeopardy-answers");clue.choices.forEach(choice=>{const button=document.createElement("button");button.type="button";button.textContent=choice;button.onclick=()=>{if(choice!==clue.answer){board.querySelector(".jeopardy-status").textContent="Not that answer. Try again.";button.classList.add("answer-wrong");return;}score+=clue.value;solved.add(active);panel.innerHTML=`<p class="jeopardy-correct">Correct: ${htmlSafe(clue.answer)}</p>`;draw();if(score>=target){LR.savedResponse={score,solved:[...solved]};LR.lastAnswer=`$${target.toLocaleString()}`;lessonCorrect(`Board cleared. $${target.toLocaleString()} won!`,`$${target.toLocaleString()} earned!`);clearTimeout(LR_CORRECT_ADVANCE_TIMER);LR_CORRECT_ADVANCE_TIMER=null;$("lrNextBtn").disabled=false;}};answers.appendChild(button);});}$("lrChoices").appendChild(board);draw();
 }
-
-
-function renderMathGrid(q){
-  $("lrCheckBtn").classList.add("d-none");
-  const grid=document.createElement("section");
-  grid.className="math-grid-challenge";
-  const solved=new Set();
-  let active=null;
-  grid.innerHTML=`<header><span>GRADE 8 MATH CHALLENGE</span><h3>Equation Grid</h3><strong class="math-grid-count">0 / ${q.tiles.length}</strong></header><p class="math-grid-status">Choose a tile, solve it, and unlock the whole grid.</p><div class="math-grid-tiles"></div><div class="math-grid-work" aria-live="polite"></div>`;
-  const tiles=grid.querySelector(".math-grid-tiles"), work=grid.querySelector(".math-grid-work");
-  function draw(){
-    grid.querySelector(".math-grid-count").textContent=`${solved.size} / ${q.tiles.length}`;
-    tiles.innerHTML="";
-    q.tiles.forEach((tile,index)=>{const button=document.createElement("button");button.type="button";button.className=`math-grid-tile ${solved.has(index)?"solved":""}`;button.disabled=solved.has(index);button.innerHTML=solved.has(index)?`<span>Unlocked</span><strong>${htmlSafe(tile.answer)}</strong>`:`<span>Tile ${index+1}</span><strong>${htmlSafe(tile.question)}</strong>`;button.onclick=()=>{active=index;showTile();};tiles.appendChild(button);});
-  }
-  function showTile(){
-    const tile=q.tiles[active];work.innerHTML=`<p>Solve: <strong>${htmlSafe(tile.question)}</strong></p><div class="math-grid-answers"></div>`;const answers=work.querySelector(".math-grid-answers");
-    tile.choices.forEach(choice=>{const button=document.createElement("button");button.type="button";button.textContent=choice;button.onclick=()=>{if(choice!==tile.answer){grid.querySelector(".math-grid-status").textContent="Check the equation and try again.";button.classList.add("answer-wrong");return;}solved.add(active);grid.querySelector(".math-grid-status").textContent=`Tile ${active+1} unlocked!`;work.innerHTML=`<p class="math-grid-correct">Correct - ${htmlSafe(tile.answer)}</p>`;draw();if(solved.size===q.tiles.length){LR.savedResponse={solved:[...solved]};LR.lastAnswer=`${solved.size} equations solved`;lessonCorrect("Grid unlocked - every equation is solved!","Equation grid complete!");clearTimeout(LR_CORRECT_ADVANCE_TIMER);LR_CORRECT_ADVANCE_TIMER=null;$("lrNextBtn").disabled=false;}};answers.appendChild(button);});
-  }
-  $("lrChoices").appendChild(grid);draw();
-}
+function renderMathGrid(q){$("lrCheckBtn").classList.add("d-none");const grid=document.createElement("section");grid.className="math-grid-challenge";const solved=new Set();let active=null,points=0;grid.innerHTML=`<header><span>GRADE 8 MATH ARCADE</span><h3>Equation Grid</h3><strong class="math-grid-count">0 / ${q.tiles.length}</strong></header><p class="math-grid-status">Solve each power tile, then crack the bonus vault.</p><div class="math-grid-tiles"></div><div class="math-grid-work"></div>`;const tiles=grid.querySelector(".math-grid-tiles"),work=grid.querySelector(".math-grid-work");function finish(){LR.savedResponse={solved:[...solved],points};LR.lastAnswer=`${points} arcade points`;lessonCorrect("Vault unlocked - grid complete!","Math arcade complete!");clearTimeout(LR_CORRECT_ADVANCE_TIMER);LR_CORRECT_ADVANCE_TIMER=null;$("lrNextBtn").disabled=false;}function solve(item,after){work.innerHTML=`<p>Solve: <strong>${htmlSafe(item.question)}</strong></p><div class="math-grid-answers"></div>`;const answers=work.querySelector(".math-grid-answers");item.choices.forEach(choice=>{const button=document.createElement("button");button.type="button";button.textContent=choice;button.onclick=()=>{if(choice!==item.answer){button.classList.add("answer-wrong");return;}points+=item===q.bonus?200:100;after();};answers.appendChild(button);});}function draw(){grid.querySelector(".math-grid-count").textContent=`${solved.size} / ${q.tiles.length}`;tiles.innerHTML="";q.tiles.forEach((tile,index)=>{const button=document.createElement("button");button.type="button";button.className=`math-grid-tile ${solved.has(index)?"solved":""}`;button.disabled=solved.has(index);button.innerHTML=solved.has(index)?`<span>Unlocked</span><strong>${htmlSafe(tile.answer)}</strong>`:`<span>Power tile ${index+1}</span><strong>${htmlSafe(tile.question)}</strong>`;button.onclick=()=>{active=index;solve(tile,()=>{solved.add(active);draw();if(solved.size===q.tiles.length)solve(q.bonus,finish);});};tiles.appendChild(button);});}$("lrChoices").appendChild(grid);draw();}
+function renderMathRelay(q){$("lrCheckBtn").classList.add("d-none");const relay=document.createElement("section");relay.className="math-relay-challenge";let lap=0,points=0;relay.innerHTML=`<header><span>GRADE 8 MATH ARCADE</span><h3>Math Relay</h3><strong class="math-relay-score">0 points</strong></header><p class="math-relay-status">Answer each lap correctly to reach the finish.</p><div class="math-relay-track"></div><div class="math-relay-work"></div>`;const track=relay.querySelector(".math-relay-track"),work=relay.querySelector(".math-relay-work");function draw(){relay.querySelector(".math-relay-score").textContent=`${points} points`;track.innerHTML=q.problems.map((_,i)=>`<span class="${i<lap?"done":i===lap?"active":""}">${i<lap?"OK":i+1}</span>`).join("");if(lap===q.problems.length){LR.savedResponse={points};LR.lastAnswer=`${points} relay points`;lessonCorrect("Relay complete!","Math Relay complete!");clearTimeout(LR_CORRECT_ADVANCE_TIMER);LR_CORRECT_ADVANCE_TIMER=null;$("lrNextBtn").disabled=false;return;}const problem=q.problems[lap];work.innerHTML=`<p>Lap ${lap+1}: <strong>${htmlSafe(problem.question)}</strong></p><div class="math-relay-answers"></div>`;const answers=work.querySelector(".math-relay-answers");problem.choices.forEach(choice=>{const button=document.createElement("button");button.type="button";button.textContent=choice;button.onclick=()=>{if(choice!==problem.answer){button.classList.add("answer-wrong");return;}lap++;points+=100;draw();};answers.appendChild(button);});}$("lrChoices").appendChild(relay);draw();}
 
 let ATOM_BUILD_COUNTS={};
 let ATOM_BUILD_REDRAW=null;

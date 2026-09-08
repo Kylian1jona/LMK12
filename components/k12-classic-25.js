@@ -21,15 +21,16 @@
       if(!group) throw new Error(`Missing lesson group ${grade}:${subject}.`);
       const pack=group[lesson]||makeFallbackLessonPack(grade,subject,lesson);
       const questions=(Array.isArray(record.questions)?record.questions:[]);
-      if(questions.length<25){
+      const standaloneGame=questions.length===1&&questions[0]?.type==="jeopardy";
+      if(questions.length<25&&!standaloneGame){
         console.error(`${key} has only ${questions.length} questions and was skipped.`);
         return;
       }
-      const lessonQuestions=questions.slice(0,25);
+      const lessonQuestions=standaloneGame?questions:questions.slice(0,25);
       pack.name=record.name||pack.name;
       pack.questions=lessonQuestions;
-      pack.gen=()=>cloneQuestion(lessonQuestions[Math.max(0,Math.min(24,Number(LR.round||1)-1))]);
-      pack.generatorSource="classic-explicit-25";
+      pack.gen=()=>cloneQuestion(lessonQuestions[Math.max(0,Math.min(lessonQuestions.length-1,Number(LR.round||1)-1))]);
+      pack.generatorSource=standaloneGame?"classic-standalone-game":"classic-explicit-25";
       group[lesson]=pack;
     });
 

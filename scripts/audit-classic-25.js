@@ -61,7 +61,8 @@ for(const grade of ["g11","g12"]){
 for(const [key,record] of Object.entries(data)){
   if(!selectorKeys.has(key)) failures.push(`${key} has no lesson button.`);
   if(!record?.name) failures.push(`${key} has no lesson name.`);
-  if(!Array.isArray(record?.questions)||record.questions.length!==25){
+  const singleJeopardyBoard=key==="g8:hist:L26"&&record?.questions?.length===1&&record.questions[0]?.type==="jeopardy";
+  if(!Array.isArray(record?.questions)||(!singleJeopardyBoard&&record.questions.length!==25)){
     failures.push(`${key} does not contain exactly 25 questions.`);
     continue;
   }
