@@ -11,6 +11,8 @@
 function speakQ(text){
   if(!voiceOn) return;
   if(!text) return;
+  const level=LR?.grade==="prek"||LR?.grade==="k"?0:Number(String(LR?.grade||"").replace("g",""));
+  if(level>3) return;
   speakGlobal(String(text));
 }
 let __lastQAudio = "";
@@ -816,7 +818,11 @@ function launchLessonPack(grade, subj, lesson, pack, backSection){
   $("lrTitle").textContent = LR.title;
   renderLessonVideo(LR.video);
   const runner=$("lessonRunner");
-  if(runner) runner.dataset.gradeBand=["prek","k","g1"].includes(grade)?"early":"upper";
+  if(runner){
+    const level=grade==="prek"||grade==="k"?0:Number(String(grade).replace("g",""));
+    runner.dataset.gradeBand=level<=3?"early":"upper";
+    runner.dataset.gradeLevel=String(level);
+  }
 
   show("lessonRunner");
   if(savedCheckpoint) lrRender();
@@ -1326,6 +1332,11 @@ function restoreSavedAnswerView(){
       if(zone&&saved.dropped){ zone.dataset.dropped=String(saved.dropped); zone.querySelector(".drop-slot").textContent=String(saved.dropped); }
     });
     showDragCorrections(q);
+  }else if(q.type==="atom-build"&&response&&typeof response==="object"){
+    ATOM_BUILD_COUNTS={...response};
+    ATOM_BUILD_REDRAW?.();
+    document.querySelector(".atom-lab")?.classList.toggle("is-correct",LR.answerCorrect);
+    document.querySelectorAll(".atom-element,.atom-chip").forEach(element=>element.disabled=true);
   }else{
     highlightLessonAnswers(q,response??LR.lastAnswer);
   }
@@ -1388,6 +1399,7 @@ function lrRender(){
   $("lrInputWrap").classList.add("d-none");
   if($("lrDragArea")) $("lrDragArea").classList.add("d-none");
   $("lrCheckBtn").classList.add("d-none");
+  $("lrCheckBtn").textContent="Check answer";
 
   clearInterval(SPEED_TIMER);
 
@@ -1431,6 +1443,10 @@ function lrRender(){
     renderOrder(q);
   }
 
+  else if(q.type === "atom-build"){
+    renderAtomBuild(q);
+  }
+
   if(LR.answered){
     restoreSavedAnswerView();
     if(typeof setQAudio === "function") setQAudio(lessonQuestionSpeech(q));
@@ -1446,6 +1462,26 @@ function lrCheck(){
   if(!$("lrNextBtn").disabled) return;
 
   const q = LR.current;
+  if(q.type === "atom-build"){
+    const expected=q.atoms||{};
+    const symbols=new Set([...Object.keys(expected),...Object.keys(ATOM_BUILD_COUNTS)]);
+    const ok=[...symbols].every(symbol=>Number(ATOM_BUILD_COUNTS[symbol]||0)===Number(expected[symbol]||0));
+    LR.savedResponse={...ATOM_BUILD_COUNTS};
+    LR.lastAnswer=Object.entries(ATOM_BUILD_COUNTS).filter(([,count])=>count).map(([symbol,count])=>`${symbol} × ${count}`).join(", ")||"No atoms selected";
+    if(ok){
+      lessonCorrect(`Correct — you built ${q.formula}!`, `${q.formula} built correctly!`);
+      clearTimeout(LR_CORRECT_ADVANCE_TIMER);
+      LR_CORRECT_ADVANCE_TIMER=null;
+      $("lrNextBtn").disabled=false;
+      document.querySelector(".atom-lab")?.classList.add("is-correct");
+      document.querySelectorAll(".atom-element,.atom-chip").forEach(element=>element.disabled=true);
+      saveLessonCheckpoint();
+    }else{
+      $("lrFb").textContent="That atom count does not match yet. Adjust the tray and check again.";
+      document.querySelector(".atom-lab")?.classList.add("needs-review");
+    }
+    return;
+  }
   if(q.type === "drag"){
     const zones = document.querySelectorAll("#lrDropZones .drop-zone");
     LR.savedResponse=[...zones].map(zone=>({answer:zone.dataset.answer||"",dropped:zone.dataset.dropped||""}));
@@ -1695,6 +1731,56 @@ function renderOrder(q){
     };
     $("lrChoices").appendChild(b);
   });
+}
+
+let ATOM_BUILD_COUNTS={};
+let ATOM_BUILD_REDRAW=null;
+const ATOM_DETAILS={
+  H:[1,"Hydrogen"],He:[2,"Helium"],Li:[3,"Lithium"],C:[6,"Carbon"],N:[7,"Nitrogen"],O:[8,"Oxygen"],F:[9,"Fluorine"],Na:[11,"Sodium"],Mg:[12,"Magnesium"],S:[16,"Sulfur"],Cl:[17,"Chlorine"],K:[19,"Potassium"],Ca:[20,"Calcium"]
+};
+function renderAtomBuild(q){
+  ATOM_BUILD_COUNTS={};
+  $("lrCheckBtn").classList.remove("d-none");
+  $("lrCheckBtn").textContent="Check molecule";
+  const lab=document.createElement("section");
+  lab.className="atom-lab";
+  lab.innerHTML=`<div class="atom-lab-heading"><div><span class="atom-lab-kicker">Interactive chemistry</span><h3>Reaction Tray</h3><p>Click or drag elements into the tray. Click an atom in the tray to remove it.</p></div><strong class="atom-formula-goal">Goal: ${htmlSafe(q.formula||"")}</strong></div><div class="atom-tray" tabindex="0" role="group" aria-label="Selected atoms"><span class="atom-tray-empty">Add atoms here</span></div><div class="atom-lab-actions"><button type="button" class="btn btn-main atom-clear">Clear tray</button><span class="atom-count" aria-live="polite">0 atoms selected</span></div><div class="atom-palette" role="list" aria-label="Elements"></div>`;
+  const tray=lab.querySelector(".atom-tray");
+  const palette=lab.querySelector(".atom-palette");
+  const symbols=[...new Set([...Object.keys(q.atoms||{}),"H","C","N","O","Na","Cl","S","Ca"])].slice(0,10);
+  function drawTray(){
+    tray.innerHTML="";
+    let total=0;
+    Object.entries(ATOM_BUILD_COUNTS).forEach(([symbol,count])=>{
+      for(let index=0;index<count;index++){
+        total++;
+        const atom=document.createElement("button");
+        atom.type="button";atom.className=`atom-chip atom-${symbol.toLowerCase()}`;
+        atom.textContent=symbol;atom.setAttribute("aria-label",`Remove one ${ATOM_DETAILS[symbol]?.[1]||symbol} atom`);
+        atom.onclick=()=>{ATOM_BUILD_COUNTS[symbol]--;drawTray();};
+        tray.appendChild(atom);
+      }
+    });
+    if(!total) tray.innerHTML='<span class="atom-tray-empty">Add atoms here</span>';
+    lab.querySelector(".atom-count").textContent=`${total} atom${total===1?'':'s'} selected`;
+    lab.classList.remove("needs-review");
+  }
+  function add(symbol){ATOM_BUILD_COUNTS[symbol]=Number(ATOM_BUILD_COUNTS[symbol]||0)+1;drawTray();}
+  ATOM_BUILD_REDRAW=drawTray;
+  symbols.forEach(symbol=>{
+    const detail=ATOM_DETAILS[symbol]||["?",symbol];
+    const button=document.createElement("button");
+    button.type="button";button.className=`atom-element atom-${symbol.toLowerCase()}`;button.draggable=true;button.dataset.symbol=symbol;
+    button.innerHTML=`<small>${detail[0]}</small><strong>${symbol}</strong><span>${detail[1]}</span>`;
+    button.onclick=()=>add(symbol);
+    button.addEventListener("dragstart",event=>event.dataTransfer.setData("text/plain",symbol));
+    palette.appendChild(button);
+  });
+  tray.addEventListener("dragover",event=>event.preventDefault());
+  tray.addEventListener("drop",event=>{event.preventDefault();const symbol=event.dataTransfer.getData("text/plain");if(symbols.includes(symbol))add(symbol);});
+  lab.querySelector(".atom-clear").onclick=()=>{ATOM_BUILD_COUNTS={};drawTray();};
+  $("lrChoices").appendChild(lab);
+  drawTray();
 }
 
 function bankQuestion(items, audioText){

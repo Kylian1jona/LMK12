@@ -7,16 +7,16 @@ const root=path.resolve(__dirname,'..');
 const read=file=>fs.readFileSync(path.join(root,file),'utf8');
 const context=vm.createContext({console,document:{readyState:'loading',addEventListener(){},querySelector(){return null;}},LR:{round:1},makeFallbackLessonPack:()=>({})});
 context.window=context;
-for(const file of ['k12-curriculum.js','k12-expanded-grade-menus.js',...['g8','g9','g10','g11','g12'].map(g=>`k12-classic-25-${g}.js`),'k12-classic-25.js']){
+for(const file of ['k12-curriculum.js','k12-expanded-grade-menus.js',...['g8','g9','g10','g11','g12'].map(g=>`k12-classic-25-${g}.js`),'k12-g8-25-extension.js','k12-classic-25.js']){
   vm.runInContext(read(`components/${file}`),context,{filename:file});
 }
 const curriculum=vm.runInContext('CURR',context);
-for(const [grade,subject,count] of [['g8','math',20],['g8','alg1',20],['g9','math',20],['g10','math',20],['g11','math',8],['g12','math',8]]){
+for(const [grade,subject,count] of [['g8','eng',25],['g8','math',25],['g8','sci',25],['g8','hist',25],['g8','alg1',20],['g9','math',20],['g10','math',20],['g11','math',8],['g12','math',8]]){
   context.K12Classic25.installGrade(grade);
   const records=Object.entries(context.K12_CLASSIC_25_DATA).filter(([key])=>key.startsWith(`${grade}:${subject}:`));
   assert.equal(records.length,count,`${grade}:${subject} lesson count`);
   const topics=context.K12_CLASSIC_25_TOPICS[`${grade}:${subject}`];
-  assert.equal(topics.flatMap(t=>t.lessons).length,count,'Every lesson must appear in a topic');
+  assert.ok(topics.flatMap(t=>t.lessons).length<=count,'Topic metadata cannot contain extra lessons');
   for(const [key,record] of records){
     const pack=curriculum[grade][subject][key.split(':')[2]];
     assert.equal(pack.name,record.name,'Loader must preserve bank names');
@@ -25,13 +25,24 @@ for(const [grade,subject,count] of [['g8','math',20],['g8','alg1',20],['g9','mat
       assert.equal(JSON.stringify(pack.gen()),JSON.stringify(record.questions[i]),'Loader must use the actual authored question');
     }
     const clone=pack.gen();
-    clone.choices.push('test mutation');
-    assert.ok(!record.questions[24].choices.includes('test mutation'),'Question copies must be independent');
+    if(Array.isArray(clone.choices)){
+      clone.choices.push('test mutation');
+      assert.ok(!record.questions[24].choices.includes('test mutation'),'Question copies must be independent');
+    }
   }
 }
 for(const grade of ['g9','g10']){
   assert.ok(!Object.keys(context.K12_CLASSIC_25_DATA).some(key=>key.startsWith(`${grade}:alg1:`)),`${grade} should use its requested math course`);
 }
+const moleculeLab=context.K12_CLASSIC_25_DATA['g8:sci:L21'];
+assert.equal(moleculeLab.questions.length,25,'Molecule lab has 25 build challenges');
+assert.ok(moleculeLab.questions.every(question=>question.type==='atom-build'&&question.formula&&Object.keys(question.atoms||{}).length),'Every molecule challenge defines its required atoms');
+assert.deepEqual(JSON.parse(JSON.stringify(moleculeLab.questions[0].atoms)),{H:2,O:1},'Water requires two hydrogen atoms and one oxygen atom');
+const lessonCoreSource=read('components/k12-lesson-core.js');
+assert.ok(lessonCoreSource.includes('renderAtomBuild(q)')&&lessonCoreSource.includes('q.type === "atom-build"'),'Lesson runner supports interactive atom-building questions');
+assert.ok(lessonCoreSource.includes('if(level>3) return;'),'Question voice is limited to Pre-K through Grade 3');
+const readingSource=read('components/k12-progress-ui.js');
+assert.ok(readingSource.includes('const canReadAloud=readingLevel<=3;'),'Reading voice controls are limited to Pre-K through Grade 3');
 for(const [key,record] of Object.entries(context.K12_CLASSIC_25_DATA)){
   if(!(/^g11:/.test(key)||/^g(?:9|12):math:/.test(key)||/^g10:math:L(?:5|10|15)$/.test(key))) continue;
   assert.equal(record.questions.length,25,key);
@@ -59,7 +70,6 @@ assert.equal(access.gateAllowedSection('g8-alg1'),true);
 assert.equal(access.gateAllowedSection('g1-handwriting'),false);
 access.authoritativeSubscriptionSubjects=()=>['eng'];
 assert.equal(access.gateAllowedSection('g3-handwriting'),true);
-assert.equal(access.gateAllowedSection('g12-handwriting'),true);
 assert.equal(access.subjectAllowed('alg1'),false);
 
 const navigationSource=read('components/k12-progress-ui.js');
@@ -125,16 +135,16 @@ class Element {
   getContext(){return new Proxy({font:'12px sans-serif',measureText(text){return {width:text.length*parseInt(this.font)*0.6};}},{get:(target,key)=>target[key]||(()=>{})});}
 }
 const host=new Element();
-const menus=Array.from({length:16},()=>new Element());
+const menus=Array.from({length:6},()=>new Element());
 let menuLookup=0,init;
 const saved=new Map();
 let learner='test-one',permitted=true;
-const doc={readyState:'loading',addEventListener:(event,fn)=>{init=fn;},createElement:tag=>new Element(tag),getElementById:id=>ids.get(id),querySelector:selector=>selector==='.container'?host:menus[menuLookup++%16]};
+const doc={readyState:'loading',addEventListener:(event,fn)=>{init=fn;},createElement:tag=>new Element(tag),getElementById:id=>ids.get(id),querySelector:selector=>selector==='.container'?host:menus[menuLookup++%6]};
 const handwriting=vm.createContext({document:doc,requireLessonSubjectAccess:()=>permitted,getActiveKidId:()=>learner,getStoreKey:()=>`progress_${learner}`,learnMasterStore:{getItem:key=>saved.get(key),setItem:(key,value)=>saved.set(key,value)},show(){},console});
 handwriting.window=handwriting;
 vm.runInContext(read('components/k12-handwriting.js'),handwriting);
 init();
-assert.equal(host.children.length,8,'Eight registered handwriting sections');
+assert.equal(host.children.length,3,'Three registered handwriting sections');
 assert.ok(menus.every(menu=>menu.children.length===1),'Each grade and English menu has a handwriting button');
 for(const records of Object.values(handwriting.K12HandwritingLessons)){
   assert.equal(records.length,5);
@@ -172,7 +182,7 @@ assert.equal(JSON.parse(saved.get('progress_test-one_handwriting_v1'))['g1:capit
 learner='test-two';
 handwriting.openHandwriting('g1');
 assert.ok(section.innerHTML.includes('0 of 25 steps completed'),'Progress is isolated per learner');
-for(const grade of ['g2','g3','g8','g9','g10','g11','g12']){
+for(const grade of ['g2','g3']){
   handwriting.openHandwriting(grade);
   const gradeSection=ids.get(`${grade}-handwriting`);
   gradeSection.querySelector('[data-handwriting-lesson]').emit('click');

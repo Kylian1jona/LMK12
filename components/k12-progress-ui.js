@@ -536,7 +536,7 @@ function show(id,options={}){
 "grade10","g10-eng","g10-math","g10-sci","g10-hist",
 "grade11","g11-eng","g11-math","g11-sci","g11-hist",
 "grade12","g12-eng","g12-math","g12-sci","g12-hist",
-"g1-handwriting","g2-handwriting","g3-handwriting","g8-handwriting","g9-handwriting","g10-handwriting","g11-handwriting","g12-handwriting",
+"g1-handwriting","g2-handwriting","g3-handwriting",
 "lessonRunner",
 
   ];
@@ -1473,7 +1473,9 @@ function renderReadingSubject(gradeId, subjId){
   $("readingBackBtn").onclick = ()=>renderReadingGrade(gradeId);
 }
 
-function readingTopicSpeech(grade, subj, topic){
+function readingTopicSpeech(grade, subj, topic, gradeId=""){
+  const level=gradeId==="prek"||gradeId==="k"?0:Number(String(gradeId||"").replace("g",""));
+  if(level>3) return;
   const body = Array.isArray(topic.body) ? topic.body.join(" ") : "";
   return `${grade.title}. ${subj.title}. ${topic.title}. ${body}`;
 }
@@ -1484,7 +1486,8 @@ function readReadingTopic(gradeId, subjId, topicIndex){
   const subj = grade?.subjects?.[subjId];
   const topic = subj?.topics?.[topicIndex];
   if(!grade || !subj || !topic) return;
-  speakGlobal(readingTopicSpeech(grade, subj, topic));
+  const speech=readingTopicSpeech(grade, subj, topic, gradeId);
+  if(speech) speakGlobal(speech);
 }
 
 function stopVoice(){
@@ -1498,10 +1501,12 @@ function renderReadingTopic(gradeId, subjId, topicIndex){
   const topic = subj?.topics?.[topicIndex];
   const panel = $("readingPanel");
   if(!grade || !subj || !topic || !panel) return;
+  const readingLevel=gradeId==="prek"||gradeId==="k"?0:Number(String(gradeId).replace("g",""));
+  const canReadAloud=readingLevel<=3;
   panel.innerHTML = `
     <div class="reading-reader-head">
       <button type="button" class="reading-back-btn" id="readingBackBtn" aria-label="Back to passages">← Passages</button>
-      <div class="reading-reader-actions">
+      <div class="reading-reader-actions" ${canReadAloud?'':'hidden'}>
         <button type="button" class="btn btn-main" id="readingSpeakBtn">▶ Read aloud</button>
         <button type="button" class="reading-stop-btn" id="readingStopBtn">Stop</button>
       </div>
@@ -1512,8 +1517,10 @@ function renderReadingTopic(gradeId, subjId, topicIndex){
       ${topic.body.map(p=>`<p>${htmlSafe(p)}</p>`).join("")}
     </article>
   `;
-  $("readingSpeakBtn").onclick = ()=>readReadingTopic(gradeId, subjId, topicIndex);
-  $("readingStopBtn").onclick = ()=>stopVoice();
+  if(canReadAloud){
+    $("readingSpeakBtn").onclick = ()=>readReadingTopic(gradeId, subjId, topicIndex);
+    $("readingStopBtn").onclick = ()=>stopVoice();
+  }
   $("readingBackBtn").onclick = ()=>renderReadingSubject(gradeId, subjId);
 }
 

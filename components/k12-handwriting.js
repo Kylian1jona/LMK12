@@ -45,13 +45,6 @@
     'Use a timeline to verify chronological order.','Distinguish a source quotation from your own note.','Put uncertain dates in brackets until verified.','Avoid treating sequence alone as proof of cause.','End with the question the evidence still leaves open.'
   ];
   const revision = academic.map((line,index)=>index%5===0?`Heading: ${line}`:index%5===4?`Summary: ${line}`:line);
-  const upperLessons = grade => [
-    make('academic-print',`Grade ${grade} Academic Print`,'Build an efficient, readable print style for assignments and timed work.',academic),
-    make('math-notation','Math and Symbol Spacing','Keep numbers, operations, exponents, and variables distinct and aligned.',notation),
-    make('lab-notes','Science and Lab Notes','Practice compact observations with readable measurements and units.',labNotes),
-    make('source-notes','History and Source Notes','Write dates, evidence, and source labels clearly enough to verify later.',sourceNotes),
-    make('revision','Headings, Margins, and Revision','Use consistent headings and clean rewritten notes for longer study sessions.',revision)
-  ];
   const make = (id,name,tip,targets) => ({id,name,tip,targets});
   const lessons = {
     g1: [
@@ -80,12 +73,7 @@
       ]),
       make('note-taking','Neat Notes and Headings','Use a short heading, an even left margin, and readable key details.',academic),
       make('numbers-symbols','Numbers and Symbols','Align numbers carefully and leave clear space around operation signs.',notation)
-    ],
-    g8: upperLessons(8),
-    g9: upperLessons(9),
-    g10: upperLessons(10),
-    g11: upperLessons(11),
-    g12: upperLessons(12)
+    ]
   };
   let active = null;
   let strokes = [];

@@ -92,7 +92,7 @@
   function topicGroups(grade,subject,lessons){
     const supplied=window.K12_CLASSIC_25_TOPICS?.[`${grade}:${subject}`];
     if(Array.isArray(supplied)&&supplied.length){
-      return supplied.map(topic=>({
+      const groups=supplied.map(topic=>({
         name:topic.name,
         lessons:(topic.lessons||[]).map(item=>{
           const lesson=String(item.key||"").split(":")[2];
@@ -100,6 +100,10 @@
           return {lesson,name:record.name||item.name||item.key};
         }).filter(item=>item.lesson)
       }));
+      const grouped=new Set(groups.flatMap(group=>group.lessons.map(item=>item.lesson)));
+      const additions=lessons.filter(item=>!grouped.has(item.lesson));
+      if(additions.length) groups.push({name:"Advanced Practice and Applications",lessons:additions});
+      return groups;
     }
     const names=FALLBACK_TOPICS[subject]||FALLBACK_TOPICS.math;
     return names.map((name,index)=>({name,lessons:lessons.slice(index*5,index*5+5)})).filter(group=>group.lessons.length);

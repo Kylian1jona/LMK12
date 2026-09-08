@@ -13,6 +13,8 @@ for(const grade of grades){
   vm.runInContext(fs.readFileSync(file,"utf8"),context,{filename:file});
   context.K12RepairClassicBank?.(grade);
 }
+const grade8ExtensionFile=path.join(root,"components","k12-g8-25-extension.js");
+vm.runInContext(fs.readFileSync(grade8ExtensionFile,"utf8"),context,{filename:grade8ExtensionFile});
 const curriculumFile=path.join(root,"components","k12-curriculum.js");
 vm.runInContext(fs.readFileSync(curriculumFile,"utf8"),context,{filename:curriculumFile});
 const numberSenseFile=path.join(root,"components","k12-g2-number-sense-lessons.js");
@@ -43,7 +45,8 @@ for(const grade of ["g11","g12"]){
 }
 for(let lesson=8;lesson<=32;lesson++) selectorKeys.add(`g2:math:L${lesson}`);
 for(const subject of ["eng","math","alg1","sci","hist"]){
-  for(let lesson=1;lesson<=20;lesson++) selectorKeys.add(`g8:${subject}:L${lesson}`);
+  const finalLesson=subject==="alg1"?20:25;
+  for(let lesson=1;lesson<=finalLesson;lesson++) selectorKeys.add(`g8:${subject}:L${lesson}`);
 }
 for(const subject of ["eng","math","sci","hist"]){
   for(let lesson=1;lesson<=20;lesson++) selectorKeys.add(`g9:${subject}:L${lesson}`);
