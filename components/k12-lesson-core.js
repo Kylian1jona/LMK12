@@ -1455,6 +1455,10 @@ function lrRender(){
     renderScienceSimulator(q);
   }
 
+  else if(q.type === "interactive-lab"){
+    window.K12InteractiveLabs?.render(q);
+  }
+
   else if(q.type === "math-grid"){
     renderMathGrid(q);
   }

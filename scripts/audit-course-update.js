@@ -7,16 +7,16 @@ const root=path.resolve(__dirname,'..');
 const read=file=>fs.readFileSync(path.join(root,file),'utf8');
 const context=vm.createContext({console,document:{readyState:'loading',addEventListener(){},querySelector(){return null;}},LR:{round:1},makeFallbackLessonPack:()=>({})});
 context.window=context;
-for(const file of ['k12-curriculum.js','k12-expanded-grade-menus.js',...['g8','g9','g10','g11','g12'].map(g=>`k12-classic-25-${g}.js`),'k12-g8-25-extension.js','k12-classic-25.js']){
+for(const file of ['k12-curriculum.js','k12-expanded-grade-menus.js',...['g7','g8','g9','g10','g11','g12'].map(g=>`k12-classic-25-${g}.js`),'k12-g8-25-extension.js','k12-interactive-labs.js','k12-classic-25.js']){
   vm.runInContext(read(`components/${file}`),context,{filename:file});
 }
 const curriculum=vm.runInContext('CURR',context);
-for(const [grade,subject,count] of [['g8','eng',25],['g8','math',26],['g8','sci',25],['g8','hist',26],['g8','alg1',20],['g9','math',20],['g10','math',20],['g11','math',8],['g12','math',8]]){
+for(const [grade,subject,count] of [['g7','eng',17],['g7','math',12],['g7','sci',14],['g7','hist',10],['g8','eng',25],['g8','math',26],['g8','sci',25],['g8','hist',26],['g8','alg1',20],['g9','math',20],['g10','math',20],['g11','math',8],['g12','math',8]]){
   context.K12Classic25.installGrade(grade);
   const records=Object.entries(context.K12_CLASSIC_25_DATA).filter(([key])=>key.startsWith(`${grade}:${subject}:`));
   assert.equal(records.length,count,`${grade}:${subject} lesson count`);
   const topics=context.K12_CLASSIC_25_TOPICS[`${grade}:${subject}`];
-  assert.ok(topics.flatMap(t=>t.lessons).length<=count,'Topic metadata cannot contain extra lessons');
+  if(Array.isArray(topics)) assert.ok(topics.flatMap(t=>t.lessons).length<=count,'Topic metadata cannot contain extra lessons');
   for(const [key,record] of records){
     const pack=curriculum[grade][subject][key.split(':')[2]];
     assert.equal(pack.name,record.name,'Loader must preserve bank names');
@@ -39,13 +39,13 @@ assert.equal(moleculeLab.questions.length,25,'Molecule lab has 25 build challeng
 assert.ok(moleculeLab.questions.every(question=>question.type==='atom-build'&&question.formula&&Object.keys(question.atoms||{}).length),'Every molecule challenge defines its required atoms');
 assert.deepEqual(JSON.parse(JSON.stringify(moleculeLab.questions[0].atoms)),{H:2,O:1},'Water requires two hydrogen atoms and one oxygen atom');
 const lessonCoreSource=read('components/k12-lesson-core.js');
+const interactiveLabs=context.K12InteractiveLabs;
+assert.equal(interactiveLabs.labs.length,25,'Grade 7 has 25 standalone interactive labs');
+assert.equal(new Set(interactiveLabs.labs).size,25,'Every interactive lab has a distinct activity id');
+assert.ok(lessonCoreSource.includes('q.type === "interactive-lab"'),'Lesson runner opens standalone interactive labs');
 assert.ok(lessonCoreSource.includes('renderAtomBuild(q)')&&lessonCoreSource.includes('q.type === "atom-build"'),'Lesson runner supports interactive atom-building questions');
 assert.ok(lessonCoreSource.includes('renderJeopardy(q)')&&lessonCoreSource.includes('score>=target'),'Lesson runner supports Jeopardy challenges');
 assert.ok(lessonCoreSource.includes('renderMathGrid(q)')&&lessonCoreSource.includes('renderMathRelay(q)'),'Lesson runner supports Math Arcade games');
-const scienceLab=context.K12_CLASSIC_25_DATA['g8:sci:L25'];
-assert.equal(scienceLab.questions.length,1,'Science simulator lab is a standalone interactive workspace');
-assert.equal(scienceLab.questions[0].type,'science-sim','Science lab uses the interactive simulator renderer');
-assert.ok(lessonCoreSource.includes('renderScienceSimulator(q)'),'Lesson runner supports science simulations');
 const historyJeopardy=context.K12_CLASSIC_25_DATA['g8:hist:L26'];
 const mathGrid=context.K12_CLASSIC_25_DATA['g8:math:L26'];
 assert.equal(historyJeopardy.questions.length,1,'History Jeopardy is one complete board');

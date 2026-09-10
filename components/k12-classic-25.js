@@ -21,7 +21,7 @@
       if(!group) throw new Error(`Missing lesson group ${grade}:${subject}.`);
       const pack=group[lesson]||makeFallbackLessonPack(grade,subject,lesson);
       const questions=(Array.isArray(record.questions)?record.questions:[]);
-      const standaloneGame=questions.length===1&&["jeopardy","science-sim"].includes(questions[0]?.type);
+      const standaloneGame=questions.length===1&&["jeopardy","science-sim","interactive-lab"].includes(questions[0]?.type);
       if(questions.length<25&&!standaloneGame){
         console.error(`${key} has only ${questions.length} questions and was skipped.`);
         return;

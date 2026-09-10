@@ -138,6 +138,6 @@
     data["g8:hist:L26"]={name:"History Jeopardy: $9,000 Challenge",topic:"Jeopardy Challenge",topicNumber:6,lessonInTopic:1,difficulty:"Mastery",contentVersion:"20260908.3",questions:[{type:"jeopardy",targetScore:9000,q:"Clear the board to win $9,000.",categories,clues,answer:"9000",audio:"History Jeopardy."}]};
   }
   function scienceSimulatorLab(){data["g8:sci:L25"]={name:"Interactive Science Simulator Lab",topic:"Integrated Physical Science",topicNumber:5,lessonInTopic:5,difficulty:"Mastery",contentVersion:"20260908.3",questions:[{type:"science-sim",q:"Explore five interactive science simulations.",answer:"complete",audio:"Interactive science simulator lab."}]};}
-  mathArcadeLesson();historyJeopardy();scienceSimulatorLab();
+  mathArcadeLesson();historyJeopardy();
 
 })();

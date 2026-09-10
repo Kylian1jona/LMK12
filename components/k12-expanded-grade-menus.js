@@ -1,6 +1,14 @@
 /* Topic-driven menus for the expanded lesson banks. */
 (function(){
   const CONFIG={
+    g7:{
+      subjects:[
+        ["eng","English","READ"],
+        ["math","Math","MATH"],
+        ["sci","Science","SCI"],
+        ["hist","History","HIST"]
+      ]
+    },
     g8:{
       subjects:[
         ["eng","English","📖"],

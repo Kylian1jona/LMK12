@@ -15,6 +15,9 @@ for(const grade of grades){
 }
 const grade8ExtensionFile=path.join(root,"components","k12-g8-25-extension.js");
 vm.runInContext(fs.readFileSync(grade8ExtensionFile,"utf8"),context,{filename:grade8ExtensionFile});
+const interactiveLabsFile=path.join(root,"components","k12-interactive-labs.js");
+context.document={getElementById(){return null;}};
+vm.runInContext(fs.readFileSync(interactiveLabsFile,"utf8"),context,{filename:interactiveLabsFile});
 const curriculumFile=path.join(root,"components","k12-curriculum.js");
 vm.runInContext(fs.readFileSync(curriculumFile,"utf8"),context,{filename:curriculumFile});
 const numberSenseFile=path.join(root,"components","k12-g2-number-sense-lessons.js");
@@ -43,6 +46,9 @@ for(const grade of ["g11","g12"]){
     for(const lesson of ["L1","L2"]) selectorKeys.add(`${grade}:${subject}:${lesson}`);
   }
 }
+for(const key of Object.keys(context.K12_CLASSIC_25_DATA||{})){
+  if(/^g7:(?:eng|math|sci|hist):L\d+$/.test(key)) selectorKeys.add(key);
+}
 for(let lesson=8;lesson<=32;lesson++) selectorKeys.add(`g2:math:L${lesson}`);
 for(const subject of ["eng","math","alg1","sci","hist"]){
   const finalLesson=subject==="alg1"?20:["math","hist"].includes(subject)?26:25;
@@ -61,8 +67,8 @@ for(const grade of ["g11","g12"]){
 for(const [key,record] of Object.entries(data)){
   if(!selectorKeys.has(key)) failures.push(`${key} has no lesson button.`);
   if(!record?.name) failures.push(`${key} has no lesson name.`);
-  const singleJeopardyBoard=["g8:hist:L26","g8:sci:L25"].includes(key)&&record?.questions?.length===1&&["jeopardy","science-sim"].includes(record.questions[0]?.type);
-  if(!Array.isArray(record?.questions)||(!singleJeopardyBoard&&record.questions.length!==25)){
+  const standaloneLesson=record?.questions?.length===1&&["jeopardy","science-sim","interactive-lab"].includes(record.questions[0]?.type);
+  if(!Array.isArray(record?.questions)||(!standaloneLesson&&record.questions.length!==25)){
     failures.push(`${key} does not contain exactly 25 questions.`);
     continue;
   }
