@@ -28,10 +28,6 @@
     ["g7","eng",16,"Word Workshop","words","Build words from roots and affixes, then infer new meanings."],
     ["g7","eng",17,"Two-Sides Text Lab","twosides","Compare claims, evidence, facts, opinions, and loaded language."]
   ];
-  labs.forEach(([grade,subject,number,name,lab,brief])=>{
-    data[`${grade}:${subject}:L${number}`]={name,topic:"Interactive Labs",topicNumber:7,lessonInTopic:number,difficulty:"Mastery",contentVersion:"20260909.2",questions:[{type:"interactive-lab",lab,q:brief,answer:"complete",audio:name}]};
-  });
-
   const $=id=>document.getElementById(id);
   const safe=value=>String(value).replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
   const labNames=Object.fromEntries(labs.map(item=>[item[4],item[3]]));
@@ -62,6 +58,23 @@
     words:["The prefix pre- most often means...",["before","against","again"],0],
     twosides:["A strong comparison of two authors should...",["use evidence from both texts","assume both authors agree","ignore word choice"],0]
   };
+  const investigationFrames=[
+    "Establish a baseline before changing one variable.","Increase the first control and predict the result.","Decrease the first control and compare the result.","Hold the first variable constant and change the second.","Choose settings that create the greatest visible change.",
+    "Choose settings that create the smallest visible change.","Run a trial that tests a cause-and-effect claim.","Repeat the trial with one controlled variable.","Look for evidence that challenges your first prediction.","Compare two conditions and identify the important difference.",
+    "Use the diagram to locate the strongest evidence.","Test an extreme setting and describe its limitation.","Return to the midpoint and explain what changed.","Create a fair comparison between two trials.","Use numerical evidence from the model in your explanation.",
+    "Identify the independent and dependent variables.","Find a pattern that appears across repeated trials.","Select evidence that supports a cautious conclusion.","Separate an observation from an inference.","Explain how the visual model represents the real system.",
+    "Test whether reversing the change reverses the result.","Find a setting that produces an unexpected result.","Use two pieces of evidence to defend a conclusion.","Evaluate one limitation of the simulation.","Complete a final challenge using everything you observed."
+  ];
+  function makeQuestions(lab,brief,name){
+    const [basePrompt,baseChoices,baseCorrect]=challengeBank[lab];
+    return investigationFrames.map((frame,index)=>{
+      const turn=index%baseChoices.length,choices=baseChoices.slice(turn).concat(baseChoices.slice(0,turn));
+      return {type:"interactive-lab",lab,investigation:index+1,q:`Investigation ${index+1}: ${frame} ${brief}`,challenge:{prompt:`${basePrompt} Use the evidence from investigation ${index+1}.`,choices,correct:(baseCorrect-turn+baseChoices.length)%baseChoices.length},answer:baseChoices[baseCorrect],explain:`The model evidence supports: ${baseChoices[baseCorrect]}.`,audio:`${name}, investigation ${index+1}.`};
+    });
+  }
+  labs.forEach(([grade,subject,number,name,lab,brief])=>{
+    data[`${grade}:${subject}:L${number}`]={name,topic:"Interactive Labs",topicNumber:7,lessonInTopic:number,difficulty:"Mastery",contentVersion:"20260910.1",questions:makeQuestions(lab,brief,name)};
+  });
 
   function shell(q){
     const root=document.createElement("section");root.className=`interactive-lab lab-${q.lab}`;
@@ -102,7 +115,7 @@
       twosides:'<div class="two-texts"><article><b>AUTHOR A</b><p><mark>Community gardens improve access</mark> to fresh food...</p><i>CLAIM</i></article><article><b>AUTHOR B</b><p>Gardens help, but <mark>water costs remain a concern</mark>...</p><i>COUNTERPOINT</i></article></div>'
     };return boards[lab]||'<div class="diagram-placeholder"></div>';
   }
-  function challenge(root,q){const [prompt,choices,correct]=challengeBank[q.lab];const box=root.querySelector(".lab-challenge");box.innerHTML=`<h4>Explain what happened</h4><p>${safe(prompt)}</p><div class="lab-answers"></div>`;const answers=box.querySelector(".lab-answers");choices.forEach((choice,index)=>{const button=document.createElement("button");button.type="button";button.textContent=choice;button.onclick=()=>{button.classList.add(index===correct?"correct":"wrong");if(index===correct){answers.querySelectorAll("button").forEach(item=>item.disabled=true);LR.savedResponse={lab:q.lab,answer:choice};LR.lastAnswer=choice;lessonCorrect("Investigation complete!","You tested the model and explained the evidence.");clearTimeout(LR_CORRECT_ADVANCE_TIMER);LR_CORRECT_ADVANCE_TIMER=null;$("lrNextBtn").disabled=false;}else{root.querySelector(".lab-observation").textContent="Use the evidence from your investigation and try again.";}};answers.appendChild(button);});}
+  function challenge(root,q){const challenge=q.challenge||{prompt:challengeBank[q.lab][0],choices:challengeBank[q.lab][1],correct:challengeBank[q.lab][2]};const {prompt,choices,correct}=challenge;const box=root.querySelector(".lab-challenge");box.innerHTML=`<h4>Explain what happened</h4><p>${safe(prompt)}</p><div class="lab-answers"></div>`;const answers=box.querySelector(".lab-answers");choices.forEach((choice,index)=>{const button=document.createElement("button");button.type="button";button.textContent=choice;button.onclick=()=>{button.classList.add(index===correct?"correct":"wrong");if(index===correct){answers.querySelectorAll("button").forEach(item=>item.disabled=true);LR.savedResponse={lab:q.lab,investigation:q.investigation,answer:choice};LR.lastAnswer=choice;lessonCorrect("Investigation complete!","You tested the model and explained the evidence.");}else{root.querySelector(".lab-observation").textContent="Use the evidence from your investigation and try again.";}};answers.appendChild(button);});}
   function standard(root,q){
     const work=root.querySelector(".lab-workspace"),note=root.querySelector(".lab-observation");
     const configs={springs:[["Mass","mass",1,10,5],["Stiffness","stiff",1,10,5],["Gravity","gravity",1,10,10],["Friction","friction",0,10,3]],projectile:[["Angle","angle",10,80,45],["Speed","speed",10,80,48],["Air resistance","air",0,10,2]],forces:[["Force","force",1,20,10],["Mass","mass",1,15,5],["Friction","friction",0,10,2],["Slope","slope",0,30,8]],density:[["Mass","mass",1,100,48],["Volume","volume",1,100,60]],coordinate:[["X","x",-8,8,3],["Y","y",-8,8,4]],scale:[["Scale meters/cm","scale",1,10,4],["Drawing cm","model",1,15,6]],shopping:[["Price","price",10,100,50],["Discount %","discount",0,50,20],["Tax %","tax",0,12,8]],water:[["Temperature","temp",10,100,65],["Humidity","humidity",0,100,55]]};

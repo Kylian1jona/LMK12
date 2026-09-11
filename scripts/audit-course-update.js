@@ -38,11 +38,20 @@ const moleculeLab=context.K12_CLASSIC_25_DATA['g8:sci:L21'];
 assert.equal(moleculeLab.questions.length,25,'Molecule lab has 25 build challenges');
 assert.ok(moleculeLab.questions.every(question=>question.type==='atom-build'&&question.formula&&Object.keys(question.atoms||{}).length),'Every molecule challenge defines its required atoms');
 assert.deepEqual(JSON.parse(JSON.stringify(moleculeLab.questions[0].atoms)),{H:2,O:1},'Water requires two hydrogen atoms and one oxygen atom');
+assert.equal(new Set(moleculeLab.questions.map(question=>question.moleculeShape)).size,5,'Molecule lab varies structural layouts');
+assert.equal(new Set(moleculeLab.questions.map(question=>question.themeHue)).size,25,'Every molecule uses a distinct visual theme');
 const lessonCoreSource=read('components/k12-lesson-core.js');
 const interactiveLabs=context.K12InteractiveLabs;
 assert.equal(interactiveLabs.labs.length,25,'Grade 7 has 25 standalone interactive labs');
 assert.equal(new Set(interactiveLabs.labs).size,25,'Every interactive lab has a distinct activity id');
 assert.ok(lessonCoreSource.includes('q.type === "interactive-lab"'),'Lesson runner opens standalone interactive labs');
+const grade7Labs=Object.entries(context.K12_CLASSIC_25_DATA).filter(([key,record])=>key.startsWith('g7:')&&record.questions?.[0]?.type==='interactive-lab');
+assert.equal(grade7Labs.length,25,'Grade 7 exposes 25 interactive lab lessons');
+for(const [key,record] of grade7Labs){
+  assert.equal(record.questions.length,25,`${key} has 25 investigations`);
+  assert.equal(new Set(record.questions.map(question=>question.q)).size,25,`${key} has 25 unique prompts`);
+  assert.ok(record.questions.every(question=>question.challenge?.choices?.length===3),`${key} has a reasoning challenge in every investigation`);
+}
 assert.ok(lessonCoreSource.includes('renderAtomBuild(q)')&&lessonCoreSource.includes('q.type === "atom-build"'),'Lesson runner supports interactive atom-building questions');
 assert.ok(lessonCoreSource.includes('renderJeopardy(q)')&&lessonCoreSource.includes('score>=target'),'Lesson runner supports Jeopardy challenges');
 assert.ok(lessonCoreSource.includes('renderMathGrid(q)')&&lessonCoreSource.includes('renderMathRelay(q)'),'Lesson runner supports Math Arcade games');
