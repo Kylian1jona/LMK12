@@ -139,6 +139,7 @@
     <span class="profile-chooser-kicker">What's new</span>
     <h2 id="profileUpdateTitle">Update log</h2>
     <div class="profile-update-entries">
+      <article><time datetime="2026-10-29">October 29, 2026</time><h3>Easier account access</h3><p>Choose a learning plan and start without entering a test card. Plan prices are previews; no payment is processed.</p></article>
       <article><time datetime="2026-10-29">October 29, 2026</time><h3>Reading pyramids and more ways to answer</h3><p>Kindergarten and Grade 1 English now have picture-guided reading pyramids. Grade 1 builds longer sentences. Grade 5 English questions begin with the question itself, and the new Grade 5 lessons add fill-in-the-blank practice alongside matching, multiple choice, dropdowns, and select-two questions.</p></article>
       <article><time datetime="2026-10-29">October 29, 2026</time><h3>30 more Grade 5 lessons</h3><p>Ten new lessons each in English, Math, and Science add 750 two-skill questions. Every lesson mixes multiple choice, dropdown, select-two, and drag-and-drop matching practice.</p></article>
       <article><time datetime="2026-10-24">October 24, 2026</time><h3>40 more Grade 11 and 12 lessons</h3><p>20 standard lessons and 20 interactive lessons add 1,000 questions across Grades 11 and 12. Interactive lessons now sit among other lessons under skill-based names across the site.</p></article>
@@ -182,14 +183,14 @@
       <div class="payhead">
         <img class="lm-dialog-logo" src="images/learnmaster-logo-header-v2.png" alt="LearnMaster K12">
         <h1 class="visually-hidden">LearnMaster K12 subscription</h1>
-        <div class="small-note">Choose a family plan, complete the test checkout, and begin learning right away.</div>
-        <div class="paypill mt-2">Test checkout · no real charge</div>
+        <div class="small-note">Choose a family plan and begin learning right away.</div>
+        <div class="paypill mt-2">No payment is processed</div>
         <div class="paytopline">
           <span class="paypill">Family learning access</span>
           <span class="paypill" id="trialTimerPill" hidden>Trial left: <span id="trialLeft">00:00</span></span>
         </div>
 
-        <div id="subscriptionPaywallStatus" class="subscription-paywall-status status-pending"><strong>Choose a plan</strong><span>Enter the test card in checkout and start immediately.</span></div>
+        <div id="subscriptionPaywallStatus" class="subscription-paywall-status status-pending"><strong>Choose a plan</strong><span>Select a plan to start learning. No card is needed.</span></div>
       </div>
 
       <div class="plan">
@@ -226,22 +227,22 @@
       </div>
 
       <div class="paynote">
-        <div class="small-note mb-2">This is a no-Stripe test checkout. Real cards are not accepted or stored. When real billing is connected later, declined payments will receive a 14-day grace period.</div>
+        <div class="small-note mb-2">Prices preview future monthly plans. No payment is processed and no card is needed.</div>
       </div>
     </div>
   </div>
 
-  <!-- CHECKOUT MODAL -->
+  <!-- PLAN CONFIRMATION MODAL -->
   <div class="modal fade" id="checkoutModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content" style="border-radius:18px;">
         <div class="modal-header">
-          <h5 class="modal-title fw-bold" id="checkoutTitle">Checkout</h5>
+          <h5 class="modal-title fw-bold" id="checkoutTitle">Start a plan</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
         <div class="modal-body">
-          <div class="small-note mb-2" id="checkoutDesc">Enter the test card below to start your plan.</div>
+          <div class="small-note mb-2" id="checkoutDesc">Confirm your plan to start learning. No card is needed.</div>
 
           <div class="cardish" style="padding:14px;">
             <div class="d-flex justify-content-between align-items-center">
@@ -255,39 +256,12 @@
             <div class="small-note mt-2">Pricing previews the future monthly plan. No payment is processed.</div>
           </div>
 
-          <div class="checkout-card-form mt-3" aria-labelledby="checkoutCardHeading">
-            <div class="checkout-card-heading">
-              <strong id="checkoutCardHeading">Card information</strong>
-              <span>Test checkout</span>
-            </div>
-            <label class="checkout-card-number">
-              <span>Card number</span>
-              <input id="checkoutCardNumber" type="text" inputmode="numeric" autocomplete="off" maxlength="23" placeholder="4242 4242 4242 4242">
-            </label>
-            <div class="checkout-card-row">
-              <label>
-                <span>Expiration</span>
-                <input id="checkoutExpiry" type="text" inputmode="numeric" autocomplete="off" maxlength="5" placeholder="12/30">
-              </label>
-              <label>
-                <span>CVC</span>
-                <input id="checkoutCvc" type="text" inputmode="numeric" autocomplete="off" maxlength="3" placeholder="123">
-              </label>
-              <label>
-                <span>ZIP</span>
-                <input id="checkoutZip" type="text" inputmode="numeric" autocomplete="off" maxlength="10" placeholder="12345">
-              </label>
-            </div>
-            <p class="checkout-test-notice">Use test card <strong>4242 4242 4242 4242</strong>, a future expiration date, any 3-digit CVC, and a ZIP code. Real card details are rejected. Nothing from these fields is saved or sent.</p>
-          </div>
-
           <div class="checkout-request-explainer mt-3">
             <strong>What happens next</strong>
-            <p>Your selected plan starts immediately after the test form is complete. Stripe is not connected.</p>
+            <p>Your selected plan starts when you press Start plan. No payment is processed.</p>
             <ol>
               <li>Choose the plan that fits your family.</li>
-              <li>Enter the test card and begin without administrator approval.</li>
-              <li>Future declined payments will keep access open for 14 days.</li>
+              <li>Press Start plan to open your lessons.</li>
             </ol>
           </div>
 

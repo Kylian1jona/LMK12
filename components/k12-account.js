@@ -570,7 +570,7 @@ function subscriptionGraceDaysRemaining(){
   return Math.max(0,14-daysLate);
 }
 function subscriptionActionMessage(){
-  if(subscriptionAuthority.mode==="setup") return "Choose a plan and use the test checkout to start learning.";
+  if(subscriptionAuthority.mode==="setup") return "Choose a plan to start learning. No card is needed.";
   if(subscriptionAuthority.status==="late"&&subscriptionAccessAllowed()){
     const days=subscriptionGraceDaysRemaining();
     return days
@@ -580,7 +580,7 @@ function subscriptionActionMessage(){
   if(subscriptionAuthority.status==="late") return "The 14-day payment grace period ended. Update the payment status to continue learning.";
   if(subscriptionAuthority.status==="suspended") return "Your subscription is suspended. Choose a plan or contact the administrator.";
   if(subscriptionAuthority.selectedPlan) return "Your plan is being prepared. No real card is charged in this version.";
-  return "Choose a plan and complete the test checkout to start learning access.";
+  return "Choose a plan to start learning. No card is needed.";
 }
 function readDemoSubscription(){
   try{
@@ -758,7 +758,7 @@ function trialActive(){ return false; }
 function startTrial(){
   safeClick();
   showPaywall(true);
-  toast("Choose a plan, then complete the test checkout to start access.");
+  toast("Choose a plan to start learning. No card is needed.");
 }
 
 function ensurePin(){
@@ -799,7 +799,7 @@ Type 1-5`
 }
 function managePlanFlow(){
   showPaywall(true);
-  toast("Choose a plan below, then complete the test checkout.");
+  toast("Choose a plan below to start learning.");
 }
 
 /* ===========================
@@ -812,11 +812,10 @@ const PLAN_CATALOG = {
   hist:    { name: "History Plan", price: 5, subjects:["hist"] },
   all:     { name: "All Subjects", price: 20, subjects:["all"] },
   elf:      { name: "English Plan", price: 5, subjects:["eng"] },
-  santa:    { name: "Math + English Plan", price: 10, subjects:["eng","math"] },
+  santa:    { name: "Math + English Plan", price: 12, subjects:["eng","math"] },
   reindeer: { name: "All Subjects", price: 20, subjects:["all"] },
 };
 let checkout = { planId:"", base:0 };
-const TEST_CHECKOUT_CARD = "4242424242424242";
 
 function money(n){ return "$" + (Math.max(0, Number(n) || 0)).toFixed(2); }
 
@@ -832,11 +831,9 @@ function openCheckout(planId){
   const requestButton=$("checkoutConfirmButton");
   if(requestButton){ requestButton.disabled=false; requestButton.textContent="Start plan"; }
 
-  clearTestCheckoutCard();
-
   $("checkoutPlanName").textContent = plan.name;
   $("checkoutTitle").textContent = `Start ${plan.name}`;
-  if($("checkoutDesc")) $("checkoutDesc").textContent = "Enter the test card below to start this plan immediately.";
+  if($("checkoutDesc")) $("checkoutDesc").textContent = "Confirm this plan to start learning. No card is needed.";
 
   updateCheckoutUI();
 
@@ -847,26 +844,6 @@ function openCheckout(planId){
 function updateCheckoutUI(){
   if($("checkoutPrice")) $("checkoutPrice").textContent = money(checkout.base);
 }
-function clearTestCheckoutCard(){
-  ["checkoutCardNumber","checkoutExpiry","checkoutCvc","checkoutZip"].forEach(id=>{
-    const input=$(id);
-    if(input) input.value="";
-  });
-}
-function validateTestCheckoutCard(){
-  const card=String($("checkoutCardNumber")?.value||"").replace(/\D/g,"");
-  const expiry=String($("checkoutExpiry")?.value||"").trim();
-  const cvc=String($("checkoutCvc")?.value||"").trim();
-  const zip=String($("checkoutZip")?.value||"").trim();
-  if(card!==TEST_CHECKOUT_CARD) return "Use the test card 4242 4242 4242 4242. Real cards are not accepted.";
-  const match=expiry.match(/^(0[1-9]|1[0-2])\/(\d{2})$/);
-  if(!match) return "Enter a future expiration date as MM/YY.";
-  const expiryEnd=new Date(Date.UTC(2000+Number(match[2]),Number(match[1]),0,23,59,59));
-  if(expiryEnd<=new Date()) return "Use a future expiration date.";
-  if(!/^\d{3}$/.test(cvc)) return "Enter any 3-digit test CVC.";
-  if(!/^\d{5}(?:-\d{4})?$/.test(zip)) return "Enter a valid 5-digit ZIP code.";
-  return "";
-}
 async function confirmPayment(){
   safeClick();
   const errorBox=$("payErr");
@@ -874,13 +851,6 @@ async function confirmPayment(){
 
   const requestedPlan=PLAN_CATALOG[checkout.planId];
   if(!requestedPlan){ if(errorBox) errorBox.textContent="Plan missing."; return; }
-  const cardError=validateTestCheckoutCard();
-  if(cardError){ if(errorBox) errorBox.textContent=cardError; return; }
-
-  // The test fields are intentionally cleared before any network request. Card
-  // values are never passed to Supabase, stored locally, or written to logs.
-  clearTestCheckoutCard();
-
   const submit=$("checkoutConfirmButton");
   if(submit){ submit.disabled=true; submit.textContent="Starting access..."; }
   const request=await requestSubscriptionPlan(checkout.planId);
@@ -894,7 +864,7 @@ async function confirmPayment(){
   updateUserUI();
   hidePaywall(true);
   show("home");
-  toast("Plan access started. This was a test checkout; no card was charged.");
+  toast("Learning access started. No payment was processed.");
   speakGlobal("Your learning plan is ready. Let us start learning!");
 }
 
@@ -1253,11 +1223,11 @@ function renderSubscriptionPaywallStatus(){
       : `${planText} is active. No Stripe charge is made in this version.`;
     status.innerHTML=`<strong>${htmlSafe(statusText)}</strong><span>${htmlSafe(detail)}</span>`;
   }else if(subscriptionAuthority.mode==="setup"){
-    status.innerHTML='<strong>Choose a plan</strong><span>Use the test checkout to start immediately. No administrator approval is needed.</span>';
+    status.innerHTML='<strong>Choose a plan</strong><span>Select a plan to start immediately. No card is needed.</span>';
   }else if(subscriptionAuthority.selectedPlan){
     status.innerHTML=`<strong>${htmlSafe(statusText)}</strong><span>${htmlSafe(subscriptionActionMessage())}</span>`;
   }else{
-    status.innerHTML='<strong>Choose a plan</strong><span>Enter the test card in checkout and start immediately. Stripe is not connected yet.</span>';
+    status.innerHTML='<strong>Choose a plan</strong><span>Select a plan to start immediately. No card is needed.</span>';
   }
 }
 function showPaywall(required=planChoiceRequired()){

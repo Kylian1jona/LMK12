@@ -91,12 +91,4 @@ appendCards('prekMath','prek:math:sort-colors',[
 ]);
 fs.writeFileSync(sectionsPath,sections);
 
-const authPath=path.join(stage,'components/auth-shell.js');
-let auth=fs.readFileSync(authPath,'utf8');
-const logHead='<h2 id="profileUpdatesTitle">Update log</h2>';
-if(!auth.includes(logHead)) throw Error('Could not find published update log');
-const note='<article><time datetime="2026-10-21">October 21, 2026</time><h3>More Pre-K picture sorting</h3><p>10 more drag-and-drop lessons add 250 questions in English and Math. Sort first sounds, word beats, feelings, colors, counting, number forms, and more with nine picture cards per question.</p></article>';
-if(!auth.includes('More Pre-K picture sorting'))auth=auth.replace(logHead,logHead+note);
-fs.writeFileSync(authPath,auth);
-
 console.log(JSON.stringify({stage,filesChecked:paths.length,downloaded,matched,missing,htmlBytes:html.length},null,2));
