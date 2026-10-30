@@ -22,6 +22,7 @@
       <button type="button" class="btn btn-main" onclick="show('g5-math')">Math</button>
       <button type="button" class="btn btn-main" onclick="show('g5-sci')">Science</button>
       <button type="button" class="btn btn-main" onclick="show('g5-hist')">History</button>
+      <button type="button" class="btn btn-main" onclick="openGradeTyping()">Typing</button>
       <button type="button" class="btn btn-main" onclick="show('grades')">Back</button>
     </div>
   </div>
@@ -68,6 +69,11 @@
         <button type="button" class="btn btn-main" onclick="startLesson('g5','eng','L13')">Spelling with Suffixes</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g5','eng','L14')">Spelling Practice</button>
       </div>
+
+      <div class="lesson-column"><h3>Reading, Language & Writing</h3><p>Analyze evidence and communicate clear ideas.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g5','eng','L15')">Theme and Evidence</button><button type="button" class="btn btn-main" onclick="startLesson('g5','eng','L16')">Comparing Texts</button><button type="button" class="btn btn-main" onclick="startLesson('g5','eng','L17')">Greek and Latin Roots</button><button type="button" class="btn btn-main" onclick="startLesson('g5','eng','L18')">Complex Sentences</button><button type="button" class="btn btn-main" onclick="startLesson('g5','eng','L19')">Argument Writing</button>
+      </div>
+      <div class="lesson-column"><h3>Reading and Research</h3><p>Study viewpoint, structure, revision, and reliable sources.</p><button type="button" class="btn btn-main" onclick="startLesson('g5','eng','L20')">Point of View</button><button type="button" class="btn btn-main" onclick="startLesson('g5','eng','L21')">Summarizing Literature</button><button type="button" class="btn btn-main" onclick="startLesson('g5','eng','L22')">Informational Text Structure</button><button type="button" class="btn btn-main" onclick="startLesson('g5','eng','L23')">Editing and Revising</button><button type="button" class="btn btn-main" onclick="startLesson('g5','eng','L24')">Research and Source Skills</button></div>
 
     </div>
 
@@ -119,6 +125,12 @@
         <button type="button" class="btn btn-main" onclick="startLesson('g5','math','L11')">Solving Multi-Step Word Problems</button>
       </div>
 
+      <div class="lesson-column"><h3>Applied Grade 5 Math</h3><p>Use operations, measurement, and graphs to solve problems.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g5','math','L12')">Decimal Operations</button><button type="button" class="btn btn-main" onclick="startLesson('g5','math','L13')">Adding and Subtracting Fractions</button><button type="button" class="btn btn-main" onclick="startLesson('g5','math','L14')">Multiplying Fractions</button><button type="button" class="btn btn-main" onclick="startLesson('g5','math','L15')">Volume and Measurement</button><button type="button" class="btn btn-main" onclick="startLesson('g5','math','L16')">Coordinate Graphing</button>
+      </div>
+      <div class="lesson-column"><h3>Patterns, Shapes and Data</h3><p>Reason with expressions, measurement, geometry, and data.</p><button type="button" class="btn btn-main" onclick="startLesson('g5','math','L17')">Powers of Ten</button><button type="button" class="btn btn-main" onclick="startLesson('g5','math','L18')">Numerical Expressions</button><button type="button" class="btn btn-main" onclick="startLesson('g5','math','L19')">Classifying Shapes</button><button type="button" class="btn btn-main" onclick="startLesson('g5','math','L20')">Measurement Conversions</button><button type="button" class="btn btn-main" onclick="startLesson('g5','math','L21')">Data and Line Plots</button></div>
+      <div class="lesson-column"><h3>Order Decimals</h3><p>Drag cards into order from least to greatest, or use the arrow buttons.</p><button type="button" class="btn btn-main" onclick="startUnifiedEarlyLesson('g5:math:format-ranking','g5-math')">Decimals in Order</button></div>
+
     </div>
 
     <div class="lesson-back-row">
@@ -168,6 +180,11 @@
         <button type="button" class="btn btn-main" onclick="startLesson('g5','sci','L10')">Force and Motion</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g5','sci','L11')">Forms of Energy</button>
       </div>
+
+      <div class="lesson-column"><h3>Systems and Investigation</h3><p>Explain connected systems and improve designs with evidence.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g5','sci','L12')">Ecosystem Interactions</button><button type="button" class="btn btn-main" onclick="startLesson('g5','sci','L13')">Matter and Chemical Changes</button><button type="button" class="btn btn-main" onclick="startLesson('g5','sci','L14')">Earth Systems</button><button type="button" class="btn btn-main" onclick="startLesson('g5','sci','L15')">Gravity and Orbits</button><button type="button" class="btn btn-main" onclick="startLesson('g5','sci','L16')">Engineering and Data</button>
+      </div>
+      <div class="lesson-column"><h3>Living and Physical Systems</h3><p>Investigate matter, energy, space, plants, and resources.</p><button type="button" class="btn btn-main" onclick="startLesson('g5','sci','L17')">Photosynthesis and Plant Growth</button><button type="button" class="btn btn-main" onclick="startLesson('g5','sci','L18')">Properties of Matter</button><button type="button" class="btn btn-main" onclick="startLesson('g5','sci','L19')">Energy Transfer</button><button type="button" class="btn btn-main" onclick="startLesson('g5','sci','L20')">Patterns in Space</button><button type="button" class="btn btn-main" onclick="startLesson('g5','sci','L21')">Human Impact and Resources</button></div>
 
     </div>
 

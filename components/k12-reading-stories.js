@@ -72,6 +72,21 @@
     const extension=earlyStoryExtensions[story.title];
     if(extension) story.body.push(extension);
   });
+  const earlyChecks={
+    "Sam and the Red Cap":["What happened to Sam's cap?",["It fell in mud.","It became a kite.","It stayed on the bed."],0,"The wind blew the cap into a mud pit."],
+    "Pam's Jam":["What did Pam and Dad make?",["A map","Jam","A hat"],1,"They cooked figs in a pot to make jam."],
+    "The Pup in the Mud":["How did Kim help the pup?",["She gave it a bath.","She hid its ball.","She opened a gate."],0,"Kim used a tub, rag, and cup to wash the pup."],
+    "Ben and the Hen":["How did Ben bring the hen back?",["He yelled.","He waited with corn.","He chased it faster."],1,"Ben sat calmly with corn until the hen came to him."],
+    "Nell's Wet Tent":["What problem did Nell solve?",["A bent tent peg","A lost book","A broken bike"],0,"Wind bent a tent peg and rain came inside."],
+    "The Map in the Sand":["What was inside the box?",["Gold coins","Seeds and a note","A toy boat"],1,"The box held seeds and a note asking them to help bees."],
+    "The Best Nest":["Why did Sol leave grass and yarn?",["To help the bird build","To make a kite","To mark a path"],0,"The bird used the safe materials to strengthen its nest."]
+  };
+  Object.entries(earlyOriginalStories).forEach(([level,stories])=>stories.forEach((story,index)=>{
+    story.focus=Number(level)===0?(index<5?"short vowel sounds and the order of events":"who helps and what happens next"):(index<5?"the problem and how it is solved":"the character's safe or kind choice");
+    story.words=[...new Set(story.body.join(' ').toLowerCase().replace(/[^a-z' ]/g,'').split(/\s+/).filter(word=>word.length>=4))].slice(0,4);
+    const saved=earlyChecks[story.title];
+    if(saved)story.check={question:saved[0],choices:saved[1],answer:saved[2],explanation:saved[3]};
+  }));
   const pieces=[
     {genre:"Animal tale",base:"The Fox and the Firefly",goal:"guide a frightened fox cub home before nightfall",obstacle:"the familiar trail had disappeared beneath the rain",choice:"follow the patient flashes of a tiny firefly",ending:"happy"},
     {genre:"Mystery",base:"The Door Without a Key",goal:"discover who kept leaving a blue door open at dawn",obstacle:"every clue pointed toward a different neighbor",choice:"compare footprints, weather records, and witness accounts",ending:"open"},

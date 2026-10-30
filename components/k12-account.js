@@ -102,11 +102,44 @@ function showLoginForm(){
     signupPanel.setAttribute("aria-hidden", "true");
   }
   document.querySelector(".auth-card")?.setAttribute("data-auth-mode", "login");
+  setSignupConfirmationAction(false);
   if($("loginMsg")){
     $("loginMsg").textContent = "";
     $("loginMsg").className = "loginmsg";
   }
   setTimeout(()=>{ try{$("loginUser")?.focus();}catch(e){} }, 50);
+}
+
+function setSignupConfirmationAction(visible){
+  const button=$("resendSignupConfirmationButton");
+  if(button) button.classList.toggle("d-none",!visible);
+}
+
+async function resendSignupConfirmation(){
+  const client=window.learnMasterSupabase;
+  const input=String($("loginUser")?.value||"").trim().toLowerCase();
+  if(!client){ loginMsg("Sign-in service is unavailable. Try again shortly.",true); return; }
+  let email=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input)?input:"";
+  if(!email&&input){
+    const {data,error}=await client.rpc("learnmaster_login_email",{login_username:input});
+    if(!error&&data) email=String(data).toLowerCase();
+  }
+  if(!email){ loginMsg("Enter the email address you used to sign up, then resend confirmation.",true); return; }
+  const button=$("resendSignupConfirmationButton");
+  if(button) button.disabled=true;
+  loginMsg("Sending a new confirmation email…");
+  let error;
+  try{
+    ({error}=await client.auth.resend({type:"signup",email,options:{emailRedirectTo:window.location.origin+window.location.pathname}}));
+  }catch(cause){error=cause;}
+  if(button) button.disabled=false;
+  if(error){
+    loginMsg(/rate limit|too many/i.test(error.message||"")
+      ? "Too many emails were requested. Wait a few minutes, then try again."
+      : `Could not resend confirmation: ${error.message||"Please try again."}`,true);
+    return;
+  }
+  loginMsg(`Confirmation email requested for ${email}. Check your inbox and spam folder, open its link, then log in.`);
 }
 
 function showSignup(){
@@ -292,7 +325,8 @@ async function createSignupUser(){
   if(!data.session){
     showLoginForm();
     if($("loginUser")) $("loginUser").value=email;
-    loginMsg(accountRole==="tutor"?"Tutor account created. Confirm the email we sent, then sign in to open Tutor Studio. Your tutor profile and workspace will be backed up to this account.":"Account created. Confirm the email we sent, then log in with this email.");
+    setSignupConfirmationAction(true);
+    loginMsg("Account created. Open the confirmation link in your email before logging in. Check spam, or use Resend confirmation email below.");
     return;
   }
   await syncSupabaseProfile(data.user,username,name,firstName,lastName);
@@ -334,8 +368,10 @@ async function doLogin(){
     password: p
   });
   if(authError){
-    const message = /confirm/i.test(authError.message)
-      ? "Confirm your email first, then try logging in again."
+    const unconfirmed=authError.code==="email_not_confirmed"||/confirm/i.test(authError.message||"");
+    setSignupConfirmationAction(unconfirmed);
+    const message = unconfirmed
+      ? "Your account is waiting for email confirmation. Check your inbox and spam folder, or resend the confirmation email below."
       : "Incorrect username or password.";
     loginMsg(message, true);
     return;
@@ -433,6 +469,7 @@ const ACTIVE_KID_KEY = "learnmaster_active_kid_v1";
 const REQUIRED_PLAN_KEY = "learnmaster_required_plan_v1";
 const DEMO_SUBSCRIPTION_KEY = "learnmaster_demo_subscription_v1";
 const THEME_KEY = "learnmaster_theme_v1";
+const TEXT_TONE_KEY = "learnmaster_text_tone_v1";
 const MAX_KIDS_PER_ACCOUNT = 3;
 
 const THEMES = {
@@ -460,8 +497,35 @@ function getTheme(){
   const saved = learnMasterStore.getItem(THEME_KEY) || "warm";
   return THEMES[saved] ? saved : "warm";
 }
+function getTextTone(){
+  const saved=learnMasterStore.getItem(TEXT_TONE_KEY)||"auto";
+  return ["auto","dark","light"].includes(saved)?saved:"auto";
+}
 function applyTheme(){
-  if(document.body) document.body.dataset.theme = getTheme();
+  if(!document.body) return;
+  document.body.dataset.theme = getTheme();
+  document.body.dataset.textTone = getTextTone();
+  const logoByTheme={warm:'orange',ocean:'blue',forest:'green',berry:'pink',sunset:'orange',galaxy:'purple',lavender:'violet',mint:'teal',candy:'pink',arctic:'blue',sunshine:'orange',coral:'orange',emerald:'green',grape:'purple'};
+  const logoColor=logoByTheme[getTheme()];
+  const logoSource=(logoColor?`images/learnmaster-logo-theme-${logoColor}.png`:'images/learnmaster-logo-white.png')+'?v=20261010.2';
+  document.querySelectorAll('.lm-logo-button img,.lm-menu-head img,.site-footer-brand img').forEach(image=>{
+    image.src=logoSource;
+    image.onerror=()=>{image.onerror=null;image.src='images/learnmaster-logo-header-v2.png?v=20261010.2';};
+  });
+  document.querySelectorAll('.lm-auth-logo,.lm-dialog-logo').forEach(image=>{
+    image.src='images/learnmaster-logo-header-v2.png?v=20261010.2';
+    image.onerror=()=>{image.onerror=null;image.src='images/learnmaster-logo-v2.png?v=20261010.2';};
+  });
+  const browserBar = document.querySelector('meta[name="theme-color"]');
+  const activeAccent = getComputedStyle(document.body).getPropertyValue("--orange").trim();
+  if(browserBar && activeAccent) browserBar.setAttribute("content", activeAccent);
+}
+function setTextTone(tone){
+  if(!["auto","dark","light"].includes(tone)) return;
+  learnMasterStore.setItem(TEXT_TONE_KEY,tone);
+  applyTheme();
+  renderSettings();
+  toast("Lesson text color saved.");
 }
 function setTheme(themeId){
   if(!THEMES[themeId]) return;
@@ -470,6 +534,8 @@ function setTheme(themeId){
   renderSettings();
   toast("Theme updated.");
 }
+applyTheme();
+document.addEventListener('DOMContentLoaded',applyTheme,{once:true});
 
 /* The profile record is the authority for subscription access. Plan selection
    starts non-Stripe access automatically; overdue accounts receive 14 days of
@@ -1250,6 +1316,7 @@ function gateAllowedSection(sectionId){
   if(["home","grades","reading","tutorFinder","worksheets"].includes(sectionId)) return anySubjectAllowed();
   if(sectionId === "playground") return anySubjectAllowed();
   if(["prek","kinder","grade1"].includes(sectionId)) return anySubjectAllowed();
+  if(sectionId === "readingPyramid") return subjectAllowed("eng");
   const earlySubjectMatch = sectionId.match(/^(?:prek|kinder|g1)-(eng|math)$/);
   if(earlySubjectMatch) return subjectAllowed(earlySubjectMatch[1]);
   if(/^grade\d+$/.test(sectionId)) return anySubjectAllowed();

@@ -1594,3 +1594,325 @@
   }
   });
 })();
+
+/* Consolidated Grade 4 English lesson bank */
+/* Source bank: k12-g4-progressive-english.js */
+/* Five Grade 4 English lessons with five increasingly demanding question stages. */
+(function(){
+  const data=window.K12_CLASSIC_25_DATA=window.K12_CLASSIC_25_DATA||Object.create(null);
+  function mc(index,q,answer,wrongs,explain){
+    const values=[answer,...wrongs].map(String).filter((value,i,all)=>all.indexOf(value)===i);
+    if(values.length!==4) throw new Error(`Four distinct choices are required: ${q}`);
+    const shift=index%4,choices=values.slice(shift).concat(values.slice(0,shift));
+    return {type:"mc",q,answer:String(answer),choices,explain,audio:q};
+  }
+  function add(lesson,name,build){
+    const questions=Array.from({length:25},(_,index)=>build(index,Math.floor(index/5),index%5));
+    data[`g4:eng:${lesson}`]={name,contentVersion:"g4-english-progressive-20261004.1",questions};
+    CURR.g4.eng[lesson]={name,gen:classicQuestionPending};
+  }
+
+  const effects=[
+    ["rain fell all night","the soccer field became muddy"],
+    ["Nora practiced her spelling words","she scored well on the quiz"],
+    ["the temperature dropped below freezing","ice formed on the puddle"],
+    ["a branch blocked the trail","the hikers took a different path"],
+    ["Leo forgot to set his alarm","he woke up late"]
+  ];
+  add("L17","Cause and Effect",(i,stage,j)=>{
+    const [cause,effect]=effects[j];
+    if(stage===0) return mc(i,`Because ${cause}, ${effect}. What is the effect?`,effect,[cause,"the event happened yesterday","someone made a careful plan"],`The effect is what happened as a result: ${effect}.`);
+    if(stage===1) return mc(i,`${effect.charAt(0).toUpperCase()+effect.slice(1)} because ${cause}. What is the cause?`,cause,[effect,"the result was unexpected","everyone watched quietly"],`The cause tells why the event happened: ${cause}.`);
+    const signals=[
+      ["___ the sidewalk was icy, Mina walked slowly.","Because","Next","However","Meanwhile"],
+      ["The wind grew stronger; ___, the kite rose higher.","as a result","for example","earlier","on the other hand"],
+      ["The class finished early, ___ they had time to read.","so","but","before","although"],
+      ["___ the power went out, the room became dark.","Since","Finally","Instead","Similarly"],
+      ["The road was flooded. ___, the bus used another route.","Therefore","Meanwhile","For instance","First"]
+    ];
+    if(stage===2){
+      const item=signals[j];
+      return mc(i,`Which signal word best completes the cause-and-effect sentence? ${item[0]}`,item[1],item.slice(2),`${item[1]} clearly connects the cause with its result.`);
+    }
+    const passages=[
+      ["The school added labeled recycling bins beside every trash can. Within a month, much less paper and plastic went into the trash.","Adding labeled bins increased recycling.","Students stopped using paper.","The school removed every trash can.","Plastic became heavier."],
+      ["A beaver built a dam across the stream. Water slowed behind it and formed a pond where ducks began nesting.","The beaver's dam created a pond habitat.","The ducks built the dam.","The stream disappeared because of heat.","The beaver left when ducks arrived."],
+      ["Jada changed the loose batteries in her flashlight. When she pressed the switch again, the light shone brightly.","Replacing the batteries made the flashlight work.","The bright light loosened the batteries.","The switch broke the flashlight.","Jada used sunlight instead."],
+      ["The library extended its weekend hours. More families began visiting on Saturdays and borrowing books.","Longer hours led to more weekend library visits.","Borrowed books caused the library to close.","Families stopped reading on weekends.","Saturday became shorter."],
+      ["Farmers planted trees along the edge of the field. The roots held the soil in place during heavy rain.","Tree roots reduced soil erosion.","Heavy rain planted the trees.","The soil caused the roots to vanish.","The field received no more rain."]
+    ];
+    if(stage===3){
+      const item=passages[j];
+      return mc(i,`${item[0]} Which statement best explains the cause-and-effect relationship?`,item[1],item.slice(2),item[1]+" The second event happened because of the first.");
+    }
+    const inferences=[
+      ["A gardener covered young plants before a cold night. The next morning, uncovered weeds were frosted, but the young plants were unharmed.","The covers protected the plants from frost.","The weeds warmed the covered plants.","The cold night made the plants grow taller.","The gardener removed all the weeds."],
+      ["Cars slowed near the school after the town installed flashing signs. Fewer drivers received speeding tickets there.","The flashing signs encouraged drivers to reduce speed.","Speeding tickets caused the signs to flash.","The school moved farther from the road.","Drivers could no longer see the school."],
+      ["Maya wrote each assignment in a planner and checked it every afternoon. She began turning in all her work on time.","Using a planner helped Maya remember assignments.","Finished assignments created the planner.","Maya had fewer assignments than before.","The planner completed Maya's work."],
+      ["After native flowers were planted, more bees appeared in the park. Several fruit trees nearby produced more fruit that summer.","More bees likely pollinated the fruit trees.","Fruit trees caused all flowers to disappear.","The park stopped receiving sunlight.","Bees ate the fruit before it grew."],
+      ["The coach moved practice to the morning during a heat wave. Players needed fewer water breaks and finished every drill.","Cooler morning conditions helped players practice longer.","The drills caused the heat wave.","Water breaks made the morning warmer.","Players stopped drinking water completely."]
+    ];
+    const item=inferences[j];
+    return mc(i,`${item[0]} What cause-and-effect conclusion is best supported?`,item[1],item.slice(2),item[1]+" This conclusion uses evidence from both events in the passage.");
+  });
+
+  add("L18","Sequence of Events",(i,stage,j)=>{
+    const simple=[
+      ["1. Put on socks. 2. Tie the laces. 3. Put on shoes.","1, 3, 2","3, 1, 2","2, 3, 1","3, 2, 1","Socks come first, then shoes, and finally the laces are tied."],
+      ["1. Eat the toast. 2. Put bread in the toaster. 3. Spread jam on the toast.","2, 3, 1","3, 2, 1","1, 2, 3","2, 1, 3","Toast the bread, add jam, and then eat it."],
+      ["1. The flower blooms. 2. A seed sprouts. 3. The plant grows leaves.","2, 3, 1","3, 1, 2","1, 2, 3","2, 1, 3","A seed sprouts before leaves grow and the flower blooms."],
+      ["1. Dry the plate. 2. Wash the plate. 3. Put the plate away.","2, 1, 3","1, 2, 3","3, 2, 1","2, 3, 1","Wash first, dry second, and put the plate away last."],
+      ["1. Submit the message. 2. Type the message. 3. Open the email app.","3, 2, 1","2, 3, 1","1, 2, 3","3, 1, 2","Open the app, type the message, and then submit it."]
+    ];
+    if(stage===0){const x=simple[j];return mc(i,`Which order makes sense? ${x[0]}`,x[1],x.slice(2,5),x[5]);}
+    const transitions=[
+      ["First, rinse the rice. ___, add it to the pot.","Next","However","For example","Instead"],
+      ["The team warmed up. ___, the game began.","Then","Because","Although","Similarly"],
+      ["___, tighten the final screw and test the shelf.","Finally","Meanwhile","For instance","Since"],
+      ["Wash the berries before cutting them. ___ cutting them, place them in a bowl.","After","Unless","Because","Yet"],
+      ["___ the guests arrived, we finished setting the table.","Before","Therefore","Next","In conclusion"]
+    ];
+    if(stage===1){const x=transitions[j];return mc(i,`Which sequence word best completes the sentence? ${x[0]}`,x[1],x.slice(2),`${x[1]} shows the correct time relationship between the steps.`);}
+    const timelines=[
+      ["Three events happen at 8:00, 8:20, and 9:00. Which event happened second?","The bus arrived at 8:20.","Breakfast began at 8:00.","Class started at 9:00.","The clock stopped at noon."],
+      ["A seed was planted Monday, sprouted Friday, and grew leaves Sunday. What happened after it sprouted?","It grew leaves.","It was planted.","It became a seed.","Monday followed Sunday."],
+      ["Luis researched Tuesday, drafted Wednesday, and revised Thursday. What did he do before revising?","He drafted.","He submitted.","He presented.","He celebrated."],
+      ["The storm began at noon, ended at two, and crews cleared branches at three. What happened last?","Crews cleared branches.","The storm began.","The storm ended.","Noon arrived."],
+      ["A chick hatched in April, grew feathers in May, and first flew in June. Which event was earliest?","The chick hatched.","It grew feathers.","It first flew.","June ended."]
+    ];
+    if(stage===2){const x=timelines[j];return mc(i,x[0],x[1],x.slice(2),`The dates or times show that ${x[1].toLowerCase()}`);}
+    const missing=[
+      ["To make lemonade: squeeze lemons, ___, stir, and serve.","add water and sugar","freeze the empty pitcher","serve before mixing","plant the lemon seeds"],
+      ["To borrow a library book: search the catalog, find the shelf, ___, and take the book home.","check out the book","erase the call number","hide the book","return it before borrowing"],
+      ["To test a paper airplane: build the plane, mark a starting line, ___, and measure the distance.","throw the plane from the line","measure before throwing","tear off both wings","move the starting line"],
+      ["To plant a flower: dig a hole, place the plant inside, ___, and water the soil.","cover the roots with soil","pull out the roots","pick the flower","empty the watering can"],
+      ["To solve a word problem: read carefully, identify the needed operation, ___, and check the answer.","calculate the result","skip the numbers","copy an unrelated answer","check before solving"]
+    ];
+    if(stage===3){const x=missing[j];return mc(i,`Which missing step completes the sequence? ${x[0]}`,x[1],x.slice(2),`${x[1]} belongs between the surrounding steps.`);}
+    const complex=[
+      ["A museum team photographs an artifact, records its condition, cleans it carefully, and places it in a display. Which summary preserves the order?","Photograph and record it, clean it, then display it.","Display it, clean it, then record it.","Clean it before photographing or recording it.","Record it only after it is displayed."],
+      ["After gathering sources, Ana took notes. She grouped related facts, wrote a draft, and then checked her citations. What happened just before the draft?","She grouped related facts.","She checked citations.","She gathered no sources.","She published the final paper."],
+      ["The rescue crew reached the trailhead, studied the map, hiked to the injured walker, and called the helicopter. Why was studying the map important in the sequence?","It helped the crew locate the walker before requesting pickup.","It happened after the helicopter arrived.","It replaced the need to hike.","It made the walker return alone."],
+      ["Water evaporates, cools into clouds, falls as rain, and collects in rivers. Which event follows cloud formation?","Water falls as rain.","Water evaporates.","Rivers disappear.","The sun stops warming water."],
+      ["A council heard ideas in March, compared costs in April, voted in May, and began construction in June. Which statement is accurate?","The vote occurred after costs were compared and before construction.","Construction began before ideas were heard.","Costs were compared after construction.","The vote happened first."]
+    ];
+    const x=complex[j];return mc(i,x[0],x[1],x.slice(2),`${x[1]} This choice follows every time clue in the passage.`);
+  });
+
+  const homophones=[
+    ["I can ___ the rainbow after the storm.","see","sea","say","saw","See means to notice with your eyes."],
+    ["We found ___ shells on the beach.","two","to","too","tow","Two names the number of shells."],
+    ["Please put the books over ___.","there","their","they're","where","There refers to a place."],
+    ["The students packed ___ lunches.","their","there","they're","them","Their shows that the lunches belong to the students."],
+    ["___ going to visit the science museum.","They're","Their","There","Them","They're is the contraction for they are."],
+    ["The dog wagged ___ tail.","its","it's","it is","their","Its is the possessive form showing the tail belongs to the dog."],
+    ["___ time to begin the show.","It's","Its","It","Its'","It's is the contraction for it is."],
+    ["I ___ the answer to the riddle.","knew","new","now","know","Knew is the past tense of know."],
+    ["The bakery sells fresh ___.","bread","bred","broad","breed","Bread is the food made from flour."],
+    ["Please ___ your name at the top.","write","right","rite","wrote","Write means to form words on a page."],
+    ["Turn ___ at the next corner.","right","write","rite","righted","Right names the direction opposite left."],
+    ["The horse has a long ___.","mane","main","mean","mine","Mane is the hair along a horse's neck."],
+    ["Our team's ___ goal is to play fairly.","main","mane","mean","mine","Main means most important."],
+    ["A strong wind ___ the leaves away.","blew","blue","blow","below","Blew is the past tense of blow."],
+    ["The sky looked bright ___.","blue","blew","blur","below","Blue is the color of the sky."],
+    ["We waited one ___ for the bus.","hour","our","are","or","Hour is a unit of time."],
+    ["This is ___ classroom.","our","hour","are","or","Our shows that the classroom belongs to us."],
+    ["Dad will ___ the bicycle's loose brake.","fix","ficks","fits","fixture","Fix means to repair something."],
+    ["The rabbit disappeared into its ___.","hole","whole","hall","hold","Hole means an opening in the ground."],
+    ["We shared the ___ pizza.","whole","hole","hold","hall","Whole means complete or all of it."],
+    ["The hikers followed the mountain ___.","trail","trial","trale","train","Trail means a path through an outdoor area."],
+    ["The actor learned her ___ in the play.","role","roll","rule","real","Role means the character or part an actor performs."],
+    ["Please ___ the dough into a circle.","roll","role","rule","rail","Roll means to flatten or move by turning."],
+    ["The ship raised its ___.","sail","sale","sell","seal","Sail is the cloth that catches wind to move a boat."],
+    ["The store held a winter ___.","sale","sail","sell","seal","Sale is an event when goods are offered at lower prices."]
+  ];
+  add("L19","Homophones",(i)=>{const x=homophones[i];return mc(i,x[0],x[1],x.slice(2,5),x[5]);});
+
+  const sentences=[
+    ["Which choice is a complete sentence?","The rabbit hid under the porch.","Under the wooden porch.","The frightened rabbit.","Hiding during the storm.","A complete sentence has a subject, rabbit, and a complete predicate, hid under the porch."],
+    ["Which choice is a complete sentence about a class trip?","Our class visited the planetarium.","After our class trip.","The large planetarium downtown.","Visiting on Tuesday.","Our class is the subject, and visited the planetarium is the complete predicate."],
+    ["Which choice is a sentence fragment?","Because the rain continued.","The rain continued all afternoon.","Dark clouds covered the town.","We played games indoors.","Because the rain continued leaves the reader waiting for the result."],
+    ["Which choice is a sentence fragment about trees?","The tall trees near the river.","The tall trees shaded the path.","Birds nested in the trees.","The river curved through the forest.","The tall trees near the river names something but does not tell what it did."],
+    ["Which group of words expresses a complete thought?","My little brother built a tower.","When my little brother.","A tower of red blocks.","Building it carefully.","The sentence tells who acted and what he did."],
+    ["Which revision turns 'Across the busy street' into a complete sentence?","The dog ran across the busy street.","Across the very busy street.","Running across the busy street.","The busy street across.","The dog ran adds a subject and verb to complete the thought."],
+    ["Which revision completes 'When the bell rang'?","When the bell rang, students entered the classroom.","When the loud bell rang.","The bell when it rang.","Rang when the bell.","The added independent clause explains what happened when the bell rang."],
+    ["Which revision completes 'The basket of ripe peaches'?","The basket of ripe peaches sat on the counter.","The large basket of ripe peaches.","Of ripe peaches in a basket.","Ripe peaches and a basket.","Sat on the counter provides the predicate the fragment needs."],
+    ["Which revision completes 'Hiking through the quiet woods'?","We enjoyed hiking through the quiet woods.","Hiking through the very quiet woods.","Through the quiet woods hiking.","The quiet woods and hiking.","We enjoyed supplies a subject and a complete verb phrase."],
+    ["Which revision completes 'Although the puzzle was difficult'?","Although the puzzle was difficult, I kept working.","Although the difficult puzzle.","The puzzle although difficult.","Difficult although the puzzle.","I kept working completes the thought begun by Although."],
+    ["What is the complete subject in 'The spotted puppy chased a leaf'?","The spotted puppy","chased a leaf","a leaf","chased","The complete subject names who acted: The spotted puppy."],
+    ["What is the complete predicate in 'The spotted puppy chased a leaf'?","chased a leaf","The spotted puppy","a leaf","puppy chased","The complete predicate tells what the puppy did: chased a leaf."],
+    ["What is the simple subject in 'Several bright stars appeared after sunset'?","stars","Several bright stars","appeared","sunset","Stars is the main noun in the complete subject."],
+    ["What is the simple predicate in 'Several bright stars appeared after sunset'?","appeared","stars","after sunset","bright stars","Appeared is the main verb that tells what the stars did."],
+    ["Which sentence has both a complete subject and a complete predicate?","The old wooden bridge crossed the stream.","The old wooden bridge near town.","Crossed the stream quickly.","Near the stream and bridge.","The old wooden bridge is the subject, and crossed the stream is the predicate."],
+    ["Which choice is a run-on sentence?","The sun set we turned on the lanterns.","When the sun set, we turned on the lanterns.","The sun set, so we turned on the lanterns.","After sunset, we turned on the lanterns.","Two complete thoughts are joined without punctuation or a connecting word."],
+    ["Which revision correctly fixes 'I finished my book I returned it to the library'?","I finished my book, and I returned it to the library.","I finished my book and, I returned it to the library.","I finished my book, returned it to the library and.","I finished my book I, returned it to the library.","A comma and the conjunction and correctly join the two complete thoughts."],
+    ["Which revision correctly fixes 'The trail was steep we continued climbing'?","The trail was steep, but we continued climbing.","The trail was steep, because continued climbing.","The trail was steep but, we continued climbing.","The trail steep we continued climbing.","A comma and but join the contrasting complete thoughts."],
+    ["Which choice correctly separates the run-on sentence?","The timer rang. We removed the bread from the oven.","The timer rang we. Removed the bread from the oven.","The timer. Rang we removed the bread from the oven.","The timer rang we removed. The bread from the oven.","The period belongs between the two complete thoughts."],
+    ["Which sentence joins the ideas without creating a run-on?","I wanted to ride my bike, but rain began to fall.","I wanted to ride my bike rain began to fall.","I wanted, to ride my bike but rain began to fall.","I wanted to ride my bike but, rain began to fall.","A comma and but correctly connect the contrasting clauses."],
+    ["Which revision is a complete, clear sentence?","After the storm ended, neighbors cleared branches from the road.","After the storm ended and the road.","Neighbors clearing branches because the storm.","The road after branches and neighbors.","The introductory clause is followed by a complete main clause."],
+    ["Which revision best combines the fragment with the sentence? 'Because the museum was crowded. We waited outside.'","Because the museum was crowded, we waited outside.","Because the museum. Was crowded we waited outside.","The museum crowded because, we waited outside.","We waited because outside the museum crowded.","The dependent clause and main clause combine into one complete sentence."],
+    ["Which choice contains two complete sentences?","The wind stopped. The lake became calm.","The wind stopped. Because the lake.","After the wind. The lake became calm.","The wind. Stopped the calm lake.","Each part has its own subject, verb, and complete thought."],
+    ["Which revision removes the fragment and preserves the meaning? 'The team practiced daily. Hoping to improve.'","Hoping to improve, the team practiced daily.","The team hoping. To improve practiced daily.","Practiced daily the team. Hoping to improve.","The team practiced. Daily hoping to improve.","The phrase Hoping to improve correctly modifies the complete main clause."],
+    ["Which is the strongest complete sentence?","Although the experiment failed at first, the students revised their plan and tried again.","Although the experiment failed at first.","The students revising their plan and trying again.","Failed experiment, students, revised plan.","The sentence contains a dependent clause and a complete main clause with a clear relationship."]
+  ];
+  add("L20","Complete Sentences",(i)=>{const x=sentences[i];return mc(i,x[0],x[1],x.slice(2,5),x[5]);});
+
+  const punctuation=[
+    ["Which sentence uses the correct end mark?","Did you finish the chapter?","Did you finish the chapter.","Did you finish the chapter!","Did you finish the chapter,","A direct question ends with a question mark."],
+    ["Which sentence uses the correct end mark for an urgent warning?","Watch out for the falling branch!","Watch out for the falling branch?","Watch out for the falling branch,","Watch out for the falling branch;","An exclamation mark fits the urgent warning."],
+    ["Which sentence uses the correct end mark for a calm statement?","The meeting begins at four o'clock.","The meeting begins at four o'clock?","The meeting begins at four o'clock,","The meeting begins at four o'clock!","A calm statement ends with a period."],
+    ["Which punctuation best completes 'What an amazing invention___'?","!","?",",",";","The sentence expresses strong feeling, so it ends with an exclamation mark."],
+    ["Which punctuation best completes 'Where did the otter go___'?","?",".","!",",","The sentence asks a question, so it ends with a question mark."],
+    ["Which sentence correctly punctuates a series?","We packed water, fruit, sandwiches, and maps.","We packed water fruit sandwiches and maps.","We packed, water, fruit sandwiches and maps.","We packed water; fruit; sandwiches and maps.","Commas separate each item in the series."],
+    ["Which sentence correctly punctuates a series of actions?","Theo swept the floor, washed the tables, and emptied the bins.","Theo swept, the floor washed, the tables and emptied the bins.","Theo swept the floor washed the tables and emptied the bins.","Theo swept the floor; washed the tables, and emptied the bins.","Commas separate the three action phrases."],
+    ["Which sentence correctly uses a comma after an introductory word?","Yes, I remembered my library card.","Yes I, remembered my library card.","Yes I remembered, my library card.","Yes; I remembered my library card.","A comma follows the introductory word Yes."],
+    ["Which sentence correctly uses a comma after an introductory phrase?","Before sunrise, the hikers left camp.","Before, sunrise the hikers left camp.","Before sunrise the hikers, left camp.","Before sunrise; the hikers left camp.","A comma separates the introductory phrase Before sunrise from the main clause."],
+    ["Which sentence correctly punctuates a city and state?","We traveled to Austin, Texas, in June.","We traveled to Austin Texas in June.","We traveled to Austin; Texas, in June.","We traveled to Austin, Texas in, June.","Commas separate the city and state and the state from the rest of the sentence."],
+    ["Which sentence correctly shows one dog's bowl?","The dog's bowl is empty.","The dogs bowl is empty.","The dogs' bowl is empty.","The dog's' bowl is empty.","An apostrophe before s shows that the bowl belongs to one dog."],
+    ["Which sentence correctly shows a room used by several teachers?","The teachers' room is upstairs.","The teacher's room is upstairs.","The teachers room is upstairs.","The teachers's room is upstairs.","For the plural noun teachers, an apostrophe after s shows possession."],
+    ["Which contraction correctly replaces 'do not'?","don't","dont","do'nt","doesn't","Don't combines do and not, with the apostrophe replacing the missing letter."],
+    ["Which contraction correctly replaces 'we are'?","we're","were","where","we'r","We're combines we and are."],
+    ["Which sentence correctly uses its or it's?","It's cold, so the turtle pulled its head inside.","Its cold, so the turtle pulled it's head inside.","It's cold, so the turtle pulled it's head inside.","Its' cold, so the turtle pulled its head inside.","It's means it is; its shows that the head belongs to the turtle."],
+    ["Which sentence correctly punctuates the speaker's exact words?","Mia said, “The bus is here.”","Mia said “The bus is here”.","Mia said, The bus is here.","Mia said; “The bus is here”.","A comma introduces the quotation, and the period goes inside the closing quotation mark."],
+    ["Which sentence correctly punctuates a question in dialogue?","“Are you ready?” asked Luis.","“Are you ready”? asked Luis.","Are you ready? “asked Luis.”","“Are you ready,” asked Luis?","The question mark belongs inside the quotation marks."],
+    ["Which sentence correctly punctuates interrupted dialogue?","“I brought the map,” said Ava, “so we will not get lost.”","“I brought the map” said Ava “so we will not get lost.”","“I brought the map,” said Ava “so we will not get lost”.","I brought the map, said Ava, “so we will not get lost.”","Commas separate the speaker tag from both parts of the quotation."],
+    ["Which sentence correctly punctuates a quotation before a speaker tag?","“The experiment worked!” shouted Ben.","“The experiment worked”! shouted Ben.","The experiment worked! “shouted Ben.”","“The experiment worked,” shouted Ben!","The exclamation mark stays inside the quotation marks."],
+    ["Which sentence correctly punctuates the title of a short story?","We read “The Last Leaf” in class.","We read The Last Leaf, in class.","We read, “The Last Leaf in class.”","We read The Last Leaf? in class.","Quotation marks identify the title of a short story."],
+    ["Which sentence is punctuated correctly?","After lunch, we bought pencils, paper, and glue.","After lunch we bought, pencils paper and glue.","After lunch; we bought pencils, paper and glue.","After, lunch we bought pencils paper, and glue.","The sentence needs a comma after the introductory phrase and commas in the series."],
+    ["Which sentence correctly punctuates a reminder in dialogue?","“Please close the gate,” Dad reminded us.","“Please close the gate” Dad reminded us.","Please close the gate, “Dad reminded us.”","“Please close the gate”, Dad reminded us.","A comma ends the spoken words inside the quotation marks before the speaker tag."],
+    ["Which revision correctly punctuates 'On Saturday we visited Albany New York'?","On Saturday, we visited Albany, New York.","On Saturday we visited, Albany New York.","On Saturday; we visited Albany New York.","On, Saturday we visited Albany, New York.","Use a comma after the introductory phrase and between the city and state."],
+    ["Which revision correctly punctuates 'The players uniforms were red white and blue'?","The players' uniforms were red, white, and blue.","The player's uniforms were red white, and blue.","The players uniforms' were red, white and blue.","The players' uniforms were, red white and blue.","Players' shows plural possession, and commas separate the colors."],
+    ["Which sentence uses punctuation to make every relationship clear?","Before the show, Maya whispered, “I can't wait!”","Before the show Maya whispered “I cant wait”","Before, the show Maya whispered, “I can't wait”","Before the show; Maya whispered “I cant wait!”","The sentence correctly punctuates the introductory phrase, speaker tag, contraction, and quotation."]
+  ];
+  add("L21","Punctuation",(i)=>{const x=punctuation[i];return mc(i,x[0],x[1],x.slice(2,5),x[5]);});
+})();
+
+/* Forty additional Grade 4 lessons: ten per core subject, 25 progressive questions each. */
+(function(){
+  const data=window.K12_CLASSIC_25_DATA=window.K12_CLASSIC_25_DATA||Object.create(null);
+  const stems=[
+    clue=>`Choose the idea that matches this clue: ${clue}`,
+    clue=>`Which answer best explains this example? ${clue}`,
+    clue=>`Use what you know to classify this correctly: ${clue}`,
+    clue=>`Which conclusion is supported by all the information? ${clue}`,
+    clue=>`Apply the skill carefully. What is the strongest answer? ${clue}`
+  ];
+  const specs={
+    eng:[
+      ['L22','Text Structures',[['details tell how two things are alike and different','compare and contrast'],['events are placed in time order','sequence'],['a difficulty is followed by ways to fix it','problem and solution'],['reasons are linked to what happened','cause and effect'],['facts explain one main topic','description']]],
+      ['L23','Drawing Inferences',[['muddy shoes and a dripping coat suggest','the person was outside in rain'],['an empty bowl and crumbs suggest','someone already ate'],['a character hides a torn page and avoids questions','the character feels worried'],['lights are off and the door is locked at noon','the place is closed'],['a plant bends toward a window','the plant is seeking light']]],
+      ['L24','Summarizing Text',[['a summary should contain','the main idea and key details'],['a summary should leave out','minor repeated examples'],['the best first step is to identify','what the whole text is mostly about'],['a strong fiction summary includes','character, goal, problem, and outcome'],['a strong summary is','brief, accurate, and in your own words']]],
+      ['L25','Comparing Sources',[['two sources agree when they','support the same idea'],['a firsthand diary is','a primary source'],['an encyclopedia written later is','a secondary source'],['to check a claim across sources, look for','corroborating evidence'],['sources may differ because authors have','different purposes or perspectives']]],
+      ['L26','Figurative Language',[['the moon was a silver coin','metaphor'],['the leaves danced in the wind','personification'],['as quiet as a mouse','simile'],['I waited a million years','hyperbole'],['buzz and crackle','onomatopoeia']]],
+      ['L27','Greek and Latin Roots',[['the root bio means','life'],['the root geo means','earth'],['the root tele means','far or distant'],['the root port means','carry'],['the root scrib or script means','write']]],
+      ['L28','Relative Pronouns',[['the pronoun used for a person','who'],['the pronoun used for a thing','which'],['the word that can refer to a person or thing','that'],['the possessive relative pronoun','whose'],['in the sentence The artist who won smiled, who refers to','the artist']]],
+      ['L29','Consistent Verb Tense',[['Yesterday we walked and then we rested uses','consistent past tense'],['Tomorrow we will pack and will leave uses','consistent future tense'],['Every day she reads and writes uses','consistent present tense'],['Kai opened the gate and walks inside should change walks to','walked'],['Mina will study and passed the test should change passed to','will pass']]],
+      ['L30','Opinion Writing',[['a focused opinion essay begins with','a clear claim'],['facts and examples should','support the claim'],['because and therefore are useful for','linking reasons and evidence'],['a counterargument shows','another reasonable point of view'],['the conclusion should','restate the claim and strongest reasons']]],
+      ['L31','Research and Citations',[['a trustworthy source identifies','an author and supporting evidence'],['taking notes in your own words is','paraphrasing'],['quotation marks show','exact words from a source'],['a citation tells readers','where information came from'],['before using an online claim, you should','verify it with reliable sources']]],
+      ['L32','Main Idea and Supporting Details',[['what a passage is mostly about','main idea'],['a fact that explains the main idea','supporting detail'],['a detail unrelated to the central point','irrelevant detail'],['a heading can help predict','the topic'],['repeated ideas across paragraphs often reveal','the central idea']]],
+      ['L33','Author Point of View',[['the narrator uses I and me','first-person point of view'],['the narrator uses he she or they','third-person point of view'],['the author writes to convince readers','persuade'],['the author presents facts and explanations','inform'],['word choice can reveal an author’s','attitude or perspective']]],
+      ['L34','Prefixes and Suffixes',[['the prefix re- means','again'],['the prefix un- means','not or opposite'],['the suffix -ful means','full of'],['the suffix -less means','without'],['the suffix -er in teacher means','a person who does something']]],
+      ['L35','Complex Sentences',[['a word that joins dependent and independent clauses','subordinating conjunction'],['because introduces','a reason'],['although signals','a contrast'],['when can introduce','a time relationship'],['a complex sentence contains','an independent and a dependent clause']]],
+      ['L36','Informative Writing',[['an informative introduction should','name the topic clearly'],['facts belong together in','related sections'],['definitions help readers understand','unfamiliar terms'],['transitions connect','ideas and sections'],['a conclusion should','sum up the explanation']]],
+      ['L37','Theme and Evidence',[['a theme is','a message about life or people'],['a character’s repeated choices can reveal','theme'],['the strongest theme statement is','a complete idea'],['evidence for theme comes from','important events and details'],['a topic such as friendship differs from','a theme statement']]],
+      ['L38','Poetry Structure',[['a group of lines in a poem','stanza'],['repeated ending sounds create','rhyme'],['the beat of a poem is','rhythm'],['a line break can control','pace and emphasis'],['the voice speaking in a poem','speaker']]],
+      ['L39','Dialogue and Description',[['quotation marks show','a character’s exact words'],['dialogue can reveal','character traits'],['sensory details help readers','imagine a scene'],['a dialogue tag identifies','the speaker'],['strong description uses','specific nouns and verbs']]],
+      ['L40','Editing Paragraphs',[['the first word of a sentence needs','a capital letter'],['a run-on sentence needs','correct separation or joining'],['pronouns should agree with','their antecedents'],['editing checks correctness while revising improves','ideas and organization'],['a final proofread should check','spelling grammar and punctuation']]],
+      ['L41','Presentation and Speaking',[['a speaker should organize ideas in','a logical order'],['eye contact helps a speaker','connect with the audience'],['visuals should','support the main points'],['an appropriate speaking pace is','clear and steady'],['questions from listeners can reveal','what needs clarification']]]
+    ],
+    math:[
+      ['L21','Multi-Digit Addition',[['2,468 + 3,127','5,595'],['5,906 + 2,845','8,751'],['17,439 + 8,562','26,001'],['46,785 + 23,916','70,701'],['308,476 + 92,538','401,014']]],
+      ['L22','Multi-Digit Subtraction',[['8,205 - 3,142','5,063'],['9,000 - 4,678','4,322'],['25,430 - 8,965','16,465'],['70,002 - 36,487','33,515'],['500,000 - 248,759','251,241']]],
+      ['L23','Multiplicative Comparisons',[['4 times as many as 6','24'],['35 is how many times as many as 5','7'],['8 groups of 12','96'],['63 is 9 times as many as','7'],['a $15 book costs 3 times as much as a pen; pen cost','$5']]],
+      ['L24','Multi-Step Problems',[['24 students form 4 equal teams; students per team','6'],['3 boxes of 18 pencils plus 7 pencils','61'],['96 pages read equally over 6 days','16 pages per day'],['$50 minus two games costing $18 each','$14'],['5 buses hold 42 people each; total capacity','210']]],
+      ['L25','Equivalent Fractions',[['1/2 with denominator 8','4/8'],['2/3 with denominator 12','8/12'],['3/5 with denominator 20','12/20'],['6/10 in simplest form','3/5'],['12/16 in simplest form','3/4']]],
+      ['L26','Adding Fractions',[['2/8 + 3/8','5/8'],['1/6 + 4/6','5/6'],['3/10 + 5/10','8/10'],['7/12 + 2/12','9/12'],['5/9 + 3/9','8/9']]],
+      ['L27','Decimal Fractions',[['7/10 as a decimal','0.7'],['34/100 as a decimal','0.34'],['0.6 as a fraction','6/10'],['0.09 as a fraction','9/100'],['0.4 compared with 0.35','0.4 is greater']]],
+      ['L28','Measurement Conversions',[['3 feet in inches','36 inches'],['5 yards in feet','15 feet'],['4 kilograms in grams','4,000 grams'],['250 centimeters in meters','2.5 meters'],['2 hours 35 minutes in minutes','155 minutes']]],
+      ['L29','Lines, Angles, and Symmetry',[['an angle smaller than 90 degrees','acute angle'],['an angle exactly 90 degrees','right angle'],['lines that never meet','parallel lines'],['lines that meet at right angles','perpendicular lines'],['a fold that makes matching halves','line of symmetry']]],
+      ['L30','Data and Line Plots',[['the value appearing most often','mode'],['the difference between greatest and least values','range'],['a line plot uses X marks to show','frequency'],['two quarter-unit marks equal','one half'],['the first step before finding range','identify the greatest and least values']]],
+      ['L31','Place Value to One Million',[['the value of 7 in 742,000','700,000'],['ten thousands in 586,214','8'],['standard form of 300,000 + 40,000 + 900','340,900'],['one hundred times 6,000','600,000'],['the digit in the hundreds place of 91,482','4']]],
+      ['L32','Rounding Whole Numbers',[['4,367 rounded to the nearest hundred','4,400'],['52,149 rounded to the nearest thousand','52,000'],['785 rounded to the nearest ten','790'],['149,999 rounded to the nearest hundred thousand','100,000'],['the digit used to round the thousands place','the hundreds digit']]],
+      ['L33','Multiplying by Tens and Hundreds',[['34 × 20','680'],['125 × 30','3,750'],['48 × 200','9,600'],['600 × 70','42,000'],['23 × 400','9,200']]],
+      ['L34','Area and Perimeter',[['area of a 7 by 5 rectangle','35 square units'],['perimeter of a 7 by 5 rectangle','24 units'],['missing side when area is 48 and one side is 6','8 units'],['a square with side 9 has perimeter','36 units'],['area measures','space inside a figure']]],
+      ['L35','Classifying Shapes',[['a quadrilateral with four right angles','rectangle'],['a quadrilateral with one pair of parallel sides','trapezoid'],['a shape with all sides equal and four right angles','square'],['a triangle with three equal sides','equilateral triangle'],['a quadrilateral with both pairs of opposite sides parallel','parallelogram']]],
+      ['L36','Division with Remainders',[['53 divided by 4','13 remainder 1'],['78 divided by 6','13'],['95 divided by 8','11 remainder 7'],['144 divided by 12','12'],['67 objects in groups of 5 make','13 groups remainder 2']]],
+      ['L37','Fraction Comparison',[['3/4 compared with 2/4','3/4 is greater'],['2/3 compared with 2/5','2/3 is greater'],['5/8 compared with 7/8','5/8 is less'],['1/2 compared with 4/8','they are equivalent'],['fractions with equal denominators compare by','their numerators']]],
+      ['L38','Mixed Numbers',[['7/4 as a mixed number','1 3/4'],['2 1/3 as an improper fraction','7/3'],['11/5 as a mixed number','2 1/5'],['3 2/7 as an improper fraction','23/7'],['a mixed number contains','a whole number and a fraction']]],
+      ['L39','Angle Measurement',[['a full turn measures','360 degrees'],['a straight angle measures','180 degrees'],['a right angle measures','90 degrees'],['a 45-degree angle is','acute'],['a tool for measuring angles','protractor']]],
+      ['L40','Patterns and Rules',[['rule add 6 starting at 4 gives the third term','16'],['rule multiply by 3 starting at 2 gives the fourth term','54'],['pattern 5 10 15 20 follows','add 5'],['pattern 81 27 9 follows','divide by 3'],['an input-output rule must','work for every pair']]]
+    ],
+    sci:[
+      ['L29','Plant and Animal Life Cycles',[['a butterfly begins life as','an egg'],['a young frog with a tail is','a tadpole'],['flowering plants make new plants with','seeds'],['metamorphosis means','a major change in body form'],['adult organisms reproduce to','continue the life cycle']]],
+      ['L30','Inherited and Learned Traits',[['eye color is usually','an inherited trait'],['riding a bicycle is','a learned behavior'],['a bird building a species-typical nest is','an instinct'],['a scar from an accident is','an acquired trait'],['offspring resemble parents because of','inherited information']]],
+      ['L31','Food Webs and Ecosystems',[['an organism that makes its own food','producer'],['an animal that eats plants','herbivore'],['fungi that break down dead matter','decomposers'],['arrows in a food web show','direction of energy flow'],['removing one species can','affect many connected organisms']]],
+      ['L32','Ecosystem Change',[['a long period with little rain','drought'],['an introduced organism that spreads rapidly','invasive species'],['loss of a habitat can reduce','a population'],['organisms may survive change by','moving or adapting'],['restoring native plants can','improve habitat']]],
+      ['L33','Weathering and Erosion',[['breaking rock into smaller pieces','weathering'],['moving sediment to a new place','erosion'],['plant roots cracking rock is','biological weathering'],['a river carrying sand demonstrates','erosion by water'],['tree roots help slow erosion by','holding soil in place']]],
+      ['L34','Electricity and Circuits',[['a complete path for electric current','closed circuit'],['a gap in a circuit makes it','open'],['material that lets current pass easily','conductor'],['rubber is commonly used as','an insulator'],['two bulbs in a simple series circuit share','one current path']]],
+      ['L35','Energy Resources',[['sunlight is','renewable energy'],['coal is','nonrenewable energy'],['wind turbines change wind energy into','electrical energy'],['using less electricity is called','conservation'],['a benefit of solar power is','low pollution during operation']]],
+      ['L36','Waves and Communication',[['sound is produced by','vibrations'],['higher frequency sound has','higher pitch'],['light travels faster than','sound'],['a mirror changes light by','reflection'],['digital messages encode information as','patterns or signals']]],
+      ['L37','Engineering Design',[['the problem and limits are called','criteria and constraints'],['a model used for testing is a','prototype'],['engineers improve a design by','testing and revising'],['a fair test changes','one variable at a time'],['test data help engineers','compare possible solutions']]],
+      ['L38','Scientific Evidence',[['information noticed with senses or tools','observation'],['an explanation based on observations','inference'],['repeated trials make results','more reliable'],['a table helps scientists','organize data'],['a conclusion should be supported by','evidence from the investigation']]],
+      ['L39','States and Properties of Matter',[['matter with a fixed shape and volume','solid'],['matter with fixed volume but changing shape','liquid'],['matter that fills its container','gas'],['the amount of matter in an object','mass'],['the space an object takes up','volume']]],
+      ['L40','Changes in Matter',[['ice melting is a','physical change'],['wood burning is a','chemical change'],['water freezing is','reversible'],['rust forming creates','a new substance'],['dissolving sugar in water is usually','a physical change']]],
+      ['L41','Forces and Motion',[['a push or pull','force'],['a force that pulls objects toward Earth','gravity'],['friction usually causes moving objects to','slow down'],['speed describes','distance traveled over time'],['balanced forces cause','no change in motion']]],
+      ['L42','Earth and Moon Patterns',[['Earth rotates once in about','24 hours'],['Earth’s rotation causes','day and night'],['the Moon reflects','light from the Sun'],['one trip around the Sun is','a year'],['the Moon’s changing appearance is called','phases']]],
+      ['L43','Water Cycle and Weather',[['liquid water changing to vapor','evaporation'],['water vapor cooling into droplets','condensation'],['water falling from clouds','precipitation'],['water gathering in lakes and oceans','collection'],['the Sun provides energy for','the water cycle']]],
+      ['L44','Rocks and Minerals',[['a naturally occurring solid with a crystal structure','mineral'],['rock formed from cooled magma','igneous rock'],['rock changed by heat and pressure','metamorphic rock'],['rock formed from compacted sediment','sedimentary rock'],['hardness and streak help identify','minerals']]],
+      ['L45','Animal Structures and Survival',[['webbed feet help an animal','swim'],['thick fur helps conserve','body heat'],['a beak shape can match','the animal’s food source'],['camouflage helps an animal','avoid detection'],['internal and external structures support','survival and behavior']]],
+      ['L46','Plant Structures and Functions',[['roots mainly absorb','water and minerals'],['leaves capture','light energy'],['stems support plants and transport','water and nutrients'],['flowers help plants','reproduce'],['tiny openings in leaves exchange','gases']]],
+      ['L47','Magnetism',[['opposite magnetic poles','attract'],['like magnetic poles','repel'],['the area of magnetic influence','magnetic field'],['iron is usually','attracted to a magnet'],['a compass needle aligns with','Earth’s magnetic field']]],
+      ['L48','Sound and Light',[['sound travels through','matter'],['a faster vibration makes a','higher pitch'],['light bouncing from a surface','reflection'],['light bending between materials','refraction'],['an opaque object blocks','most light']]]
+    ],
+    hist:[
+      ['L6','Map Skills',[['the box explaining map symbols','legend'],['the symbol showing directions','compass rose'],['the relationship between map distance and real distance','scale'],['lines measuring north and south position','latitude'],['lines measuring east and west position','longitude']]],
+      ['L7','United States Regions',[['states sharing location and features form','a region'],['the Great Lakes are in the','Midwest'],['the Rocky Mountains shape much of the','West'],['the Atlantic coastal plain is in the','East'],['climate and resources influence','how people live and work']]],
+      ['L8','Indigenous Nations',[['Indigenous nations are','distinct peoples with their own cultures'],['oral traditions can preserve','history and knowledge'],['homes and tools often reflected','local environments'],['trade connected nations through','goods and ideas'],['tribal sovereignty means','the right to govern as a nation']]],
+      ['L9','Exploration and Exchange',[['explorers often traveled to seek','trade routes and resources'],['the Columbian Exchange moved','plants, animals, people, and diseases'],['a mapmaker is called','a cartographer'],['contact changed societies on','both sides of the Atlantic'],['a journal from a voyage is','a primary source']]],
+      ['L10','Colonial Communities',[['colonists often settled near water for','transportation and trade'],['an apprentice learned by','working with a skilled craftsperson'],['a town meeting allowed colonists to','make local decisions'],['regional economies differed because of','climate, land, and resources'],['enslaved people were denied','freedom and basic rights']]],
+      ['L11','American Revolution',[['taxation without representation was a','colonial complaint'],['the Declaration of Independence was adopted in','1776'],['Patriots supported','independence'],['Loyalists supported','remaining with Britain'],['the Treaty of Paris recognized','American independence']]],
+      ['L12','Constitution and Government',[['the Constitution is the','framework of the federal government'],['three branches help create','separation of powers'],['checks and balances prevent','one branch from becoming too powerful'],['the Bill of Rights protects','individual freedoms'],['citizens elect people to','represent them']]],
+      ['L13','Westward Expansion',[['the Louisiana Purchase increased','United States territory'],['pioneers traveled west on','overland trails'],['westward settlement displaced many','Indigenous nations'],['railroads increased movement of','people and goods'],['historians study expansion from','multiple perspectives']]],
+      ['L14','Primary and Secondary Sources',[['a letter written during an event','primary source'],['a modern textbook about an event','secondary source'],['the creator of a source may have','a point of view'],['corroboration means','checking evidence across sources'],['historical context explains','conditions surrounding a source']]],
+      ['L15','Civic Participation',[['voting is one way citizens','participate in government'],['a petition asks leaders to','consider a requested action'],['jury service is a','civic responsibility'],['peaceful public discussion can','influence community decisions'],['responsible citizens support claims with','facts and evidence']]],
+      ['L16','State and Local Government',[['a mayor usually leads','a city government'],['a governor leads','a state government'],['local governments often manage','parks roads and libraries'],['state laws apply within','the state'],['public services are supported by','taxes']]],
+      ['L17','Economics and Resources',[['a resource found in nature','natural resource'],['people who make goods or provide services','producers'],['people who buy and use goods','consumers'],['when resources are limited people must','make choices'],['trading goods and services creates','interdependence']]],
+      ['L18','Migration and Settlement',[['moving from one place to another','migration'],['a reason that attracts people to a place','pull factor'],['a reason that makes people leave','push factor'],['settlements often grew near rivers because of','water and transportation'],['migration can change','communities and cultures']]],
+      ['L19','Timelines and Chronology',[['events arranged by date form','a timeline'],['chronology means','time order'],['a decade equals','ten years'],['a century equals','one hundred years'],['before comparing causes first identify','when events happened']]],
+      ['L20','Culture and Community',[['shared language traditions and beliefs','culture'],['a custom passed between generations','tradition'],['communities preserve history through','stories objects and records'],['cultural exchange can spread','ideas foods and practices'],['respecting different traditions supports','an inclusive community']]],
+      ['L21','Rights and Responsibilities',[['freedom of speech is a','right'],['obeying laws is a','responsibility'],['rights are protected by','laws and constitutions'],['responsible participation includes','learning about issues'],['one person’s rights must respect','the rights of others']]],
+      ['L22','Transportation and Trade',[['roads rivers and railroads move','people and goods'],['a port connects trade by','water'],['better transportation can make trade','faster and less costly'],['communities trade to obtain','resources they lack'],['a trade route connects','producers and markets']]],
+      ['L23','Inventors and Innovation',[['an invention addresses','a need or problem'],['innovation means','improving an idea or method'],['patents can protect','an inventor’s design'],['new technology can change','work and daily life'],['historians evaluate inventions by studying','benefits and costs']]],
+      ['L24','Landmarks and Historic Places',[['a historic place can preserve','evidence of the past'],['a monument is built to','remember a person or event'],['artifacts at a site provide','primary-source evidence'],['preservation protects places for','future study'],['different groups may interpret a landmark from','different perspectives']]],
+      ['L25','Making Historical Arguments',[['a historical claim should be supported by','evidence'],['reliable arguments cite','sources'],['a counterclaim presents','a different interpretation'],['context helps explain','why an event happened'],['a strong conclusion connects evidence back to','the claim']]]
+    ]
+  };
+  function choicesFor(cards,index){
+    const answer=cards[index%5][1];
+    const wrongs=[1,2,3].map(step=>cards[(index+step)%5][1]).filter(value=>value!==answer);
+    while(wrongs.length<3) wrongs.push(['none of these','an unrelated detail','not enough information'][wrongs.length]);
+    const values=[answer,...wrongs.slice(0,3)],shift=index%4;
+    return {answer,choices:values.slice(shift).concat(values.slice(0,shift))};
+  }
+  Object.entries(specs).forEach(([subject,lessons])=>lessons.forEach(([id,name,cards])=>{
+    const questions=Array.from({length:25},(_,index)=>{
+      const stage=Math.floor(index/5),card=cards[index%5],pick=choicesFor(cards,index);
+      return {type:'mc',q:stems[stage](card[0]),answer:pick.answer,choices:pick.choices,explain:`${pick.answer} is correct because it directly matches ${card[0]}.`,audio:stems[stage](card[0])};
+    });
+    data[`g4:${subject}:${id}`]={name,contentVersion:'g4-forty-more-20261009.1',questions};
+    if(window.CURR?.g4?.[subject]) CURR.g4[subject][id]={name,gen:classicQuestionPending};
+  }));
+  function addMenus(){
+    Object.entries(specs).forEach(([subject,lessons])=>{
+      const host=document.querySelector(`#g4-${subject} .lesson-columns`);
+      if(!host||host.innerHTML.includes(`'${lessons[0][0]}'`))return;
+      for(let group=0;group<2;group++){
+        const column=document.createElement('div');
+        column.className='lesson-column';column.dataset.g4Expanded='true';
+        column.innerHTML=`<h3>${group?'Apply and Master':'Build New Skills'}</h3><p>${group?'Use evidence and solve more demanding problems.':'Practice important fourth-grade ideas step by step.'}</p>`+lessons.slice(group*5,group*5+5).map(([id,name])=>`<button type="button" class="btn btn-main" onclick="startLesson('g4','${subject}','${id}')">${name}</button>`).join('');
+        host.appendChild(column);
+      }
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',addMenus);else addMenus();
+})();

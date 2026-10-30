@@ -4,8 +4,10 @@ const vm=require("node:vm");
 
 const root=path.resolve(__dirname,"..");
 const grades=["g2","g3","g4","g5","g6","g7","g8","g9","g10","g11","g12"];
-const context=vm.createContext({window:{}});
+const context=vm.createContext({window:{},document:{readyState:"loading",addEventListener(){},querySelector(){return null;}},LR:{round:1},makeFallbackLessonPack:()=>({})});
 context.window=context;
+const curriculumFile=path.join(root,"components","k12-curriculum.js");
+vm.runInContext(fs.readFileSync(curriculumFile,"utf8"),context,{filename:curriculumFile});
 const repairFile=path.join(root,"components","k12-classic-bank-repair.js");
 vm.runInContext(fs.readFileSync(repairFile,"utf8"),context,{filename:repairFile});
 for(const grade of grades){
@@ -18,8 +20,6 @@ vm.runInContext(fs.readFileSync(grade8ExtensionFile,"utf8"),context,{filename:gr
 const interactiveLabsFile=path.join(root,"components","k12-interactive-labs.js");
 context.document={getElementById(){return null;}};
 vm.runInContext(fs.readFileSync(interactiveLabsFile,"utf8"),context,{filename:interactiveLabsFile});
-const curriculumFile=path.join(root,"components","k12-curriculum.js");
-vm.runInContext(fs.readFileSync(curriculumFile,"utf8"),context,{filename:curriculumFile});
 const numberSenseFile=path.join(root,"components","k12-g2-number-sense-lessons.js");
 context.document={readyState:"loading",addEventListener(){},querySelector(){return null;}};
 vm.runInContext(fs.readFileSync(numberSenseFile,"utf8"),context,{filename:numberSenseFile});
@@ -51,7 +51,7 @@ for(const key of Object.keys(context.K12_CLASSIC_25_DATA||{})){
 }
 for(let lesson=8;lesson<=32;lesson++) selectorKeys.add(`g2:math:L${lesson}`);
 for(const subject of ["eng","math","alg1","sci","hist"]){
-  const finalLesson=subject==="alg1"?20:["math","hist"].includes(subject)?26:25;
+    const finalLesson=subject==="alg1"?40:subject==="math"?96:subject==="hist"?96:subject==="sci"?95:subject==="eng"?65:25;
   for(let lesson=1;lesson<=finalLesson;lesson++) selectorKeys.add(`g8:${subject}:L${lesson}`);
 }
 for(const subject of ["eng","math","sci","hist"]){

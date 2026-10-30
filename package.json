@@ -1,5 +1,8 @@
 {
   "scripts": {
+    "labs:audit": "node scripts/audit-interactive-extras.cjs",
+    "prek-video:audit": "node scripts/audit-prek-video.cjs",
+    "language-science:audit": "node scripts/audit-language-g1-science.cjs",
     "lessons:audit": "node scripts/audit-classic-25.js",
     "lessons:audit:early": "node scripts/audit-early-25.js",
     "courses:audit": "node scripts/audit-course-update.js",

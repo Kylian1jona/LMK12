@@ -13,9 +13,12 @@ async function deploy(){
   const token=account?.auth?.token;
   if(!token) throw new Error("No signed-in Netlify token was found.");
 
-  execFileSync("git",[
-    "archive","--format=zip","--output",archivePath,"HEAD",
-    "index.html","k12.css","k12.js","components","images"
+  // Package the working tree so a deploy includes the current local build,
+  // including new uncommitted PWA assets. Database migrations are applied separately.
+  execFileSync("tar",[
+    "-a","-c","-f",archivePath,
+    "index.html","k12.css","k12.js","components","images",
+    "draft-media","_headers"
   ],{stdio:"inherit"});
 
   try{

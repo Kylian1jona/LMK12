@@ -1,6 +1,12 @@
 (function(){
   const lessonCard=(key,back,title,description,tag)=>`<button type="button" class="early-lesson-card" data-lesson-key="${key}" onclick="startEarlyBank('${key}','${back}')"><span>${tag}</span><div><strong>${title}</strong><small>${description}</small></div><b>Start &rarr;</b></button>`;
-  const gradeMenu=(id,level,title,copy,pointsId,learnersId)=>`
+  const pyramidCard=(grade,description)=>`<button type="button" class="early-lesson-card" data-lesson-key="${grade}:eng:pyramid-reading" onclick="openReadingPyramid('${grade}')"><span aria-hidden="true">📚</span><div><strong>Reading Pyramid</strong><small>${description}</small></div><b>Start &rarr;</b></button>`;
+  const prekLessonGroups=(cards,groups)=>groups.map(([title,description,start,end])=>`
+    <section class="early-lesson-group" aria-label="${title}">
+      <header><h3>${title}</h3><p>${description}</p></header>
+      <div class="early-lesson-group-cards">${cards.slice(start,end).join("")}</div>
+    </section>`).join("");
+  const gradeMenu=(id,level,title,copy,pointsId,learnersId,hasScience=false)=>`
     <div id="${id}" class="section d-none early-grade-page grade-menu" data-early-grade="${level}" data-grade="${id}">
       <div class="cardish text-center kid-font early-grade-menu-card">
         <div class="early-grade-menu-heading">
@@ -8,6 +14,7 @@
           <h1>${title}</h1>
           <p class="small-note">Choose a subject</p>
           <p class="early-grade-copy">${copy}</p>
+          ${id==="prek"?`<section class="prek-welcome-video" aria-labelledby="prekVideoTitle"><div><small>WATCH &amp; LEARN</small><h2 id="prekVideoTitle">A little video for our littlest learners.</h2><p>Press play, watch together, then choose English or Math.</p></div><video controls playsinline preload="metadata"><source src="draft-media/prek-welcome.mp4" type="video/mp4">Your browser cannot play this video.</video></section>`:""}
         </div>
 
         <div class="scorebar">
@@ -18,16 +25,17 @@
         <div class="d-flex justify-content-center gap-3 flex-wrap mt-3 early-subject-picker grade-subject-picker" aria-label="${title} subjects">
           <button type="button" class="btn btn-main early-subject-choice grade-subject-option" data-subject="eng" onclick="show('${id}-eng')">English</button>
           <button type="button" class="btn btn-main early-subject-choice grade-subject-option" data-subject="math" onclick="show('${id}-math')">Math</button>
+          ${hasScience?`<button type="button" class="btn btn-main early-subject-choice grade-subject-option" data-subject="sci" onclick="show('g1-sci')">Science</button>`:""}
           <button type="button" class="btn btn-main early-grade-back" onclick="appBack('grades')">Back</button>
         </div>
       </div>
     </div>`;
   const subjectPage=(id,gradeId,gradeTitle,name,icon,cards)=>`
-    <div id="${id}" class="section d-none early-subject-page subject-screen" data-grade="${gradeId}" data-subject="${id.endsWith("-math")?"math":"eng"}">
+    <div id="${id}" class="section d-none early-subject-page subject-screen" data-grade="${gradeId}" data-subject="${id.endsWith("-math")?"math":id.endsWith("-sci")?"sci":"eng"}">
       <div class="cardish text-center kid-font early-subject-shell">
         <h1>${gradeTitle} ${name}</h1>
         <p class="small-note">Choose a lesson</p>
-        <section class="early-subject" data-subject="${id.endsWith("-math")?"math":"eng"}">
+        <section class="early-subject" data-subject="${id.endsWith("-math")?"math":id.endsWith("-sci")?"sci":"eng"}">
           <header><span>${icon}</span><div><small>SUBJECT</small><h2>${name}</h2></div></header>
           <div class="early-lesson-list">${cards}</div>
         </section>
@@ -55,16 +63,36 @@
         lessonCard("prek:general:body-parts","prek-eng","Identify Body Parts","Connect body parts with what they do.","ME"),
         lessonCard("prek:general:weather","prek-eng","Weather","Recognize sunny, rainy, snowy, windy, and cloudy days.","SUN"),
         lessonCard("prek:general:days-week","prek-eng","Days of the Week","Put the seven days in order.","7"),
-        lessonCard("prek:general:day-parts","prek-eng","Morning, Afternoon, Evening, and Night","Match daily routines to each part of the day.","DAY")
-      ].join("");
+        lessonCard("prek:general:day-parts","prek-eng","Morning, Afternoon, Evening, and Night","Match daily routines to each part of the day.","DAY"),
+        lessonCard("prek:eng:sort-animal-homes","prek-eng","Animal Homes","Sort picture cards into farm, ocean, and forest.","🐄"),
+        lessonCard("prek:eng:sort-foods","prek-eng","Foods and Drinks","Sort fruit, vegetables, and drinks.","🍎"),
+        lessonCard("prek:eng:sort-weather","prek-eng","Weather","Sort sunny, rainy, and snowy pictures.","☀️"),
+        lessonCard("prek:eng:sort-first-sounds","prek-eng","First Sounds","Sort picture words by M, S, and T.","M"),
+        lessonCard("prek:eng:sort-everyday-things","prek-eng","Everyday Things","Sort things we wear, eat, and ride.","👕"),
+        lessonCard("prek:eng:sort-bdf-sounds","prek-eng","B, D, F Sounds","Sort picture words by their first sound.","BDF"),
+        lessonCard("prek:eng:sort-syllables","prek-eng","Word Beats","Clap words with one, two, or three beats.","👏"),
+        lessonCard("prek:eng:sort-living-things","prek-eng","Living Things","Sort animals, plants, and objects.","🌱"),
+        lessonCard("prek:eng:sort-feelings","prek-eng","Feelings","Sort happy, sad, and scared faces.","😊"),
+        lessonCard("prek:eng:sort-places","prek-eng","Places","Sort home, school, and playground pictures.","🏠")
+      ];
       const prekMath=[
         lessonCard("prek:math:shapes","prek-math","Identify Basic Shapes","Recognize circles, squares, triangles, and more.","O"),
         lessonCard("prek:math:count5","prek-math","Count to 5","Practice number order from one to five.","5"),
         lessonCard("prek:math:count10","prek-math","Count to 10","Practice number order from one to ten.","10"),
         lessonCard("prek:math:number-objects","prek-math","Match Numbers to Objects","Count a group and choose its number.","1:1"),
         lessonCard("prek:math:more-less","prek-math","More or Less","Compare two small numbers.","< >"),
-        lessonCard("prek:math:patterns","prek-math","Patterns","Find what comes next in a repeating pattern.","AB")
-      ].join("");
+        lessonCard("prek:math:patterns","prek-math","Patterns","Find what comes next in a repeating pattern.","AB"),
+        lessonCard("prek:math:sort-shapes","prek-math","Shapes","Sort circles, squares, and triangles.","▲"),
+        lessonCard("prek:math:sort-count-1-3","prek-math","Count Pictures","Sort groups of one, two, and three.","123"),
+        lessonCard("prek:math:sort-patterns","prek-math","Patterns","Sort AB, AAB, and ABB patterns.","AB"),
+        lessonCard("prek:math:sort-small-sums","prek-math","Small Sums","Sort sums that make three, four, or five.","+"),
+        lessonCard("prek:math:sort-more-less-same","prek-math","Compare Groups","See which side has more, or if they match.","⚖"),
+        lessonCard("prek:math:sort-colors","prek-math","Colors","Sort red, blue, and yellow pictures.","🎨"),
+        lessonCard("prek:math:sort-count-4-6","prek-math","Count to Six","Sort groups of four, five, and six.","456"),
+        lessonCard("prek:math:sort-number-forms","prek-math","Number Forms","Match ways to show one, two, and three.","123"),
+        lessonCard("prek:math:sort-corners","prek-math","Shape Corners","Sort shapes with zero, three, and four corners.","▲"),
+        lessonCard("prek:math:sort-group-changes","prek-math","Group Changes","Sort adding, taking away, and staying the same.","+−")
+      ];
       const kinderEnglish=[
         lessonCard("k:eng:syllables","kinder-eng","Syllable Count","Clap and count word parts.","CLAP"),
         lessonCard("k:eng:words","kinder-eng","Build the Word","Connect pictures, sounds, and words.","CAT"),
@@ -78,7 +106,17 @@
         lessonCard("k:eng:blend-cvc","kinder-eng","Three-Letter Sound Blending","Follow the sound meter and blend CVC words.","C-A-T"),
         lessonCard("k:eng:days-week","kinder-eng","Days of the Week","Read, order, and name all seven days.","7 DAYS"),
         lessonCard("k:eng:alphabet-upper","kinder-eng","Find the Letter: Uppercase","Find and order uppercase letters.","ABC"),
-        lessonCard("k:eng:alphabet-lower","kinder-eng","Find the Letter: Lowercase","Find and order lowercase letters.","abc")
+        lessonCard("k:eng:alphabet-lower","kinder-eng","Find the Letter: Lowercase","Find and order lowercase letters.","abc"),
+        lessonCard("k:eng:initial-blends","kinder-eng","Beginning Blends","Read words that start with two consonants.","BL"),
+        lessonCard("k:eng:word-families","kinder-eng","Word Families","Hear and find matching word endings.","-AT"),
+        lessonCard("k:eng:opposites","kinder-eng","Opposite Words","Match words with opposite meanings.","UP"),
+        lessonCard("k:eng:action-words","kinder-eng","Find the Action Word","Find the word that tells what happens.","GO"),
+        lessonCard("k:eng:sentence-meaning","kinder-eng","Read and Understand","Read a sentence and answer about it.","READ"),
+        pyramidCard("k","Build short sentences one word at a time with picture clues."),
+        lessonCard("k:eng:sort-short-vowels","kinder-eng","Short Vowels","Sort short A, E, and I words.","AEI"),
+        lessonCard("k:eng:sort-blends","kinder-eng","Beginning Blends","Sort BL, CL, and FL words.","BL"),
+        lessonCard("k:eng:sort-word-families","kinder-eng","Word Families","Sort words ending in -at, -an, and -ap.","-AT"),
+        lessonCard("k:eng:sort-sentence-marks","kinder-eng","Sentences","Sort telling, asking, and excited sentences.","?!")
       ].join("");
       const kinderMath=[
         lessonCard("k:math:counting","kinder-math","Counting to 30","Build confident number sense.","123"),
@@ -95,7 +133,16 @@
         lessonCard("k:math:squares","kinder-math","Squares","Find squares using colorful emoji shapes.","■"),
         lessonCard("k:math:all-shapes","kinder-math","All Shapes","Practice circles, triangles, and squares together.","◆"),
         lessonCard("k:math:time","kinder-math","Time","Read times on analog clocks.","CLK"),
-        lessonCard("k:math:time-seasons","kinder-math","Time and Seasons","Explore daily routines and the four seasons.","SUN")
+        lessonCard("k:math:time-seasons","kinder-math","Time and Seasons","Explore daily routines and the four seasons.","SUN"),
+        lessonCard("k:math:subitize","kinder-math","See Small Groups","Count dots at a glance.","DOT"),
+        lessonCard("k:math:compare-groups","kinder-math","Compare Two Groups","Tell which group has more.","MORE"),
+        lessonCard("k:math:shape-attributes","kinder-math","Shape Features","Count corners and sides.","SHAPE"),
+        lessonCard("k:math:picture-graphs","kinder-math","Read Picture Graphs","Count pictures in a graph row.","GRAPH"),
+        lessonCard("k:math:ordinal-positions","kinder-math","First Through Fifth","Name an item by its place in line.","1ST"),
+        lessonCard("k:math:sort-sums","kinder-math","Sums","Sort addition facts that make 6, 7, or 8.","+"),
+        lessonCard("k:math:sort-differences","kinder-math","Take Away","Sort subtraction answers of 2, 3, or 4.","−"),
+        lessonCard("k:math:sort-number-forms","kinder-math","Number Forms","Match ways to show 4, 5, and 6.","456"),
+        lessonCard("k:math:sort-solid-shapes","kinder-math","Solid Shapes","Sort spheres, cubes, and cylinders.","3D")
       ].join("");
       const g1English=[
         lessonCard("g1:eng:short-vowels","g1-eng","Short Vowel Sounds","Find the short vowel sound in simple words.","CAT"),
@@ -103,7 +150,8 @@
         lessonCard("g1:eng:sight","g1-eng","Sight Words in Sentences","Choose words that complete each sentence.","SEE"),
         lessonCard("g1:eng:sentences","g1-eng","Build and Read Simple Sentences","Practice complete sentences and punctuation.","Aa"),
         lessonCard("g1:eng:parts-speech","g1-eng","Nouns, Verbs, and Adjectives","Tell whether a word names, acts, or describes.","NVA"),
-        lessonCard("g1:eng:story-questions","g1-eng","Read a Short Story and Answer Questions","Read short passages and recall key details.","READ")
+        lessonCard("g1:eng:story-questions","g1-eng","Read a Short Story and Answer Questions","Read short passages and recall key details.","READ"),
+        pyramidCard("g1","Build longer sentences one word at a time with picture clues.")
       ].join("");
       const g1Math=[
         lessonCard("g1:math:block-add","g1-math","Addition Block Builder","Move colored blocks into two groups and combine them.","BLOCKS"),
@@ -122,19 +170,49 @@
         lessonCard("g1:math:shape-properties","g1-math","Basic Shapes and Their Properties","Compare sides, corners, faces, and curves.","SHAPE"),
         lessonCard("g1:math:measurement","g1-math","Simple Measurement","Compare length, weight, height, and capacity.","RUL"),
         lessonCard("g1:math:time","g1-math","Tell Time to the Hour and Half Hour","Read clocks at whole and half hours.","CLK"),
-        lessonCard("g1:math:money","g1-math","Identify Coins","Recognize pennies, nickels, dimes, and quarters.","&#162;")
+        lessonCard("g1:math:money","g1-math","Identify Coins","Recognize pennies, nickels, dimes, and quarters.","&#162;"),
+        lessonCard("g1:math:number-neighbors","g1-math","Numbers Before and After","Find neighboring numbers up to 120.","123"),
+        lessonCard("g1:math:number-bonds","g1-math","Number Bonds to 20","Find the missing part of a number bond.","10"),
+        lessonCard("g1:math:addition-stories","g1-math","Addition Story Problems","Add objects in everyday stories.","+"),
+        lessonCard("g1:math:subtraction-stories","g1-math","Subtraction Story Problems","Find what remains in everyday stories.","−"),
+        lessonCard("g1:math:coin-totals","g1-math","Count Coins","Add pennies, nickels, and dimes.","¢")
+      ].join("");
+      const g1Science=[
+        lessonCard("g1:sci:living-things","g1-sci","Living and Nonliving Things","Sort living things from nonliving objects.","LIFE"),
+        lessonCard("g1:sci:plants","g1-sci","Plants and Their Needs","Explore plant parts and what plants need to grow.","PLANT"),
+        lessonCard("g1:sci:animals","g1-sci","Animals and Habitats","Match animals with their needs and homes.","HOME"),
+        lessonCard("g1:sci:weather","g1-sci","Weather and Seasons","Observe weather and connect it to the seasons.","SKY"),
+        lessonCard("g1:sci:materials","g1-sci","Materials and Properties","Compare objects by texture, strength, and flexibility.","MAT"),
+        lessonCard("g1:sci:light-sound-motion","g1-sci","Light, Sound, and Motion","Investigate how things move, shine, and make sounds.","MOVE"),
+        lessonCard("g1:sci:animal-coverings","g1-sci","Animal Body Coverings","Compare fur, feathers, scales, and shells.","FUR"),
+        lessonCard("g1:sci:animal-young","g1-sci","Young Animals","Match animals with the names of their young.","CUB"),
+        lessonCard("g1:sci:magnet-test","g1-sci","What Magnets Attract","Predict which everyday objects a magnet attracts.","MAG"),
+        lessonCard("g1:sci:water-changes","g1-sci","Water, Ice, and Vapor","Notice freezing, melting, evaporation, and drops.","H₂O"),
+        lessonCard("g1:sci:weather-safety","g1-sci","Safe Choices in Weather","Choose safe actions for sun, rain, cold, and storms.","SKY")
       ].join("");
 
       this.innerHTML=
         gradeMenu("prek","PK","Pre-K","Playful, picture-first practice built for first learners.","prekPoints","prekLearners")+
-        subjectPage("prek-eng","prek","Pre-K","English","A",prekEnglish)+
-        subjectPage("prek-math","prek","Pre-K","Math","+",prekMath)+
+        subjectPage("prek-eng","prek","Pre-K","English","A",prekLessonGroups(prekEnglish,[
+          ["Everyday Words","Colors, sizes, positions, and comparisons.",0,4],
+          ["Letters & Sounds","Match letters, beginning sounds, and rhymes.",4,9],
+          ["Our World","Animals, body parts, weather, and daily routines.",9,14],
+          ["Picture Sorting","Drag and drop familiar pictures into groups.",14,19],
+          ["More Sorting","Practice sounds, syllables, feelings, and places.",19]
+        ]))+
+        subjectPage("prek-math","prek","Pre-K","Math","+",prekLessonGroups(prekMath,[
+          ["Shapes & Counting","Identify shapes and count small groups.",0,4],
+          ["Compare & Pattern","Find more, less, and what comes next.",4,6],
+          ["Sort Math Pictures","Group shapes, counts, patterns, and sums.",6,11],
+          ["More Math Sorting","Practice colors, number forms, and changes.",11]
+        ]))+
         gradeMenu("kinder","K","Kindergarten","Short lessons that turn early skills into confidence.","kPoints","kLearners")+
         subjectPage("kinder-eng","kinder","Kindergarten","English","A",kinderEnglish)+
         subjectPage("kinder-math","kinder","Kindergarten","Math","+",kinderMath)+
-        gradeMenu("grade1","1","Grade 1","Independent practice across reading foundations and math.","g1Points","g1Learners")+
+        gradeMenu("grade1","1","Grade 1","Independent practice across reading, math, and science.","g1Points","g1Learners",true)+
         subjectPage("g1-eng","grade1","Grade 1","English","A",g1English)+
-        subjectPage("g1-math","grade1","Grade 1","Math","+",g1Math);
+        subjectPage("g1-math","grade1","Grade 1","Math","+",g1Math)+
+        subjectPage("g1-sci","grade1","Grade 1","Science","SCI",g1Science);
     }
   }
   customElements.define("k12-early-sections",K12EarlySections);

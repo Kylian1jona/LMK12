@@ -32,6 +32,7 @@
     </aside>
 
     <section class="auth-form-shell" aria-label="Account access">
+      <label class="auth-language-control" for="loginLanguagePicker"><span>Language</span><select id="loginLanguagePicker" class="language-picker" aria-label="Choose language for login and learning" onchange="setLanguage(this.value)"><option value="en">English</option><option value="es">Spanish</option><option value="fr">French</option><option value="zh">Chinese</option><option value="hi">Hindi</option></select></label>
       <div class="auth-mobile-brand" aria-hidden="true">
         <img class="lm-auth-logo" src="images/learnmaster-logo-header-v2.png" alt="">
       </div>
@@ -61,6 +62,7 @@
           <button type="button" class="btn btn-main auth-secondary auth-tutor-signup" onclick="showTutorSignup()">Sign up as a tutor</button>
         </div>
         <button type="button" class="btn btn-link auth-forgot" onclick="resetLoginPassword()">Forgot password?</button>
+        <button type="button" id="resendSignupConfirmationButton" class="btn btn-link auth-forgot d-none" onclick="resendSignupConfirmation()">Resend confirmation email</button>
       </div>
 
       <div id="signupFormPanel" class="d-none" aria-hidden="true">
@@ -125,12 +127,50 @@
 
 <!-- PROFILE CHOOSER (shown after account login) -->
 <div id="profileChooser" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="profileChooserTitle">
+  <div class="profile-chooser-layout">
   <div class="profile-chooser-card">
     <img class="lm-dialog-logo" src="images/learnmaster-logo-header-v2.png" alt="LearnMaster K12">
     <span class="profile-chooser-kicker">Your subscription</span>
     <h2 id="profileChooserTitle">Who is learning today?</h2>
     <p>Choose a learner, or enter the parent area.</p>
     <div id="profileChooserGrid" class="profile-chooser-grid"></div>
+  </div>
+  <aside class="profile-update-log" aria-labelledby="profileUpdateTitle">
+    <span class="profile-chooser-kicker">What's new</span>
+    <h2 id="profileUpdateTitle">Update log</h2>
+    <div class="profile-update-entries">
+      <article><time datetime="2026-10-29">October 29, 2026</time><h3>Reading pyramids and more ways to answer</h3><p>Kindergarten and Grade 1 English now have picture-guided reading pyramids. Grade 1 builds longer sentences. Grade 5 English questions begin with the question itself, and the new Grade 5 lessons add fill-in-the-blank practice alongside matching, multiple choice, dropdowns, and select-two questions.</p></article>
+      <article><time datetime="2026-10-29">October 29, 2026</time><h3>30 more Grade 5 lessons</h3><p>Ten new lessons each in English, Math, and Science add 750 two-skill questions. Every lesson mixes multiple choice, dropdown, select-two, and drag-and-drop matching practice.</p></article>
+      <article><time datetime="2026-10-24">October 24, 2026</time><h3>40 more Grade 11 and 12 lessons</h3><p>20 standard lessons and 20 interactive lessons add 1,000 questions across Grades 11 and 12. Interactive lessons now sit among other lessons under skill-based names across the site.</p></article>
+      <article><time datetime="2026-10-24">October 24, 2026</time><h3>20 new Grade 11 and 12 lessons</h3><p>Grade 11 and Grade 12 each gain 10 lessons across English, Math, Science, and History. Every lesson has 25 questions, adding 500 new questions in all.</p></article>
+      <article><time datetime="2026-10-24">October 24, 2026</time><h3>Cleaner early-grade lesson menus</h3><p>Pre-K, Kindergarten, and Grade 1 skill groups now open one at a time. Compact topic rows show lesson counts, and lessons appear in a clearer two-column layout when a group is opened.</p></article>
+      <article><time datetime="2026-10-24">October 24, 2026</time><h3>Skill cards from Pre-K through Grade 1</h3><p>Pre-K, Kindergarten, and Grade 1 lessons now use the same topic card layout as Grade 2 English. Each subject is divided into short skill groups, including Grade 1 Science, while every lesson stays available.</p></article>
+      <article><time datetime="2026-10-24">October 24, 2026</time><h3>Lesson menus grouped by skill</h3><p>Pre-K English and Math lessons are now in short, labeled groups. Grade 2 English is split into Words and Grammar, Build Sentences, Reading and Sounds, and Spelling and Challenges, with the dropdown lesson in its own box.</p></article>
+      <article><time datetime="2026-10-23">October 23, 2026</time><h3>Cleaner Grade 2 English questions</h3><p>Lessons 11 and 12 now start each affected question with the instruction, without the repeated lesson label.</p></article>
+      <article><time datetime="2026-10-23">October 23, 2026</time><h3>10 more Grade 8 lesson formats</h3><p>Two new 25-question lessons in each Grade 8 subject add 250 questions across English, Math, Algebra 1, Science, and History. Clearly labeled boxes mix checkboxes, dropdowns, drag-and-drop matching, and ranking. Every checkbox question has six options and exactly two correct choices.</p></article>
+      <article><time datetime="2026-10-23">October 23, 2026</time><h3>Four new lesson formats</h3><p>New 25-question lessons add checkboxes in Grade 3 Math, dropdowns in Grade 2 English, drag-and-drop matching in Grade 4 Science, and drag-and-drop ranking in Grade 5 Math. Each has a labeled box in its subject menu. Checkbox questions show six choices and ask for exactly two.</p></article>
+      <article><time datetime="2026-10-23">October 23, 2026</time><h3>Reading and Typing in grade menus</h3><p>Grade 2 now opens its reading passages directly from the subject choices. Grades 3, 4, and 5 now have Typing buttons that open the full keyboard practice course.</p></article>
+      <article><time datetime="2026-10-23">October 23, 2026</time><h3>Kindergarten drag-and-drop practice</h3><p>Eight new English and Math sorting lessons add 200 nine-card rounds. Sort vowel sounds, blends, word families, sentences, sums, subtraction, number forms, and solid shapes by dragging or tapping cards.</p></article>
+      <article><time datetime="2026-10-23">October 23, 2026</time><h3>More Kindergarten reading and Math</h3><p>10 new lessons add 250 questions. Practice beginning blends, word families, opposites, action words, reading sentences, small groups, shape features, picture graphs, and positions.</p></article>
+      <article><time datetime="2026-10-22">October 22, 2026</time><h3>STAAR shortcut and easier lesson view</h3><p>STAAR testing now sits under Playground on the home page. Lesson questions load near the top, with answer choices easier to reach without scrolling.</p></article>
+      <article><time datetime="2026-10-22">October 22, 2026</time><h3>More Grade 1 Math and Science practice</h3><p>10 new standard lessons add 250 questions: five Math lessons on numbers, stories, and coins, plus five Science lessons on animals, magnets, water, and weather safety.</p></article>
+      <article><time datetime="2026-10-22">October 22, 2026</time><h3>Reading grade labels fit</h3><p>Pre-K and Kindergarten now use short labels inside the reading grade bubbles, with their full names beside them.</p></article>
+      <article><time datetime="2026-10-22">October 22, 2026</time><h3>Account confirmation help</h3><p>After sign-up, the login screen now explains email confirmation and offers a resend button. Unconfirmed accounts get clear instructions instead of a password error.</p></article>
+      <article><time datetime="2026-10-21">October 21, 2026</time><h3>More Pre-K picture sorting</h3><p>10 more drag-and-drop lessons add 250 questions in English and Math. Sort first sounds, word beats, feelings, colors, counting, number forms, and more with nine picture cards per question.</p></article>
+      <article><time datetime="2026-10-21">October 21, 2026</time><h3>Pre-K drag-and-drop sorting</h3><p>10 new picture-led lessons add 250 sorting questions across English and Math. Drag or tap nine cards into three groups to practice animals, sounds, shapes, counting, patterns, and more.</p></article>
+      <article><time datetime="2026-10-20">October 20, 2026</time><h3>20 new Grade 8 drag-and-drop lessons</h3><p>Four lessons each in English, Science, Math, Algebra 1, and History add 500 sorting questions. Every question has 15 cards and 3 categories.</p></article>
+      <article><time datetime="2026-10-18">October 18, 2026</time><h3>30 more Grade 8 drag-and-drop lessons</h3><p>Six new lessons each in English, Science, Math, Algebra 1, and History add 750 sorting questions. Each question has 15 cards and 3 categories.</p></article>
+      <article><time datetime="2026-10-18">October 18, 2026</time><h3>35 more Grade 8 sorting lessons</h3><p>Practice with 10 English, 10 Science, 5 Math, 5 Algebra 1, and 5 History drag-and-drop lessons. Each has 25 different sorting sets with 15 options in 3 categories: 875 questions in all.</p></article>
+      <article><time datetime="2026-10-18">October 18, 2026</time><h3>Follow along and sort with confidence</h3><p>Read-aloud now highlights the passage, pauses and resumes, and lets you go back a sentence or choose a word. Sorting lessons have a separate options tray, clearer categories, a selected-card prompt, and live placement progress.</p></article>
+      <article><time datetime="2026-10-18">October 18, 2026</time><h3>20 more Grade 8 sorting lessons</h3><p>10 new English lessons and 10 new Science lessons add 500 questions. Practice grammar, reading analysis, reasoning, and scientific models with 9 to 25 options across 3 to 5 categories.</p></article>
+      <article><time datetime="2026-10-18">October 18, 2026</time><h3>Grade 8 drag-and-drop lessons</h3><p>10 new lessons across Math, Algebra 1, English, Science, and History. Each lesson has 25 sorting questions. Start with 9 options in 3 categories and work up to 25 options in 5 categories. Drag cards, tap to sort, or use Tab and Enter.</p></article>
+      <article><time datetime="2026-10-13">October 13, 2026</time><h3>More ways to keep learning</h3><p>Earn badges, follow your learning streak, and track daily goals. Download 25-question lessons for offline practice from Settings.</p><p>Text resizing, clearer keyboard focus, and screen-reader progress announcements are now available.</p></article>
+      <article><time datetime="2026-10-13">October 13, 2026</time><h3>New lessons that grow with you</h3><p>10 more lessons each for Pre-K, Kindergarten, and Grade 1. Every new lesson has 25 questions in five stages, from guided practice to applying the skill.</p><ul><li>Pre-K: counting, sorting, patterns, and listening to sounds.</li><li>Kindergarten: number relationships, measurement, and early reading.</li><li>Grade 1: arithmetic strategies, reading clues, and science investigations.</li></ul></article>
+      <article><time datetime="2026-10-13">October 13, 2026</time><h3>More lessons for early learners</h3><ul><li>10 new Pre-K lessons in English and Math.</li><li>10 new Kindergarten lessons in reading and number skills.</li><li>10 new Grade 1 lessons, including four new Science lessons.</li><li>Grade 1 Science now offers 10 lessons.</li></ul></article>
+      <article><time datetime="2026-10-12">October 12, 2026</time><h3>Grade 8 Algebra 1 expanded</h3><p>10 new lessons bring Algebra 1 to 50 lessons, with 25 questions per lesson.</p></article>
+      <article><time datetime="2026-09-10">September 10, 2026</time><h3>Grade 7 science labs</h3><p>Interactive investigations now include visual models and activities learners can operate.</p></article>
+    </div>
+  </aside>
   </div>
 </div>
 

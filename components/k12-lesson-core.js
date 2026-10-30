@@ -49,7 +49,8 @@ function blendSpeechUtterance(text){
   utterance.rate = 0.72;
   utterance.pitch = typeof voiceType !== "undefined" && voiceType === "male" ? 0.96 : 1;
   utterance.volume = 0.98;
-  utterance.lang = preferredVoice?.lang || "en-US";
+  const language=typeof window.k12CurrentLanguage==="function"?window.k12CurrentLanguage():"en";
+  utterance.lang = preferredVoice?.lang || ({es:"es-ES",fr:"fr-FR",zh:"zh-CN",hi:"hi-IN"}[language]||"en-US");
   return utterance;
 }
 
@@ -464,7 +465,9 @@ function makeTrueFalseQuestion(q, answer, audio){
 
 function answerTextForFeedback(q){
   if(q.type === "selectall" && Array.isArray(q.answers)) return q.answers.join(", ");
+  if(q.type === "ranking" && Array.isArray(q.items)) return q.items.join(", ");
   if(q.type === "order" && Array.isArray(q.items)) return q.items.join(", ");
+  if(q.type === "category-sort" && Array.isArray(q.categories)) return q.categories.map(category=>`${category.name}: ${q.items.filter(item=>item.category===category.name).map(item=>item.text).join(", ")}`).join("; ");
   if((q.type === "drag" || q.type === "match") && Array.isArray(q.pairs)){
     return q.pairs.map(pair=>String(pair.word ?? pair.left ?? "") + " goes with " + String(pair.match ?? pair.right ?? "")).join("; ");
   }
@@ -483,7 +486,7 @@ function wrongExplanation(q, userAnswer=""){
   if(q.type === "selectall"){
     return `Not quite. The correct choices are ${answerTextForFeedback(q)}. Select only the choices that fit the question.`;
   }
-  if(q.type === "order"){
+  if(q.type === "order" || q.type === "ranking"){
     return `Not quite. The correct order is ${answerTextForFeedback(q)}. Check the sequence from first to last.`;
   }
   const answer = answerTextForFeedback(q);
@@ -610,6 +613,24 @@ function highlightLessonAnswers(q, userAnswer=""){
     });
     return;
   }
+  if(q?.type === "dropdown"){
+    const select=document.querySelector("#lrChoices .lesson-dropdown");
+    if(select){
+      select.disabled=true;
+      select.classList.toggle("answer-input-correct",select.value===correct);
+      select.classList.toggle("answer-input-wrong",select.value!==correct);
+    }
+    return;
+  }
+  if(q?.type === "ranking"){
+    document.querySelectorAll("#lrChoices .ranking-card").forEach((card,index)=>{
+      card.classList.toggle("answer-correct",card.dataset.value===String(q.items[index]));
+      card.classList.toggle("answer-wrong",card.dataset.value!==String(q.items[index]));
+      card.draggable=false;
+      card.querySelectorAll("button").forEach(button=>button.disabled=true);
+    });
+    return;
+  }
   if(q?.type === "order"){
     document.querySelectorAll("#lrChoices .order-choice").forEach((button, index)=>{
       button.disabled = true;
@@ -646,26 +667,34 @@ function showDragCorrections(q){
 }
 
 function lessonQuestionSpeech(q){
-  const parts = [q.q || ""];
-  if(q.audio && q.audio !== q.q) parts.push(q.audio);
+  const tx=value=>typeof window.k12Translate==="function"?window.k12Translate(String(value||"")):String(value||"");
+  const list=values=>values.map(tx).join(", ");
+  const parts = [tx(q.q || "")];
+  if(q.audio && q.audio !== q.q) parts.push(tx(q.audio));
   if((q.type === "mc" || q.type === "speed") && Array.isArray(q.choices)){
-    parts.push("Choices: " + q.choices.join(", ") + ".");
+    parts.push(tx("Choices") + ": " + list(q.choices) + ".");
   }
   if(q.type === "selectall" && Array.isArray(q.choices)){
-    parts.push("Choose all that apply: " + q.choices.join(", ") + ".");
+    parts.push(tx("Choose all that apply") + ": " + list(q.choices) + ".");
   }
+  if(q.type === "dropdown" && Array.isArray(q.choices)) parts.push(tx("Choose one option") + ": " + list(q.choices) + ".");
+  if(q.type === "ranking" && Array.isArray(q.items)) parts.push(tx("Put these in order") + ": " + list(q.items) + ".");
   if(q.type === "order" && Array.isArray(q.items)){
-    parts.push("Put these in order: " + q.items.join(", ") + ".");
+    parts.push(tx("Put these in order") + ": " + list(q.items) + ".");
+  }
+  if(q.type === "category-sort" && Array.isArray(q.items)){
+    parts.push(tx("Sort these cards") + ": " + list(q.items.map(item=>item.text)) + ".");
+    parts.push(tx("Categories") + ": " + list(q.categories.map(item=>item.name)) + ".");
   }
   if(q.type === "drag" && Array.isArray(q.pairs)){
     const clues = q.pairs.map(pair=>String(pair.match ?? pair.right ?? ""));
     const items = q.pairs.map(pair=>String(pair.word ?? pair.left ?? ""));
-    parts.push("Items: " + items.join(", ") + ".");
-    parts.push("Clues: " + clues.join(", ") + ".");
+    parts.push(tx("Items") + ": " + list(items) + ".");
+    parts.push(tx("Clues") + ": " + list(clues) + ".");
   }
   if(q.type === "match" && Array.isArray(q.pairs)){
     const cards = q.pairs.flatMap(pair=>[String(pair.left ?? ""), String(pair.right ?? "")]).filter(Boolean);
-    parts.push("Match these cards: " + cards.join(", ") + ".");
+    parts.push(tx("Match these cards") + ": " + list(cards) + ".");
   }
   return parts.filter(Boolean).join(" ");
 }
@@ -816,6 +845,7 @@ function launchLessonPack(grade, subj, lesson, pack, backSection){
   $("lrQuestionCard")?.classList.remove("d-none");
   $("lrLessonActions")?.classList.remove("d-none");
   $("lrTitle").textContent = LR.title;
+  window.K12LessonLikes?.open(`${grade}:${subj}:${lesson}`);
   renderLessonVideo(LR.video);
   const runner=$("lessonRunner");
   if(runner){
@@ -854,7 +884,7 @@ function startUnifiedEarlyLesson(key,backSection){
     return;
   }
   const grade=gradeToken;
-  const gradeLabel=grade==="prek"?"Pre-K":grade==="k"?"Kindergarten":"Grade 1";
+  const gradeLabel=grade==="prek"?"Pre-K":grade==="k"?"Kindergarten":`Grade ${String(grade).replace(/^g/,"")}`;
   if(!CURR[grade]) CURR[grade]={};
   if(!CURR[grade][subj]) CURR[grade][subj]={showName:`${gradeLabel} ${SUBJECT_LABELS[subj]||subj}`};
   const lesson=`EARLY_${lessonToken.replace(/[^a-z0-9]/gi,"_").toUpperCase()}`;
@@ -1094,7 +1124,14 @@ function normalizeLessonQuestion(q, pack){
     if(!Array.isArray(q.pairs)) return fallbackLessonQuestion(pack);
     q.type = "drag";
   }
-  if(q.type === "drag" && !Array.isArray(q.pairs)) return fallbackLessonQuestion(pack);
+  if(q.type === "drag" && !Array.isArray(q.pairs)){
+    const categories=q.categories;
+    const options=q.options;
+    const ids=new Set((categories||[]).map(category=>category.id));
+    if(!Array.isArray(categories)||categories.length<3||!Array.isArray(options)||options.length<9||new Set(options.map(option=>option.id)).size!==options.length||options.some(option=>!ids.has(option.category)))return fallbackLessonQuestion(pack);
+    const names=new Map(categories.map(category=>[category.id,category.label]));
+    q={...q,type:"category-sort",categories:categories.map(category=>({name:category.label})),items:options.map(option=>({text:option.text,category:names.get(option.category)}))};
+  }
   if(q.type === "speed"){
     if(!Array.isArray(q.choices) || !q.choices.length) q.choices = fourChoices(q.answer || "Correct", ["Try again", "Not this one"]);
     if(q.answer === undefined || q.answer === null) q.answer = q.choices[0];
@@ -1115,8 +1152,17 @@ function normalizeLessonQuestion(q, pack){
   if(q.type === "selectall"){
     if(!Array.isArray(q.choices) || !Array.isArray(q.answers)) return fallbackLessonQuestion(pack);
   }
+  if(q.type === "dropdown"){
+    if(!Array.isArray(q.choices)||q.choices.length<3||!q.choices.map(String).includes(String(q.answer)))return fallbackLessonQuestion(pack);
+  }
+  if(q.type === "ranking"){
+    if(!Array.isArray(q.items)||q.items.length<3||new Set(q.items.map(String)).size!==q.items.length)return fallbackLessonQuestion(pack);
+  }
   if(q.type === "order"){
     if(!Array.isArray(q.items) || q.items.length < 2) return fallbackLessonQuestion(pack);
+  }
+  if(q.type === "category-sort"){
+    if(!Array.isArray(q.categories)||q.categories.length<3||!Array.isArray(q.items)||q.items.length<9||q.items.some(item=>!q.categories.some(category=>category.name===item.category))) return fallbackLessonQuestion(pack);
   }
   return q;
 }
@@ -1315,6 +1361,17 @@ function restoreSavedAnswerView(){
     const selected=new Set(response.map(String));
     document.querySelectorAll("#lrChoices .selectall-choice").forEach(input=>{ input.checked=selected.has(input.value); });
     highlightLessonAnswers(q,LR.lastAnswer);
+  }else if(q.type==="dropdown"){
+    const select=document.querySelector("#lrChoices .lesson-dropdown");
+    if(select)select.value=String(response??"");
+    highlightLessonAnswers(q,LR.lastAnswer);
+  }else if(q.type==="ranking"&&Array.isArray(response)){
+    const list=document.querySelector("#lrChoices .ranking-list");
+    if(list){
+      const cards=[...list.querySelectorAll(".ranking-card")];
+      response.forEach(value=>{const card=cards.find(item=>item.dataset.value===String(value));if(card)list.appendChild(card);});
+    }
+    highlightLessonAnswers(q,LR.lastAnswer);
   }else if(q.type==="order"&&Array.isArray(response)){
     document.querySelectorAll("#lrChoices .order-choice").forEach(button=>{
       const position=response.map(String).indexOf(String(button.dataset.value));
@@ -1332,6 +1389,8 @@ function restoreSavedAnswerView(){
       if(zone&&saved.dropped){ zone.dataset.dropped=String(saved.dropped); zone.querySelector(".drop-slot").textContent=String(saved.dropped); }
     });
     showDragCorrections(q);
+  }else if(q.type==="category-sort"&&response&&typeof response==="object"){
+    window.K12CategorySort?.restore(q,response);
   }else if(q.type==="atom-build"&&response&&typeof response==="object"){
     ATOM_BUILD_COUNTS={...response};
     ATOM_BUILD_REDRAW?.();
@@ -1430,6 +1489,9 @@ function lrRender(){
   else if(q.type === "drag"){
     renderDrag(q);
   }
+  else if(q.type === "category-sort"){
+    window.K12CategorySort?.render(q);
+  }
 
   else if(q.type === "speed"){
     renderSpeed(q);
@@ -1437,6 +1499,14 @@ function lrRender(){
 
   else if(q.type === "selectall"){
     renderSelectAll(q);
+  }
+
+  else if(q.type === "dropdown"){
+    renderDropdown(q);
+  }
+
+  else if(q.type === "ranking"){
+    renderRanking(q);
   }
 
   else if(q.type === "order"){
@@ -1475,6 +1545,9 @@ function lrRender(){
   }else if(typeof setQAudio === "function"){
     setQAudio(lessonQuestionSpeech(q));
   }
+  requestAnimationFrame(()=>{
+    if(!$("lessonRunner")?.classList.contains("d-none")) $("lrQuestionCard")?.scrollIntoView({behavior:"instant",block:"start"});
+  });
 }
 
 function lrCheck(){
@@ -1540,8 +1613,27 @@ function lrCheck(){
     return;
   }
 
+  if(q.type === "category-sort"){
+    const result=window.K12CategorySort?.check(q);
+    if(!result) return;
+    LR.savedResponse=result.placements;
+    LR.lastAnswer=`${result.placed} of ${q.items.length} cards placed`;
+    if(result.correct){
+      window.K12CategorySort?.showCorrections(q,result.placements);
+      lessonCorrect(`All ${q.items.length} cards are in the right categories!`,"Great sorting!");
+    }else{
+      window.K12CategorySort?.showCorrections(q,result.placements);
+      lrWrongMoveOn("Review the highlighted cards and their correct categories.","Review the corrections.",4500);
+    }
+    return;
+  }
+
   if(q.type === "selectall"){
     const picked = [...document.querySelectorAll("#lrChoices .selectall-choice:checked")].map(el=>el.value).sort();
+    if(q.requiredSelections && picked.length!==q.requiredSelections){
+      $("lrFb").textContent=`Select exactly ${q.requiredSelections} choices before checking.`;
+      return;
+    }
     LR.savedResponse=[...picked];
     LR.lastAnswer=picked.join(", ")||"No choices selected";
     const answers = [...q.answers].map(String).sort();
@@ -1567,6 +1659,23 @@ function lrCheck(){
       lrWrongMoveOn(wrongExplanation(q, picked.join(", ")), picked.length < q.items.length ? "Finish the order before checking." : "Review the correct order.", 3500);
       document.querySelectorAll("#lrChoices .order-choice").forEach(b=>b.classList.remove("picked"));
     }
+    return;
+  }
+
+  if(q.type === "dropdown"){
+    const picked=document.querySelector("#lrChoices .lesson-dropdown")?.value||"";
+    if(!picked){$("lrFb").textContent="Choose an option before checking.";return;}
+    LR.savedResponse=picked;LR.lastAnswer=picked;
+    if(picked===String(q.answer))lessonCorrect("Correct!","Correct!");
+    else lrWrongMoveOn(wrongExplanation(q,picked),"Review the correct choice.",3500);
+    return;
+  }
+
+  if(q.type === "ranking"){
+    const picked=[...document.querySelectorAll("#lrChoices .ranking-card")].map(item=>item.dataset.value);
+    LR.savedResponse=[...picked];LR.lastAnswer=picked.join(", ");
+    if(picked.every((value,index)=>value===String(q.items[index])))lessonCorrect("Correct order!","Correct order!");
+    else lrWrongMoveOn(wrongExplanation(q,picked.join(", ")),"Review the correct order.",3500);
     return;
   }
 
@@ -1744,6 +1853,10 @@ function renderSpeed(q){
 
 function renderSelectAll(q){
   $("lrCheckBtn").classList.remove("d-none");
+  if(q.requiredSelections){
+    const note=document.createElement("p");note.className="special-choice-note";note.textContent=`Choose exactly ${q.requiredSelections} of ${q.choices.length} options.`;
+    $("lrChoices").appendChild(note);
+  }
   q.choices.forEach(choice=>{
     const label = document.createElement("label");
     label.className = "selectall-card";
@@ -1753,6 +1866,48 @@ function renderSelectAll(q){
     `;
     $("lrChoices").appendChild(label);
   });
+  if(q.requiredSelections){
+    $("lrChoices").querySelectorAll(".selectall-choice").forEach(input=>input.addEventListener("change",()=>{
+      const count=$("lrChoices").querySelectorAll(".selectall-choice:checked").length;
+      if(count>q.requiredSelections){input.checked=false;$("lrFb").textContent=`Choose exactly ${q.requiredSelections} options.`;}
+      else $("lrFb").textContent="";
+    }));
+  }
+}
+
+function renderDropdown(q){
+  $("lrCheckBtn").classList.remove("d-none");
+  const box=document.createElement("div");box.className="special-dropdown-box";
+  const label=document.createElement("label");label.textContent="Choose one answer";
+  const select=document.createElement("select");select.className="lesson-dropdown";
+  select.innerHTML='<option value="">Choose an option</option>';
+  q.choices.forEach(choice=>{const option=document.createElement("option");option.value=String(choice);option.textContent=String(choice);select.appendChild(option);});
+  label.appendChild(select);box.appendChild(label);$("lrChoices").appendChild(box);
+}
+
+function renderRanking(q){
+  $("lrCheckBtn").classList.remove("d-none");
+  const list=document.createElement("div");list.className="ranking-list";list.setAttribute("role","list");
+  let dragged=null;
+  shuffle([...q.items]).forEach(value=>{
+    const card=document.createElement("div");card.className="ranking-card";card.dataset.value=String(value);card.draggable=true;card.tabIndex=0;card.setAttribute("role","listitem");
+    const handle=document.createElement("span");handle.className="ranking-handle";handle.textContent="☰";handle.setAttribute("aria-hidden","true");
+    const text=document.createElement("strong");text.textContent=String(value);
+    const controls=document.createElement("span");controls.className="ranking-controls";
+    for(const [label,direction] of [["Move up",-1],["Move down",1]]){
+      const button=document.createElement("button");button.type="button";button.textContent=direction<0?"↑":"↓";button.setAttribute("aria-label",`${label}: ${value}`);
+      button.onclick=()=>{const sibling=direction<0?card.previousElementSibling:card.nextElementSibling;if(sibling)list.insertBefore(card,direction<0?sibling:sibling.nextElementSibling);card.focus();};
+      controls.appendChild(button);
+    }
+    card.append(handle,text,controls);
+    card.addEventListener("dragstart",event=>{dragged=card;event.dataTransfer.setData("text/plain",String(value));});
+    card.addEventListener("dragover",event=>event.preventDefault());
+    card.addEventListener("drop",event=>{event.preventDefault();if(dragged&&dragged!==card){const after=event.clientY>card.getBoundingClientRect().top+card.offsetHeight/2;list.insertBefore(dragged,after?card.nextElementSibling:card);dragged.focus();}});
+    card.addEventListener("dragend",()=>{dragged=null;});
+    card.addEventListener("keydown",event=>{if(event.key!=="ArrowUp"&&event.key!=="ArrowDown")return;event.preventDefault();const sibling=event.key==="ArrowUp"?card.previousElementSibling:card.nextElementSibling;if(sibling)list.insertBefore(card,event.key==="ArrowUp"?sibling:sibling.nextElementSibling);card.focus();});
+    list.appendChild(card);
+  });
+  $("lrChoices").appendChild(list);
 }
 
 function renderOrder(q){

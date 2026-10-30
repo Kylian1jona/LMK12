@@ -2,14 +2,17 @@
    Toy Playground
 =========================== */
 var PLAYGROUND_MODES = [
+  { id:"math", name:"Math Quest", category:"learn", tip:"Solve five quick math puzzles." },
+  { id:"words", name:"Word Wizard", category:"learn", tip:"Build reading and vocabulary skills." },
+  { id:"science", name:"Science Explorer", category:"learn", tip:"Explore everyday science facts." },
   { id:"toybox", name:"Toy Box", tip:"Click a toy to place it. Drag toys around the stage." },
-  { id:"flyer", name:"Sky Flyer", tip:"Press Space, click, or tap Jump to fly through the gaps." },
-  { id:"runner", name:"Lane Dash", tip:"Move left and right to dodge blocks and collect stars." },
+  { id:"flyer", name:"Sky Flyer", tip:"Jump through eight gates without crashing." },
+  { id:"runner", name:"Lane Dash", tip:"Dodge blocks and collect eight stars." },
   { id:"brick", name:"Brick Bounce", tip:"Move the paddle to clear every brick." },
-  { id:"pop", name:"Star Pop", tip:"Click as many moving stars as you can before time runs out." },
+  { id:"pop", name:"Star Pop", tip:"Pop twenty moving stars before time runs out." },
   { id:"memory", name:"Toy Match", tip:"Flip cards and find every toy pair." },
-  { id:"maze", name:"Maze Quest", tip:"Move through the maze and collect all the coins." },
-  { id:"catch", name:"Toy Catch", tip:"Move the basket and catch falling toys." }
+  { id:"maze", name:"Maze Quest", tip:"Find eight gems, then reach the exit." },
+  { id:"catch", name:"Toy Catch", tip:"Catch twelve toys before missing five." }
 ];
 
 var PG = {
@@ -20,8 +23,135 @@ var PG = {
   state:{},
   keys:{},
   images:{},
+  level:0,
   started:false
 };
+
+var PLAYGROUND_QUESTIONS = {
+  words:[
+    {q:"Which word rhymes with cat?",choices:["hat","sun","dog"],answer:0,why:"Cat and hat end with the same sound."},
+    {q:"Which word means the opposite of hot?",choices:["warm","cold","bright"],answer:1,why:"Cold is the opposite of hot."},
+    {q:"Which word is a noun?",choices:["jump","happy","garden"],answer:2,why:"A garden is a place, so it is a noun."},
+    {q:"Choose the correct sentence.",choices:["She run fast.","She runs fast.","She running fast."],answer:1,why:"She runs fast uses the correct verb form."},
+    {q:"What does enormous mean?",choices:["very large","very quiet","very old"],answer:0,why:"Enormous means very large."},
+    {q:"Which word has a long A sound?",choices:["cake","cat","cap"],answer:0,why:"The a in cake says its name."},
+    {q:"Which word completes: The birds ___ flying.",choices:["is","are","am"],answer:1,why:"Birds is plural, so use are."}
+  ],
+  wordsBuilder:[
+    {q:"Which word is a synonym for brave?",choices:["courageous","careless","quiet"],answer:0,why:"Courageous means brave."},
+    {q:"Choose the sentence with correct punctuation.",choices:["Where is my book?","Where is my book.","Where is my book!"],answer:0,why:"A direct question ends with a question mark."},
+    {q:"Which word is an adjective?",choices:["quickly","colorful","swim"],answer:1,why:"Colorful describes a person, place, or thing."},
+    {q:"What does predict mean?",choices:["to guess what may happen","to repeat exactly","to explain the past"],answer:0,why:"To predict is to say what you think may happen next."},
+    {q:"Which sentence uses their correctly?",choices:["Their dog is friendly.","Their going home.","Put it over their."],answer:0,why:"Their shows that the dog belongs to them."}
+  ],
+  wordsChallenge:[
+    {q:"Which phrase is a metaphor?",choices:["The classroom was a zoo.","The room was loud.","The room sounded like a zoo."],answer:0,why:"A metaphor compares two things without using like or as."},
+    {q:"Which word best replaces ambiguous?",choices:["unclear","obvious","careful"],answer:0,why:"Ambiguous means open to more than one meaning."},
+    {q:"Which sentence uses a semicolon correctly?",choices:["I studied; I felt ready.","I; studied hard.","I studied; and."],answer:0,why:"A semicolon can join two closely related complete sentences."},
+    {q:"What is the main purpose of a counterclaim?",choices:["To present an opposing view","To repeat the title","To list sources"],answer:0,why:"A counterclaim presents a viewpoint that differs from the claim."},
+    {q:"Which sentence uses parallel structure?",choices:["She likes reading, drawing, and singing.","She likes reading, to draw, and songs.","She likes read, drawing, and to sing."],answer:0,why:"The three activities use the same verb form."}
+  ],
+  science:[
+    {q:"What do plants need to make food?",choices:["sunlight","plastic","sand only"],answer:0,why:"Plants use sunlight to make food."},
+    {q:"Which state of water is ice?",choices:["gas","liquid","solid"],answer:2,why:"Ice is solid water."},
+    {q:"Which body part pumps blood?",choices:["heart","lungs","stomach"],answer:0,why:"The heart pumps blood through the body."},
+    {q:"What force pulls objects toward Earth?",choices:["sound","gravity","light"],answer:1,why:"Gravity pulls objects toward Earth."},
+    {q:"Which animal is a mammal?",choices:["frog","dolphin","butterfly"],answer:1,why:"A dolphin is a mammal that breathes air."},
+    {q:"What happens when water gets very warm?",choices:["It evaporates.","It becomes rock.","It disappears forever."],answer:0,why:"Warm water can evaporate into water vapor."},
+    {q:"Which part of a plant takes in water?",choices:["flower","roots","leaves"],answer:1,why:"Roots absorb water from the soil."}
+  ],
+  scienceBuilder:[
+    {q:"What do we call an animal that eats plants and animals?",choices:["omnivore","herbivore","producer"],answer:0,why:"An omnivore eats both plants and animals."},
+    {q:"Which material is a good conductor of electricity?",choices:["copper","rubber","dry wood"],answer:0,why:"Copper lets electric current flow easily."},
+    {q:"What is the first step of the water cycle when liquid water becomes vapor?",choices:["evaporation","condensation","precipitation"],answer:0,why:"Evaporation changes liquid water into vapor."},
+    {q:"Which organ helps exchange oxygen and carbon dioxide?",choices:["lungs","kidneys","stomach"],answer:0,why:"The lungs move oxygen into blood and carbon dioxide out."},
+    {q:"What happens to a shadow when a light moves closer to an object?",choices:["It usually grows larger.","It disappears.","It always turns blue."],answer:0,why:"A closer light usually makes the object's shadow larger."}
+  ],
+  scienceChallenge:[
+    {q:"What is the role of a decomposer in an ecosystem?",choices:["Break down dead matter","Make sunlight","Stop all food chains"],answer:0,why:"Decomposers return nutrients from dead matter to the environment."},
+    {q:"Which statement follows Newton's third law?",choices:["For every action there is an equal and opposite reaction.","Mass disappears in motion.","Energy is never transferred."],answer:0,why:"Forces between two interacting objects act in opposite directions."},
+    {q:"What does pH below 7 indicate?",choices:["An acid","A neutral substance","A base"],answer:0,why:"On the pH scale, a value below 7 is acidic."},
+    {q:"Which process uses DNA to make an RNA copy?",choices:["transcription","translation","diffusion"],answer:0,why:"Transcription copies information from DNA into RNA."},
+    {q:"What does a control group help scientists do?",choices:["Compare results","Change every variable","Prove every prediction"],answer:0,why:"A control group gives a comparison for the tested variable."}
+  ]
+};
+
+function playgroundIsLearningMode(mode=PG.mode){ return ["math","words","science"].includes(mode); }
+
+function playgroundShuffle(items){
+  const result=[...items];
+  for(let i=result.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [result[i],result[j]]=[result[j],result[i]];
+  }
+  return result;
+}
+
+function playgroundShuffleAnswers(question){
+  const choices=playgroundShuffle(question.choices.map((label,index)=>({label,correct:index===question.answer})));
+  return {...question,choices:choices.map(choice=>choice.label),answer:choices.findIndex(choice=>choice.correct)};
+}
+
+function playgroundMathQuestions(){
+  const questions=[];
+  for(let i=0;i<5;i++){
+    let a,b,answer,question;
+    if(PG.level===2){
+      a=2+Math.floor(Math.random()*11); b=2+Math.floor(Math.random()*10);
+      if(i%2){answer=a*a-b;question=`What is ${a}² − ${b}?`;}
+      else{answer=a*b;question=`What is ${a} × ${b}?`;}
+    }else if(PG.level===1){
+      a=3+Math.floor(Math.random()*10);b=2+Math.floor(Math.random()*9);
+      if(i%2){answer=a;question=`What is ${a*b} ÷ ${b}?`;}
+      else{answer=a*b;question=`What is ${a} × ${b}?`;}
+    }else{
+      a=3+Math.floor(Math.random()*18);b=2+Math.floor(Math.random()*12);
+      const subtract=i%2===1;
+      const x=subtract?a+b:a;
+      answer=subtract?a:a+b;
+      question=`What is ${x} ${subtract?"−":"+"} ${b}?`;
+    }
+    const options=playgroundShuffle([answer,answer+2,answer-2]);
+    questions.push({q:question,choices:options.map(String),answer:options.indexOf(answer),why:`${question.slice(8,-1)} = ${answer}.`});
+  }
+  return questions;
+}
+
+function setPlaygroundLevel(level){
+  if(!Number.isInteger(level) || level<0 || level>2 || !playgroundIsLearningMode()) return;
+  PG.level=level;
+  resetPlaygroundGame();
+}
+
+function renderPlaygroundQuestion(){
+  const host=$("playgroundLearning");
+  if(!host || !playgroundIsLearningMode()) return;
+  const s=PG.state;
+  const levels=`<div class="playground-levels" role="group" aria-label="Game difficulty">${["Beginner","Builder","Challenge"].map((label,i)=>`<button type="button" class="${PG.level===i?"active":""}" aria-pressed="${PG.level===i}" onclick="setPlaygroundLevel(${i})">${label}</button>`).join("")}</div>`;
+  if(s.done){
+    host.innerHTML=`<div class="playground-quiz-wrap">${levels}<div class="playground-quiz-card"><span class="playground-quiz-kicker">ROUND COMPLETE</span><h2>Great work!</h2><p>You answered ${s.score} of ${s.questions.length} correctly.</p><button type="button" class="btn btn-main" onclick="resetPlaygroundGame()">Play again</button></div></div>`;
+    return;
+  }
+  const item=s.questions[s.index];
+  host.innerHTML=`<div class="playground-quiz-wrap">${levels}<div class="playground-quiz-card"><span class="playground-quiz-kicker">QUESTION ${s.index+1} OF ${s.questions.length} · SCORE ${s.score}</span><h2>${playgroundSafe(item.q)}</h2><div class="playground-quiz-choices">${item.choices.map((choice,i)=>`<button type="button" class="playground-quiz-choice ${s.selected!==null?(i===item.answer?"correct":s.selected===i?"incorrect":""):""}" onclick="answerPlaygroundQuestion(${i})" ${s.selected!==null?"disabled":""}>${playgroundSafe(choice)}</button>`).join("")}</div><div class="playground-quiz-feedback" role="status" aria-live="polite">${s.selected===null?"Choose an answer to see why.":`${s.selected===item.answer?"Correct!":"Good try!"} ${playgroundSafe(item.why)}`}</div>${s.selected!==null?`<button type="button" class="btn btn-main" onclick="nextPlaygroundQuestion()">${s.index===s.questions.length-1?"See score":"Next question"}</button>`:""}</div></div>`;
+}
+
+function answerPlaygroundQuestion(index){
+  if(!playgroundIsLearningMode() || PG.state.selected!==null || PG.state.done) return;
+  const s=PG.state;
+  if(index<0 || index>=s.questions[s.index].choices.length) return;
+  s.selected=index;
+  if(index===s.questions[s.index].answer) s.score++;
+  renderPlaygroundQuestion();
+}
+
+function nextPlaygroundQuestion(){
+  if(!playgroundIsLearningMode() || PG.state.selected===null || PG.state.done) return;
+  PG.state.index++;
+  PG.state.selected=null;
+  PG.state.done=PG.state.index>=PG.state.questions.length;
+  renderPlaygroundQuestion();
+}
 
 function playgroundSafe(value){
   if(typeof htmlSafe === "function") return htmlSafe(value);
@@ -71,8 +201,8 @@ function renderPlaygroundLock(panel){
     <div class="playground-lock">
       <div>
         <p class="lock-kicker">Playground access</p>
-        <h1>Unlock Toy Playground</h1>
-        <p class="small-note">Spend ${cost} Learners once for this learner to open the toy games and toy stage.</p>
+        <h1>Unlock Playground</h1>
+        <p class="small-note">Spend ${cost} Learners once for this learner to open educational games, arcade games, and the toy stage.</p>
       </div>
       <div class="playground-lock-meter">
         <strong>${learners} / ${cost}</strong>
@@ -93,14 +223,7 @@ function renderPlayground(){
   const panel = $("playgroundPanel");
   if(!panel) return;
   cancelPlaygroundLoop();
-  panel.innerHTML = `
-    <section class="lm-coming-soon">
-      <span>COMING SOON</span>
-      <h1>Playground is being built.</h1>
-      <p>New reward games and creative activities are on the way. Lessons, Reading, and the Rewards Shop are still ready to use.</p>
-      <div><button type="button" class="lm-primary" onclick="show('grades')">Keep learning</button><button type="button" class="lm-secondary" onclick="show('shop')">Open rewards</button></div>
-    </section>`;
-  return;
+  PG.keys={};
   if(typeof playgroundUnlocked === "function" && !playgroundUnlocked()){
     renderPlaygroundLock(panel);
     return;
@@ -109,8 +232,8 @@ function renderPlayground(){
   panel.innerHTML = `
     <div class="playground-head">
       <div>
-        <h1>Toy Playground</h1>
-        <p class="small-note">Use your shop toys, then jump into quick arcade games.</p>
+        <h1>Playground</h1>
+        <p class="small-note">Practice a skill or pick a game just for fun.</p>
       </div>
       <div class="scorebar">
         <button type="button" class="btn btn-main" onclick="show('shop')">Shop</button>
@@ -118,27 +241,28 @@ function renderPlayground(){
       </div>
     </div>
 
-    <div class="playground-game-row" id="playgroundGameButtons"></div>
+    <div id="playgroundGameButtons"></div>
+    <div id="playgroundLearning" class="playground-learning" hidden></div>
 
     <div class="playground-stage" id="playgroundStage">
       <canvas id="playgroundCanvas" width="960" height="540" aria-label="Interactive playground game canvas"></canvas>
       <div class="toy-play-layer" id="toyPlayLayer"></div>
     </div>
 
-    <div class="playground-toolbar">
+    <div class="playground-toolbar" id="playgroundToolbar">
       <button type="button" class="btn btn-main" id="playgroundStartBtn" onclick="startPlaygroundGame()">Start</button>
-      <button type="button" class="btn btn-main" onclick="pausePlaygroundGame()">Pause</button>
+      <button type="button" class="btn btn-main" id="playgroundPauseBtn" onclick="pausePlaygroundGame()">Pause</button>
       <button type="button" class="btn btn-main" onclick="resetPlaygroundGame()">Reset</button>
-      <button type="button" class="btn btn-main" onclick="addRandomPlaygroundToy()">Add Toy</button>
-      <button type="button" class="btn btn-main" onclick="shufflePlaygroundToys()">Shuffle Toys</button>
-      <button type="button" class="btn btn-main" onclick="clearPlaygroundToys()">Clear Toys</button>
+      <button type="button" class="btn btn-main" data-toy-control onclick="addRandomPlaygroundToy()">Add Toy</button>
+      <button type="button" class="btn btn-main" data-toy-control onclick="shufflePlaygroundToys()">Shuffle Toys</button>
+      <button type="button" class="btn btn-main" data-toy-control onclick="clearPlaygroundToys()">Clear Toys</button>
     </div>
 
-    <div class="playground-touch-controls">
-      <button type="button" onclick="playgroundAction('left')">Left</button>
-      <button type="button" onclick="playgroundAction('up')">Jump</button>
-      <button type="button" onclick="playgroundAction('right')">Right</button>
-      <button type="button" onclick="playgroundAction('down')">Down</button>
+    <div class="playground-touch-controls" id="playgroundTouchControls">
+      <button type="button" data-playground-action="left" onclick="playgroundAction('left')">Left</button>
+      <button type="button" data-playground-action="up" onclick="playgroundAction('up')">Up / Jump</button>
+      <button type="button" data-playground-action="right" onclick="playgroundAction('right')">Right</button>
+      <button type="button" data-playground-action="down" onclick="playgroundAction('down')">Down</button>
     </div>
 
     <div class="playground-status" id="playgroundStatus"></div>
@@ -154,11 +278,11 @@ function renderPlayground(){
 function renderPlaygroundModeButtons(){
   const row = $("playgroundGameButtons");
   if(!row) return;
-  row.innerHTML = PLAYGROUND_MODES.map(mode=>`
-    <button type="button" class="playground-game-btn" data-playground-mode="${mode.id}" onclick="switchPlaygroundGame('${mode.id}')">
-      ${playgroundSafe(mode.name)}
-    </button>
-  `).join("");
+  row.innerHTML = `<section class="playground-mode-group"><h2>Educational games</h2><div class="playground-game-row">${PLAYGROUND_MODES.filter(mode=>mode.category==="learn").map(playgroundModeButton).join("")}</div></section><section class="playground-mode-group"><h2>Just for fun</h2><div class="playground-game-row">${PLAYGROUND_MODES.filter(mode=>mode.category!=="learn").map(playgroundModeButton).join("")}</div></section>`;
+}
+
+function playgroundModeButton(mode){
+  return `<button type="button" class="playground-game-btn" data-playground-mode="${mode.id}" aria-pressed="false" onclick="switchPlaygroundGame('${mode.id}')"><strong>${playgroundSafe(mode.name)}</strong><small>${playgroundSafe(mode.tip)}</small></button>`;
 }
 
 function renderPlaygroundToyShelf(){
@@ -192,14 +316,37 @@ function setPlaygroundStatus(text){
 
 function setPlaygroundActiveButton(){
   document.querySelectorAll("[data-playground-mode]").forEach(btn=>{
-    btn.classList.toggle("active", btn.dataset.playgroundMode === PG.mode);
+    const active=btn.dataset.playgroundMode === PG.mode;
+    btn.classList.toggle("active", active);
+    btn.setAttribute("aria-pressed",String(active));
   });
   const mode = PLAYGROUND_MODES.find(item=>item.id === PG.mode);
   setPlaygroundStatus(mode ? mode.tip : "");
+  const learning=playgroundIsLearningMode();
+  const quiz=$("playgroundLearning");
+  if(quiz) quiz.hidden=!learning;
+  ["playgroundStage","playgroundToolbar","playgroundTouchControls","playgroundToyShelf"].forEach(id=>{
+    const el=$(id);
+    if(el) el.hidden=learning;
+  });
   const layer = $("toyPlayLayer");
   if(layer) layer.classList.toggle("is-hidden", PG.mode !== "toybox");
   const startBtn = $("playgroundStartBtn");
-  if(startBtn) startBtn.textContent = PG.mode === "toybox" ? "Add Random Toy" : "Start";
+  if(startBtn){
+    startBtn.hidden=["toybox","memory","maze"].includes(PG.mode);
+    startBtn.textContent="Start";
+    startBtn.disabled=false;
+  }
+  const pauseBtn=$("playgroundPauseBtn");
+  if(pauseBtn) pauseBtn.hidden=PG.mode==="toybox" || PG.mode==="memory" || PG.mode==="maze";
+  document.querySelectorAll("[data-toy-control]").forEach(btn=>btn.hidden=PG.mode!=="toybox");
+  const actions={toybox:[],flyer:["up"],runner:["left","right"],brick:["left","right"],pop:[],memory:[],maze:["left","up","right","down"],catch:["left","right"]};
+  document.querySelectorAll("[data-playground-action]").forEach(btn=>{
+    btn.hidden=!(actions[PG.mode]||[]).includes(btn.dataset.playgroundAction);
+    if(btn.dataset.playgroundAction==="up") btn.textContent=PG.mode==="flyer"?"Jump":"Up";
+  });
+  const controls=$("playgroundTouchControls");
+  if(controls) controls.hidden=learning || !(actions[PG.mode]||[]).length;
 }
 
 function playgroundCtx(){
@@ -240,7 +387,16 @@ function switchPlaygroundGame(modeId, keepToys){
 
 function resetPlaygroundGame(keepToys){
   cancelPlaygroundLoop();
+  PG.started=false;
   PG.state = {};
+  if(playgroundIsLearningMode()){
+    const key=PG.mode+(PG.level===1?"Builder":PG.level===2?"Challenge":"");
+    const bank=PG.mode==="math"?playgroundMathQuestions():playgroundShuffle(PLAYGROUND_QUESTIONS[key]).map(playgroundShuffleAnswers);
+    PG.state={questions:bank.slice(0,5),index:0,score:0,selected:null,done:false};
+    setPlaygroundActiveButton();
+    renderPlaygroundQuestion();
+    return;
+  }
   if(PG.mode === "flyer") initFlyerGame();
   if(PG.mode === "runner") initRunnerGame();
   if(PG.mode === "brick") initBrickGame();
@@ -254,6 +410,7 @@ function resetPlaygroundGame(keepToys){
 }
 
 function startPlaygroundGame(){
+  if(playgroundIsLearningMode()) return;
   if(PG.mode === "toybox"){
     addRandomPlaygroundToy();
     return;
@@ -262,11 +419,15 @@ function startPlaygroundGame(){
   PG.running = true;
   PG.started = true;
   PG.last = performance.now();
+  const startBtn=$("playgroundStartBtn");
+  if(startBtn){ startBtn.textContent="Playing"; startBtn.disabled=true; }
   if(!PG.raf) PG.raf = requestAnimationFrame(playgroundTick);
 }
 
 function pausePlaygroundGame(){
   cancelPlaygroundLoop();
+  const startBtn=$("playgroundStartBtn");
+  if(startBtn){ startBtn.textContent="Resume"; startBtn.disabled=false; }
   drawPlayground();
 }
 
@@ -280,6 +441,16 @@ function playgroundTick(now){
   }else{
     PG.running = false;
     PG.raf = 0;
+    const startBtn=$("playgroundStartBtn");
+    if(startBtn && (PG.state.over || PG.state.win)){
+      startBtn.textContent="Play Again";
+      startBtn.disabled=false;
+    }
+    if(PG.state.over || PG.state.win){
+      const mode=PLAYGROUND_MODES.find(item=>item.id===PG.mode);
+      const replay=PG.mode==="memory"?"Press Reset to play again.":"Press Play Again or Reset for another round.";
+      setPlaygroundStatus(`${mode?.name || "Game"}: ${PG.state.win?"You win!":"Round over."} ${replay}`);
+    }
   }
 }
 
@@ -289,6 +460,7 @@ function playgroundAction(action){
     if(action === "down") shufflePlaygroundToys();
     return;
   }
+  if((PG.state.over || PG.state.win) && !["memory","maze"].includes(PG.mode)) resetPlaygroundGame(true);
   if(PG.mode === "flyer" && action === "up") PG.state.bird.vy = -430;
   if(PG.mode === "runner"){
     if(action === "left") PG.state.lane = Math.max(0, PG.state.lane - 1);
@@ -317,10 +489,16 @@ function playgroundPointer(type, event){
     playgroundAction("up");
     startPlaygroundGame();
   }
-  if(PG.mode === "brick" && type === "move") PG.state.paddleX = Math.max(80, Math.min(880, p.x));
+  if(PG.mode === "brick" && (type === "move" || type === "down")){
+    if(type === "down" && !PG.running) startPlaygroundGame();
+    PG.state.paddleX = Math.max(80, Math.min(880, p.x));
+  }
   if(PG.mode === "pop" && type === "down") popStarAt(p.x, p.y);
   if(PG.mode === "memory" && type === "down") flipMemoryAt(p.x, p.y);
-  if(PG.mode === "catch" && type === "move") PG.state.basketX = Math.max(70, Math.min(890, p.x));
+  if(PG.mode === "catch" && (type === "move" || type === "down")){
+    if(type === "down" && !PG.running) startPlaygroundGame();
+    PG.state.basketX = Math.max(70, Math.min(890, p.x));
+  }
   drawPlayground();
 }
 
@@ -404,7 +582,7 @@ function drawToy(ctx, toy, x, y, w, h){
 }
 
 function initFlyerGame(){
-  PG.state = { bird:{x:160,y:250,vy:0}, gates:[], spawn:0, score:0, over:false };
+  PG.state = { bird:{x:160,y:250,vy:0}, gates:[], spawn:0, score:0, target:8, over:false, win:false };
 }
 
 function updateFlyerGame(dt){
@@ -421,6 +599,7 @@ function updateFlyerGame(dt){
     if(!g.passed && g.x + 76 < s.bird.x){
       g.passed = true;
       s.score++;
+      if(s.score>=s.target) s.win=true;
     }
   });
   s.gates = s.gates.filter(g=>g.x > -110);
@@ -440,13 +619,14 @@ function drawFlyerGame(ctx){
     roundRect(ctx, g.x, g.gap + 150, 76, 540 - g.gap - 150, 14, true);
   });
   drawToy(ctx, playgroundAvatarToy(), s.bird.x - 6, s.bird.y - 6, 64, 64);
-  drawLabel(ctx, `Score ${s.score}`, 24, 38, 24);
+  drawLabel(ctx, `Gates ${s.score}/${s.target}`, 24, 38, 24);
   if(!PG.started) drawCenterNotice(ctx, "Sky Flyer", "Tap Jump to start flying");
   if(s.over) drawCenterNotice(ctx, "Game Over", `Final score: ${s.score}`);
+  if(s.win) drawCenterNotice(ctx, "You Win!", "Eight gates cleared");
 }
 
 function initRunnerGame(){
-  PG.state = { lane:1, items:[], spawn:0, score:0, speed:260, over:false };
+  PG.state = { lane:1, items:[], spawn:0, score:0, target:8, speed:260, over:false, win:false };
 }
 
 function updateRunnerGame(dt){
@@ -466,7 +646,10 @@ function updateRunnerGame(dt){
     if(item.hit) return;
     if(item.lane === s.lane && item.y > 360 && item.y < 460){
       item.hit = true;
-      if(item.kind === "star") s.score++;
+      if(item.kind === "star"){
+        s.score++;
+        if(s.score>=s.target) s.win=true;
+      }
       else s.over = true;
     }
   });
@@ -499,9 +682,10 @@ function drawRunnerGame(ctx){
     }
   });
   drawToy(ctx, playgroundAvatarToy(), lanes[s.lane] - 42, 402, 84, 84);
-  drawLabel(ctx, `Score ${s.score}`, 24, 38, 24);
+  drawLabel(ctx, `Stars ${s.score}/${s.target}`, 24, 38, 24);
   if(!PG.started) drawCenterNotice(ctx, "Lane Dash", "Use Left and Right to start");
   if(s.over) drawCenterNotice(ctx, "Crash", `Stars collected: ${s.score}`);
+  if(s.win) drawCenterNotice(ctx, "You Win!", "Eight stars collected");
 }
 
 function drawStar(ctx, x, y, r){
@@ -572,7 +756,7 @@ function drawBrickGame(ctx){
 }
 
 function initPopGame(){
-  PG.state = {targets:[], score:0, time:30, over:false};
+  PG.state = {targets:[], score:0, target:20, time:30, over:false, win:false};
   for(let i=0;i<7;i++) addPopTarget();
 }
 
@@ -601,12 +785,14 @@ function updatePopGame(dt){
 
 function popStarAt(x, y){
   const s = PG.state;
+  if(s.over || s.win) return;
   const hit = s.targets.findIndex(t=>Math.hypot(t.x - x, t.y - y) < t.r);
   if(hit >= 0){
     s.targets.splice(hit, 1);
     s.score++;
+    if(s.score>=s.target) s.win=true;
     addPopTarget();
-    if(!PG.running) startPlaygroundGame();
+    if(!PG.running && !s.win) startPlaygroundGame();
   }
 }
 
@@ -616,18 +802,18 @@ function drawPopGame(ctx){
     ctx.fillStyle = "#ffd34d";
     drawStar(ctx, t.x, t.y, t.r);
   });
-  drawLabel(ctx, `Score ${s.score}`, 24, 38, 24);
+  drawLabel(ctx, `Stars ${s.score}/${s.target}`, 24, 38, 24);
   drawLabel(ctx, `Time ${Math.ceil(s.time)}`, 800, 38, 24);
   if(!PG.started) drawCenterNotice(ctx, "Star Pop", "Click a star to begin");
   if(s.over) drawCenterNotice(ctx, "Time", `You popped ${s.score} stars`);
+  if(s.win) drawCenterNotice(ctx, "You Win!", "Twenty stars popped");
 }
 
 function initMemoryGame(){
   const toys = playgroundPlayableToys().slice(0, 6);
-  const cards = [...toys, ...toys]
-    .map((toy, index)=>({toy, key:toy.id + "-" + index, flipped:false, matched:false}))
-    .sort(()=>Math.random() - .5);
-  PG.state = {cards, first:null, lock:0, score:0, win:false};
+  const cards = playgroundShuffle([...toys, ...toys]
+    .map((toy, index)=>({toy, key:toy.id + "-" + index, flipped:false, matched:false})));
+  PG.state = {cards, total:toys.length, first:null, lock:0, score:0, win:false};
 }
 
 function updateMemoryGame(dt){
@@ -678,6 +864,7 @@ function flipMemoryAt(x, y){
     }
   }
   PG.started = true;
+  if(!PG.running && !s.win) startPlaygroundGame();
 }
 
 function drawMemoryGame(ctx){
@@ -696,7 +883,7 @@ function drawMemoryGame(ctx){
       drawStar(ctx, x + w/2, y + h/2, 28);
     }
   });
-  drawLabel(ctx, `Matches ${s.score}/6`, 24, 38, 24);
+  drawLabel(ctx, `Matches ${s.score}/${s.total}`, 24, 38, 24);
   if(s.win) drawCenterNotice(ctx, "Matched", "All toy pairs found");
 }
 
@@ -711,12 +898,12 @@ function initMazeGame(){
     "#.####...#.#",
     "############"
   ];
-  const coins = new Set();
+  const open=[];
   map.forEach((row, r)=>row.split("").forEach((cell, c)=>{
-    if(cell === ".") coins.add(c + "," + r);
+    if(cell === "." && !(c===1 && r===1) && !(c===10 && r===5)) open.push(c + "," + r);
   }));
-  PG.state = {map, player:{c:1,r:1}, coins, score:0, win:false};
-  PG.state.coins.delete("1,1");
+  const coins = new Set(playgroundShuffle(open).slice(0,8));
+  PG.state = {map, player:{c:1,r:1}, exit:{c:10,r:5}, coins, total:coins.size, score:0, win:false};
 }
 
 function moveMaze(action){
@@ -731,16 +918,22 @@ function moveMaze(action){
   s.player.r = nr;
   const key = nc + "," + nr;
   if(s.coins.delete(key)) s.score++;
-  s.win = s.coins.size === 0;
+  s.win = s.coins.size === 0 && nc===s.exit.c && nr===s.exit.r;
   PG.started = true;
+  if(s.win) setPlaygroundStatus("Maze cleared! Press Reset to explore a new maze.");
 }
 
 function drawMazeGame(ctx){
   const s = PG.state;
   const cell = 48, ox = 192, oy = 76;
   s.map.forEach((row, r)=>row.split("").forEach((v, c)=>{
-    ctx.fillStyle = v === "#" ? "#71422d" : "#fffaf2";
+    ctx.fillStyle = v === "#" ? "#71422d" : (c===s.exit.c && r===s.exit.r ? "#9ae2b8" : "#fffaf2");
     ctx.fillRect(ox + c*cell, oy + r*cell, cell - 3, cell - 3);
+    if(c===s.exit.c && r===s.exit.r){
+      ctx.fillStyle="#175b39";
+      ctx.font="800 11px Fredoka, system-ui, sans-serif";
+      ctx.fillText("EXIT",ox+c*cell+7,oy+r*cell+28);
+    }
     if(s.coins.has(c + "," + r)){
       ctx.fillStyle = "#ffd34d";
       ctx.beginPath();
@@ -749,13 +942,13 @@ function drawMazeGame(ctx){
     }
   }));
   drawToy(ctx, playgroundAvatarToy(), ox + s.player.c*cell + 5, oy + s.player.r*cell + 5, 38, 38);
-  drawLabel(ctx, `Coins ${s.score}`, 24, 38, 24);
-  if(!PG.started) drawCenterNotice(ctx, "Maze Quest", "Use direction buttons or arrow keys");
-  if(s.win) drawCenterNotice(ctx, "Maze Cleared", `Coins collected: ${s.score}`);
+  drawLabel(ctx, `Gems ${s.score}/${s.total}`, 24, 38, 24);
+  if(!PG.started) drawCenterNotice(ctx, "Maze Quest", "Collect eight gems, then find EXIT");
+  if(s.win) drawCenterNotice(ctx, "Maze Cleared", "All gems found and exit reached");
 }
 
 function initCatchGame(){
-  PG.state = {basketX:480, drops:[], spawn:0, score:0, missed:0, over:false};
+  PG.state = {basketX:480, drops:[], spawn:0, score:0, target:12, missed:0, over:false, win:false};
 }
 
 function updateCatchGame(dt){
@@ -780,6 +973,7 @@ function updateCatchGame(dt){
     if(drop.y > 405 && Math.abs(drop.x - s.basketX) < 74){
       drop.done = true;
       s.score++;
+      if(s.score>=s.target) s.win=true;
     }else if(drop.y > 540){
       drop.done = true;
       s.missed++;
@@ -796,10 +990,11 @@ function drawCatchGame(ctx){
   roundRect(ctx, s.basketX - 80, 438, 160, 38, 16, true);
   ctx.fillStyle = "#fff5e7";
   roundRect(ctx, s.basketX - 65, 428, 130, 24, 14, true);
-  drawLabel(ctx, `Caught ${s.score}`, 24, 38, 24);
+  drawLabel(ctx, `Caught ${s.score}/${s.target}`, 24, 38, 24);
   drawLabel(ctx, `Missed ${s.missed}/5`, 780, 38, 24);
   if(!PG.started) drawCenterNotice(ctx, "Toy Catch", "Move the basket to begin");
   if(s.over) drawCenterNotice(ctx, "Round Over", `Toys caught: ${s.score}`);
+  if(s.win) drawCenterNotice(ctx, "You Win!", "Twelve toys caught");
 }
 
 function drawToybox(ctx){
@@ -898,4 +1093,9 @@ window.addEventListener("keydown", event=>{
 
 window.addEventListener("keyup", event=>{
   PG.keys[event.key] = false;
+});
+
+window.addEventListener("blur",()=>{
+  PG.keys={};
+  if(PG.running) pausePlaygroundGame();
 });

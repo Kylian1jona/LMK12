@@ -3,13 +3,14 @@
 (function(){
   const loadedGrades=new Set();
   const pendingGrades=new Map();
-  const release="course-sequence-20260907.1";
+  const release="g5-connections-20261029.1";
   function cloneQuestion(question){
     if(typeof structuredClone==="function") return structuredClone(question);
     return JSON.parse(JSON.stringify(question));
   }
 
   function installGrade(grade){
+    if(grade==='g5'&&typeof window.K12AddGrade5Connections==='function') window.K12AddGrade5Connections();
     if(typeof window.K12RepairClassicBank==="function") window.K12RepairClassicBank(grade);
     const data=window.K12_CLASSIC_25_DATA||{};
     const entries=Object.entries(data).filter(([key])=>key.startsWith(`${grade}:`));

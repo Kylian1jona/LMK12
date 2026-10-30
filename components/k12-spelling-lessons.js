@@ -23,7 +23,7 @@ function addEnglishSpellingLessons(){
         {clue:"a farm animal", correct:"PIG", wrong:["PEG","PUG"]},
         {clue:"something bright in the sky", correct:"SUN", wrong:["SAN","SIN"]}
       ]) },
-      { id:"L12", name:"Spelling Drag: Word Families", gen:()=>spellingDragLesson("Drag each word to its word family.", [
+      { id:"L12", name:"Word Families", gen:()=>spellingDragLesson("Drag each word to its word family.", [
         {left:"cat", right:"-at family"},
         {left:"hop", right:"-op family"},
         {left:"sun", right:"-un family"},
@@ -37,7 +37,7 @@ function addEnglishSpellingLessons(){
         {clue:"do again", correct:"REWRITE", wrong:["UNWRITE","PREWRITE"]},
         {clue:"before view", correct:"PREVIEW", wrong:["REVIEWED","UNVIEW"]}
       ]) },
-      { id:"L23", name:"Spelling Drag: Prefix Meanings", gen:()=>spellingDragLesson("Drag each prefix word to its meaning.", [
+      { id:"L23", name:"Prefix Meanings", gen:()=>spellingDragLesson("Drag each prefix word to its meaning.", [
         {left:"rewrite", right:"write again"},
         {left:"unhappy", right:"not happy"},
         {left:"preview", right:"see before"},
@@ -50,7 +50,7 @@ function addEnglishSpellingLessons(){
         {clue:"without care", correct:"CARELESS", wrong:["CARELES","CARELISS"]},
         {clue:"in a quick way", correct:"QUICKLY", wrong:["QUICKLEY","QUICKILY"]}
       ]) },
-      { id:"L14", name:"Spelling Drag: Suffix Rules", gen:()=>spellingDragLesson("Drag each word to its spelling rule.", [
+      { id:"L14", name:"Suffix Rules", gen:()=>spellingDragLesson("Drag each word to its spelling rule.", [
         {left:"happier", right:"change y to i"},
         {left:"running", right:"double final consonant"},
         {left:"hopeful", right:"drop silent e"},
@@ -63,7 +63,7 @@ function addEnglishSpellingLessons(){
         {clue:"in that place", correct:"THERE", wrong:["THEIR","THEY'RE"]},
         {clue:"they are", correct:"THEY'RE", wrong:["THERE","THEIR"]}
       ]) },
-      { id:"L55", name:"Spelling Drag: Homophones", gen:()=>spellingDragLesson("Drag each homophone to its meaning.", [
+      { id:"L55", name:"Homophones", gen:()=>spellingDragLesson("Drag each homophone to its meaning.", [
         {left:"their", right:"belongs to them"},
         {left:"there", right:"in that place"},
         {left:"they're", right:"they are"},
@@ -76,7 +76,7 @@ function addEnglishSpellingLessons(){
         {clue:"proof", correct:"EVIDENCE", wrong:["EVIDENSE","EVIDANCE"]},
         {clue:"a final decision", correct:"CONCLUSION", wrong:["CONCLUTION","CONCLUSHION"]}
       ]) },
-      { id:"L12", name:"Spelling Drag: Word Parts", gen:()=>spellingDragLesson("Drag each academic word to its clue.", [
+      { id:"L12", name:"Word Parts", gen:()=>spellingDragLesson("Drag each academic word to its clue.", [
         {left:"analysis", right:"careful study"},
         {left:"evidence", right:"proof"},
         {left:"conclusion", right:"ending idea"},
@@ -89,7 +89,7 @@ function addEnglishSpellingLessons(){
         {clue:"a different view", correct:"OPPOSING", wrong:["OPOSEING","OPPOSENG"]},
         {clue:"trustworthy", correct:"CREDIBLE", wrong:["CREDITABLE","CREDIBAL"]}
       ]) },
-      { id:"L12", name:"Spelling Drag: Argument Terms", gen:()=>spellingDragLesson("Drag each argument word to its meaning.", [
+      { id:"L12", name:"Argument Terms", gen:()=>spellingDragLesson("Drag each argument word to its meaning.", [
         {left:"claim", right:"point to prove"},
         {left:"evidence", right:"supporting proof"},
         {left:"credible", right:"trustworthy"},
@@ -102,7 +102,7 @@ function addEnglishSpellingLessons(){
         {clue:"a repeated sound", correct:"ALLITERATION", wrong:["ALITERATION","ALLITIRATION"]},
         {clue:"word choice", correct:"DICTION", wrong:["DICTIAN","DICKTION"]}
       ]) },
-      { id:"L12", name:"Spelling Drag: Literary Terms", gen:()=>spellingDragLesson("Drag each literary term to its clue.", [
+      { id:"L12", name:"Literary Terms", gen:()=>spellingDragLesson("Drag each literary term to its clue.", [
         {left:"simile", right:"like or as comparison"},
         {left:"metaphor", right:"direct comparison"},
         {left:"diction", right:"word choice"},
@@ -115,7 +115,7 @@ function addEnglishSpellingLessons(){
         {clue:"credibility appeal", correct:"ETHOS", wrong:["EATHOS","ETHUS"]},
         {clue:"emotional appeal", correct:"PATHOS", wrong:["PATHUS","PATHOSE"]}
       ]) },
-      { id:"L12", name:"Spelling Drag: Rhetoric Words", gen:()=>spellingDragLesson("Drag each rhetoric word to its meaning.", [
+      { id:"L12", name:"Rhetoric Words", gen:()=>spellingDragLesson("Drag each rhetoric word to its meaning.", [
         {left:"ethos", right:"credibility"},
         {left:"logos", right:"logic"},
         {left:"pathos", right:"emotion"},

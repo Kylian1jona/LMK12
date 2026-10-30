@@ -296,4 +296,42 @@
     const [ask,answer,pool]=story.qas[index%5];
     return question(`${story.text} ${ask}`,answer,pool,index,`${story.text} ${ask}`);
   });
+
+  function addScienceFacts(key,name,facts,pool){
+    addBank(key,name,index=>{
+      const [prompt,answer,extras]=facts[index%facts.length];
+      return question(prompt,answer,extras||pool,index);
+    });
+  }
+
+  addScienceFacts("g1:sci:living-things","Living and Nonliving Things",[
+    ["Which one is a living thing?","tree",["rock","chair","spoon"]],["Which one is nonliving?","ball",["bird","flower","ant"]],
+    ["What do all living things need?","water",["paint","toys","coins"]],["Which thing can grow?","puppy",["cup","book","kite"]],
+    ["Which thing needs food?","rabbit",["lamp","pencil","rock"]]
+  ],["living","nonliving","water","air"]);
+  addScienceFacts("g1:sci:plants","Plants and Their Needs",[
+    ["Which plant part takes in water from the soil?","roots",["flower","fruit","leaf"]],["Which plant part holds the plant upright?","stem",["seed","petal","root hair"]],
+    ["What helps a plant make food?","sunlight",["moonlight","plastic","sand"]],["Which part can grow into a new plant?","seed",["rock","stick","shell"]],
+    ["What do leaves take in from the air?","carbon dioxide",["soil","juice","salt"]]
+  ],["roots","stem","leaves","flower"]);
+  addScienceFacts("g1:sci:animals","Animals and Habitats",[
+    ["Which habitat is home to a fish?","pond",["nest","desert sand","tree branch"]],["What does a bird use to fly?","wings",["fins","roots","paws"]],
+    ["Which animal has gills?","fish",["cat","rabbit","eagle"]],["Why do animals need shelter?","to stay safe",["to become a plant","to make rocks","to stop growing"]],
+    ["Which covering helps a polar bear stay warm?","thick fur",["thin paper","wet leaves","smooth glass"]]
+  ],["food","water","air","shelter"]);
+  addScienceFacts("g1:sci:weather","Weather and Seasons",[
+    ["Which tool measures temperature?","thermometer",["ruler","balance","magnifier"]],["Dark clouds and falling drops mean the weather is ___.","rainy",["sunny","dry","clear"]],
+    ["In which season do many leaves change color?","fall",["spring","summer","winter"]],["Which season is usually the coldest?","winter",["summer","spring","fall"]],
+    ["What can move a kite through the sky?","wind",["snow","shade","fog"]]
+  ],["sunny","rainy","windy","snowy"]);
+  addScienceFacts("g1:sci:materials","Materials and Properties",[
+    ["Which material is transparent?","clear glass",["brick","wood","cardboard"]],["Which material bends easily?","rubber",["stone","glass","brick"]],
+    ["Which word describes sandpaper?","rough",["smooth","soft","clear"]],["Which material is best for a raincoat?","waterproof fabric",["paper","cotton ball","dry leaf"]],
+    ["Which object is attracted to a magnet?","steel paper clip",["wooden block","rubber band","plastic spoon"]]
+  ],["hard","soft","rough","smooth"]);
+  addScienceFacts("g1:sci:light-sound-motion","Light, Sound, and Motion",[
+    ["Which object gives off its own light?","sun",["moon","mirror","book"]],["What happens when you push a toy car harder?","it moves faster",["it becomes softer","it makes water","it stops forever"]],
+    ["What makes a drum create sound?","vibrations",["shadows","magnets","colors"]],["A shadow forms when light is ___.","blocked",["tasted","heard","stretched"]],
+    ["Which force pulls objects toward Earth?","gravity",["light","sound","heat"]]
+  ],["light","sound","push","pull"]);
 })();

@@ -7,6 +7,12 @@ node_modules/
 # Local Netlify folder
 .netlify
 .netlify-deploy-*/
+.netlify-stage-*/
+.netlify-stage-*.zip
+netlify-stage-*/
+netlify-stage-*.zip
+.recording-frames-*/
+.codex-prod-deploy/
 
 # Original lesson artwork is kept locally; optimized WebP copies are published.
 components/Communities*.png

@@ -93,7 +93,7 @@
     const prefix=`${grade}:${subject}:`;
     return Object.entries(window.K12_CLASSIC_25_DATA||{})
       .filter(([key])=>key.startsWith(prefix))
-      .map(([key,record])=>({key,lesson:key.split(":")[2],name:record.name||key}))
+      .map(([key,record])=>({key,lesson:key.split(":")[2],name:record.name||key,topic:record.topic||"Advanced Practice and Applications"}))
       .sort((a,b)=>Number(a.lesson.slice(1))-Number(b.lesson.slice(1)));
   }
 
@@ -110,7 +110,23 @@
       }));
       const grouped=new Set(groups.flatMap(group=>group.lessons.map(item=>item.lesson)));
       const additions=lessons.filter(item=>!grouped.has(item.lesson));
-      if(additions.length) groups.push({name:"Advanced Practice and Applications",lessons:additions});
+      for(const item of additions){
+        let group=groups.find(candidate=>candidate.name===item.topic);
+        if(!group){group={name:item.topic,lessons:[]};groups.push(group);}
+        group.lessons.push(item);
+      }
+      if(grade==='g8'){
+        const sorting=groups.find(group=>group.name==='Category Sorting');
+        const targets=groups.filter(group=>group!==sorting&&group.lessons.length);
+        if(sorting&&targets.length){
+          for(const item of sorting.lessons){
+            const hash=[...(item.key||`${grade}:${subject}:${item.lesson}`)].reduce((value,char)=>((value*31+char.charCodeAt(0))>>>0),17);
+            const target=targets[hash%targets.length];
+            target.lessons.splice((hash>>>8)%(target.lessons.length+1),0,item);
+          }
+          groups.splice(groups.indexOf(sorting),1);
+        }
+      }
       return groups;
     }
     const names=FALLBACK_TOPICS[subject]||FALLBACK_TOPICS.math;
@@ -123,7 +139,16 @@
     const number=grade.slice(1);
     const section=ensureSection(grade,subject);
     const groups=topicGroups(grade,subject,lessons);
-    section.innerHTML=`<div class="cardish text-center kid-font"><h1>${icon} Grade ${number} ${label}</h1><p class="small-note">Choose a named lesson. Every lesson contains 25 questions.</p><div class="lesson-columns">${groups.map(group=>`<div class="lesson-column"><h3>${group.name}</h3><p>Build the skill from foundations through mastery.</p>${group.lessons.map(item=>`<button type="button" class="btn btn-main" onclick="startLesson('${grade}','${subject}','${item.lesson}')">${item.name}</button>`).join("")}</div>`).join("")}</div><div class="lesson-back-row"><button type="button" class="btn btn-main px-4" onclick="show('grade${number}')">Back to Grade ${number}</button></div></div>`;
+    const columns=groups.map(group=>`<div class="lesson-column"><h3>${group.name}</h3><p>Build the skill from foundations through mastery.</p>${group.lessons.map(item=>`<button type="button" class="btn btn-main" onclick="startLesson('${grade}','${subject}','${item.lesson}')">${item.name}</button>`).join("")}</div>`);
+    const formats=[...(window.K12_G8_SPECIAL_FORMATS||[]),...(window.K12_SENIOR_SPECIAL_FORMATS||[])]
+      .filter(item=>item.subject===subject&&(item.grade?item.grade===grade:grade==='g8'));
+    for(const item of formats){
+      const title=item.title.replaceAll('&','&amp;');
+      const box=`<div class="lesson-column"><h3>${title}</h3><p>${item.description}</p><button type="button" class="btn btn-main" onclick="startUnifiedEarlyLesson('${item.key}','${grade}-${subject}')">${title}</button></div>`;
+      const hash=[...item.key].reduce((value,char)=>((value*31+char.charCodeAt(0))>>>0),17);
+      columns.splice(hash%(columns.length+1),0,box);
+    }
+    section.innerHTML=`<div class="cardish text-center kid-font"><h1>${icon} Grade ${number} ${label}</h1><p class="small-note">Choose a named lesson. Every lesson contains 25 questions.</p><div class="lesson-columns">${columns.join("")}</div><div class="lesson-back-row"><button type="button" class="btn btn-main px-4" onclick="show('grade${number}')">Back to Grade ${number}</button></div></div>`;
   }
 
   async function openExpandedSubject(grade,subject){
@@ -153,6 +178,17 @@
   window.openExpandedSubject=openExpandedSubject;
   function init(){
     Object.keys(CONFIG).forEach(renderGradeMenu);
+    for(const id of ['g2-eng','g3-math','g4-sci','g5-math']){
+      const columns=document.querySelector(`#${id} .lesson-columns`);
+      if(!columns) continue;
+      const card=[...columns.children].find(child=>child.querySelector?.('button[onclick*="startUnifiedEarlyLesson"]'));
+      if(!card) continue;
+      const key=card.querySelector('button[onclick*="startUnifiedEarlyLesson"]').getAttribute('onclick')||id;
+      const hash=[...key].reduce((value,char)=>((value*31+char.charCodeAt(0))>>>0),17);
+      card.remove();
+      const siblings=[...columns.children];
+      columns.insertBefore(card,siblings[hash%(siblings.length+1)]||null);
+    }
     for(const [grade,config] of Object.entries(CONFIG)){
       for(const [subject,label,icon] of config.subjects){
         const section=ensureSection(grade,subject);

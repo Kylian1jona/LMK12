@@ -73,6 +73,13 @@
       ]),
       make('note-taking','Neat Notes and Headings','Use a short heading, an even left margin, and readable key details.',academic),
       make('numbers-symbols','Numbers and Symbols','Align numbers carefully and leave clear space around operation signs.',notation)
+    ],
+    g4: [
+      make('fluent-print','Fluent, Readable Print','Write at a steady pace while keeping letter size, slant, and spacing consistent.',fluency),
+      make('paragraph-copy','Paragraph Copying','Keep an even margin, indent the first line, and preserve every capital and punctuation mark.',academic),
+      make('research-notes','Research Notes','Use short headings, clean bullets, and precise facts that will be easy to study later.',sourceNotes),
+      make('science-recording','Science and Data Writing','Form numbers and symbols clearly, include units, and separate observations from conclusions.',labNotes),
+      make('revision-practice','Revise for Readability','Copy carefully, then check alignment, spacing, punctuation, and the shape of every letter.',revision)
     ]
   };
   let active = null;
@@ -130,6 +137,11 @@
     paper=false;
     render();
   }
+  function addPracticeSteps(section){
+    const target=section.querySelector('.handwriting-target');
+    if(!target||section.querySelector('.handwriting-practice-steps'))return;
+    target.insertAdjacentHTML('beforebegin','<div class="handwriting-practice-steps"><span><b>1</b>Trace the model</span><span><b>2</b>Copy it below</span><span><b>3</b>Check shape and spacing</span></div>');
+  }
   function renderLegacy(){
     strokes=[];
     drawing=null;
@@ -153,6 +165,7 @@
     }
     section.innerHTML=`<div class="cardish handwriting-shell"><p class="small-note">Grade ${grade.slice(1)} · Step ${index+1} of 25</p><h1>${lesson.name}</h1><progress max="25" value="${index}" aria-label="Completed handwriting steps"></progress><p>${lesson.tip}</p><p class="handwriting-target" id="handwritingTarget">${lesson.targets[index]}</p><fieldset class="handwriting-mode"><legend>Where will you practice?</legend><label><input type="radio" name="handwritingMode" value="screen" ${paper?'':'checked'}> On screen</label><label><input type="radio" name="handwritingMode" value="paper" ${paper?'checked':''}> On paper</label></fieldset><div id="handwritingScreen"><p id="handwritingInstructions">Trace the pale model on the first row. Copy it on the second row. Use Undo or Clear to try again.</p><canvas id="handwritingCanvas" width="1000" height="420" aria-labelledby="handwritingTarget" aria-describedby="handwritingInstructions">Copy the displayed text on lined paper, then choose On paper to record your practice.</canvas><div class="handwriting-tools"><button type="button" class="btn btn-main" data-handwriting-undo>Undo</button><button type="button" class="btn btn-main" data-handwriting-clear>Clear</button></div></div><p id="handwritingPaper" ${paper?'':'hidden'}>Write the model on lined paper. Compare your letter shapes, spacing, and punctuation with the model.</p><label class="handwriting-check"><input type="checkbox" id="handwritingReview"> I practiced and checked my letter shapes, spaces, and baseline.</label><p id="handwritingStatus" role="status" aria-live="polite"></p><div class="handwriting-tools"><button type="button" class="btn btn-main" data-handwriting-menu>Back to lessons</button><button type="button" class="btn btn-main" id="handwritingNext" disabled>${index===24?'Finish practice':'Save and continue'}</button></div></div>`;
     canvas=section.querySelector('canvas');
+    addPracticeSteps(section);
     canvas.height=420*modelLines.length;
     section.querySelector('#handwritingInstructions').textContent='For each pair of rows, trace the pale model on the first row, then copy it on the second. Use Undo or Clear to try again.';
     section.querySelectorAll('[name="handwritingMode"]').forEach(input=>input.addEventListener('change',()=>{
@@ -218,8 +231,9 @@
       else modelLines[last]+=(modelLines[last]?' ':'')+word;
     }
     const nextLabel=active.index===24?'Finish practice':'Save and continue';
-    section.innerHTML=`<div class="cardish handwriting-shell"><p class="small-note">Grade ${grade.slice(1)} · Step ${active.index+1} of 25</p><h1>${lesson.name}</h1><progress max="25" value="${active.index}" aria-label="Completed handwriting steps"></progress><p>${lesson.tip}</p><p class="handwriting-target" id="handwritingTarget">${lesson.targets[active.index]}</p><fieldset class="handwriting-mode"><legend>Where will you practice?</legend><label><input type="radio" name="handwritingMode" value="screen" checked> On screen</label><label><input type="radio" name="handwritingMode" value="paper"> On paper</label></fieldset><div id="handwritingScreen"><p id="handwritingInstructions">Trace the pale model, then copy it on the next row.</p><div class="handwriting-settings" aria-label="Writing tools"><label>Ink color <input type="color" id="handwritingInk" value="${inkColor}" aria-label="Ink color"></label><label>Pen size <input type="range" id="handwritingSize" min="2" max="10" value="${strokeWidth}" aria-label="Pen size"></label><label><input type="checkbox" id="handwritingModel" ${modelVisible?'checked':''}> Show trace model</label><button type="button" class="btn btn-main" data-handwriting-print>Print practice sheet</button></div><canvas id="handwritingCanvas" width="1000" height="420" aria-labelledby="handwritingTarget" aria-describedby="handwritingInstructions">Copy the displayed text on lined paper.</canvas><div class="handwriting-tools"><button type="button" class="btn btn-main" data-handwriting-undo>Undo</button><button type="button" class="btn btn-main" data-handwriting-clear>Clear</button></div></div><p id="handwritingPaper" hidden>Write the model on lined paper. Compare your shapes, spacing, punctuation, and alignment.</p><label class="handwriting-check"><input type="checkbox" id="handwritingReview"> I practiced, then checked shape, spacing, alignment, and readability.</label><p id="handwritingStatus" role="status" aria-live="polite"></p><div class="handwriting-tools"><button type="button" class="btn btn-main" data-handwriting-menu>Back to lessons</button><button type="button" class="btn btn-main" id="handwritingNext" disabled>${nextLabel}</button></div></div>`;
+    section.innerHTML=`<div class="cardish handwriting-shell"><p class="small-note">Grade ${grade.slice(1)} · Step ${active.index+1} of 25</p><h1>${lesson.name}</h1><progress max="25" value="${active.index}" aria-label="Completed handwriting steps"></progress><p>${lesson.tip}</p><p class="handwriting-target" id="handwritingTarget">${lesson.targets[active.index]}</p><div class="handwriting-focus" aria-label="Writing checklist"><b>Check:</b><span>clear shapes</span><span>even spacing</span><span>steady baseline</span><span>correct punctuation</span></div><fieldset class="handwriting-mode"><legend>Where will you practice?</legend><label><input type="radio" name="handwritingMode" value="screen" checked> On screen</label><label><input type="radio" name="handwritingMode" value="paper"> On paper</label></fieldset><div id="handwritingScreen"><p id="handwritingInstructions">Trace the pale model, then copy it on the next row.</p><div class="handwriting-settings" aria-label="Writing tools"><label>Ink color <input type="color" id="handwritingInk" value="${inkColor}" aria-label="Ink color"></label><label>Pen size <input type="range" id="handwritingSize" min="2" max="10" value="${strokeWidth}" aria-label="Pen size"></label><label><input type="checkbox" id="handwritingModel" ${modelVisible?'checked':''}> Show trace model</label><button type="button" class="btn btn-main" data-handwriting-print>Print practice sheet</button></div><canvas id="handwritingCanvas" width="1000" height="420" aria-labelledby="handwritingTarget" aria-describedby="handwritingInstructions">Copy the displayed text on lined paper.</canvas><div class="handwriting-tools"><button type="button" class="btn btn-main" data-handwriting-undo>Undo</button><button type="button" class="btn btn-main" data-handwriting-clear>Clear</button></div></div><p id="handwritingPaper" hidden>Write the model on lined paper. Compare your shapes, spacing, punctuation, and alignment.</p><label class="handwriting-check"><input type="checkbox" id="handwritingReview"> I practiced, then checked shape, spacing, alignment, and readability.</label><p id="handwritingStatus" role="status" aria-live="polite"></p><div class="handwriting-tools"><button type="button" class="btn btn-main" data-handwriting-menu>Back to lessons</button><button type="button" class="btn btn-main" id="handwritingNext" disabled>${nextLabel}</button></div></div>`;
     canvas=section.querySelector('canvas');
+    addPracticeSteps(section);
     canvas.height=420*modelLines.length;
     section.querySelectorAll('[name="handwritingMode"]').forEach(input=>input.addEventListener('change',()=>{
       paper=input.value==='paper'; reviewed=false;
@@ -288,12 +302,18 @@
       for(const offset of [-100,-50,0,30]){
         ctx.beginPath();
         ctx.strokeStyle=offset===0?'#6d75a8':'#c5cee2';
-        ctx.lineWidth=offset===0?2:1;
+        ctx.lineWidth=offset===0?4:2;
         ctx.setLineDash(offset===-50?[10,8]:[]);
         ctx.moveTo(28,base+offset);
         ctx.lineTo(972,base+offset);
         ctx.stroke();
       }
+      ctx.fillStyle='#56627a';
+      ctx.font='700 13px Arial, sans-serif';
+      ctx.fillText('TOP',30,base-106);
+      ctx.fillText('MID',30,base-56);
+      ctx.fillText('BASE',30,base-6);
+      ctx.beginPath();ctx.fillStyle='#5b62d6';ctx.arc(58,base-2,6,0,Math.PI*2);ctx.fill();
     }
     ctx.setLineDash([]);
     ctx.fillStyle='#aeb8cc';

@@ -45,6 +45,116 @@
         <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L4')">Timelines</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L5')">Needs and Wants</button>
       </div>
+      <div class="lesson-column">
+        <h3>Evidence, Civics, and Economics</h3>
+        <p>Study sources, community change, government, geography, and economic choices.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L6')">Sources and Evidence from the Past</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L7')">Communities Change Over Time</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L8')">Local Government and Civic Participation</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L9')">Geography and Human-Environment Connections</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L10')">Producers, Consumers, and Economic Choices</button>
+      </div>
+      <div class="lesson-column">
+        <h3>People, Places, and Connections</h3>
+        <p>Explore culture, movement, citizenship, trade, maps, and timelines.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L11')">Indigenous Communities and Place</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L12')">Migration and Settlement</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L13')">Rules, Rights, and Responsibilities</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L14')">Trade and Interdependence</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L15')">Reading Maps and Timelines</button>
+      </div>
+      <div class="lesson-column">
+        <h3>Community and Historical Thinking</h3>
+        <p>Study local history, maps, money choices, and civic action.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L16')">Historical Questions and Evidence</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L17')">Landmarks and Community History</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L18')">Maps, Routes, and Regions</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L19')">Saving, Spending, and Budgets</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L20')">Community Problem Solving</button>
+      </div>
+      <div class="lesson-column">
+        <h3>How Communities Connect and Change</h3>
+        <p>Study communication, culture, services, resources, and historical change.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L21')">Communication Across Time</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L22')">Community Traditions and Culture</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L23')">Public Services and Shared Spaces</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L24')">Resources and Economic Choices</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L25')">Explaining Change in History</button>
+      </div>
+      <div class="lesson-column">
+        <h3>Communities Through Time</h3>
+        <p>Explore timelines, travel, citizenship, work, and places.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L26')">Reading a Community Timeline</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L27')">Transportation and Trade Routes</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L28')">Citizenship in Action</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L29')">Jobs, Goods, and Services</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L30')">Comparing Places and Cultures</button>
+      </div>
+      <div class="lesson-column">
+        <h3>Evidence, Resources, and Decisions</h3>
+        <p>Use historical sources and study how communities work and change.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L31')">Maps as Historical Evidence</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L32')">Remembering Community Stories</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L33')">Local Decisions and Public Needs</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L34')">From Resources to Products</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L35')">Making Claims About the Past</button>
+      </div>
+      <div class="lesson-column">
+        <h3>🏘️ Neighborhoods and Maps</h3>
+        <p>Compare familiar places and use map clues to find your way.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L36')">Our Neighborhood Then and Now</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L37')">Maps and Community Landmarks</button>
+      </div>
+      <div class="lesson-column">
+        <h3>🏛️ Community Life</h3>
+        <p>Learn how local leaders make choices and goods reach stores.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L38')">Local Leaders and Shared Rules</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L39')">How Goods Travel to Stores</button>
+      </div>
+      <div class="lesson-column">
+        <h3>📷 Stories from the Past</h3>
+        <p>Learn from family traditions and details in old photographs.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L40')">Family and Community Traditions</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L41')">Photos as Clues About the Past</button>
+      </div>
+      <div class="lesson-column">
+        <h3>✉️ Tools Across Time</h3>
+        <p>Compare school routines and messages from different times.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L42')">School Days Across Time</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L43')">Ways People Communicate</button>
+      </div>
+      <div class="lesson-column">
+        <h3>💰 Choices and Change</h3>
+        <p>Make a budget and help your community solve a problem.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L44')">Needs, Wants, and Smart Choices</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L45')">How Communities Solve Problems</button>
+      </div>
+      <div class="lesson-column"><h3>Communities and Government</h3><p>Learn how leaders, services, and citizens work together.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L46')">Community Leaders</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L47')">Local Services</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L48')">Rules and Laws</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L49')">Civic Participation</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L50')">Community Challenge</button>
+      </div>
+      <div class="lesson-column"><h3>Geography and Economics</h3><p>Connect places, resources, work, and choices.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L51')">Maps and Regions</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L52')">Natural Resources</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L53')">Producers and Consumers</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L54')">Saving and Spending</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L55')">Geography and Economics Challenge</button>
+      </div>
+      <div class="lesson-column"><h3>Past and Present</h3><p>Use sources and timelines to study change.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L56')">Primary Sources</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L57')">Timelines</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L58')">Community Change</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L59')">Historical Perspectives</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L60')">Past and Present Challenge</button>
+      </div>
+      <div class="lesson-column"><h3>Citizenship and Economics</h3><p>Make responsible community choices.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L61')">Good Citizenship</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L62')">Community Decisions</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L63')">Goods and Services</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L64')">Scarcity and Choice</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L65')">Citizenship and Economics Challenge</button>
+      </div>
+      <div class="lesson-column"><h3>Maps and Culture</h3><p>Use maps and explore community traditions.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L66')">Cardinal Directions</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L67')">Map Scale</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L68')">Regions and Landmarks</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L69')">Cultural Traditions</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L70')">Maps and Culture Challenge</button>
+      </div>
+      <div class="lesson-column"><h3>Government and Community</h3><p>Learn how public choices and services work.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L71')">Levels of Government</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L72')">Community Rules</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L73')">Public Services</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L74')">Voting and Voice</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L75')">Government Challenge</button>
+      </div>
+      <div class="lesson-column"><h3>Communities Around the World</h3><p>Compare places, traditions, and transportation.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L76')">Urban and Rural Communities</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L77')">Cultural Celebrations</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L78')">Homes and Environment</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L79')">Transportation</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L80')">Community Comparison Challenge</button>
+      </div>
+      <div class="lesson-column"><h3>Economics and Decisions</h3><p>Learn about jobs, budgets, trade, and choices.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L81')">Needs and Wants</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L82')">Jobs and Income</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L83')">Budgets</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L84')">Trade</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L85')">Economic Decision Challenge</button>
+      </div>
+      <div class="lesson-column"><h3>U.S. Symbols and Leaders</h3><p>Study national symbols, documents, and leaders.</p><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L86')">National Symbols</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L87')">Important Documents</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L88')">Community Leaders</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L89')">Historical Leaders</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L90')">Civic Symbols Challenge</button></div>
+      <div class="lesson-column"><h3>Community History and Geography</h3><p>Use records, maps, and timelines.</p><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L91')">Local History Sources</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L92')">Community Timelines</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L93')">Land Use</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L94')">Movement and Migration</button><button type="button" class="btn btn-main" onclick="startLesson('g3','hist','L95')">Community History Challenge</button></div>
     </div>
 
     <div class="lesson-back-row">
@@ -68,6 +178,14 @@
         <button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L4')">Exploration</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L5')">Civic Responsibility</button>
       </div>
+      <div class="lesson-column"><h3>Places and Early America</h3><p>Use geography and evidence to study early communities.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L6')">Map Skills</button><button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L7')">United States Regions</button><button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L8')">Indigenous Nations</button><button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L9')">Exploration and Exchange</button><button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L10')">Colonial Communities</button>
+      </div>
+      <div class="lesson-column"><h3>Government and Historical Evidence</h3><p>Connect major events, civic ideas, and source analysis.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L11')">American Revolution</button><button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L12')">Constitution and Government</button><button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L13')">Westward Expansion</button><button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L14')">Primary and Secondary Sources</button><button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L15')">Civic Participation</button>
+      </div>
+      <div class="lesson-column"><h3>Communities and Change</h3><p>Study government, economics, movement, and culture.</p><button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L16')">State and Local Government</button><button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L17')">Economics and Resources</button><button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L18')">Migration and Settlement</button><button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L19')">Timelines and Chronology</button><button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L20')">Culture and Community</button></div>
+      <div class="lesson-column"><h3>Ideas That Shape Communities</h3><p>Connect civic life, innovation, trade, and historical evidence.</p><button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L21')">Rights and Responsibilities</button><button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L22')">Transportation and Trade</button><button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L23')">Inventors and Innovation</button><button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L24')">Landmarks and Historic Places</button><button type="button" class="btn btn-main" onclick="startLesson('g4','hist','L25')">Making Historical Arguments</button></div>
     </div>
 
     <div class="lesson-back-row">
@@ -91,6 +209,10 @@
         <button type="button" class="btn btn-main" onclick="startLesson('g5','hist','L4')">Westward Expansion</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g5','hist','L5')">Civil War Basics</button>
       </div>
+      <div class="lesson-column"><h3>Building the United States</h3><p>Connect causes, events, and lasting changes with evidence.</p>
+        <button type="button" class="btn btn-main" onclick="startLesson('g5','hist','L6')">Colonial America</button><button type="button" class="btn btn-main" onclick="startLesson('g5','hist','L7')">Road to Revolution</button><button type="button" class="btn btn-main" onclick="startLesson('g5','hist','L8')">Constitution and Bill of Rights</button><button type="button" class="btn btn-main" onclick="startLesson('g5','hist','L9')">The Early Republic</button><button type="button" class="btn btn-main" onclick="startLesson('g5','hist','L10')">Civil War and Reconstruction</button>
+      </div>
+      <div class="lesson-column"><h3>People, Change and Evidence</h3><p>Examine diverse experiences and build claims from reliable sources.</p><button type="button" class="btn btn-main" onclick="startLesson('g5','hist','L11')">Indigenous Nations and Cultures</button><button type="button" class="btn btn-main" onclick="startLesson('g5','hist','L12')">Westward Expansion and Its Effects</button><button type="button" class="btn btn-main" onclick="startLesson('g5','hist','L13')">Immigration and Industrialization</button><button type="button" class="btn btn-main" onclick="startLesson('g5','hist','L14')">Civil Rights and Civic Action</button><button type="button" class="btn btn-main" onclick="startLesson('g5','hist','L15')">Historical Evidence and Claims</button></div>
     </div>
 
     <div class="lesson-back-row">
@@ -232,13 +354,14 @@
     </div>
 
     <h1 id="lrTitle" class="lesson-quiz-title">Lesson</h1>
+    <div class="lesson-like-row"><button type="button" id="lrLikeButton" class="lesson-like-button" aria-pressed="false" aria-label="Like this lesson" onclick="window.K12LessonLikes?.toggle()" disabled><span class="lesson-like-heart" aria-hidden="true">♡</span><span class="lesson-like-label">Like</span><span class="lesson-like-count" id="lrLikeCount">—</span></button><span class="lesson-like-caption">Likes from learners everywhere</span></div>
     <div class="lesson-question-banner" id="lrQuestionBanner">Question 1 of 25</div>
 
     <div class="quiz-card mt-2" id="lrQuestionCard">
+      <div class="lesson-question-text" id="lrQuestion" tabindex="-1" aria-live="polite" aria-atomic="true">Question text…</div>
       <div class="lesson-image-frame" id="lrImageFrame">
         <img id="lrImage" class="lesson-img" alt="">
       </div>
-      <div class="lesson-question-text" id="lrQuestion">Question text…</div>
 
       <!-- NORMAL CHOICES -->
 <div id="lrChoices"></div>

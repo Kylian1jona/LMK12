@@ -64,7 +64,7 @@
         <button type="button" class="btn btn-main" onclick="startLesson('g7','eng','L9')">Memory Match</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g7','eng','L10')">Speed Challenge</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g7','eng','L11')">Spelling: Academic Words</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g7','eng','L12')">Spelling Drag</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g7','eng','L12')">Spelling Practice</button>
       </div>
 
     </div>
@@ -223,7 +223,7 @@
         <button type="button" class="btn btn-main" onclick="startLesson('g8','eng','L9')">Memory Match</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g8','eng','L10')">Speed Challenge</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g8','eng','L11')">Spelling: Argument Words</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g8','eng','L12')">Spelling Drag</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g8','eng','L12')">Spelling Practice</button>
       </div>
 
     </div>
@@ -391,7 +391,7 @@
         <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L9')">Memory Match</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L10')">Speed Challenge</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L11')">Spelling: Literary Terms</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L12')">Spelling Drag</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g9','eng','L12')">Spelling Practice</button>
       </div>
 
     </div>
@@ -559,7 +559,7 @@
         <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L9')">Memory Match</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L10')">Speed Challenge</button>
         <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L11')">Spelling: Rhetoric Words</button>
-        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L12')">Spelling Drag</button>
+        <button type="button" class="btn btn-main" onclick="startLesson('g10','eng','L12')">Spelling Practice</button>
       </div>
 
     </div>

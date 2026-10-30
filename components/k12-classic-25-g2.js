@@ -93,7 +93,7 @@
     ]
   },
   "g2:eng:L4":{
-    name:"Parts of Speech (Drag)",
+    name:"Parts of Speech",
     questions:[
       {"type":"drag","q":"Drag each word to the correct group.","pairs":[{"word":"run","match":"VERB"},{"word":"dog","match":"NOUN"},{"word":"happy","match":"ADJECTIVE"}],"audio":"Drag each word to the correct group."},
       {"type":"mc","q":"In the class note “Monday: The rabbit hops across the quiet garden,” how should “Monday” be classified?","choices":["singular common noun","verb","plural common noun","proper noun"],"answer":"proper noun","explain":"“Monday” is a proper noun.","audio":"In the class note “Monday: The rabbit hops across the quiet garden,” how should “Monday” be classified?"},
@@ -305,9 +305,9 @@
   "g2:eng:L11":{
     name:"Grade 2 English L11",
     questions:[
-      {"type":"mc","q":"Grade 2 English L11: which is a complete sentence?","choices":["0","reads student","because the","The student reads."],"answer":"The student reads.","audio":"Choose the complete sentence."},
-      {"type":"input","q":"Grade 2 English L11: type the missing word: A noun names a person, place, or ____.","answer":"thing","audio":"Complete the sentence."},
-      {"type":"drag","q":"Grade 2 English L11: match each reading word.","pairs":[{"left":"theme","right":"big message"},{"left":"evidence","right":"proof from the text"},{"left":"summary","right":"short retelling"}],"audio":"Match the reading vocabulary."},
+      {"type":"mc","q":"Which is a complete sentence?","choices":["0","reads student","because the","The student reads."],"answer":"The student reads.","audio":"Choose the complete sentence."},
+      {"type":"input","q":"Type the missing word: A noun names a person, place, or ____.","answer":"thing","audio":"Complete the sentence."},
+      {"type":"drag","q":"Match each reading word.","pairs":[{"left":"theme","right":"big message"},{"left":"evidence","right":"proof from the text"},{"left":"summary","right":"short retelling"}],"audio":"Match the reading vocabulary."},
       {"type":"mc","q":"Which spelling correctly names a small animal that says meow?","choices":["COT","CAT","CET","CIT"],"answer":"CAT","explain":"“CAT” is the standard spelling for a small animal that says meow; the other forms misuse the sound-spelling or affix pattern.","audio":"Choose the correctly spelled word."},
       {"type":"mc","q":"Which spelling correctly names a farm animal with a curly tail?","choices":["PIG","PEG","PAG","PUG"],"answer":"PIG","explain":"“PIG” is the standard spelling for a farm animal with a curly tail; the other forms misuse the sound-spelling or affix pattern.","audio":"Choose the correctly spelled word."},
       {"type":"mc","q":"Which spelling correctly names the star that lights daytime?","choices":["SAN","SIN","SUN","SEN"],"answer":"SUN","explain":"“SUN” is the standard spelling for the star that lights daytime; the other forms misuse the sound-spelling or affix pattern.","audio":"Choose the correctly spelled word."},
@@ -335,9 +335,9 @@
   "g2:eng:L12":{
     name:"Grade 2 English L12",
     questions:[
-      {"type":"input","q":"Grade 2 English L12: type the missing word: A noun names a person, place, or ____.","answer":"thing","audio":"Complete the sentence."},
-      {"type":"drag","q":"Grade 2 English L12: match each reading word.","pairs":[{"left":"theme","right":"big message"},{"left":"evidence","right":"proof from the text"},{"left":"summary","right":"short retelling"}],"audio":"Match the reading vocabulary."},
-      {"type":"mc","q":"Grade 2 English L12: which is a complete sentence?","choices":["The student reads.","0","reads student","because the"],"answer":"The student reads.","audio":"Choose the complete sentence."},
+      {"type":"input","q":"Type the missing word: A noun names a person, place, or ____.","answer":"thing","audio":"Complete the sentence."},
+      {"type":"drag","q":"Match each reading word.","pairs":[{"left":"theme","right":"big message"},{"left":"evidence","right":"proof from the text"},{"left":"summary","right":"short retelling"}],"audio":"Match the reading vocabulary."},
+      {"type":"mc","q":"Which is a complete sentence?","choices":["The student reads.","0","reads student","because the"],"answer":"The student reads.","audio":"Choose the complete sentence."},
       {"type":"mc","q":"Which rule or meaning matches “cat”?","choices":["-op family","-un family","-ig family","-at family"],"answer":"-at family","explain":"“cat” matches “-at family” in this lesson's word-pattern relationship.","audio":"Choose the exact spelling relationship."},
       {"type":"mc","q":"Which rule or meaning matches “hop”?","choices":["-ig family","-at family","-op family","-un family"],"answer":"-op family","explain":"“hop” matches “-op family” in this lesson's word-pattern relationship.","audio":"Choose the exact spelling relationship."},
       {"type":"mc","q":"Which rule or meaning matches “sun”?","choices":["-op family","-at family","-ig family","-un family"],"answer":"-un family","explain":"“sun” matches “-un family” in this lesson's word-pattern relationship.","audio":"Choose the exact spelling relationship."},

@@ -9,6 +9,8 @@ for(const file of [
   "k12-classic-25-kindergarten.js",
   "k12-classic-25-g1.js",
   "k12-early-expanded-lessons.js",
+  "k12-g1-regular-lessons.js",
+  "k12-k-regular-lessons.js",
   "k12-interactive-math-lessons.js"
 ]){
   vm.runInContext(fs.readFileSync(path.join(root,"components",file),"utf8"),context,{filename:file});
@@ -17,13 +19,14 @@ for(const file of [
 const banks=context.window.K12_EARLY_BANKS;
 const failures=[];
 const menuSource=fs.readFileSync(path.join(root,"components","early-sections.js"),"utf8");
-const lessonButtons=[...menuSource.matchAll(/lessonCard\("([^"]+)"/g)].map(match=>match[1]);
+const lessonButtons=[...menuSource.matchAll(/lessonCard\("([^"]+)"/g)]
+  .map(match=>match[1]).filter(key=>!key.includes(":sort-"));
 for(const key of lessonButtons){
   if(!banks[key]) failures.push(`${key} has a lesson button but no question bank.`);
 }
 for(const prefix of ["prek:","g1:"]){
   const visible=lessonButtons.filter(key=>key.startsWith(prefix));
-  const expectedVisible=prefix==="g1:"?23:20;
+  const expectedVisible=prefix==="g1:"?39:20;
   if(visible.length!==expectedVisible) failures.push(`${prefix.slice(0,-1)} should show ${expectedVisible} requested lessons, found ${visible.length}.`);
   if(new Set(visible).size!==visible.length) failures.push(`${prefix.slice(0,-1)} repeats a lesson button.`);
 }
@@ -60,7 +63,9 @@ for(const [key,record] of Object.entries(banks)){
   });
 }
 
-const expectedLessons=76;
+const gradeOneScience=Object.keys(banks).filter(key=>key.startsWith("g1:sci:"));
+if(gradeOneScience.length!==11) failures.push(`Expected 11 Grade 1 science lessons, found ${gradeOneScience.length}.`);
+const expectedLessons=102;
 const report={
   lessons:Object.keys(banks).length,
   questions:Object.values(banks).reduce((sum,record)=>sum+(record.questions?.length||0),0),

@@ -12,7 +12,7 @@
             <button type="button" onclick="openPrivacyNotice()">Children's privacy</button>
             <button type="button" onclick="openParentFromFooter()">Parent area</button>
           </nav>
-          <small>© ${new Date().getFullYear()} LearnMaster. Independent educational software.</small>
+          <small>© ${new Date().getFullYear()} LearnMaster. Independent educational software. <a href="https://www.flaticon.com/uicons" target="_blank" rel="noopener noreferrer">UIcons by Flaticon</a></small>
         </footer>
         <div id="privacyNotice" class="privacy-overlay" role="dialog" aria-modal="true" aria-labelledby="privacyTitle" style="display:none">
           <div class="privacy-card">

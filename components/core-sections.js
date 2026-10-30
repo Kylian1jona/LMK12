@@ -8,18 +8,22 @@
   <div id="home" class="section">
     <div class="lm-home">
       <section class="lm-home-hero">
-        <div class="lm-home-quick-grid" aria-label="Quick links">
-          <button type="button" onclick="show('grades')"><span aria-hidden="true">&#127979;</span><b>Select Grade</b><small>Choose a learning level</small></button>
+        <div class="lm-home-main">
+          <header class="lm-home-welcome"><span>LEARNMASTER K12</span><h1>What would you like to learn today?</h1><p>Choose a grade-level course, practice reading, or open Extras for useful skills like typing, handwriting, and labs.</p></header>
+          <div class="lm-home-quick-grid" aria-label="Quick links">
+          <button type="button" onclick="show('grades')"><span aria-hidden="true">&#127979;</span><b>Grades &amp; Extras</b><small>Choose a grade or skill studio</small></button>
           <button type="button" onclick="showReading()"><span aria-hidden="true">&#128218;</span><b>Reading</b><small>Read, listen, and respond</small></button>
           <button type="button" onclick="show('tutorFinder')"><span aria-hidden="true">&#129489;&#8205;&#127979;</span><b>Find a Tutor</b><small>Search community or outside support</small></button>
-          <button type="button" onclick="show('worksheets')"><span aria-hidden="true">&#128221;</span><b>Worksheets</b><small>Printable practice is being built</small></button>
+          <button type="button" onclick="show('worksheets')"><span aria-hidden="true">&#128221;</span><b>Practice Sheets</b><small>Open printable skill practice</small></button>
+          </div>
         </div>
         <div class="lm-home-side-stack">
-          <aside class="lm-today-card"><span>TODAY'S GOAL</span><b>Complete one lesson</b><p>Every lesson has 25 questions and clear feedback.</p><button type="button" onclick="openLessonSearch(event)">Find a lesson</button></aside>
-          <button type="button" class="lm-home-playground-link" onclick="show('playground')"><span>PLAYGROUND</span><b>Creative activities are being built</b></button>
+          <aside class="lm-today-card"><span>TODAY'S GOAL</span><b>Finish one focused activity</b><p>Choose one lesson, work carefully, and use the feedback before moving on.</p><button type="button" onclick="openLessonSearch(event)">Find a lesson</button></aside>
+          <button type="button" class="lm-home-playground-link" onclick="show('playground')"><span>PLAYGROUND</span><b>Educational and just-for-fun games</b></button>
+          <button type="button" class="lm-home-staar-link" onclick="openStaarTesting()"><span>STAAR TESTING</span><b>Practice Texas reading, math, and science questions</b></button>
         </div>
       </section>
-      <section class="lm-home-tools" aria-label="Learning tools"><button type="button" onclick="show('analysis')"><span>Progress</span><b>See goals and growth</b></button><button type="button" class="is-coming" aria-disabled="true" onclick="toast('Awards are coming soon!')"><span>Awards</span><b>Certificates and badges coming soon</b></button><button type="button" onclick="show('testPrep')"><span>Test preparation</span><b>SAT, ACT, STAAR, and state testing</b></button></section>
+      <section class="lm-home-tools" aria-label="Learning tools"><button type="button" onclick="show('analysis')"><span>Progress</span><b>See goals and growth</b></button><button type="button" class="is-coming" aria-disabled="true" onclick="toast('Awards are coming soon!')"><span>Awards</span><b>Certificates and badges coming soon</b></button></section>
       <section class="lm-home-paths" aria-labelledby="homeLaunchTitle"><header><span>START HERE</span><h2 id="homeLaunchTitle">Find your learning path</h2><p>Pick the group that feels right. You can change grades anytime.</p></header><div>
         <button type="button" data-zone="early" onclick="show('prek')"><span>PK-1</span><b>Early learners</b><small>Letters, sounds, numbers, and shapes</small></button>
         <button type="button" data-zone="elementary" onclick="show('grade2')"><span>2-5</span><b>Elementary</b><small>Build strong everyday skills</small></button>
@@ -102,7 +106,10 @@
       <header class="grade-library-head">
         <button type="button" onclick="appBack('home')">← Today</button>
         <div><span>GRADE LIBRARY</span><h1>Find your learning space.</h1><p>Every grade has its own subjects, lessons, progress, and quiz experience.</p></div>
-        <aside><b>14</b><small>grade levels</small></aside>
+        <div class="grade-head-tools">
+          <label class="section-language-control" for="gradeLanguagePicker"><span>Language</span><select id="gradeLanguagePicker" class="language-picker" aria-label="Change language in the grade section" onchange="setLanguage(this.value)"><option value="en">English</option><option value="es">Spanish</option><option value="fr">French</option><option value="zh">Chinese</option><option value="hi">Hindi</option></select></label>
+          <aside><b>14</b><small>grade levels</small></aside>
+        </div>
       </header>
 
       <section class="suggested-lessons grade-progress-preview" aria-labelledby="gradeProgressTitle">
@@ -204,7 +211,7 @@
         </div>
         <div class="grade-card" id="cardPlayground">
           <div class="grade-title">Playground</div>
-          <p class="grade-sub">Unlock toy games with 5 Learners</p>
+          <p class="grade-sub">Educational games and arcade fun · unlock with 5 Learners</p>
           <button type="button" class="btn btn-main w-100" onclick="show('playground')">Unlock / Play</button>
         </div>
       </div>
@@ -424,7 +431,7 @@
   <!-- PLAYGROUND -->
   <div id="playground" class="section d-none">
     <div class="playground-shell">
-      <div id="playgroundPanel"><section class="lm-coming-soon"><span>COMING SOON</span><h1>Playground is being built.</h1><p>New reward games and creative activities are on the way. Lessons, Reading, and the Rewards Shop are still ready to use.</p><div><button type="button" class="lm-primary" onclick="show('grades')">Keep learning</button><button type="button" class="lm-secondary" onclick="show('shop')">Open rewards</button></div></section></div>
+      <div id="playgroundPanel"></div>
     </div>
   </div>
 

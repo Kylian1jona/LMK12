@@ -7,11 +7,11 @@ const root=path.resolve(__dirname,'..');
 const read=file=>fs.readFileSync(path.join(root,file),'utf8');
 const context=vm.createContext({console,document:{readyState:'loading',addEventListener(){},querySelector(){return null;}},LR:{round:1},makeFallbackLessonPack:()=>({})});
 context.window=context;
-for(const file of ['k12-curriculum.js','k12-expanded-grade-menus.js',...['g7','g8','g9','g10','g11','g12'].map(g=>`k12-classic-25-${g}.js`),'k12-g8-25-extension.js','k12-interactive-labs.js','k12-classic-25.js']){
+for(const file of ['k12-curriculum.js','k12-expanded-grade-menus.js',...['g3','g7','g8','g9','g10','g11','g12'].map(g=>`k12-classic-25-${g}.js`),'k12-g8-25-extension.js','k12-interactive-labs.js','k12-classic-25.js']){
   vm.runInContext(read(`components/${file}`),context,{filename:file});
 }
 const curriculum=vm.runInContext('CURR',context);
-for(const [grade,subject,count] of [['g7','eng',17],['g7','math',12],['g7','sci',14],['g7','hist',10],['g8','eng',25],['g8','math',26],['g8','sci',25],['g8','hist',26],['g8','alg1',20],['g9','math',20],['g10','math',20],['g11','math',8],['g12','math',8]]){
+for(const [grade,subject,count] of [['g3','eng',111],['g3','math',116],['g3','sci',93],['g3','hist',95],['g7','eng',47],['g7','math',42],['g7','sci',44],['g7','hist',40],['g8','eng',65],['g8','math',96],['g8','sci',95],['g8','hist',96],['g8','alg1',40],['g9','math',20],['g10','math',20],['g11','math',8],['g12','math',8]]){
   context.K12Classic25.installGrade(grade);
   const records=Object.entries(context.K12_CLASSIC_25_DATA).filter(([key])=>key.startsWith(`${grade}:${subject}:`));
   assert.equal(records.length,count,`${grade}:${subject} lesson count`);

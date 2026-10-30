@@ -1270,4 +1270,1965 @@
     });
   }
 })();
+
+/* Consolidated Grade 3 lesson banks */
+
+/* Source bank: k12-g3-progressive-lessons.js */
+/* Five ordered Grade 3 math lessons. Each five-question block adds a skill. */
+(function(){
+  const data=window.K12_CLASSIC_25_DATA=window.K12_CLASSIC_25_DATA||Object.create(null);
+  function question(index,q,answer,wrongs,explain){
+    const values=[answer,...wrongs].map(String).filter((value,i,all)=>all.indexOf(value)===i);
+    if(values.length<4) throw new Error(`Missing distinct choices: ${q}`);
+    const choices=values.slice(0,4),shift=index%4;
+    return {type:"mc",q,answer:String(answer),choices:choices.slice(shift).concat(choices.slice(0,shift)),explain,audio:q};
+  }
+  function numeric(index,q,answer,explain,wrongs=[]){
+    return question(index,q,answer,[...wrongs,answer+1,answer-1,answer+10,answer+2].filter(n=>n>=0),explain);
+  }
+  function add(lesson,name,build){
+    const questions=Array.from({length:25},(_,index)=>build(index,Math.floor(index/5),index%5));
+    data[`g3:math:${lesson}`]={name,contentVersion:"g3-progressive-20261004.1",questions};
+    CURR.g3.math[lesson]={name,gen:classicQuestionPending};
+  }
+
+  add("L17","Addition Within 1,000",(i,stage,j)=>{
+    if(stage===0){
+      const a=123+j*110,b=214;
+      return numeric(i,`What is ${a} + ${b}?`,a+b,`Add ones, tens, and hundreds: ${a} + ${b} = ${a+b}. No regrouping is needed.`,[a+b+100,a+b-10]);
+    }
+    if(stage===1){
+      const a=126+j*110,b=137;
+      return numeric(i,`Add ${a} + ${b}. Regroup the ones when needed.`,a+b,`6 + 7 = 13 ones. Write 3 ones and carry 1 ten. Then add the tens and hundreds to get ${a+b}.`,[a+b-10,a+b+10]);
+    }
+    if(stage===2){
+      const a=168+j*100,b=257;
+      return numeric(i,`Find the sum: ${a} + ${b}.`,a+b,`8 + 7 = 15: write 5 and carry 1 ten. Then 6 + 5 + 1 = 12 tens: write 2 and carry 1 hundred. The sum is ${a+b}.`,[a+b-100,a+b-10]);
+    }
+    if(stage===3){
+      const a=245+j*31,b=178+j*12;
+      const prompts=[`A library has ${a} storybooks and ${b} fact books. How many books is that altogether?`,`A school collects ${a} cans on Monday and ${b} on Tuesday. How many cans does it collect in all?`,`There are ${a} red beads and ${b} blue beads in a box. How many beads are in the box?`,`A museum has ${a} visitors in the morning and ${b} in the afternoon. How many visitors is that in all?`,`A class reads ${a} pages in one week and ${b} in the next. How many pages does it read altogether?`];
+      return numeric(i,prompts[j],a+b,`Combine the two amounts: ${a} + ${b} = ${a+b}.`,[a+b-100,a+b-10]);
+    }
+    const a=268+j*23,b=157+j*14,total=a+b;
+    return numeric(i,`A collection has ${a} cards. After more cards are added, it has ${total} cards. How many cards were added?`,b,`The missing addend is ${total} - ${a} = ${b}. Check: ${a} + ${b} = ${total}.`,[b-10,b+100]);
+  });
+
+  add("L18","Subtraction Within 1,000",(i,stage,j)=>{
+    if(stage===0){
+      const a=486+j*100,b=123+j*10;
+      return numeric(i,`What is ${a} - ${b}?`,a-b,`Subtract ones, tens, and hundreds: ${a} - ${b} = ${a-b}. No regrouping is needed.`,[a-b+10,a-b-100]);
+    }
+    if(stage===1){
+      const a=342+j*100,b=126;
+      return numeric(i,`Subtract ${b} from ${a}.`,a-b,`Regroup 1 ten as 10 ones. Then 12 - 6 = 6 ones and 3 - 2 = 1 ten. The difference is ${a-b}.`,[a-b+10,a-b-10]);
+    }
+    if(stage===2){
+      const a=402+j*100,b=178;
+      return numeric(i,`Find the difference: ${a} - ${b}.`,a-b,`Regroup a hundred into 10 tens, then a ten into 10 ones. Subtract 8 from 12 ones and 7 from 9 tens. The difference is ${a-b}.`,[a-b+100,a-b+10]);
+    }
+    if(stage===3){
+      const a=521+j*57,b=248+j*19;
+      const prompts=[`A shop has ${a} pencils and sells ${b}. How many pencils remain?`,`A theater has ${a} seats. If ${b} are filled, how many are empty?`,`A school needs ${a} cans for a food drive. It has ${b}. How many more cans does it need?`,`Maya has ${a} stamps. Leo has ${b}. How many more stamps does Maya have?`,`A trail is ${a} meters long. Ben has walked ${b} meters. How many meters are left?`];
+      return numeric(i,prompts[j],a-b,`Subtract to find the amount left or the difference: ${a} - ${b} = ${a-b}.`,[a-b+100,a-b+10]);
+    }
+    const start=632+j*51,left=275+j*23;
+    return numeric(i,`A store starts with ${start} notebooks. After selling some, ${left} remain. How many notebooks were sold?`,start-left,`Start - sold = left, so sold = ${start} - ${left} = ${start-left}. Check: ${left} + ${start-left} = ${start}.`,[start-left+100,start-left-10]);
+  });
+
+  add("L19","Multiplication: Groups to Problems",(i,stage,j)=>{
+    if(stage===0){
+      const groups=j+2,each=2;
+      return numeric(i,`There are ${groups} pairs of socks. Each pair has ${each} socks. How many socks are there?`,groups*each,`Add 2 once for each pair: ${Array(groups).fill(2).join(" + ")} = ${groups*each}. This is ${groups} times 2.`,[groups+each,groups*each+2]);
+    }
+    if(stage===1){
+      const rows=j+2,each=5;
+      return numeric(i,`An array has ${rows} rows with ${each} dots in each row. How many dots are in the array?`,rows*each,`Multiply rows by dots in each row: ${rows} x ${each} = ${rows*each}.`,[rows+each,rows*each-5]);
+    }
+    if(stage===2){
+      const a=j+3,b=6;
+      return numeric(i,`What is ${a} x ${b}?`,a*b,`Use a fact you know: ${a} x 5 = ${a*5}. Add one more group of ${a}: ${a*5} + ${a} = ${a*b}.`,[a+b,a*b-6]);
+    }
+    if(stage===3){
+      const groups=j+4,each=7;
+      return numeric(i,`Each craft kit contains ${each} beads. How many beads are in ${groups} kits?`,groups*each,`There are ${groups} equal groups of ${each}: ${groups} x ${each} = ${groups*each} beads.`,[groups+each,groups*each-7]);
+    }
+    const groups=j+5,each=j+6,total=groups*each;
+    return numeric(i,`A display has ${total} pictures in ${groups} equal rows. Complete the multiplication equation: ${groups} x __ = ${total}.`,each,`Think of a related fact: ${groups} x ${each} = ${total}. Each row has ${each} pictures.`,[groups,7,9,6]);
+  });
+
+  add("L20","Division: Sharing to Missing Numbers",(i,stage,j)=>{
+    if(stage===0){
+      const people=2,each=j+2,total=people*each;
+      return numeric(i,`${total} crackers are shared equally by ${people} children. How many crackers does each child get?`,each,`Split ${total} into 2 equal groups. ${total} divided by 2 is ${each}; ${each} + ${each} = ${total}.`,[total,each+2]);
+    }
+    if(stage===1){
+      const each=3,total=(j+3)*each;
+      return numeric(i,`Put ${total} flowers into vases with ${each} flowers in each vase. How many vases are needed?`,total/each,`Count groups of ${each} in ${total}: ${total} / ${each} = ${total/each} vases.`,[total-each,total/each+3]);
+    }
+    if(stage===2){
+      const divisor=4+j,answer=5+j,total=divisor*answer;
+      return numeric(i,`What is ${total} divided by ${divisor}?`,answer,`Use multiplication to check: ${divisor} x ${answer} = ${total}, so ${total} / ${divisor} = ${answer}.`,[divisor,5,7,8]);
+    }
+    if(stage===3){
+      const groups=j+5,each=j+6,total=groups*each;
+      return numeric(i,`A teacher packs ${total} markers equally into ${groups} boxes. How many markers go in each box?`,each,`Divide the total by the number of boxes: ${total} / ${groups} = ${each} markers per box. Check: ${groups} x ${each} = ${total}.`,[groups,7,9,6]);
+    }
+    const each=j+5,groups=j+3,total=each*groups;
+    return numeric(i,`${total} students form equal teams with ${each} students per team. Complete the equation: ${total} / __ = ${each}. How many teams are there?`,groups,`The missing number is the number of teams. ${groups} teams of ${each} students make ${total}, so ${total} / ${groups} = ${each}.`,[each,total-each,groups+2]);
+  });
+
+  add("L21","Two-Step Word Problems",(i,stage,j)=>{
+    if(stage===0){
+      const start=24+j*3,added=12+j,used=8+j;
+      return numeric(i,`Mia has ${start} stickers. She gets ${added} more, then gives away ${used}. How many stickers does she have now?`,start+added-used,`First add: ${start} + ${added} = ${start+added}. Then subtract: ${start+added} - ${used} = ${start+added-used}.`,[start+added,start-used,start+added+used]);
+    }
+    if(stage===1){
+      const boxes=j+3,each=6,extra=j+4;
+      return numeric(i,`There are ${boxes} boxes with ${each} crayons in each box and ${extra} loose crayons. How many crayons are there altogether?`,boxes*each+extra,`First find the boxed crayons: ${boxes} x ${each} = ${boxes*each}. Add the loose crayons: ${boxes*each} + ${extra} = ${boxes*each+extra}.`,[boxes*each,boxes+each+extra,boxes*(each+extra)]);
+    }
+    if(stage===2){
+      const rows=j+4,each=8,empty=j+5;
+      return numeric(i,`A room has ${rows} rows of ${each} seats. ${empty} seats are empty and all the other seats are filled. How many seats are filled?`,rows*each-empty,`First find all seats: ${rows} x ${each} = ${rows*each}. Subtract the empty seats: ${rows*each} - ${empty} = ${rows*each-empty}.`,[rows*each,rows*each+empty,rows+each+empty]);
+    }
+    if(stage===3){
+      const people=j+3,each=j+5,saved=j+4,total=people*each+saved;
+      return numeric(i,`A baker makes ${total} rolls and saves ${saved}. The remaining rolls are shared equally among ${people} families. How many rolls does each family get?`,each,`First subtract the saved rolls: ${total} - ${saved} = ${total-saved}. Then share: ${total-saved} / ${people} = ${each}.`,[total-saved,each+1,each-1]);
+    }
+    const bags=j+4,each=6,used=j+7,answer=bags*each-used;
+    const correct=`${bags} x ${each} - ${used} = ${answer}`;
+    return question(i,`A coach opens ${bags} bags with ${each} tennis balls in each bag, then gives ${used} balls to a team. Which equation finds how many balls remain?`,correct,[`${bags} + ${each} - ${used} = ${bags+each-used}`,`${bags} x ${each} + ${used} = ${bags*each+used}`,`${bags} x (${each} + ${used}) = ${bags*(each+used)}`],`Multiply to find ${bags*each} balls, then subtract the ${used} given away. ${correct}.`);
+  });
+
+  add("L22","Fractions: Parts to Equivalence",(i,stage,j)=>{
+    if(stage===0){
+      const denominator=j+2,answer=`1/${denominator}`;
+      return question(i,`A shape is split into ${denominator} equal parts. One part is shaded. What fraction is shaded?`,answer,[`${denominator}/1`,`1/${denominator+1}`,`${denominator}/${denominator+1}`],`One of ${denominator} equal parts is shaded, so the fraction is ${answer}.`);
+    }
+    if(stage===1){
+      const denominator=j+4,numerator=j+1,answer=`${numerator}/${denominator}`;
+      return question(i,`A strip has ${denominator} equal sections. ${numerator} sections are blue. What fraction of the strip is blue?`,answer,[`${denominator}/${numerator}`,`${numerator+1}/${denominator}`,`${numerator}/${denominator+1}`],`${numerator} is the number of blue parts and ${denominator} is the total number of equal parts, so the fraction is ${answer}.`);
+    }
+    if(stage===2){
+      const denominator=j+5,numerator=j+2,answer=`${numerator}/${denominator}`;
+      return question(i,`A number line from 0 to 1 is divided into ${denominator} equal jumps. Which fraction is at jump ${numerator}?`,answer,[`${denominator}/${numerator}`,`${numerator-1}/${denominator}`,`${numerator}/${denominator-1}`],`Each jump is 1/${denominator}. After ${numerator} jumps, the point is at ${answer}.`);
+    }
+    if(stage===3){
+      const denominator=j+6,left=j+1,right=j+2,answer=`${right}/${denominator}`;
+      return question(i,`Which fraction is greater: ${left}/${denominator} or ${right}/${denominator}?`,answer,[`${left}/${denominator}`,"They are equal",`${right+1}/${denominator}`],`The denominators are the same, so compare the numerators. ${right} is greater than ${left}, making ${answer} the greater fraction.`);
+    }
+    const bases=[[1,2,2],[1,3,3],[2,3,2],[2,5,3],[3,4,2]],base=bases[j],numerator=base[0],denominator=base[1],factor=base[2],answer=`${numerator*factor}/${denominator*factor}`;
+    return question(i,`Which fraction is equivalent to ${numerator}/${denominator}?`,answer,[`${numerator+factor}/${denominator+factor}`,`${numerator*factor}/${denominator}`,`${numerator}/${denominator*factor}`],`Multiply the numerator and denominator by ${factor}: ${numerator} x ${factor} = ${numerator*factor} and ${denominator} x ${factor} = ${denominator*factor}. The equivalent fraction is ${answer}.`);
+  });
+
+  add("L23","Area: Squares to Composite Shapes",(i,stage,j)=>{
+    if(stage===0){
+      const rows=j+2,columns=j+3,answer=rows*columns;
+      return numeric(i,`A rectangle is covered by ${rows} rows of ${columns} unit squares. What is its area in square units?`,answer,`Count the unit squares by multiplying rows by columns: ${rows} x ${columns} = ${answer} square units.`,[rows+columns,answer+columns]);
+    }
+    if(stage===1){
+      const length=j+5,width=j+3,answer=length*width;
+      return numeric(i,`What is the area of a rectangle that is ${length} units long and ${width} units wide?`,answer,`Area equals length times width: ${length} x ${width} = ${answer} square units.`,[length+width,2*(length+width)]);
+    }
+    if(stage===2){
+      const width=j+4,length=j+6,area=width*length;
+      return numeric(i,`A rectangle has an area of ${area} square units and a width of ${width} units. What is its length?`,length,`Find the missing side by dividing: ${area} / ${width} = ${length}. Check: ${width} x ${length} = ${area}.`,[width,length+1,area-width]);
+    }
+    if(stage===3){
+      const aLength=j+4,aWidth=3,bLength=j+2,bWidth=2,areaA=aLength*aWidth,areaB=bLength*bWidth,answer=areaA+areaB;
+      return numeric(i,`An L-shaped floor is split into two rectangles. One is ${aLength} by ${aWidth} units and the other is ${bLength} by ${bWidth} units. What is the total area?`,answer,`Find both areas, then add: ${aLength} x ${aWidth} = ${areaA}, ${bLength} x ${bWidth} = ${areaB}, and ${areaA} + ${areaB} = ${answer} square units.`,[areaA,areaB,answer+6]);
+    }
+    const gardenLength=j+8,gardenWidth=j+5,pathArea=(j+2)*3,total=gardenLength*gardenWidth,answer=total-pathArea;
+    return numeric(i,`A ${gardenLength}-by-${gardenWidth} unit garden includes a path covering ${pathArea} square units. How many square units are left for plants?`,answer,`The whole garden has an area of ${gardenLength} x ${gardenWidth} = ${total}. Subtract the path: ${total} - ${pathArea} = ${answer} square units.`,[total,total+pathArea,answer+3]);
+  });
+
+  add("L24","Perimeter: Sides to Missing Lengths",(i,stage,j)=>{
+    if(stage===0){
+      const side=j+3,answer=side*4;
+      return numeric(i,`A square has side lengths of ${side} units. What is its perimeter?`,answer,`A square has four equal sides, so ${side} + ${side} + ${side} + ${side} = ${answer} units.`,[side*2,side*side]);
+    }
+    if(stage===1){
+      const length=j+7,width=j+3,answer=2*(length+width);
+      return numeric(i,`A rectangle is ${length} units long and ${width} units wide. What is its perimeter?`,answer,`Add all four sides: ${length} + ${width} + ${length} + ${width} = ${answer} units.`,[length*width,length+width]);
+    }
+    if(stage===2){
+      const length=j+8,width=j+4,perimeter=2*(length+width);
+      return numeric(i,`A rectangle has a perimeter of ${perimeter} units and a length of ${length} units. What is its width?`,width,`Two lengths use ${length*2} units. The two widths use ${perimeter-length*2} units, so each width is ${perimeter-length*2} / 2 = ${width} units.`,[length,width+2,perimeter/2]);
+    }
+    if(stage===3){
+      const sides=[j+3,j+4,j+5,j+6,j+7],answer=sides.reduce((sum,value)=>sum+value,0);
+      return numeric(i,`An irregular pentagon has side lengths ${sides.join(", ")} units. What is its perimeter?`,answer,`Perimeter is the distance around the shape. Add every side: ${sides.join(" + ")} = ${answer} units.`,[answer-sides[0],answer+sides[1],sides[0]*sides[1]]);
+    }
+    const length=j+10,width=j+6,gap=j+2,full=2*(length+width),answer=full-gap;
+    return numeric(i,`A rectangular garden is ${length} meters by ${width} meters. A gate ${gap} meters wide needs no fencing. How many meters of fencing are needed?`,answer,`First find the full perimeter: 2 x (${length} + ${width}) = ${full}. Then subtract the gate: ${full} - ${gap} = ${answer} meters.`,[full,length*width,answer+gap*2]);
+  });
+
+  add("L25","Time: Clocks to Schedules",(i,stage,j)=>{
+    if(stage===0){
+      const hours=["2:00","3:15","4:30","5:45","7:10"],minutes=[0,15,30,45,10],answer=minutes[j];
+      return numeric(i,`At ${hours[j]}, how many minutes past the hour is it?`,answer,`The minutes are shown after the colon. ${hours[j]} is ${answer} minutes past the hour.`,[60-answer,answer+5,answer+15]);
+    }
+    if(stage===1){
+      const startMinutes=10+j*5,duration=10+j*4,answer=startMinutes+duration;
+      return question(i,`A lesson starts at 9:${String(startMinutes).padStart(2,"0")} and lasts ${duration} minutes. When does it end?`,`9:${String(answer).padStart(2,"0")}`,[`9:${String(answer-5).padStart(2,"0")}`,`9:${String(answer-10).padStart(2,"0")}`,`10:${String(answer).padStart(2,"0")}`],`Add ${duration} minutes to ${startMinutes} minutes past 9. The lesson ends at 9:${String(answer).padStart(2,"0")}.`);
+    }
+    if(stage===2){
+      const start=35+j*4,duration=30+j*3,total=start+duration,endHour=2+Math.floor(total/60),endMinute=total%60,answer=`${endHour}:${String(endMinute).padStart(2,"0")}`;
+      return question(i,`A game begins at 2:${String(start).padStart(2,"0")} and lasts ${duration} minutes. What time does it end?`,answer,[`${endHour}:${String((endMinute+10)%60).padStart(2,"0")}`,`${endHour-1}:${String(endMinute).padStart(2,"0")}`,`${endHour+1}:${String(endMinute).padStart(2,"0")}`],`Add ${duration} minutes. The minutes pass 60, so move to the next hour. The game ends at ${answer}.`);
+    }
+    if(stage===3){
+      const startHour=8+j,startMinute=10+j*5,answer=20+j,endMinute=startMinute+answer;
+      return numeric(i,`School practice starts at ${startHour}:${String(startMinute).padStart(2,"0")} and ends at ${startHour}:${String(endMinute).padStart(2,"0")}. How many minutes does it last?`,answer,`Subtract the start minutes from the end minutes: ${endMinute} - ${startMinute} = ${answer} minutes.`,[answer+5,answer+10,answer+15]);
+    }
+    const start=15+j*5,first=20+j*5,breakTime=10+j*2,second=25+j*3,total=start+first+breakTime+second,endHour=1+Math.floor(total/60),endMinute=total%60,answer=`${endHour}:${String(endMinute).padStart(2,"0")}`;
+    return question(i,`A club starts at 1:${String(start).padStart(2,"0")}. It meets for ${first} minutes, takes a ${breakTime}-minute break, then works for ${second} more minutes. When does it finish?`,answer,[`${endHour}:${String((endMinute+10)%60).padStart(2,"0")}`,`${endHour-1}:${String(endMinute).padStart(2,"0")}`,`${endHour}:${String((endMinute+5)%60).padStart(2,"0")}`],`The total elapsed time is ${first} + ${breakTime} + ${second} = ${first+breakTime+second} minutes. Adding that to the start time gives ${answer}.`);
+  });
+
+  const money=cents=>`$${(cents/100).toFixed(2)}`;
+  add("L26","Money: Coins to Multi-Step Problems",(i,stage,j)=>{
+    if(stage===0){
+      const quarters=j+1,dimes=j,nickels=2,pennies=j+2,answer=quarters*25+dimes*10+nickels*5+pennies;
+      return question(i,`You have ${quarters} quarter${quarters===1?"":"s"}, ${dimes} dime${dimes===1?"":"s"}, 2 nickels, and ${pennies} pennies. How much money is that?`,money(answer),[money(answer+10),money(answer-5),money(answer+25)],`Quarters are ${quarters*25} cents, dimes are ${dimes*10} cents, nickels are 10 cents, and pennies are ${pennies} cents. The total is ${answer} cents, or ${money(answer)}.`);
+    }
+    if(stage===1){
+      const dollars=j+2,cents=15+j*11,answer=dollars*100+cents;
+      return question(i,`Which amount is equal to ${dollars} dollars and ${cents} cents?`,money(answer),[money(answer+100),money(dollars*100+(100-cents)),money(answer+10)],`${dollars} dollars is ${dollars*100} cents. Add ${cents} cents to get ${answer} cents, written ${money(answer)}.`);
+    }
+    if(stage===2){
+      const first=125+j*37,second=118+j*29,answer=first>second?money(first):money(second);
+      return question(i,`Which price is greater: ${money(first)} or ${money(second)}?`,answer,[first>second?money(second):money(first),money(Math.abs(first-second)),money(first+second)],`Compare dollars first, then cents. ${answer} is the greater price.`);
+    }
+    if(stage===3){
+      const price=235+j*41,paid=Math.ceil((price+100)/100)*100,change=paid-price;
+      return question(i,`A toy costs ${money(price)}. You pay ${money(paid)}. How much change should you receive?`,money(change),[money(paid+price),money(price),money(change+100)],`Subtract the price from the amount paid: ${paid} cents - ${price} cents = ${change} cents, or ${money(change)}.`);
+    }
+    const itemA=145+j*23,itemB=85+j*17,quantity=2,total=itemA+quantity*itemB,paid=Math.ceil((total+100)/100)*100,change=paid-total;
+    return question(i,`A book costs ${money(itemA)} and each pen costs ${money(itemB)}. You buy the book and ${quantity} pens and pay ${money(paid)}. How much change do you get?`,money(change),[money(total),money(paid-itemA),money(change+50)],`Two pens cost ${quantity} x ${itemB} = ${quantity*itemB} cents. The total is ${itemA} + ${quantity*itemB} = ${total} cents. The change is ${paid} - ${total} = ${change} cents, or ${money(change)}.`);
+  });
+})();
+
+/* Source bank: k12-g3-progressive-english.js */
+/* Five Grade 3 English lessons that grow from word reading to paragraph writing. */
+(function(){
+  const data=window.K12_CLASSIC_25_DATA=window.K12_CLASSIC_25_DATA||Object.create(null);
+  function question(item,index){
+    const [q,answer,...rest]=item,explain=rest.pop();
+    const values=[answer,...rest].map(String).filter((value,i,all)=>all.indexOf(value)===i);
+    if(values.length!==4) throw new Error(`Four distinct choices are required: ${q}`);
+    const shift=index%4,choices=values.slice(shift).concat(values.slice(0,shift));
+    return {type:"mc",q,answer:String(answer),choices,explain,audio:q};
+  }
+  function add(lesson,name,items){
+    if(items.length!==25) throw new Error(`${name} must contain 25 questions.`);
+    data[`g3:eng:${lesson}`]={name,contentVersion:"g3-english-progressive-20261004.1",questions:items.map(question)};
+    CURR.g3.eng[lesson]={name,gen:classicQuestionPending};
+  }
+
+  add("L17","Multisyllabic Words",[
+    ["How many syllables are in rabbit?","2","1","3","4","Say it in beats: rab-bit. Rabbit has 2 syllables."],
+    ["How many syllables are in sunset?","2","1","3","4","Say it in beats: sun-set. Sunset has 2 syllables."],
+    ["How many syllables are in music?","2","1","3","4","Say it in beats: mu-sic. Music has 2 syllables."],
+    ["How many syllables are in robot?","2","1","3","4","Say it in beats: ro-bot. Robot has 2 syllables."],
+    ["How many syllables are in picnic?","2","1","3","4","Say it in beats: pic-nic. Picnic has 2 syllables."],
+    ["How many syllables are in banana?","3","1","2","4","Say it in beats: ba-na-na. Banana has 3 syllables."],
+    ["How many syllables are in computer?","3","1","2","4","Say it in beats: com-pu-ter. Computer has 3 syllables."],
+    ["How many syllables are in elephant?","3","1","2","4","Say it in beats: el-e-phant. Elephant has 3 syllables."],
+    ["How many syllables are in holiday?","3","1","2","4","Say it in beats: hol-i-day. Holiday has 3 syllables."],
+    ["How many syllables are in remember?","3","1","2","4","Say it in beats: re-mem-ber. Remember has 3 syllables."],
+    ["Which division correctly shows the syllables in basket?","bas-ket","ba-sket","bask-et","b-a-sket","The spoken beats are bas and ket, so basket divides as bas-ket."],
+    ["Which division correctly shows the syllables in napkin?","nap-kin","na-pkin","napk-in","n-ap-kin","The spoken beats are nap and kin, so napkin divides as nap-kin."],
+    ["Which division correctly shows the syllables in fantastic?","fan-tas-tic","fant-as-tic","fa-ntas-tic","fan-ta-stic","The spoken beats are fan, tas, and tic, so fantastic divides as fan-tas-tic."],
+    ["Which division correctly shows the syllables in adventure?","ad-ven-ture","adv-en-ture","a-dvent-ure","advent-ure","The spoken beats are ad, ven, and ture, so adventure divides as ad-ven-ture."],
+    ["Which division correctly shows the syllables in important?","im-por-tant","imp-or-tant","i-mport-ant","impo-rtant","The spoken beats are im, por, and tant, so important divides as im-por-tant."],
+    ["What is the base word in replaying?","play","re","playing","replay","Remove the prefix re- and suffix -ing. The base word is play."],
+    ["What is the prefix in unhappy?","un-","-happy","hap","-y","The word unhappy begins with the prefix un-, meaning not."],
+    ["What is the suffix in helpful?","-ful","help-","-hel","ful-","Helpful ends with the suffix -ful, meaning full of."],
+    ["Which two smaller words form sunflower?","sun + flower","sunny + lower","sum + flower","sun + flour","Sunflower is a compound word made from sun and flower."],
+    ["What is the base word in kindness?","kind","kin","ness","kindness","Remove the suffix -ness. The base word is kind."],
+    ["The prefix pre- means before. What does preview mean?","to view before","to view again","not able to view","a person who views","Use the meaning of pre-. A preview is a view before the full event."],
+    ["The suffix -less means without. What does careless mean?","without enough care","full of care","able to care again","a person who cares","The base care plus -less means without enough care."],
+    ["The prefix dis- can mean not or opposite. What does disagree mean?","to not agree","to agree again","to agree before","a person who agrees","Dis- changes agree to its opposite, so disagree means to not agree."],
+    ["The suffix -ment can name an action or result. What does movement mean?","the act of moving","unable to move","moving again","one who moves","Move plus -ment names the act or result of moving."],
+    ["Which word parts best explain unkindness?","un- + kind + -ness","unk + ind + ness","un- + kin + -dness","u- + nkind + -ness","Unkindness contains the prefix un-, the base kind, and the suffix -ness."]
+  ]);
+
+  add("L18","Main Idea and Supporting Details",[
+    ["Bees collect nectar from flowers and carry it to their hive. What is the sentence mostly about?","how bees gather nectar","why hives are dark","how flowers grow","why honey tastes sweet","The sentence focuses on bees collecting and carrying nectar."],
+    ["A turtle has a hard shell that helps protect its body. What is the sentence mostly about?","a turtle's protective shell","where turtles sleep","what turtles eat","how fast turtles move","The main point is that a turtle's shell protects it."],
+    ["Our class planted seeds, watered them, and watched them sprout. What is the sentence mostly about?","the class growing plants","the class studying rain","buying seeds at a store","drawing pictures of gardens","All three actions describe the class growing plants."],
+    ["Lena practices the piano every afternoon so she can improve. What is the sentence mostly about?","Lena practicing piano","Lena's favorite song","a noisy afternoon","buying a new piano","The sentence centers on Lena practicing to improve."],
+    ["Snowplows clear roads so cars can travel safely after a storm. What is the sentence mostly about?","snowplows making roads safer","cars moving slowly","families building snowmen","storms closing schools","The main point is the job snowplows do after storms."],
+    ["Main idea: Dogs need daily care. Which detail best supports it?","Dogs need food, water, exercise, and attention.","Some dogs have curly tails.","My neighbor owns a blue car.","Cats can climb trees.","Food, water, exercise, and attention are all parts of daily dog care."],
+    ["Main idea: Reading can help people learn. Which detail best supports it?","Books can teach facts about animals, places, and history.","Libraries often have quiet rooms.","Some book covers are red.","Writing uses pencils or keyboards.","Learning facts from books directly supports the main idea."],
+    ["Main idea: A rain garden helps the environment. Which detail best supports it?","Its plants soak up rainwater that might otherwise run into streets.","The garden has a curved stone path.","Many people like sunny days.","A shovel can dig holes.","Soaking up runoff explains how a rain garden helps the environment."],
+    ["Main idea: Teamwork helped the students finish. Which detail best supports it?","Each student completed one part of the shared project.","The project paper was white.","Lunch began at noon.","One student wore new shoes.","Sharing the project's work shows teamwork."],
+    ["Main idea: Exercise strengthens the body. Which detail best supports it?","Running and climbing help build strong muscles.","Sneakers come in many colors.","A park may have benches.","Water bottles have lids.","Building strong muscles directly supports the benefit of exercise."],
+    ["Otters have thick fur that keeps them warm. They also float on their backs while resting. What is the main idea?","Otters have features and behaviors that help them live in water.","Otters are the largest ocean animals.","All furry animals float on their backs.","Water is always warm near otters.","Both details describe ways otters are suited to life in water."],
+    ["Nora checked the soil each morning. When it felt dry, she watered the tomato plant. Soon, new leaves appeared. What is the main idea?","Nora cared for a tomato plant and helped it grow.","Tomatoes only grow indoors.","Dry soil always has new leaves.","Nora planted a tree each morning.","The details show Nora checking and watering the plant as it grew."],
+    ["The town added bike lanes along busy streets. More people began riding to work, and riders had a safer place to travel. What is the main idea?","Bike lanes made cycling safer and more useful in the town.","Everyone in town sold a car.","Busy streets should be closed.","Bicycles can only be used for work.","The passage explains two benefits caused by the new bike lanes."],
+    ["During winter, some birds fly to warmer places where food is easier to find. They return when spring arrives. What is the main idea?","Some birds migrate to find better conditions.","All birds stay in one place for winter.","Spring weather makes birds unable to fly.","Birds eat only during warm months.","Flying away and returning describes migration for food and warmth."],
+    ["A librarian showed Malik how to search the catalog. He used the call number to find a book on space. What is the main idea?","Malik learned how to locate a library book.","Malik wrote a book about space.","The library had no catalog.","Call numbers tell a book's price.","Both sentences explain the steps Malik used to find a book."],
+    ["Which sentence does not belong in a paragraph about caring for a bicycle?","My favorite ice cream flavor is strawberry.","Keep the tires filled with air.","Oil the chain when it becomes dry.","Store the bicycle where it will stay dry.","The ice cream sentence does not support the topic of bicycle care."],
+    ["Which sentence does not belong in a paragraph about frogs?","Our school bus arrives at seven thirty.","Frogs begin life as tadpoles.","Most frogs have strong back legs for jumping.","Many frogs live near ponds.","The school bus detail is unrelated to frogs."],
+    ["Which sentence does not belong in a paragraph about saving water?","A basketball team has five players on the court.","Turn off the faucet while brushing your teeth.","Fix dripping faucets quickly.","Use a watering can instead of a running hose.","The basketball detail does not explain a way to save water."],
+    ["Which sentence does not belong in a paragraph about the school play?","Whales breathe air through blowholes.","Students painted the scenery after school.","The actors practiced their lines each day.","Families filled the auditorium on opening night.","The whale fact is unrelated to preparing for or presenting a play."],
+    ["Which sentence does not belong in a paragraph about making soup?","The moon moves around Earth.","First, wash and cut the vegetables.","Next, add broth and seasonings.","Let the soup simmer until the vegetables are tender.","The moon sentence does not belong with the soup-making steps."],
+    ["Kai packed a flashlight, water, and a map. On the trail, he checked the map at every turn and reached camp before dark. What is the best main idea?","Careful preparation helped Kai hike safely.","Kai was afraid of flashlights.","The trail had no turns.","Camping is always easy.","Packing useful supplies and checking the map show how preparation helped Kai."],
+    ["The community center offered free art classes. At first, only a few children came. After students displayed their paintings at a festival, every class filled. What is the best main idea?","Sharing the students' art increased interest in the classes.","The center stopped offering art classes.","The festival had no paintings.","Children dislike free activities.","Attendance grew after people saw the students' work at the festival."],
+    ["A fallen tree blocked the creek, creating a quiet pool. Insects gathered there, and fish found more food. What is the best main idea?","A change in the creek created a helpful habitat.","The creek dried up completely.","Fish pushed the tree into the water.","Insects made the creek flow faster.","The tree created a pool where insects and fish could thrive."],
+    ["Priya's first paper airplane dropped quickly. She changed the wing shape, tested it again, and recorded the distance each time. Her fifth plane flew across the room. What is the best main idea?","Testing and revising helped Priya improve her design.","Paper airplanes work correctly on the first try.","Priya stopped recording her results.","The room was too small for airplanes.","Repeated changes, tests, and records led to a better design."],
+    ["Neighbors turned an empty lot into a garden. They shared tools, planted vegetables, and gave extra food to a pantry. What theme best fits the paragraph?","Working together can improve a community.","Gardens should be kept secret.","Tools are more valuable than food.","Only experts can grow vegetables.","The neighbors cooperated to create a garden and help others."]
+  ]);
+
+  add("L19","Context Clues",[
+    ["A habitat, or the natural home of a plant or animal, provides food and shelter. What does habitat mean?","a natural home","a kind of food","a dangerous storm","a group of plants","The words after or directly define habitat as a natural home."],
+    ["A nocturnal animal is active at night. What does nocturnal mean?","active at night","asleep all winter","able to fly","living underwater","The sentence directly explains that nocturnal means active at night."],
+    ["To observe means to watch carefully. What does observe mean?","to watch carefully","to speak loudly","to move quickly","to forget something","The phrase following means gives the definition."],
+    ["A peninsula is land almost surrounded by water. What does peninsula mean?","land with water on most sides","a deep part of the ocean","a tall mountain","a dry grassland","The sentence provides the exact definition of peninsula."],
+    ["The fragile glass ornament could break easily. What does fragile mean?","easy to break","very heavy","brightly colored","hard to find","Could break easily is a direct clue for fragile."],
+    ["The enormous elephant looked huge beside the small goat. What does enormous mean?","very large","very quiet","very young","very hungry","Huge is a synonym clue for enormous."],
+    ["Mina was joyful, or very happy, when her cousin arrived. What does joyful mean?","very happy","deeply worried","slightly tired","ready to leave","Very happy is a synonym that explains joyful."],
+    ["The path was narrow and thin, so only one person could walk on it. What does narrow mean?","not wide","very long","covered in stones","going uphill","Thin and the one-person example show that narrow means not wide."],
+    ["The puppy was eager and excited to begin its walk. What does eager mean?","excited and ready","sleepy and slow","lost and confused","angry and loud","Excited is a synonym clue for eager."],
+    ["The pond was tranquil—calm and peaceful—at sunrise. What does tranquil mean?","calm and peaceful","dark and dangerous","cold and frozen","crowded and noisy","The words between the dashes restate tranquil's meaning."],
+    ["Unlike his timid brother, Marco was bold enough to speak onstage. What does timid mean?","shy or fearful","brave and confident","funny and cheerful","careful and prepared","Unlike signals an opposite. Timid is the opposite of bold."],
+    ["The desert was arid, but the rainforest was wet. What does arid mean?","very dry","full of trees","cool and windy","dark at night","But contrasts arid with wet, showing that arid means very dry."],
+    ["The first puzzle was simple, while the second was complex. What does complex mean?","difficult or complicated","easy to finish","small in size","missing a piece","While contrasts complex with simple."],
+    ["Luca is usually talkative, but today he was silent. What does talkative mean?","speaking a lot","making no sound","feeling ill","walking away","But contrasts talkative with silent."],
+    ["The fresh bread was soft, unlike the stale loaf that was hard and dry. What does stale mean?","no longer fresh","warm from the oven","sweet and soft","cut into slices","Unlike contrasts fresh bread with the hard, dry stale loaf."],
+    ["Celestial objects, such as the sun, moon, and stars, can be seen in the sky. What does celestial mean?","related to the sky or space","found deep underground","made by people","living in water","The examples sun, moon, and stars show that celestial relates to the sky or space."],
+    ["Many utensils—forks, spoons, and knives—were set on the table. What does utensils mean?","tools used for eating or cooking","foods served at dinner","pieces of furniture","decorations for a room","Forks, spoons, and knives are examples of utensils."],
+    ["The market sold produce including apples, carrots, lettuce, and peaches. What does produce mean here?","fresh fruits and vegetables","boxes and shopping bags","meat and cheese","plates and cups","The listed fruits and vegetables reveal the meaning of produce."],
+    ["Aquatic animals such as dolphins, fish, and octopuses live in water. What does aquatic mean?","living in or near water","able to live without food","active only at night","covered with feathers","The examples all live in water, which explains aquatic."],
+    ["The museum displayed ancient objects: old coins, clay pots, and tools from long ago. What does ancient mean?","very old","newly made","brightly painted","easy to replace","The objects from long ago show that ancient means very old."],
+    ["After hiking all day, Tia was famished and ate two sandwiches. What does famished most likely mean?","extremely hungry","slightly bored","very cold","ready to sleep","Eating two sandwiches after a long hike suggests extreme hunger."],
+    ["The kitten darted under the couch when the door slammed. What does darted most likely mean?","moved suddenly and quickly","slept peacefully","made a loud sound","looked around slowly","The sudden noise and movement under the couch suggest a quick dash."],
+    ["Omar handled the baby bird cautiously, using slow movements and a gentle touch. What does cautiously mean?","carefully","carelessly","angrily","noisily","Slow, gentle movements show that Omar acted carefully."],
+    ["The class was reluctant to go outside because dark clouds and thunder filled the sky. What does reluctant mean?","unwilling or unsure","excited and eager","unable to hear","ready for lunch","The threatening weather explains why the class was unwilling to go outside."],
+    ["The garden flourished after weeks of sunlight and rain; its plants grew tall and produced many flowers. What does flourished mean?","grew successfully","became smaller","lost all color","needed to be moved","Tall growth and many flowers show that the garden grew successfully."]
+  ]);
+
+  add("L20","Sentence Editing",[
+    ["Which sentence begins with a capital letter?","The dog chased the ball.","the puppy chased the ball.","my dog chased the ball.","a dog chased the ball.","A sentence begins with a capital letter: The dog chased the ball."],
+    ["Which sentence uses a capital letter for a person's name?","Maria opened the window.","maria closed the window.","My friend maria opened the window.","The student named maria opened it.","Maria is a proper noun and must begin with a capital letter."],
+    ["Which sentence has the correct end punctuation?","Where is my backpack?","Where is my backpack.","Where is my backpack!","Where is my backpack,","A direct question ends with a question mark."],
+    ["Which sentence uses a comma correctly?","After lunch, we went outside.","After, lunch we went outside.","After lunch we, went outside.","After lunch we went, outside.","A comma follows the introductory phrase After lunch."],
+    ["Which sentence is capitalized and punctuated correctly?","On Friday, Jamal visits the library.","on Friday Jamal visits the library.","On friday, jamal visited the library.","On Friday Jamal visits the library","Friday and Jamal are proper nouns, and the introductory phrase needs a comma."],
+    ["Choose the sentence with correct subject-verb agreement.","The bird sings each morning.","The bird sing each morning.","The bird singing each morning.","The bird are singing each morning.","The singular subject bird takes the verb sings."],
+    ["Which sentence correctly matches a plural subject with its verb?","The players run onto the field.","The players runs onto the field.","The players is running onto the field.","The players runs onto the fields.","The plural subject players takes the verb run."],
+    ["Which sentence correctly uses a verb with a compound subject?","My brother and I are ready.","My brother and I is ready.","My brother and I am ready.","My brother and I be ready.","The compound subject My brother and I takes the plural verb are."],
+    ["Which sentence has correct subject-verb agreement?","A box of crayons sits on the desk.","A box of crayons sit on the desk.","A box of crayons are on the desk.","A box of crayons sitting on the desk.","The subject is the singular noun box, so the verb is sits."],
+    ["Which revision fixes the verb error in 'The cats chases the string'?","The cats chase the string.","The cats chases the strings.","The cat chase the string.","The cats chasing the string.","The plural subject cats needs the verb chase."],
+    ["Which sentence correctly describes something that happened yesterday?","Yesterday, we walked to the park.","Yesterday, we walk to the park.","Yesterday, we will walk to the park.","Yesterday, we walking to the park.","Walked is the past-tense verb needed with yesterday."],
+    ["Which sentence correctly describes something happening now?","Nia is reading a mystery.","Nia read a mystery tomorrow.","Nia will reading a mystery.","Nia are reading a mystery.","Is reading correctly shows an action happening now and agrees with Nia."],
+    ["Which sentence uses the subject pronoun correctly?","Carlos and I built the model.","Carlos and me built the model.","Me and Carlos built the model.","Carlos and myself built the model.","I is the correct subject pronoun in Carlos and I."],
+    ["Which sentence uses the object pronoun correctly?","The teacher gave the papers to Ava and me.","The teacher gave the papers to Ava and I.","The teacher gave we the papers.","The teacher gave the papers to she and Ava.","After the preposition to, me is the correct object pronoun."],
+    ["Which revision keeps the verb tense consistent?","Eli packed his bag and walked to school.","Eli packed his bag and walks to school.","Eli packs his bag and walked to school.","Eli packing his bag and walk to school.","Packed and walked are both in the past tense."],
+    ["Which sentence best combines 'The rain stopped. We went outside.'?","The rain stopped, so we went outside.","The rain stopped, but because we went outside.","The rain stopped and because outside.","The rain stopped, or we went outside because.","So clearly shows that the stopped rain allowed us to go outside."],
+    ["Which sentence best combines 'Maya likes apples. Maya likes pears.'?","Maya likes apples and pears.","Maya likes apples, because pears.","Maya likes apples but Maya pears.","Maya and likes apples pears.","The shared words can be stated once and the two foods joined with and."],
+    ["Which sentence best combines 'The room was small. It felt comfortable.'?","The room was small, but it felt comfortable.","The room was small, so uncomfortable.","The room but small felt comfortable.","The room was small because comfortable.","But shows the contrast between small and comfortable."],
+    ["Which sentence best combines 'Wear a coat. It is cold outside.'?","Wear a coat because it is cold outside.","Wear a coat, or because cold outside.","Wear because a coat is cold outside.","A coat and it is cold outside.","Because clearly explains the reason for wearing a coat."],
+    ["Which sentence best combines 'Ben finished his homework. Then he played soccer.'?","After Ben finished his homework, he played soccer.","Ben finished, because soccer his homework.","Ben played homework and then soccer finished.","After soccer, Ben homework played.","After shows the correct order and combines the ideas smoothly."],
+    ["Which sentence correctly revises 'last monday we visit the zoo'?","Last Monday, we visited the zoo.","last Monday we visited the zoo","Last monday, we visit the zoo.","Last Monday we visits the zoo?","The revision fixes capitalization, the comma, past tense, and punctuation."],
+    ["Which sentence correctly revises 'the puppy wag their tail when i arrived'?","The puppy wagged its tail when I arrived.","The puppy wag their tail when i arrived.","the puppy wagged it's tail when I arrived","The puppy wags their tail when I arrive yesterday.","The revision fixes capitalization, past tense, pronoun agreement, and I."],
+    ["Which sentence correctly revises 'after dinner my sister wash the dishes'?","After dinner, my sister washes the dishes.","After dinner my sister wash the dishes.","after dinner, my sister washes the dishes","After dinner, my sister washing the dishes?","The revision adds capitalization and a comma and uses the singular verb washes."],
+    ["Which sentence correctly revises 'we seen two foxs in the field'?","We saw two foxes in the field.","We seen two foxs in the field.","we saw two fox's in the field","We seed two foxes in the field.","Saw is the correct past-tense verb, and the plural of fox is foxes."],
+    ["Which sentence is the clearest complete revision?","Although the trail was muddy, we continued hiking carefully.","Although the trail muddy, continued hiking.","The trail was muddy although and carefully.","Muddy trail, we continuing hike careful.","The correct revision is complete and clearly connects the two related ideas."]
+  ]);
+
+  add("L21","Paragraph Building",[
+    ["Which is the best topic sentence for a paragraph about caring for a hamster?","A hamster needs food, water, exercise, and a clean home.","My hamster's bowl is blue.","Yesterday was Tuesday.","Some pets have long tails.","The best topic sentence introduces the whole subject of hamster care."],
+    ["Which is the best topic sentence for a paragraph about recess?","Recess gives students time to move, play, and recharge.","The slide is painted green.","My shoes have white laces.","Lunch comes before recess at my school.","The sentence introduces several benefits that a paragraph can explain."],
+    ["Which is the best topic sentence for a paragraph about thunderstorms?","Thunderstorms bring lightning, thunder, wind, and heavy rain.","I counted three puddles.","My window has curtains.","Summer begins in June.","The sentence broadly introduces the features of thunderstorms."],
+    ["Which is the best topic sentence for a paragraph about learning to swim?","Learning to swim takes instruction, practice, and patience.","The pool has six lanes.","My towel is orange.","Water feels cool in the morning.","The sentence states the main idea that the other details can develop."],
+    ["Which is the best topic sentence for a paragraph about recycling?","Recycling helps save resources and reduce trash.","Our bin is beside the door.","Glass can be many colors.","A truck came on Friday.","The sentence clearly states the broad importance of recycling."],
+    ["Put the steps in the best order: 1. Dry the clean apple. 2. Eat the slices. 3. Wash the apple. 4. Cut it into slices.","3, 1, 4, 2","1, 3, 2, 4","4, 2, 3, 1","2, 4, 1, 3","First wash, then dry, cut, and finally eat the apple."],
+    ["Put the events in the best order: 1. The plant sprouted. 2. Ava watered the soil. 3. Ava planted a seed. 4. The plant grew leaves.","3, 2, 1, 4","2, 3, 4, 1","1, 4, 3, 2","4, 1, 2, 3","A seed is planted and watered before it sprouts and grows leaves."],
+    ["Put the directions in the best order: 1. Check out the book. 2. Find the call number. 3. Search the catalog. 4. Take the book from the shelf.","3, 2, 4, 1","2, 1, 3, 4","4, 3, 1, 2","1, 4, 2, 3","Search first, use the call number, find the book, and then check it out."],
+    ["Put the events in the best order: 1. The team celebrated. 2. Jo kicked the ball. 3. The ball entered the goal. 4. The referee blew the final whistle.","2, 3, 4, 1","1, 2, 3, 4","3, 2, 1, 4","4, 1, 2, 3","The kick sends the ball into the goal; the whistle and celebration follow."],
+    ["Put the steps in the best order: 1. Serve the muffins. 2. Mix the batter. 3. Bake the batter. 4. Pour it into the muffin pan.","2, 4, 3, 1","4, 2, 1, 3","3, 1, 2, 4","1, 3, 4, 2","Mix, pour, bake, and then serve the muffins."],
+    ["Which transition best completes the sentence? 'First, gather the supplies. ___, begin the experiment.'","Next","However","For example","In conclusion","Next shows the second step in a sequence."],
+    ["Which transition best completes the sentence? 'The path was steep. ___, the hikers kept climbing.'","However","Because","First","For example","However signals a contrast between difficulty and continuing."],
+    ["Which transition best completes the sentence? 'Many birds migrate. ___, geese fly south for winter.'","For example","Meanwhile","Instead","Finally","For example introduces one bird that migrates."],
+    ["Which transition best completes the sentence? 'Lila studied each evening. ___, she felt prepared for the test.'","As a result","On the other hand","Before","For example","As a result shows the effect of studying."],
+    ["Which transition best completes the sentence? 'We packed the tent and food. ___, we checked the weather forecast.'","In addition","Instead","Nevertheless","In conclusion","In addition adds another preparation step."],
+    ["Topic sentence: Our school garden attracts wildlife. Which supporting sentence fits best?","Butterflies visit the flowers, and birds eat seeds from the sunflowers.","The gym floor was polished yesterday.","My backpack has three pockets.","The cafeteria serves soup on Fridays.","The butterfly and bird examples directly support the topic."],
+    ["Which concluding sentence best ends a paragraph about daily reading?","Reading a little each day can build knowledge and skill over time.","The library closes at six o'clock.","My book has 112 pages.","Some words are longer than others.","The sentence restates the paragraph's broad idea and gives closure."],
+    ["Which concluding sentence best ends a paragraph about keeping parks clean?","When everyone handles trash responsibly, parks stay pleasant for all.","A squirrel climbed the tallest tree.","The park has two soccer fields.","Trash bags are often made of plastic.","The sentence sums up why shared responsibility matters."],
+    ["Which supporting detail best fits between 'Our class prepared for the science fair' and 'By Friday, every display was ready'?","Students tested projects, corrected mistakes, and labeled their results.","Friday is named after an old word.","The hallway walls are made of brick.","Some students ride the bus home.","The detail explains the work that led to finished displays."],
+    ["Paragraph: 'Milo wanted to improve at basketball. He practiced dribbling every afternoon. He also worked on passing with his sister.' Which sentence should come next?","After several weeks, Milo handled the ball with more control.","Basketballs are usually orange.","His sister likes blueberry pancakes.","The gym has bright lights.","The result of regular practice logically completes the paragraph."],
+    ["Paragraph: 'The pond looked still from far away. Up close, tadpoles darted near the shore, insects skimmed the surface, and reeds swayed in the breeze.' Which concluding sentence fits best?","The quiet-looking pond was actually full of activity.","Ponds contain water.","I wore my red boots that day.","The shore was closer than the road.","The conclusion brings the paragraph's contrasting observations together."],
+    ["Paragraph: 'Sam wanted to reduce waste at lunch. He packed food in reusable containers and carried a metal spoon.' Which detail would strengthen the paragraph?","He also filled a washable bottle instead of taking a disposable one.","His lunch period began at noon.","The spoon was next to his sandwich.","His friend bought a new hat.","A reusable bottle adds another specific way Sam reduced waste."],
+    ["Paragraph: 'Wind can be useful. It moves sailboats across water and turns turbines that make electricity. Yesterday, I drew a picture with purple crayons.' Which sentence should be removed?","Yesterday, I drew a picture with purple crayons.","Wind can be useful.","It moves sailboats across water.","It turns turbines that make electricity.","The drawing sentence does not support the paragraph's main idea about useful wind."],
+    ["Which revision makes this paragraph flow best? 'We reached the campsite. We put up the tent. We cooked dinner.'","We reached the campsite. Next, we put up the tent. Finally, we cooked dinner.","Finally, we reached the campsite. For example, we put up the tent. However, we cooked dinner.","We reached the campsite because. We put up the tent but. We cooked dinner next first.","We reached. The campsite tent dinner cooked.","Next and Finally clearly show the order of events."],
+    ["Which is the strongest ending for a paragraph explaining how a class solved a problem together?","By listening, sharing ideas, and dividing the work, the class found a solution everyone supported.","The classroom clock had black numbers.","One student sharpened a pencil.","Problems can sometimes be hard.","The ending explains how teamwork produced a successful result and closes the idea."]
+  ]);
+})();
+
+/* Source bank: k12-g3-all-subjects-extension.js */
+/* Five additional, progressively staged lessons for every Grade 3 subject. */
+(function(){
+  const data=window.K12_CLASSIC_25_DATA=window.K12_CLASSIC_25_DATA||Object.create(null);
+  function mc(index,q,answer,wrongs,explain){
+    const values=[answer,...wrongs].map(String).filter((value,i,all)=>all.indexOf(value)===i);
+    if(values.length<4) throw new Error(`Four distinct choices are required: ${q}`);
+    const choices=values.slice(0,4),shift=index%4;
+    return {type:"mc",q,answer:String(answer),choices:choices.slice(shift).concat(choices.slice(0,shift)),explain,audio:q};
+  }
+  function numberQuestion(index,q,answer,wrongs,explain){
+    return mc(index,q,String(answer),wrongs.map(String),explain);
+  }
+  function add(subject,lesson,name,build){
+    const questions=Array.from({length:25},(_,index)=>build(index,Math.floor(index/5),index%5));
+    data[`g3:${subject}:${lesson}`]={name,contentVersion:"g3-all-subjects-20261005.1",questions};
+    CURR.g3[subject][lesson]={name,gen:classicQuestionPending};
+  }
+  function others(items,index,field){
+    return [1,2,3].map(offset=>items[(index+offset)%items.length][field]);
+  }
+  function addConceptLesson(subject,lesson,name,concepts){
+    add(subject,lesson,name,(index,stage,j)=>{
+      const item=concepts[j];
+      if(stage===0) return mc(index,`What does ${item.term} mean?`,item.definition,others(concepts,j,"definition"),`${item.term} means ${item.definition.toLowerCase()}`);
+      if(stage===1) return mc(index,`Which example best shows ${item.term}?`,item.example,others(concepts,j,"example"),`${item.example} This is an example of ${item.term}.`);
+      if(stage===2) return mc(index,`${item.scenario} Which concept best explains this?`,item.term,others(concepts,j,"term"),`${item.term} best matches the evidence in the situation.`);
+      if(stage===3) return mc(index,`Which evidence best supports this claim: “${item.claim}”?`,item.evidence,others(concepts,j,"evidence"),`${item.evidence} This evidence directly supports the claim.`);
+      return mc(index,`Which conclusion correctly applies ${item.term} to a new situation?`,item.conclusion,others(concepts,j,"conclusion"),`${item.conclusion} This conclusion correctly applies ${item.term}.`);
+    });
+  }
+
+  addConceptLesson("eng","L22","Inference and Text Evidence",[
+    {term:"an inference about feelings",definition:"a conclusion about an emotion based on clues",example:"Noticing trembling hands and inferring that a character is nervous",scenario:"Tara grins, claps, and races to show her family the medal.",claim:"Tara feels proud",evidence:"She grins and eagerly shows everyone her medal.",conclusion:"A character who sighs and lowers his head may feel disappointed."},
+    {term:"an inference about character traits",definition:"a conclusion about what a person is like based on actions",example:"Inferring that someone is generous after she shares her lunch",scenario:"Malik returns a lost wallet without taking anything from it.",claim:"Malik is honest",evidence:"He returns the complete wallet to its owner.",conclusion:"Someone who practices daily despite mistakes may be determined."},
+    {term:"an inference about setting",definition:"a conclusion about where or when events occur",example:"Inferring that a scene is at a beach from sand, waves, and shells",scenario:"Frost covers the grass, and people scrape ice from car windows.",claim:"The scene takes place on a cold morning",evidence:"Frost and ice cover outdoor surfaces.",conclusion:"Streetlights glowing while stores close suggests it is evening."},
+    {term:"an inference about cause",definition:"a conclusion about why something happened",example:"Inferring that wind knocked over a bin after a storm",scenario:"The floor beside the sink is wet, and an empty cup lies nearby.",claim:"The cup probably spilled",evidence:"The cup is empty and the nearby floor is wet.",conclusion:"Fresh footprints beside an open gate may explain how a dog escaped."},
+    {term:"a prediction",definition:"a reasonable idea about what may happen next",example:"Predicting rain after seeing dark clouds and lightning",scenario:"Nina measures wood, gathers nails, and studies directions for a birdhouse.",claim:"Nina will probably begin building",evidence:"She has prepared materials and directions for the project.",conclusion:"If a team trails by one point and gains possession, it may try to score quickly."}
+  ]);
+  addConceptLesson("eng","L23","Author's Purpose and Perspective",[
+    {term:"to inform",definition:"to provide facts or knowledge",example:"An article listing how volcanoes form",scenario:"A page gives dates, labeled diagrams, and facts about the water cycle.",claim:"The author's purpose is to inform",evidence:"The page presents factual explanations and diagrams.",conclusion:"A fact sheet about animal habitats is mainly written to inform."},
+    {term:"to persuade",definition:"to convince readers to think or act a certain way",example:"A poster urging families to recycle",scenario:"A letter asks the principal to add more shade trees and gives three benefits.",claim:"The author wants readers to support planting trees",evidence:"The letter gives reasons and asks for a change.",conclusion:"An advertisement listing reasons to choose one product aims to persuade."},
+    {term:"to entertain",definition:"to interest or amuse readers with a story",example:"A funny tale about a talking backpack",scenario:"A story follows a dragon who sneezes glitter during a school play.",claim:"The author wrote mainly to entertain",evidence:"The imaginary events are designed to amuse readers.",conclusion:"A humorous adventure with invented characters is written to entertain."},
+    {term:"to explain",definition:"to show how or why something happens",example:"Directions showing how to build a paper bridge",scenario:"A paragraph describes each step a caterpillar takes as it becomes a butterfly.",claim:"The author explains a process",evidence:"The paragraph presents the stages in order.",conclusion:"Instructions for testing a seed explain how to complete a task."},
+    {term:"to describe",definition:"to create a clear picture using specific details",example:"A passage portraying a misty forest with dripping leaves",scenario:"The writer tells about the market's spicy smells, bright cloth, and noisy carts.",claim:"The author wants readers to picture the market",evidence:"Sensory details show how the market looks, smells, and sounds.",conclusion:"A paragraph rich in color, sound, and texture is meant to describe."}
+  ]);
+  addConceptLesson("eng","L24","Text Structures",[
+    {term:"sequence",definition:"a structure that presents events or steps in order",example:"First mix the batter, next pour it, and finally bake it",scenario:"A passage uses first, then, next, and finally to explain a craft.",claim:"The passage uses sequence",evidence:"Its steps are arranged in time order.",conclusion:"A life-cycle passage organized by stages uses sequence."},
+    {term:"compare and contrast",definition:"a structure that shows similarities and differences",example:"Both frogs and toads are amphibians, but their skin differs",scenario:"A paragraph explains how buses and trains are alike and different.",claim:"The passage compares two kinds of transportation",evidence:"It identifies shared features and differences.",conclusion:"A text using both, unlike, and however likely compares and contrasts."},
+    {term:"cause and effect",definition:"a structure that explains why events happen and their results",example:"Heavy rain filled the river, so nearby paths flooded",scenario:"A passage explains that a drought reduced crops and raised food prices.",claim:"The passage uses cause and effect",evidence:"It connects the drought with two results.",conclusion:"A text linking a broken pipe to water damage uses cause and effect."},
+    {term:"problem and solution",definition:"a structure that presents a difficulty and a way to address it",example:"The garden was dry, so students installed a rain barrel",scenario:"A town has unsafe crossings and responds by adding signals.",claim:"The passage presents a problem and solution",evidence:"It names a safety issue and the action taken to fix it.",conclusion:"A text about litter followed by a cleanup plan uses problem and solution."},
+    {term:"description",definition:"a structure that explains a topic through traits and details",example:"A coral reef is warm, colorful, crowded, and full of hiding places",scenario:"A paragraph lists a cactus's waxy skin, shallow roots, and thick stem.",claim:"The passage describes cactus features",evidence:"It provides several specific traits of a cactus.",conclusion:"A text organized around the features of one place uses description."}
+  ]);
+  addConceptLesson("eng","L25","Prefixes, Suffixes, and Word Meaning",[
+    {term:"the prefix un-",definition:"a word part meaning not or opposite of",example:"Unfair means not fair",scenario:"A direction says to untie a knot before opening a package.",claim:"Untie means reverse the action of tying",evidence:"The prefix un- can mean the opposite or reversal.",conclusion:"An unknown answer is an answer that is not known."},
+    {term:"the prefix re-",definition:"a word part meaning again or back",example:"Rewrite means write again",scenario:"A teacher asks a student to reread a confusing paragraph.",claim:"Reread means read again",evidence:"The prefix re- adds the meaning again.",conclusion:"To rebuild a tower is to build it again."},
+    {term:"the prefix pre-",definition:"a word part meaning before",example:"Preview means view before",scenario:"The class completes a pretest before beginning the unit.",claim:"A pretest happens before instruction",evidence:"The prefix pre- means before.",conclusion:"Preheat means heat an oven before cooking begins."},
+    {term:"the suffix -ful",definition:"a word part meaning full of or having",example:"Helpful means giving or having help",scenario:"A careful scientist labels every sample before testing.",claim:"Careful describes someone acting with care",evidence:"The suffix -ful means full of or having.",conclusion:"A colorful mural has many colors."},
+    {term:"the suffix -less",definition:"a word part meaning without",example:"Fearless means without fear",scenario:"A cloudless sky has no clouds in sight.",claim:"Cloudless means without clouds",evidence:"The suffix -less means without.",conclusion:"A sleeveless shirt has no sleeves."}
+  ]);
+  addConceptLesson("eng","L26","Narrative Writing",[
+    {term:"character",definition:"a person, animal, or figure who takes part in a story",example:"A curious child who searches for a missing key",scenario:"Ava wants to win the race but stops to help an injured runner.",claim:"Ava is a caring character",evidence:"She gives up her advantage to help someone.",conclusion:"Actions and dialogue should reveal what a story's character is like."},
+    {term:"setting",definition:"the time and place in which a story occurs",example:"A lighthouse during a stormy night",scenario:"Snow covers the cabins while a clock strikes midnight on New Year's Eve.",claim:"The setting is a winter night",evidence:"Snow and midnight provide time-and-place clues.",conclusion:"Specific setting details help readers picture where events happen."},
+    {term:"plot",definition:"the connected events and conflict that make up a story",example:"A kite gets stuck, friends make a plan, and they safely retrieve it",scenario:"A character loses a map, follows landmarks, and finally reaches camp.",claim:"The plot centers on solving a travel problem",evidence:"Each event moves the character from being lost to reaching camp.",conclusion:"A strong plot connects a problem, attempts to solve it, and an outcome."},
+    {term:"dialogue",definition:"the exact words spoken by characters",example:"“I found the clue,” Maya whispered",scenario:"Two characters disagree about which trail to take and discuss the map.",claim:"Dialogue can reveal the conflict",evidence:"Their spoken words show their different opinions.",conclusion:"Dialogue should sound natural and help develop characters or events."},
+    {term:"sensory detail",definition:"language that appeals to sight, sound, smell, taste, or touch",example:"The warm bread smelled sweet and crackled when sliced",scenario:"A writer describes cold spray, roaring waves, and salty air.",claim:"The scene uses several senses",evidence:"Touch, sound, and smell details appear together.",conclusion:"Sensory details make a narrative scene more vivid for readers."}
+  ]);
+
+  add("math","L27","Measurement and Unit Conversions",(i,stage,j)=>{
+    const objects=[
+      ["the length of a paper clip","centimeters","meters","kilometers","liters"],
+      ["the height of a classroom door","meters","centimeters","kilometers","grams"],
+      ["the distance between two towns","kilometers","meters","centimeters","milliliters"],
+      ["the mass of an apple","grams","kilograms","liters","meters"],
+      ["the amount of juice in a bottle","milliliters","liters","grams","kilometers"]
+    ];
+    if(stage===0){const x=objects[j];return mc(i,`Which unit is most reasonable for measuring ${x[0]}?`,x[1],x.slice(2),`${x[1]} is an appropriate-sized unit for this measurement.`);}
+    const conversions=[
+      [2,"meters",200,"centimeters",100],[3,"feet",36,"inches",12],[4,"hours",240,"minutes",60],[5,"dollars",500,"cents",100],[6,"kilograms",6000,"grams",1000]
+    ];
+    if(stage===1){const x=conversions[j];return numberQuestion(i,`${x[0]} ${x[1]} equals how many ${x[3]}?`,x[2],[x[2]+x[4],x[2]-x[4],x[0]*10],`Multiply ${x[0]} by ${x[4]} to get ${x[2]} ${x[3]}.`);}
+    if(stage===2){const lengths=[35,42,57,68,79],extra=[18,27,16,25,14],answer=lengths[j]+extra[j];return numberQuestion(i,`A ribbon is ${lengths[j]} centimeters long. Another ${extra[j]} centimeters is added. What is the new length?`,answer,[answer-10,answer+10,lengths[j]-extra[j]],`Add the lengths: ${lengths[j]} + ${extra[j]} = ${answer} centimeters.`);}
+    if(stage===3){const total=120+j*20,used=35+j*7,answer=total-used;return numberQuestion(i,`A container holds ${total} milliliters. After ${used} milliliters are used, how much remains?`,answer,[total+used,answer+10,used],`Subtract the amount used: ${total} - ${used} = ${answer} milliliters.`);}
+    const boards=j+3,each=40+j*5,cut=25+j*3,total=boards*each,answer=total-cut;return numberQuestion(i,`A builder has ${boards} boards, each ${each} centimeters long. After cutting away ${cut} centimeters in all, how many centimeters remain?`,answer,[total,total+cut,answer-boards],`First multiply: ${boards} x ${each} = ${total}. Then subtract: ${total} - ${cut} = ${answer} centimeters.`);
+  });
+  add("math","L28","Data, Tables, and Graphs",(i,stage,j)=>{
+    const categories=["apples","books","birds","stickers","plants"],a=8+j*2,b=5+j,c=3+j;
+    if(stage===0) return numberQuestion(i,`A picture graph shows ${a} ${categories[j]}. How many ${categories[j]} are shown?`,a,[a-1,a+1,a+2],`Read the value shown for ${categories[j]}: ${a}.`);
+    if(stage===1){const answer=a-b;return numberQuestion(i,`A bar graph shows ${a} votes for A and ${b} votes for B. How many more votes did A receive?`,answer,[a+b,b,answer+3],`Compare the bars by subtracting: ${a} - ${b} = ${answer}.`);}
+    if(stage===2){const answer=a+b+c;return numberQuestion(i,`A table lists ${a} on Monday, ${b} on Tuesday, and ${c} on Wednesday. What is the total?`,answer,[a+b,b+c,answer+5],`Add all three values: ${a} + ${b} + ${c} = ${answer}.`);}
+    if(stage===3){const key=j+2,pictures=j+3,answer=key*pictures;return numberQuestion(i,`In a picture graph, each symbol represents ${key} students. A row has ${pictures} symbols. How many students does it represent?`,answer,[key+pictures,answer-key,answer+key],`Multiply the number of symbols by the key: ${pictures} x ${key} = ${answer}.`);}
+    const start=6+j,added=4+j,removed=2+j,answer=start+added-removed;return numberQuestion(i,`A data table starts with ${start} observations. ${added} are added and ${removed} are removed after checking. What is the corrected total?`,answer,[start+added,start-removed,answer+7],`Add, then subtract: ${start} + ${added} - ${removed} = ${answer}.`);
+  });
+  addConceptLesson("math","L29","Geometry and Shape Attributes",[
+    {term:"a triangle",definition:"a closed shape with 3 sides",example:"A shape with three straight sides and three vertices",scenario:"A road sign has exactly three sides.",claim:"The sign is a triangle",evidence:"It is closed and has three straight sides.",conclusion:"Any closed polygon with exactly three sides is a triangle."},
+    {term:"a quadrilateral",definition:"a closed shape with 4 sides",example:"A rectangle with four straight sides",scenario:"A garden has four straight edges that meet at four corners.",claim:"The garden outline is a quadrilateral",evidence:"Its boundary has four straight sides.",conclusion:"Squares, rectangles, rhombuses, and trapezoids are quadrilaterals."},
+    {term:"a right angle",definition:"an angle that forms a square corner",example:"The corner of a sheet of paper",scenario:"Two lines meet like the corner of a book.",claim:"The lines form a right angle",evidence:"Their corner matches a square corner.",conclusion:"A rectangle has four right angles."},
+    {term:"parallel lines",definition:"lines that remain the same distance apart and never meet",example:"The opposite rails of a straight train track",scenario:"Two straight paths continue side by side without crossing.",claim:"The paths are parallel",evidence:"They stay equally far apart and never intersect.",conclusion:"Opposite sides of a rectangle are parallel."},
+    {term:"a line of symmetry",definition:"a line that divides a figure into matching halves",example:"A vertical fold through the center of a simple heart shape",scenario:"Folding a paper shape on one line makes both halves match exactly.",claim:"The fold is a line of symmetry",evidence:"The two halves align when folded.",conclusion:"A square has multiple lines of symmetry."}
+  ]);
+  add("math","L30","Multiplication and Division Patterns",(i,stage,j)=>{
+    if(stage===0){const n=j+2,answer=n*5;return numberQuestion(i,`Complete the pattern: ${n*5-10}, ${n*5-5}, __.`,answer,[answer+5,answer-5,n+5],`The pattern increases by 5, so the next number is ${answer}.`);}
+    if(stage===1){const n=j+3,answer=n*10;return numberQuestion(i,`What is ${n} x 10?`,answer,[n*5,answer+10,n+10],`Multiplying by 10 gives ${answer}.`);}
+    if(stage===2){const a=j+4,b=j+3,total=a*b;return numberQuestion(i,`Use a known fact: ${a} x ${b} = ${total}. What is ${a} x ${b+1}?`,total+a,[total+1,total+b,total-a],`One more group of ${a} means ${total} + ${a} = ${total+a}.`);}
+    if(stage===3){const divisor=j+3,quotient=j+4,total=divisor*quotient;return numberQuestion(i,`Complete the fact family: ${divisor} x ${quotient} = ${total}, so ${total} / ${divisor} = __.`,quotient,[divisor,total-divisor,quotient+1],`Multiplication and division are inverse operations, so the quotient is ${quotient}.`);}
+    const start=(j+3)*4,step=j+3,next=start+step*3;return numberQuestion(i,`A pattern begins ${start}, ${start+step}, ${start+step*2}, __. What is the missing number?`,next,[next-step,next+step,start+3],`The rule is add ${step}. The next number is ${next}.`);
+  });
+  add("math","L31","Mixed Multi-Step Problem Solving",(i,stage,j)=>{
+    if(stage===0){const a=35+j*6,b=18+j*3,answer=a+b;return numberQuestion(i,`A class collects ${a} cans, then collects ${b} more. How many cans are collected?`,answer,[a-b,answer+10,b],`Add the two amounts: ${a} + ${b} = ${answer}.`);}
+    if(stage===1){const groups=j+3,each=j+4,answer=groups*each;return numberQuestion(i,`${groups} teams have ${each} players each. How many players are there?`,answer,[groups+each,answer-each,answer+groups],`Multiply equal groups: ${groups} x ${each} = ${answer}.`);}
+    if(stage===2){const total=(j+4)*(j+5),groups=j+4,answer=j+5;return numberQuestion(i,`${total} pencils are shared equally among ${groups} tables. How many pencils does each table receive?`,answer,[groups,total-groups,answer+2],`Divide equally: ${total} / ${groups} = ${answer}.`);}
+    if(stage===3){const boxes=j+3,each=8,used=j+5,total=boxes*each,answer=total-used;return numberQuestion(i,`A teacher opens ${boxes} boxes with 8 markers each, then gives away ${used}. How many markers remain?`,answer,[total,total+used,boxes+8-used],`Multiply first: ${boxes} x 8 = ${total}. Then subtract ${used} to get ${answer}.`);}
+    const rows=j+4,each=j+5,extra=12+j,total=rows*each+extra,shared=j+2,answer=total-shared;return numberQuestion(i,`A display has ${rows} rows of ${each} cards plus ${extra} extra cards. After ${shared} cards are removed, how many remain?`,answer,[rows*each,total,total+shared],`Multiply, add, then subtract: ${rows} x ${each} + ${extra} - ${shared} = ${answer}.`);
+  });
+
+  addConceptLesson("sci","L4","Life Cycles",[
+    {term:"the egg stage",definition:"the beginning stage in many animal life cycles",example:"A bird developing inside an eggshell",scenario:"A tiny animal begins developing inside a protective shell.",claim:"This animal is in the egg stage",evidence:"It is developing inside an egg before hatching.",conclusion:"A chick's life cycle begins before it hatches from an egg."},
+    {term:"the young stage",definition:"a growth stage after birth or hatching but before adulthood",example:"A tadpole swimming before becoming a frog",scenario:"A caterpillar eats leaves and grows but cannot yet reproduce.",claim:"The caterpillar is a young stage",evidence:"It is growing and has not reached its adult form.",conclusion:"Young animals often look or behave differently from adults."},
+    {term:"the adult stage",definition:"the mature stage when an organism can reproduce",example:"A flowering plant making seeds",scenario:"A butterfly lays eggs on a leaf.",claim:"The butterfly is an adult",evidence:"It is mature enough to reproduce by laying eggs.",conclusion:"Adults help continue a life cycle by producing offspring."},
+    {term:"metamorphosis",definition:"a major change in body form during a life cycle",example:"A tadpole changing into a frog with legs",scenario:"A caterpillar forms a chrysalis and later emerges with wings.",claim:"The insect undergoes metamorphosis",evidence:"Its body changes greatly between young and adult stages.",conclusion:"Butterflies and frogs undergo major changes as they develop."},
+    {term:"a repeating life-cycle pattern",definition:"a sequence in which adults produce young that grow into adults",example:"Seed, seedling, adult plant, new seeds",scenario:"An adult beetle lays eggs that hatch, grow, and become adult beetles.",claim:"The beetle life cycle repeats",evidence:"New adults can produce the next group of eggs.",conclusion:"Life cycles continue across generations even though individuals do not live forever."}
+  ]);
+  addConceptLesson("sci","L5","Plant Structures and Functions",[
+    {term:"roots",definition:"plant structures that absorb water and anchor the plant",example:"Fibers growing through soil and taking in water",scenario:"A plant stays upright while underground parts collect moisture.",claim:"Roots support the plant's survival",evidence:"They hold the plant and absorb water from soil.",conclusion:"Damaged roots can make it difficult for a plant to get water."},
+    {term:"the stem",definition:"the structure that supports a plant and transports materials",example:"A stalk holding leaves up toward sunlight",scenario:"Colored water moves upward from a cup into a celery stalk's leaves.",claim:"The stem transports water",evidence:"Water placed at the bottom reaches leaves above.",conclusion:"A strong stem helps leaves reach light and receive water."},
+    {term:"leaves",definition:"structures that use light, air, and water to make food",example:"Broad green surfaces facing the sun",scenario:"A plant kept in darkness makes less food and becomes weak.",claim:"Leaves need light to make food",evidence:"The plant weakens when its leaves receive no light.",conclusion:"Plants with healthy leaves can capture energy from sunlight."},
+    {term:"flowers",definition:"structures that help many plants reproduce and form seeds",example:"A blossom visited by a pollen-carrying bee",scenario:"After pollen reaches a blossom, seeds begin to develop.",claim:"The flower helps the plant reproduce",evidence:"Seed formation begins after the flower is pollinated.",conclusion:"Pollinators can help flowering plants make seeds."},
+    {term:"fruit",definition:"a structure that protects seeds and may help spread them",example:"An apple containing seeds inside",scenario:"A bird eats a berry and later drops its seeds far away.",claim:"Fruit can help disperse seeds",evidence:"An animal carries seeds away after eating the fruit.",conclusion:"Fleshy fruit can protect seeds and attract animals that spread them."}
+  ]);
+  addConceptLesson("sci","L6","States and Changes of Matter",[
+    {term:"a solid",definition:"matter with a definite shape and volume",example:"An ice cube keeping its shape on a plate",scenario:"A wooden block is moved between containers but does not take their shapes.",claim:"The block is a solid",evidence:"It keeps its own shape and size.",conclusion:"A solid may be cut or moved while remaining solid."},
+    {term:"a liquid",definition:"matter with a definite volume that takes its container's shape",example:"Water changing shape when poured into a cup",scenario:"Juice keeps the same amount but spreads across the bottom of a new pitcher.",claim:"The juice is a liquid",evidence:"It flows and takes the pitcher's shape.",conclusion:"Liquids can be poured because they do not keep one shape."},
+    {term:"a gas",definition:"matter that spreads out to fill available space",example:"Air filling a balloon",scenario:"A smell moves from the kitchen throughout the house.",claim:"Gas particles spread through the air",evidence:"The smell reaches spaces far from its source.",conclusion:"A gas expands to fill a larger container."},
+    {term:"melting",definition:"the change from a solid to a liquid",example:"Ice becoming liquid water when warmed",scenario:"Butter left in a warm pan turns into a flowing liquid.",claim:"The butter is melting",evidence:"Heating changes it from solid to liquid.",conclusion:"Cooling the melted material may change it back into a solid."},
+    {term:"evaporation",definition:"the change from a liquid to a gas at the surface",example:"A puddle slowly disappearing on a sunny day",scenario:"A wet towel becomes dry while hanging outside.",claim:"Water leaves the towel through evaporation",evidence:"Liquid water changes to water vapor and enters the air.",conclusion:"Warm, moving air can make liquid water evaporate faster."}
+  ]);
+  addConceptLesson("sci","L7","Earth Materials and Surface Changes",[
+    {term:"weathering",definition:"the breaking of rock into smaller pieces",example:"Tree roots widening a crack in a rock",scenario:"Repeated freezing and thawing makes a boulder split.",claim:"The rock is undergoing weathering",evidence:"The rock breaks apart where it is located.",conclusion:"Water, ice, wind, and roots can weather rock over time."},
+    {term:"erosion",definition:"the movement of rock or soil from one place to another",example:"A river carrying sand downstream",scenario:"Strong wind blows loose soil away from a bare field.",claim:"Wind causes erosion",evidence:"Soil is transported away from its original location.",conclusion:"Plant roots can reduce erosion by holding soil in place."},
+    {term:"deposition",definition:"the dropping of sediment in a new location",example:"Sand collecting where a river enters a lake",scenario:"Moving water slows and leaves a pile of pebbles behind.",claim:"Deposition occurs when the water slows",evidence:"Sediment settles instead of continuing to move.",conclusion:"Eroded material can form new land when it is deposited."},
+    {term:"soil",definition:"a mixture of weathered rock, water, air, and once-living material",example:"Dark garden material where roots grow",scenario:"A sample contains tiny rock pieces, decayed leaves, air, and moisture.",claim:"The sample is soil",evidence:"It contains both mineral particles and organic material.",conclusion:"Different soils can hold different amounts of water and nutrients."},
+    {term:"rock",definition:"a naturally occurring solid made of one or more minerals",example:"Granite containing several visible minerals",scenario:"A hard natural sample contains crystals of different colors.",claim:"The sample is a rock",evidence:"It is a natural solid made from minerals.",conclusion:"Rocks can be weathered into particles that become part of soil."}
+  ]);
+  addConceptLesson("sci","L8","Scientific Investigation",[
+    {term:"a testable question",definition:"a question that can be answered by gathering observations or measurements",example:"How does light affect bean plant growth?",scenario:"A student asks whether warmer water dissolves sugar faster.",claim:"The question can be investigated",evidence:"Water temperature and dissolving time can be measured.",conclusion:"A good science question identifies something observable or measurable."},
+    {term:"a prediction",definition:"a statement about an expected result based on reasoning",example:"I think the sunny plant will grow taller",scenario:"Before testing ramps, a student states that the steeper ramp will make a car travel farther.",claim:"The student made a prediction",evidence:"The expected result is stated before the test.",conclusion:"Evidence gathered later can support or challenge a prediction."},
+    {term:"a fair test",definition:"an investigation that changes one factor while keeping others the same",example:"Giving identical plants different amounts of light but equal water",scenario:"Two toy cars roll down equal ramps with only the surface material changed.",claim:"The investigation is a fair test",evidence:"Only one tested factor differs between the setups.",conclusion:"Keeping conditions the same makes comparisons more reliable."},
+    {term:"measurement",definition:"a number and unit used to describe an observation",example:"Recording a seedling height of 12 centimeters",scenario:"A group uses a stopwatch to record 8 seconds.",claim:"The group collected a measurement",evidence:"The observation includes a number and a time unit.",conclusion:"Repeated measurements help scientists compare results accurately."},
+    {term:"a conclusion",definition:"an explanation of what results show and whether they support a prediction",example:"Plants with more light grew taller in this test",scenario:"After graphing results, a student explains the pattern and cites the measurements.",claim:"The student formed a scientific conclusion",evidence:"The explanation connects the claim to collected data.",conclusion:"A conclusion should be based on evidence rather than a guess."}
+  ]);
+
+  addConceptLesson("hist","L6","Sources and Evidence from the Past",[
+    {term:"a primary source",definition:"evidence created during the time being studied",example:"A diary written by a child during a historic flood",scenario:"A class examines a 1910 letter written by a factory worker.",claim:"The letter is a primary source",evidence:"It was created by a person living at that time.",conclusion:"Primary sources can show what people directly saw, did, or believed."},
+    {term:"a secondary source",definition:"an account created later using information from other sources",example:"A modern textbook chapter about an ancient city",scenario:"An author studies old letters and writes a biography years later.",claim:"The biography is a secondary source",evidence:"It was written later by interpreting earlier evidence.",conclusion:"Secondary sources can combine evidence from many primary sources."},
+    {term:"an artifact",definition:"an object made or used by people in the past",example:"A clay cooking pot found at an old homesite",scenario:"Archaeologists uncover a handmade tool beside an ancient fire pit.",claim:"The tool is an artifact",evidence:"People made and used the object in the past.",conclusion:"Artifacts can reveal how people worked, ate, traveled, or lived."},
+    {term:"oral history",definition:"a recorded account of past experiences told by a person",example:"A grandparent describing the neighborhood during childhood",scenario:"A student records a longtime resident explaining an earlier town festival.",claim:"The recording is oral history",evidence:"A person tells memories of lived experience.",conclusion:"Comparing oral histories can reveal different viewpoints on the same event."},
+    {term:"a historical photograph",definition:"an image that records a place, person, object, or event from the past",example:"A photograph showing a main street in 1925",scenario:"Students compare an old school picture with the building today.",claim:"The photograph provides visual evidence",evidence:"It shows details of the school at an earlier time.",conclusion:"Photographs must be examined for date, location, and context."}
+  ]);
+  addConceptLesson("hist","L7","Communities Change Over Time",[
+    {term:"transportation change",definition:"a shift in how people and goods move",example:"A dirt road being replaced by a railroad and later a highway",scenario:"A bridge lets residents cross a river much faster than the old ferry.",claim:"New transportation changed the community",evidence:"Travel across the river became faster and easier.",conclusion:"Transportation links can help communities grow and trade."},
+    {term:"communication change",definition:"a shift in how people share information",example:"Letters giving way to telephones and digital messages",scenario:"Families who waited days for news can now receive it instantly.",claim:"Communication became faster",evidence:"Messages arrive immediately instead of after several days.",conclusion:"New communication tools can connect people across greater distances."},
+    {term:"land-use change",definition:"a change in how people use an area",example:"A farm field becoming a neighborhood",scenario:"An empty lot is turned into a public park and playground.",claim:"The community changed its land use",evidence:"The same land now serves a different purpose.",conclusion:"Population needs often influence how community land is used."},
+    {term:"population change",definition:"an increase or decrease in the number or makeup of residents",example:"New jobs bringing more families to a town",scenario:"A factory opens, homes are built, and school enrollment rises.",claim:"The town's population grew",evidence:"More homes and students appear after jobs are added.",conclusion:"Population growth can increase the need for schools and services."},
+    {term:"continuity",definition:"something that remains important or similar over time",example:"A town market operating in the same square for generations",scenario:"Buildings around a festival site change, but residents still hold the festival yearly.",claim:"The festival shows continuity",evidence:"The tradition continues even as the surroundings change.",conclusion:"Communities can preserve traditions while other features change."}
+  ]);
+  addConceptLesson("hist","L8","Local Government and Civic Participation",[
+    {term:"a mayor",definition:"a leader who helps guide a city or town government",example:"A local leader proposing a plan for safer streets",scenario:"An elected official represents the whole city and works with a council.",claim:"The official serves as mayor",evidence:"The person leads city government and works with the council.",conclusion:"A mayor helps coordinate local plans and services."},
+    {term:"a city council",definition:"a group that discusses and votes on local laws and spending",example:"Members voting on money for a new park",scenario:"Several elected representatives debate a rule for neighborhood traffic.",claim:"The group is acting as a city council",evidence:"Representatives consider and vote on a local policy.",conclusion:"Council meetings allow local decisions to be discussed publicly."},
+    {term:"a public service",definition:"work a government provides for community needs",example:"Fire protection, libraries, road repair, and trash collection",scenario:"Town workers repair a broken water pipe serving many homes.",claim:"Water repair is a public service",evidence:"The local government provides work that benefits the community.",conclusion:"Taxes help pay for shared public services."},
+    {term:"a local law",definition:"a rule adopted by local government for the community",example:"A rule setting safe speed limits near schools",scenario:"The council votes to require leashes in public parks.",claim:"The leash rule is a local law",evidence:"Local representatives formally adopt a community rule.",conclusion:"Local laws should address community needs and apply fairly."},
+    {term:"civic participation",definition:"taking part in efforts and decisions that affect the community",example:"Speaking at a meeting or joining a neighborhood cleanup",scenario:"Residents write comments and attend a hearing about a proposed park.",claim:"The residents practice civic participation",evidence:"They share views on a public decision.",conclusion:"People can participate by voting, volunteering, learning, and speaking respectfully."}
+  ]);
+  addConceptLesson("hist","L9","Geography and Human-Environment Connections",[
+    {term:"a physical feature",definition:"a natural part of Earth's surface",example:"A river, mountain, valley, or plain",scenario:"A map marks a long natural waterway flowing to the sea.",claim:"The map shows a physical feature",evidence:"The waterway formed in the natural environment.",conclusion:"Physical features can affect travel and where communities develop."},
+    {term:"a human feature",definition:"something people build or create in a place",example:"A road, bridge, city, or dam",scenario:"A map symbol marks a tunnel built through a mountain.",claim:"The tunnel is a human feature",evidence:"People constructed it to change how they travel.",conclusion:"Human features show how people organize and use places."},
+    {term:"a natural resource",definition:"a useful material or feature that comes from nature",example:"Fresh water used for drinking and farming",scenario:"A community uses nearby timber to build homes.",claim:"Timber is a natural resource",evidence:"The useful material comes from forests.",conclusion:"People depend on natural resources and must decide how to use them."},
+    {term:"human adaptation",definition:"a way people adjust to their environment",example:"Building raised homes in a flood-prone area",scenario:"Residents in a snowy region design steep roofs so snow slides off.",claim:"The roof design is an adaptation",evidence:"People changed buildings to fit local conditions.",conclusion:"Climate and landforms influence how people build, dress, and travel."},
+    {term:"conservation",definition:"the careful use and protection of natural resources",example:"Replanting trees after timber is harvested",scenario:"A town limits water use during a drought and repairs leaking pipes.",claim:"The town practices conservation",evidence:"It reduces waste of a limited natural resource.",conclusion:"Conservation helps resources remain available in the future."}
+  ]);
+  addConceptLesson("hist","L10","Producers, Consumers, and Economic Choices",[
+    {term:"a producer",definition:"a person or business that makes goods or provides services",example:"A farmer growing vegetables to sell",scenario:"A bakery makes bread for customers each morning.",claim:"The bakery is a producer",evidence:"It creates a good that people buy.",conclusion:"Producers use resources and work to create goods or services."},
+    {term:"a consumer",definition:"a person who buys or uses goods and services",example:"A family paying for a bus ride",scenario:"Jalen buys a notebook from a store for school.",claim:"Jalen acts as a consumer",evidence:"He purchases and uses a good.",conclusion:"Consumers make choices based on needs, wants, price, and available money."},
+    {term:"a good",definition:"a physical item that people make, buy, or use",example:"A bicycle, loaf of bread, or pencil",scenario:"A worker builds a wooden chair that a customer can take home.",claim:"The chair is a good",evidence:"It is a physical product that can be bought and used.",conclusion:"Goods can be stored and moved from producers to consumers."},
+    {term:"a service",definition:"work done for someone rather than a physical product",example:"A haircut, lesson, or repair",scenario:"A mechanic fixes a family's car.",claim:"The mechanic provides a service",evidence:"The customer pays for useful work rather than a new object.",conclusion:"Services meet needs through people's skills and labor."},
+    {term:"scarcity and choice",definition:"having limited resources and deciding among alternatives",example:"Choosing one book when there is money for only one",scenario:"A town can afford either new playground equipment or roof repairs this month.",claim:"The town faces scarcity",evidence:"Its money is not enough to fund both choices now.",conclusion:"Scarcity requires people and communities to set priorities."}
+  ]);
+})();
+
+/* Source bank: k12-g3-all-subjects-extension-2.js */
+/* A second five-lesson expansion for every Grade 3 subject. */
+(function(){
+  const data=window.K12_CLASSIC_25_DATA=window.K12_CLASSIC_25_DATA||Object.create(null);
+  function mc(index,q,answer,wrongs,explain){
+    const values=[answer,...wrongs].map(String).filter((value,i,all)=>all.indexOf(value)===i);
+    if(values.length<4) throw new Error(`Four distinct choices are required: ${q}`);
+    const choices=values.slice(0,4),shift=index%4;
+    return {type:"mc",q,answer:String(answer),choices:choices.slice(shift).concat(choices.slice(0,shift)),explain,audio:q};
+  }
+  function numeric(index,q,answer,wrongs,explain){return mc(index,q,String(answer),wrongs.map(String),explain);}
+  function add(subject,lesson,name,build){
+    const questions=Array.from({length:25},(_,index)=>build(index,Math.floor(index/5),index%5));
+    data[`g3:${subject}:${lesson}`]={name,contentVersion:"g3-all-subjects-20261005.2",questions};
+    CURR.g3[subject][lesson]={name,gen:classicQuestionPending};
+  }
+  function others(items,index,field){return [1,2,3].map(offset=>items[(index+offset)%items.length][field]);}
+  function addConceptLesson(subject,lesson,name,concepts){
+    add(subject,lesson,name,(index,stage,j)=>{
+      const item=concepts[j];
+      if(stage===0) return mc(index,`What does ${item.term} mean?`,item.definition,others(concepts,j,"definition"),`${item.term} means ${item.definition.toLowerCase()}`);
+      if(stage===1) return mc(index,`Which example best shows ${item.term}?`,item.example,others(concepts,j,"example"),`${item.example} This is an example of ${item.term}.`);
+      if(stage===2) return mc(index,`${item.scenario} Which concept best explains this?`,item.term,others(concepts,j,"term"),`${item.term} best matches the evidence.`);
+      if(stage===3) return mc(index,`Which evidence best supports this claim: “${item.claim}”?`,item.evidence,others(concepts,j,"evidence"),`${item.evidence} This evidence directly supports the claim.`);
+      return mc(index,`Which conclusion correctly applies ${item.term}?`,item.conclusion,others(concepts,j,"conclusion"),`${item.conclusion} This conclusion correctly applies ${item.term}.`);
+    });
+  }
+
+  addConceptLesson("eng","L27","Figurative Language",[
+    {term:"a simile",definition:"a comparison using like or as",example:"The snow sparkled like diamonds",scenario:"A writer says the puppy is as playful as a bouncing ball.",claim:"The sentence contains a simile",evidence:"It compares two things using as.",conclusion:"Like a drum in my chest compares a heartbeat with a drum."},
+    {term:"a metaphor",definition:"a direct comparison saying one thing is another",example:"The classroom was a buzzing beehive",scenario:"A poet calls the moon a silver lantern in the sky.",claim:"The poet uses a metaphor",evidence:"The moon is directly described as a lantern.",conclusion:"Calling a difficult puzzle a mountain directly compares the two."},
+    {term:"personification",definition:"giving human actions or feelings to something nonhuman",example:"The wind whispered through the trees",scenario:"A story says the alarm clock shouted at dawn.",claim:"The clock is personified",evidence:"A nonhuman object is given the human action of shouting.",conclusion:"The sun smiled on the garden gives the sun a human action."},
+    {term:"hyperbole",definition:"an extreme exaggeration used for emphasis",example:"I waited a million years for the bus",scenario:"After practice, Lee says his backpack weighs a ton.",claim:"Lee uses hyperbole",evidence:"The backpack does not literally weigh a ton.",conclusion:"Saying I have told you a thousand times exaggerates for emphasis."},
+    {term:"an idiom",definition:"a phrase whose meaning differs from its literal words",example:"Hold your horses means wait",scenario:"Before a performance, Dad tells Ana to break a leg.",claim:"Break a leg is an idiom",evidence:"The phrase means good luck rather than an actual injury.",conclusion:"Under the weather means feeling ill, not standing beneath weather."}
+  ]);
+  addConceptLesson("eng","L28","Comparing Texts",[
+    {term:"a shared topic",definition:"the same general subject discussed by two texts",example:"Two passages both explaining honeybees",scenario:"One article describes city parks and another explains how parks help wildlife.",claim:"The texts share the topic of parks",evidence:"Both passages provide information about parks.",conclusion:"Texts may share a topic while focusing on different details."},
+    {term:"a similar main idea",definition:"a closely related central message in two texts",example:"Two texts both explain that preparation improves safety",scenario:"Both stories show characters succeeding after they practice.",claim:"The stories have similar main ideas",evidence:"Practice leads to improvement in both stories.",conclusion:"Different events can support the same broad message."},
+    {term:"a difference in focus",definition:"a difference in the specific part of a topic each text emphasizes",example:"One bee text explains pollination while another explains hive life",scenario:"One weather article explains clouds; the other explains measuring rainfall.",claim:"The texts have different focuses",evidence:"Each develops a different part of the weather topic.",conclusion:"Readers should identify both the shared topic and each text's focus."},
+    {term:"firsthand and secondhand accounts",definition:"accounts told by a participant and by someone who learned about the event",example:"A traveler's diary compared with a later history article",scenario:"A firefighter describes a rescue while a reporter summarizes interviews about it.",claim:"The accounts use different viewpoints",evidence:"One speaker participated, while the other gathered information later.",conclusion:"Firsthand accounts may include personal feelings that summaries do not."},
+    {term:"paired-text synthesis",definition:"combining useful information from two texts into one understanding",example:"Using a diagram and an article to explain a frog's life cycle",scenario:"A map shows a river route while a passage explains why towns formed beside it.",claim:"Both sources together give a fuller explanation",evidence:"The map supplies location while the passage supplies reasons.",conclusion:"Combining related evidence can answer questions neither text answers alone."}
+  ]);
+
+  addConceptLesson("eng","L29","Fact, Opinion, and Evidence",[
+    {term:"a fact",definition:"a statement that can be checked and proven true or false",example:"A week has seven days",scenario:"A book states that adult insects have six legs.",claim:"The statement is a fact",evidence:"The number of insect legs can be observed and verified.",conclusion:"Dates, measurements, and observable features can usually be fact-checked."},
+    {term:"an opinion",definition:"a belief, feeling, or judgment that cannot be proven for everyone",example:"Summer is the best season",scenario:"A review calls one playground the most exciting in town.",claim:"The review states an opinion",evidence:"Most exciting is a personal judgment.",conclusion:"Words such as best, beautiful, and boring often signal opinions."},
+    {term:"supporting evidence",definition:"facts, examples, or details that help prove a claim",example:"Citing a measured drop in litter to support a recycling program",scenario:"A student says plants grew better in sunlight and shows the height data.",claim:"The data support the student's claim",evidence:"Measured plant heights connect sunlight with growth.",conclusion:"Strong evidence should be relevant and specific to the claim."},
+    {term:"a reliable source",definition:"a source that is trustworthy, accurate, and appropriate for the topic",example:"A museum page explaining an artifact in its collection",scenario:"A report names its author, gives sources, and is published by a science center.",claim:"The report is likely reliable",evidence:"Its author, evidence, and responsible publisher can be checked.",conclusion:"Readers should check who created information and what evidence it uses."},
+    {term:"a claim",definition:"a statement or position that a writer supports with reasons and evidence",example:"Our school should add a vegetable garden",scenario:"An editorial argues that the town needs safer bike routes.",claim:"The writer makes a claim",evidence:"The writer takes a position that can be supported with reasons.",conclusion:"A convincing claim needs evidence rather than opinion alone."}
+  ]);
+  addConceptLesson("eng","L30","Research and Note-Taking",[
+    {term:"a focused research question",definition:"a clear question narrow enough to investigate",example:"How do honeybees help apple trees?",scenario:"A student narrows a broad space topic to how astronauts sleep in orbit.",claim:"The revised question is more focused",evidence:"It asks about one specific activity in one setting.",conclusion:"Focused questions help researchers choose relevant information."},
+    {term:"a search keyword",definition:"an important word or phrase used to locate information",example:"monarch butterfly migration route",scenario:"A student needs facts about how tornadoes form and searches tornado formation.",claim:"The student chose useful keywords",evidence:"The words name the exact topic being researched.",conclusion:"Specific nouns and topic words usually work better than vague searches."},
+    {term:"a relevant source",definition:"a source that directly helps answer the research question",example:"A zoo article for a question about elephant habitats",scenario:"For a report on local rainfall, a student selects weather records instead of a recipe book.",claim:"The weather records are relevant",evidence:"They contain information directly related to rainfall.",conclusion:"A trustworthy source can still be irrelevant if it does not address the question."},
+    {term:"a useful research note",definition:"a short record of an important fact in the researcher's own words",example:"Roots absorb water from soil",scenario:"After reading a page, a student writes one brief fact beside the source title.",claim:"The student creates a useful note",evidence:"The note records relevant information and its source.",conclusion:"Organized notes make it easier to group facts and avoid copying."},
+    {term:"a paraphrase",definition:"an idea restated accurately in new words",example:"Changing Bees transfer pollen to Bees carry pollen between blooms",scenario:"A student reads that owls are nocturnal and writes that owls are active at night.",claim:"The student paraphrased the fact",evidence:"The meaning stays accurate while the wording changes.",conclusion:"A paraphrase still needs source credit even though it uses new words."}
+  ]);
+  addConceptLesson("eng","L31","Opinion Writing",[
+    {term:"a clear opinion",definition:"a direct statement of what the writer believes",example:"Our class should read outdoors once a week",scenario:"The opening sentence says the school should create a quiet reading area.",claim:"The writer states a clear opinion",evidence:"The sentence takes a specific position.",conclusion:"Readers should be able to identify the writer's position immediately."},
+    {term:"a supporting reason",definition:"an explanation of why an opinion makes sense",example:"Outdoor reading gives students a calm place to focus",scenario:"A writer supports longer recess by explaining that movement improves attention.",claim:"The writer gives a relevant reason",evidence:"The benefit of attention explains why recess should be longer.",conclusion:"Each reason should directly connect to the opinion."},
+    {term:"an example or fact",definition:"specific evidence that develops a supporting reason",example:"Our class recycled 200 bottles last month",scenario:"To support a garden proposal, a writer cites a successful garden at another school.",claim:"The example strengthens the proposal",evidence:"It shows that a similar plan worked in a real setting.",conclusion:"Specific examples are stronger than repeating the same opinion."},
+    {term:"a linking word",definition:"a word or phrase that connects opinions, reasons, and evidence",example:"because, also, therefore, and for example",scenario:"A paragraph begins its second reason with In addition.",claim:"The phrase links ideas",evidence:"It signals that another supporting point follows.",conclusion:"Linking words help readers follow how reasons support an opinion."},
+    {term:"a concluding statement",definition:"an ending that restates the opinion and leaves a final thought",example:"For these reasons, a class garden would benefit everyone",scenario:"The final sentence returns to the proposal after explaining three benefits.",claim:"The writer provides a conclusion",evidence:"The ending brings the reasons back to the main opinion.",conclusion:"A strong conclusion closes the argument without introducing an unrelated topic."}
+  ]);
+
+  add("math","L32","Fractions on Number Lines",(i,stage,j)=>{
+    const denominator=j+3;
+    if(stage===0){const answer=`1/${denominator}`;return mc(i,`A number line from 0 to 1 is divided into ${denominator} equal spaces. What fraction is one space from 0?`,answer,[`2/${denominator}`,`${denominator}/1`,`1/${denominator+1}`],`Each space is one of ${denominator} equal parts, so its length is ${answer}.`);}
+    if(stage===1){const numerator=j+1,answer=`${numerator}/${denominator}`;return mc(i,`A point is ${numerator} equal jumps from 0 on a line divided into ${denominator} equal spaces. What fraction names the point?`,answer,[`${denominator}/${numerator}`,`${numerator+1}/${denominator}`,`${numerator}/${denominator+1}`],`${numerator} jumps of size 1/${denominator} reach ${answer}.`);}
+    if(stage===2){const numerator=j+2,answer=numerator;return numeric(i,`A line is divided into ${denominator+2} equal spaces. The point is at __/${denominator+2} after ${numerator} jumps. What numerator is missing?`,answer,[answer-1,answer+1,denominator+2],`The numerator counts jumps from zero, so it is ${answer}.`);}
+    if(stage===3){const d=denominator+2,left=j+1,right=j+3,answer=`${right}/${d}`;return mc(i,`Which point is farther from 0: ${left}/${d} or ${right}/${d}?`,answer,[`${left}/${d}`,`0/${d}`,`${right-1}/${d}`],`With equal denominators, the larger numerator is farther from zero. ${right} is greater than ${left}.`);}
+    const d=denominator+3,n=j+2;return mc(i,`Mira walks ${n} of ${d} equal sections of a trail. Which point on a 0-to-1 number line shows her progress?`,`${n}/${d}`,[`${d}/${n}`,`${n-1}/${d}`,`${n}/${d-1}`],`${n} completed sections out of ${d} equal sections is ${n}/${d}.`);
+  });
+  add("math","L33","Comparing Fractions",(i,stage,j)=>{
+    if(stage===0){const d=j+5,a=j+1,b=j+2,answer=`${b}/${d}`;return mc(i,`Which fraction is greater: ${a}/${d} or ${b}/${d}?`,answer,[`${a}/${d}`,"They are equal",`${b-1}/${d+1}`],`The denominators match, so compare numerators. ${b} is larger than ${a}.`);}
+    if(stage===1){const d1=j+2,d2=d1+1,answer=`1/${d1}`;return mc(i,`Which unit fraction is greater: 1/${d1} or 1/${d2}?`,answer,[`1/${d2}`,"They are equal",`2/${d2}`],`For unit fractions, fewer equal parts make a larger piece. ${d1} is less than ${d2}.`);}
+    if(stage===2){const n=j+1,d1=j+4,d2=d1+2,answer=`${n}/${d1}`;return mc(i,`Which fraction is greater: ${n}/${d1} or ${n}/${d2}?`,answer,[`${n}/${d2}`,"They are equal",`${n+1}/${d2+1}`],`The numerators match. The fraction with the smaller denominator has larger parts.`);}
+    if(stage===3){const pairs=[[1,2,2,4],[1,3,2,6],[2,3,4,6],[2,5,4,10],[3,4,6,8]],x=pairs[j],answer=`${x[0]}/${x[1]} = ${x[2]}/${x[3]}`;return mc(i,`How should ${x[0]}/${x[1]} and ${x[2]}/${x[3]} be compared?`,answer,[`${x[0]}/${x[1]} > ${x[2]}/${x[3]}`,`${x[0]}/${x[1]} < ${x[2]}/${x[3]}`,"There is not enough information"],`The numerator and denominator are multiplied by the same factor, so the fractions are equivalent.`);}
+    const d=j+6,a=j+2,b=j+3,answer="the second student";return mc(i,`Two students read equal-length books. One reads ${a}/${d}; the other reads ${b}/${d}. Who reads more?`,answer,["the first student","They read equal amounts.","The book lengths cannot be compared."],`The whole books are equal and ${b}/${d} is greater than ${a}/${d}.`);
+  });
+  addConceptLesson("math","L34","Multiplication Properties",[
+    {term:"the commutative property",definition:"factors can switch order without changing the product",example:"3 x 7 = 7 x 3",scenario:"A student changes 4 x 9 into 9 x 4 and gets the same product.",claim:"The factor order can be switched",evidence:"Both arrangements contain the same number of objects.",conclusion:"6 x 8 has the same value as 8 x 6."},
+    {term:"the associative property",definition:"three factors can be grouped differently without changing the product",example:"(2 x 3) x 4 = 2 x (3 x 4)",scenario:"A student groups 2 x 5 x 3 as (2 x 5) x 3 to calculate easily.",claim:"The grouping changed but the factors did not",evidence:"Both expressions use 2, 5, and 3 in the same order.",conclusion:"Regrouping factors can make a multiplication problem easier."},
+    {term:"the distributive property",definition:"a factor can multiply each part of a decomposed number",example:"6 x 7 = (6 x 5) + (6 x 2)",scenario:"To solve 8 x 6, a student adds 8 x 5 and 8 x 1.",claim:"The student decomposed one factor",evidence:"The two smaller products combine to equal the original product.",conclusion:"Breaking 9 into 5 + 4 can help solve 7 x 9."},
+    {term:"the identity property",definition:"multiplying a number by 1 keeps the number unchanged",example:"12 x 1 = 12",scenario:"One group contains 23 objects.",claim:"Multiplying by one keeps the amount",evidence:"1 x 23 equals 23.",conclusion:"Any whole number times 1 equals itself."},
+    {term:"the zero property",definition:"multiplying any number by zero gives zero",example:"8 x 0 = 0",scenario:"There are 6 empty boxes with no balls in each box.",claim:"The total number of balls is zero",evidence:"Six groups of zero still contain no balls.",conclusion:"A factor of zero makes the product zero."}
+  ]);
+  add("math","L35","Division and Unknown Factors",(i,stage,j)=>{
+    const divisor=j+2,quotient=j+3,total=divisor*quotient;
+    if(stage===0) return numeric(i,`${total} objects are placed in groups of ${divisor}. How many groups are made?`,quotient,[divisor,total-divisor,quotient+2],`${total} / ${divisor} = ${quotient}.`);
+    if(stage===1) return numeric(i,`${total} objects are shared among ${quotient} equal groups. How many are in each group?`,divisor,[quotient,total,divisor+2],`${total} / ${quotient} = ${divisor}.`);
+    if(stage===2) return numeric(i,`Find the missing factor: ${divisor} x __ = ${total}.`,quotient,[divisor,quotient+1,quotient+2],`Use the related division fact: ${total} / ${divisor} = ${quotient}.`);
+    if(stage===3) return numeric(i,`Find the missing divisor: ${total} / __ = ${quotient}.`,divisor,[quotient,divisor+2,total+1],`The related fact ${divisor} x ${quotient} = ${total} shows the missing divisor.`);
+    const extra=j+1,withExtra=total+extra;return numeric(i,`${withExtra} counters are used to make as many full groups of ${divisor} as possible. How many full groups can be made?`,quotient,[quotient+1,divisor,withExtra-divisor],`${total} counters make ${quotient} full groups, and the extra ${extra} do not complete another group.`);
+  });
+  add("math","L36","Math Reasoning and Error Analysis",(i,stage,j)=>{
+    if(stage===0){const a=46+j*10,b=27,correct=a+b;return mc(i,`A student says ${a} + ${b} = ${correct-10}. Which explanation identifies the error?`,`The student forgot to regroup 13 ones as 1 ten and 3 ones.`,["The student should subtract instead.","The student added an extra hundred.","The sum should be smaller than both addends."],`The correct sum is ${correct}; regrouping the ones adds a ten.`);}
+    if(stage===1){const a=72+j*10,b=38,correct=a-b;return mc(i,`A student says ${a} - ${b} = ${correct+20}. Which correction is best?`,`Regroup one ten, then subtract the ones and tens.`,["Add the two numbers instead.","Ignore the ones places.","Place a zero after the answer."],`Regrouping is needed because the ones digit of ${a} is less than 8. The difference is ${correct}.`);}
+    if(stage===2){const a=j+4,b=j+3,correct=a*b;return mc(i,`A student solves ${a} x ${b} by adding ${a} + ${b}. What should the student do?`,`Add ${a} repeatedly ${b} times to get ${correct}.`,[`Keep ${a+b} as the product.`,`Subtract ${b} from ${a}.`,`Add ${b} only two times.`],`Multiplication represents equal groups, so ${a} x ${b} = ${correct}.`);}
+    if(stage===3){const groups=j+3,each=j+4,total=groups*each;return mc(i,`A student divides ${total} by ${groups} and answers ${groups}. Which reasoning is correct?`,`The quotient is ${each} because ${groups} x ${each} = ${total}.`,[`The quotient is ${groups} because the divisor is always the answer.`,`The quotient is ${total} because division keeps the total.`,`The quotient is 1 because there is one problem.`],`Use the inverse multiplication fact to find the quotient ${each}.`);}
+    const first=25+j*5,added=18+j,used=7+j,answer=first+added-used;return mc(i,`A learner adds ${first} and ${added} but stops before using the detail that ${used} items were given away. What is the correct final result?`,String(answer),[String(first+added),String(first-used),String(answer+20)],`Use every relevant detail: ${first} + ${added} - ${used} = ${answer}.`);
+  });
+
+  addConceptLesson("sci","L9","Ecosystems and Food Chains",[
+    {term:"a producer",definition:"an organism that makes its own food using energy",example:"Grass using sunlight to make food",scenario:"A pond organism uses sunlight, water, and air to grow.",claim:"The organism is a producer",evidence:"It makes food using sunlight.",conclusion:"Plants usually begin food chains because they capture energy."},
+    {term:"a consumer",definition:"an organism that gets energy by eating other organisms",example:"A rabbit eating clover",scenario:"A hawk catches and eats a mouse.",claim:"The hawk is a consumer",evidence:"It gets energy by eating another organism.",conclusion:"Consumers depend directly or indirectly on producers for energy."},
+    {term:"a decomposer",definition:"an organism that breaks down dead material and returns nutrients",example:"Fungi growing on a fallen log",scenario:"Tiny organisms break dead leaves into material that mixes with soil.",claim:"Decomposers recycle matter",evidence:"They break down remains and return nutrients to soil.",conclusion:"Without decomposers, dead material would build up and fewer nutrients would return."},
+    {term:"a food chain",definition:"a model showing one path of energy through organisms",example:"grass to grasshopper to frog to snake",scenario:"A diagram uses arrows from seeds to mouse to owl.",claim:"The diagram is a food chain",evidence:"It shows one sequence of feeding relationships.",conclusion:"Arrows in a food chain point in the direction energy moves."},
+    {term:"a food web",definition:"a model showing many connected food chains",example:"A grassland diagram with several plants, insects, birds, and mammals",scenario:"A diagram shows a fox eating rabbits and mice while both eat different foods.",claim:"The diagram is a food web",evidence:"Multiple feeding paths connect the organisms.",conclusion:"A change in one population can affect several parts of a food web."}
+  ]);
+  addConceptLesson("sci","L10","Animal Adaptations",[
+    {term:"a structural adaptation",definition:"a body feature that helps an organism survive",example:"A polar bear's thick fur",scenario:"A bird has a long beak that reaches nectar deep inside flowers.",claim:"The beak is a structural adaptation",evidence:"Its shape helps the bird obtain food.",conclusion:"Body coverings, teeth, feet, and beaks can be structural adaptations."},
+    {term:"a behavioral adaptation",definition:"an action an organism performs that helps it survive",example:"Birds migrating before winter",scenario:"A desert animal rests during the hot day and searches for food at night.",claim:"Night activity is a behavioral adaptation",evidence:"The action helps the animal avoid dangerous heat.",conclusion:"Behaviors can help animals find food, escape danger, or handle weather."},
+    {term:"camouflage",definition:"coloring or patterns that help an organism blend with surroundings",example:"A brown moth resting on tree bark",scenario:"A white rabbit is difficult to see against winter snow.",claim:"The rabbit uses camouflage",evidence:"Its coloring matches its surroundings.",conclusion:"Camouflage can help predators hunt and prey avoid detection."},
+    {term:"mimicry",definition:"an adaptation in which one organism resembles another",example:"A harmless insect colored like a stinging wasp",scenario:"A nonvenomous snake has bands similar to a venomous species.",claim:"The snake shows mimicry",evidence:"Its appearance resembles a more dangerous animal.",conclusion:"Mimicry may discourage predators from attacking."},
+    {term:"a habitat-specific adaptation",definition:"a feature especially useful in a particular environment",example:"Webbed feet helping a duck swim",scenario:"A camel has wide feet that do not sink deeply into sand.",claim:"Wide feet fit the desert habitat",evidence:"They help the camel move across loose sand.",conclusion:"An adaptation useful in one habitat may offer little benefit in another."}
+  ]);
+  addConceptLesson("sci","L11","Weather Patterns and Forecasting",[
+    {term:"temperature",definition:"a measure of how hot or cold the air is",example:"A thermometer reading 18 degrees Celsius",scenario:"A weather station records the air becoming colder each hour.",claim:"Temperature is decreasing",evidence:"Thermometer readings become lower over time.",conclusion:"Repeated temperature measurements can reveal daily patterns."},
+    {term:"precipitation",definition:"water that falls from clouds as rain, snow, sleet, or hail",example:"Rain collected in a rain gauge",scenario:"Frozen flakes fall from clouds and cover the ground.",claim:"Snow is precipitation",evidence:"Water is falling from clouds in frozen form.",conclusion:"Air temperature helps determine the form of precipitation."},
+    {term:"wind",definition:"moving air described by speed and direction",example:"A windsock pointing east in a steady breeze",scenario:"An anemometer spins rapidly while tree branches sway.",claim:"The wind speed is high",evidence:"The wind-measuring tool spins quickly.",conclusion:"Wind direction can help show where a weather system is moving."},
+    {term:"a weather pattern",definition:"weather conditions that repeat or change in a predictable way",example:"Cool mornings followed by warmer afternoons for several days",scenario:"For a week, clouds build each afternoon and rain falls near sunset.",claim:"The area shows a repeating weather pattern",evidence:"Similar conditions occur at about the same time each day.",conclusion:"Several days of data are more useful for finding patterns than one observation."},
+    {term:"a forecast",definition:"a prediction of future weather based on current data and patterns",example:"A prediction of rain based on radar and approaching clouds",scenario:"Meteorologists study air pressure, wind, and radar before announcing tomorrow's conditions.",claim:"The announcement is a weather forecast",evidence:"It predicts future conditions using measured data.",conclusion:"Forecasts can change when new weather data becomes available."}
+  ]);
+  addConceptLesson("sci","L12","The Water Cycle",[
+    {term:"evaporation",definition:"liquid water changing into water vapor",example:"A sunny puddle slowly disappearing",scenario:"Water at the ocean surface warms and enters the air as vapor.",claim:"Evaporation moves water into the air",evidence:"Liquid water changes to gas after gaining heat.",conclusion:"More heat can increase the rate of evaporation."},
+    {term:"condensation",definition:"water vapor cooling and changing into liquid droplets",example:"Droplets forming on the outside of a cold glass",scenario:"Rising water vapor cools and forms tiny cloud droplets.",claim:"Cloud formation involves condensation",evidence:"Gas changes into liquid droplets as it cools.",conclusion:"Condensation returns water vapor to liquid form."},
+    {term:"precipitation",definition:"water falling from clouds to Earth's surface",example:"Rain falling from a dark cloud",scenario:"Cloud droplets combine, grow heavy, and fall as snow.",claim:"Snowfall is precipitation",evidence:"Water moves from clouds to the ground.",conclusion:"Precipitation can be liquid or frozen."},
+    {term:"collection",definition:"water gathering in oceans, lakes, rivers, soil, or ice",example:"Rainwater flowing into a lake",scenario:"Water from melting snow travels downhill and fills a reservoir.",claim:"The reservoir is a collection site",evidence:"Water gathers and remains there after moving over land.",conclusion:"Collected water can later evaporate and continue the cycle."},
+    {term:"runoff",definition:"water flowing over land toward lower areas",example:"Rain moving down a street into a drain",scenario:"Water that cannot soak into hard ground moves downhill to a stream.",claim:"The moving water is runoff",evidence:"It flows across the land surface toward lower ground.",conclusion:"Plants and soil can slow runoff by absorbing water."}
+  ]);
+  addConceptLesson("sci","L13","Light and Sound",[
+    {term:"a light source",definition:"an object that produces its own light",example:"The Sun or a glowing light bulb",scenario:"An object shines even in a completely dark room when switched on.",claim:"The object is a light source",evidence:"It produces light rather than only reflecting it.",conclusion:"The Moon is visible by reflected sunlight, so it is not its own light source."},
+    {term:"reflection",definition:"light bouncing off a surface",example:"Seeing an image in a mirror",scenario:"A flashlight beam hits shiny metal and changes direction.",claim:"The light is reflected",evidence:"It bounces from the surface instead of passing through.",conclusion:"Smooth, shiny surfaces usually form clearer reflections."},
+    {term:"a shadow",definition:"a dark area formed when an object blocks light",example:"A tree's dark shape on sunny ground",scenario:"A solid toy is placed between a lamp and a wall.",claim:"A shadow forms on the wall",evidence:"The toy blocks light from reaching part of the wall.",conclusion:"Moving an object closer to a light can change its shadow's size."},
+    {term:"vibration",definition:"rapid back-and-forth motion that produces sound",example:"A plucked guitar string moving quickly",scenario:"Rice grains jump when placed on a drum that is struck.",claim:"The drum surface vibrates",evidence:"Its motion makes the grains move while sound is produced.",conclusion:"Sound begins when matter vibrates."},
+    {term:"pitch",definition:"how high or low a sound seems",example:"A small bell making a higher sound than a large bell",scenario:"A tightened string vibrates faster and makes a higher note.",claim:"Faster vibration raises pitch",evidence:"The tightened string produces the higher sound.",conclusion:"Changing vibration speed changes pitch."}
+  ]);
+
+  addConceptLesson("hist","L11","Indigenous Communities and Place",[
+    {term:"environmental knowledge",definition:"understanding local land, water, plants, animals, and seasons",example:"Knowing which plants provide food or medicine",scenario:"A community follows seasonal animal movements when planning hunts.",claim:"Local environmental knowledge guides decisions",evidence:"People use observed seasonal patterns to find food.",conclusion:"Knowledge built over generations helps communities live in particular places."},
+    {term:"cultural tradition",definition:"a belief, practice, story, or skill passed across generations",example:"Teaching a traditional weaving pattern",scenario:"Elders teach children songs connected to community history.",claim:"The songs are a cultural tradition",evidence:"Knowledge is passed from older to younger generations.",conclusion:"Traditions can preserve identity while adapting over time."},
+    {term:"adaptation to place",definition:"changing tools, homes, clothing, or practices to fit local conditions",example:"Building homes from materials available nearby",scenario:"People in a cold region design warm clothing from insulating materials.",claim:"The clothing reflects adaptation to place",evidence:"Its design responds to the region's climate.",conclusion:"Different environments influence how communities meet similar needs."},
+    {term:"trade network",definition:"connections through which communities exchange goods and ideas",example:"Coastal shells moving inland through trade",scenario:"Stone from one region is found in tools hundreds of miles away.",claim:"Communities participated in trade",evidence:"A distant material reached people through exchange.",conclusion:"Trade networks can connect communities across long distances."},
+    {term:"respectful historical study",definition:"learning about communities through accurate sources and their own perspectives",example:"Using tribal museum sources and oral histories",scenario:"Students compare archaeology with accounts shared by the community being studied.",claim:"The study includes community perspectives",evidence:"Sources created and preserved by the community are examined.",conclusion:"Accurate history avoids treating many distinct Indigenous nations as one group."}
+  ]);
+  addConceptLesson("hist","L12","Migration and Settlement",[
+    {term:"migration",definition:"movement of people from one place to another",example:"A family relocating to a different region",scenario:"Workers move to a growing town for new jobs.",claim:"The workers are migrating",evidence:"They change where they live in response to opportunity.",conclusion:"People migrate for many reasons, including work, safety, family, and environment."},
+    {term:"a push factor",definition:"a condition that encourages people to leave a place",example:"A long drought making farming difficult",scenario:"Repeated floods damage homes and force families to consider moving.",claim:"Flooding is a push factor",evidence:"The dangerous condition encourages residents to leave.",conclusion:"Push factors make remaining in a place harder."},
+    {term:"a pull factor",definition:"a condition that attracts people to a new place",example:"Available jobs drawing families to a city",scenario:"A region advertises fertile land and reliable water.",claim:"Land and water are pull factors",evidence:"The resources make the destination attractive.",conclusion:"Push and pull factors can act together in a migration decision."},
+    {term:"settlement",definition:"a place where people establish homes and a community",example:"Homes and businesses developing near a river crossing",scenario:"Families build houses, a school, and a market in one location.",claim:"A settlement is forming",evidence:"Permanent homes and shared community places are being established.",conclusion:"Access to water, transportation, and resources often shapes settlement locations."},
+    {term:"migration's community effects",definition:"changes caused when people arrive in or leave a place",example:"New languages, foods, skills, and businesses appearing",scenario:"New residents open shops and the town adds classrooms.",claim:"Migration changes the town",evidence:"Businesses and public services expand as population changes.",conclusion:"Migration can influence both culture and the need for community services."}
+  ]);
+  addConceptLesson("hist","L13","Rules, Rights, and Responsibilities",[
+    {term:"a rule",definition:"an agreed expectation that guides behavior in a group or place",example:"Take turns using shared equipment",scenario:"A classroom agrees that speakers raise a hand before talking.",claim:"The expectation is a rule",evidence:"It guides behavior for members of the group.",conclusion:"Useful rules should have a clear purpose and apply fairly."},
+    {term:"a right",definition:"a freedom or protection people are entitled to have",example:"The opportunity to express an idea respectfully",scenario:"Residents are allowed to share opinions at a public meeting.",claim:"Residents exercise a right",evidence:"They can participate and express their views.",conclusion:"Rights allow participation and come with respect for others' rights."},
+    {term:"a responsibility",definition:"a duty a person is expected to carry out",example:"Following laws and caring for shared spaces",scenario:"A student returns borrowed library materials on time.",claim:"The student fulfills a responsibility",evidence:"The student properly cares for something shared.",conclusion:"Communities work better when people fulfill responsibilities."},
+    {term:"fairness",definition:"treating people justly while considering needs and agreed rules",example:"Giving every team equal time to use a field",scenario:"A teacher uses the same clear scoring guide for every project.",claim:"The grading process is fair",evidence:"Everyone is judged using the same stated criteria.",conclusion:"Fairness does not always mean identical treatment when needs differ."},
+    {term:"conflict resolution",definition:"a peaceful process for addressing disagreement",example:"Listening, identifying the problem, and agreeing on a solution",scenario:"Two groups explain their needs and choose a schedule both can accept.",claim:"The groups resolve conflict cooperatively",evidence:"They listen and create a shared solution without harm.",conclusion:"Respectful communication can turn disagreement into a workable agreement."}
+  ]);
+  addConceptLesson("hist","L14","Trade and Interdependence",[
+    {term:"trade",definition:"the exchange of goods or services",example:"A farmer exchanging produce for tools",scenario:"Two communities exchange fish for grain.",claim:"The communities engage in trade",evidence:"Each gives one good and receives another.",conclusion:"Trade lets people obtain things they do not produce themselves."},
+    {term:"specialization",definition:"focusing work on a particular product or skill",example:"A potter concentrating on making clay dishes",scenario:"One worker becomes highly skilled at repairing bicycles.",claim:"The worker specializes",evidence:"The worker focuses on one type of skilled service.",conclusion:"Specialization can improve skill and efficiency."},
+    {term:"interdependence",definition:"mutual reliance among people, businesses, or communities",example:"A bakery depending on farmers while families depend on the bakery",scenario:"A restaurant needs growers, drivers, cooks, and customers.",claim:"The groups are interdependent",evidence:"Each depends on the work or choices of others.",conclusion:"Specialization often increases interdependence."},
+    {term:"a supply chain",definition:"the connected steps that move a product from resources to consumers",example:"Cotton farm to fabric mill to clothing store",scenario:"Cocoa is grown, shipped, made into chocolate, and sold.",claim:"The product follows a supply chain",evidence:"Several connected producers move and transform it before sale.",conclusion:"A delay at one step can affect later steps and consumers."},
+    {term:"voluntary exchange",definition:"a trade both sides choose because each expects a benefit",example:"A customer buys a book at an agreed price",scenario:"A gardener and baker willingly exchange vegetables for bread.",claim:"The exchange is voluntary",evidence:"Both participants agree and receive something they value.",conclusion:"Successful voluntary exchange requires agreement from both sides."}
+  ]);
+  addConceptLesson("hist","L15","Reading Maps and Timelines",[
+    {term:"a map key",definition:"a guide explaining what map symbols and colors mean",example:"A blue line symbol labeled river",scenario:"A reader checks a box that explains stars, lines, and shaded areas.",claim:"The box is the map key",evidence:"It defines the symbols used on the map.",conclusion:"A map key helps translate symbols into real features."},
+    {term:"a compass rose",definition:"a map symbol showing directions",example:"An arrow marking north with east, south, and west",scenario:"A traveler checks a direction symbol before moving west.",claim:"The traveler uses a compass rose",evidence:"The symbol identifies cardinal directions.",conclusion:"Directions describe where one place is relative to another."},
+    {term:"map scale",definition:"a comparison between distance on a map and actual distance",example:"One centimeter represents ten kilometers",scenario:"Two towns are 3 centimeters apart on a map where 1 centimeter equals 5 kilometers.",claim:"The actual distance is 15 kilometers",evidence:"Three map units each represent 5 kilometers.",conclusion:"Map scale converts measured map distance into real distance."},
+    {term:"chronological order",definition:"arranging events from earliest to latest",example:"2010, 2015, 2020, then 2025",scenario:"A timeline places founding before growth and growth before a centennial.",claim:"The events are chronological",evidence:"They appear in the order they occurred.",conclusion:"Chronological timelines help readers see sequence and change."},
+    {term:"a timeline interval",definition:"the amount of time represented between marks on a timeline",example:"Each mark representing ten years",scenario:"A line labels 1900, 1920, 1940, and 1960 at equal spaces.",claim:"Each interval represents 20 years",evidence:"The difference between neighboring labels is consistently 20.",conclusion:"Checking intervals prevents errors when locating unlabeled dates."}
+  ]);
+})();
+
+/* Source bank: k12-g3-all-subjects-extension-3.js */
+/* Third Grade 3 expansion: five focused lessons per subject, 25 questions each. */
+(function(){
+  const data=window.K12_CLASSIC_25_DATA=window.K12_CLASSIC_25_DATA||Object.create(null);
+  function mc(index,q,answer,wrong,explain){
+    const all=[answer,...wrong].map(String);
+    if(all.length!==4||new Set(all.map(value=>value.toLowerCase())).size!==4) throw new Error(`Four unique choices required: ${q}`);
+    const shift=index%4;
+    return {type:"mc",q,answer:String(answer),choices:all.slice(shift).concat(all.slice(0,shift)),audio:q,explain};
+  }
+  function numeric(index,q,answer,wrong,explain){
+    const correct=String(answer),distractors=[...new Set(wrong.map(String).filter(value=>value!==correct))];
+    for(let offset=1;distractors.length<3;offset++){
+      const value=String(Number(answer)+offset);
+      if(!distractors.includes(value)) distractors.push(value);
+    }
+    return mc(index,q,correct,distractors.slice(0,3),explain);
+  }
+  function add(subject,number,name,build){
+    const questions=Array.from({length:25},(_,i)=>build(i,Math.floor(i/5),i%5));
+    data[`g3:${subject}:L${number}`]={name,contentVersion:"g3-expansion-20261006.1",questions};
+    CURR.g3[subject][`L${number}`]={name,gen:classicQuestionPending};
+  }
+  function concept(subject,number,name,rows){
+    if(rows.length!==5) throw new Error(`${name}: five concepts required`);
+    add(subject,number,name,(i,stage,j)=>{
+      const [term,meaning,example,scenario,evidence,application]=rows[j];
+      const alternatives=(field)=>[1,2,3].map(offset=>rows[(j+offset)%5][field]);
+      if(stage===0) return mc(i,`In this lesson, what does ${term} mean?`,meaning,alternatives(1),`${term} means ${meaning.toLowerCase()}.`);
+      if(stage===1) return mc(i,`Which is an example of ${term}?`,example,alternatives(2),`${example} This illustrates ${term}.`);
+      if(stage===2) return mc(i,`${scenario} Which idea best fits?`,term,alternatives(0),`${term} explains the situation.`);
+      if(stage===3) return mc(i,`A learner identifies ${term} in this example: ${scenario} Which detail supports the choice?`,evidence,alternatives(4),`${evidence} This is the relevant clue.`);
+      return mc(i,`Which new statement applies ${term} correctly?`,application,alternatives(5),`${application} This correctly applies ${term}.`);
+    });
+  }
+
+  concept("eng",32,"Poetry and Sound",[
+    ["rhyme","words that share an ending sound","light and bright","A poet pairs the words moon and soon.","Moon and soon end in the same sound.","A poem may use rhymes to create a memorable pattern."],
+    ["rhythm","a pattern of beats heard when words are spoken","A poem with a steady marching beat","The lines sound like a repeating drum pattern when read aloud.","The stressed beats repeat regularly.","Reading aloud helps a reader hear a poem's rhythm."],
+    ["alliteration","nearby words that begin with the same sound","Busy bees buzzed by","A line says silver stars shimmered.","Several nearby words begin with the s sound.","A writer can repeat starting sounds for emphasis."],
+    ["a stanza","a group of lines in a poem","Four lines separated from the next four by a blank line","A poem is divided into three spaced groups of lines.","Blank spaces separate groups of lines.","Stanzas organize a poem much like paragraphs organize prose."],
+    ["imagery","descriptive language that helps readers imagine with their senses","The warm orange light glowed across the lake","A poet describes cold rain tapping on a metal roof.","Temperature, color, and sound help create a mental picture.","Specific sensory words make a poem easier to picture."]
+  ]);
+  concept("eng",33,"Story Elements and Conflict",[
+    ["protagonist","the central character in a story","A girl whose choices drive the adventure","The story follows Lena as she searches for her missing dog.","Lena is the character whose goal drives the events.","Readers often follow the protagonist's attempts to solve a problem."],
+    ["setting","the time and place of a story","A mountain cabin on a snowy evening","The action occurs in a crowded market at dawn.","The market and dawn identify place and time.","Setting can influence what characters are able to do."],
+    ["conflict","the main problem or struggle in a story","A child must cross a flooded path to get help","A team cannot enter its robot because a wheel breaks before the contest.","The broken wheel blocks the team's goal.","Conflict gives characters a problem to face."],
+    ["resolution","the way the story's main problem is settled","Friends repair the broken bridge and cross safely","The team replaces the wheel and enters the robot contest.","The obstacle is solved so the goal can be reached.","A resolution shows what happens after attempts to solve the conflict."],
+    ["theme","a broad message about life suggested by a story","Working together can help people overcome difficulties","Two rivals succeed only after they cooperate.","Their cooperation leads to success.","A theme should be supported by events across the story."]
+  ]);
+  concept("eng",34,"Dialogue and Point of View",[
+    ["first-person narrator","a storyteller who takes part and uses I or we","I held my breath as I opened the letter","The narrator says I ran to the gate before sunrise.","I shows the speaker is inside the story.","First-person narration shares one participant's experiences directly."],
+    ["third-person narrator","a storyteller outside the action using he, she, or they","She checked the map while they waited","The narrator describes Amira entering the room without using I.","Amira is described by someone outside the action.","Third-person narration can describe characters from outside the story."],
+    ["dialogue","the spoken words of characters","“The path is this way,” Leo said","Two friends speak in quotation marks while planning a trip.","The text presents the friends' exact spoken words.","Dialogue can show a character's feelings without directly naming them."],
+    ["a speaker tag","words that identify who says dialogue","Maya whispered after a line of speech","A quoted sentence ends with said Noor.","Said Noor identifies the person speaking.","Speaker tags help readers follow conversations with several characters."],
+    ["perspective","the way a person's experiences shape what they notice and believe","One student enjoys the rain while another worries about the game","Two children describe the same storm differently.","They focus on different details because of their experiences.","Comparing perspectives helps explain why accounts differ."]
+  ]);
+  concept("eng",35,"Using Reference Tools",[
+    ["a dictionary entry","a reference that gives a word's spelling and meanings","An entry explaining two meanings of bank","A learner looks up the meaning of habitat in a word list.","The tool defines the word and shows its spelling.","A dictionary can help choose the meaning that fits a sentence."],
+    ["a glossary","a list of key terms and meanings within a book","A science book's list defining evaporation","A student checks the terms at the back of a chapter book.","The list explains words important to that book.","A glossary helps readers understand topic-specific vocabulary."],
+    ["a table of contents","a list of chapters and their starting pages","Chapter 3, Oceans, page 24","A reader wants the chapter about insects and checks the front of a book.","Chapter titles and page numbers point to sections.","A table of contents helps locate a major topic quickly."],
+    ["an index","an alphabetical list of topics with page references","Rainfall, pages 18 and 42","A reader searches for every page that mentions volcanoes.","Alphabetized topics point to multiple pages.","An index helps find specific information scattered through a book."],
+    ["a caption","words next to an image that explain it","A sentence beneath a photo identifying a glacier","A photograph has a short explanation directly below it.","The nearby text explains what the image shows.","Captions connect visuals to the information in a text."]
+  ]);
+  concept("eng",36,"Revision and Strong Details",[
+    ["a precise verb","a verb that clearly shows a specific action","sprinted instead of went","A writer changes The fox went away to The fox darted away.","Darted shows the exact kind of movement.","Precise verbs help readers picture action."],
+    ["a sensory detail","a detail that appeals to sight, sound, smell, taste, or touch","The warm bread smelled of cinnamon","A paragraph describes rough bark beneath a hand.","Rough describes how the bark feels.","Sensory details make writing vivid without adding unrelated facts."],
+    ["a transition","a word or phrase that connects ideas or steps","Next, the team tested its design","A writer inserts Meanwhile to show events happening at once.","Meanwhile signals a relationship between events.","Useful transitions clarify order, contrast, or cause."],
+    ["a focused paragraph","a paragraph whose details support one main idea","Every sentence in a paragraph explains caring for a garden","A writer removes a sentence about lunch from a paragraph about storms.","The removed sentence does not support the storm topic.","Keeping related details together helps readers follow the point."],
+    ["a revision","a change that improves meaning, order, or clarity","Moving the explanation before the example","A writer reorganizes sentences so the cause comes before the effect.","The change helps readers understand the relationship.","Revision improves ideas and organization before final proofreading."]
+  ]);
+
+  add("math",37,"Estimating and Checking Answers",(i,stage,j)=>{
+    if(stage===0){const n=21+j*11,answer=Math.round(n/10)*10;return numeric(i,`Round ${n} to the nearest ten.`,answer,[answer-10,answer+10,n],`${n} is closest to ${answer} on the tens number line.`);}
+    if(stage===1){const n=132+j*113,answer=Math.round(n/100)*100;return numeric(i,`Round ${n} to the nearest hundred.`,answer,[answer-100,answer+100,n],`${n} is closer to ${answer} than to the next hundred.`);}
+    if(stage===2){const a=134+j*21,b=247+j*13,answer=Math.round(a/10)*10+Math.round(b/10)*10;return numeric(i,`Estimate ${a} + ${b} by rounding each number to the nearest ten.`,answer,[answer-20,answer+20,a+b],`Round to ${Math.round(a/10)*10} and ${Math.round(b/10)*10}, then add to get about ${answer}.`);}
+    if(stage===3){const a=547+j*31,b=213+j*17,answer=Math.round(a/100)*100-Math.round(b/100)*100;return numeric(i,`Estimate ${a} - ${b} by rounding each number to the nearest hundred.`,answer,[answer-100,answer+100,a-b],`Round to ${Math.round(a/100)*100} and ${Math.round(b/100)*100}, then subtract to get about ${answer}.`);}
+    const a=237+j*29,b=168+j*17,estimate=Math.round(a/100)*100+Math.round(b/100)*100,exact=a+b;return mc(i,`A student estimates ${a} + ${b} as ${estimate}. Which statement correctly checks the estimate?`,`The exact sum is ${exact}, which is reasonably close to ${estimate}.`,[`The exact sum is ${a-b}, so the estimate is too high.`,`The exact sum must equal the rounded estimate exactly.`,`The sum is smaller than both addends.`],`Adding exactly gives ${exact}. A rounded estimate need not be exact, but it should be nearby.`);
+  });
+  add("math",38,"Weight, Capacity, and Length",(i,stage,j)=>{
+    const units=[
+      ["a grape","grams","kilograms","liters","meters"],
+      ["a filled bathtub","liters","milliliters","grams","centimeters"],
+      ["a school bus","meters","centimeters","milliliters","grams"],
+      ["a spoonful of medicine","milliliters","liters","kilometers","kilograms"],
+      ["a large dog","kilograms","grams","meters","milliliters"]
+    ];
+    if(stage===0){const x=units[j];return mc(i,`Which unit is best for measuring ${x[0]}?`,x[1],x.slice(2),`${x[1]} matches the amount and type being measured.`);}
+    if(stage===1){const a=24+j*12,b=16+j*7,answer=a+b;return numeric(i,`A rope is ${a} centimeters long and another is ${b} centimeters long. What is their combined length?`,answer,[a,b,answer+10],`Add ${a} + ${b} = ${answer} centimeters.`);}
+    if(stage===2){const total=95+j*23,used=27+j*9,answer=total-used;return numeric(i,`A bottle contains ${total} milliliters. ${used} milliliters are poured out. How much remains?`,answer,[total+used,used,answer+10],`Subtract ${used} from ${total} to get ${answer} milliliters.`);}
+    if(stage===3){const packages=j+3,each=j+4,answer=packages*each;return numeric(i,`There are ${packages} bags of rice weighing ${each} kilograms each. What is their total weight?`,answer,[packages+each,answer-each,answer+each],`${packages} equal groups of ${each} kilograms weigh ${answer} kilograms.`);}
+    const pieces=j+3,each=35+j*5,used=18+j*3,total=pieces*each,answer=total-used;return numeric(i,`${pieces} strips each measure ${each} centimeters. After ${used} centimeters are cut away in total, how much length remains?`,answer,[total,total+used,answer+pieces],`First multiply to get ${total} centimeters, then subtract ${used} to get ${answer}.`);
+  });
+  add("math",39,"Fractions of Groups",(i,stage,j)=>{
+    if(stage===0){const total=(j+2)*4,answer=total/2;return numeric(i,`Half of a group of ${total} counters is how many counters?`,answer,[total,answer+2,answer-1],`Divide the group into two equal parts: ${total} / 2 = ${answer}.`);}
+    if(stage===1){const total=(j+3)*3,answer=total/3;return numeric(i,`One third of ${total} flowers is how many flowers?`,answer,[total,answer+3,answer-1],`Divide ${total} into three equal groups: each has ${answer}.`);}
+    if(stage===2){const total=(j+3)*4,answer=total/4;return numeric(i,`One fourth of ${total} buttons is how many buttons?`,answer,[total/2,total,answer+1],`Divide ${total} into four equal groups: each has ${answer}.`);}
+    if(stage===3){const each=j+3,total=each*4,answer=each*3;return numeric(i,`Three fourths of ${total} stickers is how many stickers?`,answer,[each,total,answer-each],`One fourth is ${each}; three fourths is 3 groups of ${each}, or ${answer}.`);}
+    const each=j+4,total=each*6,used=each*2,answer=total-used;return numeric(i,`A box holds ${total} beads. Two sixths are used for crafts. How many beads remain?`,answer,[used,total,answer-each],`One sixth is ${each}. Two sixths is ${used}; ${total} - ${used} = ${answer} beads remain.`);
+  });
+  add("math",40,"Interpreting Graphs and Data",(i,stage,j)=>{
+    const a=8+j*3,b=5+j*2,c=3+j;
+    if(stage===0) return numeric(i,`A chart shows ${a} votes for apples. How many votes did apples receive?`,a,[a+1,a-1,b],`Read the apple row: ${a} votes.`);
+    if(stage===1){const answer=a-b;return numeric(i,`A bar graph shows ${a} books read by one class and ${b} by another. How many more did the first class read?`,answer,[a+b,a,answer+2],`Subtract the bar heights: ${a} - ${b} = ${answer}.`);}
+    if(stage===2){const answer=a+b+c;return numeric(i,`A table records ${a}, ${b}, and ${c} library visits on three days. What is the total?`,answer,[a+b,b+c,answer+3],`Add the three entries: ${a} + ${b} + ${c} = ${answer}.`);}
+    if(stage===3){const key=j+2,symbols=j+4,answer=key*symbols;return numeric(i,`A picture graph has ${symbols} symbols, and each represents ${key} children. How many children are represented?`,answer,[answer+1,answer+2,answer+3],`Multiply ${symbols} symbols by ${key} children per symbol to get ${answer}.`);}
+    const start=6+j,added=4+j,removed=2+j,answer=start+added-removed;return numeric(i,`A class graph initially shows ${start} visits. ${added} visits are added, then ${removed} duplicate entries are removed. What is the corrected count?`,answer,[answer+1,answer+2,answer+3],`Add the new visits, then remove duplicates: ${start} + ${added} - ${removed} = ${answer}.`);
+  });
+  add("math",41,"Multi-Step Real-World Challenges",(i,stage,j)=>{
+    if(stage===0){const a=36+j*7,b=15+j*3,answer=a+b;return numeric(i,`A shelf has ${a} books and receives ${b} more. How many books are on it?`,answer,[a-b,a,answer+10],`Add ${a} + ${b} = ${answer}.`);}
+    if(stage===1){const groups=j+3,each=j+5,answer=groups*each;return numeric(i,`${groups} teams have ${each} players each. How many players are there?`,answer,[groups+each,answer+groups,answer-each],`Multiply equal groups: ${groups} x ${each} = ${answer}.`);}
+    if(stage===2){const packs=j+4,each=8,extra=j+3,answer=packs*each+extra;return numeric(i,`${packs} packs hold 8 pencils each, with ${extra} loose pencils. How many pencils are there?`,answer,[packs*each,packs+each+extra,answer+8],`Multiply for the packs, then add loose pencils: ${packs} x 8 + ${extra} = ${answer}.`);}
+    if(stage===3){const total=(j+5)*6,saved=3*(j+1),remaining=total-saved,answer=remaining/3;return numeric(i,`A baker makes ${total} cookies, saves ${saved}, then shares the rest among 3 tables. How many cookies per table?`,answer,[remaining,total/3,answer+1],`Subtract ${saved} first to get ${remaining}, then divide by 3 to get ${answer}.`);}
+    const rows=j+4,each=j+6,extra=12+j,given=j+5,answer=rows*each+extra-given;return numeric(i,`A display has ${rows} rows of ${each} cards and ${extra} spare cards. After ${given} cards are given away, how many remain?`,answer,[rows*each,rows*each+extra,answer+1],`Multiply, add the spares, and subtract the cards given away: ${rows} x ${each} + ${extra} - ${given} = ${answer}.`);
+  });
+
+  concept("sci",14,"Plant and Animal Traits",[
+    ["an inherited trait","a characteristic passed from parents to offspring","A kitten having fur color similar to its parents","Two parent plants produce seedlings with similar leaf shapes.","The young plants share a parent trait without being taught.","Inherited traits can vary among offspring."],
+    ["a learned behavior","an action gained through experience or instruction","A dog learning to sit on command","A young crow learns where to find food by watching adults.","The action is acquired by watching and practice.","An animal can learn new behaviors during its lifetime."],
+    ["an instinct","a behavior an animal can perform without being taught","A spider building a web","A newly hatched sea turtle moves toward the sea.","The young animal acts without lessons or practice.","Instincts may help animals survive immediately after birth."],
+    ["variation","differences among members of the same kind of organism","One litter of puppies having several coat colors","The same type of bean plant has both tall and short seedlings.","Individuals of the same kind differ in height.","Variation means offspring are not exact copies of one another."],
+    ["an environmental influence","a condition around an organism that affects its growth or behavior","Less sunlight slowing a plant's growth","Two similar seedlings receive different amounts of water and grow differently.","Water supply, rather than parentage alone, affects growth.","Traits and environment can both influence what an organism becomes."]
+  ]);
+  concept("sci",15,"Soil, Rocks, and Fossils",[
+    ["a mineral","a natural nonliving solid with recognizable properties","Quartz crystals in a rock","A scientist identifies a natural solid by hardness and color.","The solid has consistent physical properties.","Minerals combine to form many rocks."],
+    ["a rock","a natural solid made from one or more minerals","Granite containing several minerals","A hard natural piece contains visible grains of different colors.","The sample is a natural mixture of minerals.","Rocks can break into particles that become soil."],
+    ["soil","a mixture of rock particles, air, water, and once-living material","Garden soil containing sand and decayed leaves","A sample supports roots and contains tiny stones and dark organic matter.","It contains mineral and once-living material.","Soil types differ in how much water they hold."],
+    ["a fossil","preserved evidence of an organism from long ago","A leaf impression inside ancient rock","A rock layer contains a print shaped like a shell.","The print records evidence of past life.","Fossils help scientists learn about organisms that lived long ago."],
+    ["a sedimentary layer","a band of material deposited over time","Layers of sand and mud hardened into rock","A cliff shows distinct stacked bands containing different fossils.","The bands formed as material settled at different times.","Layers can help show an order of events in Earth's past."]
+  ]);
+  concept("sci",16,"Magnets and Forces",[
+    ["a push","a force that moves something away","A hand sending a cart forward","A child presses a door so it swings outward.","The contact moves the door away from the child.","A push can start, stop, or change an object's movement."],
+    ["a pull","a force that draws something closer","A person tugging a wagon","A student draws a drawer toward herself by its handle.","The force brings the drawer closer.","Pulling a wagon changes its position."],
+    ["magnetic attraction","a force that draws some materials or opposite poles together","A magnet lifting a steel paper clip","A paper clip moves toward a magnet without being touched.","The magnet causes the clip to move closer.","Magnets can attract certain metals at a distance."],
+    ["magnetic repulsion","a force that pushes like magnetic poles apart","Two north poles moving away from each other","Two facing magnet ends will not stay together and push apart.","The facing ends move away from one another.","Like magnetic poles repel one another."],
+    ["friction","a force that opposes sliding between touching surfaces","Rough carpet slowing a toy car","A rolling ball stops sooner on grass than on smooth tile.","The rough surface resists the ball's motion.","More friction can slow a moving object."]
+  ]);
+  concept("sci",17,"Earth, Sun, and Moon",[
+    ["rotation","Earth spinning around its axis","One spin of Earth taking about a day","A model globe spins while one side faces a lamp.","Different sides turn toward and away from the light.","Earth's rotation causes the regular day and night cycle."],
+    ["revolution","one object traveling around another","Earth making one trip around the Sun","A model Earth moves along a path around a lamp.","The model changes position around the light source.","Earth takes about a year to revolve around the Sun."],
+    ["day and night","a cycle caused by Earth's rotation toward and away from sunlight","One location moving into sunlight and later darkness","A town moves from morning to evening while Earth turns.","Its side of Earth faces the Sun and later turns away.","Night happens where Earth is turned away from the Sun."],
+    ["a moon phase","the apparent shape of the lit part of the Moon seen from Earth","A crescent Moon followed by a half Moon","Observers see different portions of the Moon's sunlit side during a month.","The visible lit portion changes as the Moon moves.","The Moon's phases follow a repeating pattern."],
+    ["a shadow","a dark area where an object blocks light","A tree's outline on sunny ground","A ball between a lamp and wall makes a dark shape on the wall.","The ball prevents light from reaching part of the wall.","A shadow's location changes when the light or object moves."]
+  ]);
+  concept("sci",18,"Designing and Testing Solutions",[
+    ["a design problem","a need or challenge that a device or process should solve","Keeping a paper boat afloat with cargo","A class wants to keep a fragile egg safe during a short drop.","The egg needs protection from impact.","Clear problems guide what a design must accomplish."],
+    ["a criterion","a requirement for a successful design","A bridge must hold ten blocks","A model must support a book without breaking.","Supporting the book is a measurable success requirement.","Criteria let designers judge whether a solution works."],
+    ["a constraint","a limit on time, materials, size, or cost","Only ten paper clips may be used","A team can build using one sheet of paper and a short piece of tape.","Available materials are restricted.","Good solutions must meet criteria within their constraints."],
+    ["a fair test","a comparison that changes one factor at a time","Testing identical bridges with only the paper type changed","Two ramps have the same height and car, but different surface coverings.","Only the surface is changed in the comparison.","Fair tests make differences in results easier to explain."],
+    ["an improvement","a change made using test results to make a design work better","Adding a stronger support after a bridge bends","A paper tower tips in testing, so its base is widened.","The change responds to the observed failure.","Designers test, revise, and test again to improve solutions."]
+  ]);
+
+  concept("hist",16,"Historical Questions and Evidence",[
+    ["a historical question","a question about the past that evidence can help answer","How did people travel across this river long ago?","Students ask how their town's market changed over fifty years.","The question asks about change in a past place.","Good historical questions can be explored using sources."],
+    ["a primary source","a record or object made during the time studied","A child's diary written during a town celebration","A family examines a letter written in 1920.","The letter was created by someone living at that time.","A historical photograph can be a primary source for its era."],
+    ["a secondary source","an explanation created later using earlier evidence","A recent book explaining the history of an old bridge","A writer studies diaries and writes a modern account.","The account was created later from earlier sources.","A secondary source can combine several primary accounts."],
+    ["corroboration","checking whether different sources support the same account","Comparing a diary with a dated photograph","Two accounts give the same date for the first town library.","Independent sources agree on the date.","Comparing sources can make a conclusion more dependable."],
+    ["a historical conclusion","an explanation about the past supported by evidence","Old maps and records show a town grew near a railroad","Students use photos and maps to explain why a community moved.","Multiple records support a reason for the move.","Conclusions should name the evidence that supports them."]
+  ]);
+  concept("hist",17,"Landmarks and Community History",[
+    ["a landmark","a recognizable place or structure important to a community","A historic bridge used by generations","Residents preserve an old train station as a reminder of early travel.","The station has a meaningful place in local history.","Landmarks can help people remember community stories."],
+    ["a memorial","something made to honor or remember a person or event","A plaque honoring local firefighters","Neighbors gather at a statue honoring people who served during a flood.","The statue exists to remember and honor people.","Memorials communicate what a community chooses to remember."],
+    ["preservation","protecting places, objects, or records for the future","Repairing a historic school without removing key features","A group stores old town photographs safely and copies them digitally.","The records are protected from loss or damage.","Preservation helps future learners study the past."],
+    ["a local museum","a place that collects and shares objects and stories of a community","An exhibit of old tools used by area farmers","Visitors view artifacts and read explanations about their town.","Objects and labels teach visitors local history.","Museums can combine objects, photographs, and oral accounts."],
+    ["change and continuity","what becomes different and what remains over time","A main street gains new shops but keeps an old market","Old photographs show modern roads but the same annual parade.","The roads changed while the parade continued.","One place can change in some ways and remain familiar in others."]
+  ]);
+  concept("hist",18,"Maps, Routes, and Regions",[
+    ["a compass rose","a map guide showing directions","A symbol labeling north, south, east, and west","A traveler checks which way is west on a town map.","The direction symbol helps orient the map.","Directions describe where one place is compared with another."],
+    ["a map key","a guide explaining map symbols","A blue line labeled river in a key","A reader checks what a star means on a city map.","The key defines the star symbol.","A key turns map marks into information about places."],
+    ["a route","a path taken from one place to another","A road from a farm to a market","A map traces a delivery trip through three towns.","The marked path shows the trip's order and direction.","People may compare routes by distance, safety, or travel time."],
+    ["a region","an area sharing important features","Several towns with similar climate and landforms","A map groups nearby places with similar rainfall.","The places share a feature used to define the area.","Regions may be defined by physical or human characteristics."],
+    ["map scale","a relationship between distance on a map and real distance","One centimeter representing five kilometers","Two towns are three map units apart, each worth two kilometers.","Each unit represents a fixed real distance.","Map scale helps estimate travel distance."]
+  ]);
+  concept("hist",19,"Saving, Spending, and Budgets",[
+    ["income","money received for work or another source","Pay earned for helping at a shop","A worker receives money after completing a job.","The person receives money for work.","Knowing income helps a family plan spending."],
+    ["an expense","money spent on a good or service","Paying for bus fare","A family pays for electricity and groceries.","Money leaves the family's budget to pay bills.","Expenses should be included when making a budget."],
+    ["a budget","a plan for how to use available money","Setting aside money for food, travel, and savings","A class decides how much to spend on supplies before buying them.","The group plans spending within a fixed amount.","A budget helps compare costs with available money."],
+    ["saving","keeping money now for a future need or goal","Putting part of an allowance in a jar","A child keeps a few dollars each week to buy a bicycle later.","Money is reserved for a later purchase.","Saving regularly can help reach a larger goal."],
+    ["an opportunity cost","the next best choice given up when making a decision","Choosing a book means waiting to buy a game","A town uses its funds for a park instead of a new fountain.","The fountain is forgone when the park is chosen.","Every choice with limited resources has an opportunity cost."]
+  ]);
+  concept("hist",20,"Community Problem Solving",[
+    ["identifying a need","recognizing a problem that affects people","Noticing a dangerous crossing near school","Residents observe that a neighborhood has no safe walking path.","A shared safety problem is noticed.","Defining a need clearly is the first step toward a solution."],
+    ["listening to stakeholders","hearing from people affected by a decision","Asking students and neighbors about a proposed park","A council invites residents, shop owners, and walkers to speak.","People with different experiences are consulted.","Listening can reveal effects a planner missed."],
+    ["comparing solutions","judging possible plans by benefits, costs, and limits","Reviewing a crosswalk and a traffic signal","A group studies the cost and safety of two routes.","More than one workable option is evaluated.","Comparing tradeoffs helps a community choose a plan."],
+    ["taking civic action","doing something constructive to improve a shared situation","Volunteering for a neighborhood cleanup","Families organize a meeting to request safer playground equipment.","People work together to seek a public improvement.","Citizens can act through meetings, volunteering, and respectful requests."],
+    ["evaluating results","checking whether a chosen solution achieved its goal","Counting fewer littered items after a cleanup plan","After adding a crosswalk, the town measures whether crossings became safer.","The outcome is compared with the original safety goal.","Results can show whether a plan should be kept or improved."]
+  ]);
+})();
+
+/* Source bank: k12-g3-all-subjects-extension-4.js */
+/* Fourth Grade 3 expansion: five new 25-question lessons in each subject. */
+(function(){
+  const data=window.K12_CLASSIC_25_DATA=window.K12_CLASSIC_25_DATA||Object.create(null);
+  function mc(index,q,answer,wrong,explain){
+    const choices=[answer,...wrong].map(String);
+    if(choices.length!==4||new Set(choices.map(value=>value.toLowerCase())).size!==4) throw new Error(`Four distinct choices required: ${q}`);
+    const turn=index%4;
+    return {type:"mc",q,answer:String(answer),choices:choices.slice(turn).concat(choices.slice(0,turn)),audio:q,explain};
+  }
+  function numeric(index,q,answer,wrong,explain){
+    const correct=String(answer);
+    const distractors=[...new Set(wrong.map(String).filter(value=>value!==correct))];
+    for(let step=1;distractors.length<3;step++){
+      const candidate=String(Number(answer)+step);
+      if(!distractors.includes(candidate)) distractors.push(candidate);
+    }
+    return mc(index,q,correct,distractors.slice(0,3),explain);
+  }
+  function add(subject,number,name,build){
+    const questions=Array.from({length:25},(_,index)=>build(index,Math.floor(index/5),index%5));
+    const key=`g3:${subject}:L${number}`;
+    if(data[key]) throw new Error(`Lesson already exists: ${key}`);
+    data[key]={name,contentVersion:"g3-expansion-20261006.2",questions};
+    CURR.g3[subject][`L${number}`]={name,gen:classicQuestionPending};
+  }
+  function concepts(subject,number,name,rows){
+    if(rows.length!==5||rows.some(row=>row.length!==6)) throw new Error(`Five complete concepts required: ${name}`);
+    add(subject,number,name,(index,stage,j)=>{
+      const [term,meaning,example,scenario,evidence,application]=rows[j];
+      const others=field=>[1,2,3].map(offset=>rows[(j+offset)%5][field]);
+      if(stage===0) return mc(index,`Which description best matches ${term}?`,meaning,others(1),`${term} means ${meaning.toLowerCase()}.`);
+      if(stage===1) return mc(index,`Which example best shows ${term}?`,example,others(2),`${example} This shows ${term}.`);
+      if(stage===2) return mc(index,`${scenario} Which idea best explains this?`,term,others(0),`The situation shows ${term}.`);
+      if(stage===3) return mc(index,`Which clue best shows ${term} in this situation? ${scenario}`,evidence,others(4),`${evidence} This detail supports the choice.`);
+      return mc(index,`Which statement uses the idea of ${term} correctly?`,application,others(5),`${application} This is a sound application of ${term}.`);
+    });
+  }
+
+  concepts("eng",37,"Summarizing Informational Text",[
+    ["a main idea","the central point a text explains","A passage explains how bees help flowers make seeds","A page describes several ways roots help a plant.","The details all explain what roots do.","A strong summary states the main idea without every small fact."],
+    ["a key detail","a fact that supports the central point","Roots absorb water from soil","An article says birds use feathers to stay warm and to fly.","The feather facts support the article's point.","A reader keeps key details that explain the main idea."],
+    ["an irrelevant detail","information that does not help explain the topic","The author likes blue shoes in a report about clouds","A paragraph about recycling suddenly describes a soccer score.","The score does not explain recycling.","Leaving unrelated details out makes a summary clearer."],
+    ["paraphrasing","restating an idea in your own words","Changing plants need sunlight to plants grow using light","A student explains an article's point without copying its sentences.","The wording changes while the meaning stays.","Paraphrasing shows understanding without copying exact lines."],
+    ["an objective summary","a short account of main ideas without personal opinions","The text explains three ways a city saves water","A student reports what a passage says without adding I loved it.","The account includes facts rather than the student's feelings.","An objective summary tells what the text says, not whether you liked it."]
+  ]);
+  concepts("eng",38,"Character Choices and Inference",[
+    ["a character goal","something a character wants to achieve","Nora wants to return a lost puppy","In a story, Ben practices daily to enter a race.","His practice points to the race as his aim.","A goal helps explain why a character takes action."],
+    ["motivation","the reason behind a character's action","Helping a friend because she is worried","A boy shares his lunch after seeing a classmate has none.","He notices a need and wants to help.","Readers can infer motivation from actions and dialogue."],
+    ["a character trait","a quality shown by repeated actions","Showing patience by trying again calmly","A girl keeps her promise even when doing so is difficult.","Keeping a difficult promise shows reliability.","One action may suggest a trait; several actions provide stronger evidence."],
+    ["an inference","a reasonable idea based on clues and what you know","Guessing a child is nervous because her hands shake before a speech","A runner checks the clock and quickens her pace.","Her actions suggest that she is late or worried about time.","An inference needs clues from the story."],
+    ["character change","a difference in what a character believes or does by the end","A shy child begins sharing ideas with the group","After a mistake, a character starts asking for help.","The later behavior differs from the earlier choice.","Comparing the beginning and ending can reveal growth."]
+  ]);
+  concepts("eng",39,"Comparing Two Texts",[
+    ["a shared topic","a subject addressed by both texts","Two articles both describe sea turtles","One text explains gardens and another tells how to plant one.","Both texts concern gardens.","Finding a shared topic is a first step in comparison."],
+    ["a different focus","a distinct part of a topic emphasized by one text","One garden text studies soil while another studies insects","Two texts cover storms, but one explains safety and the other explains causes.","The writers emphasize different storm questions.","Texts can share a topic while focusing on different information."],
+    ["a fact","a statement that can be checked with evidence","A seed needs water to begin growing","One article gives a measured rainfall amount.","A measurement can be checked.","Compare factual claims with reliable evidence."],
+    ["an opinion","a belief or judgment that may differ among readers","Rainy days are the most exciting days","A writer calls one beach the best place in town.","Best expresses a judgment.","Different texts can express different opinions about the same place."],
+    ["a text-based comparison","a claim about two texts supported by a detail from each","Both stories feature a rescue, but only one uses a boat","A reader names a similarity and points to an event in each story.","Details from both stories support the comparison.","A good comparison cites evidence from each text."]
+  ]);
+  concepts("eng",40,"Grammar for Clear Sentences",[
+    ["subject-verb agreement","matching a verb to a singular or plural subject","The birds sing, but the bird sings","A writer changes The dogs runs to The dogs run.","The plural subject takes run.","Checking the subject helps choose the correct verb form."],
+    ["a complete sentence","a group of words with a subject and a complete thought","The bright kite rose above the trees.","A writer adds The dog barked instead of Because the dog.","The revised words tell a complete thought.","A complete sentence can stand on its own."],
+    ["a compound sentence","two complete thoughts joined correctly","The rain stopped, and we went outside.","Two short sentences are joined with a comma and but.","Each side of the joining word can stand alone.","A compound sentence connects related complete ideas."],
+    ["a pronoun antecedent","the noun that a pronoun refers to","In Maya opened her bag, her means Maya","A reader asks who they refers to in a paragraph.","The earlier noun identifies the pronoun's meaning.","Clear antecedents help readers follow who is acting."],
+    ["consistent verb tense","keeping the time of actions clear","Yesterday we walked and played","A writer changes Yesterday we walked and play to walked and played.","Both verbs now describe past actions.","Use a tense change only when the time actually changes."]
+  ]);
+  concepts("eng",41,"Explaining an Idea in Writing",[
+    ["a topic sentence","a sentence that introduces a paragraph's main point","Bees help many plants reproduce.","A paragraph about keeping water clean begins with a broad claim about clean streams.","The first sentence names the paragraph's point.","A topic sentence prepares readers for supporting details."],
+    ["an explanation","words that tell how or why something happens","Roots hold a plant in place because they spread through soil","A writer tells why shade keeps a playground cooler.","The writing connects a cause with its result.","Explanations add meaning beyond listing facts."],
+    ["an example","a specific case that makes an idea clearer","A reusable bottle is one way to reduce waste","A writer names a library book drive after discussing community help.","The book drive is one instance of helping.","A relevant example makes an abstract point concrete."],
+    ["a transition","a word or phrase that connects parts of an explanation","For example, followed by a supporting case","A writer adds therefore before a result.","The word signals a conclusion from earlier information.","Transitions help readers follow relationships among ideas."],
+    ["a concluding sentence","a final sentence that wraps up the paragraph's point","Together, these steps keep the garden healthy.","A paragraph ends by restating why careful watering matters.","The ending returns to the main point.","A conclusion should fit the evidence already given."]
+  ]);
+
+  add("math",42,"Time and Elapsed Minutes",(i,stage,j)=>{
+    if(stage===0){const hours=j+1,answer=hours*60;return numeric(i,`How many minutes are in ${hours} hour${hours===1?"":"s"}?`,answer,[hours,answer+30,answer-30],`Each hour has 60 minutes, so ${hours} hour${hours===1?"":"s"} is ${answer} minutes.`);}
+    if(stage===1){const start=5+j*5,end=start+15+j*4,answer=end-start;return numeric(i,`A reading break starts at 2:${String(start).padStart(2,"0")} and ends at 2:${String(end).padStart(2,"0")}. How many minutes does it last?`,answer,[end,start,answer+5],`Count from minute ${start} to minute ${end}: ${answer} minutes.`);}
+    if(stage===2){const start=35+j*3,end=10+j*4,answer=60-start+end;return numeric(i,`A lesson starts at 9:${start} and ends at 10:${String(end).padStart(2,"0")}. How many minutes pass?`,answer,[start+end,60-start,answer+10],`Count ${60-start} minutes to 10:00, then ${end} more: ${answer} minutes.`);}
+    if(stage===3){const work=20+j*5,breakTime=5+j,answer=work+breakTime+15;return numeric(i,`A student works for ${work} minutes, takes a ${breakTime}-minute break, then works for 15 more minutes. How long is the whole session?`,answer,[work+15,work+breakTime,answer+5],`Add all three intervals: ${work} + ${breakTime} + 15 = ${answer} minutes.`);}
+    const start=5+j*3,travel=18+j*2,wait=5+j,answer=start+travel+wait;return numeric(i,`A bus leaves at 3:${String(start).padStart(2,"0")}, travels ${travel} minutes, then waits ${wait} minutes. How many minutes after 3:00 does it leave the stop?`,answer,[start+travel,travel+wait,answer+5],`Add ${start} + ${travel} + ${wait} = ${answer}; the clock reads 3:${String(answer).padStart(2,"0")}.`);
+  });
+  add("math",43,"Arrays and Missing Factors",(i,stage,j)=>{
+    if(stage===0){const rows=j+2,each=4,answer=rows*each;return numeric(i,`An array has ${rows} rows of 4 dots. How many dots are there?`,answer,[rows+each,answer+4,answer-4],`${rows} groups of 4 make ${answer} dots.`);}
+    if(stage===1){const rows=j+3,each=j+4,answer=rows*each;return numeric(i,`A garden has ${rows} rows with ${each} plants in each row. How many plants are there?`,answer,[rows+each,answer+rows,answer-each],`Multiply ${rows} by ${each} to get ${answer} plants.`);}
+    if(stage===2){const groups=j+3,each=j+5,total=groups*each;return numeric(i,`${total} tiles form ${groups} equal rows. How many tiles are in each row?`,each,[groups,total,each+groups],`Divide ${total} by ${groups}; each row has ${each} tiles.`);}
+    if(stage===3){const rows=j+4,each=j+3,total=rows*each;return numeric(i,`A rectangular array has ${total} dots and ${each} columns. How many rows does it have?`,rows,[each,total,rows+each],`Since ${rows} x ${each} = ${total}, the array has ${rows} rows.`);}
+    const groups=j+3,each=j+4,extra=j+2,answer=groups*each+extra;return numeric(i,`There are ${groups} full trays with ${each} muffins on each tray and ${extra} extra muffins. How many muffins are there altogether?`,answer,[groups*each,groups+each+extra,answer+each],`Find the trays first: ${groups} x ${each} = ${groups*each}. Add ${extra} to get ${answer}.`);
+  });
+  add("math",44,"Area and Perimeter Decisions",(i,stage,j)=>{
+    const width=j+3,length=j+6;
+    if(stage===0){const answer=width*length;return numeric(i,`A rectangle is ${width} unit squares wide and ${length} unit squares long. What is its area in square units?`,answer,[width+length,2*(width+length),answer+width],`Area counts square units: ${width} x ${length} = ${answer}.`);}
+    if(stage===1){const answer=2*(width+length);return numeric(i,`A rectangle has side lengths ${width} and ${length} units. What is its perimeter in units?`,answer,[width*length,width+length,answer+width],`Add all four sides: ${width} + ${length} + ${width} + ${length} = ${answer}.`);}
+    if(stage===2){const missing=j+4,known=j+7,perimeter=2*(missing+known);return numeric(i,`A rectangle has a perimeter of ${perimeter} units. One side is ${known} units. How long is an adjacent side?`,missing,[perimeter/2,known,missing+known],`Half the perimeter is ${missing+known}; subtract ${known} to find ${missing}.`);}
+    if(stage===3){const tileRows=j+4,tileCols=j+5,answer=tileRows*tileCols;return numeric(i,`A floor is ${tileRows} tiles by ${tileCols} tiles. Each tile covers one square unit. How many tiles cover the floor?`,answer,[2*(tileRows+tileCols),tileRows+tileCols,answer+tileRows],`Covering the floor requires its area: ${tileRows} x ${tileCols} = ${answer} tiles.`);}
+    const first=(j+4)*(j+6),second=(j+2)*3,answer=first+second;return numeric(i,`A shape combines a ${j+4}-by-${j+6} rectangle and a separate ${j+2}-by-3 rectangle without overlap. What is its total area?`,answer,[first,second,first+second+3],`Add the two areas: ${first} + ${second} = ${answer} square units.`);
+  });
+  add("math",45,"Fraction Models and Reasoning",(i,stage,j)=>{
+    const denominator=j+3;
+    if(stage===0) return numeric(i,`A whole is split into ${denominator} equal parts. What denominator names one part?`,denominator,[denominator-1,denominator+1,1],`The denominator ${denominator} tells how many equal parts make one whole.`);
+    if(stage===1){const numerator=j+1;return numeric(i,`Of ${denominator+2} equal parts, ${numerator} are shaded. What is the numerator of the shaded fraction?`,numerator,[denominator+2,numerator+1,denominator+1],`The numerator counts shaded parts: ${numerator}.`);}
+    if(stage===2){const numerator=j+1,parts=denominator+2;return mc(i,`Which fraction is greater: ${numerator}/${parts} or ${numerator+1}/${parts}?`,`${numerator+1}/${parts}`,[`${numerator}/${parts}`,"They are equal","The fractions cannot be compared"],`With equal denominators, ${numerator+1} shaded parts is more than ${numerator}.`);}
+    if(stage===3){const numerator=j+1,parts=denominator+2;return mc(i,`A fraction is ${numerator}/${parts}. Which fraction names the same amount after doubling both parts?`,`${2*numerator}/${2*parts}`,[`${numerator+2}/${parts+2}`,`${2*numerator}/${parts}`,`${numerator}/${2*parts}`],`Doubling numerator and denominator keeps the same value: ${numerator}/${parts} = ${2*numerator}/${2*parts}.`);}
+    const parts=(j+3)*4,oneFourth=parts/4,threeFourths=3*oneFourth;return numeric(i,`A ribbon is ${parts} centimeters long. Three fourths of it is used. How many centimeters remain?`,oneFourth,[threeFourths,parts,oneFourth+parts],`One fourth is ${oneFourth} centimeters. After using three fourths, one fourth remains.`);
+  });
+  add("math",46,"Planning Purchases and Change",(i,stage,j)=>{
+    if(stage===0){const price=12+j*3,paid=20+j*5,answer=paid-price;return numeric(i,`A book costs $${price}. You pay $${paid}. How many dollars in change should you receive?`,answer,[price+paid,price,answer+2],`Subtract the price from the payment: ${paid} - ${price} = ${answer}.`);}
+    if(stage===1){const first=8+j*2,second=5+j,answer=first+second;return numeric(i,`A notebook costs $${first} and pens cost $${second}. What is the total cost?`,answer,[first-second,first,answer+5],`Add both costs: ${first} + ${second} = ${answer} dollars.`);}
+    if(stage===2){const each=4+j,count=j+2,answer=each*count;return numeric(i,`Each art kit costs $${each}. How much do ${count} kits cost?`,answer,[each+count,answer+each,answer-each],`Multiply ${count} kits by $${each}: $${answer}.`);}
+    if(stage===3){const budget=35+j*5,first=12+j*2,second=9+j,answer=budget-first-second;return numeric(i,`You have $${budget}. You buy a game for $${first} and a snack for $${second}. How much money remains?`,answer,[budget-first,first+second,answer+second],`Spend ${first} + ${second} = ${first+second}, then subtract from ${budget} to get ${answer}.`);}
+    const budget=50+j*10,each=6+j,count=3+j,donation=4+j,answer=budget-each*count-donation;return numeric(i,`A club has $${budget}. It buys ${count} supplies at $${each} each and donates $${donation}. How much remains?`,answer,[budget-each*count,budget-each-donation,answer+donation],`Supplies cost ${count} x ${each} = ${each*count}. Then ${budget} - ${each*count} - ${donation} = ${answer}.`);
+  });
+
+  concepts("sci",19,"Flowers, Seeds, and New Plants",[
+    ["pollen","tiny grains involved in making seeds in flowering plants","Yellow dust on a flower's anther","A bee brushes against yellow grains inside a flower.","The grains can be carried to another flower.","Pollen can travel by animals or wind."],
+    ["pollination","the transfer of pollen to a flower's receiving part","A bee carrying pollen between flowers","A butterfly visits two blossoms and leaves grains on the second.","Pollen moves from one flower to another.","Pollination can help flowering plants make seeds."],
+    ["a seed","a plant structure that can grow into a new plant","A bean inside a pod","A child plants a dry bean that later sprouts.","The bean contains what can begin a new plant.","Seeds need suitable conditions to begin growing."],
+    ["seed dispersal","the movement of seeds away from a parent plant","A dandelion seed blowing on the wind","Burrs cling to an animal's fur and fall off later.","The seeds reach a different place.","Wind, water, and animals can disperse seeds."],
+    ["germination","the beginning of growth from a seed","A small root emerging from a bean seed","A watered seed opens and its first root appears.","The seed begins growing into a young plant.","Water and suitable warmth can help germination begin."]
+  ]);
+  concepts("sci",20,"Living Things in Changing Places",[
+    ["a habitat change","a shift in the conditions where an organism lives","A pond drying during a long drought","A new road removes part of a grassy field.","The living space becomes different.","Habitat changes can affect available food and shelter."],
+    ["migration","seasonal movement from one area to another","Birds flying to warmer feeding grounds","A flock travels south when its northern food supply declines.","The animals move to another region.","Some animals migrate to find food or suitable conditions."],
+    ["hibernation","a long period of greatly reduced activity during cold months","A ground squirrel resting through winter","An animal stays in a sheltered den and uses stored energy.","Its activity drops greatly for the cold season.","Hibernation helps some animals survive when food is scarce."],
+    ["competition","a struggle among living things for limited resources","Two plants seeking sunlight in the same small space","Several birds seek the few nesting spots in one tree.","There are fewer nesting places than birds.","Competition can occur for food, water, light, or space."],
+    ["conservation","actions that protect living things and their environments","Keeping a stream free of litter","Neighbors restore native plants beside a creek.","The action helps protect habitat.","Conservation can reduce harm to local organisms."]
+  ]);
+  concepts("sci",21,"Simple Machines at Work",[
+    ["a lever","a stiff bar that pivots around a support","A seesaw turning around its middle support","A person pushes down one end of a crowbar to lift a lid.","The bar turns around a fixed point.","A lever can help lift or move a load."],
+    ["an inclined plane","a sloped surface that helps move a load to a higher place","A ramp leading to a doorway","A worker rolls a heavy box up a long ramp.","The box travels along a slope.","A longer ramp may require less force over a longer distance."],
+    ["a wheel and axle","a wheel joined to a rod that turns with it","A wagon wheel turning with its axle","A doorknob turns a central rod to open a door.","The round part and rod turn together.","Wheels and axles can make movement easier."],
+    ["a pulley","a grooved wheel with a rope that changes the direction of a pull","A rope running over a flagpole wheel","A student pulls down on a rope and a flag rises.","The rope passes over a wheel.","A pulley can redirect a pulling force."],
+    ["a wedge","a tool with a thin edge used to split or separate","The sharpened edge of an axe","A doorstop slides under a door and holds it open.","Its sloping surfaces press things apart.","A wedge can cut, split, or hold objects in place."]
+  ]);
+  concepts("sci",22,"Heat and Changing Materials",[
+    ["heat transfer","movement of thermal energy from warmer to cooler places","Warm soup heating a metal spoon","A cold spoon becomes warmer in hot cocoa.","Energy moves from the cocoa into the spoon.","Heat usually moves from warmer material toward cooler material."],
+    ["a conductor","a material through which heat passes relatively easily","A metal pan handle warming on a stove","A metal spoon heats faster than a wooden spoon in warm water.","The metal transfers heat readily.","Metal often conducts heat well, so hot handles need care."],
+    ["an insulator","a material that slows the movement of heat","A padded oven mitt","A foam sleeve helps keep a drink from warming quickly.","The material slows heat passing through it.","Insulators help reduce heat transfer."],
+    ["melting","a solid changing into a liquid as it gains heat","An ice cube becoming water","A piece of ice left in a warm room turns to water.","The solid changes state after warming.","Melting changes a solid to a liquid without making a new substance."],
+    ["evaporation","a liquid changing into a gas at its surface","A shallow puddle slowly disappearing","Wet clothes dry on a warm breezy day.","Liquid water leaves the fabric as water vapor.","Warmth and moving air can speed evaporation."]
+  ]);
+  concepts("sci",23,"Reading Scientific Data",[
+    ["an observation","information gathered with senses or tools","Noticing that a plant's leaves point toward a window","A student records that one seedling has yellow leaves.","The student describes something noticed.","Careful observations can lead to testable questions."],
+    ["a measurement","a number found with a suitable tool and unit","A ruler showing a stem is 12 centimeters tall","A class uses a thermometer to record water temperature.","A tool gives a numerical result with a unit.","Measurements help compare results precisely."],
+    ["a prediction","a reasoned statement about what may happen","Expecting a plant with more light to grow taller","Before a test, a student says a covered cup will cool more slowly.","The statement describes an expected result.","Predictions can be tested against observations."],
+    ["a data table","rows and columns that organize recorded results","A chart of plant height for each week","A class places dates and rainfall amounts in labeled columns.","The results are arranged for comparison.","A data table helps reveal patterns in measurements."],
+    ["an evidence-based claim","an answer supported by observations or measurements","The shaded plant grew less, as the weekly heights show","A student says one bridge held more weight and points to trial results.","Recorded results support the conclusion.","A scientific claim should connect to actual evidence."]
+  ]);
+
+  concepts("hist",21,"Communication Across Time",[
+    ["a handwritten letter","a message written on paper and carried to someone","A family sending news in an envelope","A traveler writes home, and the note arrives days later.","A physical note is transported to its reader.","Letters can be evidence of what people experienced long ago."],
+    ["a newspaper","a printed or digital source of reports for many readers","A town paper reporting a new bridge","Residents read the same article about a community meeting.","One report reaches many people.","Old newspapers can reveal what a community considered news."],
+    ["a telephone call","spoken communication between people in different places","A grandparent calling a relative across town","Two friends hear each other immediately while far apart.","Their voices travel through a communication system.","Telephones made long-distance conversation much faster."],
+    ["an email","an electronic written message sent through a network","A teacher sending a class update online","A student types a message that appears in a distant inbox.","The written message travels electronically.","Emails can quickly share written information across distances."],
+    ["a communication timeline","events ordered to show how ways of sharing messages changed","A chart placing letters before modern email","A display orders examples from hand-delivered notes to digital messages.","The examples are arranged from earlier to later.","A timeline can show both change and continued needs to communicate."]
+  ]);
+  concepts("hist",22,"Community Traditions and Culture",[
+    ["a tradition","a practice passed from one generation or group to another","Families sharing a yearly harvest meal","Neighbors repeat a parade that older residents remember.","The practice continues across years.","Traditions can change while remaining meaningful."],
+    ["oral history","memories of the past recorded by speaking with a person","An interview with a longtime resident","Students record a grandparent describing the old town square.","A person's spoken memories are preserved.","An oral history offers a personal view that can be compared with other sources."],
+    ["an artifact","an object made or used by people in the past","An old hand-sewn school bag","A museum displays a cooking tool used a century ago.","The object gives clues about past daily life.","Artifacts can reveal how people worked and lived."],
+    ["cultural exchange","people sharing ideas, foods, music, or practices across groups","Neighbors teaching one another songs from their families","A community festival features dishes brought by different families.","Groups share parts of their cultures.","Cultural exchange can add new traditions to a community."],
+    ["respectful comparison","describing similarities and differences without ranking cultures","Noticing two celebrations use music for different reasons","A student explains two family customs without calling either better.","The comparison describes rather than judges.","Respectful comparisons help us learn from different experiences."]
+  ]);
+  concepts("hist",23,"Public Services and Shared Spaces",[
+    ["a public library","a shared place where people can borrow resources and learn","A library lending books to neighborhood readers","A town opens a building with books and study tables for everyone.","Residents can use shared learning resources.","Public libraries can support learning across ages."],
+    ["a fire service","trained people and equipment that respond to fires and other emergencies","Firefighters bringing an engine to a house fire","A crew teaches families smoke-alarm safety.","The service protects people from fire danger.","Fire services respond to emergencies and teach prevention."],
+    ["a public park","land set aside for shared outdoor use","A neighborhood playground open to residents","Families walk on paths maintained for community use.","The outdoor space is available to the public.","A park provides recreation and can protect green space."],
+    ["a road service","work that builds and maintains safe routes","Repairing potholes on a town street","Workers replace a damaged crosswalk sign.","The route is maintained for safer travel.","Road services help people and goods move through a community."],
+    ["a community decision","a choice made about a shared need or resource","Choosing where to place a new crosswalk","Residents and leaders compare sites for a new library.","The choice affects many people.","Community decisions should consider needs, costs, and different viewpoints."]
+  ]);
+  concepts("hist",24,"Resources and Economic Choices",[
+    ["a natural resource","a useful material or feature found in nature","Trees used to make lumber","A town uses water from a nearby river.","The resource comes from the natural environment.","Natural resources can be used carefully so they remain available."],
+    ["a human resource","the work, knowledge, or skill people contribute","A carpenter's skill building a table","A farmer plans and tends the crops.","A person's labor and knowledge help produce goods.","Human resources include many kinds of skills."],
+    ["a capital good","a human-made tool used to produce other goods or services","A bakery oven used to make bread","A worker uses a tractor to plant a field.","The tool helps produce crops.","Capital goods help people do productive work."],
+    ["scarcity","having fewer resources than all the possible wants for them","Only one hour of gym time for several teams","A club has money for either new books or new games.","The available money cannot buy both choices.","Scarcity makes people decide how to use limited resources."],
+    ["a trade-off","something given up in order to choose another option","Buying art supplies means waiting to buy sports gear","A town chooses a playground instead of a second garden.","Choosing one use gives up another.","Comparing trade-offs helps people make thoughtful choices."]
+  ]);
+  concepts("hist",25,"Explaining Change in History",[
+    ["chronological order","arranging events from earlier to later","Placing a 1950 photograph before a 1990 photograph","A timeline shows a school opening, expanding, then moving.","Events are listed in the order they occurred.","Chronology helps readers see what changed over time."],
+    ["a cause","something that helps make an event happen","A new railroad bringing more travelers to town","A long drought leads families to seek water elsewhere.","The shortage helps explain the move.","A historical event can have more than one cause."],
+    ["an effect","a result that follows an event","New homes built after a factory opens","A bridge opens and travel between towns becomes quicker.","Faster travel follows the bridge opening.","Effects may appear soon or long after an event."],
+    ["a missing perspective","a viewpoint absent from the available accounts","Only leaders' letters survive, not workers' stories","A class reads one town official's report but no resident interviews.","The residents' experiences are not represented.","Seeking more perspectives can improve an account of the past."],
+    ["an unanswered question","something the available sources do not yet explain","Why families chose one route instead of another","Photos show a new market, but no record explains who planned it.","The sources show the result without explaining the decision.","Historians can name what remains unknown and seek more evidence."]
+  ]);
+})();
+
+/* Source bank: k12-g3-all-subjects-extension-5.js */
+/* Fifth Grade 3 expansion: five sequenced lessons per subject. */
+(function(){
+  const data=window.K12_CLASSIC_25_DATA=window.K12_CLASSIC_25_DATA||Object.create(null);
+  function choice(index,prompt,answer,wrong,explain){
+    const values=[answer,...wrong].map(String);
+    if(values.length!==4||new Set(values.map(value=>value.toLowerCase())).size!==4) throw new Error(`Invalid choices: ${prompt}`);
+    const offset=index%4;
+    return {type:"mc",q:prompt,answer:String(answer),choices:values.slice(offset).concat(values.slice(0,offset)),audio:prompt,explain};
+  }
+  function numberChoice(index,prompt,answer,wrong,explain){
+    const correct=String(answer);
+    const distractors=[...new Set(wrong.map(String).filter(value=>value!==correct))];
+    for(let shift=1;distractors.length<3;shift++){
+      const next=String(Number(answer)+shift);
+      if(!distractors.includes(next)) distractors.push(next);
+    }
+    return choice(index,prompt,correct,distractors.slice(0,3),explain);
+  }
+  function add(subject,number,name,make){
+    const key=`g3:${subject}:L${number}`;
+    if(data[key]) throw new Error(`Duplicate lesson ${key}`);
+    const questions=Array.from({length:25},(_,index)=>make(index,Math.floor(index/5),index%5));
+    data[key]={name,contentVersion:"g3-expansion-20261006.3",questions};
+    CURR.g3[subject][`L${number}`]={name,gen:classicQuestionPending};
+  }
+  function ideas(subject,number,name,rows){
+    if(rows.length!==5||rows.some(row=>row.length!==6)) throw new Error(`Incomplete concepts: ${name}`);
+    add(subject,number,name,(index,stage,j)=>{
+      const [term,meaning,example,situation,clue,transfer]=rows[j];
+      const alternatives=field=>[1,2,3].map(step=>rows[(j+step)%5][field]);
+      if(stage===0) return choice(index,`Which description matches ${term}?`,meaning,alternatives(1),`${term} means ${meaning.toLowerCase()}.`);
+      if(stage===1) return choice(index,`Which example shows ${term}?`,example,alternatives(2),`${example} This is an example of ${term}.`);
+      if(stage===2) return choice(index,`${situation} Which concept fits this situation?`,term,alternatives(0),`The situation demonstrates ${term}.`);
+      if(stage===3) return choice(index,`${situation} Which clue supports identifying ${term}?`,clue,alternatives(4),`${clue} That clue supports ${term}.`);
+      return choice(index,`Which new statement applies ${term} correctly?`,transfer,alternatives(5),`${transfer} This correctly uses the idea of ${term}.`);
+    });
+  }
+
+  ideas("eng",42,"Understanding Nonfiction Features",[
+    ["a heading","a short title that tells what a section covers","A section called How Bees Collect Pollen","An article has a bold line above its section on insect homes.","The line names the subject of the section.","Scan headings to find a section about the information you need."],
+    ["a diagram","a labeled drawing that explains parts or a process","A drawing labeling a butterfly's body parts","A page shows arrows and labels on a drawing of a seed.","The drawing explains parts with labels.","A diagram can show how pieces fit together."],
+    ["a caption","words near an image that explain what it shows","A line under a photo identifying a coral reef","A photograph of a glacier has one explanatory sentence below it.","The sentence explains the nearby picture.","Read captions to learn details that the picture alone may not show."],
+    ["a sidebar","a separate box with related extra information","A fact box beside an article about rain forests","A page has a colored box with a short note about tree rings.","The boxed note sits apart from the main paragraphs.","A sidebar adds useful information without interrupting the main text."],
+    ["a labeled map","a map with names or symbols that identify places","A map naming the rivers in a state","A book shows an outline of a region with towns marked.","The place names help locate towns.","A labeled map can help a reader connect a place to the article."]
+  ]);
+  ideas("eng",43,"Reading Character Clues",[
+    ["an action clue","something a character does that hints at feelings or traits","Mira checks her backpack three times before the trip","A child puts an arm around a friend who is upset.","The action suggests the child wants to comfort the friend.","Actions can reveal feelings without naming them."],
+    ["a dialogue clue","spoken words that hint at a character's thinking","We can try again, says a hopeful teammate","A character says I will stay until everyone is safe.","The words show concern for others.","What characters say can support an inference about them."],
+    ["a setting clue","a detail about place or time that affects a character's choices","A snowy road makes the journey slower","A family must travel while the bridge is flooded.","The flooded bridge limits their route.","Setting can create obstacles or opportunities for a character."],
+    ["a relationship clue","an interaction that shows how characters feel about one another","Two friends share their lunch with each other","A sibling listens carefully and helps fix a mistake.","The helpful exchange suggests trust.","Relationships become clearer through repeated interactions."],
+    ["a supported inference","a conclusion about a character backed by story details","Kai is worried because he whispers and keeps checking the clock","A reader says a girl is determined after she practices despite failures.","Her repeated practice supports the conclusion.","An inference is stronger when more than one detail supports it."]
+  ]);
+  ideas("eng",44,"Word Meanings in Context",[
+    ["a definition clue","nearby words that directly explain an unfamiliar term","A habitat, the place an animal lives, can change","A text says A nocturnal animal is active at night.","The sentence directly tells what nocturnal means.","Look near an unfamiliar word for an explanation set off by commas or is."],
+    ["an example clue","nearby examples that reveal a word's meaning","Tools such as hammers and saws filled the shed","A passage lists apples, pears, and peaches after the word fruit.","The listed items are all kinds of fruit.","Examples can help a reader figure out a category word."],
+    ["a contrast clue","an opposite idea that helps explain a word","Unlike the noisy street, the garden was tranquil","A passage calls one path steep but another nearly flat.","Nearly flat contrasts with steep.","Words such as unlike and but can signal a helpful contrast."],
+    ["a word-part clue","a familiar root, prefix, or suffix that helps with meaning","Repaint means paint again because re- means again","A learner sees the prefix un- in unhappy.","The prefix changes happy to its opposite.","Word parts can help when sentence clues are limited."],
+    ["a multiple-meaning word","a word whose intended meaning depends on its sentence","Bank means a river edge in the sentence about a canoe","A reader sees bat in a sentence about a baseball game.","The game context points to sports equipment.","Use the whole sentence to select the fitting meaning."]
+  ]);
+  ideas("eng",45,"Editing a Paragraph",[
+    ["a capital letter","an uppercase letter used at the start of sentences and in names","Maria lives near Lake Erie.","A draft begins with the words we walked to the park.","The first word of the sentence needs uppercase W.","Check sentence beginnings and proper names for capitals."],
+    ["end punctuation","a mark that shows how a sentence ends","Where is the library?","A draft asks When does the show begin with no final mark.","A direct question needs a question mark.","Use a period for a statement and a question mark for a question."],
+    ["a comma in a series","a mark that separates items in a list","We packed apples, crackers, and water.","A sentence lists pencils markers and paper.","Three listed items need separators.","Commas help readers see each item in a series."],
+    ["a complete thought","a sentence that tells a full idea","The team finished the model before lunch.","A draft contains only After the rain stopped.","Those words leave the reader waiting for what happened.","Add a main clause so a fragment expresses a complete thought."],
+    ["a consistent tense","verb forms that keep the time of events clear","Yesterday we walked and played.","A draft says We planted seeds and water them yesterday.","Planted is past but water is present in the same past event.","Match verb tenses unless the time of an action changes."]
+  ]);
+  ideas("eng",46,"Writing Reasons and Evidence",[
+    ["a claim","a clear statement of what a writer thinks or concludes","Our school should plant more shade trees.","A writer opens by saying the park needs a safer crossing.","The sentence states the position to be supported.","A focused claim tells readers the point of the writing."],
+    ["a reason","an explanation of why a claim makes sense","Shade trees can keep play areas cooler.","A student says the crossing would help children reach the park safely.","The safety benefit explains why the change matters.","A reason should connect directly to the claim."],
+    ["a relevant fact","checkable information that supports a reason","Three classes use the playground every day.","A writer cites a count of people using the crossing.","The count gives evidence about the shared need.","Relevant facts strengthen a reason more than unrelated details."],
+    ["a counterpoint","a different concern that a writer considers","Some neighbors worry that new trees need watering.","A proposal for a garden mentions the cost of supplies.","The cost is a concern about the plan.","Considering a counterpoint can make an explanation more thoughtful."],
+    ["a conclusion","a final statement that returns to the claim after the reasons","For these reasons, a shaded playground would help our school.","A letter ends by asking leaders to consider the safer crossing.","The ending returns to the requested change.","A conclusion should fit the reasons already presented."]
+  ]);
+
+  add("math",47,"Multiplication Facts and Patterns",(i,stage,j)=>{
+    if(stage===0){const groups=j+2,answer=groups*5;return numberChoice(i,`What is ${groups} x 5?`,answer,[groups+5,answer-5,answer+5],`${groups} groups of 5 equal ${answer}.`);}
+    if(stage===1){const groups=j+3,each=3+j,answer=groups*each;return numberChoice(i,`A grid has ${groups} rows with ${each} dots in each row. How many dots are there?`,answer,[groups+each,answer+groups,answer-each],`Count ${groups} equal groups of ${each} to get ${answer}.`);}
+    if(stage===2){const factor=j+4,answer=factor*6;return numberChoice(i,`The pattern is 6, 12, 18, and so on. What is ${factor} x 6?`,answer,[answer-6,answer+6,factor+6],`The ${factor}th multiple of 6 is ${answer}.`);}
+    if(stage===3){const groups=j+4,known=groups*4,answer=groups*8;return numberChoice(i,`You know ${groups} x 4 = ${known}. What is ${groups} x 8?`,answer,[known,known+8,answer+groups],`Eight is twice four, so double ${known} to get ${answer}.`);}
+    const groups=j+5,seven=groups*7,answer=groups*9;return numberChoice(i,`You know ${groups} x 7 = ${seven}. Add two more groups of ${groups}. What is ${groups} x 9?`,answer,[seven+groups,seven+9,answer+groups],`${seven} + 2 x ${groups} = ${answer}.`);
+  });
+  add("math",48,"Division and Leftovers",(i,stage,j)=>{
+    if(stage===0){const children=j+2,each=3,total=children*each;return numberChoice(i,`${total} counters are shared equally among ${children} children. How many does each child get?`,each,[children,total,each+children],`${total} divided by ${children} is ${each}.`);}
+    if(stage===1){const groups=j+3,each=j+2,total=groups*each;return numberChoice(i,`${total} apples are packed equally into bags of ${each}. How many bags are filled?`,groups,[each,total,groups+each],`Since ${groups} x ${each} = ${total}, there are ${groups} bags.`);}
+    if(stage===2){const groups=j+4,each=j+3,total=groups*each;return numberChoice(i,`A teacher has ${total} stickers and puts ${groups} on each page. How many pages can be filled?`,each,[groups,total,each+groups],`${total} divided by ${groups} equals ${each} filled pages.`);}
+    if(stage===3){const groups=j+3,each=j+4,left=1+j%2,total=groups*each+left;return numberChoice(i,`${total} beads are put into groups of ${each}. How many full groups can be made?`,groups,[groups+1,each,left],`${groups} full groups use ${groups*each} beads, leaving ${left}.`);}
+    const teams=j+3,each=j+5,left=j+1,total=teams*each+left;return numberChoice(i,`${total} children form teams of ${each}. After making as many full teams as possible, how many children are left over?`,left,[teams,each,total-teams],`${teams} full teams use ${teams*each} children; ${total} - ${teams*each} = ${left} remain.`);
+  });
+  add("math",49,"Classifying Shapes",(i,stage,j)=>{
+    const polygons=[["triangle",3],["quadrilateral",4],["pentagon",5],["hexagon",6],["octagon",8]];
+    if(stage===0){const [name,sides]=polygons[j];return numberChoice(i,`How many straight sides does a ${name} have?`,sides,[sides-1,sides+1,sides+2],`A ${name} has ${sides} straight sides.`);}
+    if(stage===1){const [name,sides]=polygons[j];return choice(i,`A closed figure has ${sides} straight sides. Which name describes it?`,name,[1,2,3].map(step=>polygons[(j+step)%5][0]),`A closed figure with ${sides} straight sides is a ${name}.`);}
+    const cases=[
+      ["four equal sides and four right angles","square",["rectangle but not a square","triangle","pentagon"],"A square has equal sides and four right angles."],
+      ["four right angles but unequal neighboring sides","rectangle but not a square",["square","triangle","rhombus without right angles"],"The right angles make a rectangle; unequal neighboring sides rule out a square."],
+      ["four equal sides but no right angles","rhombus but not a square",["square","rectangle","triangle"],"Equal sides make a rhombus; without right angles it is not a square."],
+      ["three sides and one right angle","right triangle",["square","rectangle","pentagon"],"A three-sided figure with one right angle is a right triangle."],
+      ["six straight sides","hexagon",["pentagon","octagon","quadrilateral"],"Six sides identify a hexagon."]
+    ];
+    if(stage===2){const [traits,answer,wrong,reason]=cases[j];return choice(i,`Which is the most specific name for a shape with ${traits}?`,answer,wrong,reason);}
+    const truths=[
+      ["A square is also a rectangle because it has four right angles.","A square cannot be a rectangle.","Every rectangle has three sides.","A square has no right angles."],
+      ["Every rectangle is a quadrilateral because it has four sides.","Every rectangle must be a square.","A rectangle has only three corners.","A quadrilateral must have six sides."],
+      ["A rhombus can have equal sides without having right angles.","Every rhombus has three sides.","A rhombus must have four right angles.","A rhombus is a five-sided shape."],
+      ["A triangle can have one right angle and still have three sides.","A triangle can have four sides.","A right triangle has four right angles.","Every triangle has equal sides."],
+      ["A hexagon has six sides; an octagon has eight.","A hexagon has eight sides.","An octagon has six sides.","Both shapes have four sides."]
+    ];
+    if(stage===3){const [answer,...wrong]=truths[j],topics=["squares","rectangles","rhombuses","triangles","hexagons and octagons"];return choice(i,`Which statement about ${topics[j]} is true?`,answer,wrong,answer);}
+    const lengths=[
+      ["a triangle with sides of 3, 4, and 5 units",12,[9,10,15],"3 + 4 + 5 = 12"],
+      ["a square with sides of 5 units",20,[10,15,25],"4 x 5 = 20"],
+      ["a rectangle 8 units long and 4 units wide",24,[12,32,20],"8 + 4 + 8 + 4 = 24"],
+      ["a pentagon with five equal sides of 6 units",30,[11,25,36],"5 x 6 = 30"],
+      ["a hexagon with six equal sides of 7 units",42,[13,35,49],"6 x 7 = 42"]
+    ];
+    const [shape,answer,wrong,work]=lengths[j];return numberChoice(i,`What is the perimeter of ${shape}?`,answer,wrong,`Add every side: ${work} units.`);
+  });
+  add("math",50,"Measuring and Converting Units",(i,stage,j)=>{
+    if(stage===0){const meters=j+1,answer=meters*100;return numberChoice(i,`How many centimeters are in ${meters} meter${meters===1?"":"s"}?`,answer,[meters*10,answer+100,answer-50],`One meter is 100 centimeters, so ${meters} meters is ${answer} centimeters.`);}
+    if(stage===1){const liters=j+1,answer=liters*1000;return numberChoice(i,`How many milliliters are in ${liters} liter${liters===1?"":"s"}?`,answer,[liters*100,answer+1000,answer-500],`One liter is 1,000 milliliters, so ${liters} liters is ${answer} milliliters.`);}
+    if(stage===2){const a=120+j*20,b=85+j*15,answer=a+b;return numberChoice(i,`One ribbon is ${a} centimeters long and another is ${b} centimeters long. What is their combined length in centimeters?`,answer,[a,b,answer+100],`Add ${a} and ${b} to get ${answer} centimeters.`);}
+    if(stage===3){const liters=j+2,used=250+j*100,answer=liters*1000-used;return numberChoice(i,`A container has ${liters} liters of water. ${used} milliliters are poured out. How many milliliters remain?`,answer,[liters*1000,liters*1000+used,answer+100],`Convert to ${liters*1000} milliliters, then subtract ${used} to get ${answer}.`);}
+    const kilograms=j+2,added=300+j*100,removed=150+j*50,answer=kilograms*1000+added-removed;return numberChoice(i,`A bag holds ${kilograms} kilograms of rice. ${added} grams are added, then ${removed} grams are used. How many grams remain?`,answer,[kilograms*1000+added,kilograms*1000-removed,answer+100],`Convert to ${kilograms*1000} grams; then ${kilograms*1000} + ${added} - ${removed} = ${answer}.`);
+  });
+  add("math",51,"Choosing a Problem Strategy",(i,stage,j)=>{
+    if(stage===0){const a=34+j*9,b=22+j*5,answer=a+b;return numberChoice(i,`A class collects ${a} cans on Monday and ${b} on Tuesday. How many cans altogether?`,answer,[a-b,a,answer+10],`Combine the two amounts: ${a} + ${b} = ${answer}.`);}
+    if(stage===1){const a=90+j*15,b=27+j*6,answer=a-b;return numberChoice(i,`A club has ${a} paper sheets and uses ${b}. How many remain?`,answer,[a+b,b,answer+10],`Subtract what was used: ${a} - ${b} = ${answer}.`);}
+    if(stage===2){const packs=j+3,each=6+j,answer=packs*each;return numberChoice(i,`${packs} boxes hold ${each} markers each. How many markers are there?`,answer,[packs+each,answer+packs,answer-each],`Use equal groups: ${packs} x ${each} = ${answer}.`);}
+    if(stage===3){const groups=j+4,each=j+5,total=groups*each,used=j+6,answer=total-used;return numberChoice(i,`${groups} trays hold ${each} muffins each. ${used} muffins are sold. How many remain?`,answer,[total,total+used,answer+groups],`Multiply to get ${total}, then subtract ${used}: ${answer}.`);}
+    const groups=j+4,each=j+6,extra=j+3,children=j+2,total=groups*each+extra,answer=total-children;return numberChoice(i,`A teacher has ${groups} packs of ${each} pencils plus ${extra} loose pencils. After giving one pencil to each of ${children} children, how many pencils remain?`,answer,[total,groups*each-children,total+children],`First count ${groups*each} + ${extra} = ${total}; then subtract ${children} to get ${answer}.`);
+  });
+
+  ideas("sci",24,"Soil and Decomposers",[
+    ["topsoil","the upper soil layer where many plants root and organisms live","Dark soil near the surface of a garden","A gardener finds roots and earthworms in the upper layer.","The surface layer supports many living things.","Protecting topsoil helps plants grow."],
+    ["humus","decayed plant and animal material mixed into soil","Dark crumbly material from old leaves","Fallen leaves break down into dark material in a garden bed.","The material comes from once-living things.","Humus can help soil hold water and nutrients."],
+    ["a decomposer","a living thing that breaks down dead material","A fungus growing on a fallen log","Mushrooms appear on a rotting branch.","The organism helps break dead wood apart.","Decomposers return materials to soil."],
+    ["compost","decayed organic material made for improving soil","A mixture of broken-down vegetable scraps and leaves","A class gathers fruit peels and leaves in a compost bin.","The collected material breaks down for garden use.","Finished compost can enrich garden soil."],
+    ["erosion","the movement of soil or rock by wind, water, or ice","Rain washing loose soil down a slope","After heavy rain, bare soil collects at the bottom of a hill.","Water carries soil away from its earlier place.","Plant roots can help hold soil and slow erosion."]
+  ]);
+  ideas("sci",25,"Weather and Water Data",[
+    ["temperature","a measure of how warm or cool something is","A thermometer reading 24 degrees Celsius","A student checks a thermometer each morning.","The tool measures warmth or coolness.","Recording temperature over several days helps show a pattern."],
+    ["precipitation","water that falls from clouds to the ground","Rain falling during a storm","A class collects rain in a marked container.","The collected water fell from clouds.","Rain and snow are forms of precipitation."],
+    ["a rain gauge","a tool that measures the amount of rain","A marked tube collecting two centimeters of rain","A student reads the water level in a clear marked cylinder after a storm.","The markings show how much rain fell.","Rain-gauge measurements can be compared across days."],
+    ["a weather pattern","a repeated change or condition seen over time","Several cooler mornings after rainy days","A chart shows that afternoons are warmer than mornings most days.","The same trend appears on several days.","A pattern needs more than one observation."],
+    ["a forecast","a prediction of future weather based on information","A report saying rain is likely tomorrow","A weather report uses recent observations to predict a storm.","The report concerns what may happen next.","Forecasts use data but can change as new data arrive."]
+  ]);
+  ideas("sci",26,"Light and Sound in Action",[
+    ["a light source","an object that gives off light","A flashlight shining in a dark room","A lamp illuminates a table after sunset.","The lamp produces the light.","We see objects when light from a source reaches our eyes."],
+    ["reflection","light bouncing off a surface","A face visible in a mirror","Sunlight strikes a shiny sign and bounces toward a wall.","Light changes direction at the surface.","Smooth shiny surfaces often make clear reflections."],
+    ["an opaque object","an object that blocks most light","A cardboard square casting a dark shadow","A closed book is placed between a lamp and a wall.","The book prevents light from passing through.","Opaque objects can form shadows."],
+    ["a vibration","a quick back-and-forth movement that can make sound","A plucked guitar string moving rapidly","A rubber band hums after it is stretched and released.","The band moves back and forth.","Vibrations can travel through air as sound."],
+    ["pitch","how high or low a sound seems","A small bell sounding higher than a large drum","A short tight string makes a high note.","The note sounds high rather than low.","Faster vibrations usually make a higher pitch."]
+  ]);
+  ideas("sci",27,"Animal Senses and Survival",[
+    ["sight","the sense that detects light","An owl seeing movement at dusk","A hawk spots a small animal from above.","The animal uses its eyes to locate movement.","Good sight can help an animal find food or avoid danger."],
+    ["hearing","the sense that detects sound","A rabbit noticing a distant rustle","A deer turns its ears toward a snapping twig.","The animal responds to a sound.","Hearing can alert animals to nearby movement."],
+    ["smell","the sense that detects odors","A dog following the scent of food","A fox tracks prey using an odor trail.","The trail is detected through the nose.","Smell can help animals locate food or other animals."],
+    ["touch","the sense that detects contact or pressure","A cat's whiskers feeling a narrow space","A cat brushes its whiskers against the sides of a gap.","Contact helps it judge the opening.","Touch can give information when visibility is poor."],
+    ["a response","an action taken after sensing a change","A lizard moving into shade when the ground heats","A frog jumps into water after noticing movement nearby.","The action follows a sensed change.","Responses can help animals meet needs and avoid danger."]
+  ]);
+  ideas("sci",28,"Planning a Fair Test",[
+    ["a testable question","a question that observations or measurements can answer","Does a paper towel absorb more water than a napkin?","A student asks which of two ramps makes a toy car roll farther.","The distance can be measured and compared.","Testable questions guide what to measure."],
+    ["a changed variable","the one factor deliberately made different in a fair test","Using rough paper on one ramp and smooth paper on another","Two model boats differ only in their sail material.","Only the sail material is changed.","Changing one factor helps explain differences in results."],
+    ["a controlled variable","a factor kept the same for a fair comparison","Using the same toy car on both ramps","A class tests two soils using equal amounts of water.","The water amount stays the same.","Keeping other conditions steady makes a comparison fairer."],
+    ["repeated trials","doing a test more than once to check results","Rolling the same car down each ramp three times","A student measures how far a paper plane flies on several launches.","The measurement is taken repeatedly.","Repeated trials can reveal whether a result was unusual."],
+    ["a conclusion from data","an answer to the question supported by results","The smooth ramp sent the car farther in all three trials","A class chooses the towel that absorbed more water in every test.","The recorded amounts support the choice.","A conclusion should describe what the measurements show."]
+  ]);
+
+  ideas("hist",26,"Reading a Community Timeline",[
+    ["a dated event","an occurrence connected to a particular time","A school opened in 1954","An old newspaper states when a bridge was built.","The source gives a date for the event.","Dates help place events in chronological order."],
+    ["chronological order","events arranged from earliest to latest","A timeline showing 1900 before 1950 before 2000","A student lists the first library, its expansion, and its later move.","The events follow time order.","Chronology helps show a sequence of changes."],
+    ["an interval","the amount of time between two events","Ten years between 1980 and 1990","A school opened in 1960 and added a gym in 1970.","The events are separated by ten years.","Intervals show how quickly or slowly change occurred."],
+    ["a turning point","an event after which an important change followed","A new bridge linking two formerly separated neighborhoods","A rail station opens and many new shops appear nearby.","The station is followed by a major community change.","A turning point can help explain a before-and-after pattern."],
+    ["a lasting change","a difference that continues after the original event","A road built long ago still shaping travel today","A town's new park remains a gathering place decades later.","The result continues across many years.","A timeline can show whether effects lasted."]
+  ]);
+  ideas("hist",27,"Transportation and Trade Routes",[
+    ["a trade route","a path used to move goods between places","A river path carrying crops to a market","Farmers send produce along the same road to nearby towns.","Goods travel on the route.","Routes connect producers with people who need goods."],
+    ["a transportation method","a way people or goods travel","A wagon carrying supplies","A family chooses a train to reach another city.","The train is the means of travel.","Transportation methods change as tools and needs change."],
+    ["a bridge","a structure that carries a route across an obstacle","A crossing built over a river","A town builds a crossing so trucks can reach the other bank.","The structure connects two sides of the river.","Bridges can shorten travel between communities."],
+    ["a port","a place where boats load or unload people and goods","A harbor where ships deliver cargo","Boats bring supplies to a town beside a bay.","Goods are unloaded at the waterside place.","Ports connect water travel with land routes."],
+    ["interdependence","people or places relying on one another for goods or services","A farming town trading crops for tools made elsewhere","One community ships fruit while another sends farm equipment.","Each community provides something the other uses.","Trade can make communities interdependent."]
+  ]);
+  ideas("hist",28,"Citizenship in Action",[
+    ["a community rule","an agreed expectation that helps people share a place","Keeping a playground clean for everyone","A town asks visitors to stay on marked park paths.","The expectation guides shared use of the park.","Rules can help keep shared places safe and usable."],
+    ["a responsibility","an action a person is expected to do for others or a group","Returning a borrowed library book","Neighbors take turns picking up litter at the park.","People help care for a shared space.","Responsibilities support a community's common needs."],
+    ["a public meeting","a gathering where community issues can be discussed","Residents speaking about a proposed crossing","Families attend a town discussion about a new trail.","People share views on a public choice.","Meetings let leaders hear different needs before deciding."],
+    ["a respectful request","a polite statement asking for a change and giving a reason","Please add a crosswalk because children use this corner","Students write a courteous letter asking for more bike racks.","The letter explains a need without insulting anyone.","Clear reasons make a respectful request stronger."],
+    ["a shared solution","a plan created with input from people affected","Students and neighbors agreeing on a safe walking route","Families and shop owners help design a street cleanup.","Several groups contribute to the plan.","Shared solutions consider more than one group's needs."]
+  ]);
+  ideas("hist",29,"Jobs, Goods, and Services",[
+    ["a good","a physical item people make, grow, or buy","A loaf of bread from a bakery","A carpenter builds a wooden table for a customer.","The result is a physical object.","Goods can be moved, stored, and used."],
+    ["a service","work done to help someone meet a need","Repairing a bicycle for a customer","A mechanic fixes a broken bus.","The worker performs a task for others.","Services may use tools, but the work is what is purchased."],
+    ["a producer","a person or business that makes a good or provides a service","A farmer growing vegetables for sale","A baker prepares bread for a neighborhood shop.","The baker creates the product.","Producers use resources to meet others' needs."],
+    ["a consumer","a person who uses or buys goods or services","A family buying vegetables for dinner","A rider pays for a bus trip.","The rider uses the travel service.","A person can be a producer in one role and a consumer in another."],
+    ["specialization","focusing work on a particular skill or product","A baker spending most work time making bread","One worker makes furniture while another repairs bicycles.","Each worker concentrates on a different task.","Specialization can help people become skilled at their work."]
+  ]);
+  ideas("hist",30,"Comparing Places and Cultures",[
+    ["a physical feature","a natural part of a place","A mountain beside a town","A map shows a wide river near a settlement.","The river formed naturally.","Physical features can affect where people live and travel."],
+    ["a human feature","something people built or changed in a place","A road connecting two neighborhoods","A community builds houses along a hillside.","The houses were made by people.","Human features show how people use a place."],
+    ["a climate influence","a long-term weather pattern that shapes activities","A dry region needing careful water use","Farmers choose crops suited to a rainy region.","Typical rainfall affects the choice.","Climate can influence farming, clothing, and buildings."],
+    ["a cultural practice","a way of doing things shared by a group","A yearly neighborhood music celebration","Families teach children a traditional song at a festival.","The practice is learned and shared.","Cultural practices can connect people across generations."],
+    ["a fair comparison","a description of similarities and differences without ranking places","Both towns have markets, but only one sits beside a river","A student compares two communities using maps and interviews.","Evidence from both places supports the description.","A fair comparison avoids calling one community better."]
+  ]);
+})();
+
+/* Source bank: k12-g3-all-subjects-extension-6.js */
+/* Sixth Grade 3 expansion: five progressively harder lessons in each subject. */
+(function(){
+  const bank=window.K12_CLASSIC_25_DATA=window.K12_CLASSIC_25_DATA||Object.create(null);
+  function mc(index,prompt,answer,wrong,explain){
+    const values=[answer,...wrong].map(String);
+    if(values.length!==4||new Set(values.map(value=>value.toLowerCase())).size!==4) throw new Error(`Invalid choices: ${prompt}`);
+    const turn=index%4;
+    return {type:"mc",q:prompt,answer:String(answer),choices:values.slice(turn).concat(values.slice(0,turn)),audio:prompt,explain};
+  }
+  function numeric(index,prompt,answer,wrong,explain){
+    const correct=String(answer),distractors=[...new Set(wrong.map(String).filter(value=>value!==correct))];
+    for(let step=1;distractors.length<3;step++){
+      const next=String(Number(answer)+step);
+      if(!distractors.includes(next)) distractors.push(next);
+    }
+    return mc(index,prompt,correct,distractors.slice(0,3),explain);
+  }
+  function add(subject,number,name,build){
+    const key=`g3:${subject}:L${number}`;
+    if(bank[key]) throw new Error(`Duplicate lesson: ${key}`);
+    const questions=Array.from({length:25},(_,i)=>build(i,Math.floor(i/5),i%5));
+    bank[key]={name,contentVersion:"g3-expansion-20261006.4",questions};
+    CURR.g3[subject][`L${number}`]={name,gen:classicQuestionPending};
+  }
+  function concepts(subject,number,name,rows){
+    if(rows.length!==5||rows.some(row=>row.length!==6)) throw new Error(`Five complete concepts required: ${name}`);
+    add(subject,number,name,(i,stage,j)=>{
+      const [term,meaning,example,situation,evidence,application]=rows[j];
+      const other=field=>[1,2,3].map(offset=>rows[(j+offset)%5][field]);
+      if(stage===0) return mc(i,`Which description best matches ${term}?`,meaning,other(1),`${term} means ${meaning.toLowerCase()}.`);
+      if(stage===1) return mc(i,`Which example best shows ${term}?`,example,other(2),`${example} This demonstrates ${term}.`);
+      if(stage===2) return mc(i,`${situation} Which idea explains this?`,term,other(0),`The situation shows ${term}.`);
+      if(stage===3) return mc(i,`${situation} Which detail supports identifying ${term}?`,evidence,other(4),`${evidence} This is the relevant clue.`);
+      return mc(i,`Which statement applies ${term} in another situation?`,application,other(5),`${application} This applies the idea correctly.`);
+    });
+  }
+
+  concepts("eng",47,"Following Written Procedures",[
+    ["a goal","the result a set of directions is meant to achieve","Make a paper windmill that can spin","Directions explain how to grow a bean plant in a cup.","The completed bean plant is the intended result.","Before starting directions, identify what they help you make or do."],
+    ["a material","an item needed to complete a task","A paper cup needed for a seed experiment","A craft guide lists scissors, paper, and glue.","The listed objects are needed before beginning.","Checking materials first can prevent interruptions."],
+    ["a numbered step","one action placed in order within a procedure","Step 2: Fold the paper in half","A recipe says to mix flour before adding water.","The action has a place in the sequence.","A skipped step may affect the final result."],
+    ["a sequence word","a word that signals when an action happens","Next, attach the handle","Directions begin with First and continue with Then.","The words mark the order of actions.","Sequence words help readers follow a process accurately."],
+    ["a warning","a note about a possible danger or mistake","Ask an adult before using sharp scissors","A science activity says not to touch a hot container.","The note points out a safety risk.","Read warnings before beginning an activity."]
+  ]);
+  concepts("eng",48,"Literal and Figurative Meaning",[
+    ["literal language","words used in their ordinary exact sense","The rain fell on the roof","A story says the backpack weighs ten pounds.","The statement describes a measurable weight.","Read literal words for their usual meaning."],
+    ["a simile","a comparison using like or as","The leaves spun like tiny dancers","A writer says the pond was as smooth as glass.","The comparison uses as.","A simile helps readers picture one thing through another."],
+    ["a metaphor","a direct comparison calling one thing another","The classroom was a busy beehive","A poem calls the moon a lantern.","The moon is directly named as something else.","A metaphor can highlight a shared quality without using like or as."],
+    ["personification","giving a nonhuman thing a human action or feeling","The wind whispered through the grass","A poem says the river hurried home.","A river is described as doing a humanlike action.","Personification can make a scene feel lively."],
+    ["an idiom","a familiar phrase whose meaning differs from its exact words","It's raining cats and dogs means it is raining hard","A character says hold your horses to ask someone to wait.","No actual horses need to be held.","Context helps readers interpret an idiom."]
+  ]);
+  concepts("eng",49,"Questioning While Reading",[
+    ["a before-reading question","a question asked from a title or preview","What might this article teach about coral reefs?","A reader sees a title about bats and wonders where bats sleep.","The question arises before the article is read.","Preview questions give readers a purpose."],
+    ["a during-reading question","a question raised as new details appear","Why did the character hide the letter?","Halfway through a story, a reader wonders why a gate is locked.","The question comes from an event just read.","Pause to ask questions when a detail is surprising."],
+    ["a clarifying question","a question that helps resolve confusion","What does the word migrate mean here?","A reader stops at an unfamiliar diagram label.","The label needs explanation for understanding.","Rereading or checking a reference can answer clarifying questions."],
+    ["an evidence question","a question asking where a claim is supported","Which sentence shows that the pond is drying?","A student asks what detail proves a character is brave.","The answer must point to text evidence.","Evidence questions keep interpretations tied to the text."],
+    ["an after-reading question","a question asked after considering the whole text","How did the character's decision change the ending?","After a report, a reader asks how two ideas connect.","The question uses information from the complete text.","After-reading questions can deepen understanding."]
+  ]);
+  concepts("eng",50,"Quoting and Paraphrasing Sources",[
+    ["a direct quotation","the exact words of a source shown as quoted text","The article says, 'Bees carry pollen.'","A student copies a sentence exactly and puts it in quotation marks.","The source's words are kept unchanged.","Use quotation marks when repeating an author's exact words."],
+    ["a paraphrase","a source idea restated in your own words","The report explains that bees move pollen between flowers","A writer changes the wording of a fact but preserves its meaning.","The idea stays while the wording changes.","Paraphrasing should not change the source's meaning."],
+    ["a source title","the name of the book, article, or page used","The title Plants in the Desert","A student records the heading of an article used for a report.","The name identifies where the information came from.","Record a source title so a reader can find it."],
+    ["a relevant note","a short record of information useful for a question","Root hairs help a plant take in water","While researching roots, a student notes how roots absorb water.","The note answers the research topic.","Useful notes focus on the question being investigated."],
+    ["a source check","a review of where information came from and whether it fits","Comparing a claim with a science book and a museum page","A reader checks the author and date before using a webpage.","The information is examined before being trusted.","Checking sources can prevent repeating unsupported claims."]
+  ]);
+  concepts("eng",51,"Organizing a Short Report",[
+    ["an introduction","an opening that names the report's topic","This report explains how desert plants save water.","A report begins by telling readers it will describe ocean tides.","The opening names what the report will cover.","An introduction prepares readers for the information ahead."],
+    ["a subtopic","one smaller part of a larger subject","Animal shelters in a report about habitats","A report about bees has a section on food and another on nests.","Each section handles a smaller subject.","Subtopics help organize a large idea."],
+    ["a supporting fact","a checkable detail that explains a subtopic","Some cacti store water in thick stems","A paragraph about seed travel explains that burrs cling to fur.","The fact supports the section about seed movement.","Choose facts that directly develop the section's idea."],
+    ["a transition","words that connect related parts of a report","In addition, bees help some plants make seeds","A writer adds Meanwhile before describing a second event.","The word links the new information to earlier text.","Transitions show how ideas relate."],
+    ["a closing statement","an ending that brings the report's ideas together","These features help desert plants survive with little rain.","The final sentence returns to how habitats meet animal needs.","The ending ties back to the main topic.","A closing statement should fit the report's evidence."]
+  ]);
+
+  add("math",52,"Fact Families and Unknown Numbers",(i,stage,j)=>{
+    if(stage===0){const a=j+3,b=4,product=a*b;return numeric(i,`What is ${a} x ${b}?`,product,[a+b,product-b,product+b],`${a} groups of ${b} equal ${product}.`);}
+    if(stage===1){const a=j+4,b=5,product=a*b;return numeric(i,`${product} divided into ${a} equal groups gives how many in each group?`,b,[a,product,b+a],`Because ${a} x ${b} = ${product}, each group has ${b}.`);}
+    if(stage===2){const a=j+3,b=j+6,product=a*b;return numeric(i,`Find the missing factor: ${a} x ? = ${product}.`,b,[a,product,b+a],`The related division fact ${product} ÷ ${a} = ${b} gives the missing factor.`);}
+    if(stage===3){const a=j+4,b=j+5,product=a*b;return numeric(i,`A fact family has ${a} x ${b} = ${product}. What is ${product} ÷ ${b}?`,a,[b,product,a+b],`Multiplication and division undo each other: ${product} ÷ ${b} = ${a}.`);}
+    const teams=j+3,players=j+5,total=teams*players,joined=players,answer=teams+1;return numeric(i,`${total} children form ${teams} equal teams. Then ${joined} more children join and form one new team of the same size. How many teams are there now?`,answer,[teams,players,total+joined],`Each team has ${players}; the ${joined} new children make one more team, for ${answer}.`);
+  });
+  add("math",53,"Reading Tally Charts",(i,stage,j)=>{
+    const apples=6+j*2,pears=4+j,plums=3+j;
+    if(stage===0) return numeric(i,`A tally chart records ${apples} votes for apples. How many apple votes are shown?`,apples,[apples-1,apples+1,pears],`The apple row shows ${apples} votes.`);
+    if(stage===1){const answer=apples+pears;return numeric(i,`A chart has ${apples} apple votes and ${pears} pear votes. How many votes is that together?`,answer,[apples,pears,answer+plums],`Add both rows: ${apples} + ${pears} = ${answer}.`);}
+    if(stage===2){const answer=apples-plums;return numeric(i,`A tally chart shows ${apples} apple votes and ${plums} plum votes. How many more votes do apples have?`,answer,[apples+plums,apples,answer+2],`Compare the rows by subtracting ${apples} - ${plums} = ${answer}.`);}
+    if(stage===3){const answer=apples+pears+plums;return numeric(i,`A chart records ${apples} apple, ${pears} pear, and ${plums} plum votes. How many votes were cast in all?`,answer,[apples+pears,apples+plums,answer+3],`Add all three rows: ${apples} + ${pears} + ${plums} = ${answer}.`);}
+    const added=2+j,corrected=apples+pears+plums+added-1;return numeric(i,`A chart has ${apples} apple, ${pears} pear, and ${plums} plum votes. ${added} more pear votes arrive, but one earlier vote was counted twice. What is the corrected total?`,corrected,[apples+pears+plums+added,apples+pears+plums,corrected+2],`Add the ${added} new votes, then remove the duplicate: ${corrected} votes.`);
+  });
+  add("math",54,"Fractions in Pictures and Groups",(i,stage,j)=>{
+    const parts=j+4,shaded=j+1;
+    if(stage===0) return numeric(i,`A shape has ${parts} equal parts. What denominator names each part of the whole?`,parts,[shaded,parts-1,parts+1],`The denominator is the total number of equal parts, ${parts}.`);
+    if(stage===1) return numeric(i,`A shape has ${parts} equal parts and ${shaded} are shaded. What is the numerator of the shaded fraction?`,shaded,[parts,shaded+1,parts+1],`The numerator counts shaded parts: ${shaded}.`);
+    if(stage===2){const groups=j+3,total=groups*4,answer=groups;return numeric(i,`One fourth of ${total} counters is how many counters?`,answer,[total,total/2,answer+4],`Divide ${total} into four equal groups: each has ${answer}.`);}
+    if(stage===3){const numerator=j+1,denominator=j+5;return mc(i,`Which is greater, ${numerator}/${denominator} or ${numerator+1}/${denominator}?`,`${numerator+1}/${denominator}`,[`${numerator}/${denominator}`,"They are equal","There is not enough information"],`With the same denominator, ${numerator+1} parts are greater than ${numerator} parts.`);}
+    const unit=j+3,total=unit*6,used=unit*2,answer=total-used;return numeric(i,`A garden has ${total} flowers. Two sixths are picked. How many flowers remain?`,answer,[used,total,answer-unit],`One sixth is ${unit}; two sixths is ${used}. Subtract to get ${answer}.`);
+  });
+  add("math",55,"Perimeter in Real Places",(i,stage,j)=>{
+    const length=j+7,width=j+3,perimeter=2*(length+width);
+    if(stage===0) return numeric(i,`A rectangular mat is ${length} units long and ${width} units wide. What is its perimeter?`,perimeter,[length*width,length+width,perimeter+length],`Add all four sides: 2 x (${length} + ${width}) = ${perimeter}.`);
+    if(stage===1){const side=j+4,answer=4*side;return numeric(i,`A square garden has sides of ${side} meters. How many meters of edging surround it?`,answer,[side*side,side*2,answer+side],`Four equal sides of ${side} meters total ${answer} meters.`);}
+    if(stage===2) return numeric(i,`A rectangle has perimeter ${perimeter} units and length ${length} units. What is its width?`,width,[length,perimeter/2,length+width],`Half the perimeter is ${length+width}; subtract the length ${length} to get ${width}.`);
+    if(stage===3){const otherLength=length+j+2,otherWidth=width-1,otherPerimeter=2*(otherLength+otherWidth),answer=otherPerimeter-perimeter;return numeric(i,`One rectangle is ${length} by ${width} units. Another is ${otherLength} by ${otherWidth} units. How many more perimeter units does the second have?`,answer,[otherPerimeter,perimeter,answer+2],`The first perimeter is ${perimeter}; the second is ${otherPerimeter}. The difference is ${answer}.`);}
+    const gate=j+2,answer=perimeter-gate;return numeric(i,`A ${length}-by-${width} meter garden needs fencing around its perimeter, except for a ${gate}-meter gate. How many meters of fencing are needed?`,answer,[perimeter,length*width,answer+gate],`The perimeter is ${perimeter} meters. Leave ${gate} meters open for the gate: ${answer}.`);
+  });
+  add("math",56,"Multi-Step Quantity Problems",(i,stage,j)=>{
+    if(stage===0){const a=45+j*8,b=23+j*6,answer=a+b;return numeric(i,`A library gets ${a} books and then ${b} more. How many books arrive?`,answer,[a,b,answer+10],`Add ${a} + ${b} = ${answer}.`);}
+    if(stage===1){const a=90+j*12,b=28+j*5,answer=a-b;return numeric(i,`A shelf starts with ${a} books. ${b} are checked out. How many remain?`,answer,[a+b,b,answer+10],`Subtract ${b} from ${a}: ${answer}.`);}
+    if(stage===2){const groups=j+4,each=j+6,answer=groups*each;return numeric(i,`${groups} classes each collect ${each} cans. How many cans do they collect together?`,answer,[groups+each,answer+groups,answer-each],`Multiply ${groups} x ${each} = ${answer}.`);}
+    if(stage===3){const groups=j+4,each=j+7,extra=j+5,answer=groups*each+extra;return numeric(i,`${groups} boxes each hold ${each} pencils, and ${extra} pencils are loose. How many pencils are there?`,answer,[groups*each,groups+each+extra,answer+each],`The boxes hold ${groups*each}. Add ${extra} to get ${answer}.`);}
+    const packs=j+5,each=j+8,used=j+9,given=j+4,answer=packs*each-used-given;return numeric(i,`A club has ${packs} packs of ${each} stickers. It uses ${used} on posters and gives ${given} away. How many stickers remain?`,answer,[packs*each,packs*each-used,answer+given],`Start with ${packs*each}, then subtract ${used} and ${given}: ${answer}.`);
+  });
+
+  concepts("sci",29,"Roles in an Ecosystem",[
+    ["a producer","a living thing that makes its own food, often using sunlight","Grass making food from sunlight","A pond plant grows in sunlight and becomes food for snails.","The plant makes food instead of eating another organism.","Producers begin many food chains."],
+    ["a herbivore","an animal that eats plants","A rabbit eating clover","A caterpillar chews leaves on a garden plant.","Its food comes from plants.","Herbivores can pass energy from plants to other animals."],
+    ["a carnivore","an animal that eats other animals","A hawk catching a mouse","A snake catches and swallows a small fish.","The animal eats another animal.","Carnivores may help keep prey populations in balance."],
+    ["an omnivore","an animal that eats both plants and animals","A bear eating berries and fish","A crow eats seeds on one day and insects on another.","Its diet includes both plants and animals.","Omnivores may use several food sources."],
+    ["a decomposer","an organism that breaks down dead material","Mushrooms growing on fallen wood","A fungus breaks down a dead log on the forest floor.","The organism breaks apart once-living material.","Decomposers return materials to the environment."]
+  ]);
+  concepts("sci",30,"How Earth's Surface Changes",[
+    ["weathering","the breaking of rock into smaller pieces","Water freezing in a crack and splitting rock","A cliff face slowly cracks as rain and cold affect it.","The rock breaks where it already lies.","Weathering makes smaller pieces that can later move."],
+    ["erosion","the movement of rock or soil by wind, water, or ice","A river carrying sand downstream","After a storm, soil is washed off a hillside.","The soil moves to a new location.","Roots and ground cover can slow erosion."],
+    ["deposition","the dropping of moved sediment in a new place","Sand settling where a river slows","A stream leaves a pile of sand at a bend.","The carried material is dropped.","Deposition can build new landforms over time."],
+    ["sediment","small pieces of rock or soil that can be moved","Sand grains carried in muddy water","A jar of river water has tiny particles that settle at the bottom.","The particles are bits of earth material.","Sediment can be transported and deposited."],
+    ["a landform","a natural shape or feature of Earth's surface","A hill beside a valley","A map shows a mountain range and nearby plain.","The features are natural shapes of the land.","Landforms may change slowly through weathering, erosion, and deposition."]
+  ]);
+  concepts("sci",31,"Testing Material Properties",[
+    ["hardness","how well a material resists scratching or denting","A stone resisting a fingernail scratch","A student presses a soft clay piece and a hard pebble.","The pebble changes shape less under pressure.","Hardness helps determine whether a material suits a task."],
+    ["flexibility","how easily a material bends without breaking","A rubber strip bending around a corner","A thin plastic ruler curves and then straightens.","The object bends without snapping.","Flexible materials can fit around shapes."],
+    ["absorbency","how readily a material takes in liquid","A sponge soaking up a spill","A towel draws water into its fibers.","Liquid moves into the material.","An absorbent material is useful for cleaning spills."],
+    ["transparency","how easily light passes through a material","Clear glass letting a reader see outside","A student sees a plant through a clear container.","Light passes through enough to see the plant.","Transparent materials are useful for windows."],
+    ["magnetic attraction","the pull of a magnet on certain materials","A magnet lifting a steel paper clip","A steel nail moves toward a nearby magnet.","The metal responds to the magnet's pull.","Testing with a magnet can help sort some materials."]
+  ]);
+  concepts("sci",32,"Plant Parts Working Together",[
+    ["roots","plant parts that anchor the plant and absorb water","Bean-plant roots taking water from soil","A seedling remains upright while its underground parts spread.","The underground parts hold it and take up water.","Healthy roots help supply water to the rest of a plant."],
+    ["a stem","the plant part that supports leaves and moves materials","A sunflower stem holding up its leaves","Water travels upward through a tall plant part.","The upright part supports and connects plant structures.","A stem carries water from roots toward leaves."],
+    ["leaves","plant parts that use light to help make food","Broad green leaves catching sunlight","A plant turns its flat green parts toward a window.","The flat parts receive light.","Leaves help a plant make food when they have light, water, and air."],
+    ["a flower","a plant part that can help produce seeds","A blossom visited by a bee","After pollen reaches a blossom, seeds can begin to form.","The colorful plant part is involved in reproduction.","Flowers can attract animals that move pollen."],
+    ["a seed","a structure that can grow into a new plant","A dry bean that sprouts after watering","A tiny object from a fruit grows a root in moist soil.","A new plant begins from it.","Seeds spread plants to new places when conditions are suitable."]
+  ]);
+  concepts("sci",33,"Building and Improving Models",[
+    ["a model","a simplified representation used to explain or test an idea","A small paper bridge representing a real bridge","A student builds a tiny version of a shelter before making a larger one.","The smaller version stands for a larger design.","Models can help test ideas, but they may leave out details."],
+    ["a criterion","a condition a successful design must meet","The bridge must hold ten blocks","A class agrees its shelter must keep the toy dry.","Keeping the toy dry is a success condition.","Criteria let a team judge whether its design worked."],
+    ["a constraint","a limit on materials, time, size, or cost","Only one sheet of paper may be used","A team can build with six straws and one piece of tape.","The available supplies are limited.","A solution must work within its constraints."],
+    ["a test result","a recorded outcome from trying a design","The model bridge held eight blocks before bending","A trial shows water enters the roof at one corner.","The observation describes what happened during testing.","Test results reveal where a design succeeds or fails."],
+    ["a revision","a change made to improve a design using evidence","Adding a support after the model sags","After the roof leaks, a team changes the corner fold.","The change responds to the observed leak.","A revision should be tested again to see whether it helped."]
+  ]);
+
+  concepts("hist",31,"Maps as Historical Evidence",[
+    ["an old map","a map made in an earlier time that shows what was known then","A town map from one hundred years ago","Students compare a century-old street map with today's streets.","The older map records a past layout.","Old maps can show how routes and neighborhoods changed."],
+    ["a map key","a guide that explains symbols on a map","A key showing a square means a school","A reader checks what a star marks on an old town map.","The key assigns meaning to the star.","A key helps interpret symbols rather than guessing."],
+    ["a map scale","a guide relating map distance to actual distance","One inch on a map represents one mile","Two sites are three map units apart and each unit means two miles.","The scale turns map units into real distance.","Map scale helps compare travel distances."],
+    ["a place-name change","a location receiving a different name over time","A street renamed to honor a local leader","A modern map gives a road a different name than an old map does.","The location remains while its label changes.","Comparing maps can reveal changes in names and memory."],
+    ["a map comparison","a claim about change supported by details from two maps","An old map has a rail line where a new map has a park","A student marks features present in one town map but absent in another.","Details from both maps reveal a difference.","Use both maps as evidence before claiming a place changed."]
+  ]);
+  concepts("hist",32,"Remembering Community Stories",[
+    ["an interview","a planned conversation to learn from another person's experience","Asking a longtime resident about an old market","A student records a neighbor's memories of a flood.","Questions invite a person to describe what they experienced.","Interviews can preserve perspectives missing from written records."],
+    ["a photograph","an image that records a view at a particular moment","An old picture of the town square","A class studies a dated image of a former school building.","The image shows how the building looked at that time.","Photographs provide clues but may show only one view."],
+    ["an artifact","an object people made or used","A worn lunch pail from an old school","A museum displays a tool once used by local farmers.","The object gives clues about past work.","Artifacts can be studied alongside written accounts."],
+    ["a memory","a person's recollection of something that happened","A resident recalling a childhood parade","A grandparent describes the first library they visited.","The account comes from personal recollection.","Memories offer perspectives and can be checked against other sources."],
+    ["a commemorative event","a gathering held to remember a person or past event","A yearly ceremony honoring community helpers","Neighbors meet on the anniversary of a historic bridge opening.","The gathering marks a past event.","Commemorations show what a community chooses to remember."]
+  ]);
+  concepts("hist",33,"Local Decisions and Public Needs",[
+    ["a public need","something many people require for safety or daily life","A safe crossing near a school","Families report that a busy corner needs a crosswalk.","The concern affects many people.","Identifying a shared need helps leaders set priorities."],
+    ["a proposal","a suggested plan offered for discussion","A plan to add a sidewalk","Residents suggest building a walking path through a park.","The idea is offered before a decision is made.","A proposal can be changed after people review it."],
+    ["community input","ideas and concerns shared by affected people","Parents describing where children cross the street","A council invites residents to speak about a proposed bus stop.","People affected by the plan give their views.","Community input can reveal needs a planner overlooked."],
+    ["a limited budget","a fixed amount of money available for choices","Enough town funds for one of two projects","Leaders must choose between repairing a playground and adding benches.","The money cannot pay for both plans.","A limited budget requires comparing costs and benefits."],
+    ["an outcome review","checking what happened after a decision","Counting safer crossings after a new signal is installed","After a park path opens, a town asks whether more people can use it.","The result is compared with the original goal.","Reviewing outcomes helps a community improve a plan."]
+  ]);
+  concepts("hist",34,"From Resources to Products",[
+    ["a raw material","a resource used to make a product","Wood used to make a table","A maker turns clay into bowls.","The clay is material before it becomes the product.","Different raw materials can become many kinds of goods."],
+    ["a tool","an object used to help perform work","A saw used to cut wood","A potter uses a wheel to shape clay.","The object helps carry out the work.","Tools can make production faster or more precise."],
+    ["a worker","a person contributing labor or skill","A baker mixing dough","A tailor cuts and sews fabric into a shirt.","A person's skill changes material into a good.","Workers use knowledge and effort in production."],
+    ["a product","a good made to be used or sold","A finished wooden table","A factory turns cotton into cloth.","The finished cloth can be used or sold.","Products often require materials, tools, and labor."],
+    ["a supply chain","the connected steps that move materials into finished goods and to users","Wheat grown, milled into flour, baked, then sold as bread","A class traces cotton from a field to a shirt shop.","Several connected steps bring the item to a buyer.","A problem at one step can affect later steps."]
+  ]);
+  concepts("hist",35,"Making Claims About the Past",[
+    ["a historical claim","a statement about the past that can be checked with sources","The new bridge shortened travel between two towns","A student says a town grew after a station opened.","The statement can be tested against records.","A strong claim needs evidence, not just a guess."],
+    ["supporting evidence","a source detail that backs a claim","A dated map showing new streets near the station","A learner cites census counts before and after a new factory.","The counts relate directly to the proposed change.","Evidence should connect clearly to the claim it supports."],
+    ["a conflicting source","a source that gives a different account of an event","Two newspapers reporting different opening dates","One diary places the parade on Friday while another says Saturday.","The dates disagree.","When sources conflict, look for more evidence before deciding."],
+    ["source context","information about who made a source, when, and why","A letter written by a traveler during the event","A class checks the author and date of an old poster.","The source's origin helps interpret it.","Knowing context helps explain what a source can and cannot show."],
+    ["a careful conclusion","an explanation that fits the evidence and admits uncertainty","Records suggest the school opened in spring, but the exact day is unknown","A student uses two maps to describe growth but does not invent missing reasons.","The conclusion stays within what the sources support.","Historians can say what is known and what remains uncertain."]
+  ]);
+})();
+
+(function addFortyGradeThreeLessons(){
+  const bank=window.K12_CLASSIC_25_DATA;
+  function multipleChoice(index,prompt,answer,wrong,explain){
+    const values=[answer,...wrong].map(String).filter((value,i,all)=>all.indexOf(value)===i);
+    for(let step=1;values.length<4;step++){
+      const option=String(Number(answer)+step);
+      if(!values.includes(option)) values.push(option);
+    }
+    const shift=index%4,choices=values.slice(shift).concat(values.slice(0,shift));
+    return {type:"mc",q:prompt,answer:String(answer),choices,audio:prompt,explain};
+  }
+  function addConceptLesson(subject,number,name,topic,description,cards){
+    if(cards.length!==5||cards.some(card=>card.length!==6)) throw new Error(`Five complete examples required for ${name}.`);
+    const key=`g3:${subject}:L${number}`;
+    if(bank[key]) throw new Error(`Duplicate Grade 3 lesson: ${key}`);
+    const questions=Array.from({length:25},(_,index)=>{
+      const stage=Math.floor(index/5),cardIndex=index%5,card=cards[cardIndex];
+      const other=field=>cards.filter((_,i)=>i!==cardIndex).map(row=>row[field]).slice(0,3);
+      const [term,meaning,example,scenario,evidence,application]=card;
+      if(stage===0) return multipleChoice(index,`What does ${term} mean?`,meaning,other(1),`${term} means ${meaning.toLowerCase()}.`);
+      if(stage===1) return multipleChoice(index,`Which example shows ${term}?`,example,other(2),`${example} This is an example of ${term}.`);
+      if(stage===2) return multipleChoice(index,`${scenario} Which idea fits best?`,term,other(0),`The situation shows ${term}.`);
+      if(stage===3) return multipleChoice(index,`${scenario} Which clue supports that idea?`,evidence,other(4),`${evidence} This clue supports the answer.`);
+      return multipleChoice(index,`Which new example shows ${term}?`,application,other(5),`${application} This uses ${term} in a new way.`);
+    });
+    bank[key]={name,topic,description,contentVersion:"g3-40-lessons-20261008.1",questions};
+    CURR.g3[subject][`L${number}`]={name,gen:classicQuestionPending};
+  }
+  function addNumberLesson(number,name,topic,description,kind){
+    const key=`g3:math:L${number}`;
+    if(bank[key]) throw new Error(`Duplicate Grade 3 lesson: ${key}`);
+    const questions=Array.from({length:25},(_,index)=>{
+      const stage=Math.floor(index/5),step=index%5;
+      let prompt,answer,explain,wrong=[];
+      const a=stage+2+step,b=2+((step+stage)%5);
+      if(kind==="multiply"){
+        answer=a*b;
+        const prompts=[`There are ${a} rows of ${b} markers. How many markers are there?`,`A team has ${a} bags with ${b} balls in each. How many balls?`,`The class makes ${a} groups of ${b} cards. How many cards altogether?`,`A garden has ${a} rows with ${b} plants in each row. How many plants?`,`A student reads ${b} pages each day for ${a} days. How many pages?`];
+        prompt=prompts[step];explain=`Multiply ${a} groups by ${b}: ${a} × ${b} = ${answer}.`;wrong=[answer+a,answer-b,answer+10];
+      }else if(kind==="division"){
+        const groups=stage+3+step,each=2+((step+stage)%4),total=groups*each;answer=each;
+        prompt=`${total} crayons are shared equally among ${groups} students. How many crayons does each student get?`;explain=`Share ${total} equally into ${groups} groups: ${total} ÷ ${groups} = ${answer}.`;wrong=[answer+1,answer+2,groups];
+      }else if(kind==="fraction"){
+        const den=[4,6,8,10,12][step],num=stage%2===0?Math.max(1,Math.floor(den/2)-Math.floor(step/2)):Math.min(den-1,Math.floor(den/2)+1);
+        answer=`${num}/${den}`;prompt=`${num} of ${den} equal snack pieces are strawberry. What fraction are strawberry?`;explain=`The numerator counts ${num} strawberry pieces and the denominator counts ${den} pieces, so the fraction is ${answer}.`;wrong=[`${den}/${num}`,`${Math.max(1,num-1)}/${den}`,`${Math.min(den,num+1)}/${den}`];
+      }else if(kind==="perimeter"){
+        const length=stage+4+step,width=3+(step%4);answer=2*(length+width);
+        prompt=`A rectangle on the classroom floor is ${length} tiles long and ${width} tiles wide. What is its perimeter?`;explain=`Add all four sides: ${length} + ${width} + ${length} + ${width} = ${answer} tiles.`;wrong=[answer+2,answer-2,length*width];
+      }else if(kind==="time"){
+        const start=8*60+step*10,duration=15+stage*10+step*5,total=start+duration;
+        const clock=value=>`${Math.floor(value/60)%12||12}:${String(value%60).padStart(2,"0")}`;
+        answer=clock(total);prompt=`Art club starts at ${clock(start)} and lasts ${duration} minutes. When does it end?`;explain=`Count forward ${duration} minutes from ${clock(start)}. Art club ends at ${answer}.`;wrong=[clock(total+10),clock(total-10),clock(total+30)];
+      }else if(kind==="money"){
+        const cents=125+stage*25+step*10,paid=Math.ceil(cents/100)*100;answer=`$${((paid-cents)/100).toFixed(2)}`;
+        prompt=`A notebook costs $${(cents/100).toFixed(2)}. You pay $${(paid/100).toFixed(2)}. How much change do you get?`;explain=`Subtract the cost from the amount paid: $${(paid/100).toFixed(2)} − $${(cents/100).toFixed(2)} = ${answer}.`;wrong=[`$${((paid-cents+10)/100).toFixed(2)}`,`$${((paid-cents+25)/100).toFixed(2)}`,`$${((paid-cents+50)/100).toFixed(2)}`];
+      }else if(kind==="data"){
+        const red=stage+3+step,blue=2+step,green=stage+4;answer=step%2===0?red+blue+green:Math.abs(red-blue);
+        prompt=step%2===0?`A class collected ${red} red, ${blue} blue, and ${green} green cans. How many cans altogether?`:`${red} students chose soccer and ${blue} chose basketball. How many more chose soccer?`;
+        explain=step%2===0?`Add the three groups: ${red} + ${blue} + ${green} = ${answer}.`:`Subtract the smaller group: ${red} − ${blue} = ${answer}.`;wrong=[answer+1,answer+2,Math.max(0,answer-1)];
+      }else if(kind==="placeValue"){
+        const value=(stage+1)*1000+(step+3)*100+(step+2)*10+step+1;const digits=[Math.floor(value/1000),Math.floor(value/100)%10,Math.floor(value/10)%10,value%10];const places=[1000,100,10,1];const slot=(step+stage)%4;answer=digits[slot]*places[slot];
+        prompt=`In ${value.toLocaleString("en-US")}, what is the value of the ${["ones","tens","hundreds","thousands"][slot]} digit?`;explain=`The ${["ones","tens","hundreds","thousands"][slot]} digit is ${digits[slot]}, so its value is ${answer.toLocaleString("en-US")}.`;wrong=[answer+places[slot],Math.max(0,answer-places[slot]),answer*10];
+      }else if(kind==="twoStep"){
+        const packs=stage+2+step,each=3+step,extra=stage+4;answer=packs*each+extra;
+        prompt=`The art room has ${packs} boxes with ${each} markers in each box, then gets ${extra} more. How many markers now?`;explain=`First multiply ${packs} × ${each} = ${packs*each}. Then add ${extra}: ${packs*each} + ${extra} = ${answer}.`;wrong=[packs*(each+1)+extra,packs*each-extra,answer+10];
+      }else{
+        const rows=stage+2+step,columns=3+((step+stage)%4);answer=rows*columns;
+        prompt=`The class makes a tile picture with ${rows} rows and ${columns} tiles in each row. How many tiles cover it?`;explain=`Area counts the tiles in every row: ${rows} × ${columns} = ${answer} square tiles.`;wrong=[rows+columns,answer+rows,answer-columns];
+      }
+      return multipleChoice(index,prompt,answer,wrong,explain);
+    });
+    bank[key]={name,topic,description,contentVersion:"g3-40-lessons-20261008.1",questions};
+    CURR.g3.math[`L${number}`]={name,gen:classicQuestionPending};
+  }
+
+  const englishLessons=[
+    [52,"Fiction Clues and Character Feelings","📚 Story Detectives","Follow what characters say and do to understand their stories.",[
+      ["a character feeling","an emotion a person in a story has","Mia grins when her team wins a game","Leo shares his umbrella when Sam gets caught in the rain.","Leo notices Sam is wet and offers help.","A child feels proud after finishing a tricky puzzle."],
+      ["an action clue","something a character does that gives a hint","Ava packs her cleats before soccer practice","Ben quietly returns a lost library book.","Ben brings the book back instead of keeping it.","A student practices a spelling list before the quiz."],
+      ["a dialogue clue","words a character says that reveal an idea or feeling","I can’t wait for the class picnic! says Noor","I will help you carry those books, says Eli.","Eli offers to help with a task.","I’m nervous, but I’ll try, says a student before a play."],
+      ["a setting clue","a detail about where or when a story happens","Snow falls outside a cabin in winter","The gym is bright and noisy on game day.","The place is a busy school gym during a game.","A story begins at the beach just before sunset."],
+      ["a character change","a way a character thinks or acts differently later","A shy puppy learns to greet visitors","At first, Jay avoids the new student; later, he invites her to play.","Jay becomes more welcoming after getting to know her.","A nervous reader feels ready after practicing aloud."]
+    ]],
+    [53,"Main Idea in School News","📣 School News","Spot the big idea and details in news from school.",[
+      ["the main idea","the most important point in a passage","A school garden helps students learn about plants","The class collects books for a new reading corner.","The collection is for a reading corner.","A passage explains ways students save water at school."],
+      ["a key detail","a fact that helps explain the main idea","Students planted tomatoes, beans, and flowers","The article says each team brought five books.","The five books came from each team.","A report names the day a class cleaned the playground."],
+      ["a topic","the person, place, or thing a passage is mostly about","The school’s new reading corner","An article describes the class garden and its vegetables.","The passage focuses on the class garden.","A student reads about how the school team trained for a race."],
+      ["a headline","a short title that tells what a news story is about","Grade 3 Builds a Butterfly Garden","The title says the library will stay open after school.","The title names the library’s new hours.","A reader sees Students Collect Cans for the Food Drive."],
+      ["a summary","a brief retelling of the most important ideas","Students planted a garden and will care for it each week","A reader retells a story using the big point and two useful facts.","The retelling keeps the main point and key facts.","A child explains that the class made a reading nook and donated books."]
+    ]],
+    [54,"Prefixes That Unlock Words","🔤 Word Builders","Use word beginnings to figure out new words.",[
+      ["the prefix un-","a word part that can mean not or the opposite","unkind means not kind","A classmate says an unfair rule treats students unequally.","The word begins with un- and describes the opposite of fair.","Unwrap means to take wrapping off a gift."],
+      ["the prefix re-","a word part that means again","reread means read again","Milo checks a math problem by doing it one more time.","He repeats the action, so he can redo it.","A player rebuilds a block tower after it falls."],
+      ["the prefix pre-","a word part that means before","preview means view before","A class looks at a book’s pictures before reading it.","The class sees it ahead of time.","A student previews the questions before starting a quiz."],
+      ["the prefix mis-","a word part that can mean wrongly","misplace means put in the wrong place","Tara puts her lunchbox in the art bin by mistake.","The lunchbox is in the wrong place.","A reader misunderstands a clue and rereads the sentence."],
+      ["the prefix dis-","a word part that can mean not or opposite","disagree means not have the same idea","Two friends choose different books for reading time.","They do not share the same choice.","A student disconnects a toy cable before putting it away."]
+    ]],
+    [55,"Writing a Helpful Note","✏️ Note Writers","Write clear notes your classmates can understand.",[
+      ["a greeting","friendly words that begin a note","Hi, Maya!","A student writes Dear Coach at the start of a message.","The words greet the reader.","A child begins a thank-you note with Hello, Grandma."],
+      ["a purpose","the reason a note is written","I’m writing to invite you to read with me","A note tells a partner where to meet for the science fair.","The note gives a reason and a plan.","A student writes to thank a helper for bringing books."],
+      ["a useful detail","information that helps the reader know what to do","Meet me by the library door at lunch","A class note says the clean-up starts after recess.","The time and place make the plan clear.","A reminder says to bring a water bottle for the field trip."],
+      ["a kind closing","friendly words that end a note","See you soon, Eli","A student ends a message with Thanks for helping!","The words end the note in a friendly way.","A writer closes a note with Your friend, Sam."],
+      ["a reread","checking a note before sharing it","Rae fixes a missing word before handing over her note","Before sending a class message, Amir checks the names and time.","He looks it over to catch a mistake.","A writer reads a note aloud to make sure it sounds clear."]
+    ]],
+    [56,"Comparing Animal Stories","🐾 Animal Story Match","Notice what is alike and different in two stories.",[
+      ["a similarity","something two stories have in common","Both stories have a brave rabbit","Two passages show pets learning to trust new families.","Both passages describe pets getting used to a home.","Two characters solve a problem by asking a friend for help."],
+      ["a difference","something that is not the same","One story happens in a forest; the other happens on a farm","One animal story is told by a fox, and another by a bird.","The narrators are different animals.","One character finds a lost ball while another finds a lost kitten."],
+      ["a character","a person or animal in a story","A turtle named Tilly","A story follows a young bear learning to fish.","The bear is one of the story’s characters.","A class writes a story about a curious squirrel."],
+      ["a setting","where a story takes place","A pond beside a school","The story happens in a garden during spring.","The garden and springtime make up the setting.","A tale begins under the ocean near a coral reef."],
+      ["text evidence","a detail from a story that supports an answer","The page says both pups share a toy","A reader points to the line where the bird helps the rabbit.","The line shows how the bird helps.","A student uses a sentence from each story to compare the endings."]
+    ]],
+    [57,"Strong Verbs for Action","🏃 Action Words","Choose lively verbs to make your writing clearer.",[
+      ["a verb","a word that shows an action or state","The puppy trots across the yard","The class plants seeds in a small pot.","Plants tells what the class does.","A student writes that the ball bounced past the cone."],
+      ["a precise verb","an action word that tells exactly what happened","The kitten tiptoes past the sleeping dog","A runner dashes to the finish line.","Dashes tells how quickly the runner moves.","A bird swoops down to pick up a twig."],
+      ["present tense","a verb form for something happening now or often","Nina reads each night","The coach teaches the team a new game.","Teaches describes what the coach does now.","A student says, I help water our class plant."],
+      ["past tense","a verb form for an action that already happened","We planted beans yesterday","The class visited the museum last Friday.","Visited tells about an earlier event.","A child writes, I kicked the ball at recess."],
+      ["verb agreement","using a verb that matches who or what acts","She runs; they run","The students carry their projects to the hall.","Students is plural, so carry matches it.","One dog barks while two dogs bark together."]
+    ]],
+    [58,"Reading Charts and Captions","📊 Picture and Chart Clues","Read labels and captions to learn what you see.",[
+      ["a chart title","words that tell what a chart shows","Favorite Recess Games","A chart is titled Books Read by Each Team.","The title names the chart’s subject.","A graph called Rainy Days in April shows daily weather."],
+      ["a label","a word that names a part of a chart or picture","The label Dogs under a bar","A picture labels the stem, leaves, and roots of a plant.","The words identify each plant part.","A map label names the school playground."],
+      ["a caption","a short sentence that explains a picture","Our class planted flowers by the front door","A photo shows students sorting books with a caption about a book drive.","The sentence explains what the students are doing.","A caption tells readers that a team tested paper airplanes."],
+      ["a comparison","looking for how amounts or details are alike or different","The chart shows 12 votes for soccer and 8 for tag","A graph shows 15 books on Monday and 19 on Tuesday.","Tuesday has four more books than Monday.","A reader compares two bars to see which game got more votes."],
+      ["a chart conclusion","an idea supported by information shown","More students chose soccer than tag","A class graph has the tallest bar for picture books.","Picture books received the most votes.","A student uses chart labels and totals to explain a favorite snack."]
+    ]],
+    [59,"Beginning, Middle, and End","🧩 Story Path","Put story events in an order that makes sense.",[
+      ["a beginning","the part that introduces a story","A girl finds a tiny seed in her backpack","A story starts with a new student on the first day of school.","The reader meets the student and learns the setting.","A tale opens with a family getting ready for a camping trip."],
+      ["a problem","a challenge a character needs to solve","The kite is stuck in a tree","A team’s poster tears just before the class showcase.","The torn poster is the challenge.","A puppy cannot find its way back to the garden gate."],
+      ["a sequence","events in the order they happen","First mix soil, then plant a seed, then water it","A character packs lunch, walks to school, and eats at noon.","The steps happen in that order.","A reader arranges three story cards from first to last."],
+      ["a solution","the way a problem is fixed","Friends use a long stick to lift the kite down safely","The team tapes the poster and asks a friend to help finish it.","The team repairs the poster and completes the project.","A child follows a map to help the lost puppy get home."],
+      ["an ending","the part that wraps up the story","The friends fly the kite together after school","The class shares its finished project and thanks its helpers.","The project is complete and the story feels finished.","The family reaches the campsite and watches the stars come out."]
+    ]],
+    [60,"Plural and Possessive Nouns","📝 Noun Workshop","Show when there is more than one and who owns it.",[
+      ["a plural noun","a noun that names more than one","three boxes","The class places four books on a shelf.","Books names more than one item.","Two buses wait near the school entrance."],
+      ["an irregular plural","a plural noun that changes in a special way","children is the plural of child","Two children bring their projects to class.","Children is the special plural form.","Several mice hide in the storybook barn."],
+      ["a possessive noun","a noun that shows who owns something","the teacher’s marker","A student borrows Maya’s red pencil.","Maya owns the pencil.","The dog’s bowl is beside the kitchen door."],
+      ["an apostrophe","a mark that can show ownership in a noun","the cat’s toy","The team’s banner hangs in the gym.","The apostrophe shows the banner belongs to the team.","A child writes that the bird’s nest is high in a tree."],
+      ["noun agreement","using a noun form that matches the amount","one lunchbox, two lunchboxes","A sentence says three puppy instead of three puppies.","The amount is more than one, so the noun needs a plural form.","A writer changes one class to two classes."]
+    ]],
+    [61,"Opinion Writing About Class Projects","💬 Share Your Idea","Give a clear opinion and support it with good reasons.",[
+      ["an opinion","what a writer thinks or believes","Our class should plant a garden","A student says the school needs a quieter reading corner.","The student shares a point of view.","A writer believes the class should make a kindness mural."],
+      ["a reason","why a writer holds an opinion","A garden gives students a place to learn about plants","A student supports a reading nook because kids need a calm place.","The calm space explains why the student wants the nook.","A class wants a recycling bin because it can reduce litter."],
+      ["supporting evidence","a fact or example that helps prove a reason","Students used the library books every day last month","A team counts 20 pieces of litter near the playground.","The count is a fact connected to the clean-up idea.","A student lists how many classmates would use the garden."],
+      ["a linking word","a word that connects ideas","because","A writer says, We should add shade, so students can read outside.","So connects the reason to the idea.","A student uses also to add another reason for a class project."],
+      ["a conclusion","an ending that reminds readers of the opinion","A class garden would help us learn and work together","A writer ends by restating why the reading nook would help students.","The ending returns to the main opinion.","A student closes by asking the class to support a recycling project."]
+    ]]
+  ];
+  englishLessons.forEach(([number,name,topic,description,cards])=>addConceptLesson("eng",number,name,topic,description,cards));
+
+  [
+    [57,"Multiplication with Classroom Supplies","✖️ Multiplication Makers","Use equal groups to count class supplies and game gear.","multiply"],
+    [58,"Division and Remainders","➗ Fair Shares","Share supplies equally and see what is left.","division"],
+    [59,"Fractions on Snack Trays","🍕 Fractions Everywhere","Show equal parts when sharing snacks and treats.","fraction"],
+    [60,"Perimeter of Class Art","📏 Measure and Plan","Find the distance around gardens, posters, and play spaces.","perimeter"],
+    [61,"Elapsed Time in a School Day","⏰ Time at School","Count minutes between lessons, clubs, and games.","time"],
+    [62,"Money and Making Change","🪙 Smart Store Math","Add prices and find change for classroom supplies.","money"],
+    [63,"Reading Bar Graphs","📊 Class Data","Compare votes, collections, and classroom charts.","data"],
+    [64,"Place Value to 10,000","🔢 Big Number Builders","Break down four-digit numbers one place at a time.","placeValue"],
+    [65,"Two-Step Sports Problems","🏀 Game-Day Math","Solve a score or team problem in two clear steps.","twoStep"],
+    [66,"Area with Tile Arrays","🟦 Tile Patterns","Use rows and columns to find how much space is covered.","area"]
+  ].forEach(([number,name,topic,description,kind])=>addNumberLesson(number,name,topic,description,kind));
+
+  const scienceLessons=[
+    [34,"Plants in Our School Garden","🌱 Garden Explorers","Follow how roots, stems, leaves, and flowers help a garden grow.",[
+      ["a seed","a plant part that can grow into a new plant","A bean seed sprouting in a cup","A class plants a sunflower seed in damp soil.","The small seed can begin growing into a sunflower.","A pumpkin seed can sprout when it has water, air, and warmth."],
+      ["a root","a plant part that takes in water and holds the plant","Roots spreading through garden soil","A young plant stays in place when wind blows.","Its roots anchor it in the soil.","A carrot root takes in water and helps keep the plant steady."],
+      ["a stem","a plant part that supports the plant and moves materials","A stem holding up a sunflower","Water travels from the roots toward the leaves.","The stem helps move water through the plant.","A sturdy stem holds a tomato plant above the soil."],
+      ["a leaf","a plant part that uses light to help make food","Green leaves catching sunlight","A class covers one leaf and compares it with a sunny leaf.","Leaves use light to help the plant make food.","A plant grows toward a bright classroom window."],
+      ["pollination","the movement of pollen that helps some plants make seeds","A bee carrying pollen between flowers","Bees visit garden flowers before seed pods grow.","The pollen can move from one flower to another.","A butterfly carries pollen while it visits blossoms."]
+    ]],
+    [35,"Animal Traits and Habitats","🐾 Habitat Helpers","See how animal body parts and homes help animals live.",[
+      ["a habitat","a place where a living thing finds what it needs","A pond where frogs find water and insects","A rabbit lives where it can find plants and shelter.","The place provides food and a safe space.","A bird nests in a tree near food and water."],
+      ["an adaptation","a body part or behavior that helps an animal survive","A duck’s webbed feet help it paddle","A fox grows a thicker coat when winter gets cold.","The coat helps the fox stay warm.","A turtle pulls into its shell when danger is near."],
+      ["camouflage","colors or patterns that help an animal blend in","A green insect resting on a green leaf","A brown rabbit is hard to see on dry ground.","The rabbit’s color matches the ground.","A striped fish blends among light and dark plants."],
+      ["migration","a seasonal trip animals make to find what they need","Birds flying south when the weather turns cold","A group of whales travels to warmer water.","The whales move to another place as the season changes.","Monarch butterflies travel to a warmer place for winter."],
+      ["shelter","a place that protects an animal from weather or danger","A bird’s nest high in a tree","A rabbit hides in a burrow during a storm.","The burrow offers protection.","A crab tucks under a rock when waves grow rough."]
+    ]],
+    [36,"Weather Tools and Forecasts","🌦 Weather Watchers","Use simple tools to notice weather and make a forecast.",[
+      ["a thermometer","a tool that measures temperature","A thermometer showing a cool morning","Students check how warm the playground is before recess.","The tool measures how hot or cold the air is.","A weather worker reads a thermometer before making a forecast."],
+      ["a rain gauge","a tool that measures how much rain falls","A tube collecting rain after a storm","The class checks a container after a rainy night.","The water level shows how much rain fell.","A garden club records rain in a gauge each week."],
+      ["a wind vane","a tool that shows which way the wind blows","An arrow pointing north on a windy day","A student watches a rooftop arrow turn toward the east.","The arrow points in the wind’s direction.","A weather station uses a vane to record wind direction."],
+      ["a cloud clue","a cloud detail that can help describe weather","Dark clouds gathering before rain","The sky has thick gray clouds and a cool breeze.","The clouds may bring rain.","A class sees tall storm clouds and listens for thunder."],
+      ["a forecast","a prediction about upcoming weather","A report says rain may come tomorrow","A family packs jackets after hearing of a chilly day.","The report predicts what the weather may be like.","Students compare a forecast with the weather they observe."]
+    ]],
+    [37,"Forces on the Playground","⚡ Playground Motion","Explore how pushes, pulls, and surfaces change movement.",[
+      ["a push","a force that moves something away","Pushing a swing to get it moving","A student nudges a toy car forward.","The force moves the car away from the student.","A gentle push sends a ball rolling across the floor."],
+      ["a pull","a force that moves something closer","Pulling a wagon by its handle","A child tugs a jump rope toward the team.","The rope moves toward the child.","A magnet pulls a paper clip closer."],
+      ["friction","a force that can slow movement when surfaces rub","A scooter slows on rough pavement","A ball rolls farther on smooth tile than on grass.","Rough grass creates more friction.","Shoes grip the playground ground so a runner can stop safely."],
+      ["gravity","a force that pulls objects toward Earth","A dropped ball falling to the ground","A playground slide brings a child down toward the ground.","Gravity pulls the child and ball downward.","A tossed beanbag comes back down after going up."],
+      ["speed","how far something moves in a certain amount of time","A fast runner crosses the field quickly","Two toy cars travel the same track; one reaches the finish first.","The first car covers the track in less time.","A student compares how far a ball rolls in five seconds."]
+    ]],
+    [38,"Matter Around the Classroom","🧪 Matter Detectives","Compare solids, liquids, and gases in everyday objects.",[
+      ["a solid","matter that keeps its own shape","A wooden block on a desk","A marble stays round when moved into a cup.","The marble keeps its shape.","A book keeps its shape when carried to the library."],
+      ["a liquid","matter that flows and takes the shape of its container","Water poured into a glass","Juice moves to fit the bottom of a bottle.","The juice changes shape to fit the bottle.","A puddle spreads across a flat part of the playground."],
+      ["a gas","matter that spreads out to fill the space around it","Air filling an inflated ball","A scent from a lunchbox spreads across the room.","The gas moves through the available space.","Air spreads inside a balloon when it is filled."],
+      ["a property","a trait that can be observed or measured","A sponge feels soft and soaks up water","Students compare a metal spoon and a wooden craft stick.","They can observe different material traits.","A class tests which paper towel absorbs more water."],
+      ["a change of state","a change between solid, liquid, or gas","An ice cube melting into water","A cold drink forms water drops on its outside.","Water vapor in the air cools and becomes liquid drops.","Popsicle liquid freezes into a solid in a freezer."]
+    ]],
+    [39,"Food Chains in a Pond","🐸 Pond Food Chains","Follow how plants and animals get energy in a pond.",[
+      ["a producer","a living thing that makes its own food","Pond plants using sunlight","Algae grow near the sunny edge of a pond.","The algae make food rather than eating other organisms.","Grass makes food that a rabbit can eat."],
+      ["a consumer","a living thing that gets energy by eating","A tadpole eating pond plants","A frog catches an insect near the water.","The frog gets energy by eating the insect.","A fish eats small water animals."],
+      ["prey","an animal that another animal may eat","A small fish eaten by a larger fish","A frog catches a fly for food.","The fly is prey for the frog.","A mouse is prey when an owl catches it."],
+      ["a predator","an animal that hunts another animal for food","A heron catching a fish","A snake waits near the pond for a frog.","The snake hunts the frog.","A hawk is a predator when it catches a mouse."],
+      ["a food chain","a model showing how energy moves from one living thing to another","Pond plant, insect, frog, and heron","A diagram starts with grass, then shows a grasshopper and a bird.","The arrows show who gets energy from whom.","A pond chain can begin with algae and end with a larger fish."]
+    ]],
+    [40,"Earth’s Changing Surface","🏔️ Earth in Motion","Find clues that wind and water can change land.",[
+      ["weathering","the breaking of rock into smaller pieces","Water freezing in a crack and splitting rock","A cliff slowly cracks as rain and cold affect it.","The rock breaks where it already lies.","A rock becomes smaller pieces after many hot and cold days."],
+      ["erosion","the movement of rock or soil by wind, water, or ice","A river carrying sand downstream","After a storm, soil washes off a hillside.","The soil moves to a new place.","Wind moves loose sand across a beach."],
+      ["deposition","the dropping of moved sediment in a new place","Sand settling where a river slows","A stream leaves a pile of sand at a bend.","The carried material is dropped.","A wave leaves pebbles along the shore."],
+      ["sediment","small pieces of rock or soil that can be moved","Sand grains carried in muddy water","Tiny particles settle at the bottom of a jar of river water.","The particles are bits of earth material.","A gust moves dust and soil across a field."],
+      ["a landform","a natural shape or feature of Earth’s surface","A hill beside a valley","A map shows a mountain range and a nearby plain.","The features are natural shapes of land.","A river can slowly cut a valley through rock."]
+    ]],
+    [41,"Light, Sound, and Shadows","🔦 Light and Sound Lab","Notice how light and vibrations help us see and hear.",[
+      ["a light source","something that gives off light","A flashlight shining in a dark room","The Sun lights up the playground.","The Sun gives off light.","A lamp helps a reader see a page."],
+      ["a reflection","light that bounces off a surface","A face seen in a mirror","A bright spot appears on a wall when sunlight bounces off a window.","Light bounced from one surface to another.","A still pond reflects a nearby tree."],
+      ["a shadow","a dark shape made when an object blocks light","A tree’s shadow on the grass","A ball blocks light from a lamp and makes a shape behind it.","The ball stops some light from reaching the wall.","A child sees a long shadow near sunset."],
+      ["a vibration","a quick back-and-forth movement that can make sound","A guitar string moving after it is plucked","A ruler hanging over a desk edge buzzes when flicked.","The ruler moves back and forth.","A drum skin vibrates when a hand taps it."],
+      ["pitch","how high or low a sound seems","A small bell makes a high sound","A thick string makes a lower note than a thin string.","The notes sound different in how high or low they are.","A bird sings a high note while a drum makes a low sound."]
+    ]],
+    [42,"The Moon’s Changing Patterns","🌙 Moon Watchers","Track the Moon’s shape and place in the night sky.",[
+      ["an orbit","the path one object follows around another","The Moon traveling around Earth","A classroom model moves the Moon around a globe.","The Moon follows a path around Earth.","Earth travels in an orbit around the Sun."],
+      ["a moon phase","the shape of the Moon we can see from Earth","A crescent Moon in the evening sky","A student draws a round Moon one night and a thin curve later.","The visible shape changes over time.","A calendar shows a full Moon followed by a smaller-looking Moon."],
+      ["sunlight","light that comes from the Sun","The Sun lighting the side of the Moon facing Earth","The Moon looks bright even though it does not make its own light.","Sunlight shines on the Moon.","A ball lit by a lamp looks bright on one side."],
+      ["a pattern","something that repeats in a way we can notice","The Moon’s visible shapes changing over several weeks","A class records the Moon and notices the shapes repeat.","The same kinds of shapes return in order.","Students compare Moon drawings from one month to the next."],
+      ["an observation","a detail noticed by looking carefully","The Moon looks like a thin curve tonight","A learner writes the Moon was low in the sky after dinner.","The note records what the learner saw.","A student sketches the Moon’s shape and date in a notebook."]
+    ]],
+    [43,"Build a Strong Paper Bridge","🌉 Young Engineers","Plan, test, and improve a bridge for a toy car.",[
+      ["a design","a plan for how to build something","A drawing of a paper bridge between two books","A team sketches a bridge before folding the paper.","The sketch is a plan for the build.","A student draws a tower before choosing craft sticks."],
+      ["a material","what an object is made from","Paper, tape, and craft sticks","One team uses folded paper while another uses a flat sheet.","The bridge is made from different materials.","A builder chooses cardboard to make a sturdy model."],
+      ["a test","a check to see how well a design works","Adding one toy car to a paper bridge","Students place the same number of coins on each bridge.","They check how much weight the bridge holds.","A team rolls a toy car over its bridge to see if it bends."],
+      ["a fair test","a test that changes one thing while keeping others the same","Using the same books and coins for two bridges","One group tests folded paper and flat paper with the same toy car.","Only the paper shape changes.","A class keeps bridge length the same while changing its material."],
+      ["an improvement","a change that helps a design work better","Folding paper into an accordion shape","A bridge bends, so the team adds two support folds.","The added folds help hold the load.","A builder tests a stronger base after the first model tips."]
+    ]]
+  ];
+  scienceLessons.forEach(([number,name,topic,description,cards])=>addConceptLesson("sci",number,name,topic,description,cards));
+
+  const historyLessons=[
+    [36,"Our Neighborhood Then and Now","🏘️ Neighborhood Stories","Compare places in your community across time.",[
+      ["a primary source","a record made during the time being studied","A photo taken when the old school opened","A student reads a letter written by a town builder.","The letter came from the time of the building project.","A dated photo shows the first playground in the neighborhood."],
+      ["a map","a drawing that shows where places are","A map showing the library beside the park","A class compares a neighborhood map from long ago with one today.","The maps show where streets and buildings are located.","A student traces a route from home to the community center."],
+      ["a change","something that becomes different over time","A dirt road becoming a paved street","An old photo shows a small shop where a new library now stands.","The building in that spot changed.","A new playground replaces an empty lot in the neighborhood."],
+      ["continuity","something that stays the same over time","A river that still runs beside the town","Old and new maps both show the school near the town square.","The school’s location stayed the same.","A neighborhood keeps its annual summer picnic for many years."],
+      ["a community landmark","a place people recognize as important","A clock tower in the town center","A family points out the bridge that helped people cross the river.","People use the bridge as a familiar place.","A statue in the park helps visitors find the museum."]
+    ]],
+    [37,"Maps and Community Landmarks","🗺️ Map Explorers","Use map clues to find landmarks and plan a route.",[
+      ["a map symbol","a small picture that stands for a place or feature","A blue line used for a river","A star on a map marks the town library.","The star stands for a special location.","A picture of a tree marks a park on a map."],
+      ["a map key","a guide that explains the symbols on a map","A key showing that a square means a school","A student checks the key to learn what a dotted line means.","The key explains the map’s marks.","A visitor uses the key to find parks and roads."],
+      ["a compass rose","a map tool that shows directions","An arrow marked north","A family uses a map to see whether the museum is east of the park.","The compass rose helps identify directions.","A student checks north before drawing a route to the library."],
+      ["a landmark","a place that is easy to recognize","A tall water tower beside the town hall","A visitor looks for the red bridge on the map.","The bridge is a recognizable place.","A mountain helps travelers know where they are."],
+      ["a route","a path from one place to another","A line from the school to the playground","A class plans a safe walk from the library to the museum.","The line shows the way to travel.","A map route takes a family from the park to the fire station."]
+    ]],
+    [38,"Local Leaders and Shared Rules","🏛️ Community Helpers","Learn how neighbors make fair rules and solve local needs.",[
+      ["a local leader","a person who helps guide a community","A mayor meeting with neighborhood families","A town leader listens to students asking for a safer crossing.","The leader hears a local concern.","A council member helps plan a community clean-up."],
+      ["a law","a rule made by a government","A town rule that cars stop at a red light","A city sets a rule to keep playgrounds safe.","The government made the rule for the community.","A law says drivers must follow speed limits near a school."],
+      ["a citizen","a member of a community or country","A neighbor who votes in a town election","People share ideas at a public meeting about a new park.","Community members take part in a local decision.","A citizen writes to a leader about a broken sidewalk."],
+      ["a vote","a way people choose between options","Neighbors choose which park gets new benches","A class votes on a book for reading time.","The class uses votes to make a choice.","Town members vote for a plan to add a crosswalk."],
+      ["a responsibility","something a person should do","Following a shared rule at the library","A student takes turns and helps keep shared supplies neat.","The student does a helpful part for the group.","Neighbors put litter in bins to care for their park."]
+    ]],
+    [39,"How Goods Travel to Stores","🛒 From Farm to Store","Follow how workers and businesses bring goods to families.",[
+      ["a producer","a person or group that makes or grows a good","A farmer growing apples","A bakery makes bread for a neighborhood store.","The bakery makes a good to sell.","A craft worker makes a table to offer to families."],
+      ["a consumer","a person who buys or uses a good or service","A family buying apples at a market","A student chooses a notebook at the school store.","The student uses or buys the item.","A neighbor pays a mechanic to fix a bicycle."],
+      ["a good","an object people can buy or use","A loaf of bread","A store places fresh apples on a shelf.","Apples are objects people can buy.","A backpack is a good used to carry school supplies."],
+      ["a service","work someone does to help another person","A bus driver taking children to school","A librarian helps a reader find a book.","The librarian does helpful work for someone.","A repair worker fixes a broken playground gate."],
+      ["trade","giving or exchanging something to get something else","A family pays money to buy a loaf of bread","A store exchanges a coin for a customer’s snack.","Money is exchanged for a good.","Two neighbors swap books they have already read."]
+    ]],
+    [40,"Family and Community Traditions","🎉 Traditions We Share","Explore the celebrations, stories, and customs people share.",[
+      ["a tradition","an activity or custom shared over time","A family makes the same special meal each winter","A neighborhood holds a yearly spring festival.","People repeat the celebration each year.","A class welcomes new students with a song every fall."],
+      ["culture","ways of life shared by a group of people","Stories, food, music, and language in a community","Students share songs and games their families enjoy.","The group shares ways of celebrating and communicating.","A town festival includes music and foods from many families."],
+      ["an artifact","an object made or used by people in the past","A hand-carved toy from an old home","A museum displays a lunch pail used by a student long ago.","The object gives a clue about daily life.","An old tool helps show how people built a house."],
+      ["oral history","a story about the past shared by speaking","A grandparent describing a childhood school","A neighbor tells how the town celebrated its first parade.","The account is remembered and told aloud.","A student interviews a relative about an old family tradition."],
+      ["respect","showing care for another person’s customs and stories","Listening while a classmate shares a holiday","A class asks kind questions about different family traditions.","The students listen with care.","A visitor follows a community’s guidelines during a celebration."]
+    ]],
+    [41,"Photos as Clues About the Past","📷 Photo Detectives","Look closely at old pictures and use details as evidence.",[
+      ["a source","something that gives information about the past","A photo of a school from long ago","A student studies a newspaper page from the year a bridge opened.","The page can give information about that time.","A family letter describes a neighborhood before a park was built."],
+      ["a date","a label that tells when a source was made","A photo marked 1985","A museum card says a toy was made more than 50 years ago.","The date places the object in time.","A diary entry is labeled October 12, 1972."],
+      ["a caption","words that explain a picture","A note saying students planted a tree in 1990","A photo caption names the class standing beside the old school bus.","The caption explains who is pictured.","A label tells that a bridge opened in 1965."],
+      ["evidence","a detail that helps support an idea","A photo showing a dirt road before it was paved","A picture shows a new playground where an older photo shows a field.","The pictures show how the place changed.","A dated image supports the claim that the school once had one building."],
+      ["perspective","the point of view of the person who made a source","A photographer standing beside the parade","Two photos show the same event from different places.","Each photographer sees a different view.","A picture from a student’s desk shows a classroom from that seat."]
+    ]],
+    [42,"School Days Across Time","🏫 School Through the Years","Compare school life today with school life long ago.",[
+      ["a timeline","a line that shows events in time order","A school timeline from its opening to today","A class places school photos from oldest to newest.","The photos are arranged by when they happened.","A student marks the year the library was built."],
+      ["technology","tools people make to solve problems or do work","A tablet used to read a classroom book","An old photo shows students using a chalkboard.","The chalkboard was a tool for learning.","A computer helps a class research a project today."],
+      ["a comparison","noticing how two things are alike or different","Students then and now both read books","A student compares an old wooden desk with a desk used today.","The desks are different, but both are used for learning.","A class compares how students traveled to school in two time periods."],
+      ["continuity","something that stays the same over time","Children learning to read in every generation","Old and new school photos both show students working together.","Students worked together in both time periods.","Teachers and students still share stories in class."],
+      ["historical change","a way life or a place became different over time","Students now use computers that were not in the old school photo","A school adds a library and science room as the town grows.","The school gained new spaces over time.","A class notices that travel to school changed from walking to riding a bus."]
+    ]],
+    [43,"Ways People Communicate","✉️ Messages Through Time","See how people share news using old and new tools.",[
+      ["a letter","a written message sent to someone","A note mailed to a cousin","A family keeps a letter that took several days to arrive.","The message was written and sent by mail.","A student writes a thank-you letter to a helper."],
+      ["a telegraph","an older tool that sent messages using signals","A short message sent over wires","A history display shows dots and dashes used to send a message.","The signals carried information over wires.","A museum worker demonstrates how an old telegraph sent news."],
+      ["a telephone","a tool that lets people talk across distance","A family calling a relative in another town","A store owner uses a phone to order more supplies.","The voice travels to someone far away.","A student calls home after practice."],
+      ["a digital message","words or pictures sent using a computer or phone","A class message sent to families online","A teacher shares a field-trip reminder with families on a school app.","The reminder is sent electronically.","A student sends a photo of a class project to a relative."],
+      ["a communication tool","something people use to share information","A poster announcing a school concert","A town uses signs and a website to explain a road closure.","Both tools share the same helpful message.","A class chooses a chart to tell visitors how to sort recycling."]
+    ]],
+    [44,"Needs, Wants, and Smart Choices","💰 Make a Smart Choice","Sort needs and wants, then plan how to use money.",[
+      ["a need","something people must have to stay safe or healthy","Clean water","A family chooses food before buying a new video game.","Food is needed for health.","Warm clothes help a child stay safe on a cold day."],
+      ["a want","something nice to have but not required","A new toy when a child already has toys","A student saves for a special sticker after getting school supplies.","The sticker is enjoyable but not necessary.","A family chooses a movie after paying for needed groceries."],
+      ["a budget","a plan for how to use a limited amount of money","Planning how to spend $10 at a book fair","A class has a set amount for art supplies.","The class plans spending within its amount.","A family divides money among food, bills, and savings."],
+      ["saving","keeping some money to use later","Putting part of an allowance in a jar","A student waits a few weeks to buy a bigger book set.","The student keeps money for a later choice.","A class saves coins for a new playground ball."],
+      ["a trade-off","what someone gives up when choosing something else","Buying a book means waiting to buy a toy","A class chooses new balls instead of extra cones with the same budget.","The class gives up one option to choose another.","A family chooses a park picnic instead of a paid activity."]
+    ]],
+    [45,"How Communities Solve Problems","🤝 Neighbors at Work","Use ideas and evidence to help solve a local problem.",[
+      ["a problem","something that needs a solution","A crosswalk sign is hard to see","Neighbors notice litter near the playground.","The litter needs attention.","A class sees that the garden hose cannot reach all the plants."],
+      ["a proposal","a plan suggested to solve a problem","Add a bright sign near the school crossing","Students suggest adding more bins beside the park path.","The students offer a plan to reduce litter.","A class proposes a second watering can for the garden."],
+      ["evidence","information that helps explain or support a plan","A count showing many cars pass the school each morning","Students record how much litter they find in one week.","The count shows the size of the litter problem.","A class measures the garden and finds one corner stays dry."],
+      ["a decision","a choice made after thinking about options","Neighbors choose where to place a new bench","A class votes on which project to work on first.","The group picks one option.","Town leaders choose a safer place for a crossing sign."],
+      ["an outcome","what happens after a choice is made","More walkers use the crossing after a sign is added","A class checks whether the new bins keep the path cleaner.","The class looks at the result of its plan.","Students see that a second watering can helps every plant get water."]
+    ]]
+  ];
+  historyLessons.forEach(([number,name,topic,description,cards])=>addConceptLesson("hist",number,name,topic,description,cards));
+})();
+
+(function(){
+  const data=window.K12_CLASSIC_25_DATA=window.K12_CLASSIC_25_DATA||Object.create(null),topics=window.K12_CLASSIC_25_TOPICS=window.K12_CLASSIC_25_TOPICS||Object.create(null),levels=["Foundation","Developing","Intermediate","Advanced","Mastery"];
+  function addUnit(subject,start,topic,topicNumber,names,items){const stems=subject==="math"?["Find the answer.","Which method works?","Which explanation is correct?","Which answer avoids the mistake?","Which solution is best supported?"]:["Which answer fits best?","Which detail supports the answer?","Which explanation is most accurate?","Which conclusion uses all the clues?","Which answer shows the strongest thinking?"];names.forEach((name,li)=>{const questions=[];stems.forEach((stem,tier)=>items.forEach((item,i)=>{const answers=items.map(x=>x[1]),choices=[item[1],answers[(i+1)%5],answers[(i+2)%5],answers[(i+3)%5]],turn=(tier+i)%4;questions.push({type:"mc",difficulty:levels[tier],q:`${item[0]} ${stem}`,choices:choices.slice(turn).concat(choices.slice(0,turn)),answer:item[1],explain:item[2],audio:`${name}, question ${tier*5+i+1}.`});}));data[`g3:${subject}:L${start+li}`]={name,topic,topicNumber,lessonInTopic:li+1,difficulty:levels[li],contentVersion:"20261009.1",questions};});topics[`g3:${subject}`]=(topics[`g3:${subject}`]||[]).filter(g=>g.name!==topic).concat({topicNumber,name:topic,lessons:names.map((name,i)=>({key:`g3:${subject}:L${start+i}`,name,difficulty:levels[i]}))});}
+  addUnit("eng",62,"Stories & Characters",13,["Story Elements","Character Traits","Character Motivation","Sequence and Plot","Story Analysis Challenge"],[
+    ["Mia searches the park for her lost puppy before sunset.","Mia is the character, the park is the setting, and the lost puppy is the problem.","Stories include characters, settings, and problems."],["Leo returns a wallet even though nobody saw him find it.","Leo is honest.","His action shows he chooses to do the right thing."],["Ava practices because she wants to play in the concert.","Ava is motivated by her goal of performing well.","Motivation explains why a character acts."],["First Ben gathers supplies, next he builds, and last he tests the kite.","The events follow a clear sequence.","Sequence words show event order."],["A character refuses help, fails, then succeeds with the team.","The plot shows that cooperation can solve problems.","Character change helps reveal a message."]
+  ]);
+  addUnit("eng",67,"Reading Information",14,["Main Idea and Details","Text Features","Cause and Effect","Comparing Sources","Information Reading Challenge"],[
+    ["A passage says bees pollinate plants and help fruits grow.","The main idea is that bees help plants reproduce.","Both details support the main idea."],["A page has a labeled frog life-cycle diagram.","The diagram shows each stage and its order.","Text features add visual information."],["Heavy rain fills a stream until it floods.","The rain causes the flooding.","A cause explains why an effect happens."],["Two texts explain recycling with steps and facts.","They share a topic but organize information differently.","Sources can present related ideas differently."],["A chart and paragraph show bird counts falling after habitat loss.","Together they support a habitat-population connection.","Multiple sources can strengthen a conclusion."]
+  ]);
+  addUnit("math",67,"Multiplication & Division",14,["Multiplication Facts","Arrays and Groups","Division Facts","Unknown Factors","Multiplication and Division Challenge"],[
+    ["Find 7 × 8.","The product is 56.","Seven groups of eight equal 56."],["An array has 6 rows of 4 stars.","There are 24 stars.","Multiply rows by stars per row."],["Share 45 stickers among 5 students.","Each student gets 9 stickers.","45 ÷ 5 = 9."],["Find ?: 6 × ? = 42.","The missing factor is 7.","Use 42 ÷ 6."],["Four boxes hold 8 crayons each, plus 3 loose crayons.","There are 35 crayons.","Compute 4 × 8 + 3."]
+  ]);
+  addUnit("math",72,"Fractions & Measurement",15,["Fractions on a Number Line","Equivalent Fractions","Comparing Fractions","Time and Length","Fraction Measurement Challenge"],[
+    ["A point is halfway between 0 and 1.","It represents 1/2.","One half is one of two equal parts."],["Compare 1/2 and 2/4.","The fractions are equivalent.","They name the same point."],["Compare 3/8 and 5/8.","5/8 is greater.","With equal denominators, compare numerators."],["A movie starts at 2:15 and lasts 45 minutes.","It ends at 3:00.","Add 45 minutes."],["Ribbons measure 3/4 meter and 1/4 meter.","Together they measure 1 meter.","3/4 + 1/4 = 4/4." ]
+  ]);
+  addUnit("sci",44,"Plants & Animals",10,["Plant Structures","Animal Life Cycles","Inherited Traits","Learned Behaviors","Living Things Challenge"],[
+    ["Roots take in water and leaves capture light.","Plant structures have different survival jobs.","Roots and leaves have specialized functions."],["A butterfly changes through four stages.","The stages form a life cycle.","Organisms change in predictable stages."],["Kittens have fur colors like their parents.","Fur color is inherited.","Inherited traits pass from parents."],["A dog learns to sit after training.","Sitting on command is learned.","Experience can shape behavior."],["A bird inherits wings but learns a local song.","Living things have inherited traits and learned behaviors.","Characteristics develop in different ways."]
+  ]);
+  addUnit("sci",49,"Earth & Space",11,["Earth Materials","Weather Changes","Sun and Shadows","Moon Patterns","Earth and Space Challenge"],[
+    ["Sand is gritty, clay is smooth, and gravel has large pieces.","Earth materials can be compared by properties.","Texture and particle size classify materials."],["Dark clouds arrive and rain begins.","Weather can change quickly.","Weather describes current conditions."],["A shadow is shortest near midday.","The Sun appears highest near midday.","Shadow length follows the Sun's position."],["The Moon's visible shape changes in order.","Moon phases form a pattern.","The Moon reflects sunlight as positions change."],["Sky observations repeat over several weeks.","Repeated observations help predict patterns.","Predictions rely on recorded evidence." ]
+  ]);
+  addUnit("hist",46,"Communities & Government",10,["Community Leaders","Local Services","Rules and Laws","Civic Participation","Community Challenge"],[
+    ["A mayor and council make town decisions.","Local leaders organize community government.","Officials have public responsibilities."],["Firefighters, libraries, roads, and parks serve residents.","Local government provides shared services.","Public services meet needs."],["A crosswalk rule tells drivers to stop.","Rules can protect safety.","Laws have purposes and consequences."],["Residents speak about a playground at a meeting.","They are participating in civic life.","People can influence decisions."],["A town must choose among projects.","Leaders should compare needs, costs, and benefits.","Community choices involve tradeoffs." ]
+  ]);
+  addUnit("hist",51,"Geography & Economics",11,["Maps and Regions","Natural Resources","Producers and Consumers","Saving and Spending","Geography and Economics Challenge"],[
+    ["A key shows map symbols for roads and rivers.","The key explains the symbols.","Map features help readers."],["A forest town makes lumber and paper.","Resources influence local work.","People use nearby resources."],["A baker makes bread and a customer buys it.","The baker produces and the customer consumes.","Producers make; consumers use."],["Sam saves allowance before buying a game.","Saving plans for a future purchase.","People choose between now and later."],["Drought reduces crops and raises prices.","Weather can affect supply and choices.","Environmental events change availability." ]
+  ]);
+  addUnit("eng",72,"Grammar & Sentences",15,["Complete Sentences","Subjects and Predicates","Verb Tense","Adjectives and Adverbs","Grammar Challenge"],[
+    ["Read: 'The bright kite flew.'","It is a complete sentence.","It has a subject, predicate, and complete thought."],["In 'The small rabbit hopped away,' identify the parts.","'The small rabbit' is the subject and 'hopped away' is the predicate.","The subject names who or what; the predicate tells what happens."],["Yesterday, we ___ to the museum.","The correct verb is 'walked.'","Past tense matches yesterday."],["The extremely tall tree swayed gently.","'Tall' describes the tree, and 'gently' describes swayed.","Adjectives describe nouns; adverbs can describe verbs."],["Revise: 'My friend funny tells jokes.'","My funny friend tells jokes.","Place the adjective before its noun." ]
+  ]);
+  addUnit("eng",77,"Writing & Revision",16,["Paragraph Main Idea","Supporting Details","Transitions","Editing Conventions","Writing Challenge"],[
+    ["A paragraph explains ways to care for a plant.","Its topic sentence should introduce plant care.","The main sentence prepares readers for the details."],["A paragraph says recess helps focus.","A detail about returning ready to learn supports it.","Supporting details connect to the main idea."],["A writer moves from a first step to a second.","'Next' clearly shows order.","Transitions connect ideas."],["Edit: 'on monday we visited austin.'","On Monday, we visited Austin.","Capitalize the first word and proper nouns."],["A draft repeats a detail and lacks an ending.","Remove repetition and add a conclusion.","Revision improves organization." ]
+  ]);
+  addUnit("math",77,"Area & Perimeter",16,["Understanding Area","Area with Arrays","Understanding Perimeter","Missing Side Lengths","Area and Perimeter Challenge"],[
+    ["A rectangle is 5 by 3 units.","Its area is 15 square units.","Multiply length by width."],["A floor has 4 rows of 7 tiles.","It covers 28 tiles.","Rows times columns models area."],["A rectangle is 6 cm by 4 cm.","Its perimeter is 20 cm.","Compute 2(6 + 4)."],["A rectangle has perimeter 18 m and length 5 m.","Each width is 4 m.","The widths total 18 − 10 = 8."],["Two shapes have area 24 but different sides.","Equal area does not require equal perimeter.","Area and perimeter measure different attributes." ]
+  ]);
+  addUnit("math",82,"Data & Graphs",17,["Picture Graphs","Bar Graphs","Line Plots","Data Questions","Data Challenge"],[
+    ["One star equals 2 votes and a row has 4 stars.","The row shows 8 votes.","Multiply symbols by the key."],["One bar is 15 and another is 9.","The difference is 6.","Subtract the values."],["Three X marks are above 1/2.","Three measurements equal 1/2.","Each mark is one value."],["A chart lists 8 cats, 5 dogs, and 3 fish.","There are 16 pets.","Add the categories."],["A graph skips axis numbers without a break.","The display may exaggerate differences.","Graph scales must be clear." ]
+  ]);
+  addUnit("sci",54,"Matter & Energy",12,["States of Matter","Changes of State","Heat Energy","Light Energy","Matter and Energy Challenge"],[
+    ["A rock keeps its shape and volume.","The rock is a solid.","Solids have definite shape and volume."],["Ice becomes liquid water.","Melting changes state without making a new substance.","Heating can change a solid to liquid."],["A spoon warms in hot soup.","Heat transfers from soup to spoon.","Thermal energy moves from warmer to cooler matter."],["A mirror redirects a flashlight beam.","The mirror reflects light.","Reflection changes light's direction."],["A dark surface warms more in sunlight.","It absorbs more light energy.","Absorbed light can become heat." ]
+  ]);
+  addUnit("sci",59,"Habitats & Environment",13,["Habitat Needs","Food Chains","Environmental Change","Conservation","Habitat Challenge"],[
+    ["A pond gives frogs water, food, shelter, and space.","The pond is a habitat meeting their needs.","Habitats provide resources."],["Grass is eaten by a rabbit, then a fox.","Energy moves from grass to rabbit to fox.","Food chains show energy relationships."],["A pond dries during drought.","Organisms may move, compete, or decline.","Environmental change affects survival."],["People plant native flowers for pollinators.","The action improves food and habitat.","Conservation restores resources."],["Trash reduces insects and fish later decline.","A habitat change affects connected populations.","Ecosystem relationships are linked." ]
+  ]);
+  addUnit("hist",56,"Past & Present",12,["Primary Sources","Timelines","Community Change","Historical Perspectives","Past and Present Challenge"],[
+    ["A diary was written 80 years ago.","It is a primary source from that time.","Primary sources were created during the period."],["Events go from earliest to latest.","They are in chronological order.","Timelines organize by date."],["Photos show dirt roads where paved streets now stand.","Transportation and infrastructure changed.","Comparing sources reveals change."],["Two people remember an event differently.","Their perspectives may differ.","Historians compare accounts."],["A bridge changes where shops are built.","Transportation can reshape growth.","Developments have connected effects." ]
+  ]);
+  addUnit("hist",61,"Citizenship & Economics",13,["Good Citizenship","Community Decisions","Goods and Services","Scarcity and Choice","Citizenship and Economics Challenge"],[
+    ["A student follows rules and cares for shared spaces.","The actions show responsible citizenship.","Citizens contribute to communities."],["Neighbors vote on a crosswalk location.","Voting is civic participation.","People can influence decisions."],["A carpenter builds a table and a nurse provides care.","The table is a good and nursing is a service.","Goods are objects; services are work."],["A class can afford books or games, not both.","Scarcity requires a choice.","Limited resources create tradeoffs."],["A town fixes the most urgent safety problem.","The decision compares needs, costs, and benefits.","Responsible choices compare consequences." ]
+  ]);
+  addUnit("eng",82,"Vocabulary & Word Study",17,["Prefixes","Suffixes","Context Clues","Multiple-Meaning Words","Vocabulary Challenge"],[
+    ["Add re- to the word read.","The word reread means to read again.","The prefix re- means again."],["Add -ful to help.","Helpful means full of help or giving help.","A suffix changes a base word's meaning."],["The trail was steep, so we climbed slowly up the sharp slope.","The nearby words show that steep means rising sharply.","Context clues help explain unfamiliar words."],["The bat flew at night, and Mia swung a bat at the ball.","Bat has different meanings in the two sentences.","Some words have multiple meanings."],["The word preview contains pre- and view.","Preview means to view beforehand.","Word parts can be combined to infer meaning." ]
+  ]);
+  addUnit("eng",87,"Speaking & Listening",18,["Listening for Main Ideas","Asking Questions","Speaking Clearly","Group Discussions","Presentation Challenge"],[
+    ["A speaker gives three reasons pets need daily care.","The main idea is that caring for pets requires regular work.","Main ideas connect the speaker's key details."],["A speaker says plants need good conditions but gives no examples.","Ask which conditions the speaker means.","Focused questions clarify missing information."],["A student speaks too softly during a report.","The student should raise volume and face the audience.","Clear speech helps listeners understand."],["Two classmates disagree during a discussion.","They should take turns and respond to each other's reasons.","Good discussions use respectful listening and evidence."],["A presentation includes facts, pictures, and a conclusion.","The speaker should explain how each visual supports the topic.","Strong presentations connect media to ideas." ]
+  ]);
+  addUnit("math",87,"Place Value & Computation",18,["Place Value to 100,000","Rounding Numbers","Multi-Digit Addition","Multi-Digit Subtraction","Computation Challenge"],[
+    ["In 54,382, what is the value of 4?","The value is 4,000.","The digit 4 is in the thousands place."],["Round 6,748 to the nearest hundred.","The rounded number is 6,700.","The tens digit is 4, so round down."],["Find 2,468 + 3,157.","The sum is 5,625.","Add by place value and regroup."],["Find 8,000 − 2,746.","The difference is 5,254.","Regroup across place values before subtracting."],["A library has 3,485 books and receives 768 more.","The library now has 4,253 books.","Add the original amount and increase." ]
+  ]);
+  addUnit("math",92,"Geometry & Patterns",19,["Classifying Shapes","Lines and Angles","Symmetry","Number Patterns","Geometry and Patterns Challenge"],[
+    ["A shape has four equal sides and four right angles.","The shape is a square.","A square has both properties."],["Two lines meet to form a square corner.","They form a right angle.","A right angle measures one quarter turn."],["A figure folds into matching halves.","The fold is a line of symmetry.","Symmetry creates mirror-image halves."],["The pattern is 4, 8, 12, 16, ...","The rule is add 4.","Each term increases by four."],["A tile design grows by 3 tiles each step and begins with 5.","Step 4 has 14 tiles.","Use 5, 8, 11, 14." ]
+  ]);
+  addUnit("sci",64,"Forces & Engineering",14,["Pushes and Pulls","Gravity and Friction","Magnets","Designing Solutions","Engineering Challenge"],[
+    ["A child pushes a toy car harder.","The stronger push can create a larger change in motion.","Forces can change speed or direction."],["A ball rolls down a ramp and slows on carpet.","Gravity pulls it down the ramp and friction slows it.","Different forces affect different parts of the motion."],["Two north poles of magnets face each other.","The magnets repel.","Like magnetic poles push apart."],["A paper bridge bends under weight.","Add supports and test the revised design.","Engineers use test evidence to improve solutions."],["One bridge is strong but uses too much material.","The design should balance strength with the material limit.","Engineering solutions must meet criteria and constraints." ]
+  ]);
+  addUnit("sci",69,"Weather & Water",15,["Weather Tools","Clouds and Rain","Water Cycle","Severe Weather Safety","Weather Investigation Challenge"],[
+    ["A thermometer reads air temperature.","The tool measures how hot or cold the air is.","Weather tools measure specific conditions."],["Water drops grow heavy inside a cloud and fall.","The falling water is precipitation.","Rain is one form of precipitation."],["Sunlight warms puddle water and it enters the air.","The process is evaporation.","Liquid water changes to water vapor."],["A thunderstorm approaches.","People should move indoors away from windows.","Safety plans reduce weather risks."],["A class records temperature and clouds for a month.","The repeated data can reveal short-term weather patterns.","Many observations support stronger conclusions." ]
+  ]);
+  addUnit("hist",66,"Maps & Culture",14,["Cardinal Directions","Map Scale","Regions and Landmarks","Cultural Traditions","Maps and Culture Challenge"],[
+    ["A park is above the school on a map with north at the top.","The park is north of the school.","Cardinal directions describe relative location."],["One map inch represents five miles.","Three inches represent fifteen miles.","Multiply map distance by the scale."],["A river, mountain, and courthouse appear on a map.","The features help describe physical and human geography.","Maps can show natural and built landmarks."],["Families celebrate holidays with foods, music, and stories.","Traditions help groups share culture across generations.","Culture includes learned customs and beliefs."],["Two neighborhoods celebrate the same holiday differently.","Communities can share traditions while expressing them differently.","Culture includes both similarities and differences." ]
+  ]);
+  addUnit("hist",71,"Government & Community",15,["Levels of Government","Community Rules","Public Services","Voting and Voice","Government Challenge"],[
+    ["A city repairs a neighborhood street.","Local government handles the community service.","Government levels have different responsibilities."],["A park rule requires visitors to use trash bins.","The rule protects a shared space.","Rules serve community purposes."],["Taxes help pay for firefighters and libraries.","Public money supports shared services.","Communities pool resources for common needs."],["Residents choose between two playground plans.","Voting allows them to express a choice.","Citizens can participate in decisions."],["A new rule helps safety but makes deliveries slower.","Leaders should compare benefits and costs.","Government decisions often involve tradeoffs." ]
+  ]);
+  addUnit("eng",92,"Poetry & Fluency",19,["Rhythm and Rhyme","Poetic Imagery","Reading with Expression","Poem Structure","Poetry Challenge"],[
+    ["The words light and night end two lines.","The words rhyme.","Rhyming words share ending sounds."],["The poem says warm bread filled the room with a sweet smell.","The words create smell imagery.","Sensory details help readers imagine."],["A character asks an excited question.","The reader should use an energetic, rising voice.","Expression follows punctuation and meaning."],["A poem has two groups of four lines.","It has two stanzas.","A stanza is a grouped set of lines."],["A repeated line returns after each stanza.","The repetition emphasizes an important idea.","Repeated words can build rhythm and meaning." ]
+  ]);
+  addUnit("eng",97,"Opinion & Informative Writing",20,["Opinion Claims","Reasons and Examples","Informative Topics","Facts and Definitions","Writing Project Challenge"],[
+    ["A writer believes the class should grow a garden.","The opinion claim should clearly state that position.","Readers need to know what the writer believes."],["A writer says reading outdoors is helpful.","A reason about quiet focus with an example supports the opinion.","Reasons become stronger with relevant examples."],["A report explains how honeybees live and work.","The writing is informative because it teaches about a topic.","Informative writing explains facts and ideas."],["A paragraph uses the word colony.","A definition can explain that a colony is a group living together.","Definitions help readers understand topic words."],["A draft mixes unrelated ideas and has no conclusion.","Group related facts and add a closing statement.","Organization helps readers follow information." ]
+  ]);
+  addUnit("math",97,"Fractions & Equal Shares",20,["Unit Fractions","Fractions of Sets","Equivalent Fractions","Whole Numbers as Fractions","Fraction Challenge"],[
+    ["A pizza is split into 6 equal pieces and one is chosen.","The piece is 1/6 of the pizza.","A unit fraction has numerator 1."],["Three of 12 counters are blue.","The blue part is 3/12 or 1/4.","A fraction can describe part of a set."],["Compare 2/3 and 4/6.","The fractions are equivalent.","They name the same amount."],["Write 3 as a fraction with denominator 4.","3 equals 12/4.","Twelve fourths make three wholes."],["Maya eats 2/8 and Luis eats 1/4 of equal sandwiches.","They eat equal amounts.","1/4 is equivalent to 2/8." ]
+  ]);
+  addUnit("math",102,"Time, Money & Problem Solving",21,["Elapsed Time","Counting Money","Making Change","Two-Step Problems","Real-World Math Challenge"],[
+    ["Practice begins at 3:20 and ends at 4:05.","Practice lasts 45 minutes.","Count 40 minutes to 4:00 and 5 more."],["Count two quarters, three dimes, and four pennies.","The total is 84 cents.","50 + 30 + 4 = 84."],["An item costs $3.65 and you pay $5.00.","The change is $1.35.","Subtract 3.65 from 5.00."],["There are 6 bags with 4 apples each, and 5 apples are eaten.","There are 19 apples left.","Compute 6 × 4 − 5."],["A trip takes 35 minutes each way plus a 50-minute visit.","The total time is 120 minutes.","Add 35 + 50 + 35." ]
+  ]);
+  addUnit("sci",74,"Life Cycles & Adaptations",16,["Plant Life Cycles","Animal Life Cycles","Structural Adaptations","Behavioral Adaptations","Life Science Challenge"],[
+    ["A seed sprouts, grows, flowers, and makes new seeds.","The stages form a plant life cycle.","Life cycles include growth and reproduction."],["A frog changes from egg to tadpole to adult.","The frog develops through a repeating life cycle.","Animals have ordered stages."],["A duck has webbed feet.","The structure helps it swim.","Physical features can support survival."],["Birds fly south before winter.","Migration is a behavior that helps them find resources.","Behaviors can help organisms survive change."],["A cactus stores water and has a waxy covering.","Both structures help it survive dry conditions.","Adaptations fit environmental challenges." ]
+  ]);
+  addUnit("sci",79,"Earth Changes & Resources",17,["Slow Earth Changes","Fast Earth Changes","Soil and Rocks","Natural Resources","Earth Science Challenge"],[
+    ["A river slowly wears away a bank.","Erosion changes the land over time.","Moving water carries sediment."],["A landslide moves soil downhill suddenly.","The event is a rapid Earth-surface change.","Some geologic changes happen quickly."],["Soil contains rock pieces and decayed living matter.","Soil forms from several materials over time.","Weathering and organisms contribute to soil."],["People use water, wood, stone, and sunlight.","These are natural resources.","Natural resources come from Earth."],["Trees are removed and runoff increases.","Resource use can change erosion and habitats.","Human choices affect Earth systems." ]
+  ]);
+  addUnit("hist",76,"Communities Around the World",16,["Urban and Rural Communities","Cultural Celebrations","Homes and Environment","Transportation","Community Comparison Challenge"],[
+    ["One community has tall buildings and crowded streets; another has farms and open land.","The first is urban and the second rural.","Communities differ in population and land use."],["Families celebrate with special music, food, and clothing.","Celebrations express cultural traditions.","Traditions share beliefs and history."],["Homes in snowy places have steep roofs.","People design homes for environmental conditions.","Climate can influence buildings."],["A river community uses boats while a city uses trains.","Transportation choices reflect geography and needs.","Places develop different movement systems."],["Two communities have schools and markets but use different buildings.","Communities can meet similar needs in different ways.","Comparison shows similarities and differences." ]
+  ]);
+  addUnit("hist",81,"Economics & Decisions",17,["Needs and Wants","Jobs and Income","Budgets","Trade","Economic Decision Challenge"],[
+    ["Food and shelter are compared with a toy.","Food and shelter are needs; the toy is a want.","Needs are required for health and safety."],["A worker earns money for repairing bicycles.","Income is received for providing work.","Jobs exchange labor for pay."],["A family lists income, saving, and spending.","The plan is a budget.","Budgets help manage limited money."],["One town trades apples for another town's grain.","Trade allows both places to get different goods.","People exchange goods they produce."],["A family chooses a less expensive trip to keep savings.","The choice balances a want with a future goal.","Economic decisions involve opportunity costs." ]
+  ]);
+  addUnit("eng",102,"Reading Comprehension",21,["Making Predictions","Drawing Inferences","Summarizing Stories","Comparing Characters","Reading Challenge"],[
+    ["Dark clouds gather as Ana carries an umbrella.","It will probably rain.","Details support a reasonable prediction."],["Ben hides a torn paper and avoids eye contact.","Ben may be worried about admitting what happened.","Actions provide clues not stated directly."],["A story shows a lost dog, a search, and a reunion.","A summary should include the problem, important actions, and solution.","Summaries keep central events."],["Lina asks for help while Omar works alone.","The characters handle the same problem differently.","Comparison uses shared situations."],["The ending solves the problem using a clue from the beginning.","The early clue foreshadows the solution.","Strong readers connect details across a text." ]
+  ]);
+  addUnit("eng",107,"Language Conventions",22,["Nouns and Pronouns","Regular and Irregular Verbs","Commas and Apostrophes","Contractions","Editing Challenge"],[
+    ["Maria found Maria's book, so Maria picked it up.","Replace repeated Maria with the pronoun she.","Pronouns replace nouns clearly."],["Yesterday, the children go to the park.","Change go to went.","Went is the past tense of go."],["Edit: We bought apples oranges and pears.","Add commas between items in the series.","Commas separate three or more items."],["Combine do not.","The contraction is don't.","An apostrophe replaces missing letters."],["Edit: Its Jamals turn.","Write: It's Jamal's turn.","It's means it is; Jamal's shows ownership." ]
+  ]);
+  addUnit("math",107,"Multiplication & Division Strategies",22,["Skip Counting","Distributive Property","Related Facts","Remainders","Strategy Challenge"],[
+    ["Count by 6s to find 6 × 7.","The product is 42.","Seven groups of six equal 42."],["Break 7 × 8 into 7 × 5 and 7 × 3.","The product is 56.","35 + 21 = 56."],["Use 9 × 4 = 36 to solve 36 ÷ 4.","The quotient is 9.","Multiplication and division are related."],["Share 26 pencils among 4 groups.","Each group gets 6 with 2 left over.","24 divides equally and 2 remain."],["A class has 5 tables with 6 seats and adds 4 chairs.","There are 34 seats.","Compute 5 × 6 + 4." ]
+  ]);
+  addUnit("math",112,"Measurement & Geometry",23,["Measuring Length","Mass and Capacity","Quadrilaterals","Partitioning Shapes","Measurement Challenge"],[
+    ["A pencil is measured with a centimeter ruler.","Its length begins at zero and ends at the matching mark.","Measurement compares an object to equal units."],["Choose a unit for a full bathtub.","Liters are appropriate for its capacity.","Capacity measures how much liquid a container holds."],["A shape has four sides with both pairs opposite and parallel.","It is a parallelogram.","Quadrilaterals can be classified by side relationships."],["A rectangle is split into 8 equal parts and 3 are shaded.","The shaded area is 3/8.","Equal-area parts create fractions."],["A garden is 9 m by 4 m with a 2 m gate along its edge.","Its area is 36 m² and full perimeter is 26 m.","Area and perimeter answer different measurement questions." ]
+  ]);
+  addUnit("sci",84,"Organisms & Ecosystems",18,["Organism Needs","Traits and Survival","Food Webs","Habitat Change","Ecosystem Challenge"],[
+    ["A plant receives light and water but no air.","It is missing a resource needed to live.","Organisms require several basic resources."],["A snowshoe hare has white winter fur.","The trait helps camouflage it in snow.","Traits can improve survival in a habitat."],["Grass feeds insects and rabbits, which feed birds and foxes.","The relationships form a food web.","Food webs connect multiple food chains."],["A forest pond is drained.","Organisms may lose food, water, shelter, or space.","Habitat change affects many needs."],["Fewer insects lead to fewer insect-eating birds.","A population change can spread through an ecosystem.","Connected organisms affect one another." ]
+  ]);
+  addUnit("sci",89,"Motion & Energy",19,["Describing Motion","Force Strength","Sound Vibrations","Light and Materials","Motion and Energy Challenge"],[
+    ["A toy car moves farther from a starting line each second.","Its position changes relative to the starting point.","Motion is described using a reference point."],["Two equal carts receive different-strength pushes.","The stronger push usually changes motion more.","Force strength affects motion."],["A plucked rubber band moves back and forth and makes sound.","Vibrations produce the sound.","Sound begins with vibrating matter."],["Light passes through clear glass but not cardboard.","Glass is transparent and cardboard is opaque.","Materials interact with light differently."],["A ramp is raised and the same car travels farther.","The test suggests ramp height affects the car's motion.","A fair test changes one variable." ]
+  ]);
+  addUnit("hist",86,"U.S. Symbols & Leaders",18,["National Symbols","Important Documents","Community Leaders","Historical Leaders","Civic Symbols Challenge"],[
+    ["The flag is displayed during a national ceremony.","The flag is a symbol representing the country.","Symbols stand for shared ideas."],["The Constitution describes government powers and rules.","It is an important foundational document.","Documents record principles and structures."],["A mayor helps guide city decisions.","The mayor is a local government leader.","Leaders serve at different levels."],["A historical leader worked to expand equal rights.","The leader's actions should be studied with evidence from the time.","Historical claims require sources."],["A monument honors an event but leaves out some perspectives.","Readers should compare the monument's message with other sources.","Public symbols reflect choices about memory." ]
+  ]);
+  addUnit("hist",91,"Community History & Geography",19,["Local History Sources","Community Timelines","Land Use","Movement and Migration","Community History Challenge"],[
+    ["An old photograph shows the town square in 1920.","The photograph is evidence about the community's past.","Visual primary sources preserve details."],["A timeline lists a school opening before a library opening.","The timeline shows their chronological order.","Dates organize change over time."],["A map shows farms becoming neighborhoods.","The evidence shows land use changed.","Maps can reveal spatial change."],["Families move to a town for new jobs.","Economic opportunity can influence migration.","People move for connected push and pull reasons."],["Interviews and maps disagree about when a road changed.","Compare dates and corroborate with additional records.","Historians resolve differences using more evidence." ]
+  ]);
+})();
 window.K12RepairClassicBank?.("g3");

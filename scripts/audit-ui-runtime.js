@@ -44,7 +44,7 @@ function sourceDeclaresId(id){
   return literalId.test(source)||dynamicSubjectPage.test(source);
 }
 
-const newSectionIds=["prek-eng","prek-math","kinder-eng","kinder-math","g1-eng","g1-math","paymentStatus"];
+const newSectionIds=["prek-eng","prek-math","kinder-eng","kinder-math","g1-eng","g1-math","g1-sci","paymentStatus"];
 const expandedCourseSectionIds=["g8-alg1","g1-handwriting","g2-handwriting","g3-handwriting"];
 const requiredIds=["home","grades","reading","settings","analysis","shop","playground","lessonRunner","lrQuestion","lrChoices","lrPrevBtn","lrNextBtn","subscriptionPaywallStatus","checkoutConfirmButton","checkoutCardNumber","checkoutExpiry","checkoutCvc","checkoutZip",...newSectionIds];
 for(const id of requiredIds){

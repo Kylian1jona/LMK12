@@ -254,8 +254,10 @@ function speechVoiceScore(voice){
   const language=String(voice?.lang||"").toLowerCase();
   const wantMale=voiceType==="male";
   let score=0;
-  if(language==="en-us") score+=45;
-  else if(language.startsWith("en")) score+=25;
+  const requested=typeof window.k12CurrentLanguage==="function"?window.k12CurrentLanguage():"en";
+  const languagePrefix=requested==="zh"?"zh":requested;
+  if(language.startsWith(languagePrefix)) score+=75;
+  else if(language==="en-us") score+=20;
   if(/natural|neural/.test(name)) score+=180;
   else if(/enhanced|premium/.test(name)) score+=125;
   else if(/online/.test(name)) score+=55;
@@ -269,7 +271,10 @@ function speechVoiceScore(voice){
 }
 
 function getPreferredSpeechVoice(){
-  const voices = getSpeechVoices().filter(v=>/^en/i.test(v.lang || ""));
+  const requested=typeof window.k12CurrentLanguage==="function"?window.k12CurrentLanguage():"en";
+  const prefix=requested==="zh"?"zh":requested;
+  const localized=getSpeechVoices().filter(v=>String(v.lang||"").toLowerCase().startsWith(prefix));
+  const voices=localized.length?localized:getSpeechVoices().filter(v=>/^en/i.test(v.lang || ""));
   if(!voices.length) return null;
   const saved=voices.find(voice=>voice.name===preferredVoiceName);
   if(saved) return saved;
@@ -279,7 +284,10 @@ function getPreferredSpeechVoice(){
 function renderVoiceSelect(){
   const select=$("settingsVoiceSelect");
   if(!select) return;
-  const voices=getSpeechVoices().filter(voice=>/^en/i.test(voice.lang||""));
+  const requested=typeof window.k12CurrentLanguage==="function"?window.k12CurrentLanguage():"en";
+  const prefix=requested==="zh"?"zh":requested;
+  const localized=getSpeechVoices().filter(voice=>String(voice.lang||"").toLowerCase().startsWith(prefix));
+  const voices=localized.length?localized:getSpeechVoices().filter(voice=>/^en/i.test(voice.lang||""));
   const selected=getPreferredSpeechVoice();
   select.innerHTML="";
   if(!voices.length){
@@ -365,7 +373,8 @@ function speakGlobal(t){
     u.rate = 0.89;
     u.pitch = voiceType === "male" ? 0.96 : 1;
     u.volume = 0.96;
-    u.lang = preferredVoice?.lang || "en-US";
+    const language=typeof window.k12CurrentLanguage==="function"?window.k12CurrentLanguage():"en";
+    u.lang = preferredVoice?.lang || ({es:"es-ES",fr:"fr-FR",zh:"zh-CN",hi:"hi-IN"}[language]||"en-US");
     speechSynthesis.speak(u);
   }catch(e){}
 }
@@ -396,7 +405,15 @@ function syncAppSectionHistory(id,mode="push"){
   if(!window.history?.pushState||mode==="pop") return;
   const current=window.history.state||{};
   if(!current[APP_HISTORY_MARKER]){
-    window.history.replaceState({...current,[APP_HISTORY_MARKER]:id,learnMasterDepth:0},document.title);
+    const startingSection=normalizeAppSection(visibleAppSection||"home");
+    window.history.replaceState({...current,[APP_HISTORY_MARKER]:startingSection,learnMasterDepth:0},document.title);
+    if(mode==="replace"||startingSection===id){
+      if(mode==="replace"&&startingSection!==id){
+        window.history.replaceState({...current,[APP_HISTORY_MARKER]:id,learnMasterDepth:0},document.title);
+      }
+      return;
+    }
+    window.history.pushState({...current,[APP_HISTORY_MARKER]:id,learnMasterDepth:1},document.title);
     return;
   }
   const depth=Math.max(0,Number(current.learnMasterDepth)||0);
@@ -490,7 +507,7 @@ document.addEventListener("visibilitychange",()=>{
 window.addEventListener("pagehide",pauseUniversalLessonTimer);
 
 function normalizeAppSection(id){
-  const aliases={"g1":"grade1","1":"grade1","grade1-eng":"g1-eng","grade1-math":"g1-math","g9-alg1":"g9-math","g10-alg1":"g10-math"};
+  const aliases={"g1":"grade1","1":"grade1","grade1-eng":"g1-eng","grade1-math":"g1-math","grade1-sci":"g1-sci","grade1-science":"g1-sci","g9-alg1":"g9-math","g10-alg1":"g10-math"};
   const requested=aliases[String(id||"")]||String(id||"");
   return document.getElementById(requested)?requested:"home";
 }
@@ -519,12 +536,13 @@ function show(id,options={}){
   }else{
     pauseUniversalLessonTimer();
   }
-  visibleAppSection=id;
   syncAppSectionHistory(id,options.historyMode||"push");
+  visibleAppSection=id;
+  if(id!=="playground" && typeof cancelPlaygroundLoop==="function") cancelPlaygroundLoop();
   const sections = [
     "home","grades","reading","settings","addUserPage","analysis","shop","playground","worksheets","tutorFinder","tutorAssignments","testPrep",
     "parentPortal","adminPortal","paymentStatus","curriculumStandards",
-    "prek","prek-eng","prek-math","kinder","kinder-eng","kinder-math","grade1","g1-eng","g1-math",
+    "prek","prek-eng","prek-math","kinder","kinder-eng","kinder-math","grade1","g1-eng","g1-math","g1-sci","readingPyramid",
     "grade2","g2-eng","g2-math","g2-sci","g2-hist",
 "grade3","g3-eng","g3-math","g3-sci","g3-hist",
 "grade4","g4-eng","g4-math","g4-sci","g4-hist",
@@ -1427,7 +1445,8 @@ function renderReadingHome(){
     const grade = READING_LIBRARY[gradeId];
     const card = document.createElement("div");
     card.className = "reading-card reading-grade-card";
-    card.innerHTML = `<span class="reading-grade-number" aria-hidden="true">${htmlSafe(grade.title.replace("Grade ", ""))}</span><div><span class="reading-card-kicker">GRADE LEVEL</span><h3>${htmlSafe(grade.title)}</h3><p>${Object.keys(grade.subjects).length} subjects</p></div>`;
+    const bubbleLabel = gradeId === "prek" ? "PK" : gradeId === "k" ? "K" : grade.title.replace("Grade ", "");
+    card.innerHTML = `<span class="reading-grade-number" aria-hidden="true">${htmlSafe(bubbleLabel)}</span><div><span class="reading-card-kicker">GRADE LEVEL</span><h3>${htmlSafe(grade.title)}</h3><p>${Object.keys(grade.subjects).length} subjects</p></div>`;
     card.appendChild(readingButton("Explore grade", ()=>renderReadingGrade(gradeId)));
     grid.appendChild(card);
   });
@@ -1495,6 +1514,21 @@ function stopVoice(){
   try{ speechSynthesis.cancel(); }catch(e){}
 }
 
+function readingCheck(topic){
+  if(topic.check) return topic.check;
+  const first=String(topic.body?.[0]||"");
+  const detail=first.split(/[.!?]/).find(part=>part.trim().split(/\s+/).length>4)?.trim()||first;
+  return {question:"Which detail comes directly from the reading?",choices:[detail,"The reading says the opposite.","The reading gives no details."],answer:0,explanation:"That answer is stated in the reading."};
+}
+
+function answerReadingCheck(button,topic){
+  const check=readingCheck(topic),box=button.closest(".reading-check"),chosen=Number(button.dataset.readingChoice);
+  [...box.querySelectorAll("[data-reading-choice]")].forEach((item,index)=>{item.disabled=true;if(index===check.answer)item.classList.add("is-correct");else if(item===button)item.classList.add("is-wrong");});
+  const result=box.querySelector(".reading-check-result");
+  result.hidden=false;
+  result.innerHTML=`<strong>${chosen===check.answer?"You found it!":"Read that part once more."}</strong> ${htmlSafe(check.explanation||"")}`;
+}
+
 function renderReadingTopic(gradeId, subjId, topicIndex){
   const grade = READING_LIBRARY[gradeId];
   const subj = grade?.subjects?.[subjId];
@@ -1503,6 +1537,9 @@ function renderReadingTopic(gradeId, subjId, topicIndex){
   if(!grade || !subj || !topic || !panel) return;
   const readingLevel=gradeId==="prek"||gradeId==="k"?0:Number(String(gradeId).replace("g",""));
   const canReadAloud=readingLevel<=3;
+  const early=gradeId==="prek"||gradeId==="k";
+  const check=readingCheck(topic);
+  const wordBank=topic.words?.length?topic.words:(String(topic.body?.[0]||"").toLowerCase().match(/\b[a-z]{4,}\b/g)||[]).slice(0,4);
   panel.innerHTML = `
     <div class="reading-reader-head">
       <button type="button" class="reading-back-btn" id="readingBackBtn" aria-label="Back to passages">← Passages</button>
@@ -1511,16 +1548,21 @@ function renderReadingTopic(gradeId, subjId, topicIndex){
         <button type="button" class="reading-stop-btn" id="readingStopBtn">Stop</button>
       </div>
     </div>
-    <article class="reading-passage${topic.genre==="Poetry"||topic.genre==="Ballad"?" is-poetry":""}">
+    <div class="reading-routine"><span><b>1</b> Read</span><span><b>2</b> Think</span><span><b>3</b> Check</span></div>
+    <article class="reading-passage${topic.genre==="Poetry"||topic.genre==="Ballad"?" is-poetry":""}${early?" is-early-reader":""}">
       <span class="reading-view-step">${htmlSafe(grade.title)} · ${htmlSafe(subj.title)}</span>
       <h2>${htmlSafe(topic.title)}</h2>
+      ${topic.focus?`<aside class="reading-focus"><strong>Listen for:</strong> ${htmlSafe(topic.focus)}</aside>`:""}
       ${topic.body.map(p=>`<p>${htmlSafe(p)}</p>`).join("")}
+      ${wordBank.length?`<div class="reading-word-bank"><strong>Words to know</strong>${wordBank.map(word=>`<span>${htmlSafe(word)}</span>`).join("")}</div>`:""}
     </article>
+    <section class="reading-check"><span class="reading-view-step">QUICK CHECK</span><h3>${htmlSafe(check.question)}</h3><div class="reading-check-choices">${check.choices.map((choice,index)=>`<button type="button" data-reading-choice="${index}"><b>${String.fromCharCode(65+index)}</b><span>${htmlSafe(choice)}</span></button>`).join("")}</div><p class="reading-check-result" role="status" hidden></p></section>
   `;
   if(canReadAloud){
     $("readingSpeakBtn").onclick = ()=>readReadingTopic(gradeId, subjId, topicIndex);
     $("readingStopBtn").onclick = ()=>stopVoice();
   }
+  panel.querySelectorAll("[data-reading-choice]").forEach(button=>button.onclick=()=>answerReadingCheck(button,topic));
   $("readingBackBtn").onclick = ()=>renderReadingSubject(gradeId, subjId);
 }
 
@@ -1601,6 +1643,9 @@ function renderSettings(){
       <div class="settings-block settings-theme-block">
         <div class="settings-card-heading"><span>03</span><div><h3>Theme</h3><p>Pick the color mood that feels best.</p></div></div>
         <div class="theme-choice-grid" id="themeChoices"></div>
+        <div class="settings-label settings-text-color-label">Lesson text color</div>
+        <p class="small-note">Automatic changes for contrast. Dark and white stay saved on this device.</p>
+        <div class="text-tone-choice-grid" id="textToneChoices"></div>
       </div>
 
       <div class="settings-block settings-account-block">
@@ -1668,6 +1713,19 @@ function renderSettings(){
       btn.textContent = THEMES[themeId];
       btn.onclick = ()=>setTheme(themeId);
       themes.appendChild(btn);
+    });
+  }
+  const textTones=$("textToneChoices");
+  if(textTones){
+    [["auto","Automatic"],["dark","Dark text"],["light","White text"]].forEach(([tone,label])=>{
+      const btn=document.createElement("button");
+      btn.type="button";
+      btn.className="text-tone-choice-btn"+(getTextTone()===tone?" active":"");
+      btn.dataset.tone=tone;
+      btn.setAttribute("aria-pressed",String(getTextTone()===tone));
+      btn.textContent=label;
+      btn.onclick=()=>setTextTone(tone);
+      textTones.appendChild(btn);
     });
   }
   applyAvatar($("settingsAvatarPreview"), kid);

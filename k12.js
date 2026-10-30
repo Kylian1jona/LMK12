@@ -1,5 +1,13 @@
 enforceUniqueLessonImages();
 
+// Remove the retired offline-app worker and its public shell cache.
+if("serviceWorker" in navigator){
+  navigator.serviceWorker.getRegistrations().then(registrations=>registrations.forEach(registration=>registration.unregister())).catch(()=>{});
+}
+if("caches" in window){
+  caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith("learnmaster-reader-")).map(key=>caches.delete(key)))).catch(()=>{});
+}
+
 function setupImageZoom(){
   if(window.__k12ImageZoomReady) return;
   window.__k12ImageZoomReady = true;
