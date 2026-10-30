@@ -25,7 +25,7 @@ function walk(dir){
 walk(stage);
 const response=await fetch(`https://api.netlify.com/api/v1/sites/${siteId}/deploys`,{
   method:'POST',headers:{...auth,'Content-Type':'application/json'},
-  body:JSON.stringify({files,draft:true,title:'Remove test-card barrier from plan access'})
+  body:JSON.stringify({files,draft:true,title:'Restore prefilled trial card for all plans'})
 });
 const deploy=await response.json();
 if(!response.ok) throw Error(`Create draft failed: HTTP ${response.status} ${deploy.message||''}`);

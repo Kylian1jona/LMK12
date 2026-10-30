@@ -46,7 +46,7 @@ function sourceDeclaresId(id){
 
 const newSectionIds=["prek-eng","prek-math","kinder-eng","kinder-math","g1-eng","g1-math","g1-sci","paymentStatus"];
 const expandedCourseSectionIds=["g8-alg1","g1-handwriting","g2-handwriting","g3-handwriting"];
-const requiredIds=["home","grades","reading","settings","analysis","shop","playground","lessonRunner","lrQuestion","lrChoices","lrPrevBtn","lrNextBtn","subscriptionPaywallStatus","checkoutConfirmButton",...newSectionIds];
+const requiredIds=["home","grades","reading","settings","analysis","shop","playground","lessonRunner","lrQuestion","lrChoices","lrPrevBtn","lrNextBtn","subscriptionPaywallStatus","checkoutConfirmButton","checkoutCardNumber","checkoutExpiry","checkoutCvc","checkoutZip",...newSectionIds];
 for(const id of requiredIds){
   if(!sourceDeclaresId(id)) failures.push(`Required UI element #${id} is missing.`);
 }
@@ -112,7 +112,7 @@ if(!/preserveProvidedChoices\(q\.answer,\s*normalizedChoices\)/.test(lessonCoreS
 if(!/#lrChoices\[data-choice-layout=["']two-one["']\][\s\S]{0,240}grid-column\s*:\s*1\s*\/\s*-1/.test(css)) failures.push("Three-choice lessons do not give C a full-width row.");
 if(!/#lrChoices\[data-choice-layout=["']two-one-two["']\][^,{]*\.choice-btn:nth-child\(3\)[\s\S]{0,180}grid-column\s*:\s*1\s*\/\s*-1/.test(css)) failures.push("Five-choice lessons do not use the A/B, full-width C, D/E layout.");
 if(/#lrChoices\[data-choice-layout=["']two-one(?:-two)?["']\][\s\S]{0,160}grid-column\s*:\s*auto/.test(css)) failures.push("Responsive styles disable the three- or five-choice layout.");
-if(/checkoutCardNumber|checkoutExpiry|checkoutCvc|checkoutZip/.test(authShell+accountSource)) failures.push("Plan selection still asks for card details.");
+if(!/id="checkoutCardNumber"[^>]*value="4242 4242 4242 4242" readonly/.test(authShell)) failures.push("The trial card is not visibly prefilled and read only.");
 if(!/async\s+function\s+confirmPayment\s*\(\)[\s\S]{0,600}requestSubscriptionPlan\(checkout\.planId\)/.test(accountSource)) failures.push("Plan confirmation does not start learning access.");
 if(/requestSubscriptionPlan\([^)]*(?:Card|Expiry|Cvc|Zip)/.test(accountSource)) failures.push("Card-field data is being passed into the subscription request.");
 for(const legacyPaymentToken of ["learnmaster_last_payment_v1","validCardLike","PROMO_CODES","pendingNewKid","finishPaidKidAdd","openCheckout(\"member\")"]){

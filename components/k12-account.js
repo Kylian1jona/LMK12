@@ -570,7 +570,7 @@ function subscriptionGraceDaysRemaining(){
   return Math.max(0,14-daysLate);
 }
 function subscriptionActionMessage(){
-  if(subscriptionAuthority.mode==="setup") return "Choose a plan to start learning. No card is needed.";
+  if(subscriptionAuthority.mode==="setup") return "Choose a plan and use the prefilled trial card to start learning.";
   if(subscriptionAuthority.status==="late"&&subscriptionAccessAllowed()){
     const days=subscriptionGraceDaysRemaining();
     return days
@@ -580,7 +580,7 @@ function subscriptionActionMessage(){
   if(subscriptionAuthority.status==="late") return "The 14-day payment grace period ended. Update the payment status to continue learning.";
   if(subscriptionAuthority.status==="suspended") return "Your subscription is suspended. Choose a plan or contact the administrator.";
   if(subscriptionAuthority.selectedPlan) return "Your plan is being prepared. No real card is charged in this version.";
-  return "Choose a plan to start learning. No card is needed.";
+  return "Choose a plan and use the prefilled trial card to start learning.";
 }
 function readDemoSubscription(){
   try{
@@ -758,7 +758,7 @@ function trialActive(){ return false; }
 function startTrial(){
   safeClick();
   showPaywall(true);
-  toast("Choose a plan to start learning. No card is needed.");
+  toast("Choose a plan and use the prefilled trial card to start learning.");
 }
 
 function ensurePin(){
@@ -831,9 +831,17 @@ function openCheckout(planId){
   const requestButton=$("checkoutConfirmButton");
   if(requestButton){ requestButton.disabled=false; requestButton.textContent="Start plan"; }
 
+  const trialValues={
+    checkoutCardNumber:"4242 4242 4242 4242",
+    checkoutExpiry:`12/${String((new Date().getFullYear()+2)%100).padStart(2,"0")}`,
+    checkoutCvc:"123",
+    checkoutZip:"12345"
+  };
+  Object.entries(trialValues).forEach(([id,value])=>{const field=$(id);if(field) field.value=value;});
+
   $("checkoutPlanName").textContent = plan.name;
   $("checkoutTitle").textContent = `Start ${plan.name}`;
-  if($("checkoutDesc")) $("checkoutDesc").textContent = "Confirm this plan to start learning. No card is needed.";
+  if($("checkoutDesc")) $("checkoutDesc").textContent = "The trial card below is ready. No payment is processed.";
 
   updateCheckoutUI();
 
@@ -1223,11 +1231,11 @@ function renderSubscriptionPaywallStatus(){
       : `${planText} is active. No Stripe charge is made in this version.`;
     status.innerHTML=`<strong>${htmlSafe(statusText)}</strong><span>${htmlSafe(detail)}</span>`;
   }else if(subscriptionAuthority.mode==="setup"){
-    status.innerHTML='<strong>Choose a plan</strong><span>Select a plan to start immediately. No card is needed.</span>';
+    status.innerHTML='<strong>Choose a plan</strong><span>Use the prefilled trial card to start immediately.</span>';
   }else if(subscriptionAuthority.selectedPlan){
     status.innerHTML=`<strong>${htmlSafe(statusText)}</strong><span>${htmlSafe(subscriptionActionMessage())}</span>`;
   }else{
-    status.innerHTML='<strong>Choose a plan</strong><span>Select a plan to start immediately. No card is needed.</span>';
+    status.innerHTML='<strong>Choose a plan</strong><span>Use the prefilled trial card to start immediately.</span>';
   }
 }
 function showPaywall(required=planChoiceRequired()){
