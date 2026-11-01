@@ -4,33 +4,40 @@
       ['Letters & Sounds','Listen for sounds and match letters.','syllables rhymes alphabet-upper alphabet-lower ending-sounds'],
       ['Vowel Sounds','Read short vowels and changing vowel patterns.','short-a short-e short-i short-o short-u short-vowels silent-e'],
       ['Build Words','Blend sounds and find word families.','words blend-cvc digraph-sh digraph-ch digraph-th initial-blends word-families'],
-      ['Read Sentences','Use words, punctuation, and story clues.','days-week word-spaces sentence-start question-words story-order sentence-endings opposites action-words sentence-meaning pyramid-reading']
+      ['Read Sentences','Use words, punctuation, and story clues.','days-week word-spaces sentence-start question-words story-order sentence-endings opposites action-words sentence-meaning pyramid-reading'],
+      ['More Sounds & Words','Hear new sounds, read word endings, and name actions.','more-initial-digraphs more-short-vowels more-final-sounds more-word-endings more-sentence-marks more-naming-actions'],
+      ['More Reading Clues','Find places, characters, and familiar word groups.','more-location-words more-story-characters more-story-settings more-food-groups']
     ],
     'kinder-math':[
       ['Numbers & Counting','Count, order, and recognize numbers.','counting count20 forwardback10 missing-number teen-numbers backward20 rows-count order10 subitize ordinal-positions'],
       ['Compare & Pattern','Compare amounts and find patterns.','compare20 patterns compare-groups'],
       ['Add & Subtract','Put numbers together and take them apart.','addition take-apart20 subtraction make-ten story-add story-sub number-bonds'],
       ['Shapes','Find shapes and describe their features.','circles triangles squares all-shapes shape-attributes'],
-      ['Measure & Explore','Practice measurement, time, and graphs.','measurement time time-seasons length-units picture-graphs']
+      ['Measure & Explore','Practice measurement, time, and graphs.','measurement time time-seasons length-units picture-graphs'],
+      ['More Number Sense','Build teen numbers and count in new ways.','more-teen-ones more-count-by-two more-before-teen more-after-teen more-groups-of-five'],
+      ['More Number Stories','Add, take away, and work with equal groups.','more-add-to-ten more-subtract-to-ten more-make-ten more-double-pictures more-picture-rows']
     ],
     'g1-eng':[
       ['Sounds & Spelling','Read vowel patterns and beginning and ending sounds.','short-vowels long-vowels blend-st vowel-teams short-vowel-words long-vowel-words beginning-blends letter-pairs ending-sounds rhyming-families final-consonants vowel-team-spelling silent-e-words'],
       ['Build Words','Join, change, and compare everyday words.','compound-words contractions plural-words syllable-beats opposite-words same-meaning word-categories word-clues position-words'],
       ['Sentences & Grammar','Choose words and build complete sentences.','sight sentences parts-speech naming-words action-words describing-words pronouns sentence-marks a-or-an capital-letters past-tense-verbs word-order'],
       ['Reading Stories','Read short passages and use clues.','story-questions reading-clues pyramid-reading story-characters story-settings story-first story-next story-purpose story-problems story-solutions story-results story-feelings'],
-      ['Read Animal Facts','Find details in short informational passages.','animal-facts animal-features animal-homes-reading animal-food-reading']
+      ['Read Animal Facts','Find details in short informational passages.','animal-facts animal-features animal-homes-reading animal-food-reading'],
+      ['More Meaning & Reading','Read word meanings, sentence purposes, and story order.','more-meaning-groups more-pronoun-clues more-sentence-purposes more-word-endings more-text-types more-question-words more-story-order']
     ],
     'g1-math':[
       ['Hands-On Math','Explore numbers with blocks, lines, and shapes.','block-add number-line-lab fraction-builder'],
       ['Counting & Place Value','Count, compare, and use tens and ones.','count100 skip2 skip5 skip10 compare place-value ten-more add-tens-ones number-neighbors'],
       ['Addition Strategies','Build sums and solve addition stories.','add10 add20 missing-addend doubles equal-groups fact-families make10-strategy number-bonds addition-stories'],
       ['Subtraction','Take away and solve subtraction stories.','sub10 sub20 subtract-through10 subtraction-stories'],
-      ['Shapes & Everyday Math','Use shapes, measurement, time, money, and graphs.','shape-properties measurement time money picture-graphs coin-totals']
+      ['Shapes & Everyday Math','Use shapes, measurement, time, money, and graphs.','shape-properties measurement time money picture-graphs coin-totals'],
+      ['More Math Practice','Add, subtract, count by fives, and use place value.','more-add-twenty more-sub-twenty more-ten-more more-ten-less more-five-count more-place-value more-equal-groups']
     ],
     'g1-sci':[
       ['Living Things','Explore plants, animals, and their needs.','living-things plants animals plant-records animal-coverings animal-young'],
       ['Earth & Weather','Observe the sky, water, and weather safety.','weather day-night care-earth water-changes weather-safety'],
-      ['Materials & Motion','Test materials, light, sound, and movement.','materials light-sound-motion five-senses push-pull shadow-tests magnet-test']
+      ['Materials & Motion','Test materials, light, sound, and movement.','materials light-sound-motion five-senses push-pull shadow-tests magnet-test'],
+      ['More Science Clues','Explore plant parts, habitats, materials, forces, and weather.','more-plant-parts more-animal-coverings more-habitat-clues more-materials more-forces more-weather-signs']
     ]
   };
 

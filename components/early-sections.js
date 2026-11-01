@@ -83,7 +83,17 @@
         lessonCard("prek:eng:story-clues","prek-eng","Picture Story Clues","Find where a little story takes place.","READ"),
         lessonCard("prek:eng:community-helpers","prek-eng","Community Helpers","Meet the people who help us.","HELP"),
         lessonCard("prek:eng:sort-lrn-sounds","prek-eng","L, R, and N Sounds","Sort picture words by their first sound.","LRN"),
-        lessonCard("prek:eng:sort-story-places","prek-eng","Places in Stories","Sort scenes from home, school, and the park.","HOME")
+        lessonCard("prek:eng:sort-story-places","prek-eng","Places in Stories","Sort scenes from home, school, and the park.","HOME"),
+        lessonCard("prek:eng:more-pbc-sounds","prek-eng","P, B, and C Sounds","Practice p, b, and c sounds with short picture and word clues.","ABC"),
+        lessonCard("prek:eng:more-hfr-sounds","prek-eng","H, F, and R Sounds","Practice h, f, and r sounds with short picture and word clues.","ABC"),
+        lessonCard("prek:eng:more-rhyme-families","prek-eng","Rhyming Picture Words","Practice rhyming picture words with short picture and word clues.","ABC"),
+        lessonCard("prek:eng:more-animal-moves","prek-eng","How Animals Move","Practice how animals move with short picture and word clues.","ABC"),
+        lessonCard("prek:eng:more-room-objects","prek-eng","Things in Rooms","Practice things in rooms with short picture and word clues.","ABC"),
+        lessonCard("prek:eng:more-vehicles","prek-eng","Ways to Travel","Practice ways to travel with short picture and word clues.","ABC"),
+        lessonCard("prek:eng:more-feeling-clues","prek-eng","Feelings in Little Stories","Practice feelings in little stories with short picture and word clues.","ABC"),
+        lessonCard("prek:eng:more-opposite-clues","prek-eng","Words That Are Opposites","Practice words that are opposites with short picture and word clues.","ABC"),
+        lessonCard("prek:eng:more-senses","prek-eng","Look, Listen, or Smell","Practice look, listen, or smell with short picture and word clues.","ABC"),
+        lessonCard("prek:eng:more-story-time","prek-eng","Story Time Clues","Practice story time clues with short picture and word clues.","ABC")
       ];
       const prekMath=[
         lessonCard("prek:math:shapes","prek-math","Identify Basic Shapes","Recognize circles, squares, triangles, and more.","O"),
@@ -111,7 +121,17 @@
         lessonCard("prek:math:add-one","prek-math","Add One More","Count a group after one more joins.","+1"),
         lessonCard("prek:math:take-one-away","prek-math","Take One Away","Count what remains when one leaves.","-1"),
         lessonCard("prek:math:sort-seven-nine","prek-math","Count Bigger Groups","Sort groups of seven, eight, and nine.","789"),
-        lessonCard("prek:math:sort-lengths","prek-math","Compare Lengths","Sort short, medium, and long pictures.","LEN")
+        lessonCard("prek:math:sort-lengths","prek-math","Compare Lengths","Sort short, medium, and long pictures.","LEN"),
+        lessonCard("prek:math:more-count-to-five","prek-math","Count Little Groups","Practice count little groups with pictures and number clues.","123"),
+        lessonCard("prek:math:more-one-more","prek-math","One More Picture","Practice one more picture with pictures and number clues.","123"),
+        lessonCard("prek:math:more-one-less","prek-math","One Goes Away","Practice one goes away with pictures and number clues.","123"),
+        lessonCard("prek:math:more-next-number","prek-math","What Number Comes Next?","Practice what number comes next? with pictures and number clues.","123"),
+        lessonCard("prek:math:more-before-number","prek-math","What Number Comes Before?","Practice what number comes before? with pictures and number clues.","123"),
+        lessonCard("prek:math:more-make-five","prek-math","Groups That Make Five","Practice groups that make five with pictures and number clues.","123"),
+        lessonCard("prek:math:more-shape-objects","prek-math","Everyday Shape Clues","Practice everyday shape clues with pictures and number clues.","123"),
+        lessonCard("prek:math:more-new-colors","prek-math","Green, Orange, and Purple","Practice green, orange, and purple with pictures and number clues.","123"),
+        lessonCard("prek:math:more-full-empty","prek-math","Full, Half, or Empty","Practice full, half, or empty with pictures and number clues.","123"),
+        lessonCard("prek:math:more-position-words","prek-math","On, Under, or Beside","Practice on, under, or beside with pictures and number clues.","123")
       ];
       const kinderEnglish=[
         lessonCard("k:eng:syllables","kinder-eng","Syllable Count","Clap and count word parts.","CLAP"),
@@ -136,7 +156,17 @@
         lessonCard("k:eng:sort-short-vowels","kinder-eng","Short Vowels","Sort short A, E, and I words.","AEI"),
         lessonCard("k:eng:sort-blends","kinder-eng","Beginning Blends","Sort BL, CL, and FL words.","BL"),
         lessonCard("k:eng:sort-word-families","kinder-eng","Word Families","Sort words ending in -at, -an, and -ap.","-AT"),
-        lessonCard("k:eng:sort-sentence-marks","kinder-eng","Sentences","Sort telling, asking, and excited sentences.","?!")
+        lessonCard("k:eng:sort-sentence-marks","kinder-eng","Sentences","Sort telling, asking, and excited sentences.","?!"),
+        lessonCard("k:eng:more-initial-digraphs","kinder-eng","Sh, Ch, and Th Sounds","Practice sh, ch, and th sounds with short picture and word clues.","ABC"),
+        lessonCard("k:eng:more-short-vowels","kinder-eng","Short Vowel Pictures","Practice short vowel pictures with short picture and word clues.","ABC"),
+        lessonCard("k:eng:more-final-sounds","kinder-eng","Listen to Last Sounds","Practice listen to last sounds with short picture and word clues.","ABC"),
+        lessonCard("k:eng:more-word-endings","kinder-eng","Build Word Families","Practice build word families with short picture and word clues.","ABC"),
+        lessonCard("k:eng:more-sentence-marks","kinder-eng","Read Sentence Marks","Practice read sentence marks with short picture and word clues.","ABC"),
+        lessonCard("k:eng:more-naming-actions","kinder-eng","Naming, Action, or Describing","Practice naming, action, or describing with short picture and word clues.","ABC"),
+        lessonCard("k:eng:more-location-words","kinder-eng","Where Is It?","Practice where is it? with short picture and word clues.","ABC"),
+        lessonCard("k:eng:more-story-characters","kinder-eng","Who Is in the Story?","Practice who is in the story? with short picture and word clues.","ABC"),
+        lessonCard("k:eng:more-story-settings","kinder-eng","Where Does the Story Happen?","Practice where does the story happen? with short picture and word clues.","ABC"),
+        lessonCard("k:eng:more-food-groups","kinder-eng","Food Word Groups","Practice food word groups with short picture and word clues.","ABC")
       ].join("");
       const kinderMath=[
         lessonCard("k:math:counting","kinder-math","Counting to 30","Build confident number sense.","123"),
@@ -162,7 +192,17 @@
         lessonCard("k:math:sort-sums","kinder-math","Sums","Sort addition facts that make 6, 7, or 8.","+"),
         lessonCard("k:math:sort-differences","kinder-math","Take Away","Sort subtraction answers of 2, 3, or 4.","−"),
         lessonCard("k:math:sort-number-forms","kinder-math","Number Forms","Match ways to show 4, 5, and 6.","456"),
-        lessonCard("k:math:sort-solid-shapes","kinder-math","Solid Shapes","Sort spheres, cubes, and cylinders.","3D")
+        lessonCard("k:math:sort-solid-shapes","kinder-math","Solid Shapes","Sort spheres, cubes, and cylinders.","3D"),
+        lessonCard("k:math:more-teen-ones","kinder-math","Tens and Ones to Twenty","Practice tens and ones to twenty with pictures and number clues.","123"),
+        lessonCard("k:math:more-add-to-ten","kinder-math","Add Two Small Groups","Practice add two small groups with pictures and number clues.","123"),
+        lessonCard("k:math:more-subtract-to-ten","kinder-math","Take Away from Ten","Practice take away from ten with pictures and number clues.","123"),
+        lessonCard("k:math:more-make-ten","kinder-math","Find the Missing Part of Ten","Practice find the missing part of ten with pictures and number clues.","123"),
+        lessonCard("k:math:more-count-by-two","kinder-math","Count by Twos","Practice count by twos with pictures and number clues.","123"),
+        lessonCard("k:math:more-before-teen","kinder-math","Numbers Before the Teens","Practice numbers before the teens with pictures and number clues.","123"),
+        lessonCard("k:math:more-after-teen","kinder-math","Numbers After the Teens","Practice numbers after the teens with pictures and number clues.","123"),
+        lessonCard("k:math:more-double-pictures","kinder-math","Double a Small Group","Practice double a small group with pictures and number clues.","123"),
+        lessonCard("k:math:more-picture-rows","kinder-math","Count Two Rows","Practice count two rows with pictures and number clues.","123"),
+        lessonCard("k:math:more-groups-of-five","kinder-math","Count Groups of Five","Practice count groups of five with pictures and number clues.","123")
       ].join("");
       const g1English=[
         lessonCard("g1:eng:short-vowels","g1-eng","Short Vowel Sounds","Find the short vowel sound in simple words.","CAT"),
@@ -211,7 +251,14 @@
         lessonCard("g1:eng:animal-facts","g1-eng","Read Animal Facts","Read short facts and name the animal.","FACT"),
         lessonCard("g1:eng:animal-features","g1-eng","Animal Body Features","Find a feature described in a text.","BODY"),
         lessonCard("g1:eng:animal-homes-reading","g1-eng","Where Animals Live","Read to find an animal's home.","HOME"),
-        lessonCard("g1:eng:animal-food-reading","g1-eng","What Animals Eat","Read to find an animal's food.","FOOD")
+        lessonCard("g1:eng:animal-food-reading","g1-eng","What Animals Eat","Read to find an animal's food.","FOOD"),
+        lessonCard("g1:eng:more-meaning-groups","g1-eng","Words with Related Meanings","Practice words with related meanings with short picture and word clues.","READ"),
+        lessonCard("g1:eng:more-pronoun-clues","g1-eng","Choose a Pronoun","Practice choose a pronoun with short picture and word clues.","READ"),
+        lessonCard("g1:eng:more-sentence-purposes","g1-eng","What Is the Sentence Doing?","Practice what is the sentence doing? with short picture and word clues.","READ"),
+        lessonCard("g1:eng:more-word-endings","g1-eng","Words with Endings","Practice words with endings with short picture and word clues.","READ"),
+        lessonCard("g1:eng:more-text-types","g1-eng","Kinds of Reading","Practice kinds of reading with short picture and word clues.","READ"),
+        lessonCard("g1:eng:more-question-words","g1-eng","Question Words","Practice question words with short picture and word clues.","READ"),
+        lessonCard("g1:eng:more-story-order","g1-eng","First, Next, or Last","Practice first, next, or last with short picture and word clues.","READ")
       ].join("");
       const g1Math=[
         lessonCard("g1:math:block-add","g1-math","Addition Block Builder","Move colored blocks into two groups and combine them.","BLOCKS"),
@@ -235,7 +282,14 @@
         lessonCard("g1:math:number-bonds","g1-math","Number Bonds to 20","Find the missing part of a number bond.","10"),
         lessonCard("g1:math:addition-stories","g1-math","Addition Story Problems","Add objects in everyday stories.","+"),
         lessonCard("g1:math:subtraction-stories","g1-math","Subtraction Story Problems","Find what remains in everyday stories.","−"),
-        lessonCard("g1:math:coin-totals","g1-math","Count Coins","Add pennies, nickels, and dimes.","¢")
+        lessonCard("g1:math:coin-totals","g1-math","Count Coins","Add pennies, nickels, and dimes.","¢"),
+        lessonCard("g1:math:more-add-twenty","g1-math","Add Within Twenty","Practice add within twenty with pictures and number clues.","MATH"),
+        lessonCard("g1:math:more-sub-twenty","g1-math","Subtract Within Twenty","Practice subtract within twenty with pictures and number clues.","MATH"),
+        lessonCard("g1:math:more-ten-more","g1-math","Ten More Than a Number","Practice ten more than a number with pictures and number clues.","MATH"),
+        lessonCard("g1:math:more-ten-less","g1-math","Ten Less Than a Number","Practice ten less than a number with pictures and number clues.","MATH"),
+        lessonCard("g1:math:more-five-count","g1-math","Skip Count by Fives","Practice skip count by fives with pictures and number clues.","MATH"),
+        lessonCard("g1:math:more-place-value","g1-math","Tens and Ones to Fifty","Practice tens and ones to fifty with pictures and number clues.","MATH"),
+        lessonCard("g1:math:more-equal-groups","g1-math","Two Equal Groups","Practice two equal groups with pictures and number clues.","MATH")
       ].join("");
       const g1Science=[
         lessonCard("g1:sci:living-things","g1-sci","Living and Nonliving Things","Sort living things from nonliving objects.","LIFE"),
@@ -248,7 +302,13 @@
         lessonCard("g1:sci:animal-young","g1-sci","Young Animals","Match animals with the names of their young.","CUB"),
         lessonCard("g1:sci:magnet-test","g1-sci","What Magnets Attract","Predict which everyday objects a magnet attracts.","MAG"),
         lessonCard("g1:sci:water-changes","g1-sci","Water, Ice, and Vapor","Notice freezing, melting, evaporation, and drops.","H₂O"),
-        lessonCard("g1:sci:weather-safety","g1-sci","Safe Choices in Weather","Choose safe actions for sun, rain, cold, and storms.","SKY")
+        lessonCard("g1:sci:weather-safety","g1-sci","Safe Choices in Weather","Choose safe actions for sun, rain, cold, and storms.","SKY"),
+        lessonCard("g1:sci:more-plant-parts","g1-sci","What Plant Parts Do","Explore what plant parts do with everyday examples.","SCI"),
+        lessonCard("g1:sci:more-animal-coverings","g1-sci","Animal Body Coverings","Explore animal body coverings with everyday examples.","SCI"),
+        lessonCard("g1:sci:more-habitat-clues","g1-sci","Find the Habitat","Explore find the habitat with everyday examples.","SCI"),
+        lessonCard("g1:sci:more-materials","g1-sci","Everyday Materials","Explore everyday materials with everyday examples.","SCI"),
+        lessonCard("g1:sci:more-forces","g1-sci","Push, Pull, or No Change","Explore push, pull, or no change with everyday examples.","SCI"),
+        lessonCard("g1:sci:more-weather-signs","g1-sci","Read Weather Signs","Explore read weather signs with everyday examples.","SCI")
       ].join("");
 
       this.innerHTML=
@@ -260,7 +320,9 @@
           ["Picture Sorting","Drag and drop familiar pictures into groups.",14,19],
           ["More Sorting","Practice sounds, syllables, feelings, and places.",19,24],
           ["Words & Stories","Use picture clues for words, actions, and little stories.",24,32],
-          ["Listen & Sort","Group beginning sounds and story places.",32]
+          ["Listen & Sort","Group beginning sounds and story places.",32,34],
+          ["More Sounds & Words","Hear first sounds, rhymes, and opposite words.",34,39],
+          ["Stories & Our World","Use picture clues for movement, places, and feelings.",39]
         ]))+
         subjectPage("prek-math","prek","Pre-K","Math","+",prekLessonGroups(prekMath,[
           ["Shapes & Counting","Identify shapes and count small groups.",0,4],
@@ -269,7 +331,9 @@
           ["More Math Sorting","Practice colors, number forms, and changes.",11,16],
           ["Numbers & Shapes","Count, compare, and spot shapes around you.",16,20],
           ["Measure & Change","Explore position, length, adding, and taking away.",20,24],
-          ["Sort More Pictures","Sort counts and lengths by dragging or tapping.",24]
+          ["Sort More Pictures","Sort counts and lengths by dragging or tapping.",24,26],
+          ["More Counting","Find numbers before and after, and make five.",26,32],
+          ["Shapes & Position","Explore colors, fullness, shapes, and locations.",32]
         ]))+
         gradeMenu("kinder","K","Kindergarten","Short lessons that turn early skills into confidence.","kPoints","kLearners")+
         subjectPage("kinder-eng","kinder","Kindergarten","English","A",kinderEnglish)+
