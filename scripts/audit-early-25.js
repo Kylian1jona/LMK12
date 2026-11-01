@@ -9,6 +9,7 @@ for(const file of [
   "k12-classic-25-kindergarten.js",
   "k12-classic-25-g1.js",
   "k12-early-expanded-lessons.js",
+  "k12-prek-more-20261101.js",
   "k12-g1-regular-lessons.js",
   "k12-g1-english-more-20261031.js",
   "k12-g1-english-more-20261031b.js",
@@ -28,7 +29,7 @@ for(const key of lessonButtons){
 }
 for(const prefix of ["prek:","g1:"]){
   const visible=lessonButtons.filter(key=>key.startsWith(prefix));
-  const expectedVisible=prefix==="g1:"?79:20;
+  const expectedVisible=prefix==="g1:"?79:36;
   if(visible.length!==expectedVisible) failures.push(`${prefix.slice(0,-1)} should show ${expectedVisible} requested lessons, found ${visible.length}.`);
   if(new Set(visible).size!==visible.length) failures.push(`${prefix.slice(0,-1)} repeats a lesson button.`);
 }
@@ -70,7 +71,7 @@ for(const [key,record] of Object.entries(banks)){
 
 const gradeOneScience=Object.keys(banks).filter(key=>key.startsWith("g1:sci:"));
 if(gradeOneScience.length!==11) failures.push(`Expected 11 Grade 1 science lessons, found ${gradeOneScience.length}.`);
-const expectedLessons=142;
+const expectedLessons=158;
 const report={
   lessons:Object.keys(banks).length,
   questions:Object.values(banks).reduce((sum,record)=>sum+(record.questions?.length||0),0),

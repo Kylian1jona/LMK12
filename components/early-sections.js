@@ -73,7 +73,17 @@
         lessonCard("prek:eng:sort-syllables","prek-eng","Word Beats","Clap words with one, two, or three beats.","👏"),
         lessonCard("prek:eng:sort-living-things","prek-eng","Living Things","Sort animals, plants, and objects.","🌱"),
         lessonCard("prek:eng:sort-feelings","prek-eng","Feelings","Sort happy, sad, and scared faces.","😊"),
-        lessonCard("prek:eng:sort-places","prek-eng","Places","Sort home, school, and playground pictures.","🏠")
+        lessonCard("prek:eng:sort-places","prek-eng","Places","Sort home, school, and playground pictures.","🏠"),
+        lessonCard("prek:eng:opposite-words","prek-eng","Opposite Words","Find words with opposite meanings.","UP"),
+        lessonCard("prek:eng:animal-babies","prek-eng","Animal Babies","Match familiar animals with their young.","CUB"),
+        lessonCard("prek:eng:action-pictures","prek-eng","Action Pictures","Name the action in each picture.","GO"),
+        lessonCard("prek:eng:daily-routines","prek-eng","Daily Routines","Connect activities to parts of the day.","DAY"),
+        lessonCard("prek:eng:vowel-pictures","prek-eng","Vowel Picture Sounds","Hear the first sound of picture words.","AEI"),
+        lessonCard("prek:eng:last-sounds","prek-eng","Last Sounds","Listen for a word's ending sound.","END"),
+        lessonCard("prek:eng:story-clues","prek-eng","Picture Story Clues","Find where a little story takes place.","READ"),
+        lessonCard("prek:eng:community-helpers","prek-eng","Community Helpers","Meet the people who help us.","HELP"),
+        lessonCard("prek:eng:sort-lrn-sounds","prek-eng","L, R, and N Sounds","Sort picture words by their first sound.","LRN"),
+        lessonCard("prek:eng:sort-story-places","prek-eng","Places in Stories","Sort scenes from home, school, and the park.","HOME")
       ];
       const prekMath=[
         lessonCard("prek:math:shapes","prek-math","Identify Basic Shapes","Recognize circles, squares, triangles, and more.","O"),
@@ -91,7 +101,17 @@
         lessonCard("prek:math:sort-count-4-6","prek-math","Count to Six","Sort groups of four, five, and six.","456"),
         lessonCard("prek:math:sort-number-forms","prek-math","Number Forms","Match ways to show one, two, and three.","123"),
         lessonCard("prek:math:sort-corners","prek-math","Shape Corners","Sort shapes with zero, three, and four corners.","▲"),
-        lessonCard("prek:math:sort-group-changes","prek-math","Group Changes","Sort adding, taking away, and staying the same.","+−")
+        lessonCard("prek:math:sort-group-changes","prek-math","Group Changes","Sort adding, taking away, and staying the same.","+−"),
+        lessonCard("prek:math:five-frames","prek-math","Five Frames","Count filled dots in a row of five.","5"),
+        lessonCard("prek:math:count-six-ten","prek-math","Count Six to Ten","Count colorful picture groups.","10"),
+        lessonCard("prek:math:compare-small-groups","prek-math","Compare Small Groups","Find the side with more pictures.","MORE"),
+        lessonCard("prek:math:shapes-around-us","prek-math","Shapes Around Us","Spot shapes in everyday objects.","SHAPE"),
+        lessonCard("prek:math:inside-outside","prek-math","Inside and Outside","Tell where objects are.","IN"),
+        lessonCard("prek:math:longer-shorter","prek-math","Longer and Shorter","Compare the lengths of two lines.","RUL"),
+        lessonCard("prek:math:add-one","prek-math","Add One More","Count a group after one more joins.","+1"),
+        lessonCard("prek:math:take-one-away","prek-math","Take One Away","Count what remains when one leaves.","-1"),
+        lessonCard("prek:math:sort-seven-nine","prek-math","Count Bigger Groups","Sort groups of seven, eight, and nine.","789"),
+        lessonCard("prek:math:sort-lengths","prek-math","Compare Lengths","Sort short, medium, and long pictures.","LEN")
       ];
       const kinderEnglish=[
         lessonCard("k:eng:syllables","kinder-eng","Syllable Count","Clap and count word parts.","CLAP"),
@@ -238,13 +258,18 @@
           ["Letters & Sounds","Match letters, beginning sounds, and rhymes.",4,9],
           ["Our World","Animals, body parts, weather, and daily routines.",9,14],
           ["Picture Sorting","Drag and drop familiar pictures into groups.",14,19],
-          ["More Sorting","Practice sounds, syllables, feelings, and places.",19]
+          ["More Sorting","Practice sounds, syllables, feelings, and places.",19,24],
+          ["Words & Stories","Use picture clues for words, actions, and little stories.",24,32],
+          ["Listen & Sort","Group beginning sounds and story places.",32]
         ]))+
         subjectPage("prek-math","prek","Pre-K","Math","+",prekLessonGroups(prekMath,[
           ["Shapes & Counting","Identify shapes and count small groups.",0,4],
           ["Compare & Pattern","Find more, less, and what comes next.",4,6],
           ["Sort Math Pictures","Group shapes, counts, patterns, and sums.",6,11],
-          ["More Math Sorting","Practice colors, number forms, and changes.",11]
+          ["More Math Sorting","Practice colors, number forms, and changes.",11,16],
+          ["Numbers & Shapes","Count, compare, and spot shapes around you.",16,20],
+          ["Measure & Change","Explore position, length, adding, and taking away.",20,24],
+          ["Sort More Pictures","Sort counts and lengths by dragging or tapping.",24]
         ]))+
         gradeMenu("kinder","K","Kindergarten","Short lessons that turn early skills into confidence.","kPoints","kLearners")+
         subjectPage("kinder-eng","kinder","Kindergarten","English","A",kinderEnglish)+
