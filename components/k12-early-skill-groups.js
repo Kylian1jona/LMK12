@@ -14,9 +14,10 @@
       ['Measure & Explore','Practice measurement, time, and graphs.','measurement time time-seasons length-units picture-graphs']
     ],
     'g1-eng':[
-      ['Sounds & Spelling','Read vowel patterns and build words.','short-vowels long-vowels compound-words plurals blend-st vowel-teams'],
-      ['Sentences & Grammar','Choose words and build complete sentences.','sight sentences parts-speech'],
-      ['Reading Stories','Read short passages and use clues.','story-questions reading-clues pyramid-reading']
+      ['Sounds & Spelling','Read vowel patterns and beginning and ending sounds.','short-vowels long-vowels blend-st vowel-teams short-vowel-words long-vowel-words beginning-blends letter-pairs ending-sounds'],
+      ['Build Words','Join, change, and compare everyday words.','compound-words contractions plural-words syllable-beats opposite-words'],
+      ['Sentences & Grammar','Choose words and build complete sentences.','sight sentences parts-speech naming-words action-words describing-words pronouns sentence-marks'],
+      ['Reading Stories','Read short passages and use clues.','story-questions reading-clues pyramid-reading story-characters story-settings story-first story-next story-purpose']
     ],
     'g1-math':[
       ['Hands-On Math','Explore numbers with blocks, lines, and shapes.','block-add number-line-lab fraction-builder'],

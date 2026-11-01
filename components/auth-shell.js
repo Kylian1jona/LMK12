@@ -139,6 +139,7 @@
     <span class="profile-chooser-kicker">What's new</span>
     <h2 id="profileUpdateTitle">Update log</h2>
     <div class="profile-update-entries">
+      <article><time datetime="2026-10-31">October 31, 2026</time><h3>20 more Grade 1 English lessons</h3><p>Five lessons each in phonics, word work, grammar, and reading add 500 questions. Practice vowel sounds, word patterns, sentence skills, and short stories with multiple choice, dropdown, and matching questions.</p></article>
       <article><time datetime="2026-10-29">October 29, 2026</time><h3>Trial card for every plan</h3><p>The plan screen shows prefilled trial card details again. Choose Starter, Plus, or Max and start learning without entering a real card. No payment is processed.</p></article>
       <article><time datetime="2026-10-29">October 29, 2026</time><h3>Easier account access</h3><p>Choose a learning plan and start without entering a test card. Plan prices are previews; no payment is processed.</p></article>
       <article><time datetime="2026-10-29">October 29, 2026</time><h3>Reading pyramids and more ways to answer</h3><p>Kindergarten and Grade 1 English now have picture-guided reading pyramids. Grade 1 builds longer sentences. Grade 5 English questions begin with the question itself, and the new Grade 5 lessons add fill-in-the-blank practice alongside matching, multiple choice, dropdowns, and select-two questions.</p></article>

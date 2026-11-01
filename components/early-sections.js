@@ -151,7 +151,27 @@
         lessonCard("g1:eng:sentences","g1-eng","Build and Read Simple Sentences","Practice complete sentences and punctuation.","Aa"),
         lessonCard("g1:eng:parts-speech","g1-eng","Nouns, Verbs, and Adjectives","Tell whether a word names, acts, or describes.","NVA"),
         lessonCard("g1:eng:story-questions","g1-eng","Read a Short Story and Answer Questions","Read short passages and recall key details.","READ"),
-        pyramidCard("g1","Build longer sentences one word at a time with picture clues.")
+        pyramidCard("g1","Build longer sentences one word at a time with picture clues."),
+        lessonCard("g1:eng:short-vowel-words","g1-eng","Short Vowels in Words","Read words with short A, E, I, O, and U.","AEIOU"),
+        lessonCard("g1:eng:long-vowel-words","g1-eng","Long Vowels in Words","Read words with long vowel sounds.","LONG"),
+        lessonCard("g1:eng:beginning-blends","g1-eng","Beginning Blends","Find words that start with two consonants.","BL"),
+        lessonCard("g1:eng:letter-pairs","g1-eng","Letter Pairs and Qu","Read SH, CH, TH, WH, and QU words.","SH"),
+        lessonCard("g1:eng:ending-sounds","g1-eng","Ending Letter Patterns","Read words ending in CK, NG, ND, ST, and MP.","END"),
+        lessonCard("g1:eng:compound-words","g1-eng","Make Compound Words","Join two small words to make one.","JOIN"),
+        lessonCard("g1:eng:contractions","g1-eng","Read Contractions","Connect short forms with their full words.","I'M"),
+        lessonCard("g1:eng:plural-words","g1-eng","One and More Than One","Find the plural form of everyday words.","+S"),
+        lessonCard("g1:eng:syllable-beats","g1-eng","Count Word Beats","Clap and count syllables in words.","CLAP"),
+        lessonCard("g1:eng:opposite-words","g1-eng","Opposite Words","Match words with opposite meanings.","UP"),
+        lessonCard("g1:eng:naming-words","g1-eng","Find Naming Words","Find the noun in a short sentence.","NOUN"),
+        lessonCard("g1:eng:action-words","g1-eng","Find Action Words","Find what happens in a sentence.","VERB"),
+        lessonCard("g1:eng:describing-words","g1-eng","Find Describing Words","Find words that tell what something is like.","ADJ"),
+        lessonCard("g1:eng:pronouns","g1-eng","Use Pronouns","Replace names with he, she, they, it, or we.","SHE"),
+        lessonCard("g1:eng:sentence-marks","g1-eng","Sentence End Marks","Choose a period, question mark, or exclamation mark.","?!"),
+        lessonCard("g1:eng:story-characters","g1-eng","Find Story Characters","Tell who a short story is about.","WHO"),
+        lessonCard("g1:eng:story-settings","g1-eng","Find Story Settings","Tell where a short story happens.","WHERE"),
+        lessonCard("g1:eng:story-first","g1-eng","What Happened First?","Find the first event in a story.","1ST"),
+        lessonCard("g1:eng:story-next","g1-eng","What Happened Next?","Find the next event in a story.","NEXT"),
+        lessonCard("g1:eng:story-purpose","g1-eng","Why Did They Go?","Use story clues to tell why.","WHY")
       ].join("");
       const g1Math=[
         lessonCard("g1:math:block-add","g1-math","Addition Block Builder","Move colored blocks into two groups and combine them.","BLOCKS"),
