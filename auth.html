@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d7773">
+  <title>Account confirmation | LearnMaster K12</title>
+  <link rel="icon" href="images/learnmaster-favicon-v1.png">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="components/auth-confirmation.css">
+</head>
+<body>
+  <main class="auth-confirm-card" aria-live="polite">
+    <img class="auth-confirm-logo" src="images/learnmaster-logo-header-v2.png" alt="LearnMaster K12">
+    <div class="auth-confirm-icon" id="resultIcon" aria-hidden="true">✓</div>
+    <p class="eyebrow" id="resultEyebrow">ACCOUNT SECURITY</p>
+    <h1 id="resultTitle">Checking your link</h1>
+    <p id="resultMessage">Please wait while we securely confirm your account.</p>
+    <form id="pinForm" hidden>
+      <label for="parentPin">Create your parent PIN</label>
+      <input id="parentPin" type="password" inputmode="numeric" autocomplete="new-password" pattern="[0-9]{4,}" minlength="4" required placeholder="At least 4 digits">
+      <p class="field-help">This protects parent controls. Your PIN will appear once after you save it.</p>
+      <button type="submit">Save parent PIN</button>
+    </form>
+    <form id="passwordForm" hidden>
+      <label for="newPassword">New password</label>
+      <input id="newPassword" type="password" autocomplete="new-password" minlength="8" required placeholder="At least 8 characters">
+      <label for="confirmPassword">Confirm new password</label>
+      <input id="confirmPassword" type="password" autocomplete="new-password" minlength="8" required placeholder="Enter it again">
+      <button type="submit">Change password</button>
+    </form>
+    <p class="form-message" id="formMessage" role="status"></p>
+    <div class="pin-reveal" id="pinReveal" hidden>Your parent PIN is <strong id="pinValue"></strong><span>Keep it somewhere safe. You can change it in Settings.</span></div>
+    <a class="auth-confirm-link" id="continueLink" href="/">Go to LearnMaster</a>
+  </main>
+  <p class="auth-confirm-footer">A safer start for every learner.</p>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="components/supabase-config.js"></script>
+  <script src="components/auth-confirmation.js"></script>
+</body>
+</html>

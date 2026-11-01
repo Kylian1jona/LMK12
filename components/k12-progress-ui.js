@@ -1658,6 +1658,17 @@ function renderSettings(){
         </div>
         <button type="button" class="btn btn-main" onclick="accountUnlock('addKid')" ${learnerTotal >= MAX_KIDS_PER_ACCOUNT ? "disabled" : ""}>Add learner ($5)</button>
         <button type="button" class="btn btn-main" onclick="show('analysis')">Open analysis</button>
+        <div class="settings-security">
+          <h4>Account security</h4>
+          <p>Secure links go to your account email, including Gmail accounts.</p>
+          <div class="settings-security-actions">
+            <button type="button" class="btn btn-main" onclick="emailAccountRecovery('password')">Change password by email</button>
+            <button type="button" class="btn btn-main" onclick="revealParentPin()">Show parent PIN</button>
+            <button type="button" class="btn btn-main" onclick="changeParentPin()">Change parent PIN</button>
+            <button type="button" class="btn btn-main" onclick="emailAccountRecovery('pin')">Reset PIN by email</button>
+          </div>
+          <p id="accountSecurityStatus" role="status" aria-live="polite"></p>
+        </div>
       </div>
 
       <div class="settings-block settings-delete-block">

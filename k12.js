@@ -233,6 +233,7 @@ async function restoreActiveSession(){
 
   try{
     await window.learnMasterStore.hydrate(session.user);
+    applyTheme();
   }catch(error){
     console.warn("Could not restore LearnMaster account data:", error?.message || error);
     return false;

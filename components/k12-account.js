@@ -130,7 +130,7 @@ async function resendSignupConfirmation(){
   loginMsg("Sending a new confirmation email…");
   let error;
   try{
-    ({error}=await client.auth.resend({type:"signup",email,options:{emailRedirectTo:window.location.origin+window.location.pathname}}));
+    ({error}=await client.auth.resend({type:"signup",email,options:{emailRedirectTo:"https://k12-learning.netlify.app/auth.html"}}));
   }catch(cause){error=cause;}
   if(button) button.disabled=false;
   if(error){
@@ -311,7 +311,7 @@ async function createSignupUser(){
       email,
       password:pass,
       options:{
-        emailRedirectTo:"https://k12-learning.netlify.app",
+        emailRedirectTo:"https://k12-learning.netlify.app/auth.html",
         data:{username,display_name:name,first_name:firstName,last_name:lastName,account_role:accountRole,tutor_qualification:tutorQualification,tutor_subjects:tutorSubjects,tutor_availability:tutorAvailability,free_month_eligible:accountRole!=="tutor"}
       }
     });
@@ -423,7 +423,7 @@ async function resetLoginPassword(){
   }
   if(!emailPattern.test(email)){ loginMsg("Enter a valid username or email address above first.", true); return; }
   const { error } = await client.auth.resetPasswordForEmail(email, {
-    redirectTo: `${window.location.origin}${window.location.pathname}`
+    redirectTo: "https://k12-learning.netlify.app/auth.html?mode=password"
   });
   loginMsg(error ? error.message : `Password reset email sent to ${email}. Check your spam folder too.`, !!error);
 }
@@ -761,25 +761,90 @@ function startTrial(){
   toast("Choose a plan and use the prefilled trial card to start learning.");
 }
 
-function ensurePin(){
-  let pin = learnMasterStore.getItem(PIN_KEY);
-  if(pin && pin.length >= 4) return pin;
-  const newPin = prompt("Create an account PIN (4+ digits). Keep it safe:");
-  if(!newPin || newPin.length < 4 || !/^\d+$/.test(newPin)){ alert("PIN must be 4+ digits."); return ""; }
-  learnMasterStore.setItem(PIN_KEY, newPin);
-  return newPin;
+async function requestParentPin({reveal=false}={}){
+  const saved=learnMasterStore.getItem(PIN_KEY);
+  if(!/^\d{4,}$/.test(saved||"")){
+    const created=await parentPinDialog({title:"Create your parent PIN",description:"Choose at least four digits. You will use this PIN for parent controls.",create:true});
+    if(!created) return false;
+    learnMasterStore.setItem(PIN_KEY,created);
+    await learnMasterStore.flush();
+    await parentPinDialog({title:"Your parent PIN is ready",description:"Keep this PIN somewhere safe. You can change it in Settings.",display:created});
+    return true;
+  }
+  const entered=await parentPinDialog({title:"Parent PIN",description:"Enter your PIN to continue."});
+  if(entered===null) return false;
+  if(entered!==saved){ toast("That parent PIN is incorrect."); return false; }
+  if(reveal) await parentPinDialog({title:"Your parent PIN",description:"Only share this PIN with trusted adults.",display:saved});
+  return true;
 }
-function accountUnlock(action){
+function parentPinDialog({title,description,create=false,display=""}){
+  return new Promise(resolve=>{
+    const dialog=document.createElement("dialog");
+    dialog.className="parent-pin-dialog";
+    dialog.setAttribute("aria-label",title);
+    const box=document.createElement("div");
+    box.className="parent-pin-box";
+    const heading=document.createElement("h2"); heading.textContent=title;
+    const intro=document.createElement("p"); intro.textContent=description;
+    const form=document.createElement("form"); form.method="dialog";
+    const field=document.createElement("input"); field.className="form-control";
+    field.type=display?"text":"password"; field.inputMode="numeric";
+    field.autocomplete="off"; field.pattern="[0-9]{4,}";
+    field.placeholder="At least 4 digits"; field.setAttribute("aria-label","Parent PIN");
+    field.value=display; field.readOnly=!!display;
+    const message=document.createElement("p"); message.className="parent-pin-error"; message.setAttribute("role","alert");
+    const actions=document.createElement("div"); actions.className="parent-pin-actions";
+    const cancel=document.createElement("button"); cancel.type="button"; cancel.className="btn btn-outline-secondary"; cancel.textContent="Cancel";
+    const submit=document.createElement("button"); submit.type="submit"; submit.className="btn btn-main"; submit.textContent=display?"Done":create?"Save PIN":"Continue";
+    actions.append(cancel,submit); form.append(field,message,actions); box.append(heading,intro,form); dialog.append(box);
+    document.body.append(dialog);
+    let done=false;
+    const finish=value=>{if(done)return;done=true;dialog.close();dialog.remove();resolve(value);};
+    cancel.onclick=()=>finish(null);
+    dialog.addEventListener("cancel",event=>{event.preventDefault();finish(null);});
+    form.addEventListener("submit",event=>{
+      event.preventDefault();
+      if(display){finish(display);return;}
+      const value=field.value.trim();
+      if(!/^\d{4,}$/.test(value)){message.textContent="Use at least four digits.";return;}
+      finish(value);
+    });
+    dialog.showModal();
+    if(!display) field.focus(); else submit.focus();
+  });
+}
+async function accountUnlock(action){
   safeClick();
-  const pin = ensurePin();
-  if(!pin) return false;
-  const attempt = prompt("Enter account PIN:");
-  if(attempt !== pin){ alert("Wrong PIN."); return false; }
+  if(!await requestParentPin()) return false;
   if(action === "addKid"){ addKidFlow(true); return true; }
   if(action === "managePlan"){ managePlanFlow(); return true; }
   if(action === "accountMenu"){ accountMenuFlow(true); return true; }
   if(action === "resetCurrentKid"){ resetCurrentKidFlow(); return true; }
   return true;
+}
+async function revealParentPin(){
+  if(!learnMasterStore.getItem(PIN_KEY)){ await requestParentPin(); return; }
+  await requestParentPin({reveal:true});
+}
+async function changeParentPin(){
+  if(learnMasterStore.getItem(PIN_KEY) && !await requestParentPin()) return;
+  const next=await parentPinDialog({title:"Change parent PIN",description:"Choose a new PIN with at least four digits.",create:true});
+  if(!next) return;
+  learnMasterStore.setItem(PIN_KEY,next);
+  await learnMasterStore.flush();
+  await parentPinDialog({title:"Parent PIN changed",description:"Keep this new PIN somewhere safe.",display:next});
+  renderSettings();
+}
+async function emailAccountRecovery(mode="password"){
+  const client=window.learnMasterSupabase;
+  const {data:userResult,error:userError}=await client.auth.getUser();
+  const email=userResult?.user?.email;
+  const status=$("accountSecurityStatus");
+  if(userError||!email){if(status)status.textContent="Sign in again before requesting an email.";return;}
+  const {error}=await client.auth.resetPasswordForEmail(email,{
+    redirectTo:`https://k12-learning.netlify.app/auth.html?mode=${mode==="pin"?"pin":"password"}`
+  });
+  if(status) status.textContent=error?error.message:`Check ${email} for a secure ${mode==="pin"?"parent PIN":"password"} link.`;
 }
 function accountMenuFlow(parentVerified=false){
   const choice = prompt(
@@ -1023,11 +1088,8 @@ function renameKidFlow(){
 function deleteKidFlow(){
   requestDeleteKid(getActiveKidId());
 }
-function requestDeleteKid(id){
-  const pin = ensurePin();
-  if(!pin) return;
-  const answer = prompt("Parent check: enter the parent PIN to delete this learner:");
-  if(answer !== pin){ alert("Wrong parent PIN. Learner was not deleted."); return; }
+async function requestDeleteKid(id){
+  if(!await requestParentPin()) return;
   deleteKidById(id, true);
 }
 function deleteKidById(id, parentVerified=false){
@@ -1162,13 +1224,7 @@ function chooseSubscriptionProfile(kidId){
 }
 
 async function enterParentPortal(){
-  const alreadyHasPin = /^\d{4,}$/.test(learnMasterStore.getItem(PIN_KEY) || "");
-  const pin = ensurePin();
-  if(!pin) return;
-  if(alreadyHasPin){
-    const attempt = prompt("Enter the parent PIN:");
-    if(attempt !== pin){ alert("Wrong parent PIN."); return; }
-  }
+  if(!await requestParentPin()) return;
   currentPortalRole = "parent";
   hideProfileChooser();
   show("parentPortal");
