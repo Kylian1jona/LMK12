@@ -142,7 +142,7 @@
       <button type="button" onclick="navigateFromAppMenu('shop')"><span>06</span><div><b>Rewards shop</b><small>Spend Learners on toys</small></div></button>
       <button type="button" onclick="navigateFromAppMenu('settings')"><span>07</span><div><b>Settings</b><small>Profile and learning preferences</small></div></button>
       <button type="button" onclick="showPaywall();toggleAppNavigation(false)"><span>08</span><div><b>Subscription</b><small>Plans and family access</small></div></button>
-      <button type="button" onclick="navigateFromAppMenu('playground')"><span>09</span><div><b>Playground</b><small>Learning and fun games</small></div></button>
+      <button type="button" onclick="navigateFromAppMenu('playground')"><span>09</span><div><b>Playground</b><small>Five free learning adventures</small></div></button>
       <button type="button" onclick="navigateFromAppMenu('worksheets')"><span>10</span><div><b>Worksheets</b><small>Being built</small></div></button>
       <button type="button" class="is-disabled" aria-disabled="true" onclick="toast('Awards are coming soon!')"><span>11</span><div><b>Awards</b><small>Coming soon</small></div></button>
     </nav>

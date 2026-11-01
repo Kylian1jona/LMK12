@@ -52,7 +52,6 @@ window.addEventListener("resize", ()=>confettiResize());
    Points + Learners + Storage (per user)
 =========================== */
 const STORE_KEY = "learnmaster_progress_v2";
-const PLAYGROUND_UNLOCK_COST = 5;
 const PLAYGROUND_UNLOCK_KEY = "learnmaster_playground_unlock_v1";
 const DEFAULT_STATS = {
   correct:0,
@@ -96,29 +95,10 @@ function getPlaygroundUnlockKey(kidId=getActiveKidId()){
 }
 
 function playgroundUnlocked(){
-  return learnMasterStore.getItem(getPlaygroundUnlockKey()) === "1";
+  return true;
 }
 
 function unlockPlayground(){
-  safeClick();
-  if(playgroundUnlocked()){
-    show("playground");
-    return;
-  }
-  if(state.learners < PLAYGROUND_UNLOCK_COST){
-    const needed = PLAYGROUND_UNLOCK_COST - state.learners;
-    toast(`Need ${needed} more Learner${needed === 1 ? "" : "s"} to unlock Playground.`);
-    speakGlobal(`You need ${needed} more learners to unlock the playground.`);
-    return;
-  }
-  state.learners -= PLAYGROUND_UNLOCK_COST;
-  saveState();
-  learnMasterStore.setItem(getPlaygroundUnlockKey(), "1");
-  renderAllBadges();
-  renderConvertButtons();
-  updateUserUI();
-  toast("Playground unlocked!");
-  speakGlobal("Playground unlocked.");
   show("playground");
 }
 
@@ -520,6 +500,10 @@ function show(id,options={}){
   }
   id=normalizeAppSection(id);
   if(!gateAllowedSection(id)){
+    if(currentPortalRole==="parent"){
+      toast("You are in the parent workspace. Sign out to switch to a learner.");
+      return;
+    }
     if(typeof hideCorrectFeedbackOverlay==="function") hideCorrectFeedbackOverlay();
     if(typeof clearLessonAdvanceTimers==="function") clearLessonAdvanceTimers();
     showPaywall();
@@ -528,7 +512,7 @@ function show(id,options={}){
   }
   if(typeof hideCorrectFeedbackOverlay==="function") hideCorrectFeedbackOverlay();
   if(id!=="lessonRunner" && typeof clearLessonAdvanceTimers==="function") clearLessonAdvanceTimers();
-  if(["settings","analysis","shop","curriculumStandards","parentPortal","adminPortal","paymentStatus"].includes(id)) hidePaywall(true);
+  if(["settings","analysis","shop","playground","curriculumStandards","parentPortal","adminPortal","paymentStatus"].includes(id)) hidePaywall(true);
   cancelLessonVoice();
   if(TIMED_LESSON_SECTIONS.has(id)){
     if(universalLessonTimerSection!==id||visibleAppSection!==id) startUniversalLessonTimer(id);

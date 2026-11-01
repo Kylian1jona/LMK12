@@ -139,6 +139,7 @@
     <span class="profile-chooser-kicker">What's new</span>
     <h2 id="profileUpdateTitle">Update log</h2>
     <div class="profile-update-entries">
+      <article><time datetime="2026-11-01">November 1, 2026</time><h3>Family dashboard and five new Playground games</h3><p>The parent workspace now has separate progress, goals, and account sections without learner navigation. Playground is free for signed-in learners and features Escape the School, Math Parkour, Science Tower Defense, Stock Market Simulator, and Career Quest.</p></article>
       <article><time datetime="2026-11-01">November 1, 2026</time><h3>Clearer account confirmation and security</h3><p>A dedicated confirmation page now welcomes new members and helps families set their parent PIN. Settings adds on-site PIN controls and email links for password and PIN recovery. Saved color themes load with the account.</p></article>
       <article><time datetime="2026-10-31">October 31, 2026</time><h3>20 more Grade 1 English lessons and clearer questions</h3><p>New phonics, word meaning, grammar, story, and informational reading lessons add 500 questions. Grade 1 English questions now begin with the question itself instead of repeated opening phrases.</p></article>
       <article><time datetime="2026-10-31">October 31, 2026</time><h3>20 more Grade 1 English lessons</h3><p>Five lessons each in phonics, word work, grammar, and reading add 500 questions. Practice vowel sounds, word patterns, sentence skills, and short stories with multiple choice, dropdown, and matching questions.</p></article>

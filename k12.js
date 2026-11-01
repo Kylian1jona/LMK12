@@ -260,6 +260,7 @@ async function restoreActiveSession(){
 }
 
 async function bootLearnMaster(){
+  if(sessionStorage.getItem("learnmaster_portal_role")==="parent") document.body.classList.add("parent-workspace");
   const sessionRestored = await restoreActiveSession();
   renderInitialAppUI();
   preloadEarlyLessons();
@@ -275,8 +276,12 @@ async function bootLearnMaster(){
   }
 
   applyAccessUI();
-  if(!subscriptionAccessAllowed()&&!currentAccountIsAdmin) showPaywall(true);
-  else showProfileChooser();
+  hidePaywall(true);
+  if(sessionStorage.getItem("learnmaster_portal_role")==="parent"){
+    if(!await enterParentPortal()) await logout();
+    return;
+  }
+  showProfileChooser();
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{

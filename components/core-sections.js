@@ -19,7 +19,7 @@
         </div>
         <div class="lm-home-side-stack">
           <aside class="lm-today-card"><span>TODAY'S GOAL</span><b>Finish one focused activity</b><p>Choose one lesson, work carefully, and use the feedback before moving on.</p><button type="button" onclick="openLessonSearch(event)">Find a lesson</button></aside>
-          <button type="button" class="lm-home-playground-link" onclick="show('playground')"><span>PLAYGROUND</span><b>Educational and just-for-fun games</b></button>
+          <button type="button" class="lm-home-playground-link" onclick="show('playground')"><span>PLAYGROUND · FREE</span><b>Five learning adventures</b></button>
           <button type="button" class="lm-home-staar-link" onclick="openStaarTesting()"><span>STAAR TESTING</span><b>Practice Texas reading, math, and science questions</b></button>
         </div>
       </section>
@@ -73,8 +73,8 @@
     <div class="parent-portal-shell">
       <div class="parent-portal-head">
         <span>Parent area</span>
-        <h1>Subscription & learners</h1>
-        <p>Manage the family learning space and review each learner.</p>
+        <h1>Family dashboard</h1>
+        <p>Review learning progress, set goals, and manage your family account.</p>
       </div>
       <div id="parentPortalContent"></div>
     </div>
@@ -211,8 +211,8 @@
         </div>
         <div class="grade-card" id="cardPlayground">
           <div class="grade-title">Playground</div>
-          <p class="grade-sub">Educational games and arcade fun · unlock with 5 Learners</p>
-          <button type="button" class="btn btn-main w-100" onclick="show('playground')">Unlock / Play</button>
+          <p class="grade-sub">Five learning adventures · free for signed-in learners</p>
+          <button type="button" class="btn btn-main w-100" onclick="show('playground')">Play for free</button>
         </div>
       </div>
     </div>
@@ -381,7 +381,7 @@
 
           <div class="d-flex flex-wrap gap-2 mt-3">
             <button type="button" class="btn btn-main" id="addUserSubmitBtn" disabled>$5 extra learner — contact administrator</button>
-            <button type="button" class="btn btn-main" onclick="appBack('settings')">Back to settings</button>
+            <button type="button" class="btn btn-main" onclick="show('parentPortal')">Back to family dashboard</button>
           </div>
         </div>
 

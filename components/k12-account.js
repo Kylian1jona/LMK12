@@ -52,6 +52,8 @@ document.addEventListener("visibilitychange", ()=>{
 
 function showLogin(prefillUser=""){
   loggedIn = false;
+  document.body.classList.remove("parent-workspace");
+  sessionStorage.removeItem("learnmaster_portal_role");
   stopInactivityTimer();
   stopSubscriptionAccessWatch();
   currentPortalRole = "kid";
@@ -341,8 +343,7 @@ async function createSignupUser(){
   await refreshSubscriptionAccess();
   clearTrial();
   learnMasterStore.setItem(REQUIRED_PLAN_KEY, "1");
-  await finishLoginForKid(kid.id, "Account created — choose a plan to continue.", false);
-  showPaywall(true);
+  await finishLoginForKid(kid.id, "Account created — choose a learner or explore Playground.", true);
 }
 
 async function doLogin(){
@@ -392,8 +393,7 @@ async function doLogin(){
   const kid = upsertLocalSupabaseKid(data.user, username, accountName);
   const hasLearningAccess = await refreshSubscriptionAccess();
   const isAdmin=await refreshAccountAuthority();
-  await finishLoginForKid(kid.id, hasLearningAccess ? "Logged in!" : subscriptionActionMessage(), hasLearningAccess || isAdmin);
-  if(!hasLearningAccess&&!isAdmin) showPaywall(true);
+  await finishLoginForKid(kid.id, "Logged in!", true);
 }
 async function logout(){
   safeClick();
@@ -402,6 +402,8 @@ async function logout(){
   window.learnMasterStore?.clearUser();
   stopInactivityTimer(true);
   currentPortalRole = "kid";
+  document.body.classList.remove("parent-workspace");
+  sessionStorage.removeItem("learnmaster_portal_role");
   currentAuthAccountRole = "family";
   if(typeof leaveTutorWorkspace==="function") leaveTutorWorkspace();
   currentAccountIsAdmin = false;
@@ -700,7 +702,7 @@ async function enforceSubscriptionAccess(){
   applyAccessUI();
   if(hadAccess&&!hasAccess){
     toast(subscriptionActionMessage());
-    showPaywall(true);
+    if(currentPortalRole==="kid") show("playground");
   }
   return hasAccess;
 }
@@ -816,7 +818,13 @@ function parentPinDialog({title,description,create=false,display=""}){
 async function accountUnlock(action){
   safeClick();
   if(!await requestParentPin()) return false;
-  if(action === "addKid"){ addKidFlow(true); return true; }
+  if(action === "addKid"){
+    currentPortalRole="parent";
+    document.body.classList.add("parent-workspace");
+    sessionStorage.setItem("learnmaster_portal_role","parent");
+    addKidFlow(true);
+    return true;
+  }
   if(action === "managePlan"){ managePlanFlow(); return true; }
   if(action === "accountMenu"){ accountMenuFlow(true); return true; }
   if(action === "resetCurrentKid"){ resetCurrentKidFlow(); return true; }
@@ -834,12 +842,13 @@ async function changeParentPin(){
   await learnMasterStore.flush();
   await parentPinDialog({title:"Parent PIN changed",description:"Keep this new PIN somewhere safe.",display:next});
   renderSettings();
+  if(currentPortalRole==="parent") renderParentPortal();
 }
 async function emailAccountRecovery(mode="password"){
   const client=window.learnMasterSupabase;
   const {data:userResult,error:userError}=await client.auth.getUser();
   const email=userResult?.user?.email;
-  const status=$("accountSecurityStatus");
+  const status=currentPortalRole==="parent"?$("parentSecurityStatus"):$("accountSecurityStatus");
   if(userError||!email){if(status)status.textContent="Sign in again before requesting an email.";return;}
   const {error}=await client.auth.resetPasswordForEmail(email,{
     redirectTo:`https://k12-learning.netlify.app/auth.html?mode=${mode==="pin"?"pin":"password"}`
@@ -1157,7 +1166,7 @@ function hideProfileChooser(){
 
 function showProfileChooser(){
   if(!loggedIn) return;
-  if(planChoiceRequired()&&!currentAccountIsAdmin){ showPaywall(true); return; }
+  if(currentPortalRole==="parent") return;
   const chooser = $("profileChooser");
   const grid = $("profileChooserGrid");
   if(!chooser || !grid) return;
@@ -1207,30 +1216,56 @@ document.addEventListener("keydown", event=>{
 });
 
 function chooseSubscriptionProfile(kidId){
-  if(!subscriptionAccessAllowed()){
-    showPaywall(true);
-    toast(subscriptionActionMessage());
-    return;
-  }
+  if(currentPortalRole==="parent") return;
   setActiveKidId(kidId);
   currentPortalRole = "kid";
+  document.body.classList.remove("parent-workspace");
+  sessionStorage.removeItem("learnmaster_portal_role");
   loadState();
   renderAllBadges();
   renderConvertButtons();
   renderShop();
   updateUserUI();
   hideProfileChooser();
-  show("home");
+  show(subscriptionAccessAllowed()?"home":"playground");
 }
 
 async function enterParentPortal(){
-  if(!await requestParentPin()) return;
+  if(!await requestParentPin()) return false;
   currentPortalRole = "parent";
+  document.body.classList.add("parent-workspace");
+  sessionStorage.setItem("learnmaster_portal_role","parent");
   hideProfileChooser();
   show("parentPortal");
   await renderParentPortal();
+  return true;
 }
 
+let activeParentTab="overview";
+function selectParentTab(tab){
+  if(!["overview","learners","goals","account"].includes(tab)) return;
+  activeParentTab=tab;
+  document.querySelectorAll("[data-parent-tab]").forEach(button=>{
+    const active=button.dataset.parentTab===tab;
+    button.classList.toggle("active",active);
+    button.setAttribute("aria-selected",String(active));
+  });
+  document.querySelectorAll("[data-parent-panel]").forEach(panel=>{panel.hidden=panel.dataset.parentPanel!==tab;});
+}
+function saveParentGoals(){
+  if(currentPortalRole!=="parent") return;
+  const kids=loadKids();
+  document.querySelectorAll("[data-parent-goal]").forEach(input=>{
+    const kid=kids.find(item=>item.id===input.dataset.kidId);
+    if(!kid) return;
+    const value=Math.round(Number(input.value));
+    if(input.dataset.parentGoal==="lessons") kid.dailyLessonGoal=Math.max(1,Math.min(20,value||3));
+    if(input.dataset.parentGoal==="reading") kid.readingGoal=Math.max(5,Math.min(180,value||20));
+  });
+  saveKids(kids);
+  const status=$("parentGoalStatus");
+  if(status) status.textContent="Family goals saved.";
+}
 async function renderParentPortal(){
   const wrap = $("parentPortalContent");
   if(!wrap) return;
@@ -1248,26 +1283,55 @@ async function renderParentPortal(){
   }
   if(typeof refreshAccountAuthority === "function") await refreshAccountAuthority();
   const hasConsent = localStorage.getItem("learnmaster_parent_consent_v1") === "1";
-  wrap.innerHTML = `
-    <div class="parent-summary-grid">
-      <article><span>Current plan</span><strong>${htmlSafe(plan?.name || (trialActive() ? "Free trial" : "No plan"))}</strong></article>
-      <article class="parent-subscription-card ${htmlSafe(subscriptionClass)}"><span>Subscription status</span><strong>${htmlSafe(subscriptionStatus)}</strong><small>${htmlSafe(subscriptionAccessAllowed() ? "Learning access is on" : subscriptionActionMessage())}</small></article>
-      <article><span>Learners</span><strong>${kids.length} / ${MAX_KIDS_PER_ACCOUNT}</strong></article>
-      <article><span>Subjects</span><strong>${htmlSafe(authoritativeSubscriptionSubjects().includes("all") ? "All" : (authoritativeSubscriptionSubjects().join(", ") || "Plan access"))}</strong></article>
-    </div>
-    <div class="parent-learner-list">
-      ${kids.map(kid=>{ const p=getProgressForKid(kid.id), s=p.stats||{}; const attempts=(Number(s.correct)||0)+(Number(s.wrong)||0); const accuracy=attempts?Math.round((Number(s.correct)||0)/attempts*100):0; return `<article class="parent-learner-report"><div><strong>${htmlSafe(kid.name || kid.username || "Learner")}</strong><span>@${htmlSafe(kid.username || "learner")}</span></div><div class="learner-metrics"><span><b>${Number(s.lessonsCompleted)||0}</b> lessons</span><span><b>${Number(s.medalsEarned)||0}</b> medals</span><span><b>${accuracy}%</b> accuracy</span><span><b>${p.points}</b> gems</span></div><button type="button" class="btn btn-main" onclick="chooseSubscriptionProfile('${htmlSafe(kid.id)}')">Open learner</button></article>`; }).join("")}
-    </div>
-    <div class="parent-account-grid">
-      <article><span>Account security</span><h2>${emailVerified ? "Email verified" : "Email needs verification"}</h2><p>${htmlSafe(accountEmail)} · automatic logout after 3 hours inactive.</p></article>
-      <article><span>Children's privacy</span><h2>${hasConsent ? "Parent consent recorded" : "Consent action needed"}</h2><p>Review the parent notice and control child learning profiles.</p><button type="button" class="btn btn-main" onclick="openPrivacyNotice()">Review privacy</button></article>
-    </div>
-    <div class="parent-actions">
-      <button type="button" class="btn btn-main" onclick="showAddUserPage()">Add learner</button>
-      <button type="button" class="btn btn-main" onclick="showPaywall(false)">View plans</button>
-      <button type="button" class="btn btn-main" onclick="showProfileChooser()">Back to profiles</button>
-      ${currentAccountIsAdmin ? '<button type="button" class="btn btn-main" onclick="openAdminPortal()">Administrator</button>' : ''}
-    </div>`;
+  const reports=kids.map(kid=>{
+    const progress=getProgressForKid(kid.id),stats=progress.stats||{};
+    const correct=Number(stats.correct)||0,wrong=Number(stats.wrong)||0;
+    return {kid,stats,accuracy:correct+wrong?Math.round(correct/(correct+wrong)*100):0};
+  });
+  const totalLessons=reports.reduce((sum,item)=>sum+(Number(item.stats.lessonsCompleted)||0),0);
+  const totalReading=reports.reduce((sum,item)=>sum+(Number(item.stats.readingMinutes)||0),0);
+  const totalCorrect=reports.reduce((sum,item)=>sum+(Number(item.stats.correct)||0),0);
+  const totalAttempts=reports.reduce((sum,item)=>sum+(Number(item.stats.correct)||0)+(Number(item.stats.wrong)||0),0);
+  const familyAccuracy=totalAttempts?Math.round(totalCorrect/totalAttempts*100):0;
+  wrap.innerHTML=`
+    <div class="parent-dashboard-top"><div><span class="parent-dashboard-kicker">FAMILY WORKSPACE</span><h2>Learning at a glance</h2><p>A clear view of progress and account settings for your family.</p></div><button type="button" class="parent-signout" onclick="logout()">Sign out</button></div>
+    <nav class="parent-dashboard-tabs" role="tablist" aria-label="Parent dashboard sections">
+      <button type="button" role="tab" data-parent-tab="overview" onclick="selectParentTab('overview')">Overview</button>
+      <button type="button" role="tab" data-parent-tab="learners" onclick="selectParentTab('learners')">Learners</button>
+      <button type="button" role="tab" data-parent-tab="goals" onclick="selectParentTab('goals')">Goals</button>
+      <button type="button" role="tab" data-parent-tab="account" onclick="selectParentTab('account')">Account</button>
+    </nav>
+    <section class="parent-dashboard-panel" data-parent-panel="overview">
+      <div class="parent-summary-grid">
+        <article><span>Lessons completed</span><strong>${totalLessons}</strong><small>Across all learners</small></article>
+        <article><span>Question accuracy</span><strong>${familyAccuracy}%</strong><small>${totalAttempts} answers recorded</small></article>
+        <article><span>Reading time</span><strong>${totalReading} min</strong><small>Family total</small></article>
+        <article><span>Learner profiles</span><strong>${kids.length}</strong><small>Up to ${MAX_KIDS_PER_ACCOUNT}</small></article>
+      </div>
+      <div class="parent-account-grid">
+        <article class="parent-subscription-card ${htmlSafe(subscriptionClass)}"><span>Plan status</span><h2>${htmlSafe(subscriptionStatus)}</h2><p>${htmlSafe(subscriptionAccessAllowed()?`${plan?.name||"Your plan"} is active.`:subscriptionActionMessage())}</p><button type="button" class="btn btn-main" onclick="showPaywall(false)">Manage plan</button></article>
+        <article><span>Next step</span><h2>Keep a steady rhythm</h2><p>Short, regular sessions help build confidence. Set a daily goal for each learner and check progress here.</p><button type="button" class="btn btn-main" onclick="selectParentTab('goals')">Set family goals</button></article>
+      </div>
+    </section>
+    <section class="parent-dashboard-panel" data-parent-panel="learners" hidden>
+      <div class="parent-panel-heading"><h2>Learner progress</h2><p>Reports stay in the parent workspace. Learner lessons open only after a separate sign-in.</p></div>
+      <div class="parent-learner-list">${reports.map(({kid,stats,accuracy})=>`<article class="parent-learner-report"><div><strong>${htmlSafe(kid.name||kid.username||"Learner")}</strong><span>@${htmlSafe(kid.username||"learner")}</span></div><div class="learner-metrics"><span><b>${Number(stats.lessonsCompleted)||0}</b>Lessons</span><span><b>${accuracy}%</b>Accuracy</span><span><b>${Number(stats.lessonStreak)||0} days</b>Streak</span><span><b>${Number(stats.readingMinutes)||0} min</b>Reading</span></div><div class="parent-last-lesson">${stats.lastLesson?`Last lesson: ${htmlSafe(stats.lastLesson)}`:"No lessons recorded yet"}</div></article>`).join("")}</div>
+    </section>
+    <section class="parent-dashboard-panel" data-parent-panel="goals" hidden>
+      <div class="parent-panel-heading"><h2>Daily learning goals</h2><p>Set a realistic target for lessons and reading. Changes apply to each learner profile.</p></div>
+      <div class="parent-goal-grid">${kids.map(kid=>`<article class="parent-goal-card"><h3>${htmlSafe(kid.name||kid.username||"Learner")}</h3><label>Lessons per day<input type="number" min="1" max="20" value="${Number(kid.dailyLessonGoal)||3}" data-parent-goal="lessons" data-kid-id="${htmlSafe(kid.id)}"></label><label>Reading minutes per day<input type="number" min="5" max="180" value="${Number(kid.readingGoal)||20}" data-parent-goal="reading" data-kid-id="${htmlSafe(kid.id)}"></label></article>`).join("")}</div>
+      <button type="button" class="btn btn-main" onclick="saveParentGoals()">Save goals</button><p id="parentGoalStatus" role="status" aria-live="polite"></p>
+    </section>
+    <section class="parent-dashboard-panel" data-parent-panel="account" hidden>
+      <div class="parent-panel-heading"><h2>Account & privacy</h2><p>Manage family access and security without entering learner lessons.</p></div>
+      <div class="parent-account-grid">
+        <article><span>Email & security</span><h2>${emailVerified?"Email verified":"Email needs verification"}</h2><p>${htmlSafe(accountEmail)}</p><div class="parent-card-actions"><button type="button" class="btn btn-main" onclick="emailAccountRecovery('password')">Change password by email</button><button type="button" class="btn btn-main" onclick="changeParentPin()">Change parent PIN</button><button type="button" class="btn btn-main" onclick="emailAccountRecovery('pin')">Reset PIN by email</button></div><p id="parentSecurityStatus" role="status" aria-live="polite"></p></article>
+        <article><span>Children's privacy</span><h2>${hasConsent?"Consent recorded":"Consent action needed"}</h2><p>Review the parent notice and manage family profiles.</p><div class="parent-card-actions"><button type="button" class="btn btn-main" onclick="openPrivacyNotice()">Review privacy notice</button><button type="button" class="btn btn-main" onclick="showAddUserPage()">Add learner</button></div></article>
+        <article><span>Subscription</span><h2>${htmlSafe(plan?.name||"No plan selected")}</h2><p>${htmlSafe(subscriptionStatus)} · ${htmlSafe(authoritativeSubscriptionSubjects().join(", ")||"No subjects selected")}</p><button type="button" class="btn btn-main" onclick="showPaywall(false)">View plans</button></article>
+        ${currentAccountIsAdmin?'<article><span>Administration</span><h2>Site management</h2><p>Authorized administrators can review account operations.</p><button type="button" class="btn btn-main" onclick="openAdminPortal()">Open administration</button></article>':""}
+      </div>
+    </section>`;
+  selectParentTab(activeParentTab);
 }
 
 /* ===========================
@@ -1340,15 +1404,16 @@ function updateTrialUI(){
 function gateAllowedSection(sectionId){
   if(!loggedIn) return false;
   if(currentPortalRole==="tutor") return sectionId==="tutorPortal";
+  if(currentPortalRole==="parent") return ["parentPortal","addUserPage"].includes(sectionId)||(["adminPortal","paymentStatus"].includes(sectionId)&&currentAccountIsAdmin);
   if(sectionId === "parentPortal") return currentPortalRole === "parent";
   if(["adminPortal","paymentStatus"].includes(sectionId)) return currentPortalRole === "parent" && currentAccountIsAdmin;
   if(sectionId === "curriculumStandards") return true;
   if(["settings","analysis","tutorAssignments","testPrep"].includes(sectionId)) return true;
   if(sectionId === "shop") return true;
+  if(sectionId === "playground") return true;
   if(sectionId === "addUserPage") return currentPortalRole === "parent" && subscriptionAccessAllowed();
   if(!subscriptionAccessAllowed()) return false;
   if(["home","grades","reading","tutorFinder","worksheets"].includes(sectionId)) return anySubjectAllowed();
-  if(sectionId === "playground") return anySubjectAllowed();
   if(["prek","kinder","grade1"].includes(sectionId)) return anySubjectAllowed();
   if(sectionId === "readingPyramid") return subjectAllowed("eng");
   const earlySubjectMatch = sectionId.match(/^(?:prek|kinder|g1)-(eng|math)$/);
@@ -1392,10 +1457,9 @@ function applyAccessUI(){
     button.setAttribute("aria-disabled", String(!allowed));
   });
   lockCard("cardShop", false);
-  lockCard("cardPlayground", !hasAny);
+  lockCard("cardPlayground", false);
 
-  const freeSectionOpen=["settings","analysis","shop","curriculumStandards","parentPortal","adminPortal","paymentStatus"]
+  const freeSectionOpen=["settings","analysis","shop","playground","curriculumStandards","parentPortal","adminPortal","paymentStatus"]
     .some(id=>{ const section=$(id); return section&&!section.classList.contains("d-none"); });
-  if(!hasAny&&!currentAccountIsAdmin&&!freeSectionOpen) showPaywall(true);
-  else hidePaywall(true);
+  if(hasAny||currentAccountIsAdmin||freeSectionOpen) hidePaywall(true);
 }
