@@ -6,13 +6,14 @@ const root=path.resolve(import.meta.dirname,'..');
 const stage=fs.mkdtempSync(path.join(os.tmpdir(),'lmk12-live-merge-'));
 const origin='https://k12-learning.netlify.app/';
 const skip=new Set(['components/k12-prek-drag-lessons-more.js','components/k12-lesson-likes.js','components/k12-category-sort.js']);
+const unpublished=new Set(['components/site-editor.js','components/site-editor.css']);
 const paths=[];
 for(const name of ['components','images','draft-media']){
-  fs.cpSync(path.join(root,name),path.join(stage,name),{recursive:true});
+  fs.cpSync(path.join(root,name),path.join(stage,name),{recursive:true,filter:source=>!unpublished.has(path.relative(root,source).replaceAll('\\','/'))});
   for(const file of fs.readdirSync(path.join(root,name),{recursive:true,withFileTypes:true})){
     if(!file.isFile()) continue;
     const relative=path.relative(root,path.join(file.parentPath,file.name)).replaceAll('\\','/');
-    if(!skip.has(relative)) paths.push(relative);
+    if(!skip.has(relative)&&!unpublished.has(relative)) paths.push(relative);
   }
 }
 for(const name of ['index.html','k12.css','k12.js','_headers']){

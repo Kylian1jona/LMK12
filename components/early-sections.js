@@ -171,7 +171,27 @@
         lessonCard("g1:eng:story-settings","g1-eng","Find Story Settings","Tell where a short story happens.","WHERE"),
         lessonCard("g1:eng:story-first","g1-eng","What Happened First?","Find the first event in a story.","1ST"),
         lessonCard("g1:eng:story-next","g1-eng","What Happened Next?","Find the next event in a story.","NEXT"),
-        lessonCard("g1:eng:story-purpose","g1-eng","Why Did They Go?","Use story clues to tell why.","WHY")
+        lessonCard("g1:eng:story-purpose","g1-eng","Why Did They Go?","Use story clues to tell why.","WHY"),
+        lessonCard("g1:eng:rhyming-families","g1-eng","Rhyming Word Families","Find words with the same ending sound.","RHYME"),
+        lessonCard("g1:eng:final-consonants","g1-eng","Final Consonant Sounds","Listen for the last sound in a word.","END"),
+        lessonCard("g1:eng:vowel-team-spelling","g1-eng","Vowel Team Spelling","Read AI, AY, EE, EA, and OA words.","TEAM"),
+        lessonCard("g1:eng:silent-e-words","g1-eng","Read Silent E Words","Notice how final E changes a word.","E"),
+        lessonCard("g1:eng:same-meaning","g1-eng","Words with the Same Meaning","Match everyday synonyms.","SAME"),
+        lessonCard("g1:eng:word-categories","g1-eng","Put Words in Groups","Group animals, foods, clothes, and more.","SORT"),
+        lessonCard("g1:eng:word-clues","g1-eng","Read Word Clues","Use a short clue to find a word.","CLUE"),
+        lessonCard("g1:eng:position-words","g1-eng","Words That Tell Where","Read on, under, beside, and other place words.","WHERE"),
+        lessonCard("g1:eng:a-or-an","g1-eng","A or An?","Choose the right word before a noun.","A/AN"),
+        lessonCard("g1:eng:capital-letters","g1-eng","Use Capital Letters","Find sentences with correct capitals.","ABC"),
+        lessonCard("g1:eng:past-tense-verbs","g1-eng","Actions That Already Happened","Read words for actions in the past.","PAST"),
+        lessonCard("g1:eng:word-order","g1-eng","Put Sentence Words in Order","Arrange words into a complete sentence.","ORDER"),
+        lessonCard("g1:eng:story-problems","g1-eng","Find the Story Problem","Notice what went wrong in a short story.","PROBLEM"),
+        lessonCard("g1:eng:story-solutions","g1-eng","Find the Story Solution","Find how a character solved a problem.","SOLVE"),
+        lessonCard("g1:eng:story-results","g1-eng","Find the Story Result","Tell what happened after a choice.","RESULT"),
+        lessonCard("g1:eng:story-feelings","g1-eng","Feelings in Stories","Notice how a character feels.","FEEL"),
+        lessonCard("g1:eng:animal-facts","g1-eng","Read Animal Facts","Read short facts and name the animal.","FACT"),
+        lessonCard("g1:eng:animal-features","g1-eng","Animal Body Features","Find a feature described in a text.","BODY"),
+        lessonCard("g1:eng:animal-homes-reading","g1-eng","Where Animals Live","Read to find an animal's home.","HOME"),
+        lessonCard("g1:eng:animal-food-reading","g1-eng","What Animals Eat","Read to find an animal's food.","FOOD")
       ].join("");
       const g1Math=[
         lessonCard("g1:math:block-add","g1-math","Addition Block Builder","Move colored blocks into two groups and combine them.","BLOCKS"),

@@ -14,10 +14,11 @@
       ['Measure & Explore','Practice measurement, time, and graphs.','measurement time time-seasons length-units picture-graphs']
     ],
     'g1-eng':[
-      ['Sounds & Spelling','Read vowel patterns and beginning and ending sounds.','short-vowels long-vowels blend-st vowel-teams short-vowel-words long-vowel-words beginning-blends letter-pairs ending-sounds'],
-      ['Build Words','Join, change, and compare everyday words.','compound-words contractions plural-words syllable-beats opposite-words'],
-      ['Sentences & Grammar','Choose words and build complete sentences.','sight sentences parts-speech naming-words action-words describing-words pronouns sentence-marks'],
-      ['Reading Stories','Read short passages and use clues.','story-questions reading-clues pyramid-reading story-characters story-settings story-first story-next story-purpose']
+      ['Sounds & Spelling','Read vowel patterns and beginning and ending sounds.','short-vowels long-vowels blend-st vowel-teams short-vowel-words long-vowel-words beginning-blends letter-pairs ending-sounds rhyming-families final-consonants vowel-team-spelling silent-e-words'],
+      ['Build Words','Join, change, and compare everyday words.','compound-words contractions plural-words syllable-beats opposite-words same-meaning word-categories word-clues position-words'],
+      ['Sentences & Grammar','Choose words and build complete sentences.','sight sentences parts-speech naming-words action-words describing-words pronouns sentence-marks a-or-an capital-letters past-tense-verbs word-order'],
+      ['Reading Stories','Read short passages and use clues.','story-questions reading-clues pyramid-reading story-characters story-settings story-first story-next story-purpose story-problems story-solutions story-results story-feelings'],
+      ['Read Animal Facts','Find details in short informational passages.','animal-facts animal-features animal-homes-reading animal-food-reading']
     ],
     'g1-math':[
       ['Hands-On Math','Explore numbers with blocks, lines, and shapes.','block-add number-line-lab fraction-builder'],

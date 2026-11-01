@@ -1092,8 +1092,9 @@ function fallbackLessonQuestion(pack){
 }
 
 const LESSON_PROMPT_LEAD=/^(?:(?:analyze this example|apply the lesson|check the key detail|choose the precise answer|use what you know|reason through this|study the evidence|solve this carefully|find the best-supported answer|review this case|connect the ideas|test your understanding|examine this new example|make the strongest choice|think one step further|use the relevant rule|evaluate each option|work from the information given|identify the accurate conclusion|focus on the central skill|select the defensible response|check your reasoning|consider the context|complete this challenge|demonstrate mastery|choose the best answer|select the correct answer|read carefully and answer|pick the best response|think about the lesson and answer|choose the correct response|look closely and answer|select the best response|answer this question)\s*:\s*)+/i;
+const EARLY_PROMPT_LEAD=/^(?:(?:let's begin|look closely|your turn|think about this|try this one|show what you know|take a careful look|here is a new clue|use the skill you learned|choose with care|keep going|check each choice|listen and think|solve this step|you are doing well|try a fresh example|focus on the key detail|use your best thinking|look for the pattern|apply the idea|work this one out|pick the answer that fits|one more challenge|finish strong)\s*:\s*|ready for the next one\?\s*)+/i;
 function removeLessonPromptLead(value){
-  return String(value||"").replace(LESSON_PROMPT_LEAD,"").trim();
+  return String(value||"").replace(LESSON_PROMPT_LEAD,"").replace(EARLY_PROMPT_LEAD,"").trim();
 }
 
 function normalizeLessonQuestion(q, pack){

@@ -20,8 +20,10 @@
   function addBank(key,name,factory){
     const questions=Array.from({length:25},(_,index)=>{
       const item=factory(index);
-      item.q=`${promptLeads[index]} ${item.q}`;
-      item.audio=`${promptLeads[index]} ${item.audio}`;
+      if(!key.startsWith("g1:eng:")){
+        item.q=`${promptLeads[index]} ${item.q}`;
+        item.audio=`${promptLeads[index]} ${item.audio}`;
+      }
       return item;
     });
     banks[key]={name,questions};

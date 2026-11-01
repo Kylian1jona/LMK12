@@ -10,6 +10,8 @@ for(const file of [
   "k12-classic-25-g1.js",
   "k12-early-expanded-lessons.js",
   "k12-g1-regular-lessons.js",
+  "k12-g1-english-more-20261031.js",
+  "k12-g1-english-more-20261031b.js",
   "k12-k-regular-lessons.js",
   "k12-interactive-math-lessons.js"
 ]){
@@ -26,7 +28,7 @@ for(const key of lessonButtons){
 }
 for(const prefix of ["prek:","g1:"]){
   const visible=lessonButtons.filter(key=>key.startsWith(prefix));
-  const expectedVisible=prefix==="g1:"?39:20;
+  const expectedVisible=prefix==="g1:"?79:20;
   if(visible.length!==expectedVisible) failures.push(`${prefix.slice(0,-1)} should show ${expectedVisible} requested lessons, found ${visible.length}.`);
   if(new Set(visible).size!==visible.length) failures.push(`${prefix.slice(0,-1)} repeats a lesson button.`);
 }
@@ -44,16 +46,19 @@ for(const [key,record] of Object.entries(banks)){
     const answer=String(question.answer??"").trim();
     const choices=(question.choices||[]).map(String);
     const interactive=["block-add","number-line","fraction-build"].includes(question.type);
-    if(question.type!=="mc"&&!interactive) failures.push(`${label} has an unsupported question type.`);
+    const choicesQuestion=["mc","dropdown"].includes(question.type);
+    const matching=question.type==="drag";
+    if(!choicesQuestion&&!interactive&&!matching) failures.push(`${label} has an unsupported question type.`);
     if(!prompt) failures.push(`${label} has no prompt.`);
-    if(!answer) failures.push(`${label} has no answer.`);
+    if(!matching&&!answer) failures.push(`${label} has no answer.`);
     if(!audio) failures.push(`${label} has no audio text.`);
     const promptKey=`${prompt.toLowerCase()}\u0000${audio.toLowerCase()}\u0000${choices.join("\u0000").toLowerCase()}`;
     if(prompts.has(promptKey)) failures.push(`${label} repeats an earlier prompt and audio cue.`);
     prompts.add(promptKey);
-    if(!interactive&&(choices.length<3||choices.length>5)) failures.push(`${label} must contain three, four, or five choices.`);
+    if(choicesQuestion&&(choices.length<3||choices.length>5)) failures.push(`${label} must contain three, four, or five choices.`);
     if(choices.some(choice=>/^(?:almost|placeholder|none of (?:these|the above))$/i.test(choice.trim()))) failures.push(`${label} contains a filler answer choice.`);
-    if(!interactive&&!choices.includes(answer)) failures.push(`${label} does not include its answer among the choices.`);
+    if(choicesQuestion&&!choices.includes(answer)) failures.push(`${label} does not include its answer among the choices.`);
+    if(matching&&(!Array.isArray(question.pairs)||question.pairs.length<3||question.pairs.some(pair=>!pair.word||!pair.match))) failures.push(`${label} needs valid matching pairs.`);
     if(new Set(choices).size!==choices.length) failures.push(`${label} repeats an answer choice.`);
     if(question.blend){
       if(!Array.isArray(question.blend.letters)||question.blend.letters.length!==3) failures.push(`${label} must contain exactly three blending letters.`);
@@ -65,7 +70,7 @@ for(const [key,record] of Object.entries(banks)){
 
 const gradeOneScience=Object.keys(banks).filter(key=>key.startsWith("g1:sci:"));
 if(gradeOneScience.length!==11) failures.push(`Expected 11 Grade 1 science lessons, found ${gradeOneScience.length}.`);
-const expectedLessons=102;
+const expectedLessons=142;
 const report={
   lessons:Object.keys(banks).length,
   questions:Object.values(banks).reduce((sum,record)=>sum+(record.questions?.length||0),0),
