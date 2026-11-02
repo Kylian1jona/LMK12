@@ -6,7 +6,9 @@
       ['Build Words','Blend sounds and find word families.','words blend-cvc digraph-sh digraph-ch digraph-th initial-blends word-families'],
       ['Read Sentences','Use words, punctuation, and story clues.','days-week word-spaces sentence-start question-words story-order sentence-endings opposites action-words sentence-meaning pyramid-reading'],
       ['More Sounds & Words','Hear new sounds, read word endings, and name actions.','more-initial-digraphs more-short-vowels more-final-sounds more-word-endings more-sentence-marks more-naming-actions'],
-      ['More Reading Clues','Find places, characters, and familiar word groups.','more-location-words more-story-characters more-story-settings more-food-groups']
+      ['More Reading Clues','Find places, characters, and familiar word groups.','more-location-words more-story-characters more-story-settings more-food-groups'],
+      ['Read New Word Patterns','Practice blends, vowels, endings, and word families.','again-blends again-cvc-vowels again-end-pairs again-word-families again-syllables'],
+      ['More Sentence Clues','Find story details, questions, pronouns, and word groups.','again-story-parts again-question-words again-pronouns again-sentence-types again-word-groups']
     ],
     'kinder-math':[
       ['Numbers & Counting','Count, order, and recognize numbers.','counting count20 forwardback10 missing-number teen-numbers backward20 rows-count order10 subitize ordinal-positions'],
@@ -15,7 +17,9 @@
       ['Shapes','Find shapes and describe their features.','circles triangles squares all-shapes shape-attributes'],
       ['Measure & Explore','Practice measurement, time, and graphs.','measurement time time-seasons length-units picture-graphs'],
       ['More Number Sense','Build teen numbers and count in new ways.','more-teen-ones more-count-by-two more-before-teen more-after-teen more-groups-of-five'],
-      ['More Number Stories','Add, take away, and work with equal groups.','more-add-to-ten more-subtract-to-ten more-make-ten more-double-pictures more-picture-rows']
+      ['More Number Stories','Add, take away, and work with equal groups.','more-add-to-ten more-subtract-to-ten more-make-ten more-double-pictures more-picture-rows'],
+      ['More Number Patterns','Explore doubles, tens, tallies, and teen numbers.','again-doubles again-near-doubles again-count-tens again-tally-cards again-teen-frames'],
+      ['More Number Puzzles','Build tens, add, subtract, compare, and count corners.','again-bonds-ten again-add-teen again-subtract-teen again-compare-teens again-corners']
     ],
     'g1-eng':[
       ['Sounds & Spelling','Read vowel patterns and beginning and ending sounds.','short-vowels long-vowels blend-st vowel-teams short-vowel-words long-vowel-words beginning-blends letter-pairs ending-sounds rhyming-families final-consonants vowel-team-spelling silent-e-words'],
@@ -23,7 +27,8 @@
       ['Sentences & Grammar','Choose words and build complete sentences.','sight sentences parts-speech naming-words action-words describing-words pronouns sentence-marks a-or-an capital-letters past-tense-verbs word-order'],
       ['Reading Stories','Read short passages and use clues.','story-questions reading-clues pyramid-reading story-characters story-settings story-first story-next story-purpose story-problems story-solutions story-results story-feelings'],
       ['Read Animal Facts','Find details in short informational passages.','animal-facts animal-features animal-homes-reading animal-food-reading'],
-      ['More Meaning & Reading','Read word meanings, sentence purposes, and story order.','more-meaning-groups more-pronoun-clues more-sentence-purposes more-word-endings more-text-types more-question-words more-story-order']
+      ['More Meaning & Reading','Read word meanings, sentence purposes, and story order.','more-meaning-groups more-pronoun-clues more-sentence-purposes more-word-endings more-text-types more-question-words more-story-order'],
+      ['More Word & Story Skills','Read word forms, meanings, and short text clues.','again-contractions again-plural-endings again-prefixes again-story-clues again-feeling-evidence again-main-ideas again-joining-words']
     ],
     'g1-math':[
       ['Hands-On Math','Explore numbers with blocks, lines, and shapes.','block-add number-line-lab fraction-builder'],
@@ -31,13 +36,15 @@
       ['Addition Strategies','Build sums and solve addition stories.','add10 add20 missing-addend doubles equal-groups fact-families make10-strategy number-bonds addition-stories'],
       ['Subtraction','Take away and solve subtraction stories.','sub10 sub20 subtract-through10 subtraction-stories'],
       ['Shapes & Everyday Math','Use shapes, measurement, time, money, and graphs.','shape-properties measurement time money picture-graphs coin-totals'],
-      ['More Math Practice','Add, subtract, count by fives, and use place value.','more-add-twenty more-sub-twenty more-ten-more more-ten-less more-five-count more-place-value more-equal-groups']
+      ['More Math Practice','Add, subtract, count by fives, and use place value.','more-add-twenty more-sub-twenty more-ten-more more-ten-less more-five-count more-place-value more-equal-groups'],
+      ['More Number Challenges','Add groups, find missing parts, compare, and measure.','again-three-addends again-missing-addend again-back-by-tens again-coin-combinations again-measure-cubes again-compare-tens again-fraction-pictures']
     ],
     'g1-sci':[
       ['Living Things','Explore plants, animals, and their needs.','living-things plants animals plant-records animal-coverings animal-young'],
       ['Earth & Weather','Observe the sky, water, and weather safety.','weather day-night care-earth water-changes weather-safety'],
       ['Materials & Motion','Test materials, light, sound, and movement.','materials light-sound-motion five-senses push-pull shadow-tests magnet-test'],
-      ['More Science Clues','Explore plant parts, habitats, materials, forces, and weather.','more-plant-parts more-animal-coverings more-habitat-clues more-materials more-forces more-weather-signs']
+      ['More Science Clues','Explore plant parts, habitats, materials, forces, and weather.','more-plant-parts more-animal-coverings more-habitat-clues more-materials more-forces more-weather-signs'],
+      ['More Investigations','Use senses and evidence to study plants, light, water, and seasons.','again-senses again-plant-needs again-material-tests again-light-sources again-water-states again-season-signs']
     ]
   };
 
