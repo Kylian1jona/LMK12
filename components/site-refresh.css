@@ -175,3 +175,9 @@ body #home *{text-transform:none!important}
 body #home .lm-home-tools button::after{content:none!important;display:none!important}
 body #home .lm-home-welcome h1{max-width:none;white-space:nowrap;font-size:clamp(32px,3.4vw,53px)!important}
 @media(max-width:1100px){body #home .lm-home-welcome h1{white-space:normal}}
+
+/* Make the Grade levels and Extras switch easier to see and tap. */
+body #grades .extras-tabs{width:min(560px,100%);max-width:100%;padding:8px;gap:8px;border-radius:22px}
+body #grades .extras-tabs button{flex:1;min-height:64px;padding:15px 22px;border-radius:16px;font-size:17px;line-height:1.25}
+body #grades .extras-tabs button span{display:block;margin:3px 0 0;font-size:12px}
+@media(max-width:580px){body #grades .extras-tabs{width:100%;padding:6px}body #grades .extras-tabs button{min-height:58px;padding:12px 8px;font-size:15px}body #grades .extras-tabs button span{display:none}}
