@@ -150,7 +150,7 @@ body[data-theme] #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.
 body[data-theme] #loginWall .auth-intro{background:radial-gradient(circle at 90% 10%,#ffffff29,transparent 30%),linear-gradient(145deg,color-mix(in srgb,var(--orange-dark) 80%,#102a43),color-mix(in srgb,var(--orange) 62%,#102a43))!important}
 body[data-theme] #loginWall{background-image:linear-gradient(color-mix(in srgb,var(--orange-light) 75%,transparent),color-mix(in srgb,var(--orange-light) 75%,transparent)),url("../images/learnmaster-skyline-bg-v2.png")!important}
 body[data-theme] #extrasPanel .extras-hero{background:linear-gradient(115deg,color-mix(in srgb,var(--orange-dark) 78%,#102a43),color-mix(in srgb,var(--orange) 60%,#102a43))!important}
-body[data-theme] .lm-home-hero{background-image:linear-gradient(96deg,color-mix(in srgb,var(--orange-light) 88%,#fff),color-mix(in srgb,var(--orange-light) 54%,transparent)),url("../images/home-learning-hero.png")!important}
+body[data-theme] .lm-home-hero{background:linear-gradient(96deg,rgba(255,255,255,.98) 0%,rgba(249,247,255,.94) 42%,rgba(244,252,255,.76) 61%,rgba(244,252,255,.08) 100%),url("../images/home-learning-hero.png") center/cover no-repeat!important}
 body[data-theme] #reading>.reading-box{background-image:linear-gradient(color-mix(in srgb,var(--orange-light) 78%,transparent),color-mix(in srgb,var(--orange-light) 78%,transparent)),url("../images/reading-center-hero-bg.png")!important}
 
 /* Center selectable tiles while the section backgrounds remain full width. */
@@ -158,5 +158,20 @@ body #grades .grade-library-grid{max-width:1400px!important;margin-inline:auto!i
 body .section[id^="g"][id*="-"] .lesson-columns{max-width:1320px!important;margin-inline:auto!important}
 body .section.subject-screen .early-lesson-list.early-skill-columns{max-width:1320px!important;margin-inline:auto!important}
 body #reading .reading-grid,body #extrasPanel .extras-grid{max-width:1400px;margin-inline:auto}
-body #grades .grade-library-grid .grade-card:nth-child(-n+4),body #grades .grade-library-grid .grade-card:nth-child(n+13){--grade-fill:color-mix(in srgb,var(--orange) 13%,#fff);--grade-border:color-mix(in srgb,var(--orange) 45%,#fff);--grade-ink:color-mix(in srgb,var(--orange-dark) 72%,#254057);background:var(--grade-fill)!important;border-color:var(--grade-border)!important}
-body[data-theme] #grades .grade-library-grid .grade-card:nth-child(-n+4),body[data-theme] #grades .grade-library-grid .grade-card:nth-child(n+13){background:var(--grade-fill)!important;border-color:var(--grade-border)!important}
+/* One grade color per visible column. */
+body #grades .grade-library-grid .grade-card:nth-child(4n+1){--grade-fill:#ffe8ae;--grade-border:#dab970;--grade-ink:#73501f}
+body #grades .grade-library-grid .grade-card:nth-child(4n+2){--grade-fill:#ffd1bf;--grade-border:#d7957c;--grade-ink:#814b39}
+body #grades .grade-library-grid .grade-card:nth-child(4n+3){--grade-fill:#d3eacb;--grade-border:#9cbb91;--grade-ink:#426747}
+body #grades .grade-library-grid .grade-card:nth-child(4n+4){--grade-fill:#d3e9f7;--grade-border:#91b7cf;--grade-ink:#426b86}
+body #grades .grade-library-grid .grade-card:nth-child(n){background:var(--grade-fill)!important;border-color:var(--grade-border)!important}
+body[data-theme] #grades .grade-library-grid .grade-card:nth-child(n){background:color-mix(in srgb,var(--grade-fill) 88%,var(--orange-light))!important;border-color:color-mix(in srgb,var(--grade-border) 85%,var(--orange))!important}
+@media(max-width:680px){
+  body #grades .grade-library-grid .grade-card:nth-child(2n+1){--grade-fill:#ffe8ae;--grade-border:#dab970;--grade-ink:#73501f}
+  body #grades .grade-library-grid .grade-card:nth-child(2n){--grade-fill:#d3e9f7;--grade-border:#91b7cf;--grade-ink:#426b86}
+}
+
+/* Keep home labels conversational and the heading on one line when it fits. */
+body #home *{text-transform:none!important}
+body #home .lm-home-tools button::after{content:none!important;display:none!important}
+body #home .lm-home-welcome h1{max-width:none;white-space:nowrap;font-size:clamp(32px,3.4vw,53px)!important}
+@media(max-width:1100px){body #home .lm-home-welcome h1{white-space:normal}}

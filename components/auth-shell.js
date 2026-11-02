@@ -140,6 +140,7 @@
     <h2 id="profileUpdateTitle">Update log</h2>
     <button type="button" class="profile-update-toggle" aria-expanded="false" onclick="const log=this.closest('.profile-update-log');const open=log.classList.toggle('is-expanded');this.setAttribute('aria-expanded',String(open));this.textContent=open?'Show fewer updates':'View all updates';">View all updates</button>
     <div class="profile-update-entries">
+      <article><time datetime="2026-11-02">November 2, 2026</time><h3>A clearer home and grade chooser</h3><p>The home page has its earlier background again, a shorter welcome, no emoji, and sentence case labels. Each grade column now keeps one color.</p></article>
       <article><time datetime="2026-11-02">November 2, 2026</time><h3>More Grade 3 investigations and saved colors</h3><p>Ten Science and ten History lessons add 500 questions. Theme colors return when you sign in, images follow the selected palette, lesson tiles stay centered, and the outer grade rows share a color.</p></article>
       <article><time datetime="2026-11-02">November 2, 2026</time><h3>Question backgrounds match your theme</h3><p>The lesson screen now uses the same color family as the navigation bar, including the ocean, forest, berry, mint, and dark themes.</p></article>
       <article><time datetime="2026-11-02">November 2, 2026</time><h3>Fresh lesson screens</h3><p>Lesson titles now use sentence case. Questions and answers share one font, answer bubbles are rounder, and subjects have their own illustrated backgrounds.</p></article>

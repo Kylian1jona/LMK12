@@ -9,7 +9,7 @@
     <div class="lm-home">
       <section class="lm-home-hero">
         <div class="lm-home-main">
-          <header class="lm-home-welcome"><span>LEARNMASTER K12</span><h1>What are you learning today?</h1><p>Pick a grade, read a story, or practice a skill.</p></header>
+          <header class="lm-home-welcome"><span>LearnMaster K12</span><h1>What would you like to learn today?</h1></header>
           <div class="lm-home-quick-grid" aria-label="Quick links">
           <button type="button" onclick="show('grades')"><span aria-hidden="true" class="fi fi-rr-apps"></span><b>Grades &amp; Extras</b><small>Browse lessons and skills</small></button>
           <button type="button" onclick="showReading()"><span aria-hidden="true" class="fi fi-rr-book-alt"></span><b>Reading</b><small>Stories and reading practice</small></button>
@@ -18,14 +18,14 @@
           </div>
         </div>
         <div class="lm-home-side-stack">
-          <aside class="lm-today-card"><span>FOR TODAY</span><b>Finish one lesson</b><p>Pick something you want to practice. You can always come back for more.</p><button type="button" onclick="openLessonSearch(event)">Find a lesson</button></aside>
-          <button type="button" class="lm-home-playground-link" onclick="show('playground')"><span>PLAYGROUND · FREE</span><b>Five learning adventures</b></button>
-          <button type="button" class="lm-home-staar-link" onclick="openStaarTesting()"><span>STAAR TESTING</span><b>Practice Texas reading, math, and science questions</b></button>
+          <aside class="lm-today-card"><span>For today</span><b>Finish one lesson</b><p>Pick something you want to practice. You can always come back for more.</p><button type="button" onclick="openLessonSearch(event)">Find a lesson</button></aside>
+          <button type="button" class="lm-home-playground-link" onclick="show('playground')"><span>Playground · free</span><b>Five learning adventures</b></button>
+          <button type="button" class="lm-home-staar-link" onclick="openStaarTesting()"><span>Texas test practice</span><b>Practice Texas reading, math, and science questions</b></button>
         </div>
       </section>
       <section class="lm-home-tools" aria-label="Learning tools"><button type="button" onclick="show('analysis')"><span>Progress</span><b>See goals and growth</b></button><button type="button" class="is-coming" aria-disabled="true" onclick="toast('Awards are coming soon!')"><span>Awards</span><b>Certificates and badges coming soon</b></button></section>
-      <section class="lm-home-paths" aria-labelledby="homeLaunchTitle"><header><span>START HERE</span><h2 id="homeLaunchTitle">Choose a grade</h2><p>You can switch grades anytime.</p></header><div>
-        <button type="button" data-zone="early" onclick="show('prek')"><span>PK-1</span><b>Early learners</b><small>Letters, sounds, numbers, and shapes</small></button>
+      <section class="lm-home-paths" aria-labelledby="homeLaunchTitle"><header><span>Start here</span><h2 id="homeLaunchTitle">Choose a grade</h2><p>You can switch grades anytime.</p></header><div>
+        <button type="button" data-zone="early" onclick="show('prek')"><span>Pre-K–1</span><b>Early learners</b><small>Letters, sounds, numbers, and shapes</small></button>
         <button type="button" data-zone="elementary" onclick="show('grade2')"><span>2-5</span><b>Elementary</b><small>Build strong everyday skills</small></button>
         <button type="button" data-zone="middle" onclick="show('grade6')"><span>6-8</span><b>Middle school</b><small>Think deeper and practice independently</small></button>
         <button type="button" data-zone="high" onclick="show('grade9')"><span>9-12</span><b>High school</b><small>Advanced concepts and analysis</small></button>
