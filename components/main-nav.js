@@ -62,6 +62,26 @@
     addIcon(button,name);
   }
   window.decorateLearnMasterIcons=function(root=document){
+    root.querySelectorAll?.('.section[id^="g"][id*="-"] .lesson-column:not([data-topic-ready])').forEach(column=>{
+      const heading=column.querySelector(':scope > h3');
+      const lessons=column.querySelectorAll(':scope > button, :scope > a.btn');
+      if(!heading||!lessons.length)return;
+      stripLeadingEmoji(heading);
+      column.dataset.topicReady='true';
+      const topic=document.createElement('details');
+      topic.className='lesson-topic-panel';
+      const summary=document.createElement('summary');
+      summary.className='lesson-topic-heading';
+      const count=document.createElement('span');
+      count.className='lesson-topic-count';
+      count.textContent=`${lessons.length} lesson${lessons.length===1?'':'s'}`;
+      summary.append(heading,count);
+      const list=document.createElement('div');
+      list.className='lesson-topic-list';
+      while(column.firstChild)list.appendChild(column.firstChild);
+      topic.append(summary,list);
+      column.appendChild(topic);
+    });
     const gradeIcons=["backpack","pencil","calculator","book-alt","flask","globe","school","graduation-cap"];
     root.querySelectorAll?.(".grade-card").forEach((card,index)=>{
       const title=card.querySelector(".grade-title");

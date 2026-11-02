@@ -496,6 +496,7 @@ function normalizeAppSection(id){
 
 function show(id,options={}){
   if(!loggedIn){ showLogin(""); return; }
+  if(document.getElementById("answerExplanationScreen") && id!=="lessonRunner") return;
   if(currentPortalRole==="tutor"){
     if(typeof enterTutorWorkspace==="function") enterTutorWorkspace();
     return;
@@ -2047,7 +2048,7 @@ function showCorrectFeedbackOverlay(message="You earned 2 points!"){
     overlay.setAttribute("role","status");
     overlay.setAttribute("aria-live","assertive");
     overlay.setAttribute("aria-hidden","true");
-    overlay.innerHTML=`<div class="correct-feedback-card"><span class="correct-check" aria-hidden="true">&#10003;</span><h2>CORRECT!</h2><p>You earned 2 points!</p></div>`;
+    overlay.innerHTML=`<div class="correct-feedback-card"><div class="correct-stars" aria-hidden="true">★ ★ ★ ★ ★</div><span class="correct-check" aria-hidden="true">&#10003;</span><h2>CORRECT!</h2><p>You earned 2 points!</p><div class="correct-stars correct-stars-bottom" aria-hidden="true">★ ★ ★ ★ ★</div></div>`;
     document.body.appendChild(overlay);
   }
   clearTimeout(correctFeedbackTimer);

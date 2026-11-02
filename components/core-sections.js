@@ -105,7 +105,7 @@
     <div class="grade-library-v2">
       <header class="grade-library-head">
         <button type="button" onclick="appBack('home')">← Today</button>
-        <div><span>GRADE LIBRARY</span><h1>Find your learning space.</h1><p>Every grade has its own subjects, lessons, progress, and quiz experience.</p></div>
+        <div><span>YOUR LEARNING PATH</span><h1>Select Grade Level</h1><p>Pick your grade to explore subjects and lessons.</p></div>
         <div class="grade-head-tools">
           <label class="section-language-control" for="gradeLanguagePicker"><span>Language</span><select id="gradeLanguagePicker" class="language-picker" aria-label="Change language in the grade section" onchange="setLanguage(this.value)"><option value="en">English</option><option value="es">Spanish</option><option value="fr">French</option><option value="zh">Chinese</option><option value="hi">Hindi</option></select></label>
           <aside><b>14</b><small>grade levels</small></aside>
@@ -452,6 +452,14 @@
 
   <!-- PRE-K MENU (3 lessons) -->
 `;
+      const shortLabels={cardPrek:"Pre-K",cardKinder:"K",cardGrade1:"1st",cardGrade2:"2nd",cardGrade3:"3rd",cardGrade4:"4th",cardGrade5:"5th",cardGrade6:"6th",cardGrade7:"7th",cardGrade8:"8th",cardGrade9:"9th",cardGrade10:"10th",cardGrade11:"11th",cardGrade12:"12th",cardShop:"Shop",cardPlayground:"Play"};
+      this.querySelectorAll("#grades .grade-card").forEach(card=>{
+        const title=card.querySelector(".grade-title"),button=card.querySelector("button");
+        if(!title||!button)return;
+        const fullTitle=title.textContent.trim();
+        title.textContent=shortLabels[card.id]||fullTitle;
+        button.setAttribute("aria-label",`Open ${fullTitle}`);
+      });
     }
   }
 

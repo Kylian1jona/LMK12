@@ -302,6 +302,7 @@ function clearLessonAdvanceTimers(){
 }
 
 function lrAdvanceQuestion(){
+  if(document.getElementById("answerExplanationScreen")) return;
   clearLessonAdvanceTimers();
   syncCurrentQuestionHistory();
   if(LR.historyIndex<LR.questionHistory.length-1){
@@ -384,7 +385,7 @@ function lrWrongMoveOn(feedback = "Not quite. Moving on.", penalty = "", delayMs
   }else{
     $("lrFb").textContent = "Revision complete — review the correction and keep going. Your score stays the same.";
   }
-  $("lrNextBtn").disabled = false;
+  $("lrNextBtn").disabled = true;
   clearTimeout(LR_WRONG_ADVANCE_TIMER);
   highlightLessonAnswers(LR.current, LR.lastAnswer);
   showAnswerExplanation(LR.current, LR.lastAnswer);
@@ -545,50 +546,44 @@ function questionSpecificStrategy(q, question, correct){
 }
 
 function buildQuestionSpecificParagraphs(q, userAnswer=""){
-  const question = String(q?.q || "this question").replace(/\s+/g, " ").trim();
-  const correct = answerTextForFeedback(q) || "the corrected answer shown in green";
-  const chosen = String(userAnswer || "No answer").trim();
-  return [
-    `This question asked: “${question}” You answered “${chosen}.” That answer is red because it does not satisfy this prompt; “${correct}” is green because it does.`,
-    questionSpecificReason(q, question, correct, chosen),
-    questionSpecificStrategy(q, question, correct)
-  ];
+  const question=String(q?.q||"this question").replace(/\s+/g," ").trim();
+  const correct=answerTextForFeedback(q)||"the corrected answer";
+  const chosen=String(userAnswer||"No answer").trim();
+  const reason=questionSpecificReason(q,question,correct,chosen).replace(/\s+/g," ").trim();
+  const shortReason=reason.split(/(?<=[.!?])\s+(?=[A-Z])/).slice(0,2).join(" ").trim()||`The correct answer is ${correct}.`;
+  return [shortReason,questionSpecificStrategy(q,question,correct)];
 }
-
 function closeAnswerExplanation(){
   document.getElementById("answerExplanationScreen")?.remove();
 }
 
 function showAnswerExplanation(q, userAnswer=""){
   closeAnswerExplanation();
-  const screen = document.createElement("div");
-  screen.id = "answerExplanationScreen";
-  screen.className = "answer-explanation-screen";
-  screen.setAttribute("role", "dialog");
-  screen.setAttribute("aria-modal", "true");
-  screen.setAttribute("aria-labelledby", "answerExplanationTitle");
-  const paragraphs = buildQuestionSpecificParagraphs(q, userAnswer);
-  screen.innerHTML = `
+  const screen=document.createElement("div");
+  screen.id="answerExplanationScreen";
+  screen.className="answer-explanation-screen";
+  screen.setAttribute("role","dialog");
+  screen.setAttribute("aria-modal","true");
+  screen.setAttribute("aria-labelledby","answerExplanationTitle");
+  const paragraphs=buildQuestionSpecificParagraphs(q,userAnswer);
+  screen.innerHTML=`
     <div class="answer-explanation-card">
       <div class="answer-explanation-kicker">Let’s learn from this one</div>
-      <h2 id="answerExplanationTitle">Question explanation</h2>
-      <div class="answer-comparison" aria-label="Answer comparison">
-        <div class="answer-comparison-wrong"><span>Your answer</span><strong>${htmlSafe(String(userAnswer || "No answer"))}</strong></div>
-        <div class="answer-comparison-correct"><span>Correct answer</span><strong>${htmlSafe(answerTextForFeedback(q) || "See the corrected items")}</strong></div>
+      <h2 id="answerExplanationTitle">Not quite yet</h2>
+      <p class="answer-explanation-question">${htmlSafe(String(q?.q||""))}</p>
+      <div class="answer-comparison-wrong"><span>Your answer</span><strong>${htmlSafe(String(userAnswer||"No answer"))}</strong></div>
+      <div class="answer-explanation-copy">${paragraphs.map(paragraph=>`<p>${htmlSafe(paragraph)}</p>`).join("")}</div>
+      <div class="answer-explanation-bottom">
+        <div class="answer-comparison-correct"><span>Correct answer</span><strong>${htmlSafe(answerTextForFeedback(q)||"See the corrected items")}</strong></div>
+        <button type="button" class="btn btn-main answer-explanation-continue">Continue lesson</button>
       </div>
-      <div class="answer-explanation-copy">
-        ${paragraphs.map(paragraph=>`<p>${htmlSafe(paragraph)}</p>`).join("")}
-      </div>
-      <button type="button" class="btn btn-main answer-explanation-continue">Continue</button>
     </div>`;
-  screen.querySelector("button").addEventListener("click", ()=>{
-    closeAnswerExplanation();
-    lrAdvanceQuestion();
-  });
+  const continueButton=screen.querySelector(".answer-explanation-continue");
+  continueButton.addEventListener("click",()=>{closeAnswerExplanation();lrAdvanceQuestion();});
+  screen.addEventListener("keydown",event=>{if(event.key==="Tab"){event.preventDefault();continueButton.focus();}});
   document.body.appendChild(screen);
-  screen.querySelector("button").focus();
+  continueButton.focus();
 }
-
 function highlightLessonAnswers(q, userAnswer=""){
   const correct = String(q?.answer ?? "");
   if(q?.type === "mc" || q?.type === "speed"){
@@ -847,6 +842,7 @@ function launchLessonPack(grade, subj, lesson, pack, backSection){
     const level=grade==="prek"||grade==="k"?0:Number(String(grade).replace("g",""));
     runner.dataset.gradeBand=level<=3?"early":"upper";
     runner.dataset.gradeLevel=String(level);
+    runner.dataset.subject=subj;
   }
 
   show("lessonRunner");
@@ -1165,11 +1161,13 @@ function normalizeLessonQuestion(q, pack){
 
 function lrNext(){
   safeClick();
+  if(document.getElementById("answerExplanationScreen")) return;
   if($("lrNextBtn").disabled) return;
   lrAdvanceQuestion();
 }
 function lrPrevious(){
   safeClick();
+  if(document.getElementById("answerExplanationScreen")) return;
   if(LR.historyIndex<=0) return;
   clearLessonAdvanceTimers();
   syncCurrentQuestionHistory();
@@ -1234,6 +1232,7 @@ function lrRestart(){
 }
 function lrBack(){
   safeClick();
+  if(document.getElementById("answerExplanationScreen")) return;
   saveLessonCheckpoint();
   clearLessonAdvanceTimers();
   if(typeof hideCorrectFeedbackOverlay==="function") hideCorrectFeedbackOverlay();
@@ -1521,6 +1520,10 @@ function lrRender(){
 
   if(LR.answered){
     restoreSavedAnswerView();
+    if(!LR.answerCorrect){
+      $("lrNextBtn").disabled=true;
+      showAnswerExplanation(q,LR.lastAnswer);
+    }
     if(typeof setQAudio === "function") setQAudio(lessonQuestionSpeech(q));
   }else if(q.blend){
     playBlendSequence(q);

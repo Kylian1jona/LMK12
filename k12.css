@@ -7843,3 +7843,110 @@ body #lessonRunner #lrLessonActions{padding-bottom:8px}
   body #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong),
   body[data-theme] #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong){min-height:64px;padding:10px 14px;border-radius:16px;font-size:17px}
 }
+
+/* Brighter quiz type and answers, with a different reading font. */
+body #lessonRunner{background:linear-gradient(135deg,#fff8ec 0%,#f1fbff 48%,#f8f3ff 100%)!important}
+body #lessonRunner>.lesson-quiz-shell{background:linear-gradient(155deg,#fffdfa,#fff 52%,#f8fbff)!important}
+body #lessonRunner .lesson-quiz-title{font-family:"Baloo 2",cursive;font-weight:800;letter-spacing:0}
+body #lessonRunner #lrQuestion{font-family:Fredoka,sans-serif;font-weight:600;letter-spacing:-.015em}
+body #lessonRunner .lesson-progress-track span{background:linear-gradient(90deg,#f8b34b,#63c5e8,#9d83e9)}
+body #lessonRunner #lrTopicVisual{background:linear-gradient(145deg,#fff2cf,#dff5ff);border-color:#a9d9e8;color:#326b91}
+body #lessonRunner[data-subject="eng"] #lrTopicVisual{background:linear-gradient(145deg,#ffe8ef,#fff1c6);color:#a44167}
+body #lessonRunner[data-subject="sci"] #lrTopicVisual{background:linear-gradient(145deg,#e3f8e6,#dbf6fb);color:#22786c}
+body #lessonRunner[data-subject="hist"] #lrTopicVisual{background:linear-gradient(145deg,#f2e8ff,#fff1d8);color:#705391}
+body #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong):nth-child(4n+1){background:#f5efff!important;border-color:#bda8ea!important}
+body #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong):nth-child(4n+2){background:#eafbf7!important;border-color:#89d7c5!important}
+body #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong):nth-child(4n+3){background:#edf7ff!important;border-color:#9bc6ec!important}
+body #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong):nth-child(4n+4){background:#fff1f2!important;border-color:#ecabb9!important}
+body #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong){font-family:Fredoka,sans-serif;font-weight:600}
+body[data-theme] #lessonRunner>.lesson-quiz-shell{background:var(--card,#fff)!important}
+body[data-theme] #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong):nth-child(n){background:color-mix(in srgb,var(--card,#fff) 72%,var(--answer-tint,#eef7ff))!important;color:var(--ink)!important}
+body[data-theme] #lessonRunner #lrChoices .choice-btn:nth-child(4n+1){--answer-tint:#e5d9ff}
+body[data-theme] #lessonRunner #lrChoices .choice-btn:nth-child(4n+2){--answer-tint:#d3f4e9}
+body[data-theme] #lessonRunner #lrChoices .choice-btn:nth-child(4n+3){--answer-tint:#d9ebff}
+body[data-theme] #lessonRunner #lrChoices .choice-btn:nth-child(4n+4){--answer-tint:#ffe0e5}
+
+/* Every missed answer receives a full-screen, required correction. */
+.answer-explanation-screen{position:fixed;inset:0;z-index:300040;display:flex;padding:0;overflow:auto;background:radial-gradient(circle at 50% 20%,#c83b45 0%,#aa2232 55%,#78182a 100%);backdrop-filter:none}
+.answer-explanation-card{display:flex;flex-direction:column;gap:clamp(12px,2vh,22px);width:min(100%,1120px);min-height:100vh;min-height:100dvh;max-height:none;margin:0 auto;padding:clamp(26px,5vw,64px)!important;overflow:visible;border:0!important;border-radius:0;background:transparent!important;color:#fff!important;box-shadow:none!important}
+.answer-explanation-kicker{color:#ffe6a9!important;font:800 14px/1.2 "Baloo 2",cursive;letter-spacing:.1em}
+.answer-explanation-card h2{margin:0;color:#fff!important;font:800 clamp(40px,6vw,72px)/1 "Baloo 2",cursive}
+.answer-explanation-question{margin:0;padding:0;border:0;background:none;color:#fff!important;font:600 clamp(20px,2.6vw,30px)/1.35 Fredoka,sans-serif}
+.answer-comparison-wrong{display:grid;gap:5px;width:min(100%,560px);padding:16px 20px;border:1px solid #ffc4c4!important;border-radius:18px;background:#fff2f0!important;color:#74202a!important}
+.answer-comparison-wrong span,.answer-comparison-correct span{font-size:12px;font-weight:900;letter-spacing:.07em;text-transform:uppercase}
+.answer-comparison-wrong strong,.answer-comparison-correct strong{font-size:clamp(19px,2.3vw,26px);overflow-wrap:anywhere}
+.answer-explanation-copy{display:grid;gap:14px;margin:0}
+.answer-explanation-copy p{max-width:930px;margin:0;color:#fff!important;font:500 clamp(18px,2vw,23px)/1.5 Fredoka,sans-serif}
+.answer-explanation-bottom{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:18px;margin-top:auto;padding-top:20px;border-top:1px solid #ffffff7a}
+.answer-comparison-correct{display:grid;gap:4px;min-width:0;padding:16px 20px;border:2px solid #85f2bd!important;border-radius:18px;background:#e4fff0!important;color:#12553b!important}
+.answer-explanation-continue{min-width:190px;min-height:58px;margin:0!important;border:2px solid #fff!important;background:#fff!important;color:#a92135!important;font:800 18px/1 Fredoka,sans-serif}
+.answer-explanation-continue:hover{background:#fff1d8!important;color:#87182a!important}
+@media(max-width:700px){.answer-explanation-card{padding:24px 18px 30px!important}.answer-explanation-bottom{grid-template-columns:1fr}.answer-explanation-continue{width:100%}}
+
+/* Clear, white-on-green celebration with more visible stars. */
+.correct-feedback-card h2,.correct-feedback-card p{color:#fff!important;text-shadow:0 2px 3px #17472280}
+.correct-feedback-card{width:min(560px,92vw);background:linear-gradient(145deg,#53b942,#279a59);border-color:#d7ffc6}
+.correct-stars{margin:-16px 0 14px;color:#fff4a2;font-size:clamp(19px,3vw,30px);letter-spacing:.2em;text-shadow:0 0 13px #fff3a7}
+.correct-stars-bottom{margin:20px 0 -18px}
+
+/* A single compact grade chooser, inspired by the illustrated grade buttons. */
+body #grades{margin:0;padding:8px 12px 18px;background:linear-gradient(140deg,#fffaf2,#f7fbff 55%,#fff8f7)!important}
+body #grades .grade-library-v2{display:flex;flex-direction:column;justify-content:center;gap:clamp(12px,2vh,22px);width:min(100%,1080px);max-width:1080px;min-height:min(690px,calc(100dvh - 110px));margin:auto;padding:clamp(12px,2vw,26px)!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+body #grades .grade-library-head{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px;min-height:0;padding:8px 4px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+body #grades .grade-library-head>button{grid-column:1;border:1px solid #ceddea;background:#fff;color:#476477}
+body #grades .grade-library-head>div:nth-child(2){grid-column:2;text-align:center}
+body #grades .grade-library-head>div>span,body #grades .grade-library-head p,body #grades .grade-head-tools aside{display:none!important}
+body #grades .grade-library-head h1{margin:0!important;color:#604a50!important;font:800 clamp(27px,3vw,39px)/1 "Baloo 2",cursive!important;letter-spacing:0!important}
+body #grades .grade-head-tools{grid-column:3;justify-self:end}
+body #grades .grade-progress-preview{display:none!important}
+body #grades .grade-library-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;grid-template-rows:repeat(4,clamp(70px,10vh,105px));gap:clamp(8px,1.4vw,18px)!important;width:100%;margin:0!important}
+body #grades .grade-library-grid .grade-card{position:relative;display:flex!important;align-items:center!important;justify-content:center!important;min-width:0;min-height:0!important;height:100%;margin:0;padding:8px 14px!important;border:2px solid var(--grade-border,#d2bd9a)!important;border-radius:999px!important;background:var(--grade-fill,#ffe9b7)!important;box-shadow:0 5px 0 #263b4b22,0 12px 18px #263b4b12!important;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+body #grades .grade-library-grid .grade-card{grid-column:auto!important}
+body #grades .grade-library-grid .grade-card::before{display:none!important}
+body #grades .grade-library-grid .grade-card:nth-child(4n+1){--grade-fill:#ffe8ae;--grade-border:#dab970;--grade-ink:#8b632b}
+body #grades .grade-library-grid .grade-card:nth-child(4n+2){--grade-fill:#ffc6b1;--grade-border:#d7957c;--grade-ink:#975c4a}
+body #grades .grade-library-grid .grade-card:nth-child(4n+3){--grade-fill:#cde8c4;--grade-border:#9cbb91;--grade-ink:#547b56}
+body #grades .grade-library-grid .grade-card:nth-child(4n+4){--grade-fill:#c9e5f7;--grade-border:#91b7cf;--grade-ink:#527b96}
+body #grades .grade-library-grid .grade-card:nth-child(8n+5){--grade-fill:#e3d4f3;--grade-border:#b4a0d1;--grade-ink:#725e91}
+body #grades .grade-library-grid .grade-card:nth-child(8n+8){--grade-fill:#f5ccd5;--grade-border:#d8a0ae;--grade-ink:#986273}
+body #grades .grade-library-grid .grade-card:hover{transform:translateY(-4px);box-shadow:0 9px 0 #263b4b1a,0 17px 24px #263b4b20!important}
+body #grades .grade-library-grid .grade-card:focus-within{outline:3px solid var(--grade-ink);outline-offset:3px}
+body #grades .grade-library-grid .grade-title{display:flex;align-items:center;justify-content:center;gap:10px;min-height:0;margin:0;color:var(--grade-ink)!important;font:800 clamp(19px,2.3vw,31px)/1 "Baloo 2",cursive!important;white-space:nowrap}
+body #grades .grade-library-grid .grade-title>.lm-ui-icon{font-size:clamp(18px,2vw,27px);line-height:1}
+body #grades .grade-library-grid .grade-sub{display:none!important}
+body #grades .grade-library-grid .grade-card>.btn{position:absolute;inset:0;width:100%;height:100%;margin:0!important;padding:0!important;opacity:0;cursor:pointer}
+body[data-theme] #grades .grade-library-grid .grade-card{background:color-mix(in srgb,var(--grade-fill) 82%,var(--orange-light))!important;border-color:color-mix(in srgb,var(--grade-border) 78%,var(--orange))!important}
+@media(max-width:700px){body #grades{padding:4px 8px 12px}body #grades .grade-library-v2{min-height:min(600px,calc(100dvh - 92px));padding:8px!important}body #grades .grade-library-head{grid-template-columns:45px minmax(0,1fr) 45px;gap:6px}body #grades .grade-library-head h1{font-size:clamp(22px,5vw,29px)!important}body #grades .grade-head-tools{display:none!important}body #grades .grade-library-grid{grid-template-rows:repeat(4,clamp(62px,10vh,84px));gap:8px!important}body #grades .grade-library-grid .grade-card{padding:5px!important}body #grades .grade-library-grid .grade-title{flex-direction:column;gap:1px;font-size:clamp(17px,4.3vw,24px)!important}body #grades .grade-library-grid .grade-title>.lm-ui-icon{font-size:19px}}
+
+/* Subject lesson groups open like the rounded rows in the reference. */
+body .section[id^="g"][id*="-"] .lesson-columns{grid-template-columns:minmax(0,1fr)!important;max-width:930px;margin:24px auto 0;gap:12px!important}
+body .section[id^="g"][id*="-"] .lesson-column[data-topic-ready]{min-width:0;padding:0!important;overflow:hidden;border:0!important;border-radius:22px!important;background:transparent!important;box-shadow:none!important}
+body .section[id^="g"][id*="-"] .lesson-topic-panel{--topic-fill:#d1ecec;--topic-edge:#83b9b8;--topic-ink:#265a63;border:2px solid var(--topic-edge);border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 6px 12px #1c4a5619}
+body .section[id^="g"][id*="-"] .lesson-column:nth-child(4n+2) .lesson-topic-panel{--topic-fill:#ffe7a4;--topic-edge:#d5ae67;--topic-ink:#765827}
+body .section[id^="g"][id*="-"] .lesson-column:nth-child(4n+3) .lesson-topic-panel{--topic-fill:#f7c7b7;--topic-edge:#d29a88;--topic-ink:#7d4c42}
+body .section[id^="g"][id*="-"] .lesson-column:nth-child(4n+4) .lesson-topic-panel{--topic-fill:#e3d4ee;--topic-edge:#baa4ca;--topic-ink:#6d5482}
+body .section[id^="g"][id*="-"] .lesson-topic-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:62px;padding:12px 20px;list-style:none;background:var(--topic-fill);cursor:pointer}
+body .section[id^="g"][id*="-"] .lesson-topic-heading::-webkit-details-marker{display:none}
+body .section[id^="g"][id*="-"] .lesson-topic-heading::marker{content:""}
+body .section[id^="g"][id*="-"] .lesson-topic-heading h3{display:block!important;flex:1;min-height:0!important;margin:0!important;padding:0!important;border:0!important;background:none!important;color:var(--topic-ink)!important;font:800 clamp(19px,2vw,25px)/1.15 "Baloo 2",cursive!important;text-align:left!important}
+body .section[id^="g"][id*="-"] .lesson-topic-count{flex:none;margin:0;padding:0!important;background:none!important;color:var(--topic-ink);font:800 12px/1 Fredoka,sans-serif;white-space:nowrap}
+body .section[id^="g"][id*="-"] .lesson-topic-count::after{content:"⌄";display:inline-block;margin-left:12px;font-size:22px;vertical-align:-2px;transition:transform .18s}
+body .section[id^="g"][id*="-"] .lesson-topic-panel[open] .lesson-topic-count::after{transform:rotate(180deg)}
+body .section[id^="g"][id*="-"] .lesson-topic-heading:focus-visible{outline:3px solid var(--topic-ink);outline-offset:-4px}
+body .section[id^="g"][id*="-"] .lesson-topic-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-height:min(48vh,390px);padding:12px;overflow:auto;background:#fff}
+body .section[id^="g"][id*="-"] .lesson-topic-list>p{grid-column:1/-1;margin:0 0 4px;color:#556b78;text-align:left}
+body .section[id^="g"][id*="-"] .lesson-topic-list>.btn{width:100%;margin:0!important}
+body[data-theme] .section[id^="g"][id*="-"] .lesson-topic-panel{background:var(--card,#fff)}
+body[data-theme] .section[id^="g"][id*="-"] .lesson-topic-heading{background:color-mix(in srgb,var(--topic-fill) 70%,var(--orange-light))}
+body[data-theme] .section[id^="g"][id*="-"] .lesson-topic-list{background:var(--card,#fff)}
+@media(max-width:640px){body .section[id^="g"][id*="-"] .lesson-topic-list{grid-template-columns:1fr}body .section[id^="g"][id*="-"] .lesson-topic-heading{padding:10px 14px}body .section[id^="g"][id*="-"] .lesson-topic-count{font-size:11px}}
+body .early-subject-shell .early-skill-topic{--skill-accent:#378a92;border:2px solid #92c8c9;border-radius:22px;box-shadow:0 5px 12px #1c4a5614}
+body .early-subject-shell .early-skill-topic:nth-child(4n+2){--skill-accent:#9a7637;border-color:#e2bf79}
+body .early-subject-shell .early-skill-topic:nth-child(4n+3){--skill-accent:#ad6654;border-color:#dfae9d}
+body .early-subject-shell .early-skill-topic:nth-child(4n+4){--skill-accent:#80629c;border-color:#c6add8}
+body .early-subject-shell .early-skill-summary{min-height:65px;border:0;background:#d1ecec}
+body .early-subject-shell .early-skill-topic:nth-child(4n+2) .early-skill-summary{background:#ffe7a4}
+body .early-subject-shell .early-skill-topic:nth-child(4n+3) .early-skill-summary{background:#f7c7b7}
+body .early-subject-shell .early-skill-topic:nth-child(4n+4) .early-skill-summary{background:#e3d4ee}
+body .early-subject-shell .early-skill-title{color:#315364;font-family:"Baloo 2",cursive}
+body .early-subject-shell .early-skill-description{color:#4e6571}
