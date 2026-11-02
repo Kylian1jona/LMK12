@@ -51,10 +51,19 @@
       }
     }
   }
+  function addLessonIcon(button,name){
+    if(!button) return;
+    if(!button.querySelector(":scope > .lm-lesson-label")){
+      const label=document.createElement("span");
+      label.className="lm-lesson-label";
+      [...button.childNodes].filter(node=>!node.classList?.contains("lm-ui-icon")).forEach(node=>label.appendChild(node));
+      button.appendChild(label);
+    }
+    addIcon(button,name);
+  }
   window.decorateLearnMasterIcons=function(root=document){
     const gradeIcons=["backpack","pencil","calculator","book-alt","flask","globe","school","graduation-cap"];
     root.querySelectorAll?.(".grade-card").forEach((card,index)=>{
-      if(index%2===0) return;
       const title=card.querySelector(".grade-title");
       stripLeadingEmoji(title);
       addIcon(title,gradeIcons[index%gradeIcons.length]);
@@ -64,7 +73,11 @@
       if(badge && !badge.querySelector(":scope > .lm-ui-icon")) badge.textContent="";
       addIcon(badge,["user","headphones","palette","credit-card","users"][index%5]);
     });
-    root.querySelectorAll?.(".early-subject-choice,.grade-subject-option").forEach((button,index)=>addIcon(button,["book-alt","calculator","flask","landmark-alt"][index%4]));
+    root.querySelectorAll?.(".early-subject-choice,.grade-subject-option").forEach(button=>{
+      const subject=String(button.dataset.subject||button.textContent||"").toLowerCase();
+      const name=subject.includes("math")||subject.includes("alg")?"calculator":subject.includes("sci")?"flask":subject.includes("hist")?"landmark-alt":subject.includes("eng")?"book-alt":"arrow-left";
+      addIcon(button,name);
+    });
     root.querySelectorAll?.(".learner-icon").forEach(icon=>{
       icon.textContent="";
       icon.classList.add("fi","fi-rr-user","lm-ui-icon","has-ui-icon");
@@ -74,7 +87,7 @@
       const id=button.closest('.section[id^="g"][id*="-"]')?.id||"";
       const subject=id.includes("-math")?"math":id.includes("-sci")?"sci":id.includes("-hist")?"hist":id.includes("-eng")?"eng":"general";
       const set=iconSets[subject];
-      addIcon(button,set[index%set.length]);
+      addLessonIcon(button,set[index%set.length]);
     });
   };
   let iconRefreshQueued=false;

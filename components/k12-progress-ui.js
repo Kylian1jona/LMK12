@@ -341,12 +341,13 @@ function makeSpeechFriendly(text){
     .trim();
 }
 
-function speakGlobal(t){
-  if(!voiceOn) return;
+function speakGlobal(t,{force=false}={}){
+  if(!voiceOn&&!force) return false;
   try{
+    if(typeof speechSynthesis==="undefined"||typeof SpeechSynthesisUtterance==="undefined") return false;
     speechSynthesis.cancel();
     const friendlyText=makeSpeechFriendly(t);
-    if(!friendlyText) return;
+    if(!friendlyText) return false;
     const u = new SpeechSynthesisUtterance(friendlyText);
     const preferredVoice = getPreferredSpeechVoice();
     if(preferredVoice) u.voice = preferredVoice;
@@ -356,7 +357,8 @@ function speakGlobal(t){
     const language=typeof window.k12CurrentLanguage==="function"?window.k12CurrentLanguage():"en";
     u.lang = preferredVoice?.lang || ({es:"es-ES",fr:"fr-FR",zh:"zh-CN",hi:"hi-IN"}[language]||"en-US");
     speechSynthesis.speak(u);
-  }catch(e){}
+    return true;
+  }catch(e){ return false; }
 }
 
 try{

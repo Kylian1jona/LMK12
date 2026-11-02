@@ -385,7 +385,7 @@
       </div>
 
       <div class="d-flex justify-content-center gap-2 flex-wrap mt-3">
-        <button type="button" class="btn btn-main" onclick="lrReplay()">🔊 Replay</button>
+        <button type="button" class="btn btn-main lesson-read-button" onclick="lrReplay()" aria-label="Read this question aloud"><i class="fi fi-rr-volume lm-ui-icon" aria-hidden="true"></i><span>Read aloud</span></button>
         <button type="button" class="btn btn-main" onclick="lrPrevious()" id="lrPrevBtn" disabled>Previous Question</button>
         <button type="button" class="btn btn-main" onclick="lrCheck()" id="lrCheckBtn">Check</button>
         <button type="button" class="btn btn-main" onclick="lrNext()" id="lrNextBtn" disabled>Next</button>
@@ -410,14 +410,6 @@
       <div class="small-note lesson-result-summary" id="lrSummary"></div>
     </div>
 
-    <section class="lesson-video-panel" id="lrVideoPanel" aria-labelledby="lrVideoTitle">
-      <div class="lesson-video-heading">
-        <span aria-hidden="true">▶</span>
-        <div><small>WATCH &amp; REVIEW</small><h2 id="lrVideoTitle">Lesson video</h2></div>
-      </div>
-      <video id="lrVideo" class="d-none" controls preload="metadata" playsinline></video>
-      <p id="lrVideoEmpty" class="lesson-video-empty">This lesson does not have a video yet.</p>
-    </section>
   </div>
 </div>
 `;

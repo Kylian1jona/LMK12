@@ -125,87 +125,87 @@
 
       <div class="grade-grid grade-library-grid" aria-label="Grade levels">
         <div class="grade-card" id="cardPrek">
-          <div class="grade-title">🍎 Pre-K</div>
+          <div class="grade-title">Pre-K</div>
           <p class="grade-sub">Addition • Counting • Shapes</p>
           <button type="button" class="btn btn-main w-100" onclick="show('prek')">Open</button>
         </div>
 
         <div class="grade-card" id="cardKinder">
-          <div class="grade-title">🧩 Kindergarten</div>
+          <div class="grade-title">Kindergarten</div>
           <p class="grade-sub">Syllables • Build Word • Rhymes</p>
           <button type="button" class="btn btn-main w-100" onclick="show('kinder')">Open</button>
         </div>
 
         <div class="grade-card" id="cardGrade1">
-          <div class="grade-title">➕ Grade 1</div>
+          <div class="grade-title">Grade 1</div>
           <p class="grade-sub">Add/Sub • Graphs • Money</p>
           <button type="button" class="btn btn-main w-100" onclick="show('grade1')">Open</button>
         </div>
 <!-- ✅ NEW: Grade 2 -->
 <div class="grade-card" id="cardGrade2">
-  <div class="grade-title">📘 Grade 2</div>
+  <div class="grade-title">Grade 2</div>
   <p class="grade-sub">English • Math • Science</p>
   <button type="button" class="btn btn-main w-100" onclick="show('grade2')">Open</button>
 </div>
 
 <!-- ✅ NEW: Grade 3 -->
 <div class="grade-card" id="cardGrade3">
-  <div class="grade-title">📗 Grade 3</div>
+  <div class="grade-title">Grade 3</div>
   <p class="grade-sub">English • Math • Science</p>
   <button type="button" class="btn btn-main w-100" onclick="show('grade3')">Open</button>
 </div>
 
 <!-- ✅ NEW: Grade 4 -->
 <div class="grade-card" id="cardGrade4">
-  <div class="grade-title">📙 Grade 4</div>
+  <div class="grade-title">Grade 4</div>
   <p class="grade-sub">English • Math • Science</p>
   <button type="button" class="btn btn-main w-100" onclick="show('grade4')">Open</button>
 </div>
 
 <!-- ✅ NEW: Grade 5 -->
 <div class="grade-card" id="cardGrade5">
-  <div class="grade-title">📕 Grade 5</div>
+  <div class="grade-title">Grade 5</div>
   <p class="grade-sub">English • Math • Science</p>
   <button type="button" class="btn btn-main w-100" onclick="show('grade5')">Open</button>
 </div>
 <!-- ✅ NEW: Grade 6 -->
 <div class="grade-card" id="cardGrade6">
-  <div class="grade-title">📓 Grade 6</div>
+  <div class="grade-title">Grade 6</div>
   <p class="grade-sub">English • Math • Science</p>
   <button type="button" class="btn btn-main w-100" onclick="show('grade6')">Open</button>
 </div>
 <div class="grade-card" id="cardGrade7">
-  <div class="grade-title">📝 Grade 7</div>
+  <div class="grade-title">Grade 7</div>
   <p class="grade-sub">English • Math • Science</p>
   <button type="button" class="btn btn-main w-100" onclick="show('grade7')">Open</button>
 </div>
 <div class="grade-card" id="cardGrade8">
-  <div class="grade-title">📜 Grade 8</div>
+  <div class="grade-title">Grade 8</div>
   <p class="grade-sub">English • Math • Science</p>
   <button type="button" class="btn btn-main w-100" onclick="show('grade8')">Open</button>
 </div>
 <div class="grade-card" id="cardGrade9">
-  <div class="grade-title">📔 Grade 9</div>
+  <div class="grade-title">Grade 9</div>
   <p class="grade-sub">English • Math • Science</p>
   <button type="button" class="btn btn-main w-100" onclick="show('grade9')">Open</button>
 </div>
 <div class="grade-card" id="cardGrade10">
-  <div class="grade-title">🏫 Grade 10</div>
+  <div class="grade-title">Grade 10</div>
   <p class="grade-sub">English • Math • Science</p>
   <button type="button" class="btn btn-main w-100" onclick="show('grade10')">Open</button>
 </div>
 <div class="grade-card" id="cardGrade11">
-  <div class="grade-title">📚 Grade 11</div>
+  <div class="grade-title">Grade 11</div>
   <p class="grade-sub">English · Math · Science · History</p>
   <button type="button" class="btn btn-main w-100" onclick="show('grade11')">Open</button>
 </div>
 <div class="grade-card" id="cardGrade12">
-  <div class="grade-title">🎓 Grade 12</div>
+  <div class="grade-title">Grade 12</div>
   <p class="grade-sub">English · Math · Science · History</p>
   <button type="button" class="btn btn-main w-100" onclick="show('grade12')">Open</button>
 </div>
         <div class="grade-card" id="cardShop">
-          <div class="grade-title">🧸 Shop</div>
+          <div class="grade-title">Shop</div>
           <p class="grade-sub">Spend <span class="learner-icon" role="img" aria-label="Learner"></span> Learners on toys</p>
           <button type="button" class="btn btn-main w-100" onclick="show('shop')">Go</button>
         </div>

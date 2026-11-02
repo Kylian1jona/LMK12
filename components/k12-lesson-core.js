@@ -8,12 +8,9 @@
    - Uses your voice system (speakGlobal) with audio per question
 ========================================================= */
 
-function speakQ(text){
-  if(!voiceOn) return;
-  if(!text) return;
-  const level=LR?.grade==="prek"||LR?.grade==="k"?0:Number(String(LR?.grade||"").replace("g",""));
-  if(level>3) return;
-  speakGlobal(String(text));
+function speakQ(text,{force=false}={}){
+  if(!text||(!voiceOn&&!force)) return false;
+  return speakGlobal(String(text),{force});
 }
 let __lastQAudio = "";
 function setQAudio(text){
@@ -24,10 +21,10 @@ function setQAudio(text){
 function lrReplay(){
   safeClick();
   if(LR.current?.blend){
-    playBlendSequence(LR.current);
+    if(!playBlendSequence(LR.current,{force:true})) toast("Read aloud is unavailable in this browser.");
     return;
   }
-  if(__lastQAudio) speakQ(__lastQAudio);
+  if(__lastQAudio&&!speakQ(__lastQAudio,{force:true})) toast("Read aloud is unavailable in this browser.");
 }
 
 let BLEND_SEQUENCE_TOKEN = 0;
@@ -105,14 +102,14 @@ function renderBlendMeter(q){
   setBlendMeterStep(0,false);
 }
 
-function playBlendSequence(q){
+function playBlendSequence(q,{force=false}={}){
   const blend=q?.blend;
-  if(!blend||!Array.isArray(blend.sounds)) return;
+  if(!blend||!Array.isArray(blend.sounds)) return false;
   cancelBlendSequence(true);
   __lastQAudio=String(q.audio||q.q||"");
   setBlendMeterStep(0,false);
-  if(typeof voiceOn!=="undefined"&&!voiceOn) return;
-  if(typeof speechSynthesis==="undefined"||typeof SpeechSynthesisUtterance==="undefined") return;
+  if(typeof voiceOn!=="undefined"&&!voiceOn&&!force) return false;
+  if(typeof speechSynthesis==="undefined"||typeof SpeechSynthesisUtterance==="undefined") return false;
   const token=BLEND_SEQUENCE_TOKEN;
   let soundIndex=0;
   const speakNext=()=>{
@@ -138,6 +135,7 @@ function playBlendSequence(q){
     speechSynthesis.speak(blendedWord);
   };
   BLEND_SEQUENCE_TIMER=setTimeout(speakNext,260);
+  return true;
 }
 
 const LR = {
@@ -146,7 +144,6 @@ const LR = {
   lesson:"",
   title:"",
   image:null,
-  video:null,
   total:25,
   round:1,
   score:0,
@@ -821,7 +818,6 @@ function launchLessonPack(grade, subj, lesson, pack, backSection){
   LR.lesson = lesson;
   LR.title = `${group.showName} — ${pack.name}`;
   LR.image = pack.image || null;
-  LR.video = pack.video || null;
   LR.total = Math.min(25,Array.isArray(pack.questions)&&pack.questions.length?pack.questions.length:25);
   LR.round = 1;
   LR.score = 0;
@@ -846,7 +842,6 @@ function launchLessonPack(grade, subj, lesson, pack, backSection){
   $("lrLessonActions")?.classList.remove("d-none");
   $("lrTitle").textContent = LR.title;
   window.K12LessonLikes?.open(`${grade}:${subj}:${lesson}`);
-  renderLessonVideo(LR.video);
   const runner=$("lessonRunner");
   if(runner){
     const level=grade==="prek"||grade==="k"?0:Number(String(grade).replace("g",""));
@@ -888,7 +883,7 @@ function startUnifiedEarlyLesson(key,backSection){
   if(!CURR[grade]) CURR[grade]={};
   if(!CURR[grade][subj]) CURR[grade][subj]={showName:`${gradeLabel} ${SUBJECT_LABELS[subj]||subj}`};
   const lesson=`EARLY_${lessonToken.replace(/[^a-z0-9]/gi,"_").toUpperCase()}`;
-  const pack={name:record.name,questions:record.questions,image:record.image||null,video:record.video||null,generatorSource:"explicit-25"};
+  const pack={name:record.name,questions:record.questions,image:record.image||null,generatorSource:"explicit-25"};
   pack.gen=()=>cloneRevisionQuestion(pack.questions[Math.max(0,Math.min(24,Number(LR.round||1)-1))]);
   CURR[grade][subj][lesson]=pack;
   launchLessonPack(grade,subj,lesson,pack,backSection||"grades");
@@ -1008,7 +1003,7 @@ function lrPick(choice){
   LR.lastAnswer = String(choice);
   LR.savedResponse = String(choice);
   if(String(choice) === String(q.answer)){
-    lessonCorrect("🎉 Correct!", "Correct!");
+    lessonCorrect("Correct!", "Correct!");
   }else{
     lrWrongMoveOn(wrongExplanation(q, choice));
   }
@@ -1031,7 +1026,7 @@ function lrCheck(){
     });
 
     if(correct){
-      lessonCorrect("🎉 Correct!", "Great matching!");
+      lessonCorrect("Correct!", "Great matching!");
     }else{
       showDragCorrections(q);
       lrWrongMoveOn(wrongExplanation(q), "Review the red corrections.", 4500);
@@ -1048,7 +1043,7 @@ function lrCheck(){
   }
 
   if(typed === String(q.answer)){
-    lessonCorrect("🎉 Correct!", "Correct!");
+    lessonCorrect("Correct!", "Correct!");
   }else{
     lrWrongMoveOn(wrongExplanation(q, typed));
   }
@@ -1241,7 +1236,6 @@ function lrBack(){
   safeClick();
   saveLessonCheckpoint();
   clearLessonAdvanceTimers();
-  $("lrVideo")?.pause();
   if(typeof hideCorrectFeedbackOverlay==="function") hideCorrectFeedbackOverlay();
   if(typeof appBack==="function") appBack(LR.backSection || "grades");
   else show(LR.backSection || "grades");
@@ -1320,30 +1314,6 @@ function renderLessonImage(image){
   img.src = src;
   img.alt = image?.alt || "Lesson image";
   img.style.display = "block";
-}
-
-function renderLessonVideo(video){
-  const player = $("lrVideo");
-  const empty = $("lrVideoEmpty");
-  const title = $("lrVideoTitle");
-  const panel = $("lrVideoPanel");
-  if(!player || !empty) return;
-  const src = typeof video === "string" ? video : video?.src;
-  panel?.classList.toggle("d-none",["prek","k","g1"].includes(LR.grade)&&!src);
-  player.pause();
-  player.removeAttribute("src");
-  player.load();
-  if(!src){
-    player.classList.add("d-none");
-    empty.classList.remove("d-none");
-    if(title) title.textContent = "Lesson video";
-    return;
-  }
-  player.src = src;
-  player.setAttribute("aria-label", video?.title || "Lesson video");
-  player.classList.remove("d-none");
-  empty.classList.add("d-none");
-  if(title) title.textContent = video?.title || "Lesson video";
 }
 
 function restoreSavedAnswerView(){
@@ -1691,7 +1661,7 @@ function lrCheck(){
   }
 
   if(ok){
-    lessonCorrect("🎉 Correct!", "Correct!");
+    lessonCorrect("Correct!", "Correct!");
   }else{
     lrWrongMoveOn(wrongExplanation(q, user));
   }
@@ -1735,7 +1705,7 @@ function renderMatch(q){
         if(document.querySelectorAll("#lessonExtra .done").length === q.pairs.length * 2){
           LR.savedResponse=q.pairs.map(pair=>({left:pair.left,right:pair.right}));
           LR.lastAnswer="All pairs matched";
-          lessonCorrect("🎉 All matched!", "Great match!");
+          lessonCorrect("All matched!", "Great match!");
         }
       }else{
         LR.lastAnswer = `${MATCH_PICK.textContent} with ${b.textContent}`;

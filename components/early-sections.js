@@ -1,6 +1,7 @@
 (function(){
-  const lessonCard=(key,back,title,description,tag)=>`<button type="button" class="early-lesson-card" data-lesson-key="${key}" onclick="startEarlyBank('${key}','${back}')"><span>${tag}</span><div><strong>${title}</strong><small>${description}</small></div><b>Start &rarr;</b></button>`;
-  const pyramidCard=(grade,description)=>`<button type="button" class="early-lesson-card" data-lesson-key="${grade}:eng:pyramid-reading" onclick="openReadingPyramid('${grade}')"><span aria-hidden="true">📚</span><div><strong>Reading Pyramid</strong><small>${description}</small></div><b>Start &rarr;</b></button>`;
+  const lessonIcon=key=>key.includes(":math:")?"calculator":key.includes(":sci:")?"flask":"book-alt";
+  const lessonCard=(key,back,title,description)=>`<button type="button" class="early-lesson-card" data-lesson-key="${key}" onclick="startEarlyBank('${key}','${back}')"><span class="early-lesson-symbol" aria-hidden="true"><i class="fi fi-rr-${lessonIcon(key)}"></i></span><div><strong>${title}</strong><small>${description}</small></div><b>Start &rarr;</b></button>`;
+  const pyramidCard=(grade,description)=>`<button type="button" class="early-lesson-card" data-lesson-key="${grade}:eng:pyramid-reading" onclick="openReadingPyramid('${grade}')"><span class="early-lesson-symbol" aria-hidden="true"><i class="fi fi-rr-book-open-cover"></i></span><div><strong>Reading Pyramid</strong><small>${description}</small></div><b>Start &rarr;</b></button>`;
   const prekLessonGroups=(cards,groups)=>groups.map(([title,description,start,end])=>`
     <section class="early-lesson-group" aria-label="${title}">
       <header><h3>${title}</h3><p>${description}</p></header>
@@ -14,7 +15,6 @@
           <h1>${title}</h1>
           <p class="small-note">Choose a subject</p>
           <p class="early-grade-copy">${copy}</p>
-          ${id==="prek"?`<section class="prek-welcome-video" aria-labelledby="prekVideoTitle"><div><small>WATCH &amp; LEARN</small><h2 id="prekVideoTitle">A little video for our littlest learners.</h2><p>Press play, watch together, then choose English or Math.</p></div><video controls playsinline preload="metadata"><source src="draft-media/prek-welcome.mp4" type="video/mp4">Your browser cannot play this video.</video></section>`:""}
         </div>
 
         <div class="scorebar">
