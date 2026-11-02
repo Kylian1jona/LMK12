@@ -139,6 +139,7 @@
     <span class="profile-chooser-kicker">What's new</span>
     <h2 id="profileUpdateTitle">Update log</h2>
     <div class="profile-update-entries">
+      <article><time datetime="2026-11-01">November 1, 2026</time><h3>Clearer quizzes and stronger Grade 6 Math</h3><p>Lessons now show a clean question screen with outlined answers, a slim progress bar, and the actual number of questions. Grade 6 ratio, integer, and expression practice now uses more multi-step and real-world problems.</p></article>
       <article><time datetime="2026-11-01">November 1, 2026</time><h3>Clearer lesson audio and icons</h3><p>Read aloud and replay now work across grade levels, including when automatic voice is turned off. We removed the lesson and Pre-K welcome videos, reduced decorative emoji, and aligned subject and lesson icons.</p></article>
       <article><time datetime="2026-11-01">November 1, 2026</time><h3>Another 60 early-grade lessons</h3><p>Pre-K, Kindergarten, and Grade 1 each gain 20 more lessons and 500 questions. Practice new letter and picture skills, Kindergarten phonics and number puzzles, and Grade 1 word work, Math, and Science. Six lessons use drag-and-drop sorting.</p></article>
       <article><time datetime="2026-11-01">November 1, 2026</time><h3>60 more lessons for early learners</h3><p>Pre-K, Kindergarten, and Grade 1 each gain 20 lessons, adding 1,500 questions. Practice picture sounds and counting, Kindergarten reading and number relationships, and Grade 1 reading, Math, and Science. Six lessons include drag-and-drop sorting.</p></article>

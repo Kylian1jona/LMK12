@@ -343,17 +343,14 @@
   <div class="cardish text-center kid-font lesson-quiz-shell">
     <div class="lesson-quiz-topbar">
       <button type="button" class="lesson-back-circle" onclick="lrBack()" aria-label="Back to lessons">‹</button>
-      <div class="lesson-count-pill" aria-label="Question progress">
-        <span class="lesson-count-star" aria-hidden="true">★</span>
-        <span id="lrProg">Question 1 of 25</span>
-      </div>
+      <h1 id="lrTitle" class="lesson-quiz-title">Lesson</h1>
+      <div class="lesson-points-pill"><span aria-hidden="true">●</span> <span id="lrPoints">0</span> points</div>
       <div class="lesson-progress-track" role="progressbar" aria-label="Lesson progress" aria-valuemin="0" aria-valuemax="25" aria-valuenow="1">
         <span id="lrProgressFill"></span>
       </div>
-      <div class="lesson-points-pill"><span aria-hidden="true">●</span> <span id="lrPoints">0</span> points</div>
+      <div class="lesson-count-pill" aria-label="Question progress"><span id="lrProg">1 / 25 questions</span></div>
     </div>
 
-    <h1 id="lrTitle" class="lesson-quiz-title">Lesson</h1>
     <div class="lesson-like-row"><button type="button" id="lrLikeButton" class="lesson-like-button" aria-pressed="false" aria-label="Like this lesson" onclick="window.K12LessonLikes?.toggle()" disabled><span class="lesson-like-heart" aria-hidden="true">♡</span><span class="lesson-like-label">Like</span><span class="lesson-like-count" id="lrLikeCount">—</span></button><span class="lesson-like-caption">Likes from learners everywhere</span></div>
     <div class="lesson-question-banner" id="lrQuestionBanner">Question 1 of 25</div>
 
@@ -362,6 +359,7 @@
       <div class="lesson-image-frame" id="lrImageFrame">
         <img id="lrImage" class="lesson-img" alt="">
       </div>
+      <div class="lesson-topic-visual" id="lrTopicVisual" aria-hidden="true"><i id="lrTopicIcon" class="fi fi-rr-book-alt"></i><span id="lrTopicLabel">Explore the question</span></div>
 
       <!-- NORMAL CHOICES -->
 <div id="lrChoices"></div>

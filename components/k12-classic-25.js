@@ -44,7 +44,7 @@
     if(pendingGrades.has(grade)) return pendingGrades.get(grade);
     const promise=new Promise((resolve,reject)=>{
       const script=document.createElement("script");
-      script.src=`components/k12-classic-25-${grade}.js?v=${release}`;
+      script.src=`components/k12-classic-25-${grade}.js?v=${grade==='g6'?'g6-challenge-20261101.1':release}`;
       script.async=true;
       script.onload=()=>{
         try{ installGrade(grade); resolve(true); }

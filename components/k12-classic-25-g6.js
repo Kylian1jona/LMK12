@@ -3873,4 +3873,97 @@
     ]
   }
   });
+
+  // Replace rote opening Math practice with multi-step Grade 6 questions.
+  const gradeSix=window.K12_CLASSIC_25_DATA;
+  const ratioPairs=[[2,3],[3,4],[4,5],[5,2],[3,7]];
+  const integerSets=[[-7,12,-4],[-11,8,-6],[-4,15,-9],[-13,9,-3],[-8,6,-10]];
+  function numericQuestion(prompt,answer,index,explain){
+    const value=Number(answer);
+    const choices=[value];
+    for(const delta of [1,-1,2,-2,3,-3,4,-4,5,-5]){
+      if(!choices.includes(value+delta))choices.push(value+delta);
+      if(choices.length===4)break;
+    }
+    const offset=index%4;
+    return {type:"mc",q:prompt,choices:choices.slice(offset).concat(choices.slice(0,offset)).map(String),answer:String(value),audio:prompt,explain};
+  }
+  function ratioQuestions(){
+    return Array.from({length:25},(_,index)=>{
+      const kind=Math.floor(index/5),step=index%5,[first,second]=ratioPairs[step],scale=step+3;
+      if(kind===0){
+        const given=second*scale,answer=first*scale;
+        return numericQuestion(`The ratio of red to blue beads is ${first}:${second}. A bag has ${given} blue beads. If the ratio stays the same, how many red beads are there?`,answer,index,`Multiply both parts of ${first}:${second} by ${scale}; the red part is ${answer}.`);
+      }
+      if(kind===1){
+        const total=(first+second)*scale,answer=first*scale;
+        return numericQuestion(`A class has a ${first}:${second} ratio of students choosing art to music. ${total} students choose one of the two. How many choose art?`,answer,index,`There are ${first+second} equal parts, so each part is ${scale}; ${first} parts make ${answer}.`);
+      }
+      if(kind===2){
+        const red=first*scale,blue=second*scale,answer=`${first}:${second}`;
+        const choices=[answer,`${second}:${first}`,`${red}:${blue}`,`${first}:${first+second}`];
+        return {type:"mc",q:`A model uses ${red} red tiles and ${blue} blue tiles. What is the simplified red-to-blue ratio?`,choices:choices.slice(step%4).concat(choices.slice(0,step%4)),answer,audio:`A model uses ${red} red tiles and ${blue} blue tiles. What is the simplified red-to-blue ratio?`,explain:`Divide both counts by ${scale} to get ${answer}.`};
+      }
+      if(kind===3){
+        const total=(first+second)*(scale+1),answer=second*(scale+1);
+        return numericQuestion(`A trail map shows a ratio of paved to unpaved kilometers of ${first}:${second}. The full trail is ${total} kilometers. How many kilometers are unpaved?`,answer,index,`Each ratio part represents ${scale+1} kilometers; ${second} parts are unpaved.`);
+      }
+      const firstCount=first*(scale+2),answer=second*(scale+2);
+      return numericQuestion(`A recipe keeps flour to oats at ${first}:${second}. It uses ${firstCount} cups of flour across several batches. How many cups of oats are needed?`,answer,index,`Scale the ${first} flour parts by ${scale+2}, then scale the ${second} oats parts the same way.`);
+    });
+  }
+  function integerQuestions(){
+    return Array.from({length:25},(_,index)=>{
+      const kind=Math.floor(index/5),step=index%5,[start,rise,fall]=integerSets[step];
+      if(kind===0){
+        const answer=start+rise+fall;
+        return numericQuestion(`The temperature starts at ${start} degrees Celsius, rises ${rise} degrees, then changes by ${fall} degrees. What is the final temperature?`,answer,index,`Add the signed changes: ${start}+${rise}+(${fall})=${answer}.`);
+      }
+      if(kind===1){
+        const answer=start-rise-fall;
+        return numericQuestion(`An account balance is $${start}. A $${rise} payment is taken out, then a $${-fall} refund is added. What is the new balance in dollars?`,answer,index,`Compute ${start}-${rise}+${-fall}=${answer}.`);
+      }
+      if(kind===2){
+        const answer=Math.abs(start)+rise;
+        return numericQuestion(`A diver is ${Math.abs(start)} meters below sea level, while a lookout is ${rise} meters above it. How many meters apart are they vertically?`,answer,index,`The positions are on opposite sides of zero, so add ${Math.abs(start)} and ${rise}.`);
+      }
+      if(kind===3){
+        const answer=start-(rise+fall);
+        return numericQuestion(`Evaluate ${start} - (${rise} + ${fall}). What value do you get?`,answer,index,`Evaluate the parentheses first: ${rise}+(${fall})=${rise+fall}; then subtract from ${start}.`);
+      }
+      const answer=rise+fall-start;
+      return numericQuestion(`A game score changes by +${rise}, then ${fall}, then subtracts (${start}). What is the total change?`,answer,index,`Combine signed changes: ${rise}+(${fall})-(${start})=${answer}.`);
+    });
+  }
+  function expressionQuestions(){
+    return Array.from({length:25},(_,index)=>{
+      const kind=Math.floor(index/5),step=index%5,x=step+3,y=step+2;
+      if(kind===0){
+        const answer=3*x+2*(y-1);
+        return numericQuestion(`Evaluate 3x + 2(y - 1) when x = ${x} and y = ${y}.`,answer,index,`Substitute first, then use order of operations: 3(${x}) + 2(${y} - 1) = ${answer}.`);
+      }
+      if(kind===1){
+        const cost=4+step,fee=3+step,answer=cost*x+fee;
+        return numericQuestion(`A club charges $${fee} to join and $${cost} per session. What is the total for ${x} sessions?`,answer,index,`Write ${cost}n + ${fee}, then substitute n = ${x} to get $${answer}.`);
+      }
+      if(kind===2){
+        const amount=step+2,answer=`${amount}(n + 4)`;
+        const choices=[answer,`${amount}n + 4`,`${amount}(n - 4)`,`n + ${amount + 4}`];
+        return {type:"mc",q:`A teacher gives each of ${amount} groups n pencils and 4 erasers. Which expression counts all the items?`,choices:choices.slice(step%4).concat(choices.slice(0,step%4)),answer,audio:`A teacher gives each of ${amount} groups n pencils and 4 erasers. Which expression counts all the items?`,explain:`Each group receives n + 4 items. Multiply that amount by ${amount} groups.`};
+      }
+      if(kind===3){
+        const amount=step+3,answer=amount*(x+2)-amount*x;
+        return numericQuestion(`${amount} students each bring x + 2 stickers. Another ${amount} students each bring x stickers. How many more stickers does the first group bring, regardless of x?`,answer,index,`${amount}(x + 2) - ${amount}x = ${amount} times 2 = ${answer}.`);
+      }
+      const multiplier=step+2,answer=multiplier*(x+1)-3;
+      return numericQuestion(`Evaluate ${multiplier}(a + 1) - 3 when a = ${x}.`,answer,index,`Evaluate the parentheses first: ${multiplier}(${x} + 1) - 3 = ${answer}.`);
+    });
+  }
+  gradeSix["g6:math:L1"].questions=ratioQuestions();
+  gradeSix["g6:math:L2"].questions=integerQuestions();
+  gradeSix["g6:math:L3"].questions=expressionQuestions();
+
+  gradeSix["g6:math:L1"].contentVersion="g6-challenge-20261101.1";
+  gradeSix["g6:math:L2"].contentVersion="g6-challenge-20261101.1";
+  gradeSix["g6:math:L3"].contentVersion="g6-challenge-20261101.1";
 })();

@@ -25,7 +25,7 @@ function walk(dir){
 walk(stage);
 const response=await fetch(`https://api.netlify.com/api/v1/sites/${siteId}/deploys`,{
   method:'POST',headers:{...auth,'Content-Type':'application/json'},
-  body:JSON.stringify({files,draft:true,title:'Fix lesson audio, remove videos, and align icons'})
+  body:JSON.stringify({files,draft:true,title:'Clearer quizzes and stronger Grade 6 Math questions'})
 });
 const deploy=await response.json();
 if(!response.ok) throw Error(`Create draft failed: HTTP ${response.status} ${deploy.message||''}`);

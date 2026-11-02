@@ -840,7 +840,7 @@ function launchLessonPack(grade, subj, lesson, pack, backSection){
   $("lrDone").classList.add("d-none");
   $("lrQuestionCard")?.classList.remove("d-none");
   $("lrLessonActions")?.classList.remove("d-none");
-  $("lrTitle").textContent = LR.title;
+  $("lrTitle").textContent = pack.name;
   window.K12LessonLikes?.open(`${grade}:${subj}:${lesson}`);
   const runner=$("lessonRunner");
   if(runner){
@@ -1295,11 +1295,22 @@ let MATCH_PICK = null;
 let SPEED_TIMER = null;
 let SPEED_LEFT = 10;
 
-function renderLessonImage(image){
+function renderLessonImage(image,question){
   const img = $("lrImage");
   const frame = $("lrImageFrame");
+  const card = $("lrQuestionCard");
+  const visual = $("lrTopicVisual");
   if(!img) return;
   const src = typeof image === "string" ? image : image?.src;
+  const showVisual=!src&&["mc","speed","selectall","dropdown"].includes(question?.type);
+  card?.classList.toggle("has-lesson-art",Boolean(src)||showVisual);
+  visual?.classList.toggle("d-none",!showVisual);
+  if(showVisual){
+    const icon=$("lrTopicIcon"),label=$("lrTopicLabel");
+    const subject={math:["calculator","Think with numbers"],alg1:["calculator","Think with numbers"],sci:["flask","Explore the evidence"],hist:["globe","Connect the past"],eng:["book-alt","Read for meaning"]}[LR.subj]||["book-alt","Explore the question"];
+    if(icon)icon.className=`fi fi-rr-${subject[0]}`;
+    if(label)label.textContent=subject[1];
+  }
   if(!src){
     img.style.display = "none";
     frame?.classList.add("d-none");
@@ -1385,8 +1396,8 @@ function lrRender(){
   const questionNumber = LR.phase === "revision" ? LR.revisionIndex : LR.round;
   const questionTotal = LR.phase === "revision" ? LR.revisionTotal : LR.total;
   const progressText = LR.phase === "revision"
-    ? `Revision ${questionNumber} of ${questionTotal}`
-    : `${questionNumber} / ${questionTotal}`;
+    ? `Revision ${questionNumber} / ${questionTotal}`
+    : `${questionNumber} / ${questionTotal} questions`;
   $("lrProg").textContent = progressText;
   if($("lrQuestionBanner")){
     $("lrQuestionBanner").textContent = LR.phase === "revision"
@@ -1409,7 +1420,7 @@ function lrRender(){
 
   const q = LR.current;
 
-  renderLessonImage(q.image || LR.image);
+  renderLessonImage(q.image || LR.image,q);
   $("lrQuestion").textContent = q.q || "";
   $("lrChoices").innerHTML = "";
   setLessonChoiceLayout($("lrChoices"),q);
@@ -1517,7 +1528,7 @@ function lrRender(){
     setQAudio(lessonQuestionSpeech(q));
   }
   requestAnimationFrame(()=>{
-    if(!$("lessonRunner")?.classList.contains("d-none")) $("lrQuestionCard")?.scrollIntoView({behavior:"instant",block:"start"});
+    if(!$("lessonRunner")?.classList.contains("d-none")) $("lessonRunner")?.scrollIntoView({behavior:"instant",block:"start"});
   });
 }
 
