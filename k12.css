@@ -7794,3 +7794,52 @@ body[data-theme] #lessonRunner #lrQuestionCard{background:transparent!important;
 body[data-theme] #lessonRunner #lrQuestion{color:var(--ink)!important}
 body[data-theme] #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong){background:var(--card,#fff)!important;border-color:color-mix(in srgb,var(--orange) 42%,#78a9c6)!important;color:var(--ink)!important}
 body[data-theme] #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong):hover{background:var(--orange-light)!important;border-color:var(--orange)!important}
+
+/* Let the lesson itself be the screen. Keep the real progress visible while
+   the question area grows to use the available height. */
+body:has(#lessonRunner:not(.d-none)) k12-main-nav,
+body:has(#lessonRunner:not(.d-none)) k12-site-footer{display:none!important}
+body:has(#lessonRunner:not(.d-none))>.container{width:100%;max-width:none;margin:0;padding:0}
+body #lessonRunner{width:100%;min-height:100vh;min-height:100dvh;margin:0;padding:0!important;overflow-x:hidden;background:#f7fafc!important}
+body #lessonRunner>.lesson-quiz-shell{display:flex;flex-direction:column;width:100%;max-width:none;min-height:100vh;min-height:100dvh;margin:0;padding:clamp(18px,2.5vw,36px) clamp(18px,4vw,64px)!important;border:0;border-radius:0;box-shadow:none}
+body #lessonRunner .lesson-quiz-topbar,
+body #lessonRunner .lesson-like-row,
+body #lessonRunner #lrQuestionCard,
+body #lessonRunner #lrLessonActions,
+body #lessonRunner #lrDone{width:min(100%,1380px);margin-right:auto!important;margin-left:auto!important}
+body #lessonRunner .lesson-quiz-topbar{position:sticky;top:0;z-index:5;grid-template-columns:50px minmax(0,1fr) auto;gap:16px 22px;padding:0 0 18px;background:inherit;border-bottom:1px solid #e3ecf1}
+body #lessonRunner .lesson-quiz-title{text-align:left;font-size:clamp(20px,2vw,27px)}
+body #lessonRunner .lesson-progress-track{height:11px}
+body #lessonRunner .lesson-count-pill{font-size:15px}
+body #lessonRunner .lesson-like-row{padding-top:14px}
+body #lessonRunner #lrQuestionCard{flex:1;align-content:center;grid-template-columns:minmax(0,1fr) clamp(180px,23vw,300px);gap:clamp(18px,3vw,38px);padding:clamp(16px,3vw,42px) 0!important}
+body #lessonRunner #lrQuestionCard.d-none{display:none!important}
+body #lessonRunner #lrQuestion{font-size:clamp(28px,3.4vw,48px);line-height:1.22;max-width:980px}
+body #lessonRunner #lrImageFrame,
+body #lessonRunner #lrTopicVisual{width:clamp(180px,23vw,300px);height:clamp(150px,18vw,220px);border-radius:22px}
+body #lessonRunner #lrChoices{gap:clamp(12px,1.5vw,20px);margin-top:4px}
+body #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong),
+body[data-theme] #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong){min-height:clamp(74px,8vh,108px);padding:14px 24px;border-radius:22px;font-size:clamp(17px,1.7vw,23px)}
+body #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong):nth-child(n){background:#fff!important;border-color:#8bb9d1!important;color:#263a49!important}
+body[data-theme] #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong):nth-child(n){background:var(--card,#fff)!important;border-color:color-mix(in srgb,var(--orange) 42%,#8bb9d1)!important;color:var(--ink)!important}
+body #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong):hover{background:#eef7fc!important;border-color:#347da9!important}
+body[data-theme] #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong):hover{background:var(--orange-light)!important;border-color:var(--orange)!important}
+body #lessonRunner #lrChoices .choice-btn::before{border-radius:8px}
+body #lessonRunner #lrLessonActions{padding-bottom:8px}
+@media(max-width:700px){
+  body #lessonRunner>.lesson-quiz-shell{padding:14px 16px 28px!important}
+  body #lessonRunner .lesson-quiz-topbar{grid-template-columns:42px minmax(0,1fr);gap:10px;padding-bottom:12px}
+  body #lessonRunner .lesson-quiz-title{font-size:18px}
+  body #lessonRunner .lesson-progress-track{grid-column:1/3}
+  body #lessonRunner .lesson-count-pill{grid-column:1/3;grid-row:3;justify-self:end;font-size:13px}
+  body #lessonRunner .lesson-like-row{padding-top:10px}
+  body #lessonRunner #lrQuestionCard{grid-template-columns:minmax(0,1fr);gap:14px;align-content:start;padding:clamp(18px,4vh,34px) 0!important}
+  body #lessonRunner #lrQuestion{font-size:clamp(22px,5vw,30px)}
+  body #lessonRunner #lrQuestionCard.has-lesson-art #lrQuestion{grid-column:1/-1}
+  body #lessonRunner #lrTopicVisual{display:none!important}
+  body #lessonRunner #lrImageFrame,
+  body #lessonRunner #lrTopicVisual{grid-column:1/-1;grid-row:auto;justify-self:center;width:min(100%,260px);height:160px;border-radius:14px}
+  body #lessonRunner #lrChoices{grid-template-columns:1fr;gap:10px}
+  body #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong),
+  body[data-theme] #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong){min-height:64px;padding:10px 14px;border-radius:16px;font-size:17px}
+}
