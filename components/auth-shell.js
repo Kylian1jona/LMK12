@@ -140,6 +140,7 @@
     <h2 id="profileUpdateTitle">Update log</h2>
     <button type="button" class="profile-update-toggle" aria-expanded="false" onclick="const log=this.closest('.profile-update-log');const open=log.classList.toggle('is-expanded');this.setAttribute('aria-expanded',String(open));this.textContent=open?'Show fewer updates':'View all updates';">View all updates</button>
     <div class="profile-update-entries">
+      <article><time datetime="2026-11-02">November 2, 2026</time><h3>Question backgrounds match your theme</h3><p>The lesson screen now uses the same color family as the navigation bar, including the ocean, forest, berry, mint, and dark themes.</p></article>
       <article><time datetime="2026-11-02">November 2, 2026</time><h3>Fresh lesson screens</h3><p>Lesson titles now use sentence case. Questions and answers share one font, answer bubbles are rounder, and subjects have their own illustrated backgrounds.</p></article>
       <article><time datetime="2026-11-02">November 2, 2026</time><h3>More room to learn and plan</h3><p>Grade, lesson, and reading pages now use the full width. The family dashboard adds a practice plan and quick actions.</p></article>
       <article><time datetime="2026-11-02">November 2, 2026</time><h3>Clearer pages for learners and families</h3><p>Extras text is easier to read, grade buttons are simpler, and early lesson colors now follow each subject. The home page uses plainer labels and fewer emoji. Families can now open separate reports, reading, and plan pages.</p></article>

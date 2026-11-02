@@ -131,3 +131,17 @@ body #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong
 body #lessonRunner #lrChoices .choice-btn::before{width:31px;height:31px;border-radius:50%!important;font-family:Fredoka,"Trebuchet MS",sans-serif!important;font-weight:600!important}
 body #lessonRunner #lrChoices .choice-btn:hover{transform:translateY(-2px)!important;box-shadow:0 12px 24px #244b6d22!important}
 @media(max-width:700px){body #lessonRunner,body[data-theme] #lessonRunner{background-attachment:scroll!important}body #lessonRunner .lesson-quiz-topbar{padding:9px 12px 13px!important;border-radius:15px}body #lessonRunner #lrChoices .choice-btn{border-radius:25px!important}}
+
+/* The question scenery follows the same palette as the navigation theme. */
+body:not([data-theme]) #lessonRunner[data-subject]{background-image:url("../images/lesson-wave-brand.svg")!important}
+body[data-theme] #lessonRunner[data-subject]{background-image:url("../images/lesson-wave-brand.svg")!important}
+body:is([data-theme="warm"],[data-theme="sunset"],[data-theme="coral"],[data-theme="sunshine"]) #lessonRunner[data-subject]{background-image:url("../images/lesson-wave-orange.svg")!important}
+body:is([data-theme="ocean"],[data-theme="arctic"],[data-theme="school"]) #lessonRunner[data-subject]{background-image:url("../images/lesson-wave-blue.svg")!important}
+body:is([data-theme="forest"],[data-theme="emerald"]) #lessonRunner[data-subject]{background-image:url("../images/lesson-wave-green.svg")!important}
+body:is([data-theme="berry"],[data-theme="candy"]) #lessonRunner[data-subject]{background-image:url("../images/lesson-wave-pink.svg")!important}
+body:is([data-theme="galaxy"],[data-theme="grape"],[data-theme="lavender"]) #lessonRunner[data-subject]{background-image:url("../images/lesson-wave-purple.svg")!important}
+body[data-theme="mint"] #lessonRunner[data-subject]{background-image:url("../images/lesson-wave-teal.svg")!important}
+body:is([data-theme="night"],[data-theme="slate"],[data-theme="contrast"]) #lessonRunner[data-subject]{background-image:url("../images/lesson-wave-slate.svg")!important}
+body[data-theme] #lessonRunner .lesson-progress-track span{background:linear-gradient(90deg,var(--orange-dark),var(--orange))!important}
+body[data-theme] #lessonRunner .lesson-quiz-topbar{border-color:color-mix(in srgb,var(--orange) 38%,#fff)!important}
+body[data-theme] #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong){color:#183e58!important}
