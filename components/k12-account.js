@@ -1243,7 +1243,7 @@ async function enterParentPortal(){
 
 let activeParentTab="overview";
 function selectParentTab(tab){
-  if(!["overview","learners","goals","account"].includes(tab)) return;
+  if(!["overview","learners","reports","reading","goals","plan","account"].includes(tab)) return;
   activeParentTab=tab;
   document.querySelectorAll("[data-parent-tab]").forEach(button=>{
     const active=button.dataset.parentTab===tab;
@@ -1294,11 +1294,14 @@ async function renderParentPortal(){
   const totalAttempts=reports.reduce((sum,item)=>sum+(Number(item.stats.correct)||0)+(Number(item.stats.wrong)||0),0);
   const familyAccuracy=totalAttempts?Math.round(totalCorrect/totalAttempts*100):0;
   wrap.innerHTML=`
-    <div class="parent-dashboard-top"><div><span class="parent-dashboard-kicker">FAMILY WORKSPACE</span><h2>Learning at a glance</h2><p>A clear view of progress and account settings for your family.</p></div><button type="button" class="parent-signout" onclick="logout()">Sign out</button></div>
+    <div class="parent-dashboard-top"><div><span class="parent-dashboard-kicker">FAMILY WORKSPACE</span><h2>Your family</h2><p>Check progress and make changes in one place.</p></div><button type="button" class="parent-signout" onclick="logout()">Sign out</button></div>
     <nav class="parent-dashboard-tabs" role="tablist" aria-label="Parent dashboard sections">
       <button type="button" role="tab" data-parent-tab="overview" onclick="selectParentTab('overview')">Overview</button>
       <button type="button" role="tab" data-parent-tab="learners" onclick="selectParentTab('learners')">Learners</button>
+      <button type="button" role="tab" data-parent-tab="reports" onclick="selectParentTab('reports')">Reports</button>
+      <button type="button" role="tab" data-parent-tab="reading" onclick="selectParentTab('reading')">Reading</button>
       <button type="button" role="tab" data-parent-tab="goals" onclick="selectParentTab('goals')">Goals</button>
+      <button type="button" role="tab" data-parent-tab="plan" onclick="selectParentTab('plan')">Plan</button>
       <button type="button" role="tab" data-parent-tab="account" onclick="selectParentTab('account')">Account</button>
     </nav>
     <section class="parent-dashboard-panel" data-parent-panel="overview">
@@ -1310,8 +1313,18 @@ async function renderParentPortal(){
       </div>
       <div class="parent-account-grid">
         <article class="parent-subscription-card ${htmlSafe(subscriptionClass)}"><span>Plan status</span><h2>${htmlSafe(subscriptionStatus)}</h2><p>${htmlSafe(subscriptionAccessAllowed()?`${plan?.name||"Your plan"} is active.`:subscriptionActionMessage())}</p><button type="button" class="btn btn-main" onclick="showPaywall(false)">Manage plan</button></article>
-        <article><span>Next step</span><h2>Keep a steady rhythm</h2><p>Short, regular sessions help build confidence. Set a daily goal for each learner and check progress here.</p><button type="button" class="btn btn-main" onclick="selectParentTab('goals')">Set family goals</button></article>
+        <article><span>Daily goals</span><h2>Choose a target</h2><p>Set a lesson and reading goal for each learner.</p><button type="button" class="btn btn-main" onclick="selectParentTab('goals')">Set goals</button></article>
       </div>
+    </section>
+    <section class="parent-dashboard-panel" data-parent-panel="reports" hidden>
+      <div class="parent-panel-heading"><h2>Lesson reports</h2><p>Completed lessons and answers recorded on this device.</p></div>
+      <div class="parent-report-grid">${reports.map(({kid,stats,accuracy})=>{const attempts=(Number(stats.correct)||0)+(Number(stats.wrong)||0);return `<article class="parent-report-card"><h3>${htmlSafe(kid.name||kid.username||"Learner")}</h3><div><span>Lessons completed</span><strong>${Number(stats.lessonsCompleted)||0}</strong></div><div><span>Questions answered</span><strong>${attempts}</strong></div><div><span>Correct answers</span><strong>${Number(stats.correct)||0}</strong></div><div><span>Accuracy</span><strong>${attempts?`${accuracy}%`:"No answers yet"}</strong></div><meter min="0" max="100" value="${accuracy}" aria-label="${htmlSafe(kid.name||"Learner")} accuracy"></meter></article>`}).join("")}</div>
+    </section>
+    <section class="parent-dashboard-panel" data-parent-panel="reading" hidden>
+      <div class="parent-panel-heading"><h2>Reading</h2><p>Reading time recorded for each learner on this device.</p></div>
+      <div class="parent-reading-total"><span>Family reading time</span><strong>${totalReading} minutes</strong></div>
+      <div class="parent-report-grid">${reports.map(({kid,stats})=>`<article class="parent-report-card"><h3>${htmlSafe(kid.name||kid.username||"Learner")}</h3><strong class="parent-reading-number">${Number(stats.readingMinutes)||0} min</strong><p>All recorded reading time</p><p>Daily goal: ${Number(kid.readingGoal)||20} min</p></article>`).join("")}</div>
+      <button type="button" class="btn btn-main" onclick="selectParentTab('goals')">Edit reading goals</button>
     </section>
     <section class="parent-dashboard-panel" data-parent-panel="learners" hidden>
       <div class="parent-panel-heading"><h2>Learner progress</h2><p>Reports stay in the parent workspace. Learner lessons open only after a separate sign-in.</p></div>
@@ -1321,6 +1334,10 @@ async function renderParentPortal(){
       <div class="parent-panel-heading"><h2>Daily learning goals</h2><p>Set a realistic target for lessons and reading. Changes apply to each learner profile.</p></div>
       <div class="parent-goal-grid">${kids.map(kid=>`<article class="parent-goal-card"><h3>${htmlSafe(kid.name||kid.username||"Learner")}</h3><label>Lessons per day<input type="number" min="1" max="20" value="${Number(kid.dailyLessonGoal)||3}" data-parent-goal="lessons" data-kid-id="${htmlSafe(kid.id)}"></label><label>Reading minutes per day<input type="number" min="5" max="180" value="${Number(kid.readingGoal)||20}" data-parent-goal="reading" data-kid-id="${htmlSafe(kid.id)}"></label></article>`).join("")}</div>
       <button type="button" class="btn btn-main" onclick="saveParentGoals()">Save goals</button><p id="parentGoalStatus" role="status" aria-live="polite"></p>
+    </section>
+    <section class="parent-dashboard-panel" data-parent-panel="plan" hidden>
+      <div class="parent-panel-heading"><h2>Learning plan</h2><p>See your current plan and the subjects it covers.</p></div>
+      <div class="parent-account-grid"><article><span>Selected plan</span><h2>${htmlSafe(plan?.name||"No plan selected")}</h2><p>Status: ${htmlSafe(subscriptionStatus)}</p><p>Subjects: ${htmlSafe(authoritativeSubscriptionSubjects().join(", ")||"None selected")}</p><button type="button" class="btn btn-main" onclick="showPaywall(false)">View plans</button></article><article><span>Family access</span><h2>${kids.length} learner${kids.length===1?"":"s"}</h2><p>Your account allows up to ${MAX_KIDS_PER_ACCOUNT} learner profiles.</p><button type="button" class="btn btn-main" onclick="selectParentTab('learners')">View learners</button></article></div>
     </section>
     <section class="parent-dashboard-panel" data-parent-panel="account" hidden>
       <div class="parent-panel-heading"><h2>Account & privacy</h2><p>Manage family access and security without entering learner lessons.</p></div>

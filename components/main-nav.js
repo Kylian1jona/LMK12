@@ -95,6 +95,10 @@
     });
     root.querySelectorAll?.(".early-subject-choice,.grade-subject-option").forEach(button=>{
       const subject=String(button.dataset.subject||button.textContent||"").toLowerCase();
+      if(subject.includes("eng")||subject.includes("math")){
+        button.querySelector(":scope > .lm-ui-icon")?.remove();
+        return;
+      }
       const name=subject.includes("math")||subject.includes("alg")?"calculator":subject.includes("sci")?"flask":subject.includes("hist")?"landmark-alt":subject.includes("eng")?"book-alt":"arrow-left";
       addIcon(button,name);
     });

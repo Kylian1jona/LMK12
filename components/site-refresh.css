@@ -16,3 +16,58 @@ body[data-theme] .pg2-hero h1{color:#fff!important}body[data-theme] .pg2-hero p{
 .pg2-lane-row{display:flex;flex-wrap:wrap;gap:7px}.pg2-lane-row button{min-height:44px;padding:8px 13px;border:1px solid #b9d4cd;border-radius:11px;background:#fff;color:#175f61;font-weight:800}.pg2-lane-row button:hover{background:#e7f6f0;border-color:#0d7773}
 @media(max-width:950px){.pg2-layout{grid-template-columns:1fr}.pg2-game-list{grid-template-columns:repeat(2,minmax(0,1fr))}.parent-dashboard-panel>.parent-summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.parent-dashboard-panel .parent-learner-report{grid-template-columns:1fr}.parent-dashboard-panel .parent-learner-report .learner-metrics{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:620px){.pg2-hero-mark{display:none}.pg2-game-list{grid-template-columns:1fr}.pg2-game-list button{padding:12px}.pg2-content{padding:15px}.pg2-question-choices,.pg2-market-summary,.pg2-stock-grid{grid-template-columns:1fr}.pg2-question{padding:13px}.pg2-question-choices button{min-height:43px}.pg2-stage canvas{min-height:290px;object-fit:cover}.parent-dashboard-top{align-items:flex-start}.parent-dashboard-panel>.parent-summary-grid,.parent-dashboard-panel .parent-account-grid{grid-template-columns:1fr}.parent-dashboard-panel .parent-learner-report .learner-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.parent-dashboard-tabs button{min-width:90px}}
+
+/* Clear Extras contrast on every site theme. */
+body #extrasPanel .extras-hero,body[data-theme] #extrasPanel .extras-hero{color:#fff!important}
+body #extrasPanel .extras-hero h2,body #extrasPanel .extras-hero p,body #extrasPanel .extras-hero .extras-eyebrow,body #extrasPanel .extras-hero .extras-hero-actions>span,body #extrasPanel .extras-hero .extras-hero-actions strong,body[data-theme] #extrasPanel .extras-hero h2,body[data-theme] #extrasPanel .extras-hero p{color:#fff!important}
+
+/* Subject colors stay consistent between the menu and lesson page. */
+body .early-subject-page[data-subject="eng"]{--subject-ink:#176279;--subject-soft:#e4f5fa;--subject-edge:#8ccad9;--subject-row:#c8eaf2}
+body .early-subject-page[data-subject="math"]{--subject-ink:#8b5521;--subject-soft:#fff5dc;--subject-edge:#e6bc70;--subject-row:#ffe4a6}
+body .early-subject-page[data-subject="sci"]{--subject-ink:#226b55;--subject-soft:#e8f7e9;--subject-edge:#9acda8;--subject-row:#d3edda}
+body .early-subject-page .early-subject-shell{background:linear-gradient(180deg,var(--subject-soft),#fff 300px)!important;border-color:var(--subject-edge)!important}
+body .section.early-subject-page>.early-subject-shell>h1,body[data-theme] .section.early-subject-page>.early-subject-shell>h1{color:var(--subject-ink)!important}
+body .early-subject-page .early-subject{border-color:var(--subject-edge)!important}
+body .early-subject-page .early-subject{background:linear-gradient(145deg,#fff,var(--subject-soft))!important}
+body .early-subject-page .early-subject>header>span,body .early-subject-page .early-lesson-card>span{background:var(--subject-row)!important;color:var(--subject-ink)!important}
+body .early-subject-page .early-lesson-card:hover{border-color:var(--subject-edge)!important}
+body .early-subject-page .early-subject header h2,body .early-subject-page .early-subject header small{color:var(--subject-ink)!important}
+body .early-subject-page .early-skill-topic{border-color:var(--subject-edge)!important;--skill-accent:var(--subject-ink)!important}
+body .early-subject-page .early-skill-topic .early-skill-summary,body .early-subject-page .early-skill-topic:nth-child(n) .early-skill-summary{background:var(--subject-row)!important}
+body .early-subject-page .early-skill-title{color:var(--subject-ink)!important}
+body .section[id^="g"][id$="-eng"]>.cardish>h1{color:#176279!important}
+body .section[id^="g"][id$="-math"]>.cardish>h1{color:#8b5521!important}
+body .section[id^="g"][id$="-sci"]>.cardish>h1{color:#226b55!important}
+body .section[id^="g"][id$="-hist"]>.cardish>h1{color:#805366!important}
+body .grade-subject-picker .grade-subject-option[data-subject="eng"]::before,body .grade-subject-picker .grade-subject-option[data-subject="math"]::before{display:none!important;content:none!important}
+body .grade-subject-picker .grade-subject-option[data-subject="eng"]{--subject-color:#176279;--subject-bg:#e4f5fa}
+body .grade-subject-picker .grade-subject-option[data-subject="eng"],body .grade-subject-picker .grade-subject-option[data-subject="math"]{display:flex!important;align-items:center;justify-content:center;gap:0!important}
+body .section[id^="grade"]:not(#grades)>.cardish>.d-flex.mt-3 .btn:nth-child(1):not(:last-child){border-color:#8ccad9!important;background:linear-gradient(145deg,#fff,#e4f5fa)!important}
+
+/* A simpler grade chooser with clearly separated, easy to tap cards. */
+body #grades .grade-library-v2{gap:clamp(10px,1.5vh,18px)}
+body #grades .grade-library-head h1{color:#233f50!important;font-family:Fredoka,"Trebuchet MS",sans-serif!important;font-size:clamp(26px,3vw,37px)!important;font-weight:650!important}
+body #grades .grade-library-grid .grade-card{border-radius:22px!important;border-width:1px!important;border-bottom-width:4px!important;box-shadow:0 7px 20px #263b4b14!important}
+body #grades .grade-library-grid .grade-title{font-family:Fredoka,"Trebuchet MS",sans-serif!important;font-size:clamp(20px,2vw,29px)!important;font-weight:650!important;letter-spacing:.01em}
+body #grades .grade-library-grid .grade-title>.lm-ui-icon{display:none!important}
+body #grades .grade-library-grid .grade-card:hover{transform:translateY(-3px);box-shadow:0 12px 24px #263b4b26!important}
+body #grades .grade-library-grid .grade-card:has(.btn:focus-visible){outline:3px solid #176a82;outline-offset:3px}
+@media(max-width:700px){body #grades .grade-library-grid .grade-card{border-radius:15px!important}body #grades .grade-library-grid .grade-title{font-size:clamp(16px,4vw,23px)!important}}
+
+/* Parent pages use a quieter typeface and show actual family data. */
+body.parent-workspace #parentPortal,body.parent-workspace #parentPortal button,body.parent-workspace #parentPortal input{font-family:Inter,"Segoe UI",Arial,sans-serif!important}
+body.parent-workspace #parentPortal h1,body.parent-workspace #parentPortal h2,body.parent-workspace #parentPortal h3,body.parent-workspace #parentPortal strong{font-family:Inter,"Segoe UI",Arial,sans-serif!important;letter-spacing:-.025em}
+body.parent-workspace #parentPortal .parent-portal-head h1{font-weight:760!important}
+body.parent-workspace #parentPortal .parent-dashboard-tabs{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));overflow:visible}
+body.parent-workspace #parentPortal .parent-dashboard-tabs button{min-width:0;padding:12px 7px;font-size:.86rem}
+.parent-report-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:18px 0}
+.parent-report-card{padding:22px;border:1px solid #dceae6;border-radius:18px;background:#f9fcfb}
+.parent-report-card h3{margin:0 0 17px;color:#173e47;font-size:1.18rem}
+.parent-report-card>div{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid #e2ece9;color:#4e686b}
+.parent-report-card>div strong{color:#173e47}
+.parent-report-card meter{display:block;width:100%;height:13px;margin-top:18px;accent-color:#0d7773}
+.parent-report-card p{margin:9px 0;color:#60787a}
+.parent-reading-total{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:21px 24px;border-radius:17px;background:#e8f5ef;color:#235a55}
+.parent-reading-total strong,.parent-reading-number{color:#156b60;font-size:1.5rem}
+@media(max-width:850px){body.parent-workspace #parentPortal .parent-dashboard-tabs{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:560px){body.parent-workspace #parentPortal .parent-dashboard-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}body.parent-workspace #parentPortal .parent-dashboard-top{flex-wrap:wrap}}
