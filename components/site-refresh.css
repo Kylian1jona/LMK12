@@ -145,3 +145,18 @@ body:is([data-theme="night"],[data-theme="slate"],[data-theme="contrast"]) #less
 body[data-theme] #lessonRunner .lesson-progress-track span{background:linear-gradient(90deg,var(--orange-dark),var(--orange))!important}
 body[data-theme] #lessonRunner .lesson-quiz-topbar{border-color:color-mix(in srgb,var(--orange) 38%,#fff)!important}
 body[data-theme] #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong){color:#183e58!important}
+
+/* Keep illustrations and large panels in the selected family color. */
+body[data-theme] #loginWall .auth-intro{background:radial-gradient(circle at 90% 10%,#ffffff29,transparent 30%),linear-gradient(145deg,color-mix(in srgb,var(--orange-dark) 80%,#102a43),color-mix(in srgb,var(--orange) 62%,#102a43))!important}
+body[data-theme] #loginWall{background-image:linear-gradient(color-mix(in srgb,var(--orange-light) 75%,transparent),color-mix(in srgb,var(--orange-light) 75%,transparent)),url("../images/learnmaster-skyline-bg-v2.png")!important}
+body[data-theme] #extrasPanel .extras-hero{background:linear-gradient(115deg,color-mix(in srgb,var(--orange-dark) 78%,#102a43),color-mix(in srgb,var(--orange) 60%,#102a43))!important}
+body[data-theme] .lm-home-hero{background-image:linear-gradient(96deg,color-mix(in srgb,var(--orange-light) 88%,#fff),color-mix(in srgb,var(--orange-light) 54%,transparent)),url("../images/home-learning-hero.png")!important}
+body[data-theme] #reading>.reading-box{background-image:linear-gradient(color-mix(in srgb,var(--orange-light) 78%,transparent),color-mix(in srgb,var(--orange-light) 78%,transparent)),url("../images/reading-center-hero-bg.png")!important}
+
+/* Center selectable tiles while the section backgrounds remain full width. */
+body #grades .grade-library-grid{max-width:1400px!important;margin-inline:auto!important}
+body .section[id^="g"][id*="-"] .lesson-columns{max-width:1320px!important;margin-inline:auto!important}
+body .section.subject-screen .early-lesson-list.early-skill-columns{max-width:1320px!important;margin-inline:auto!important}
+body #reading .reading-grid,body #extrasPanel .extras-grid{max-width:1400px;margin-inline:auto}
+body #grades .grade-library-grid .grade-card:nth-child(-n+4),body #grades .grade-library-grid .grade-card:nth-child(n+13){--grade-fill:color-mix(in srgb,var(--orange) 13%,#fff);--grade-border:color-mix(in srgb,var(--orange) 45%,#fff);--grade-ink:color-mix(in srgb,var(--orange-dark) 72%,#254057);background:var(--grade-fill)!important;border-color:var(--grade-border)!important}
+body[data-theme] #grades .grade-library-grid .grade-card:nth-child(-n+4),body[data-theme] #grades .grade-library-grid .grade-card:nth-child(n+13){background:var(--grade-fill)!important;border-color:var(--grade-border)!important}

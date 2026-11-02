@@ -3,7 +3,7 @@
 (function(){
   const loadedGrades=new Set();
   const pendingGrades=new Map();
-  const release="g5-connections-20261029.1";
+  const release="g3-science-history-20261102.1";
   function cloneQuestion(question){
     if(typeof structuredClone==="function") return structuredClone(question);
     return JSON.parse(JSON.stringify(question));

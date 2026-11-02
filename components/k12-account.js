@@ -333,6 +333,7 @@ async function createSignupUser(){
   }
   await syncSupabaseProfile(data.user,username,name,firstName,lastName);
   await window.learnMasterStore.hydrate(data.user);
+  applyTheme();
   if(accountRole==="tutor"){
     clearTrial();
     await enterTutorWorkspace(data.user);
@@ -378,6 +379,7 @@ async function doLogin(){
     return;
   }
   await window.learnMasterStore.hydrate(data.user);
+  applyTheme();
   const metadata = data.user?.user_metadata || {};
   const accountRole=await resolveAccountRole(data.user);
   if(accountRole==="tutor"){
@@ -471,6 +473,7 @@ const ACTIVE_KID_KEY = "learnmaster_active_kid_v1";
 const REQUIRED_PLAN_KEY = "learnmaster_required_plan_v1";
 const DEMO_SUBSCRIPTION_KEY = "learnmaster_demo_subscription_v1";
 const THEME_KEY = "learnmaster_theme_v1";
+const DEVICE_THEME_KEY = "lmk12_last_theme_device_v1";
 const TEXT_TONE_KEY = "learnmaster_text_tone_v1";
 const MAX_KIDS_PER_ACCOUNT = 3;
 
@@ -496,7 +499,7 @@ const THEMES = {
 };
 
 function getTheme(){
-  const saved = learnMasterStore.getItem(THEME_KEY) || "warm";
+  const saved = learnMasterStore.getItem(THEME_KEY) || localStorage.getItem(DEVICE_THEME_KEY) || "warm";
   return THEMES[saved] ? saved : "warm";
 }
 function getTextTone(){
@@ -506,6 +509,7 @@ function getTextTone(){
 function applyTheme(){
   if(!document.body) return;
   document.body.dataset.theme = getTheme();
+  localStorage.setItem(DEVICE_THEME_KEY,getTheme());
   document.body.dataset.textTone = getTextTone();
   const logoByTheme={warm:'orange',ocean:'blue',forest:'green',berry:'pink',sunset:'orange',galaxy:'purple',lavender:'violet',mint:'teal',candy:'pink',arctic:'blue',sunshine:'orange',coral:'orange',emerald:'green',grape:'purple'};
   const logoColor=logoByTheme[getTheme()];
@@ -515,7 +519,7 @@ function applyTheme(){
     image.onerror=()=>{image.onerror=null;image.src='images/learnmaster-logo-header-v2.png?v=20261010.2';};
   });
   document.querySelectorAll('.lm-auth-logo,.lm-dialog-logo').forEach(image=>{
-    image.src='images/learnmaster-logo-header-v2.png?v=20261010.2';
+    image.src=logoColor?logoSource:'images/learnmaster-logo-header-v2.png?v=20261010.2';
     image.onerror=()=>{image.onerror=null;image.src='images/learnmaster-logo-v2.png?v=20261010.2';};
   });
   const browserBar = document.querySelector('meta[name="theme-color"]');
@@ -532,6 +536,7 @@ function setTextTone(tone){
 function setTheme(themeId){
   if(!THEMES[themeId]) return;
   learnMasterStore.setItem(THEME_KEY, themeId);
+  localStorage.setItem(DEVICE_THEME_KEY,themeId);
   applyTheme();
   renderSettings();
   toast("Theme updated.");

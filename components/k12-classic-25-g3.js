@@ -3231,4 +3231,157 @@
     ["An old photograph shows the town square in 1920.","The photograph is evidence about the community's past.","Visual primary sources preserve details."],["A timeline lists a school opening before a library opening.","The timeline shows their chronological order.","Dates organize change over time."],["A map shows farms becoming neighborhoods.","The evidence shows land use changed.","Maps can reveal spatial change."],["Families move to a town for new jobs.","Economic opportunity can influence migration.","People move for connected push and pull reasons."],["Interviews and maps disagree about when a road changed.","Compare dates and corroborate with additional records.","Historians resolve differences using more evidence." ]
   ]);
 })();
+/* Twenty focused Grade 3 investigations. Each lesson has five distinct
+   situations revisited through five increasingly careful evidence prompts. */
+(function(){
+  const bank=window.K12_CLASSIC_25_DATA=window.K12_CLASSIC_25_DATA||Object.create(null);
+  const levels=["Foundation","Developing","Intermediate","Advanced","Mastery"];
+  const lessons={
+    sci:[
+      ["Flower Parts and Jobs",[
+        ["A flower has bright petals and a bee visits it.","Petals can help attract pollinators.","The color helps an animal find the flower."],
+        ["A bee brushes against yellow powder inside a flower.","The powder is pollen.","Pollen can move between flowers."],
+        ["A flower grows into a fruit with seeds inside.","The fruit helps protect its seeds.","Seeds can grow into new plants."],
+        ["A plant's roots spread through damp soil.","Roots absorb water from the soil.","Roots help bring in a resource the plant needs."],
+        ["Broad leaves face a sunny window.","Leaves capture light for the plant.","Plants use light when making food."]]],
+      ["Pollinators at Work",[
+        ["A bee visits several flowers and pollen sticks to its body.","The bee can carry pollen between flowers.","An animal may move pollen as it gathers food."],
+        ["A butterfly drinks nectar from a flower.","The flower provides food for the butterfly.","Nectar is a food source for some pollinators."],
+        ["A garden has fewer bees this spring and fewer fruits later.","Fewer pollinators may mean fewer flowers make fruit.","Pollination can help plants form seeds and fruit."],
+        ["A class plants many kinds of native flowers.","Different blooms can support more pollinators.","A variety of flowers offers food at different times."],
+        ["A student watches a moth visit flowers at dusk.","Some pollinators are active in the evening.","Pollinators do not all visit flowers at the same time."]]],
+      ["Seeds on the Move",[
+        ["A dandelion seed floats away on a windy day.","Wind can carry a light seed.","The fluffy structure helps it travel through air."],
+        ["A burr sticks to a dog's fur after a walk.","Animals can move seeds on their bodies.","Hooks on the burr cling to fur."],
+        ["A bird eats a berry and later drops its seeds elsewhere.","Animals can spread seeds after eating fruit.","The seed may land far from its parent plant."],
+        ["A coconut floats down a stream.","Water can transport a floating seed.","Some seeds move to new places by water."],
+        ["Many seedlings grow away from a large parent tree.","Seed dispersal can reduce crowding.","Moving away can give young plants more space and light."]]],
+      ["Growing Plants Fairly",[
+        ["Two bean plants get equal light and soil, but only one is watered.","Water is the variable being tested.","A fair test changes one condition at a time."],
+        ["A class measures plant height every Friday.","The repeated measurements show growth over time.","Recording data helps compare changes."],
+        ["One seed receives water and another stays dry.","The dry seed may not germinate.","Most seeds need water to begin growing."],
+        ["A student compares two plants but puts one in a larger pot.","Pot size should be kept the same for a fair light test.","Changing more than one condition makes results harder to explain."],
+        ["Three plants grow differently after one week.","The class should use recorded conditions before drawing a conclusion.","Evidence helps explain why results differ."]]],
+      ["Garden Food Webs",[
+        ["A caterpillar eats leaves and a bird eats the caterpillar.","Energy moves from plant to caterpillar to bird.","Food chains show who eats whom."],
+        ["Ladybugs eat insects that damage garden plants.","Ladybugs can help protect the plants.","Predators can change the number of plant-eating insects."],
+        ["A garden loses many flowering plants.","Pollinators may have less food.","A change to one part of a food web affects others."],
+        ["Worms break down dead leaves in soil.","Decomposers return material to the soil.","Breaking down dead matter helps recycle nutrients."],
+        ["A bird eats both worms and caterpillars.","The garden has connected food chains.","One consumer may have more than one food source."]]],
+      ["Rainfall and Runoff",[
+        ["Rain falls on a paved schoolyard and quickly enters a drain.","Pavement creates more surface runoff.","Water cannot soak through the hard surface easily."],
+        ["Rain falls on a grassy field and the ground becomes damp.","Some rainwater soaks into the soil.","Permeable ground lets water enter."],
+        ["Water flows downhill after a storm.","Gravity moves runoff toward lower ground.","Water follows the slope of the land."],
+        ["A heavy storm fills a creek faster than a light shower.","More rain can increase runoff and stream level.","The amount of rainfall changes how much water flows."],
+        ["A class places a rain gauge outside.","The gauge measures how much rain falls.","Rainfall data can be compared across days."]]],
+      ["Soil and Water",[
+        ["Water passes quickly through a jar of coarse sand.","Large spaces between sand grains let water pass.","Particle size affects drainage."],
+        ["Clay soil stays wet longer than sand after equal watering.","Clay can hold water longer.","Fine particles leave smaller spaces for water to move through."],
+        ["A student pours the same water onto two soil samples.","Using equal water makes the comparison fair.","Only the soil type should differ in this test."],
+        ["A puddle remains where soil is packed tightly.","Compacted soil may absorb less water.","Fewer open spaces can slow infiltration."],
+        ["Leaves cover the soil beneath a tree.","Leaf cover can reduce evaporation and protect soil.","Cover changes how the soil holds water."]]],
+      ["Slowing Erosion",[
+        ["Bare soil washes down a hill during rain.","Moving water can erode unprotected soil.","Runoff carries loose particles away."],
+        ["Grass roots hold soil on a slope.","Roots help slow erosion.","Plants anchor soil and slow flowing water."],
+        ["A class adds stones to a model stream bank.","The stones may slow water and protect the bank.","Barriers can reduce how much soil washes away."],
+        ["Two model hills receive equal water, but one has plants.","Comparing lost soil tests the effect of plant cover.","A fair test keeps the rain amount the same."],
+        ["A strong wind lifts dust from a dry field.","Wind can also cause erosion.","Erosion is not caused only by water."]]],
+      ["Weather Shelter Design",[
+        ["A paper shelter leaks when sprayed with water.","The design needs a more water-resistant roof.","A test reveals a weakness to improve."],
+        ["A model shelter tips in front of a fan.","A wider base may improve stability.","Wind pushes against the model."],
+        ["Two shelters use different roofs but the same fan speed.","The roof material is the variable being tested.","Keeping other conditions equal makes the test fair."],
+        ["A team records how much water enters each shelter.","The measurements help compare designs.","Evidence is more useful than a guess."],
+        ["A team improves a roof and tests again.","Retesting shows whether the change helped.","Engineering uses cycles of design, test, and improve."]]],
+      ["Explaining Earth Models",[
+        ["A tray of sand and water shows a river cutting a path.","The tray models erosion by flowing water.","A small model can represent a larger Earth process."],
+        ["A model river has no plants or rocks.","The model leaves out some real-world features.","Models simplify reality and have limits."],
+        ["A student draws arrows showing where rainwater travels.","The arrows explain the direction of water flow.","Labels help others read a model."],
+        ["A class changes only the slope of its land model.","The test can show how slope affects runoff.","Changing one variable supports a clearer conclusion."],
+        ["A model predicts water will collect in a low area.","The class should test and compare the prediction with observations.","Models are checked against evidence."]]]
+    ],
+    hist:[
+      ["Oral Histories",[
+        ["A grandparent describes the town square when she was young.","Her memory is an oral history source.","An interview records a person's experience."],
+        ["Two neighbors remember the same parade differently.","Their accounts may show different perspectives.","People notice and remember different details."],
+        ["A student records the date and speaker for an interview.","Those details help identify the source.","Source information makes evidence easier to check."],
+        ["An interviewee says a store opened in 1950, but a dated photo says 1952.","Compare the accounts with more records.","Memories should be checked against other evidence."],
+        ["A class asks an elder what school travel was like long ago.","The answer can reveal daily life in the past.","Oral histories preserve lived experiences."]]],
+      ["Objects from the Past",[
+        ["A museum displays an old hand-cranked telephone.","The object is an artifact of past communication.","Artifacts are objects people used or made."],
+        ["A tool has worn wooden handles.","Wear can suggest how people used it.","Physical details provide clues about use."],
+        ["A coin has a printed year.","The date helps place it in time.","Dates are evidence about when an object was made."],
+        ["A student cannot identify an old kitchen tool.","Compare it with photographs or records.","Other sources can help explain an artifact."],
+        ["A family keeps a handmade quilt from an ancestor.","The quilt can show skills and traditions.","Everyday objects can reveal family history."]]],
+      ["Buildings Tell Stories",[
+        ["An old fire station has a tall door for horse-drawn wagons.","The doorway hints at older transportation.","Building features can show how people worked."],
+        ["A school adds ramps and wider entrances.","The changes can improve access for more people.","Buildings change to meet community needs."],
+        ["A factory becomes a public library.","The same building has a new community use.","Places can be reused as needs change."],
+        ["A plaque gives the year a courthouse opened.","The date helps place the building on a timeline.","Historical markers provide time clues."],
+        ["A class compares photos of a street from two decades.","The photos can show which buildings changed.","Visual sources help compare past and present."]]],
+      ["Comparing Old Maps",[
+        ["A 1900 map shows farms where a new map shows homes.","The land use changed over time.","Maps can reveal how people use places."],
+        ["An older map lacks a bridge shown on a newer map.","The bridge was built after the older map.","Comparing dated maps shows sequence."],
+        ["Two maps use different symbols for schools.","Read each map's key before comparing.","Map symbols must be interpreted with their keys."],
+        ["A river bends differently on two maps.","Check map scale and accuracy before claiming the river moved.","Differences in maps may come from how they were drawn."],
+        ["A map places a new road beside a town.","The road may affect travel and business.","Transportation routes can influence community growth."]]],
+      ["Checking Historical Claims",[
+        ["A student says a school opened in 1910 because of a dated newspaper notice.","The notice is evidence for the opening date.","A claim should connect to a reliable source."],
+        ["One website gives a date but does not name its source.","Look for a record that supports the date.","Unverified claims need more evidence."],
+        ["Two old photographs show different views of one event.","Use both photos to learn more about the event.","Sources can add different details."],
+        ["A caption was written many years after a photograph was taken.","Check the caption against other records.","Later descriptions may contain mistakes."],
+        ["A class finds a diary, map, and newspaper about a flood.","Compare all three before writing a conclusion.","Several sources can strengthen a historical claim."]]],
+      ["How Products Travel",[
+        ["A farmer grows apples that a truck carries to a store.","Producing and transporting both help deliver the apples.","Goods often pass through several steps."],
+        ["A bakery needs flour before it can make bread.","Flour is a resource used to produce bread.","Producers use materials to make goods."],
+        ["A driver moves vegetables from a farm to a market.","Transportation links producers and buyers.","Goods must reach the people who want them."],
+        ["A storm closes the road to a town market.","The store may receive goods later than usual.","Travel problems can affect supply."],
+        ["A child buys bread at a shop.","The child is a consumer of the bread.","Consumers buy or use goods and services."]]],
+      ["Choices at a Market",[
+        ["Mia has five dollars and two items each cost four dollars.","She must choose one item or save for later.","Limited money requires a choice."],
+        ["A fruit seller lowers the price of ripe peaches.","More buyers may choose the peaches.","Price can influence what people buy."],
+        ["A shopper compares two bags of rice by amount and cost.","Comparing value helps make a careful choice.","The lowest price is not always the best value."],
+        ["A market has fewer berries after a late freeze.","The supply of berries has decreased.","Weather can affect how much of a good is available."],
+        ["A family buys milk before a new toy.","The family puts a need before a want.","People often prioritize needs when money is limited."]]],
+      ["Public Budgets",[
+        ["A town has enough money for one new park or one road repair.","Leaders must weigh needs and tradeoffs.","Public money is limited."],
+        ["Residents explain why a crosswalk is needed near a school.","Their comments help leaders understand a safety need.","Community input can inform spending decisions."],
+        ["A library costs money to run each year.","A budget should include ongoing costs.","Plans need to consider future expenses."],
+        ["A town lists income and spending for the year.","The list is part of a budget.","Budgets plan how money will be used."],
+        ["Leaders compare two projects using cost and number of people helped.","They are weighing costs and benefits.","Evidence helps explain a public choice."]]],
+      ["Land and Local Jobs",[
+        ["A coastal town has many fishing jobs.","The nearby water influences local work.","Natural features can shape an economy."],
+        ["A dry region grows crops using irrigation.","People adapt land use to available water.","Environment affects how communities farm."],
+        ["A town builds a train station and new shops open nearby.","Transportation can change where jobs grow.","Connections help people and goods move."],
+        ["A former factory becomes a center for small businesses.","A change in land use can create new jobs.","Communities reuse places as work changes."],
+        ["A map shows farms, stores, and homes in different areas.","The map shows different uses of land.","Map patterns can reveal how a community is organized."]]],
+      ["Making a Community Decision",[
+        ["Neighbors want safer walking routes to school.","A crosswalk plan should address the safety need.","Solutions should fit the problem."],
+        ["A class surveys families before suggesting a playground change.","The survey collects community opinions.","Listening to affected people informs decisions."],
+        ["Two plans have different costs and benefits.","Compare both before choosing one.","A responsible decision weighs tradeoffs."],
+        ["A town tests a new bus stop location for a month.","The trial provides evidence before a final choice.","Testing a plan can reveal what works."],
+        ["Residents disagree about a new park.","They should listen and explain their reasons respectfully.","Civic decisions involve different viewpoints."]]]
+    ]
+  };
+  for(const [subject,entries] of Object.entries(lessons)){
+    const start=subject==="sci"?94:96;
+    entries.forEach(([name,rows],lessonIndex)=>{
+      const questions=[];
+      rows.forEach(([situation,claim,reason],index)=>{
+        const others=rows.filter((_,i)=>i!==index);
+        const checks=[
+          [`${situation} What does this show?`,claim,[claim,...others.slice(0,3).map(row=>row[1])]],
+          [`Which observation supports this claim: ${claim}` ,situation,[situation,...others.slice(0,3).map(row=>row[0])]],
+          [`${situation} Why is this a good explanation?`,reason,[reason,...others.slice(0,3).map(row=>row[2])]],
+          [`${reason} Which conclusion follows?`,claim,[claim,...others.slice(0,3).map(row=>row[1])]],
+          [`Which evidence-and-conclusion pair correctly uses this observation: ${situation}`,`${situation} — ${claim}`,[`${situation} — ${claim}`,...others.slice(0,3).map(row=>`${situation} — ${row[1]}`)]]
+        ];
+        checks.forEach(([q,answer,choices],tier)=>{
+          const turn=(tier+index)%choices.length;
+          questions.push({type:"mc",difficulty:levels[tier],q,choices:choices.slice(turn).concat(choices.slice(0,turn)),answer,explain:reason});
+        });
+      });
+      bank[`g3:${subject}:L${start+lessonIndex}`]={name,contentVersion:"20261102.1",questions};
+    });
+  }
+})();
 window.K12RepairClassicBank?.("g3");
