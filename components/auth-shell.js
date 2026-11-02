@@ -138,7 +138,9 @@
   <aside class="profile-update-log" aria-labelledby="profileUpdateTitle">
     <span class="profile-chooser-kicker">What's new</span>
     <h2 id="profileUpdateTitle">Update log</h2>
+    <button type="button" class="profile-update-toggle" aria-expanded="false" onclick="const log=this.closest('.profile-update-log');const open=log.classList.toggle('is-expanded');this.setAttribute('aria-expanded',String(open));this.textContent=open?'Show fewer updates':'View all updates';">View all updates</button>
     <div class="profile-update-entries">
+      <article><time datetime="2026-11-02">November 2, 2026</time><h3>More room to learn and plan</h3><p>Grade, lesson, and reading pages now use the full width. The family dashboard adds a practice plan and quick actions.</p></article>
       <article><time datetime="2026-11-02">November 2, 2026</time><h3>Clearer pages for learners and families</h3><p>Extras text is easier to read, grade buttons are simpler, and early lesson colors now follow each subject. The home page uses plainer labels and fewer emoji. Families can now open separate reports, reading, and plan pages.</p></article>
       <article><time datetime="2026-11-01">November 1, 2026</time><h3>More colorful lessons and clear answer feedback</h3><p>Questions use a friendlier reading font and colorful choices. Correct answers celebrate with white text and more stars; wrong answers open a full red explanation that must be read before continuing. Grade levels fit together on one screen, and lesson topics open as colorful groups.</p></article>
       <article><time datetime="2026-11-01">November 1, 2026</time><h3>Full-screen lesson questions</h3><p>Lesson questions now use the full screen with larger text and answers, a visible progress bar, and room for longer activities. The layout adapts to phones and tablets.</p></article>

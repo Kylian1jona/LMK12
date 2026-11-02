@@ -71,3 +71,47 @@ body.parent-workspace #parentPortal .parent-dashboard-tabs button{min-width:0;pa
 .parent-reading-total strong,.parent-reading-number{color:#156b60;font-size:1.5rem}
 @media(max-width:850px){body.parent-workspace #parentPortal .parent-dashboard-tabs{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:560px){body.parent-workspace #parentPortal .parent-dashboard-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}body.parent-workspace #parentPortal .parent-dashboard-top{flex-wrap:wrap}}
+
+/* Keep learner selection prominent and make release notes compact. */
+body .profile-chooser-layout{grid-template-columns:minmax(0,1fr) minmax(240px,300px);width:min(1060px,calc(100% - 24px));gap:16px}
+body .profile-update-log{max-height:255px;padding:18px 20px;border-radius:18px;box-shadow:0 10px 28px #192b3d14}
+body .profile-update-log h2{margin:2px 0 8px;font-size:1.3rem}
+body .profile-update-log article{padding:10px 0}
+body .profile-update-log article:nth-child(n+3){display:none}
+body .profile-update-log.is-expanded article:nth-child(n+3){display:block}
+body .profile-update-log h3{font-size:.9rem;line-height:1.2}
+body .profile-update-log p{font-size:.79rem;line-height:1.4}
+body .profile-update-toggle{display:inline-flex;align-items:center;min-height:32px;margin:0 0 10px;padding:4px 10px;border:1px solid #bad6d2;border-radius:8px;background:#eff8f5;color:#0c6866;font-size:.8rem;font-weight:800}
+body .profile-update-toggle:hover,body .profile-update-toggle:focus-visible{background:#ddf1e8;outline-color:#0c6866}
+@media(max-width:850px){body .profile-chooser-layout{display:block;width:min(720px,calc(100% - 20px))}body .profile-update-log{max-height:170px;margin-top:12px}}
+
+/* Grade, subject, lesson, and reading selection use the viewport instead of an outer card. */
+body #grades{min-height:calc(100dvh - 76px);padding:clamp(12px,2vw,28px)!important}
+body #grades .grade-library-v2{width:100%!important;max-width:none!important;min-height:calc(100dvh - 130px);margin:0!important;padding:clamp(12px,2vw,28px)!important}
+body #grades .grade-library-grid{width:100%;max-width:none;grid-template-rows:repeat(4,minmax(76px,1fr))!important;flex:1}
+body .section.grade-menu,body .section.subject-screen,body .section[id^="grade"]:not(#grades):not(#gradeProgressSummary){min-height:calc(100dvh - 76px);padding:clamp(16px,2.5vw,36px)!important}
+body .section.grade-menu>.cardish.early-grade-menu-card,body .section.subject-screen>.cardish.early-subject-shell,body .section[id^="grade"]:not(#grades)>.cardish,body .section[id^="g"][id*="-"]>.cardish{width:100%!important;max-width:none!important;min-height:calc(100dvh - 140px);margin:0!important;padding:clamp(18px,3vw,44px)!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+body .section.subject-screen>.cardish.early-subject-shell{background:linear-gradient(180deg,var(--subject-soft,#f4f8fb),transparent 300px)!important}
+body .section.subject-screen .early-lesson-list.early-skill-columns{width:100%;max-width:none!important}
+body .section.subject-screen .early-subject{width:100%;max-width:none!important}
+body .section[id^="g"][id*="-"] .lesson-columns{width:100%;max-width:none!important}
+body .section[id^="g"][id*="-"] .lesson-topic-list{max-height:min(58vh,580px)}
+body #reading{min-height:calc(100dvh - 76px);padding:0!important}
+body #reading>.reading-box{width:100%!important;max-width:none!important;min-height:calc(100dvh - 76px);margin:0!important;padding:clamp(20px,3vw,50px)!important;border:0!important;border-radius:0!important;box-shadow:none!important;background-size:cover!important}
+body #reading #readingPanel{width:100%;max-width:none;margin:0;padding:clamp(18px,2.5vw,40px);border:0;border-radius:0;box-shadow:none}
+body #reading .reading-page-head{min-height:clamp(180px,25vh,300px)}
+body #reading .reading-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+@media(max-width:700px){body #grades .grade-library-v2{min-height:calc(100dvh - 105px)}body #grades .grade-library-grid{grid-template-rows:repeat(4,minmax(64px,1fr))!important}body .section.grade-menu,body .section.subject-screen{padding:12px!important}body .section.subject-screen>.cardish.early-subject-shell{padding:18px 12px!important}body #reading>.reading-box{padding:18px 12px!important}}
+
+/* Parents can keep a simple practice plan for each learner. */
+body.parent-workspace #parentPortal .parent-dashboard-tabs{grid-template-columns:repeat(8,minmax(0,1fr))}
+.parent-quick-actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:18px}
+.parent-quick-actions button{min-height:64px;padding:12px;border:1px solid #b7d8d1;border-radius:14px;background:#eaf7f2;color:#145e5a;font-weight:750;text-align:left}
+.parent-quick-actions button:hover,.parent-quick-actions button:focus-visible{background:#d8f0e6;outline-color:#0d7773}
+.parent-practice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;margin:20px 0}
+.parent-practice-card{padding:22px;border:1px solid #dceae6;border-radius:18px;background:#f9fcfb}
+.parent-practice-card h3{margin:0 0 14px;color:#173e47;font-size:1.15rem}
+.parent-practice-card label{display:grid;gap:6px;margin:12px 0;color:#47686b;font-size:.85rem;font-weight:750}
+.parent-practice-card select,.parent-practice-card textarea{width:100%;padding:10px 12px;border:1px solid #b6d2cc;border-radius:10px;background:#fff;color:#183b43;font-size:1rem}
+@media(max-width:850px){body.parent-workspace #parentPortal .parent-dashboard-tabs{grid-template-columns:repeat(4,minmax(0,1fr))}.parent-quick-actions{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){body.parent-workspace #parentPortal .parent-dashboard-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}}

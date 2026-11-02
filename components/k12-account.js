@@ -1243,7 +1243,7 @@ async function enterParentPortal(){
 
 let activeParentTab="overview";
 function selectParentTab(tab){
-  if(!["overview","learners","reports","reading","goals","plan","account"].includes(tab)) return;
+  if(!["overview","learners","reports","reading","goals","practice","plan","account"].includes(tab)) return;
   activeParentTab=tab;
   document.querySelectorAll("[data-parent-tab]").forEach(button=>{
     const active=button.dataset.parentTab===tab;
@@ -1265,6 +1265,20 @@ function saveParentGoals(){
   saveKids(kids);
   const status=$("parentGoalStatus");
   if(status) status.textContent="Family goals saved.";
+}
+function saveParentPracticePlan(){
+  if(currentPortalRole!=="parent") return;
+  const kids=loadKids();
+  document.querySelectorAll("[data-parent-practice]").forEach(input=>{
+    const kid=kids.find(item=>item.id===input.dataset.kidId);
+    if(!kid) return;
+    if(input.dataset.parentPractice==="focus") kid.practiceFocus=String(input.value||"").slice(0,32);
+    if(input.dataset.parentPractice==="note") kid.practiceNote=String(input.value||"").trim().slice(0,240);
+    if(input.dataset.parentPractice==="days") kid.practiceDays=String(input.value||"").slice(0,32);
+  });
+  saveKids(kids);
+  const status=$("parentPracticeStatus");
+  if(status) status.textContent="Practice plans saved.";
 }
 async function renderParentPortal(){
   const wrap = $("parentPortalContent");
@@ -1301,6 +1315,7 @@ async function renderParentPortal(){
       <button type="button" role="tab" data-parent-tab="reports" onclick="selectParentTab('reports')">Reports</button>
       <button type="button" role="tab" data-parent-tab="reading" onclick="selectParentTab('reading')">Reading</button>
       <button type="button" role="tab" data-parent-tab="goals" onclick="selectParentTab('goals')">Goals</button>
+      <button type="button" role="tab" data-parent-tab="practice" onclick="selectParentTab('practice')">Practice plan</button>
       <button type="button" role="tab" data-parent-tab="plan" onclick="selectParentTab('plan')">Plan</button>
       <button type="button" role="tab" data-parent-tab="account" onclick="selectParentTab('account')">Account</button>
     </nav>
@@ -1315,6 +1330,7 @@ async function renderParentPortal(){
         <article class="parent-subscription-card ${htmlSafe(subscriptionClass)}"><span>Plan status</span><h2>${htmlSafe(subscriptionStatus)}</h2><p>${htmlSafe(subscriptionAccessAllowed()?`${plan?.name||"Your plan"} is active.`:subscriptionActionMessage())}</p><button type="button" class="btn btn-main" onclick="showPaywall(false)">Manage plan</button></article>
         <article><span>Daily goals</span><h2>Choose a target</h2><p>Set a lesson and reading goal for each learner.</p><button type="button" class="btn btn-main" onclick="selectParentTab('goals')">Set goals</button></article>
       </div>
+      <div class="parent-quick-actions" aria-label="Family actions"><button type="button" onclick="selectParentTab('practice')">Plan this week</button><button type="button" onclick="selectParentTab('reports')">Check lesson results</button><button type="button" onclick="selectParentTab('reading')">See reading time</button><button type="button" onclick="showAddUserPage()">Add a learner</button></div>
     </section>
     <section class="parent-dashboard-panel" data-parent-panel="reports" hidden>
       <div class="parent-panel-heading"><h2>Lesson reports</h2><p>Completed lessons and answers recorded on this device.</p></div>
@@ -1334,6 +1350,11 @@ async function renderParentPortal(){
       <div class="parent-panel-heading"><h2>Daily learning goals</h2><p>Set a realistic target for lessons and reading. Changes apply to each learner profile.</p></div>
       <div class="parent-goal-grid">${kids.map(kid=>`<article class="parent-goal-card"><h3>${htmlSafe(kid.name||kid.username||"Learner")}</h3><label>Lessons per day<input type="number" min="1" max="20" value="${Number(kid.dailyLessonGoal)||3}" data-parent-goal="lessons" data-kid-id="${htmlSafe(kid.id)}"></label><label>Reading minutes per day<input type="number" min="5" max="180" value="${Number(kid.readingGoal)||20}" data-parent-goal="reading" data-kid-id="${htmlSafe(kid.id)}"></label></article>`).join("")}</div>
       <button type="button" class="btn btn-main" onclick="saveParentGoals()">Save goals</button><p id="parentGoalStatus" role="status" aria-live="polite"></p>
+    </section>
+    <section class="parent-dashboard-panel" data-parent-panel="practice" hidden>
+      <div class="parent-panel-heading"><h2>Practice plan</h2><p>Pick a focus and a few days for each learner. Add a short note to remember what to work on.</p></div>
+      <div class="parent-practice-grid">${kids.map(kid=>`<article class="parent-practice-card"><h3>${htmlSafe(kid.name||kid.username||"Learner")}</h3><label>Focus this week<select data-parent-practice="focus" data-kid-id="${htmlSafe(kid.id)}"><option value="Reading" ${kid.practiceFocus==="Reading"?"selected":""}>Reading</option><option value="Math" ${kid.practiceFocus==="Math"?"selected":""}>Math</option><option value="Science" ${kid.practiceFocus==="Science"?"selected":""}>Science</option><option value="Writing" ${kid.practiceFocus==="Writing"?"selected":""}>Writing</option><option value="Review" ${kid.practiceFocus==="Review"?"selected":""}>Review</option></select></label><label>Practice days<select data-parent-practice="days" data-kid-id="${htmlSafe(kid.id)}"><option value="Weekdays" ${kid.practiceDays==="Weekdays"?"selected":""}>Weekdays</option><option value="Three days" ${kid.practiceDays==="Three days"?"selected":""}>Three days a week</option><option value="Weekends" ${kid.practiceDays==="Weekends"?"selected":""}>Weekends</option><option value="Every day" ${kid.practiceDays==="Every day"?"selected":""}>Every day</option></select></label><label>Note for this learner<textarea maxlength="240" rows="3" data-parent-practice="note" data-kid-id="${htmlSafe(kid.id)}" placeholder="Example: Read together for 10 minutes">${htmlSafe(kid.practiceNote||"")}</textarea></label></article>`).join("")}</div>
+      <button type="button" class="btn btn-main" onclick="saveParentPracticePlan()">Save practice plan</button><p id="parentPracticeStatus" role="status" aria-live="polite"></p>
     </section>
     <section class="parent-dashboard-panel" data-parent-panel="plan" hidden>
       <div class="parent-panel-heading"><h2>Learning plan</h2><p>See your current plan and the subjects it covers.</p></div>
