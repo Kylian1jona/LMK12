@@ -115,3 +115,19 @@ body.parent-workspace #parentPortal .parent-dashboard-tabs{grid-template-columns
 .parent-practice-card select,.parent-practice-card textarea{width:100%;padding:10px 12px;border:1px solid #b6d2cc;border-radius:10px;background:#fff;color:#183b43;font-size:1rem}
 @media(max-width:850px){body.parent-workspace #parentPortal .parent-dashboard-tabs{grid-template-columns:repeat(4,minmax(0,1fr))}.parent-quick-actions{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){body.parent-workspace #parentPortal .parent-dashboard-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Lesson question screen: subject artwork, sentence case titles, one reading font. */
+body #lessonRunner,body[data-theme] #lessonRunner{background:#eef7ff url("../images/lesson-wave-blue.svg") center/cover fixed no-repeat!important}
+body #lessonRunner[data-subject="eng"],body[data-theme] #lessonRunner[data-subject="eng"]{background-image:url("../images/lesson-wave-pink.svg")!important}
+body #lessonRunner[data-subject="math"],body[data-theme] #lessonRunner[data-subject="math"]{background-image:url("../images/lesson-wave-orange.svg")!important}
+body #lessonRunner[data-subject="sci"],body[data-theme] #lessonRunner[data-subject="sci"]{background-image:url("../images/lesson-wave-green.svg")!important}
+body #lessonRunner[data-subject="hist"],body[data-theme] #lessonRunner[data-subject="hist"]{background-image:url("../images/lesson-wave-purple.svg")!important}
+body #lessonRunner>.lesson-quiz-shell,body[data-theme] #lessonRunner>.lesson-quiz-shell{background:transparent!important}
+body #lessonRunner .lesson-quiz-topbar{padding:12px 18px 18px!important;border:1px solid #ffffffb8;border-radius:20px;background:#ffffffd9!important;box-shadow:0 8px 26px #244b6d18;backdrop-filter:blur(14px)}
+body #lessonRunner .lesson-quiz-title,body[data-theme] #lessonRunner .lesson-quiz-title{color:#173d57!important;font-family:Fredoka,"Trebuchet MS",sans-serif!important;font-size:clamp(20px,2.1vw,30px)!important;font-weight:600!important;line-height:1.2!important;letter-spacing:0!important;text-transform:none!important}
+body #lessonRunner #lrQuestion,body[data-theme] #lessonRunner #lrQuestion{color:#183e58!important;font-family:Fredoka,"Trebuchet MS",sans-serif!important;font-weight:600!important;letter-spacing:-.015em}
+body #lessonRunner #lrChoices .choice-btn,body[data-theme] #lessonRunner #lrChoices .choice-btn{border-radius:32px!important;font-family:Fredoka,"Trebuchet MS",sans-serif!important;font-weight:500!important;line-height:1.28!important;box-shadow:0 7px 18px #244b6d12!important}
+body #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong),body[data-theme] #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong){border-width:2px!important;padding-inline:clamp(16px,2vw,28px)!important}
+body #lessonRunner #lrChoices .choice-btn::before{width:31px;height:31px;border-radius:50%!important;font-family:Fredoka,"Trebuchet MS",sans-serif!important;font-weight:600!important}
+body #lessonRunner #lrChoices .choice-btn:hover{transform:translateY(-2px)!important;box-shadow:0 12px 24px #244b6d22!important}
+@media(max-width:700px){body #lessonRunner,body[data-theme] #lessonRunner{background-attachment:scroll!important}body #lessonRunner .lesson-quiz-topbar{padding:9px 12px 13px!important;border-radius:15px}body #lessonRunner #lrChoices .choice-btn{border-radius:25px!important}}
