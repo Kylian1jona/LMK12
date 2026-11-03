@@ -140,6 +140,7 @@
     <h2 id="profileUpdateTitle">Update log</h2>
     <button type="button" class="profile-update-toggle" aria-expanded="false" onclick="const log=this.closest('.profile-update-log');const open=log.classList.toggle('is-expanded');this.setAttribute('aria-expanded',String(open));this.textContent=open?'Show fewer updates':'View all updates';">View all updates</button>
     <div class="profile-update-entries">
+      <article><time datetime="2026-11-02">November 2, 2026</time><h3>Reading controls and more Grade 2 math</h3><p>Reading aloud has Pause and Resume again. Reading, lesson groups, and subject choices follow your color theme; lesson groups show every lesson without dropdowns. Ten new Grade 2 math lessons add 250 questions.</p></article>
       <article><time datetime="2026-11-02">November 2, 2026</time><h3>Clearer reading for younger learners</h3><p>Kindergarten through Grade 3 stories now use larger, rounder text and 40 soft illustrations that match their stories.</p></article>
       <article><time datetime="2026-11-02">November 2, 2026</time><h3>Simpler home page links</h3><p>The home page now has a plain background. Playground and Texas test practice sit alongside the other learning links in one card grid.</p></article>
       <article><time datetime="2026-11-02">November 2, 2026</time><h3>Page titles centered</h3><p>The grade chooser and other main page titles now sit in the middle of their sections. Back buttons and language controls stay at the edges.</p></article>

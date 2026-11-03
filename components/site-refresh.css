@@ -224,3 +224,35 @@ body #readingPanel .reading-story-card-art{display:block;width:100%;aspect-ratio
 body #readingPanel .reading-story-art{width:min(100%,560px);margin:8px auto 28px}
 body #readingPanel .reading-story-art img{display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;border:1px solid #d7e6e4;border-radius:18px;background:#edf4f1}
 @media(max-width:580px){body #readingPanel .reading-story-art{margin-bottom:23px}body #readingPanel .reading-story-card-art{margin-bottom:14px}}
+
+/* Show lesson choices at once, and keep the menu rows aligned. */
+body .section[id^="g"][id*="-"] .lesson-columns{grid-template-columns:repeat(auto-fit,minmax(min(100%,370px),1fr))!important;max-width:1400px!important;align-items:start}
+body .section[id^="g"][id*="-"] .lesson-topic-heading{cursor:default}
+body .section[id^="g"][id*="-"] .lesson-topic-count::after{display:none!important}
+body .section[id^="g"][id*="-"] .lesson-topic-list{max-height:none!important;overflow:visible!important}
+body .lm-menu-links>button,body .lm-menu-links>button.has-ui-icon{width:100%;grid-template-columns:40px minmax(0,1fr)!important;justify-items:start;text-align:left}
+body .lm-menu-links>button>.lm-ui-icon{display:none!important}
+body .lm-menu-links>button>span{grid-column:1!important}
+body .lm-menu-links>button>div{grid-column:2!important;justify-self:stretch;text-align:left}
+body .lm-menu-links>button b,body .lm-menu-links>button small{display:block;text-align:left}
+
+/* Reading artwork and selection screens follow the saved color theme. */
+body[data-theme] #reading>.reading-box{background:linear-gradient(180deg,color-mix(in srgb,var(--orange-light) 65%,var(--card,#fff)),var(--card,#fff) 400px)!important}
+body[data-theme] #reading .reading-page-head,body[data-theme] #readingPanel .reading-view-head{border-color:color-mix(in srgb,var(--orange) 25%,#dce9e5)}
+body[data-theme] #reading :is(.reading-page-head h1,.reading-view-head h2,.reading-passage h2,.reading-card h3){color:var(--orange-dark)!important}
+body[data-theme] #reading :is(.reading-eyebrow,.reading-view-step,.reading-card-kicker){color:var(--orange-dark)!important}
+body[data-theme] #reading :is(.reading-grade-number,.reading-subject-mark){background:var(--orange-light)!important;color:var(--orange-dark)!important}
+body[data-theme] #reading .reading-card{border-color:color-mix(in srgb,var(--orange) 28%,#e1e8f0);background:color-mix(in srgb,var(--card,#fff) 94%,var(--orange-light))!important}
+body[data-theme] #reading .reading-card-action,body[data-theme] #reading .reading-reader-actions .btn-main{background:var(--orange-dark)!important;border-color:var(--orange-dark)!important;color:#fff!important}
+body[data-theme] #reading .reading-story-art,body[data-theme] #reading .reading-topic-card:has(.reading-story-card-art){background:var(--orange-light)!important}
+body[data-theme] #reading :is(.reading-story-art img,.reading-story-card-art){mix-blend-mode:multiply;border-color:color-mix(in srgb,var(--orange) 30%,#d7e6e4)}
+body[data-theme] #reading .reading-passage{border-color:color-mix(in srgb,var(--orange) 24%,#d9e8e4);background:color-mix(in srgb,var(--card,#fff) 96%,var(--orange-light))!important}
+body[data-theme] .early-grade-menu-heading .early-grade-level{background:linear-gradient(135deg,var(--orange),var(--orange-dark))!important;color:#fff!important}
+body[data-theme] .grade-subject-picker .grade-subject-option[data-subject="eng"],body[data-theme] .grade-subject-picker .grade-subject-option[data-subject="math"]{--subject-color:var(--orange-dark);--subject-bg:var(--orange-light);border-color:color-mix(in srgb,var(--orange) 45%,#fff)!important;background:color-mix(in srgb,var(--card,#fff) 82%,var(--orange-light))!important;color:var(--orange-dark)!important}
+body[data-theme] .early-subject-page[data-subject="eng"],body[data-theme] .early-subject-page[data-subject="math"]{--subject-ink:var(--orange-dark);--subject-soft:var(--orange-light);--subject-edge:var(--orange);--subject-row:var(--orange-light)}
+body[data-theme] .section[id^="g"][id$="-eng"]>.cardish>h1,body[data-theme] .section[id^="g"][id$="-math"]>.cardish>h1{color:var(--orange-dark)!important}
+body[data-theme] .section[id^="grade"]:not(#grades)>.cardish>.d-flex.mt-3 .btn:not(:last-child){border-color:color-mix(in srgb,var(--orange) 45%,#fff)!important;background:color-mix(in srgb,var(--card,#fff) 82%,var(--orange-light))!important;color:var(--orange-dark)!important}
+body[data-theme] .section[id^="g"][id*="-"] .lesson-topic-heading{background:var(--orange-light)!important}
+body[data-theme] .section[id^="g"][id*="-"] .lesson-topic-heading h3,body[data-theme] .section[id^="g"][id*="-"] .lesson-topic-count{color:var(--orange-dark)!important}
+body #reading .reading-reader-actions{display:flex;flex-wrap:wrap;gap:8px}
+body #reading .reading-reader-actions button:disabled{opacity:.55;cursor:not-allowed}

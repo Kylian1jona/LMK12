@@ -1496,12 +1496,32 @@ function readReadingTopic(gradeId, subjId, topicIndex){
   const topic = subj?.topics?.[topicIndex];
   if(!grade || !subj || !topic) return;
   const speech=readingTopicSpeech(grade, subj, topic, gradeId);
-  if(speech) speakGlobal(speech);
+  if(speech){
+    const started=speakGlobal(speech,{force:true});
+    const pauseButton=$("readingPauseBtn");
+    if(pauseButton){pauseButton.disabled=!started;pauseButton.textContent="Pause";pauseButton.setAttribute("aria-pressed","false");}
+  }
+}
+
+function toggleReadingPause(){
+  const pauseButton=$("readingPauseBtn");
+  if(!pauseButton || typeof speechSynthesis==="undefined" || !speechSynthesis.speaking) return;
+  if(speechSynthesis.paused){
+    speechSynthesis.resume();
+    pauseButton.textContent="Pause";
+    pauseButton.setAttribute("aria-pressed","false");
+  }else{
+    speechSynthesis.pause();
+    pauseButton.textContent="Resume";
+    pauseButton.setAttribute("aria-pressed","true");
+  }
 }
 
 function stopVoice(){
   safeClick();
   try{ speechSynthesis.cancel(); }catch(e){}
+  const pauseButton=$("readingPauseBtn");
+  if(pauseButton){pauseButton.disabled=true;pauseButton.textContent="Pause";pauseButton.setAttribute("aria-pressed","false");}
 }
 
 function readingCheck(topic){
@@ -1536,6 +1556,7 @@ function renderReadingTopic(gradeId, subjId, topicIndex){
       <button type="button" class="reading-back-btn" id="readingBackBtn" aria-label="Back to passages">← Passages</button>
       <div class="reading-reader-actions" ${canReadAloud?'':'hidden'}>
         <button type="button" class="btn btn-main" id="readingSpeakBtn">▶ Read aloud</button>
+        <button type="button" class="reading-stop-btn" id="readingPauseBtn" aria-pressed="false" disabled>Pause</button>
         <button type="button" class="reading-stop-btn" id="readingStopBtn">Stop</button>
       </div>
     </div>
@@ -1552,10 +1573,11 @@ function renderReadingTopic(gradeId, subjId, topicIndex){
   `;
   if(canReadAloud){
     $("readingSpeakBtn").onclick = ()=>readReadingTopic(gradeId, subjId, topicIndex);
+    $("readingPauseBtn").onclick = toggleReadingPause;
     $("readingStopBtn").onclick = ()=>stopVoice();
   }
   panel.querySelectorAll("[data-reading-choice]").forEach(button=>button.onclick=()=>answerReadingCheck(button,topic));
-  $("readingBackBtn").onclick = ()=>renderReadingSubject(gradeId, subjId);
+  $("readingBackBtn").onclick = ()=>{stopVoice();renderReadingSubject(gradeId, subjId);};
 }
 
 function renderSettings(){

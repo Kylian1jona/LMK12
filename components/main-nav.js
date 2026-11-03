@@ -68,9 +68,9 @@
       if(!heading||!lessons.length)return;
       stripLeadingEmoji(heading);
       column.dataset.topicReady='true';
-      const topic=document.createElement('details');
+      const topic=document.createElement('section');
       topic.className='lesson-topic-panel';
-      const summary=document.createElement('summary');
+      const summary=document.createElement('div');
       summary.className='lesson-topic-heading';
       const count=document.createElement('span');
       count.className='lesson-topic-count';
