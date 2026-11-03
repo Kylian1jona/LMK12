@@ -1301,6 +1301,7 @@ function renderLessonImage(image,question){
   const visual = $("lrTopicVisual");
   if(!img) return;
   const src = typeof image === "string" ? image : image?.src;
+  frame?.classList.toggle("g2-visual-frame",image?.kind==="g2-visual");
   const showVisual=!src&&["mc","speed","selectall","dropdown"].includes(question?.type);
   card?.classList.toggle("has-lesson-art",Boolean(src)||showVisual);
   visual?.classList.toggle("d-none",!showVisual);

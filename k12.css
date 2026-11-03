@@ -7950,3 +7950,22 @@ body .early-subject-shell .early-skill-topic:nth-child(4n+3) .early-skill-summar
 body .early-subject-shell .early-skill-topic:nth-child(4n+4) .early-skill-summary{background:#e3d4ee}
 body .early-subject-shell .early-skill-title{color:#315364;font-family:"Baloo 2",cursive}
 body .early-subject-shell .early-skill-description{color:#4e6571}
+
+/* Give Grade 2 math visuals a full-width row and readable number labels. */
+body #lessonRunner #lrQuestionCard:has(.g2-visual-frame){grid-template-columns:minmax(0,1fr)}
+body #lessonRunner #lrQuestionCard:has(.g2-visual-frame) #lrQuestion{grid-column:1/-1;grid-row:1;max-width:none}
+body #lessonRunner #lrImageFrame.g2-visual-frame{
+  grid-column:1/-1;grid-row:2;justify-self:stretch;
+  width:100%;height:auto;max-height:none;margin:0;padding:clamp(10px,2vw,20px);
+  overflow:hidden;border-radius:22px;
+}
+body #lessonRunner #lrImageFrame.g2-visual-frame img,
+body #lessonRunner #lrImageFrame.g2-visual-frame .lesson-img{
+  display:block;width:100%;height:auto;max-width:none;max-height:none;
+  object-fit:contain;object-position:center;
+}
+@media(max-width:700px){
+  body #lessonRunner #lrImageFrame.g2-visual-frame{max-width:100%;overflow-x:auto;padding:8px}
+  body #lessonRunner #lrImageFrame.g2-visual-frame img,
+  body #lessonRunner #lrImageFrame.g2-visual-frame .lesson-img{width:720px;min-width:720px;height:auto;max-height:none}
+}

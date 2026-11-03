@@ -28,7 +28,7 @@
   const math=CURR?.g2?.math;
   if(!math) return;
   const fmt=n=>Number(n).toLocaleString("en-US");
-  const image=(svg,alt)=>({src:"data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(svg),alt});
+  const image=(svg,alt)=>({src:"data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(svg),alt,kind:"g2-visual"});
   const shell=body=>`<svg xmlns="http://www.w3.org/2000/svg" width="720" height="164" viewBox="0 0 720 164"><rect width="720" height="164" rx="18" fill="#f4fbff"/>${body}</svg>`;
   function line(start,step,marked=[]){
     const ticks=Array.from({length:11},(_,i)=>{
@@ -46,12 +46,20 @@
     return image(shell(`<text x="28" y="36" font-family="Arial" font-size="17" fill="#24344b">${first}: ${a}</text><rect x="190" y="17" width="${Math.max(24,a*5)}" height="26" rx="5" fill="#27a8c4"/><text x="28" y="85" font-family="Arial" font-size="17" fill="#24344b">${second}: ${b}</text><rect x="190" y="66" width="${Math.max(24,b*5)}" height="26" rx="5" fill="#f4a340"/><text x="28" y="137" font-family="Arial" font-size="19" font-weight="bold" fill="#24344b">${a} + ${b} = ?</text>`),`${first} ${a}; ${second} ${b}. Add the two amounts.`);
   }
   function pairDots(n){
-    const dots=Array.from({length:n},(_,i)=>`<circle cx="${45+(i%13)*49}" cy="${49+Math.floor(i/13)*48}" r="15" fill="${i%2?'#f4a340':'#27a8c4'}"/>`).join("");
+    const dots=Array.from({length:n},(_,i)=>`<circle cx="${45+(i%16)*40}" cy="${46+Math.floor(i/16)*48}" r="14" fill="${i%2?'#f4a340':'#27a8c4'}"/>`).join("");
     return image(shell(`${dots}<text x="40" y="148" font-family="Arial" font-size="16" fill="#24344b">Make pairs to decide: odd or even?</text>`),`${n} dots for making pairs`);
   }
   function polygon(sides){
     const points=Array.from({length:sides},(_,i)=>`${360+65*Math.cos(2*Math.PI*i/sides-Math.PI/2)},${80+57*Math.sin(2*Math.PI*i/sides-Math.PI/2)}`).join(" ");
     return image(shell(`<polygon points="${points}" fill="#b6e9ed" stroke="#07899c" stroke-width="5"/><text x="360" y="151" text-anchor="middle" font-family="Arial" font-size="17" fill="#24344b">Count the straight sides</text>`),`A shape with ${sides} sides`);
+  }
+  function graph(a,b,picture){
+    const pictureRows=[[a,"Blue","#27a8c4",35],[b,"Orange","#f4a340",98]].map(([count,label,color,y])=>{
+      const marks=picture?Array.from({length:count},(_,i)=>`<circle cx="${198+i*47}" cy="${y+5}" r="16" fill="${color}"/>`).join("")
+        :`<rect x="180" y="${y-16}" width="${count*45}" height="34" rx="7" fill="${color}"/>`;
+      return `<text x="28" y="${y+10}" font-family="Arial" font-size="21" fill="#24344b">${label}</text>${marks}<text x="${Math.max(210,190+count*47)}" y="${y+10}" font-family="Arial" font-size="22" font-weight="bold" fill="#24344b">${count}</text>`;
+    }).join("");
+    return image(shell(`${pictureRows}<text x="28" y="150" font-family="Arial" font-size="18" fill="#24344b">${picture?'Each circle is one item.':'Compare the two bars.'}</text>`),`${picture?'Picture':'Bar'} graph: ${a} blue items and ${b} orange items`);
   }
   function choice(index,prompt,answer,step=1,art,explain){
     const values=[answer,answer+step,Math.max(0,answer-step),answer+2*step];
@@ -68,8 +76,8 @@
     if(topic===5){const sides=[3,4,5,4,6][i%5];const prompt="Is the pictured shape a quadrilateral?";return {type:"mc",q:prompt,choices:["Yes","No"],answer:sides===4?"Yes":"No",explain:`A quadrilateral has four sides; this shape has ${sides}.`,audio:prompt,image:polygon(sides)};}
     const a=3+i%8,b=2+(i*3)%7;
     return topic===6
-      ?choice(i,`The picture graph shows ${a} blue and ${b} orange items. How many items are shown?`,a+b,1,bars(a,b,"Blue","Orange"),`${a} + ${b} = ${a+b}.`)
-      :choice(i,`The bar graph shows ${a} blue and ${b} orange items. How many more are in the larger group?`,Math.abs(a-b),1,bars(a,b,"Blue","Orange"),`The difference is ${Math.abs(a-b)}.`);
+      ?choice(i,`The picture graph shows ${a} blue and ${b} orange items. How many items are shown?`,a+b,1,graph(a,b,true),`${a} + ${b} = ${a+b}.`)
+      :choice(i,`The bar graph shows ${a} blue and ${b} orange items. How many more are in the larger group?`,Math.abs(a-b),1,graph(a,b,false),`The difference is ${Math.abs(a-b)}.`);
   }
   function numberLine(topic,i){
     const base=100+(i*37)%790,start=Math.floor(base/10)*10,step=topic===4?10:topic===5?100:1;
@@ -84,7 +92,7 @@
     else if(topic===7){answer=b;prompt=`Which point is farther right: ${fmt(a)} or ${fmt(b)}?`;}
     else if(topic===8){answer=b-a;prompt=`How far is it from ${fmt(a)} to ${fmt(b)} on this number line?`;}
     else {answer=b;prompt=`Start at ${fmt(a)} and make two jumps of ${step}. Where do you land?`;}
-    art=line(low,step,topic===8?[a,b]:[a]);
+    art=line(low,step,[0,3,6].includes(topic)?[a,a+2*step]:[7,8,9].includes(topic)?[a,b]:[a]);
     return choice(i,prompt,answer,topic===8?1:step,art,`${fmt(a)}${topic===8?` to ${fmt(b)} is ${fmt(answer)} apart`:` plus ${step} each step leads to ${fmt(answer)}`}.`);
   }
   function countHundreds(topic,i){
@@ -100,17 +108,24 @@
     else if(topic===7){answer=start;prompt=`These blocks show ${start/100} hundreds. What number is that?`;}
     else if(topic===8){answer=(i%10+1)*100;prompt=`Count by hundreds from zero to the ${answer/100}${answer/100===1?'st':answer/100===2?'nd':answer/100===3?'rd':'th'} hundred. What number is it?`;}
     else {answer=start+100;prompt=`What hundred comes between ${fmt(start)} and ${fmt(start+200)}?`;}
-    const art=topic===6||topic===7||topic===8?hundreds(topic===8?answer/100:start/100):line(0,100,[start]);
+    const art=topic===6||topic===7||topic===8?hundreds(topic===8?answer/100:start/100):line(0,100,topic===5?[start,1000]:[start]);
     return choice(i,prompt,answer,topic===5||topic===6?1:100,art,`Count in steps of 100. The answer is ${fmt(answer)}.`);
   }
   const stories=[
-    ["toy cars","more toy cars"],["birds","more birds"],["books","more books"],["soccer balls","more soccer balls"],
-    ["flowers","more flowers"],["pencils","more pencils"],["apples","more apples"],["bus riders","more riders"],
-    ["stickers","more stickers"],["cans collected","more cans"]
+    ["A child has","toy cars","gets","more toy cars"],
+    ["A park has","birds","welcomes","more birds"],
+    ["A shelf has","books","gets","more books"],
+    ["A team has","soccer balls","gets","more soccer balls"],
+    ["A garden has","flowers","grows","more flowers"],
+    ["A classroom has","pencils","gets","more pencils"],
+    ["A basket has","apples","gets","more apples"],
+    ["A bus has","riders","picks up","more riders"],
+    ["A child has","stickers","gets","more stickers"],
+    ["A food drive has","cans","collects","more cans"]
   ];
   function story(topic,i){
-    const [thing,more]=stories[topic],a=12+(i*7+topic*3)%48,b=2+(i*3+topic)%29,sum=a+b;
-    const prompt=`A class has ${a} ${thing}. It gets ${b} ${more}. How many does it have now? Write an addition sentence that fits the story (for example, 12 + 3 = 15).`;
+    const [subject,thing,verb,more]=stories[topic],a=12+(i*7+topic*3)%48,b=2+(i*3+topic)%29,sum=a+b;
+    const prompt=`${subject} ${a} ${thing}. It ${verb} ${b} ${more}. How many ${thing} are there now? Write an addition sentence that fits the story (for example, 12 + 3 = 15).`;
     return {type:"input",q:prompt,answer:`${a} + ${b} = ${sum}`,equation:true,explain:`Start with ${a}, add ${b}, and write ${a} + ${b} = ${sum}.`,audio:prompt,image:bars(a,b,"At first","Added")};
   }
   for(let id=43;id<=80;id++){

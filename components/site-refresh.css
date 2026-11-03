@@ -256,3 +256,9 @@ body[data-theme] .section[id^="g"][id*="-"] .lesson-topic-heading{background:var
 body[data-theme] .section[id^="g"][id*="-"] .lesson-topic-heading h3,body[data-theme] .section[id^="g"][id*="-"] .lesson-topic-count{color:var(--orange-dark)!important}
 body #reading .reading-reader-actions{display:flex;flex-wrap:wrap;gap:8px}
 body #reading .reading-reader-actions button:disabled{opacity:.55;cursor:not-allowed}
+
+/* Keep the update log as tall as the learner chooser on wide screens. */
+@media(min-width:851px){
+  body .profile-chooser-layout{align-items:stretch}
+  body .profile-chooser-layout .profile-update-log{height:100%;max-height:calc(100vh - 64px);min-height:0;overflow:auto}
+}
