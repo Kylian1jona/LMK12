@@ -1671,7 +1671,9 @@ function lrCheck(){
   let ok = false;
 
   if(q.type === "input" || q.type === "fill" || q.type === "edit"){
-    ok = cleanAnswer(user) === cleanAnswer(q.answer);
+    ok = q.equation
+      ? cleanAnswer(user).replace(/\s+/g,"") === cleanAnswer(q.answer).replace(/\s+/g,"")
+      : cleanAnswer(user) === cleanAnswer(q.answer);
   }
 
   if(ok){
