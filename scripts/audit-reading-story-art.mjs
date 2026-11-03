@@ -8,9 +8,15 @@ const context=vm.createContext({window:{}});
 vm.runInContext(fs.readFileSync(path.join(root,'components','k12-reading-stories.js'),'utf8'),context);
 const library=context.window.LearnMasterOriginalStories;
 let count=0;
-for(const gradeId of ['k','g1','g2','g3']){
+for(const gradeId of ['prek','k','g1','g2','g3']){
   const stories=library[gradeId]?.subjects?.stories?.topics;
-  assert.equal(stories?.length,10,`${gradeId} needs ten stories`);
+  assert.equal(stories?.length,gradeId==='prek'?17:10,`${gradeId} story count`);
+  if(gradeId==='prek'){
+    const titles=stories.map(story=>story.title);
+    assert.equal(new Set(titles).size,17,'Pre-K story titles must be unique');
+    for(const title of ['The Three Little Pigs','Goldilocks and the Three Bears','Cinderella','The Tortoise and the Hare','Little Red Riding Hood','Jack and the Beanstalk','The Ugly Duckling','The Three Billy Goats Gruff'])
+      assert.ok(titles.includes(title),`Pre-K is missing ${title}`);
+  }
   for(const story of stories){
     const art=story.illustration;
     assert.ok(art?.alt?.length>20,`${story.title} needs a descriptive image label`);
@@ -21,5 +27,5 @@ for(const gradeId of ['k','g1','g2','g3']){
     count++;
   }
 }
-assert.equal(count,40);
-console.log(`PASS: ${count} illustrated stories across Kindergarten through Grade 3`);
+assert.equal(count,57);
+console.log(`PASS: ${count} illustrated stories across Pre-K through Grade 3`);

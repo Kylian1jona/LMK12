@@ -208,18 +208,19 @@ body #home .lm-today-card>button{grid-column:2;grid-row:1/4;width:auto;min-width
 @media(max-width:900px){body #home .lm-home-quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media(max-width:600px){body #home .lm-home-quick-grid{grid-template-columns:minmax(0,1fr)!important}body #home .lm-today-card{grid-template-columns:1fr}body #home .lm-today-card>button{grid-column:1;grid-row:auto;width:100%;margin-top:10px}}
 
-/* Clearer story reading for Kindergarten through Grade 3. */
-body #readingPanel:is([data-reading-grade="k"],[data-reading-grade="g1"],[data-reading-grade="g2"],[data-reading-grade="g3"]){font-family:Fredoka,"Trebuchet MS",sans-serif}
-body #readingPanel:is([data-reading-grade="k"],[data-reading-grade="g1"],[data-reading-grade="g2"],[data-reading-grade="g3"]) .reading-passage{max-width:850px;background:#fffefa;border-color:#d9e8e4}
-body #readingPanel:is([data-reading-grade="k"],[data-reading-grade="g1"],[data-reading-grade="g2"],[data-reading-grade="g3"]) .reading-passage :is(h2,p){font-family:Fredoka,"Trebuchet MS",sans-serif!important;letter-spacing:.005em}
-body #readingPanel:is([data-reading-grade="k"],[data-reading-grade="g1"],[data-reading-grade="g2"],[data-reading-grade="g3"]) .reading-passage h2{color:#1e4354;font-size:clamp(30px,3.5vw,40px);line-height:1.2}
-body #readingPanel:is([data-reading-grade="k"],[data-reading-grade="g1"],[data-reading-grade="g2"],[data-reading-grade="g3"]) .reading-passage p{color:#263b47!important;font-weight:400;line-height:1.72!important}
+/* Clearer story reading for Pre-K through Grade 3. */
+body #readingPanel:is([data-reading-grade="prek"],[data-reading-grade="k"],[data-reading-grade="g1"],[data-reading-grade="g2"],[data-reading-grade="g3"]){font-family:Fredoka,"Trebuchet MS",sans-serif}
+body #readingPanel:is([data-reading-grade="prek"],[data-reading-grade="k"],[data-reading-grade="g1"],[data-reading-grade="g2"],[data-reading-grade="g3"]) .reading-passage{max-width:850px;background:#fffefa;border-color:#d9e8e4}
+body #readingPanel:is([data-reading-grade="prek"],[data-reading-grade="k"],[data-reading-grade="g1"],[data-reading-grade="g2"],[data-reading-grade="g3"]) .reading-passage :is(h2,p){font-family:Fredoka,"Trebuchet MS",sans-serif!important;letter-spacing:.005em}
+body #readingPanel:is([data-reading-grade="prek"],[data-reading-grade="k"],[data-reading-grade="g1"],[data-reading-grade="g2"],[data-reading-grade="g3"]) .reading-passage h2{color:#1e4354;font-size:clamp(30px,3.5vw,40px);line-height:1.2}
+body #readingPanel:is([data-reading-grade="prek"],[data-reading-grade="k"],[data-reading-grade="g1"],[data-reading-grade="g2"],[data-reading-grade="g3"]) .reading-passage p{color:#263b47!important;font-weight:400;line-height:1.72!important}
+body #readingPanel[data-reading-grade="prek"] .reading-passage p{font-size:clamp(27px,3.1vw,34px)!important}
 body #readingPanel[data-reading-grade="k"] .reading-passage p{font-size:clamp(26px,3vw,33px)!important}
 body #readingPanel[data-reading-grade="g1"] .reading-passage p{font-size:clamp(23px,2.7vw,28px)!important}
 body #readingPanel[data-reading-grade="g2"] .reading-passage p{font-size:clamp(22px,2.5vw,26px)!important}
 body #readingPanel[data-reading-grade="g3"] .reading-passage p{font-size:clamp(21px,2.3vw,25px)!important}
-body #readingPanel:is([data-reading-grade="k"],[data-reading-grade="g1"],[data-reading-grade="g2"],[data-reading-grade="g3"]) .reading-topic-card h3{font-family:Fredoka,"Trebuchet MS",sans-serif;font-size:clamp(21px,2.2vw,26px);line-height:1.2}
-body #readingPanel:is([data-reading-grade="k"],[data-reading-grade="g1"],[data-reading-grade="g2"],[data-reading-grade="g3"]) .reading-check :is(h3,button){font-family:Fredoka,"Trebuchet MS",sans-serif;font-size:clamp(18px,2vw,22px)}
+body #readingPanel:is([data-reading-grade="prek"],[data-reading-grade="k"],[data-reading-grade="g1"],[data-reading-grade="g2"],[data-reading-grade="g3"]) .reading-topic-card h3{font-family:Fredoka,"Trebuchet MS",sans-serif;font-size:clamp(21px,2.2vw,26px);line-height:1.2}
+body #readingPanel:is([data-reading-grade="prek"],[data-reading-grade="k"],[data-reading-grade="g1"],[data-reading-grade="g2"],[data-reading-grade="g3"]) .reading-check :is(h3,button){font-family:Fredoka,"Trebuchet MS",sans-serif;font-size:clamp(18px,2vw,22px)}
 body #readingPanel .reading-story-card-art{display:block;width:100%;aspect-ratio:2/1;object-fit:cover;margin-bottom:18px;border:1px solid #d7e6e4;border-radius:16px;background:#edf4f1}
 body #readingPanel .reading-story-art{width:min(100%,560px);margin:8px auto 28px}
 body #readingPanel .reading-story-art img{display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;border:1px solid #d7e6e4;border-radius:18px;background:#edf4f1}

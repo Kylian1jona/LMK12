@@ -31,7 +31,7 @@ function cloud(x,y,scale=1){return group(x,y,ellipse(0,14,51,18,'#ffffffb8')+cir
 function pond(x,y,scale=1){return group(x,y,ellipse(0,30,107,35,colors.blue)+ellipse(0,23,81,16,'#d9e9ed')+line('M-110 0 L-98 -24 M102 0 L109 -22',colors.leaf,6),scale);}
 function star(x,y,r=5){return pathShape(`M${x} ${y-r} L${x+r*.27} ${y-r*.27} L${x+r} ${y} L${x+r*.27} ${y+r*.27} L${x} ${y+r} L${x-r*.27} ${y+r*.27} L${x-r} ${y} L${x-r*.27} ${y-r*.27} Z`,colors.yellow);}
 function sceneFrame(content,index,grade){
-  const tints={k:'#edf5f0',g1:'#f1f3f8',g2:'#f5f0eb',g3:'#edf2f4'};
+  const tints={prek:'#fff5eb',k:'#edf5f0',g1:'#f1f3f8',g2:'#f5f0eb',g3:'#edf2f4'};
   const soft=tints[grade];
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img"><rect width="640" height="320" rx="24" fill="${soft}"/><circle cx="530" cy="68" r="39" fill="#f8e9c5" opacity=".68"/>${cloud(120,66,.7)}${cloud(470,95,.5)}<path d="M0 247 Q160 222 310 253 T640 241 V320 H0Z" fill="#dbe8dc"/><path d="M0 273 Q170 247 340 270 T640 264 V320 H0Z" fill="#cbdccf"/>${ellipse(320,294,220,16,'#a8bdb936')}${content}<path d="M14 15 H626 V305 H14Z" fill="none" stroke="#8aa4a0" stroke-opacity=".2" stroke-width="2" rx="20"/></svg>`;
 }
@@ -42,6 +42,32 @@ const sock=(x,y)=>group(x,y,pathShape('M-24 -43 H25 V17 Q42 20 40 42 Q36 65 8 64
 const kite=(x,y)=>group(x,y,pathShape('M0 -53 L42 0 L0 51 L-42 0 Z',colors.rose,`stroke="${colors.ink}" stroke-width="3"`)+line('M0 -53 L0 51 M-42 0 L42 0 M0 51 Q35 110 11 158',colors.ink,2));
 const pot=(x,y)=>group(x,y,ellipse(0,13,45,13,colors.ink)+rect(-42,10,84,55,colors.wood,10)+ellipse(0,10,42,11,colors.rose)+line('M-49 23 L-63 23 M49 23 L63 23',colors.ink,6));
 const bell=(x,y)=>group(x,y,pathShape('M-31 44 Q-31 -4 0 -15 Q31 -4 31 44 L42 55 H-42 Z',colors.yellow,`stroke="${colors.ink}" stroke-width="3"`)+circle(0,61,8,colors.wood));
+const cap=(x,y)=>group(x,y,pathShape('M-42 29 Q-36 -30 0 -30 Q36 -30 42 29 Z',colors.red,`stroke="${colors.ink}" stroke-width="3"`)+ellipse(0,30,55,10,colors.red));
+const pig=(x,y,scale=1)=>group(x,y,ellipse(0,69,41,29,colors.rose)+circle(0,20,34,colors.rose)+pathShape('M-30 2 L-27 -22 L-8 -8 M8 -8 L27 -22 L30 2',colors.rose,`stroke="${colors.ink}" stroke-width="3"`)+ellipse(0,34,18,12,colors.red)+circle(-10,18,3,colors.ink)+circle(10,18,3,colors.ink)+circle(-6,34,2,colors.ink)+circle(6,34,2,colors.ink)+line('M-24 88 L-24 105 M24 88 L24 105',colors.ink,7),scale);
+const gingerbread=(x,y,scale=1)=>group(x,y,circle(0,0,26,colors.wood)+rect(-24,24,48,63,colors.wood,19)+line('M-20 47 L-47 67 M20 47 L47 67 M-11 80 L-24 107 M11 80 L24 107',colors.wood,16)+circle(-8,-4,3,colors.ink)+circle(8,-4,3,colors.ink)+circle(0,42,5,colors.red)+circle(0,61,5,colors.red)+line('M-8 11 Q0 18 8 11',colors.ink,2),scale);
+const bus=(x,y)=>group(x,y,rect(-104,0,208,91,colors.yellow,19,`stroke="${colors.ink}" stroke-width="3"`)+rect(-79,14,49,32,colors.blue,5)+rect(-17,14,49,32,colors.blue,5)+rect(44,14,46,32,colors.blue,5)+circle(-63,94,18,colors.ink)+circle(65,94,18,colors.ink));
+const goat=(x,y,scale=1)=>group(x,y,ellipse(0,69,43,28,colors.wood)+circle(25,28,26,colors.wood)+pathShape('M12 9 L3 -22 M38 9 L47 -22', 'none',`stroke="${colors.ink}" stroke-width="7" stroke-linecap="round"`)+circle(34,26,3,colors.ink)+line('M-26 86 L-29 108 M20 88 L23 108',colors.ink,6),scale);
+const swan=(x,y,scale=1)=>group(x,y,ellipse(0,62,57,32,colors.cream,`stroke="${colors.ink}" stroke-width="3"`)+pathShape('M18 55 Q33 22 23 -12 Q20 -35 39 -36 Q60 -36 60 -14 Q60 3 44 11 L44 58 Z',colors.cream,`stroke="${colors.ink}" stroke-width="3"`)+circle(48,-21,3,colors.ink)+pathShape('M60 -13 L78 -8 L60 -2 Z',colors.yellow),scale);
+
+const prekScenes=[
+  ()=>person(157,167,colors.blue)+person(288,177,colors.lavender,'#bd987e',.83)+cap(437,172)+pond(477,232,.58),
+  ()=>person(160,171,colors.rose)+person(451,171,colors.blue,'#bd987e',.9)+pot(307,190)+circle(355,175,11,colors.red)+circle(377,198,10,colors.red),
+  ()=>animal(340,158,'dog',colors.wood,1.13)+person(144,173,colors.blue)+rect(402,222,120,30,colors.blue,10)+pond(456,228,.43),
+  ()=>person(161,168,colors.blue)+bird(371,166,colors.red,1.13)+rect(433,177,105,77,colors.wood,7)+line('M446 178 L446 254 M477 178 L477 254 M510 178 L510 254',colors.ink,3),
+  ()=>person(170,169,colors.lavender)+animal(397,151,'cat',colors.wood,1.08)+bell(405,207,.47),
+  ()=>person(172,169,colors.rose)+person(448,185,colors.blue,'#bd987e',.72)+pot(315,196)+ellipse(492,249,75,10,colors.lavender),
+  ()=>person(147,171,colors.blue)+person(245,178,colors.rose,'#bd987e',.82)+bus(454,161),
+  ()=>house(120,117,colors.yellow,.58)+house(319,117,colors.wood,.58)+house(518,117,colors.red,.58)+pig(160,205,.68)+pig(320,205,.68)+pig(480,205,.68),
+  ()=>gingerbread(253,150,1.05)+bird(467,198,colors.yellow,.72)+tree(527,91,.68)+line('M99 264 Q330 238 591 263',colors.wood,5),
+  ()=>bird(210,160,colors.red,1.25)+flower(414,201,colors.yellow,.8)+rect(351,226,150,24,colors.wood,8)+ellipse(426,222,47,16,colors.yellow),
+  ()=>person(151,169,colors.yellow)+animal(325,167,'bear',colors.wood,.76)+animal(414,184,'bear',colors.wood,.57)+animal(493,196,'bear',colors.wood,.42)+circle(296,246,12,colors.yellow)+circle(369,246,10,colors.yellow)+circle(434,246,8,colors.yellow),
+  ()=>person(184,156,colors.blue)+group(445,159,rect(-96,14,192,76,colors.lavender,28,`stroke="${colors.ink}" stroke-width="3"`)+circle(-58,94,16,colors.ink)+circle(62,94,16,colors.ink)+star(0,38,18))+star(115,145,12)+pathShape('M301 251 Q335 216 361 250 Z',colors.blue,`stroke="${colors.ink}" stroke-width="3"`),
+  ()=>tortoise(213,190,.84)+animal(456,160,'hare',colors.wood,.9)+line('M123 270 Q319 240 544 272',colors.wood,5),
+  ()=>person(183,172,colors.red)+pathShape('M162 168 Q184 110 207 168 Z',colors.red)+house(463,151,colors.cream,.76)+tree(562,79,.57),
+  ()=>person(187,176,colors.blue)+tree(406,-75,1.75)+pathShape('M386 211 Q314 101 395 16 M414 219 Q495 112 412 5','none',`stroke="${colors.leaf}" stroke-width="15"`)+cloud(427,61,.7),
+  ()=>pond(329,213)+swan(345,113,1.03)+bird(477,181,colors.yellow,.63)+flower(144,223,colors.rose),
+  ()=>goat(177,164,.72)+goat(287,163,.85)+goat(432,157,1.04)+rect(96,236,450,21,colors.wood,5)+line('M118 257 L118 297 M528 257 L528 297',colors.ink,7)
+];
 
 const kScenes=[
   ()=>tent(335,161)+person(150,170,colors.rose)+person(520,181,colors.blue,'#bd987e',.82)+cloud(394,51,.72)+line('M440 112 L428 135 M485 109 L473 132',colors.blue,4),
@@ -82,10 +108,10 @@ const sharedScenes=[
   ()=>house(407,125,colors.cream,.9)+person(173,171,colors.blue)+person(299,182,colors.rose,'#b98972',.82)+book(334,214,colors.yellow,.57)
 ];
 
-for(const [grade,scenes] of [['k',kScenes],['g1',g1Scenes],['g2',sharedScenes],['g3',sharedScenes]]){
+for(const [grade,scenes] of [['prek',prekScenes],['k',kScenes],['g1',g1Scenes],['g2',sharedScenes],['g3',sharedScenes]]){
   scenes.forEach((draw,index)=>{
     const art=sceneFrame(draw(),index,grade);
     fs.writeFileSync(path.join(out,`${grade}-${index+1}.svg`),art);
   });
 }
-console.log(`Created 40 reading story illustrations in ${out}`);
+console.log(`Created ${prekScenes.length+40} reading story illustrations in ${out}`);
