@@ -15,13 +15,11 @@
           <button type="button" onclick="showReading()"><span aria-hidden="true" class="fi fi-rr-book-alt"></span><b>Reading</b><small>Stories and reading practice</small></button>
           <button type="button" onclick="show('tutorFinder')"><span aria-hidden="true" class="fi fi-rr-user"></span><b>Find a Tutor</b><small>Look for extra help</small></button>
           <button type="button" onclick="show('worksheets')"><span aria-hidden="true" class="fi fi-rr-document"></span><b>Practice Sheets</b><small>Print a worksheet</small></button>
+          <button type="button" onclick="show('playground')"><span aria-hidden="true" class="fi fi-rr-apps"></span><b>Playground</b><small>Five learning adventures</small></button>
+          <button type="button" onclick="openStaarTesting()"><span aria-hidden="true" class="fi fi-rr-document"></span><b>Texas test practice</b><small>Reading, math, and science questions</small></button>
           </div>
         </div>
-        <div class="lm-home-side-stack">
-          <aside class="lm-today-card"><span>For today</span><b>Finish one lesson</b><p>Pick something you want to practice. You can always come back for more.</p><button type="button" onclick="openLessonSearch(event)">Find a lesson</button></aside>
-          <button type="button" class="lm-home-playground-link" onclick="show('playground')"><span>Playground · free</span><b>Five learning adventures</b></button>
-          <button type="button" class="lm-home-staar-link" onclick="openStaarTesting()"><span>Texas test practice</span><b>Practice Texas reading, math, and science questions</b></button>
-        </div>
+        <aside class="lm-today-card"><span>For today</span><b>Finish one lesson</b><p>Pick something you want to practice. You can always come back for more.</p><button type="button" onclick="openLessonSearch(event)">Find a lesson</button></aside>
       </section>
       <section class="lm-home-tools" aria-label="Learning tools"><button type="button" onclick="show('analysis')"><span>Progress</span><b>See goals and growth</b></button><button type="button" class="is-coming" aria-disabled="true" onclick="toast('Awards are coming soon!')"><span>Awards</span><b>Certificates and badges coming soon</b></button></section>
       <section class="lm-home-paths" aria-labelledby="homeLaunchTitle"><header><span>Start here</span><h2 id="homeLaunchTitle">Choose a grade</h2><p>You can switch grades anytime.</p></header><div>

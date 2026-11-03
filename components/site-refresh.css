@@ -194,3 +194,16 @@ body #reading .reading-page-head h1,
 body #extrasPanel :is(.extras-hero,.extras-library-head,.extras-studio-head) h2,
 body :is(#settings,#analysis,#parentPortal,#playground,#tutorFinder,#worksheets) h1{text-align:center!important}
 @media(max-width:600px){body #grades .grade-library-head{grid-template-columns:1fr}body #grades .grade-library-head>button{grid-column:1;grid-row:1}body #grades .grade-library-head>div:nth-child(2){grid-column:1;grid-row:2;width:100%}}
+
+/* One clean home surface and six equal destinations. */
+body #home .lm-home-hero{grid-template-columns:minmax(0,1fr)!important;background:#f8fafc!important;background-image:none!important}
+body[data-theme] #home .lm-home-hero{background:var(--card,#f8fafc)!important;background-image:none!important}
+body #home .lm-home-main{width:100%}
+body #home .lm-home-quick-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+body #home .lm-home-quick-grid button:nth-child(5)>span{background:#fff2da}
+body #home .lm-home-quick-grid button:nth-child(6)>span{background:#e5f3fc}
+body #home .lm-today-card{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:3px 24px;width:100%;max-width:none;margin:0}
+body #home .lm-today-card>span,body #home .lm-today-card>b,body #home .lm-today-card>p{grid-column:1;margin:0}
+body #home .lm-today-card>button{grid-column:2;grid-row:1/4;width:auto;min-width:175px}
+@media(max-width:900px){body #home .lm-home-quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:600px){body #home .lm-home-quick-grid{grid-template-columns:minmax(0,1fr)!important}body #home .lm-today-card{grid-template-columns:1fr}body #home .lm-today-card>button{grid-column:1;grid-row:auto;width:100%;margin-top:10px}}
