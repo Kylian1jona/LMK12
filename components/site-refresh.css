@@ -181,3 +181,16 @@ body #grades .extras-tabs{width:min(560px,100%);max-width:100%;padding:8px;gap:8
 body #grades .extras-tabs button{flex:1;min-height:64px;padding:15px 22px;border-radius:16px;font-size:17px;line-height:1.25}
 body #grades .extras-tabs button span{display:block;margin:3px 0 0;font-size:12px}
 @media(max-width:580px){body #grades .extras-tabs{width:100%;padding:6px}body #grades .extras-tabs button{min-height:58px;padding:12px 8px;font-size:15px}body #grades .extras-tabs button span{display:none}}
+
+/* Center page titles without moving navigation or lesson controls. */
+body #grades .grade-library-head{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}
+body #grades .grade-library-head>button{justify-self:start}
+body #grades .grade-library-head>div:nth-child(2){justify-self:center;text-align:center}
+body #grades .grade-head-tools{justify-self:end}
+body #home .lm-home-welcome,body #home .lm-home-paths>header{margin-inline:auto;text-align:center}
+body :is(.section.grade-menu,.section.subject-screen,.section[id^="grade"]:not(#grades),.section[id^="g"][id*="-"])>.cardish>h1,
+body .section.grade-menu .early-grade-menu-heading h1,
+body #reading .reading-page-head h1,
+body #extrasPanel :is(.extras-hero,.extras-library-head,.extras-studio-head) h2,
+body :is(#settings,#analysis,#parentPortal,#playground,#tutorFinder,#worksheets) h1{text-align:center!important}
+@media(max-width:600px){body #grades .grade-library-head{grid-template-columns:1fr}body #grades .grade-library-head>button{grid-column:1;grid-row:1}body #grades .grade-library-head>div:nth-child(2){grid-column:1;grid-row:2;width:100%}}
