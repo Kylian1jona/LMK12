@@ -1422,6 +1422,7 @@ function readingViewHeader(step, title, description, backLabel=""){
 function renderReadingHome(){
   const panel = $("readingPanel");
   if(!panel) return;
+  delete panel.dataset.readingGrade;
   const readingGradeOrder=["prek","k",...Array.from({length:12},(_,index)=>`g${index+1}`)].filter(id=>READING_LIBRARY[id]);
   panel.innerHTML = `
     ${readingViewHeader(1, "Choose your grade", `${readingGradeOrder.length} grade levels available · 10 stories in every grade`)}
@@ -1443,6 +1444,7 @@ function renderReadingGrade(gradeId){
   const grade = READING_LIBRARY[gradeId];
   const panel = $("readingPanel");
   if(!grade || !panel) return;
+  panel.dataset.readingGrade=gradeId;
   panel.innerHTML = `
     ${readingViewHeader(2, `${grade.title} Reading`, "Choose a subject to see its passages.", "All grades")}
     <div class="reading-grid" id="readingGrid"></div>
@@ -1464,6 +1466,7 @@ function renderReadingSubject(gradeId, subjId){
   const subj = grade?.subjects?.[subjId];
   const panel = $("readingPanel");
   if(!grade || !subj || !panel) return;
+  panel.dataset.readingGrade=gradeId;
   panel.innerHTML = `
     ${readingViewHeader(3, `${grade.title} · ${subj.title}`, "Choose a passage and start reading.", "Subjects")}
     <div class="reading-grid" id="readingGrid"></div>
@@ -1472,7 +1475,7 @@ function renderReadingSubject(gradeId, subjId){
   subj.topics.forEach((topic, index)=>{
     const card = document.createElement("div");
     card.className = "reading-card reading-topic-card";
-    card.innerHTML = `<span class="reading-card-kicker">${htmlSafe(topic.genre||"PASSAGE")} · ${index + 1}</span><h3>${htmlSafe(topic.title)}</h3><p>${htmlSafe(topic.body[0]).slice(0, 88)}...</p>`;
+    card.innerHTML = `${topic.illustration?`<img class="reading-story-card-art" src="${htmlSafe(topic.illustration.src)}" alt="${htmlSafe(topic.illustration.alt)}" loading="lazy" decoding="async">`:""}<span class="reading-card-kicker">${htmlSafe(topic.genre||"PASSAGE")} · ${index + 1}</span><h3>${htmlSafe(topic.title)}</h3><p>${htmlSafe(topic.body[0]).slice(0, 88)}...</p>`;
     card.appendChild(readingButton("Start reading", ()=>renderReadingTopic(gradeId, subjId, index)));
     grid.appendChild(card);
   });
@@ -1522,6 +1525,7 @@ function renderReadingTopic(gradeId, subjId, topicIndex){
   const topic = subj?.topics?.[topicIndex];
   const panel = $("readingPanel");
   if(!grade || !subj || !topic || !panel) return;
+  panel.dataset.readingGrade=gradeId;
   const readingLevel=gradeId==="prek"||gradeId==="k"?0:Number(String(gradeId).replace("g",""));
   const canReadAloud=readingLevel<=3;
   const early=gradeId==="prek"||gradeId==="k";
@@ -1539,6 +1543,7 @@ function renderReadingTopic(gradeId, subjId, topicIndex){
     <article class="reading-passage${topic.genre==="Poetry"||topic.genre==="Ballad"?" is-poetry":""}${early?" is-early-reader":""}">
       <span class="reading-view-step">${htmlSafe(grade.title)} · ${htmlSafe(subj.title)}</span>
       <h2>${htmlSafe(topic.title)}</h2>
+      ${topic.illustration?`<figure class="reading-story-art"><img src="${htmlSafe(topic.illustration.src)}" alt="${htmlSafe(topic.illustration.alt)}" decoding="async"></figure>`:""}
       ${topic.focus?`<aside class="reading-focus"><strong>Listen for:</strong> ${htmlSafe(topic.focus)}</aside>`:""}
       ${topic.body.map(p=>`<p>${htmlSafe(p)}</p>`).join("")}
       ${wordBank.length?`<div class="reading-word-bank"><strong>Words to know</strong>${wordBank.map(word=>`<span>${htmlSafe(word)}</span>`).join("")}</div>`:""}

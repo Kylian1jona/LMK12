@@ -81,11 +81,18 @@
     "The Map in the Sand":["What was inside the box?",["Gold coins","Seeds and a note","A toy boat"],1,"The box held seeds and a note asking them to help bees."],
     "The Best Nest":["Why did Sol leave grass and yarn?",["To help the bird build","To make a kite","To mark a path"],0,"The bird used the safe materials to strengthen its nest."]
   };
+  const storyArtDescriptions={
+    k:["Nell and her dad beside a tent in light rain","Jay exploring a map by flowers and sand","Pip the cat with Milo's green sock","A duck by the pond with a helpful child","A bird resting beside its nest in a tree","Inez sharing a handmade book with Nan","Omar flying a red kite beside a tree","A bear beside a cozy house and a bowl","Jack looking up at a tall beanstalk","A tortoise and a hare on a winding path"],
+    g1:["Tess finding fireflies near a shed","Maya caring for a glowing flower","Birds and plants by a quiet pond","Jin standing beside a little robot","Two friends sharing a muffin at camp","Lena helping a lost puppy near a bench","Noah near a shelter as rain passes","Cinderella by a house and a glass slipper","Little Red Riding Hood on a woodland path","A young swan and duckling by the pond"],
+    shared:["A fox cub following fireflies through trees","A child following footprints to a blue door","A child finding hopeful sounds under the clouds","A train carrying a child past home","A young messenger beneath a town bell","An apple tree growing inside a greenhouse on Mars","A penguin visiting a little school","A message in a bottle by the shore","A quiet chair with flowers and a book","Neighbors gathering outside a town hall"]
+  };
   Object.entries(earlyOriginalStories).forEach(([level,stories])=>stories.forEach((story,index)=>{
     story.focus=Number(level)===0?(index<5?"short vowel sounds and the order of events":"who helps and what happens next"):(index<5?"the problem and how it is solved":"the character's safe or kind choice");
     story.words=[...new Set(story.body.join(' ').toLowerCase().replace(/[^a-z' ]/g,'').split(/\s+/).filter(word=>word.length>=4))].slice(0,4);
     const saved=earlyChecks[story.title];
     if(saved)story.check={question:saved[0],choices:saved[1],answer:saved[2],explanation:saved[3]};
+    const gradeId=Number(level)===1?"k":Number(level)===2?"g1":"";
+    if(gradeId)story.illustration={src:`images/reading-stories/${gradeId}-${index+1}.svg`,alt:storyArtDescriptions[gradeId][index]};
   }));
   const pieces=[
     {genre:"Animal tale",base:"The Fox and the Firefly",goal:"guide a frightened fox cub home before nightfall",obstacle:"the familiar trail had disappeared beneath the rain",choice:"follow the patient flashes of a tiny firefly",ending:"happy"},
@@ -162,7 +169,8 @@
     const hero=heroes[(level*3+index)%heroes.length];
     const title=`${piece.base} of ${world}`;
     const body=piece.poem?poemFor(piece,level,hero,world,index):proseFor(piece,level,hero,world,index);
-    return {title,genre:piece.genre,endingTone:piece.ending,body};
+    const gradeId=level===3?"g2":level===4?"g3":"";
+    return {title,genre:piece.genre,endingTone:piece.ending,body,...(gradeId?{illustration:{src:`images/reading-stories/${gradeId}-${index+1}.svg`,alt:storyArtDescriptions.shared[index]}}:{})};
   }
 
   const library={};
