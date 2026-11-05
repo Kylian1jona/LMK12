@@ -7951,6 +7951,23 @@ body .early-subject-shell .early-skill-topic:nth-child(4n+4) .early-skill-summar
 body .early-subject-shell .early-skill-title{color:#315364;font-family:"Baloo 2",cursive}
 body .early-subject-shell .early-skill-description{color:#4e6571}
 
+/* Extras: find lessons quickly and keep complete names visible. */
+#extrasPanel .extras-lesson-search{margin:20px 0;padding:19px 22px;border:1px solid #d9e6e8;border-radius:18px;background:#f7fbfb}
+#extrasPanel .extras-lesson-search label{display:block;margin-bottom:9px;color:#17475d;font-weight:800}
+#extrasPanel .extras-lesson-search>div{display:flex;gap:9px}
+#extrasPanel .extras-lesson-search input{flex:1;width:auto;min-width:0;min-height:48px;margin:0;padding:10px 15px;border:1.5px solid #a9c6cd;border-radius:11px;background:#fff;color:#173b52;font:inherit}
+#extrasPanel .extras-lesson-search input:focus{outline:3px solid #aee5e5;outline-offset:1px}
+#extrasPanel .extras-lesson-search button{min-height:48px;padding:10px 18px;border:1px solid #b6d6d9;border-radius:11px;background:#e9f6f5;color:#125d66;font-weight:800}
+#extrasPanel .extras-lesson-search p{min-height:20px;margin:8px 0 0;color:#526b79;font-size:13px}
+#extrasPanel .extras-lesson-grid button[hidden],#extrasPanel .extras-level-group[hidden],#extrasPanel .extras-lesson-search button[hidden]{display:none!important}
+#extrasPanel .extras-lesson-grid button b{overflow:visible;text-overflow:clip;white-space:normal;line-height:1.35}
+#extrasPanel .extras-money-model{display:flex;align-items:stretch;justify-content:center;gap:10px;flex-wrap:wrap;margin:17px 0;padding:17px;border:1px solid #d8e5c2;border-radius:16px;background:#f7faef}
+#extrasPanel .extras-money-model span{display:grid;align-content:center;gap:4px;min-width:105px;padding:11px 14px;border:1px solid #d0dfa8;border-radius:12px;background:#fff;text-align:center}
+#extrasPanel .extras-money-model small{color:#576d35;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+#extrasPanel .extras-money-model b{color:#314c17;font-size:clamp(19px,2vw,25px)}
+#extrasPanel .extras-money-model>strong{align-self:center;color:#57752d;font-size:25px}
+@media(max-width:580px){#extrasPanel .extras-lesson-search{padding:15px}#extrasPanel .extras-money-model{gap:6px;padding:12px}#extrasPanel .extras-money-model span{min-width:82px;padding:9px}#extrasPanel .extras-money-model>strong{font-size:20px}}
+
 /* Give Grade 2 math visuals a full-width row and readable number labels. */
 body #lessonRunner #lrQuestionCard:has(.g2-visual-frame){grid-template-columns:minmax(0,1fr)}
 body #lessonRunner #lrQuestionCard:has(.g2-visual-frame) #lrQuestion{grid-column:1/-1;grid-row:1;max-width:none}
