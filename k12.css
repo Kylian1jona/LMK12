@@ -7972,7 +7972,7 @@ body .early-subject-shell .early-skill-description{color:#4e6571}
 body #lessonRunner #lrQuestionCard:has(.g2-visual-frame){grid-template-columns:minmax(0,1fr)}
 body #lessonRunner #lrQuestionCard:has(.g2-visual-frame) #lrQuestion{grid-column:1/-1;grid-row:1;max-width:none}
 body #lessonRunner #lrImageFrame.g2-visual-frame{
-  grid-column:1/-1;grid-row:2;justify-self:stretch;
+  position:relative;grid-column:1/-1;grid-row:2;justify-self:stretch;
   width:100%;height:auto;max-height:none;margin:0;padding:clamp(10px,2vw,20px);
   overflow:hidden;border-radius:22px;
 }
@@ -7992,3 +7992,23 @@ body #lessonRunner #lrImageFrame.g2-visual-frame .lesson-img{
   width:max-content;min-width:88px;height:54px;padding:0 12px;
   white-space:nowrap;line-height:1;
 }
+
+/* Lesson illustrations need their full diagram and readable labels. */
+body #lessonRunner #lrQuestionCard:has(#lrImageFrame:not(.d-none)){grid-template-columns:minmax(0,1fr)}
+body #lessonRunner #lrQuestionCard:has(#lrImageFrame:not(.d-none)) #lrQuestion{grid-column:1/-1;grid-row:1;max-width:none}
+body #lessonRunner #lrImageFrame:not(.d-none):not(.g2-visual-frame){position:relative;grid-column:1/-1;grid-row:2;justify-self:center;width:min(100%,980px);height:auto;max-height:none;margin:0;padding:10px;overflow:visible;background:#fff}
+body #lessonRunner #lrImageFrame:not(.d-none):not(.g2-visual-frame) img{display:block;width:100%;height:auto;max-width:none;max-height:none;object-fit:contain;object-position:center}
+body #lessonRunner #lrImageFrame .lesson-image-expand{position:absolute;right:18px;bottom:18px;z-index:1;min-height:42px;padding:8px 14px;border:1px solid #879fb7;border-radius:10px;background:rgba(255,255,255,.96);color:#173b54;font:700 14px/1.2 system-ui,sans-serif;box-shadow:0 3px 12px rgba(15,35,50,.2);cursor:pointer}
+body #lessonRunner #lrImageFrame .lesson-image-expand:hover,body #lessonRunner #lrImageFrame .lesson-image-expand:focus-visible{background:#eaf6ff;border-color:#3c7da9}
+@media(max-width:700px){body #lessonRunner #lrImageFrame:not(.d-none):not(.g2-visual-frame){width:100%;padding:6px}body #lessonRunner #lrImageFrame .lesson-image-expand{right:12px;bottom:12px}}
+.lesson-image-viewer{width:min(96vw,1500px);max-width:none;max-height:92dvh;padding:0;overflow:hidden;border:1px solid #c8dce5;border-radius:18px;background:#fff;box-shadow:0 22px 80px rgba(7,28,45,.35)}
+.lesson-image-viewer::backdrop{background:rgba(8,22,39,.78)}
+.lesson-image-viewer-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px;padding:10px 16px;border-bottom:1px solid #dce8ed;color:#173b54;font:700 16px/1.2 system-ui,sans-serif}
+.lesson-image-viewer-toolbar>div{display:flex;flex-wrap:wrap;gap:8px}
+.lesson-image-viewer-toolbar button{min-height:40px;padding:8px 12px;border:1px solid #b8d1df;border-radius:9px;background:#f5faff;color:#173b54;font:700 13px/1.2 system-ui,sans-serif;cursor:pointer}
+.lesson-image-viewer-toolbar button[aria-pressed="true"]{border-color:#286c9b;background:#dff1fc}
+.lesson-image-viewer-scroll{display:grid;place-items:center;max-height:calc(92dvh - 64px);overflow:auto;padding:12px;overscroll-behavior:contain}
+.lesson-image-viewer-scroll img{display:block;width:auto;max-width:100%;max-height:calc(92dvh - 88px);object-fit:contain}
+.lesson-image-viewer.is-actual-size .lesson-image-viewer-scroll{display:block}
+.lesson-image-viewer.is-actual-size .lesson-image-viewer-scroll img{width:auto;max-width:none;max-height:none}
+@media(max-width:560px){.lesson-image-viewer-toolbar{align-items:flex-start;flex-direction:column;padding:10px}.lesson-image-viewer-scroll{max-height:calc(92dvh - 100px)}.lesson-image-viewer-scroll img{max-height:calc(92dvh - 124px)}}

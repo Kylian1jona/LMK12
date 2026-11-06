@@ -1327,6 +1327,33 @@ function renderLessonImage(image,question){
   img.style.display = "block";
 }
 
+function openLessonImageViewer(){
+  const source=$("lrImage");
+  if(!source?.src||source.hidden) return;
+  let dialog=$("lessonImageViewer");
+  if(!dialog){
+    dialog=document.createElement("dialog");
+    dialog.id="lessonImageViewer";
+    dialog.className="lesson-image-viewer";
+    dialog.setAttribute("aria-label","Lesson image enlarged");
+    dialog.innerHTML='<div class="lesson-image-viewer-toolbar"><strong>Lesson image</strong><div><button type="button" data-image-size="fit" aria-pressed="true">Fit</button><button type="button" data-image-size="actual" aria-pressed="false">Zoom in</button><button type="button" class="lesson-image-viewer-close" aria-label="Close enlarged image">Close ×</button></div></div><div class="lesson-image-viewer-scroll"><img alt=""></div>';
+    dialog.querySelector(".lesson-image-viewer-close").addEventListener("click",()=>dialog.close());
+    dialog.querySelectorAll("[data-image-size]").forEach(button=>button.addEventListener("click",()=>{
+      dialog.classList.toggle("is-actual-size",button.dataset.imageSize==="actual");
+      dialog.querySelectorAll("[data-image-size]").forEach(option=>option.setAttribute("aria-pressed",String(option===button)));
+    }));
+    dialog.addEventListener("click",event=>{if(event.target===dialog) dialog.close();});
+    document.body.appendChild(dialog);
+  }
+  dialog.classList.remove("is-actual-size");
+  dialog.querySelector('[data-image-size="fit"]').setAttribute("aria-pressed","true");
+  dialog.querySelector('[data-image-size="actual"]').setAttribute("aria-pressed","false");
+  const enlarged=dialog.querySelector("img");
+  enlarged.src=source.currentSrc||source.src;
+  enlarged.alt=source.alt;
+  dialog.showModal();
+}
+
 function restoreSavedAnswerView(){
   if(!LR.answered||!LR.current) return;
   const q=LR.current,response=LR.savedResponse;

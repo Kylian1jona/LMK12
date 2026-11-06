@@ -360,6 +360,7 @@
       <div class="lesson-question-text" id="lrQuestion" tabindex="-1" aria-live="polite" aria-atomic="true">Question text…</div>
       <div class="lesson-image-frame" id="lrImageFrame">
         <img id="lrImage" class="lesson-img" alt="">
+        <button type="button" class="lesson-image-expand" onclick="openLessonImageViewer()" aria-label="View lesson image larger">View larger ↗</button>
       </div>
       <div class="lesson-topic-visual" id="lrTopicVisual" aria-hidden="true"><i id="lrTopicIcon" class="fi fi-rr-book-alt"></i><span id="lrTopicLabel">Explore the question</span></div>
 
