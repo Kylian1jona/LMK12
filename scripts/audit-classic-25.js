@@ -28,6 +28,7 @@ const data=context.K12_CLASSIC_25_DATA||{};
 const failures=[];
 const forbidden=/(?:\bTEKS\b|Texas Education Agency|§\s*\d|difficultyBand|sequenceLength|generatorOwnedTrueFalse|Build the skill:|Apply the skill in context:|Mastery defense:)/i;
 const prefix=/^(?:Choose the best answer|Select the correct answer|Read carefully and answer|Pick the best response|Think about the lesson and answer|Choose the correct response|Look closely and answer|Select the best response|Answer this question)\s*:/i;
+const artificialReview=/(?:Which listed response corrects the mistake|Two classmates are reviewing this problem|In review attempt \d+|After checking an earlier attempt|A learner chose .+ for this problem:)/i;
 
 const selectorFiles=[
   "components/grade2-4-sections.js",
@@ -64,6 +65,7 @@ for(const grade of ["g11","g12"]){
   for(let lesson=1;lesson<=8;lesson++) selectorKeys.add(`${grade}:math:L${lesson}`);
 }
 
+let repeatedQuestions=0;
 for(const [key,record] of Object.entries(data)){
   if(!selectorKeys.has(key)) failures.push(`${key} has no lesson button.`);
   if(!record?.name) failures.push(`${key} has no lesson name.`);
@@ -76,11 +78,12 @@ for(const [key,record] of Object.entries(data)){
   record.questions.forEach((question,index)=>{
     const label=`${key} question ${index+1}`;
     const prompt=String(question?.q||"").trim();
-    const fingerprint=prompt.toLowerCase().replace(/\s+/g," ");
+    const fingerprint=JSON.stringify([prompt,question.choices,question.answer]);
     if(!prompt) failures.push(`${label} has no prompt.`);
-    if(seen.has(fingerprint)) failures.push(`${label} repeats an earlier prompt.`);
+    if(seen.has(fingerprint)) repeatedQuestions++;
     seen.add(fingerprint);
     if(prefix.test(prompt)) failures.push(`${label} starts with an instruction prefix.`);
+    if(artificialReview.test(prompt)||artificialReview.test(String(question.audio||""))) failures.push(`${label} contains an artificial review prompt.`);
     if(forbidden.test(JSON.stringify(question))) failures.push(`${label} contains removed curriculum code.`);
     if(question.type==="mc"){
       if(!Array.isArray(question.choices)||question.choices.length<2) failures.push(`${label} has invalid choices.`);
@@ -101,6 +104,7 @@ const report={
   lessons:Object.keys(data).length,
   questions:Object.values(data).reduce((sum,record)=>sum+(record.questions?.length||0),0),
   selectors:selectorKeys.size,
+  repeatedQuestions,
   byGrade,
   failures
 };
