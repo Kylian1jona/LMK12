@@ -7997,6 +7997,7 @@ body #lessonRunner #lrImageFrame.g2-visual-frame .lesson-img{
 body #lessonRunner #lrQuestionCard:has(#lrImageFrame:not(.d-none)){grid-template-columns:minmax(0,1fr)}
 body #lessonRunner #lrQuestionCard:has(#lrImageFrame:not(.d-none)) #lrQuestion{grid-column:1/-1;grid-row:1;max-width:none}
 body #lessonRunner #lrImageFrame:not(.d-none):not(.g2-visual-frame){position:relative;grid-column:1/-1;grid-row:2;justify-self:center;width:min(100%,980px);height:auto;max-height:none;margin:0;padding:10px;overflow:visible;background:#fff}
+body #lessonRunner #lrImageFrame.clock-visual-frame:not(.d-none){width:min(100%,520px)}
 body #lessonRunner #lrImageFrame:not(.d-none):not(.g2-visual-frame) img{display:block;width:100%;height:auto;max-width:none;max-height:none;object-fit:contain;object-position:center}
 body #lessonRunner #lrImageFrame .lesson-image-expand{position:absolute;right:18px;bottom:18px;z-index:1;min-height:42px;padding:8px 14px;border:1px solid #879fb7;border-radius:10px;background:rgba(255,255,255,.96);color:#173b54;font:700 14px/1.2 system-ui,sans-serif;box-shadow:0 3px 12px rgba(15,35,50,.2);cursor:pointer}
 body #lessonRunner #lrImageFrame .lesson-image-expand:hover,body #lessonRunner #lrImageFrame .lesson-image-expand:focus-visible{background:#eaf6ff;border-color:#3c7da9}

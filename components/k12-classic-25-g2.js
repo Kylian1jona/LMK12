@@ -847,10 +847,6 @@
   // Grade 2 lesson art. Keep these mappings beside the question bank so each
   // illustration follows the matching prompt even when the runner shuffles it.
   const grade2ImageSets = {
-    "g2:math:L3": Array.from({length:25}, (_,index)=>[
-      `Time${index===9?9:index+1}.jpg`,
-      `Clock illustration for time question ${index+1}`
-    ]),
     "g2:sci:L3": [
       ["LifeCycles13.png", "Butterfly life cycle beginning with an egg"],
       ["LifeCycles1.png", "Tadpole growing and changing into a frog"],
@@ -1051,5 +1047,42 @@
         alt: image[1]
       };
     });
+  });
+
+  // Draw each clock from the actual time. The old numbered photos did not
+  // reliably match their questions, and several showed the answer in text.
+  function clockImage(hour,minute){
+    const center=260;
+    const point=(angle,radius)=>({x:center+Math.sin(angle)*radius,y:center-Math.cos(angle)*radius});
+    const ticks=Array.from({length:60},(_,index)=>{
+      const angle=index*Math.PI/30,major=index%5===0;
+      const from=point(angle,major?204:213),to=point(angle,224);
+      return `<line x1="${from.x.toFixed(2)}" y1="${from.y.toFixed(2)}" x2="${to.x.toFixed(2)}" y2="${to.y.toFixed(2)}" stroke="${major?'#325379':'#9eb7cd'}" stroke-width="${major?5:2}" stroke-linecap="round"/>`;
+    }).join('');
+    const numerals=Array.from({length:12},(_,index)=>{
+      const number=index+1,position=point(number*Math.PI/6,172);
+      return `<text x="${position.x.toFixed(2)}" y="${position.y.toFixed(2)}" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="36" font-weight="700" fill="#183d64">${number}</text>`;
+    }).join('');
+    const hourEnd=point(((hour%12)+minute/60)*Math.PI/6,116);
+    const minuteEnd=point(minute*Math.PI/30,164);
+    const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520"><rect width="520" height="520" rx="36" fill="#f2f9ff"/><circle cx="260" cy="260" r="238" fill="#fff" stroke="#265e89" stroke-width="9"/>${ticks}${numerals}<line x1="260" y1="260" x2="${hourEnd.x.toFixed(2)}" y2="${hourEnd.y.toFixed(2)}" stroke="#173452" stroke-width="18" stroke-linecap="round"/><line x1="260" y1="260" x2="${minuteEnd.x.toFixed(2)}" y2="${minuteEnd.y.toFixed(2)}" stroke="#7048a6" stroke-width="11" stroke-linecap="round"/><circle cx="260" cy="260" r="12" fill="#173452"/></svg>`;
+    return `data:image/svg+xml,${encodeURIComponent(svg)}`;
+  }
+  const clockQuestions=window.K12_CLASSIC_25_DATA['g2:math:L3']?.questions||[];
+  clockQuestions.forEach((question,index)=>{
+    let hour,minute;
+    if(index<12){
+      [hour,minute]=String(question.answer).split(':').map(Number);
+      question.q='What time does the clock show?';
+    }else{
+      const match=String(question.q).match(/(\d+) minutes after (\d+)/i);
+      if(!match) return;
+      minute=Number(match[1]);hour=Number(match[2]);
+      const period=/morning/i.test(question.q)?'a.m.':'p.m.';
+      const statement=String(question.q).match(/^True or false:\s*(\d{1,2}:\d{2})/i);
+      question.q=statement?`Does this clock show ${statement[1]} ${period}?`:`This clock shows a time in the ${period==='a.m.'?'morning':'evening'}. What is the exact time?`;
+    }
+    question.audio=question.q;
+    question.image={src:clockImage(hour,minute),kind:'clock-visual',alt:'Analog clock with numbered face, hour hand, and minute hand'};
   });
 })();
