@@ -7986,3 +7986,9 @@ body #lessonRunner #lrImageFrame.g2-visual-frame .lesson-img{
   body #lessonRunner #lrImageFrame.g2-visual-frame img,
   body #lessonRunner #lrImageFrame.g2-visual-frame .lesson-img{width:720px;min-width:720px;height:auto;max-height:none}
 }
+
+/* Keep the Pre-K–1 grade badge readable on every screen. */
+.lm-home-paths button[data-zone="early"]>span{
+  width:max-content;min-width:88px;height:54px;padding:0 12px;
+  white-space:nowrap;line-height:1;
+}

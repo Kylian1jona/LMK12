@@ -514,8 +514,12 @@ function applyTheme(){
   const logoByTheme={warm:'orange',ocean:'blue',forest:'green',berry:'pink',sunset:'orange',galaxy:'purple',lavender:'violet',mint:'teal',candy:'pink',arctic:'blue',sunshine:'orange',coral:'orange',emerald:'green',grape:'purple'};
   const logoColor=logoByTheme[getTheme()];
   const logoSource=(logoColor?`images/learnmaster-logo-theme-${logoColor}.png`:'images/learnmaster-logo-white.png')+'?v=20261010.2';
-  document.querySelectorAll('.lm-logo-button img,.lm-menu-head img,.site-footer-brand img').forEach(image=>{
+  document.querySelectorAll('.lm-logo-button img,.lm-menu-head img').forEach(image=>{
     image.src=logoSource;
+    image.onerror=()=>{image.onerror=null;image.src='images/learnmaster-logo-header-v2.png?v=20261010.2';};
+  });
+  document.querySelectorAll('.site-footer-brand img').forEach(image=>{
+    image.src='images/learnmaster-logo-white.png?v=20261010.2';
     image.onerror=()=>{image.onerror=null;image.src='images/learnmaster-logo-header-v2.png?v=20261010.2';};
   });
   document.querySelectorAll('.lm-auth-logo,.lm-dialog-logo').forEach(image=>{

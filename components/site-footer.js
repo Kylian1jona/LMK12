@@ -5,7 +5,7 @@
       this.dataset.rendered = "true";
       this.innerHTML = String.raw`
         <footer class="site-footer">
-          <div class="site-footer-brand"><img src="images/learnmaster-logo-header-v2.png" alt="LearnMaster K12"><span>Learn &bull; Grow &bull; Succeed</span></div>
+          <div class="site-footer-brand"><img src="images/learnmaster-logo-white.png" alt="LearnMaster K12"><span>Learn &bull; Grow &bull; Succeed</span></div>
           <nav aria-label="Footer navigation">
             <button type="button" onclick="show('home')">Home</button>
             <button type="button" onclick="show('grades')">Grades</button>
