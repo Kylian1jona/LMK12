@@ -103,7 +103,17 @@
         lessonCard("prek:eng:again-everyday-groups","prek-eng","Wear, Play, or Eat","Practice wear, play, or eat with short word and picture clues.","ABC"),
         lessonCard("prek:eng:again-helping-people","prek-eng","People Who Help Us","Practice people who help us with short word and picture clues.","ABC"),
         lessonCard("prek:eng:again-action-words","prek-eng","Run, Jump, or Sleep","Practice run, jump, or sleep with short word and picture clues.","ABC"),
-        lessonCard("prek:eng:again-story-places","prek-eng","More Story Places","Practice more story places with short word and picture clues.","ABC")
+        lessonCard("prek:eng:again-story-places","prek-eng","More Story Places","Practice more story places with short word and picture clues.","ABC"),
+        lessonCard("prek:eng:kind-words","prek-eng","Kind Words","Choose friendly words for everyday moments."),
+        lessonCard("prek:eng:story-characters","prek-eng","Story Characters","Find who is in a short story."),
+        lessonCard("prek:eng:story-settings-new","prek-eng","Where Stories Happen","Find the place in a short story."),
+        lessonCard("prek:eng:what-happens-next","prek-eng","What Happens Next","Use clues to choose the next action."),
+        lessonCard("prek:eng:face-feelings","prek-eng","Feelings from Clues","Connect a situation to a feeling."),
+        lessonCard("prek:eng:first-next-last","prek-eng","Before and After","Follow the order of everyday steps."),
+        lessonCard("prek:eng:letters-in-names","prek-eng","First Letters in Words","Hear the first letter in familiar words."),
+        lessonCard("prek:eng:picture-compounds","prek-eng","Two Words Together","Put two little words together."),
+        lessonCard("prek:eng:color-clues","prek-eng","Color Clues","Name colors of familiar things."),
+        lessonCard("prek:eng:size-clues","prek-eng","Size Clues","Choose words for different sizes.")
       ];
       const prekMath=[
         lessonCard("prek:math:shapes","prek-math","Identify Basic Shapes","Recognize circles, squares, triangles, and more.","O"),
@@ -151,7 +161,17 @@
         lessonCard("prek:math:again-compare-sets","prek-math","Compare Picture Sets","Practice compare picture sets with short number clues.","123"),
         lessonCard("prek:math:again-shape-sides","prek-math","Curves and Corners","Drag or tap nine cards into three groups.","123"),
         lessonCard("prek:math:again-lengths","prek-math","Short, Medium, and Long","Practice short, medium, and long with short number clues.","123"),
-        lessonCard("prek:math:again-positions","prek-math","Top, Middle, or Bottom","Practice top, middle, or bottom with short number clues.","123")
+        lessonCard("prek:math:again-positions","prek-math","Top, Middle, or Bottom","Practice top, middle, or bottom with short number clues.","123"),
+        lessonCard("prek:math:numbers-eleven-fifteen","prek-math","Count 11 to 15","Count dots beyond ten."),
+        lessonCard("prek:math:numbers-sixteen-twenty","prek-math","Count 16 to 20","Count larger groups of dots."),
+        lessonCard("prek:math:ten-frame-counts","prek-math","Count a Ten Frame","Read filled spaces in a ten frame."),
+        lessonCard("prek:math:count-on-from-five","prek-math","Count On from Five","Find the number that comes next."),
+        lessonCard("prek:math:compare-to-ten","prek-math","Compare Groups to 10","See which group has more."),
+        lessonCard("prek:math:three-color-patterns","prek-math","Three-Color Patterns","Continue a repeating color pattern."),
+        lessonCard("prek:math:add-within-five","prek-math","Add Within 5","Put small groups together."),
+        lessonCard("prek:math:take-away-five","prek-math","Take Away Within 5","Find what remains after one leaves."),
+        lessonCard("prek:math:flat-and-solid-shapes","prek-math","Flat and Solid Shapes","Tell flat shapes from solid shapes."),
+        lessonCard("prek:math:measure-with-blocks","prek-math","Measure with Blocks","Count blocks along a line.")
       ];
       const kinderEnglish=[
         lessonCard("k:eng:syllables","kinder-eng","Syllable Count","Clap and count word parts.","CLAP"),
@@ -384,7 +404,9 @@
           ["More Sounds & Words","Hear first sounds, rhymes, and opposite words.",34,39],
           ["Stories & Our World","Use picture clues for movement, places, and feelings.",39,44],
           ["Letters & Word Beats","Practice letter order, sounds, rhymes, and syllables.",44,49],
-          ["More Picture Clues","Explore people, actions, weather, and story places.",49]
+          ["More Picture Clues","Explore people, actions, weather, and story places.",49,54],
+          ["People and Stories","Practice kind words, characters, settings, and feelings.",54,59],
+          ["Words and Descriptions","Practice order, first letters, combined words, colors, and sizes.",59,64]
         ]))+
         subjectPage("prek-math","prek","Pre-K","Math","+",prekLessonGroups(prekMath,[
           ["Shapes & Counting","Identify shapes and count small groups.",0,4],
@@ -397,7 +419,9 @@
           ["More Counting","Find numbers before and after, and make five.",26,32],
           ["Shapes & Position","Explore colors, fullness, shapes, and locations.",32,36],
           ["Count & Combine","Count pictures, put groups together, and take away.",36,42],
-          ["Compare & Measure","Use pictures to compare sets, shapes, length, and position.",42]
+          ["Compare & Measure","Use pictures to compare sets, shapes, length, and position.",42,46],
+          ["Numbers and Patterns","Count to twenty and continue color patterns.",46,51],
+          ["Small Math Stories","Add, take away, name shapes, and measure with blocks.",51,56]
         ]))+
         gradeMenu("kinder","K","Kindergarten","Short lessons that turn early skills into confidence.","kPoints","kLearners")+
         subjectPage("kinder-eng","kinder","Kindergarten","English","A",kinderEnglish)+

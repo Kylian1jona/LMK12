@@ -23,6 +23,8 @@ vm.runInContext(fs.readFileSync(interactiveLabsFile,"utf8"),context,{filename:in
 const numberSenseFile=path.join(root,"components","k12-g2-number-sense-lessons.js");
 context.document={readyState:"loading",addEventListener(){},querySelector(){return null;}};
 vm.runInContext(fs.readFileSync(numberSenseFile,"utf8"),context,{filename:numberSenseFile});
+const historyExpansionFile=path.join(root,"components","k12-history-40-lessons.js");
+vm.runInContext(fs.readFileSync(historyExpansionFile,"utf8"),context,{filename:historyExpansionFile});
 
 const data=context.K12_CLASSIC_25_DATA||{};
 const failures=[];

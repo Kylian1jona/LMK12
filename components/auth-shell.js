@@ -140,6 +140,7 @@
     <h2 id="profileUpdateTitle">Update log</h2>
     <button type="button" class="profile-update-toggle" aria-expanded="false" onclick="const log=this.closest('.profile-update-log');const open=log.classList.toggle('is-expanded');this.setAttribute('aria-expanded',String(open));this.textContent=open?'Show fewer updates':'View all updates';">View all updates</button>
     <div class="profile-update-entries">
+      <article><time datetime="2026-11-07">November 7, 2026</time><h3>60 new lessons across three grades</h3><p>Pre-K has 10 new English and 10 new math lessons. Grade 2 and Grade 4 each have 20 new History lessons. Every new lesson includes 25 practice questions.</p></article>
       <article><time datetime="2026-11-04">November 4, 2026</time><h3>Extras are easier to use</h3><p>Find lessons by name or number, continue at the next unfinished lesson, and use visual steps in Money Skills. Change questions now stay within the amount paid.</p></article>
       <article><time datetime="2026-11-03">November 3, 2026</time><h3>Pre-K stories with pictures</h3><p>Pre-K stories now use the same friendly reading font as the other early grades. Every story has a matching illustration, and seven familiar tales join the collection.</p></article>
       <article><time datetime="2026-11-02">November 2, 2026</time><h3>More Grade 2 science</h3><p>Ten new Grade 2 Science lessons add 250 questions about habitats, plants, life cycles, food chains, weather, materials, heating and cooling, motion, light, and sound.</p></article>
