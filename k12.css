@@ -8013,3 +8013,7 @@ body #lessonRunner #lrImageFrame .lesson-image-expand:hover,body #lessonRunner #
 .lesson-image-viewer.is-actual-size .lesson-image-viewer-scroll{display:block}
 .lesson-image-viewer.is-actual-size .lesson-image-viewer-scroll img{width:auto;max-width:none;max-height:none}
 @media(max-width:560px){.lesson-image-viewer-toolbar{align-items:flex-start;flex-direction:column;padding:10px}.lesson-image-viewer-scroll{max-height:calc(92dvh - 100px)}.lesson-image-viewer-scroll img{max-height:calc(92dvh - 124px)}}
+
+/* Keep the lesson canvas calm so the question and visuals stand out. */
+body #lessonRunner{background:#f2f5f7!important}
+body #lessonRunner>.lesson-quiz-shell{background:#fbfcfd!important}
