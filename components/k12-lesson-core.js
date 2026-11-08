@@ -575,12 +575,20 @@ function showAnswerExplanation(q, userAnswer=""){
       <div class="answer-explanation-copy">${paragraphs.map(paragraph=>`<p>${htmlSafe(paragraph)}</p>`).join("")}</div>
       <div class="answer-explanation-bottom">
         <div class="answer-comparison-correct"><span>Correct answer</span><strong>${htmlSafe(answerTextForFeedback(q)||"See the corrected items")}</strong></div>
+        ${LR.historyIndex>0?'<button type="button" class="btn btn-main answer-explanation-previous">Previous question</button>':""}
         <button type="button" class="btn btn-main answer-explanation-continue">Continue lesson</button>
       </div>
     </div>`;
   const continueButton=screen.querySelector(".answer-explanation-continue");
   continueButton.addEventListener("click",()=>{closeAnswerExplanation();lrAdvanceQuestion();});
-  screen.addEventListener("keydown",event=>{if(event.key==="Tab"){event.preventDefault();continueButton.focus();}});
+  screen.querySelector(".answer-explanation-previous")?.addEventListener("click",()=>{closeAnswerExplanation();lrPrevious();});
+  screen.addEventListener("keydown",event=>{
+    if(event.key!=="Tab") return;
+    const buttons=[...screen.querySelectorAll("button")];
+    const current=buttons.indexOf(document.activeElement);
+    event.preventDefault();
+    buttons[(current+(event.shiftKey?-1:1)+buttons.length)%buttons.length].focus();
+  });
   document.body.appendChild(screen);
   continueButton.focus();
 }
