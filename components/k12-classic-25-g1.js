@@ -34,7 +34,7 @@
     "g1:eng:sight":{
       name:"Sight Words in Sentences",
       questions:[
-        {"type":"mc","q":"The pencils are ___ the desk.","choices":["on","to","with","under"],"answer":"on","audio":"The pencils are ___ the desk."},
+        {"type":"mc","q":"The pencils are ___ the desk.","choices":["on","to","with","under"],"answer":"on","audio":"The pencils are ___ the desk.","image":{"src":"images/g1-sight-pencils-on-desk.png","alt":"Three colorful pencils resting on top of a classroom desk."}},
         {"type":"mc","q":"I ___ my little sister.","choices":["love","hear","open","see"],"answer":"love","audio":"I ___ my little sister."},
         {"type":"mc","q":"I ___ a red kite in the sky.","choices":["see","are","under","for"],"answer":"see","audio":"I ___ a red kite in the sky."},
         {"type":"mc","q":"We meet ___ the playground.","choices":["at","under","love","what"],"answer":"at","audio":"We meet ___ the playground."},
