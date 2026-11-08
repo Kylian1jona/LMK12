@@ -38,6 +38,10 @@ body[data-theme="night"] :is(.lm-topbar, .navbar) :is(button, a, span, small) {
 body[data-theme="night"] :is(.section, #home, #grades, #reading, #readingPanel, #settings, #analysis, #extrasPanel) {
   color: var(--ink);
 }
+body[data-theme="night"] :is(#home, #grades, #reading) {
+  background: #0b1220 !important;
+  background-image: none !important;
+}
 body[data-theme="night"] :is(.cardish, .quiz-card, .settings-block, .analysis-panel, .metric-card, .modal-content, .dropdown-menu, .app-profile-menu) {
   background: var(--card) !important;
   border-color: var(--night-border) !important;
