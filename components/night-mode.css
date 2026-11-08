@@ -1,0 +1,192 @@
+/* Night Mode: dark surfaces, readable text, and one calm accent throughout. */
+body[data-theme="night"] {
+  color-scheme: dark;
+  --bg: #0b1220;
+  --card: #172238;
+  --ink: #f3f6fc;
+  --muted: #bdcbe0;
+  --orange: #6268dc;
+  --orange-hover: #555bc7;
+  --orange-dark: #ced5ff;
+  --orange-light: #263451;
+  --yellow: #434986;
+  --lesson-font-color: #f3f6fc;
+  --night-raised: #1d2b44;
+  --night-border: #425270;
+  background: #0b1220 !important;
+  color: var(--ink);
+}
+body[data-theme="night"].parent-workspace {
+  --bg: #0b1220;
+  --card: #172238;
+  --ink: #f3f6fc;
+  --muted: #bdcbe0;
+  --orange: #6268dc;
+  --orange-dark: #ced5ff;
+  --orange-light: #263451;
+  background: #0b1220 !important;
+  color: var(--ink) !important;
+}
+body[data-theme="night"] :is(.lm-topbar, .navbar) {
+  background: #16213a !important;
+  border-color: var(--night-border) !important;
+  color: var(--ink) !important;
+}
+body[data-theme="night"] :is(.lm-topbar, .navbar) :is(button, a, span, small) {
+  color: var(--ink);
+}
+body[data-theme="night"] :is(.section, #home, #grades, #reading, #readingPanel, #settings, #analysis, #extrasPanel) {
+  color: var(--ink);
+}
+body[data-theme="night"] :is(.cardish, .quiz-card, .settings-block, .analysis-panel, .metric-card, .modal-content, .dropdown-menu, .app-profile-menu) {
+  background: var(--card) !important;
+  border-color: var(--night-border) !important;
+  color: var(--ink) !important;
+  box-shadow: 0 14px 36px #02061742;
+}
+body[data-theme="night"] :is(.lm-home-hero, .lm-today-card, .lm-home-quick-grid button, .lm-home-tools button, .lm-home-paths button, .grade-library-head, .grade-library-head aside) {
+  background: var(--card) !important;
+  border-color: var(--night-border) !important;
+  color: var(--ink) !important;
+}
+body[data-theme="night"] :is(.lm-home-welcome h1, .lm-home-quick-grid b, .lm-today-card b, .grade-library-head h1, .grade-library-head aside b) {
+  color: var(--ink) !important;
+}
+body[data-theme="night"] :is(.lm-home-quick-grid small, .lm-today-card p, .grade-sub, .subject-sub, .small-note) {
+  color: var(--muted) !important;
+}
+body[data-theme="night"] #grades .grade-library-grid .grade-card:nth-child(n) {
+  background: var(--night-raised) !important;
+  border-color: var(--night-border) !important;
+  color: var(--ink) !important;
+}
+body[data-theme="night"] #grades .grade-library-grid .grade-card :is(.grade-title, .grade-sub, small, b) {
+  color: var(--ink) !important;
+}
+body[data-theme="night"] :is(.grade-subject-picker .grade-subject-option, .early-subject-page .early-subject, .early-subject-page .early-lesson-card) {
+  background: var(--night-raised) !important;
+  border-color: var(--night-border) !important;
+  color: var(--ink) !important;
+}
+body[data-theme="night"] .early-subject-page {
+  --subject-ink: #e4e9ff;
+  --subject-soft: #172238;
+  --subject-edge: #425270;
+  --subject-row: #263451;
+}
+body[data-theme="night"] .early-subject-page .early-subject-shell {
+  background: var(--card) !important;
+  border-color: var(--night-border) !important;
+}
+body[data-theme="night"] .early-subject-page :is(.early-subject, .early-skill-topic, .early-lesson-card) {
+  background: var(--night-raised) !important;
+  border-color: var(--night-border) !important;
+}
+body[data-theme="night"] .early-subject-page .early-skill-topic:nth-child(n) .early-skill-summary,
+body[data-theme="night"] .section[id^="g"][id*="-"] .lesson-topic-heading {
+  background: #263451 !important;
+  color: var(--ink) !important;
+}
+body[data-theme="night"] .early-subject-page :is(.early-skill-title, .early-skill-description, .early-subject header h2, .early-subject header small),
+body[data-theme="night"] .section[id^="g"][id*="-"] .lesson-topic-heading :is(h3, .lesson-topic-count) {
+  color: var(--ink) !important;
+}
+body[data-theme="night"] .section[id^="g"][id$="-eng"] > .cardish > h1,
+body[data-theme="night"] .section[id^="g"][id$="-math"] > .cardish > h1,
+body[data-theme="night"] .section[id^="g"][id$="-sci"] > .cardish > h1,
+body[data-theme="night"] .section[id^="g"][id$="-hist"] > .cardish > h1 {
+  color: var(--ink) !important;
+}
+body[data-theme="night"] .section[id^="g"][id*="-"] :is(.lesson-topic-panel, .lesson-topic-list, .lesson-column) {
+  background: var(--card) !important;
+  border-color: var(--night-border) !important;
+  color: var(--ink) !important;
+}
+body[data-theme="night"] .section[id^="g"][id*="-"] .lesson-column :is(h3, .btn) {
+  background: var(--night-raised) !important;
+  border-color: var(--night-border) !important;
+  color: var(--ink) !important;
+}
+body[data-theme="night"] #lessonRunner {
+  background: #0b1220 !important;
+  background-image: none !important;
+}
+body[data-theme="night"] #lessonRunner[data-subject] {
+  background: #0b1220 !important;
+  background-image: none !important;
+}
+body[data-theme="night"] #lessonRunner > .lesson-quiz-shell,
+body[data-theme="night"] #lessonRunner .lesson-quiz-topbar {
+  background: #121d31 !important;
+  border-color: var(--night-border) !important;
+  color: var(--ink) !important;
+}
+body[data-theme="night"] #lessonRunner :is(.lesson-quiz-title, #lrQuestion, .lesson-count-pill, #lrFb, .lesson-points-pill) {
+  color: var(--ink) !important;
+}
+body[data-theme="night"] #lessonRunner #lrQuestionCard {
+  background: transparent !important;
+  color: var(--ink) !important;
+}
+body[data-theme="night"] #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong):nth-child(n) {
+  background: var(--night-raised) !important;
+  border-color: #67799b !important;
+  color: var(--ink) !important;
+}
+body[data-theme="night"] #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong):hover {
+  background: #2b3b5d !important;
+  border-color: #a4b3ff !important;
+}
+body[data-theme="night"] #lessonRunner :is(#lrImageFrame, #lrTopicVisual) {
+  background: #263451 !important;
+  border-color: var(--night-border) !important;
+  color: var(--ink) !important;
+}
+body[data-theme="night"] #reading > .reading-box,
+body[data-theme="night"] #readingPanel .reading-passage,
+body[data-theme="night"] #reading :is(.reading-card, .reading-topic-card) {
+  background: var(--card) !important;
+  border-color: var(--night-border) !important;
+  color: var(--ink) !important;
+}
+body[data-theme="night"] #readingPanel .reading-passage :is(h2, p),
+body[data-theme="night"] #reading :is(.reading-page-head h1, .reading-view-head h2, .reading-card h3, .reading-topic-card h3) {
+  color: var(--ink) !important;
+}
+body[data-theme="night"] #reading :is(.reading-eyebrow, .reading-view-step, .reading-card-kicker) {
+  color: #cbd5ff !important;
+}
+body[data-theme="night"] #reading :is(.reading-story-art img, .reading-story-card-art) {
+  mix-blend-mode: normal !important;
+}
+body[data-theme="night"] :is(input, select, textarea, .form-control) {
+  background: #101b2e !important;
+  border-color: #67799b !important;
+  color: var(--ink) !important;
+}
+body[data-theme="night"] :is(input, select, textarea, .form-control)::placeholder {
+  color: #b1bfd4 !important;
+}
+body[data-theme="night"] :is(.btn-main, button.btn-main, a.btn-main):not(.answer-explanation-continue):not(.answer-explanation-previous) {
+  background: var(--orange) !important;
+  border-color: var(--orange) !important;
+  color: #fff !important;
+}
+body[data-theme="night"] :is(.btn-main, button.btn-main, a.btn-main):not(.answer-explanation-continue):not(.answer-explanation-previous):hover {
+  background: var(--orange-hover) !important;
+  border-color: var(--orange-hover) !important;
+}
+body[data-theme="night"] :is(button, a, input, select, textarea):focus-visible {
+  outline: 3px solid #b4baff !important;
+  outline-offset: 3px;
+}
+body[data-theme="night"] :is(.site-footer, .lesson-image-viewer, .lesson-image-viewer-toolbar) {
+  background: var(--card) !important;
+  border-color: var(--night-border) !important;
+  color: var(--ink) !important;
+}
+body[data-theme="night"] .lesson-image-viewer-toolbar button {
+  background: var(--night-raised) !important;
+  border-color: var(--night-border) !important;
+  color: var(--ink) !important;
+}
