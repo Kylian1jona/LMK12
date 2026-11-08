@@ -1,34 +1,40 @@
-/* Night Mode: dark surfaces, readable text, and one calm accent throughout. */
+/* Night Mode uses black and white for the interface. Lesson pictures keep their colors. */
 body[data-theme="night"] {
   color-scheme: dark;
-  --bg: #0b1220;
-  --card: #172238;
-  --ink: #f3f6fc;
-  --muted: #bdcbe0;
-  --orange: #6268dc;
-  --orange-hover: #555bc7;
-  --orange-dark: #ced5ff;
-  --orange-light: #263451;
-  --yellow: #434986;
-  --lesson-font-color: #f3f6fc;
-  --night-raised: #1d2b44;
-  --night-border: #425270;
-  background: #0b1220 !important;
+  --bg: #000;
+  --card: #000;
+  --ink: #fff;
+  --muted: #fff;
+  --orange: #fff;
+  --orange-hover: #fff;
+  --orange-dark: #fff;
+  --orange-light: #000;
+  --yellow: #fff;
+  --yellow-light: #000;
+  --peach: #000;
+  --red: #fff;
+  --shadow: none;
+  --shadow-hover: none;
+  --ring: 0 0 0 3px #fff;
+  --lesson-font-color: #fff;
+  --night-raised: #000;
+  --night-border: #fff;
+  background: #000 !important;
   color: var(--ink);
 }
 body[data-theme="night"].parent-workspace {
-  --bg: #0b1220;
-  --card: #172238;
-  --ink: #f3f6fc;
-  --muted: #bdcbe0;
-  --orange: #6268dc;
-  --orange-dark: #ced5ff;
-  --orange-light: #263451;
-  background: #0b1220 !important;
+  --bg: #000;
+  --card: #000;
+  --ink: #fff;
+  --muted: #fff;
+  --orange: #fff;
+  --orange-dark: #fff;
+  --orange-light: #000;
+  background: #000 !important;
   color: var(--ink) !important;
 }
 body[data-theme="night"] :is(.lm-topbar, .navbar) {
-  background: #16213a !important;
+  background: #000 !important;
   border-color: var(--night-border) !important;
   color: var(--ink) !important;
 }
@@ -39,14 +45,14 @@ body[data-theme="night"] :is(.section, #home, #grades, #reading, #readingPanel, 
   color: var(--ink);
 }
 body[data-theme="night"] :is(#home, #grades, #reading) {
-  background: #0b1220 !important;
+  background: #000 !important;
   background-image: none !important;
 }
 body[data-theme="night"] :is(.cardish, .quiz-card, .settings-block, .analysis-panel, .metric-card, .modal-content, .dropdown-menu, .app-profile-menu) {
   background: var(--card) !important;
   border-color: var(--night-border) !important;
   color: var(--ink) !important;
-  box-shadow: 0 14px 36px #02061742;
+  box-shadow: 0 14px 36px #000;
 }
 body[data-theme="night"] :is(.lm-home-hero, .lm-today-card, .lm-home-quick-grid button, .lm-home-tools button, .lm-home-paths button, .grade-library-head, .grade-library-head aside) {
   background: var(--card) !important;
@@ -73,10 +79,10 @@ body[data-theme="night"] :is(.grade-subject-picker .grade-subject-option, .early
   color: var(--ink) !important;
 }
 body[data-theme="night"] .early-subject-page {
-  --subject-ink: #e4e9ff;
-  --subject-soft: #172238;
-  --subject-edge: #425270;
-  --subject-row: #263451;
+  --subject-ink: #fff;
+  --subject-soft: #000;
+  --subject-edge: #fff;
+  --subject-row: #000;
 }
 body[data-theme="night"] .early-subject-page .early-subject-shell {
   background: var(--card) !important;
@@ -88,7 +94,7 @@ body[data-theme="night"] .early-subject-page :is(.early-subject, .early-skill-to
 }
 body[data-theme="night"] .early-subject-page .early-skill-topic:nth-child(n) .early-skill-summary,
 body[data-theme="night"] .section[id^="g"][id*="-"] .lesson-topic-heading {
-  background: #263451 !important;
+  background: #000 !important;
   color: var(--ink) !important;
 }
 body[data-theme="night"] .early-subject-page :is(.early-skill-title, .early-skill-description, .early-subject header h2, .early-subject header small),
@@ -112,16 +118,16 @@ body[data-theme="night"] .section[id^="g"][id*="-"] .lesson-column :is(h3, .btn)
   color: var(--ink) !important;
 }
 body[data-theme="night"] #lessonRunner {
-  background: #0b1220 !important;
+  background: #000 !important;
   background-image: none !important;
 }
 body[data-theme="night"] #lessonRunner[data-subject] {
-  background: #0b1220 !important;
+  background: #000 !important;
   background-image: none !important;
 }
 body[data-theme="night"] #lessonRunner > .lesson-quiz-shell,
 body[data-theme="night"] #lessonRunner .lesson-quiz-topbar {
-  background: #121d31 !important;
+  background: #000 !important;
   border-color: var(--night-border) !important;
   color: var(--ink) !important;
 }
@@ -134,15 +140,15 @@ body[data-theme="night"] #lessonRunner #lrQuestionCard {
 }
 body[data-theme="night"] #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong):nth-child(n) {
   background: var(--night-raised) !important;
-  border-color: #67799b !important;
+  border-color: #fff !important;
   color: var(--ink) !important;
 }
 body[data-theme="night"] #lessonRunner #lrChoices .choice-btn:not(.answer-correct):not(.answer-wrong):hover {
-  background: #2b3b5d !important;
-  border-color: #a4b3ff !important;
+  background: #000 !important;
+  border-color: #fff !important;
 }
 body[data-theme="night"] #lessonRunner :is(#lrImageFrame, #lrTopicVisual) {
-  background: #263451 !important;
+  background: #000 !important;
   border-color: var(--night-border) !important;
   color: var(--ink) !important;
 }
@@ -158,30 +164,32 @@ body[data-theme="night"] #reading :is(.reading-page-head h1, .reading-view-head 
   color: var(--ink) !important;
 }
 body[data-theme="night"] #reading :is(.reading-eyebrow, .reading-view-step, .reading-card-kicker) {
-  color: #cbd5ff !important;
+  color: #fff !important;
 }
 body[data-theme="night"] #reading :is(.reading-story-art img, .reading-story-card-art) {
   mix-blend-mode: normal !important;
 }
 body[data-theme="night"] :is(input, select, textarea, .form-control) {
-  background: #101b2e !important;
-  border-color: #67799b !important;
+  background: #000 !important;
+  border-color: #fff !important;
   color: var(--ink) !important;
 }
 body[data-theme="night"] :is(input, select, textarea, .form-control)::placeholder {
-  color: #b1bfd4 !important;
+  color: #fff !important;
+  opacity: 1;
 }
 body[data-theme="night"] :is(.btn-main, button.btn-main, a.btn-main):not(.answer-explanation-continue):not(.answer-explanation-previous) {
   background: var(--orange) !important;
   border-color: var(--orange) !important;
-  color: #fff !important;
+  color: #000 !important;
 }
 body[data-theme="night"] :is(.btn-main, button.btn-main, a.btn-main):not(.answer-explanation-continue):not(.answer-explanation-previous):hover {
-  background: var(--orange-hover) !important;
-  border-color: var(--orange-hover) !important;
+  background: #000 !important;
+  border-color: #fff !important;
+  color: #fff !important;
 }
 body[data-theme="night"] :is(button, a, input, select, textarea):focus-visible {
-  outline: 3px solid #b4baff !important;
+  outline: 3px solid #fff !important;
   outline-offset: 3px;
 }
 body[data-theme="night"] :is(.site-footer, .lesson-image-viewer, .lesson-image-viewer-toolbar) {
@@ -193,4 +201,65 @@ body[data-theme="night"] .lesson-image-viewer-toolbar button {
   background: var(--night-raised) !important;
   border-color: var(--night-border) !important;
   color: var(--ink) !important;
+}
+body[data-theme="night"] :is(.parent-portal-shell, .playground-shell, .pg2-content, .pg2-game-list button, .pg2-market-summary article, .pg2-stock-grid article, .extras-library-head, .extras-studio-head, .extras-card, .reading-check, .theme-choice-btn, .avatar-preset-btn, .site-footer) {
+  background: #000 !important;
+  background-image: none !important;
+  border-color: #fff !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+body[data-theme="night"] :is(h1, h2, h3, h4, h5, h6, p, small, strong, label, legend, li, dt, dd, summary, em, span, i) {
+  color: #fff !important;
+  text-shadow: none !important;
+}
+body[data-theme="night"] :is(button, .btn, a.btn):not(.btn-main):not(.answer-explanation-continue):not(.answer-explanation-previous) {
+  background-color: #000 !important;
+  background-image: none !important;
+  border-color: #fff !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+body[data-theme="night"] :is(.btn-main, button.btn-main, a.btn-main):not(.answer-explanation-continue):not(.answer-explanation-previous) :is(span, small, strong, .lm-ui-icon) {
+  color: #000 !important;
+}
+body[data-theme="night"] :is(.btn-main, button.btn-main, a.btn-main):not(.answer-explanation-continue):not(.answer-explanation-previous):hover :is(span, small, strong, .lm-ui-icon) {
+  color: #fff !important;
+}
+body[data-theme="night"] :is(.answer-explanation-screen, .correct-feedback-card) {
+  background: #000 !important;
+  background-image: none !important;
+  border-color: #fff !important;
+  color: #fff !important;
+}
+body[data-theme="night"] :is(.answer-comparison-wrong, .answer-comparison-correct) {
+  background: #000 !important;
+  border-color: #fff !important;
+  color: #fff !important;
+}
+body[data-theme="night"] :is(.answer-explanation-continue, .answer-explanation-previous) {
+  background: #fff !important;
+  border-color: #fff !important;
+  color: #000 !important;
+}
+body[data-theme="night"] :is(.answer-explanation-continue, .answer-explanation-previous):hover {
+  background: #000 !important;
+  color: #fff !important;
+}
+body[data-theme="night"] :is(.grade-card, .early-subject, .early-lesson-card, .lesson-topic-panel, .lesson-topic-heading, .lesson-topic-list, .reading-card, .reading-topic-card) {
+  box-shadow: none !important;
+}
+body[data-theme="night"] :is(#extrasPanel .extras-hero, #loginWall .auth-intro, .pg2-hero, .pg2-stage, .pg2-status, .parent-dashboard-tabs, .parent-dashboard-panel, .lm-home-playground-link) {
+  background: #000 !important;
+  background-image: none !important;
+  border-color: #fff !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+body[data-theme="night"] :is(.lm-logo-button, .lm-menu-head, .site-footer-brand)::before {
+  background: #fff !important;
+}
+body[data-theme="night"] .theme-choice-btn.active {
+  outline: 2px solid #fff !important;
+  outline-offset: 2px;
 }
